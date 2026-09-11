@@ -420,8 +420,11 @@
           <div class="card">
             <span class="export-section-label">Output</span>
             <label class="switch"><input type="checkbox" id="pdfx-toggle" class="switch-input" checked><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">PDF/X-4 Press-ready</span><span class="tooltipButton export-info" data-tip="Embed a FOGRA39 CMYK output intent so the file is press-certified. Turn off for a plain PDF 1.4."><svg width="12" height="12"><use href="#icon-info"/></svg></span></span></label>
+            <div class="dividerLine"></div>
             <label class="switch"><input type="checkbox" id="preservespot-toggle" class="switch-input" checked><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Preserve Pantone Colors</span><span class="tooltipButton export-info" data-tip="Keep assigned Pantone colors as Spot Colors. Turn off to use their CMYK values."><svg width="12" height="12"><use href="#icon-info"/></svg></span></span></label>
+            <div class="dividerLine"></div>
             <label class="switch"><input type="checkbox" id="cmyk-images-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Convert RGB images to CMYK</span><span class="tooltipButton export-info" data-tip="Convert RGB images to CMYK. Images already in CMYK are left as they are. When off, RGB images stay in RGB and the printer converts them using the PDF/X output intent."><svg width="12" height="12"><use href="#icon-info"/></svg></span></span></label>
+            <div class="dividerLine"></div>
             <div class="switch-row">
               <label class="switch"><input type="checkbox" id="downsample-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Downsample images to</span></span></label>
               <div class="inputWrap cropmarks-bleed" id="dpi-wrap">
@@ -451,6 +454,7 @@
                 <span class="cropmarks-unit">dpi</span>
               </div>
             </div>
+            <div class="dividerLine"></div>
             <label class="switch"><input type="checkbox" id="tiff-zip-toggle" class="switch-input" checked><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Compress (lossless ZIP)</span></span></label>
           </div>
         </section>
@@ -459,9 +463,13 @@
           <div class="card">
             <span class="export-section-label">Marks and bleed</span>
             <label class="switch"><input type="checkbox" id="cropmarks-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Crop Marks</span></span></label>
+            <div class="dividerLine"></div>
             <label class="switch"><input type="checkbox" id="regmarks-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Registration Marks</span></span></label>
+            <div class="dividerLine"></div>
             <label class="switch"><input type="checkbox" id="colorbars-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Color bars</span></span></label>
+            <div class="dividerLine"></div>
             <label class="switch"><input type="checkbox" id="pageinfo-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">File information</span></span></label>
+            <div class="dividerLine"></div>
             <div class="switch-row">
               <label class="switch"><input type="checkbox" id="bleed-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Bleed</span></span></label>
               <div class="inputWrap cropmarks-bleed" id="bleed-wrap">
@@ -475,7 +483,7 @@
     </div>
     <!-- DS actionBar (138:16657) as the export screen's bottom bar. -->
     <div class="actionbar export-bottom-bar">
-      <button class="buttonSecondary" id="export-savedefault-btn"><span>Save as default</span></button>
+      <button class="buttonTertiary" id="export-savedefault-btn"><span>Save as default</span></button>
       <div style="flex:1;min-width:0;"></div>
       <button class="buttonPrimary" id="export-confirm-btn"><span id="export-confirm-label">Export PDF</span><svg width="16" height="16"><use href="#icon-export"/></svg></button>
     </div>
@@ -544,6 +552,23 @@
       showError(`${imgWord}${where} couldn't be converted to CMYK — left as RGB`);
       _exportRgbImages = 0; _exportRgbFrames = [];
     }
+  }
+
+  // Single terminal for a finished batch — reached whether the LAST frame succeeded or failed.
+  // Buffered multi-file successes are ALWAYS flushed to a ZIP first, so a last-frame failure can
+  // never discard the frames that already converted; then any failures are reported, and only a
+  // fully clean batch is confirmed. Every terminal branch must route through here.
+  function finalizeBatch(fmt) {
+    dismissProgress();
+    setExportBusy(false);
+    if (_pendingFiles.length > 0) {
+      const zipBytes = _buildZip(_pendingFiles);
+      _pendingFiles = [];
+      downloadFile(zipBytes, `CMYK_Export_${(fmt || '').toUpperCase()}.zip`, 'application/zip');
+    }
+    const clean = _exportFailures.length === 0 && _exportRgbImages === 0;
+    reportExportFailures();
+    if (clean) confirmExportSaved();
   }
 
   // Confirm a clean export with a success toast — timed to land AFTER the file reaches disk,
@@ -1237,21 +1262,30 @@
 
   // Load PNG into canvas and return raw RGBA pixel data
   function loadPngToCanvas(png, w, h, whiteBg) {
-    return new Promise(resolve => {
-      const blob = new Blob([new Uint8Array(png)], { type: "image/png" });
-      const url = URL.createObjectURL(blob);
-      const img = new Image();
-      img.onload = () => {
-        const cv = document.getElementById("convert-canvas");
-        cv.width = w; cv.height = h;
-        const ctx = cv.getContext("2d");
-        if (whiteBg) { ctx.fillStyle = "#FFFFFF"; ctx.fillRect(0, 0, w, h); }
-        else { ctx.clearRect(0, 0, w, h); }
-        ctx.drawImage(img, 0, 0, w, h);
-        URL.revokeObjectURL(url);
-        resolve(ctx.getImageData(0, 0, w, h).data);
-      };
-      img.src = url;
+    return new Promise((resolve, reject) => {
+      try {
+        const blob = new Blob([new Uint8Array(png)], { type: "image/png" });
+        const url = URL.createObjectURL(blob);
+        const img = new Image();
+        img.onload = () => {
+          try {
+            const cv = document.getElementById("convert-canvas");
+            cv.width = w; cv.height = h;
+            const ctx = cv.getContext("2d");
+            if (whiteBg) { ctx.fillStyle = "#FFFFFF"; ctx.fillRect(0, 0, w, h); }
+            else { ctx.clearRect(0, 0, w, h); }
+            ctx.drawImage(img, 0, 0, w, h);
+            URL.revokeObjectURL(url);
+            resolve(ctx.getImageData(0, 0, w, h).data);
+          } catch (e) { URL.revokeObjectURL(url); reject(e); }
+        };
+        // Without this the Promise never settles on a decode failure or an oversized canvas
+        // (a large frame at high TIFF DPI can exceed the browser's max), hanging the whole
+        // export batch. Reject instead, so the export-data catch reports a per-frame error
+        // and advances — matching decodeImageToRgba.
+        img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("png decode failed")); };
+        img.src = url;
+      } catch (e) { reject(e); }
     });
   }
 
@@ -2778,11 +2812,12 @@
       }
       if (exp) {
         clearPreflight();
-        // Defer the scan so the tab switch PAINTS first. requestPreflight makes the backend call
-        // getSizeAsync/getBytesAsync, which decode the bitmaps on Figma's MAIN thread — the same
-        // thread that paints this iframe — so running it inline freezes the segmented control
-        // mid-switch (the "pill doesn't move" lag). Two rAFs let the switched tab commit first.
-        if (_exportFormat === "pdf") requestAnimationFrame(() => requestAnimationFrame(requestPreflight));
+        // The pre-flight image checks are NOT run on the tab switch. getSizeAsync/getBytesAsync
+        // decode the bitmaps on Figma's MAIN thread — the same thread that paints this iframe — so
+        // running them here froze the segmented control mid-switch (the "pill doesn't move" lag on
+        // the first switch to Export). They now run only when the user actually engages a pre-flight
+        // setting (down-sample / CMYK toggle, or the DPI field) — i.e. the calc lives in the
+        // pre-flight, not in the tab switch. So switching to Export is now instant.
       }
       if (window._notifyResize) setTimeout(window._notifyResize, 50);
     };
@@ -2803,6 +2838,13 @@
 
     setFormat("pdf");
     parent.postMessage({ pluginMessage: { type: "get-settings" } }, "*");
+    // A scan always runs at launch. Show the plugin's OWN "Scanning…" loader here, from the UI's
+    // own init (no message-timing race), so the window is never blank while the backend runs
+    // loadAllPagesAsync (Figma's native page-load) + the first scan. scan-results dismisses it.
+    // The launch scan is passive, so keep the "Scan file" button clickable (a manual scan just
+    // supersedes) — the loader is a status hint, not a lock.
+    _startScanToastTimer();
+    _setScanBusy(false);
   })();
 
   function doScan() {
@@ -3558,33 +3600,14 @@
           showProgress(`Exporting ${exportedCount} / ${msg.total} ${msg.format.toUpperCase()} files…`);
           parent.postMessage({ pluginMessage: { type: 'export-frame-ack', nextIndex: msg.index + 1 } }, '*');
         } else {
-          const _fmt = msg.format.toUpperCase();
-          dismissProgress();
-          setExportBusy(false);
-
-          if (_pendingFiles.length > 0) {
-            const zipBytes = _buildZip(_pendingFiles);
-            _pendingFiles = [];
-            downloadFile(zipBytes, `CMYK_Export_${_fmt}.zip`, 'application/zip');
-          }
-          // A batch that ends on a SUCCESS must still report any earlier failures,
-          // otherwise a frame that failed mid-batch is dropped from the print output
-          // with no warning. Only when the whole batch was clean do we confirm success —
-          // and that confirmation waits until the file is actually saved (see below).
-          const clean = _exportFailures.length === 0 && _exportRgbImages === 0;
-          reportExportFailures();
-          if (clean) confirmExportSaved();
+          finalizeBatch(msg.format);
         }
       } catch (err) {
         if (_exportCancelled) return;
         exportedCount++;
         parent.postMessage({ pluginMessage: { type: 'export-frame-ack', nextIndex: msg.index + 1 } }, '*');
         _exportFailures.push({ name: msg.frameName, message: (err && err.message) || String(err) });
-        if (exportedCount >= msg.total) {
-          dismissProgress();
-          setExportBusy(false);
-          reportExportFailures();
-        }
+        if (exportedCount >= msg.total) finalizeBatch(msg.format);
       }
     }
 
@@ -3593,11 +3616,7 @@
       exportedCount++;
       parent.postMessage({ pluginMessage: { type: 'export-frame-ack', nextIndex: msg.index + 1 } }, '*');
       _exportFailures.push({ name: msg.frameName, message: msg.message });
-      if (exportedCount >= msg.total) {
-        dismissProgress();
-        setExportBusy(false);
-        reportExportFailures();
-      }
+      if (exportedCount >= msg.total) finalizeBatch(msg.format);
     }
   };
 

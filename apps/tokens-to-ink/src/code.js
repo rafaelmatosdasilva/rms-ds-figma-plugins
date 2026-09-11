@@ -33,6 +33,15 @@ const _preflightFormatCache = new Map();
 let _preflightFillsCache = null;
 let _scanCancelled = false;
 
+// What the user can select and export. Frames/components/sections/groups are the common case,
+// but a single shape, text, vector or boolean is a perfectly valid export target too — so a plain
+// object or a loose layout can be exported, not only containers.
+const EXPORTABLE_TYPES = new Set([
+  "FRAME", "COMPONENT", "COMPONENT_SET", "INSTANCE", "GROUP", "SECTION",
+  "RECTANGLE", "ELLIPSE", "POLYGON", "STAR", "LINE", "VECTOR", "TEXT", "BOOLEAN_OPERATION", "SLICE",
+]);
+const isExportable = (n) => !!n && EXPORTABLE_TYPES.has(n.type);
+
 // Sniff an image's stored bytes to predict whether the CMYK PDF converter will leave it as RGB.
 // This is a BEST-EFFORT hint, not the truth: Figma re-encodes images when it writes the PDF, and
 // the source bytes can't reveal that re-encoding (predictors, colour-space changes). The one case
@@ -124,35 +133,68 @@ async function resolveColorValue(variable, allVariablesById, depth = 0) {
   return null;
 }
 
+// Resolve a variable's colour at a SPECIFIC mode (falling back to its first mode when it holds
+// no value for that mode), following aliases at that same mode. resolveColorValue always reads
+// the first mode; this variant lets the export lookup cover every mode a variable can render as.
+async function resolveColorValueAtMode(variable, modeId, allVariablesById, depth = 0) {
+  if (depth > 10 || !variable || !variable.valuesByMode) return null;
+  const vbm = variable.valuesByMode;
+  const value = (modeId != null && Object.prototype.hasOwnProperty.call(vbm, modeId))
+    ? vbm[modeId] : getVariableValue(variable);
+  if (!value) return null;
+  if (value.type === "VARIABLE_ALIAS") {
+    let referenced = allVariablesById.get(value.id);
+    if (!referenced) {
+      try { referenced = await figma.variables.getVariableByIdAsync(value.id); } catch (_) {}
+      if (referenced) allVariablesById.set(referenced.id, referenced);
+    }
+    if (!referenced) return null;
+    return resolveColorValueAtMode(referenced, modeId, allVariablesById, depth + 1);
+  }
+  if (typeof value.r === "number" && !isNaN(value.r) &&
+      typeof value.g === "number" && !isNaN(value.g) &&
+      typeof value.b === "number" && !isNaN(value.b)) {
+    return value;
+  }
+  return null;
+}
+
 // ─── Color lookup for export ─────────────────────────────────────────
 
 async function buildColorLookup(colorVariables, allVariablesById) {
   const lookup = {};
-  // Resolve every colour in parallel — each resolveColorValue is an async alias walk,
-  // so a file with many tokens paid one round-trip after another before this.
-  const resolved = await Promise.all(
-    colorVariables.map((cv) => resolveColorValue(cv, allVariablesById))
-  );
-  // Write in the original order. When two variables resolve to the same hex, a
-  // manually-tagged [cmyk:...] value is authoritative and must not be overwritten by
-  // a later variable that lands on the same colour but only has a computed value.
-  // Between two manual tags for one hex, the later one still wins.
   const hasManual = new Set();
-  for (let i = 0; i < colorVariables.length; i++) {
-    const colorValue = resolved[i];
-    if (!colorValue) continue;
-    const cv = colorVariables[i];
-    const hex = rgbToHex(colorValue.r, colorValue.g, colorValue.b);
+  // Resolve EVERY mode of every variable, in parallel. The exported PDF renders whichever mode
+  // each node is in, so a lookup keyed only by the first mode would miss the on-canvas hex and
+  // the user's manual [cmyk:...]/[pantone:...] override would silently not apply. A variable
+  // contributes one entry per distinct hex it can render as; its tags are mode-agnostic.
+  const perVar = await Promise.all(colorVariables.map(async (cv) => {
+    const modeIds = cv.valuesByMode ? Object.keys(cv.valuesByMode) : [];
+    const ids = modeIds.length ? modeIds : [null];
+    const colors = (await Promise.all(
+      ids.map((m) => resolveColorValueAtMode(cv, m, allVariablesById))
+    )).filter(Boolean);
+    return { cv, colors };
+  }));
+  // Keep the original variable order so a hex collision resolves as before: a manually-tagged
+  // [cmyk:...] value is authoritative and is never overwritten by a later computed value; between
+  // two manual tags for one hex, the later one still wins.
+  for (const { cv, colors } of perVar) {
+    if (!colors.length) continue;
     const cmykStr = parseDescTag(cv.description, "cmyk");
     const manual = cmykStr ? parseCmykString(cmykStr) : null;
     const pantone = parseDescTag(cv.description, "pantone") || null;
-    if (manual) {
-      lookup[hex] = { ...manual, pantone };
-      hasManual.add(hex);
-    } else if (!hasManual.has(hex)) {
-      lookup[hex] = { ...rgbToCmyk(colorValue.r, colorValue.g, colorValue.b), pantone };
-    } else if (pantone && lookup[hex] && !lookup[hex].pantone) {
-      lookup[hex].pantone = pantone;   // keep the manual CMYK, but pick up a Pantone if it had none
+    const byHex = new Map();
+    for (const c of colors) { const h = rgbToHex(c.r, c.g, c.b); if (!byHex.has(h)) byHex.set(h, c); }
+    for (const [hex, c] of byHex) {
+      if (manual) {
+        lookup[hex] = { ...manual, pantone };
+        hasManual.add(hex);
+      } else if (!hasManual.has(hex)) {
+        lookup[hex] = { ...rgbToCmyk(c.r, c.g, c.b), pantone };
+      } else if (pantone && lookup[hex] && !lookup[hex].pantone) {
+        lookup[hex].pantone = pantone;   // keep the manual CMYK, but pick up a Pantone if it had none
+      }
     }
   }
   return lookup;
@@ -211,6 +253,10 @@ async function runScan(fromAuto) {
 
 async function _runScan(fromAuto, seq) {
   _scanCancelled = false;
+  // Cancellation is scoped to THIS scan: an explicit cancel-scan flips _scanCancelled, and a
+  // newer scan (which bumped _scanSeq) aborts this one at its next checkpoint even though it
+  // reset _scanCancelled to false — otherwise a superseded walk would run the whole tree.
+  const cancelled = () => _scanCancelled || seq !== _scanSeq;
   _preflightFillsCache = null;   // the selection (or its contents) may have changed — re-walk next preflight
   let selection;
   if (fromAuto) {
@@ -224,7 +270,13 @@ async function _runScan(fromAuto, seq) {
     if (seq !== _scanSeq) return;
     selection = resolved.filter(n => n && !n.removed);
     _lastScannedIds = selection.map(n => n.id);
-    if (selection.length === 0) return;
+    if (selection.length === 0) {
+      // Every scanned node was deleted. Don't freeze on stale rows with a dead auto-rescan
+      // (scheduleRescan short-circuits once _lastScannedIds is empty and _allVarsMode is
+      // false) — fall through to the file-wide list, which also keeps auto-update alive.
+      _allVarsMode = true;
+      return _scanAllVariables(seq, true);
+    }
   } else {
     selection = Array.from(figma.currentPage.selection);
     if (selection.length === 0) {
@@ -235,7 +287,7 @@ async function _runScan(fromAuto, seq) {
     _lastScannedIds = selection.map(n => n.id);
     _allVarsMode = false;
   }
-  if (_scanCancelled) return;
+  if (cancelled()) return;
 
   const allVariables = await figma.variables.getLocalVariablesAsync();
   const colorVariables = allVariables.filter((v) => v.resolvedType === "COLOR");
@@ -244,8 +296,8 @@ async function _runScan(fromAuto, seq) {
   const colorVarById = new Map(colorVariables.map(cv => [cv.id, cv]));
 
   const discoveredIds = new Set();
-  for (const node of selection) await collectVarIds(node, discoveredIds, () => _scanCancelled);
-  if (_scanCancelled) return;
+  for (const node of selection) await collectVarIds(node, discoveredIds, cancelled);
+  if (cancelled()) return;
 
   // Fetch missing variables in parallel — sequential awaits here were the
   // main cost on large selections.
@@ -262,11 +314,11 @@ async function _runScan(fromAuto, seq) {
       }
     }
   }
-  if (_scanCancelled) return;
+  if (cancelled()) return;
 
   const colorMap = new Map();
-  for (const node of selection) await collectNodeColors(node, colorMap, () => _scanCancelled);
-  if (_scanCancelled) return;
+  for (const node of selection) await collectNodeColors(node, colorMap, cancelled);
+  if (cancelled()) return;
 
   // Resolve all variable entries in parallel.
   const entries = Array.from(colorMap.values());
@@ -337,22 +389,23 @@ async function _collectLibraryColorVariables(fromAuto) {
 }
 
 async function _scanAllVariables(seq, fromAuto) {
+  const cancelled = () => _scanCancelled || seq !== _scanSeq;
   const localVariables = await figma.variables.getLocalVariablesAsync();
   const allVariablesById = new Map(localVariables.map(v => [v.id, v]));
   const colorVariables = localVariables.filter(v => v.resolvedType === "COLOR");
-  if (_scanCancelled) return;
+  if (cancelled()) return;
 
   for (const v of await _collectLibraryColorVariables(fromAuto)) {
     if (allVariablesById.has(v.id)) continue;
     allVariablesById.set(v.id, v);
     colorVariables.push(v);
   }
-  if (_scanCancelled) return;
+  if (cancelled()) return;
 
   const resolved = await Promise.all(
     colorVariables.map(v => buildVariableEntry(v, allVariablesById))
   );
-  if (_scanCancelled) return;
+  if (cancelled()) return;
 
   const results = resolved.filter(Boolean);
   results.sort((a, b) => a.name.localeCompare(b.name));
@@ -566,20 +619,19 @@ figma.ui.onmessage = async (msg) => {
   if (msg.type === "export-request") {
     _exportCancelled = false;
     _exportState = null;
-    const EXPORTABLE = new Set(["FRAME", "COMPONENT", "COMPONENT_SET", "INSTANCE", "GROUP", "SECTION"]);
 
     let selection;
     if (_lastScannedIds.length > 0) {
       const resolved = await Promise.all(
         _lastScannedIds.map(id => figma.getNodeByIdAsync(id).catch(() => null))
       );
-      selection = resolved.filter(n => n && !n.removed && EXPORTABLE.has(n.type));
+      selection = resolved.filter(n => n && !n.removed && isExportable(n));
     } else {
-      selection = Array.from(figma.currentPage.selection).filter(n => EXPORTABLE.has(n.type));
+      selection = Array.from(figma.currentPage.selection).filter(isExportable);
     }
 
     if (selection.length === 0) {
-      figma.ui.postMessage({ type: "error", message: "Please select at least one frame or component." });
+      figma.ui.postMessage({ type: "error", message: "Select at least one layer to export." });
       return;
     }
 
@@ -610,15 +662,14 @@ figma.ui.onmessage = async (msg) => {
     const seq = ++_preflightSeq;            // a newer request supersedes this in-flight one
     const superseded = () => _preflightSeq !== seq;
     const target = typeof msg.dpi === "number" && msg.dpi > 0 ? msg.dpi : 300;
-    const EXPORTABLE = new Set(["FRAME", "COMPONENT", "COMPONENT_SET", "INSTANCE", "GROUP", "SECTION"]);
     let selection;
     if (_lastScannedIds.length > 0) {
       const resolved = await Promise.all(
         _lastScannedIds.map(id => figma.getNodeByIdAsync(id).catch(() => null))
       );
-      selection = resolved.filter(n => n && !n.removed && EXPORTABLE.has(n.type));
+      selection = resolved.filter(n => n && !n.removed && isExportable(n));
     } else {
-      selection = Array.from(figma.currentPage.selection).filter(n => EXPORTABLE.has(n.type));
+      selection = Array.from(figma.currentPage.selection).filter(isExportable);
     }
 
     // The export renders each selected node in its OWN coordinate space, so an image's placed
@@ -644,6 +695,10 @@ figma.ui.onmessage = async (msg) => {
         if (superseded()) return;
         const rootFills = [];
         await collectImageFills(n, rootFills, superseded);
+        // collectImageFills returns a PARTIAL list when superseded flips mid-walk. Bail before
+        // pushing/caching, or the cache below (and this run) would commit an incomplete fills
+        // list and silently under-report low-res / un-convertible images on later preflights.
+        if (superseded()) return;
         const rs = scaleOf(n);
         for (const f of rootFills) {
           f.boxW = f.boxW * ((f.absScaleX || 1) / rs.x);

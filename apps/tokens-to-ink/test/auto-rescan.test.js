@@ -115,19 +115,51 @@ describe('tokens-to-ink — rescanning after the document changes', () => {
     expect(postedOf('scan-results').length).toBe(before + 1);
   });
 
-  it('drops artwork that was deleted since the last scan', async () => {
+  it('falls back to the file-wide list when all scanned artwork is deleted, keeping auto-update alive', async () => {
     const { scene: s, page, frame } = scene();
     const { figma, send, lastOf, postedOf } = await loadPlugin(ENTRY, s);
     figma.currentPage = page;
 
     await scanOnce({ send, lastOf, postedOf });
 
+    // Every scanned node is deleted. The panel must not freeze on stale rows — it now shows the
+    // file-wide colour list instead of the deleted artwork.
     frame.remove();
     const before = postedOf('scan-results').length;
     figma.emit('documentchange');
-    await new Promise((r) => setTimeout(r, DEBOUNCE_GRACE));
+    await waitFor(() => postedOf('scan-results').length > before, {
+      timeout: DEBOUNCE_GRACE, label: 'fallback to file-wide',
+    });
+    expect(lastOf('scan-results').sourceNodes).toEqual([]);   // file-wide list, no artwork
 
-    // Nothing left to rescan, so nothing is reported rather than a stale result.
+    // Crucially, auto-update stays alive: a later edit still triggers a rescan. The old code
+    // left _allVarsMode false with an empty id list, which killed every subsequent rescan.
+    const before2 = postedOf('scan-results').length;
+    figma.emit('documentchange');
+    await waitFor(() => postedOf('scan-results').length > before2, {
+      timeout: DEBOUNCE_GRACE, label: 'auto-update still alive',
+    });
+  });
+
+  it('honours cancel-scan issued while a scan is in flight', async () => {
+    const { scene: s, page } = scene();
+    const { figma, send, lastOf, postedOf } = await loadPlugin(ENTRY, s);
+    figma.currentPage = page;
+    await waitFor(() => lastOf('scan-results'), { label: 'launch scan' });
+
+    // Park the next scan right where it fetches the variables.
+    let release;
+    const held = new Promise((r) => { release = r; });
+    const realGet = figma.variables.getLocalVariablesAsync.bind(figma.variables);
+    figma.variables.getLocalVariablesAsync = async () => { await held; return realGet(); };
+
+    const before = postedOf('scan-results').length;
+    await send({ type: 'request-scan' });   // enters _runScan, parks at getLocalVariablesAsync
+    await send({ type: 'cancel-scan' });     // user cancels while it is parked
+    release();
+    await new Promise((r) => setTimeout(r, 80));
+
+    // The cancelled scan bails at its next checkpoint — nothing reaches the UI.
     expect(postedOf('scan-results').length).toBe(before);
   });
 });

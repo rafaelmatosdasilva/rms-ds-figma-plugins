@@ -49,7 +49,23 @@ describe('tokens-to-ink — export', () => {
     await send({ type: 'export-request', format: 'pdf' });
 
     expect(lastOf('export-ready')).toBeUndefined();
-    expect(lastOf('error').message).toContain('select at least one');
+    expect(lastOf('error').message).toMatch(/at least one/i);
+  });
+
+  it('exports a plain object (a single rectangle), not only frames and components', async () => {
+    // A loose shape, text or vector is a valid export target — the picker must not reject it.
+    const rect = makeNode('RECTANGLE', { id: 'r1', name: 'Swatch', width: 100, height: 100 });
+    const page = makePage('Page 1');
+    page.appendChild(rect);
+    page.selection = [rect];
+
+    const scene = { variables: [], collections: [makeCollection('coll-1', 'Tokens')], pages: [page] };
+    const { figma, send, lastOf } = await loadPlugin(ENTRY, scene);
+    figma.currentPage = page;
+
+    await send({ type: 'export-request', format: 'pdf' });
+
+    expect(lastOf('export-ready')).toMatchObject({ count: 1, format: 'pdf' });
   });
 
   it('walks the frames one at a time, driven by the UI acknowledging each', async () => {
@@ -159,6 +175,31 @@ describe('tokens-to-ink — export', () => {
 
     // Manual CMYK wins; entries also carry a pantone field (null here — no Pantone tag).
     expect(lastOf('export-data').colorLookup['#FF0000']).toMatchObject({ c: 5, m: 95, y: 90, k: 2 });
+  });
+
+  it('covers every mode of a variable, so a manual CMYK applies whichever mode is on canvas', async () => {
+    // A themed variable renders red in one mode and blue in another. The exported PDF
+    // contains whichever mode each node is in, so BOTH hexes must map to the manual CMYK —
+    // keying the lookup by only the first mode would drop the override in the other mode.
+    const brand = makeVar('v-brand', 'brand/primary', { value: { r: 1, g: 0, b: 0 } });
+    brand.description = '[cmyk:5,95,90,2]';
+    brand.valuesByMode = { 'mode-1': { r: 1, g: 0, b: 0 }, 'mode-2': { r: 0, g: 0, b: 1 } };
+
+    const one = makeNode('FRAME', { id: 'f1', name: 'Poster A', width: 100, height: 200, fills: [boundSolid('v-brand')] });
+    const page = makePage('Page 1');
+    page.appendChild(one);
+    page.selection = [one];
+
+    const scene = { variables: [brand], collections: [makeCollection('coll-1', 'Tokens')], pages: [page] };
+    const { figma, send, lastOf } = await loadPlugin(ENTRY, scene);
+    figma.currentPage = page;
+
+    await send({ type: 'export-request', format: 'pdf' });
+    await send({ type: 'export-frames' });
+
+    const lookup = lastOf('export-data').colorLookup;
+    expect(lookup['#FF0000']).toMatchObject({ c: 5, m: 95, y: 90, k: 2 }); // mode-1
+    expect(lookup['#0000FF']).toMatchObject({ c: 5, m: 95, y: 90, k: 2 }); // mode-2
   });
 
   it('ignores an acknowledgement when no export is running', async () => {

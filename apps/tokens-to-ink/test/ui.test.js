@@ -318,6 +318,29 @@ describe('tokens-to-ink UI — export failure reporting', () => {
     expect(ui.$('#toast-container').textContent).toContain('Poster A');
   });
 
+  it('still delivers the already-exported frames as a ZIP when the LAST frame fails', async () => {
+    ui = loadUI(UI);
+    const downloads = [];
+    ui.window.convertPdfToCmyk = async () => new Uint8Array([1, 2, 3]);
+    ui.window._buildZip = () => new Uint8Array([9]); // avoid the real zip encoder in jsdom
+    ui.window.downloadFile = (_bytes, name) => downloads.push(name);
+
+    // Multi-file batch (no File System Access) → frame 0 buffers; the LAST frame then fails.
+    ui.receive({ type: 'export-batch-start', total: 2, format: 'pdf' });
+    await ui.receive({
+      type: 'export-data', format: 'pdf', pdfBytes: new Uint8Array([1]),
+      colorLookup: {}, frameName: 'Poster A', fileName: 'doc', index: 0, total: 2, trimBox: null,
+    });
+    await painted();
+    ui.receive({ type: 'export-item-error', frameName: 'Poster B', message: 'boom', index: 1, total: 2 });
+    await painted();
+
+    // The good frame must not be silently discarded: it is handed over as a ZIP...
+    expect(downloads.some((n) => /\.zip$/.test(n))).toBe(true);
+    // ...and the failure is still reported.
+    expect(ui.$('#toast-container').textContent).toContain('Poster B');
+  });
+
   it('names the frames whose images stayed RGB in CMYK mode', async () => {
     ui = loadUI(UI);
     ui.window.downloadFile = () => {};

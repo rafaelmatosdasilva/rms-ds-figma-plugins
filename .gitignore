@@ -26,6 +26,7 @@ parity-map.mjs
 structure-contract.mjs
 parity-history.json
 bound-tokens.json
+figma-screens.snapshot.json
 packages/ui/src/*.snapshot.json
 apps/*/preview-*.html
 
