@@ -522,21 +522,11 @@ async function _exportOneFrame(i) {
       const dpiScale = dpi / 72;
       // Figma units are points here (dpiScale = dpi/72), so bleed in units = bleed in points.
       const bleedU = _exportState.bleedOn ? (_exportState.bleedMm || 0) * 72 / 25.4 : 0;
-      const bleedInside = _exportState.bleedInside;
       let pngBytes, width, height, bleedPx = 0, trimW, trimH;
-      if (bleedInside && bleedU > 0) {
-        // The frame ALREADY includes the bleed: export it as-is (it carries the bleed art), and the
-        // cut is the frame inset by the bleed on every side — no slice needed.
-        pngBytes = await node.exportAsync({ format: "PNG", constraint: { type: "SCALE", value: dpiScale } });
-        width = Math.round(node.width * dpiScale);
-        height = Math.round(node.height * dpiScale);
-        bleedPx = Math.round(bleedU * dpiScale);
-        trimW = Math.round((node.width - 2 * bleedU) * dpiScale);
-        trimH = Math.round((node.height - 2 * bleedU) * dpiScale);
-      } else if (bleedU > 0 && node.absoluteBoundingBox) {
-        // Real bleed OUTSIDE the frame: export a Slice covering trim + bleed so the raster includes
-        // the artwork (and any siblings) that bleeds past the frame's cut line. exportAsync on a
-        // plain frame node only ever yields the trim box, so a slice is the only way to capture it.
+      if (bleedU > 0 && node.absoluteBoundingBox) {
+        // The frame size IS the trim/cut and never changes. Bleed on just adds whatever artwork
+        // exists BEYOND the frame: export a Slice covering the frame + bleed so the raster includes
+        // that spill (exportAsync on a plain frame only ever yields the frame box itself).
         const abb = node.absoluteBoundingBox;
         let page = node.parent;
         while (page && page.type !== "PAGE") page = page.parent;
@@ -683,8 +673,7 @@ figma.ui.onmessage = async (msg) => {
     // the raster carries the artwork that spills past the cut line — a plain frame export can't.
     const bleedOn = !!msg.bleedOn;
     const bleedMm = typeof msg.bleedMm === "number" && msg.bleedMm >= 0 ? msg.bleedMm : 3;
-    const bleedInside = !!msg.bleedInside;   // the frame already contains the bleed → no slice, cut is inset
-    _exportState = { selection, format, colorLookup, tiffDpi, bleedOn, bleedMm, bleedInside };
+    _exportState = { selection, format, colorLookup, tiffDpi, bleedOn, bleedMm };
     figma.ui.postMessage({ type: "export-ready", count: selection.length, format });
     return;
   }

@@ -50,15 +50,16 @@ describe('tokens-to-ink — crop marks', () => {
     expect(out.indexOf('0 0 0 0 K')).toBeLessThan(out.indexOf('1 1 1 1 K'));
   });
 
-  it('insets the cut and runs the marks across the bleed when the frame already includes it', async () => {
+  it('keeps the frame as the cut and runs the crop marks across the bleed (never insets)', async () => {
     ui = bootUI();
-    // frame [0 0 64 64], 8.5pt bleed already inside → cut = [8.5 8.5 55.5 55.5], bleed ring around it.
-    const out = latin1(await ui.window.convertPdfToCmyk(pdfBytes(), {}, { cropMarks: true, bleedPt: 8.5, bleedInside: true }));
-    expect(out).toMatch(/\/TrimBox\s*\[\s*8\.5\s+8\.5\s+55\.5\s+55\.5\s*\]/); // trim = the inset cut
-    expect(out).toMatch(/\/BleedBox\s*\[\s*0\s+0\s+64\s+64\s*\]/);            // bleed box = the whole frame
-    // A crop line now STARTS at the cut (x=8.5) and runs outward past the frame edge (to -18),
-    // crossing the 8.5pt black bleed ring — the knockout is what keeps it visible there.
-    expect(out).toMatch(/8\.5 8\.5 m -18 8\.5 l/);
+    // frame [0 0 64 64], 8.5pt bleed. The frame size never changes — it stays the trim; the bleed
+    // just adds artwork beyond it, and the crop marks (at the frame edge) run across that bleed.
+    const out = latin1(await ui.window.convertPdfToCmyk(pdfBytes(), {}, { cropMarks: true, bleedPt: 8.5 }));
+    expect(out).toMatch(/\/TrimBox\s*\[\s*0\s+0\s+64\s+64\s*\]/);               // trim = the frame, not inset
+    expect(out).toMatch(/\/BleedBox\s*\[\s*-8\.5\s+-8\.5\s+72\.5\s+72\.5\s*\]/); // bleed = frame + 8.5 all round
+    // A crop line STARTS at the frame edge (x=0) and runs outward past the bleed (to -26.5),
+    // crossing the 8.5pt bleed ring — its start never shifts with the bleed.
+    expect(out).toMatch(/0 0 m -26\.5 0 l/);
   });
 
   it('places marks at the frame trim box, not the (larger) page box', async () => {
@@ -69,9 +70,9 @@ describe('tokens-to-ink — crop marks', () => {
     // TrimBox follows the frame, not the [0 0 64 64] page box.
     expect(out).toMatch(/\/TrimBox\s*\[\s*10\s+10\s+54\s+54\s*\]/);
     expect(out).toMatch(/\/BleedBox\s*\[\s*1\.5\s+1\.5\s+62\.5\s+62\.5\s*\]/);
-    // A crop line starts one bleed (8.5pt) left of the trim corner (x=1.5), at y=10 —
-    // i.e. at the frame edge, not the page edge.
-    expect(out).toMatch(/1\.5 10 m/);
+    // A crop line starts AT the trim corner (x=10, y=10) — its start sits on the frame edge, not
+    // offset by the bleed, and runs outward from there (across the bleed to x=10-8.5-18=-16.5).
+    expect(out).toMatch(/10 10 m -16\.5 10 l/);
     // Content is clipped to the bleed box — the frame (44×44 at 10,10) grown by one bleed
     // on every side: origin (1.5,1.5), 44 + 2·8.5 = 61 wide/tall. Overflow past it is dropped.
     expect(out).toMatch(/1\.5 1\.5 61 61 re\s+W\s+n/);
