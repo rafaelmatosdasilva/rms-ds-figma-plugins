@@ -1625,7 +1625,8 @@
 
   .sidePanelHeader {
     display: flex; align-items: flex-start; gap: var(--gap-m);
-    padding: var(--padding-s) var(--padding-l);
+    /* DS panel HeadContent slot: top padding/l (16), bottom padding/s (8), lr padding/l (16). */
+    padding: var(--padding-l) var(--padding-l) var(--padding-s);
     flex-shrink: 0;
     background: var(--bg);
   }
