@@ -386,7 +386,8 @@ body.browser-empty .right-panel {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  padding: var(--padding-s) var(--padding-l) var(--padding-l);
+  /* Each column IS a DS panel → padding/l (16) on every side. Top was padding-s (8). */
+  padding: var(--padding-l);
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
