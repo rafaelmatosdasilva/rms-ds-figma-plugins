@@ -1068,7 +1068,7 @@
      checkbox rows at gap/s. */
   .checkBoxGroup { display: flex; flex-direction: column; gap: var(--gap-m); }
   .checkBoxGroup-label { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--text-secondary); }
-  .checkBoxGroup-slot { display: flex; flex-direction: column; gap: var(--gap-s); }
+  .checkBoxGroup-slot { display: flex; flex-direction: row; gap: var(--gap-xxxl); }   /* DS Slot: HORIZONTAL, gap/xxxl (32) — same as radioButtonGroup-slot */
   /* radioButtonGroup (DS 239-…) — a labelled group of radios laid in a ROW. Label
      (s style, content/secondary) sits gap/m above a Slot that spaces the radios at gap/xxxl. */
   .radioButtonGroup { display: flex; flex-direction: column; gap: var(--gap-m); }

@@ -129,13 +129,14 @@
 /* Extends base .scroll-area — adds layout-specific overrides only */
 .scroll-area {
   flex: 1;
-  padding: 0 var(--padding-s) var(--padding-l) var(--padding-m);
+  /* DS panel Content slot = padding/l (16) top & bottom. The top used to be 0, relying on the
+     first dividerSection's own top padding for the spacing — but the DS made dividerSection
+     compact (padding 0), so top:0 left no space above the first divider. Restore padding/l top. */
+  padding: var(--padding-l) var(--padding-s) var(--padding-l) var(--padding-m);
   margin: 0; /* cancel base -16px margin — this layout uses its own padding */
   position: relative;
   scrollbar-gutter: stable; /* always reserve 8px for scrollbar so content never shifts */
 }
-/* Nothing above the first divider — its own padding/xl top is the spacing */
-.scroll-area .dividerSection:first-child { margin-top: 0; }
 /* Section divider of the selected item: unstick once the next divider has arrived */
 .scroll-area .dividerSection.divider-away {
   position: static;
