@@ -577,3 +577,33 @@ describe('tokens-to-ink UI — TIFF mark layout', () => {
     expect(L.W).toBe(100 + 60); expect(L.H).toBe(200 + 60);
   });
 });
+
+describe('tokens-to-ink UI — TIFF transparency', () => {
+  const tiffTag = (u8, tag) => {
+    const dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
+    const ifd = dv.getUint32(4, true), n = dv.getUint16(ifd, true);
+    for (let i = 0; i < n; i++) { const e = ifd + 2 + i * 12; if (dv.getUint16(e, true) === tag) return dv.getUint16(e + 8, true); }
+    return null;
+  };
+
+  it('flattens CMYK+alpha onto white paper and drops the alpha channel', () => {
+    ui = loadUI(UI);
+    // opaque / half-covered / fully transparent pixels
+    const src = new Uint8Array([100,0,0,50,255,  200,0,0,0,128,  200,200,200,200,0]);
+    const out = ui.window.flattenCmykaToCmyk(src, 3, 1);
+    expect(out.length).toBe(3 * 4);                       // alpha channel dropped → 4-channel
+    expect([...out.slice(0, 4)]).toEqual([100, 0, 0, 50]);// opaque unchanged
+    expect([...out.slice(4, 8)]).toEqual([100, 0, 0, 0]); // half coverage → ink scaled by alpha
+    expect([...out.slice(8, 12)]).toEqual([0, 0, 0, 0]);  // transparent → paper white (no ink)
+  });
+
+  it('writes a 5-sample CMYK+alpha TIFF when transparent, a 4-sample CMYK TIFF when opaque', async () => {
+    ui = loadUI(UI);
+    const transp = await ui.window.buildCmykaTiff(new Uint8Array(2 * 2 * 5), 2, 2, 300, false, true);
+    const opaque = await ui.window.buildCmykaTiff(new Uint8Array(2 * 2 * 4), 2, 2, 300, false, false);
+    expect(tiffTag(transp, 277)).toBe(5);                 // SamplesPerPixel: CMYK + alpha
+    expect(tiffTag(transp, 338)).not.toBeNull();          // ExtraSamples (alpha) declared
+    expect(tiffTag(opaque, 277)).toBe(4);                 // SamplesPerPixel: CMYK only
+    expect(tiffTag(opaque, 338)).toBeNull();              // no ExtraSamples for an opaque CMYK TIFF
+  });
+});

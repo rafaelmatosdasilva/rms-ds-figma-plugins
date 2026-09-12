@@ -453,6 +453,8 @@
             </div>
             <div class="dividerLine"></div>
             <label class="switch"><input type="checkbox" id="tiff-zip-toggle" class="switch-input" checked><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Compress (lossless ZIP)</span></span></label>
+            <div class="dividerLine"></div>
+            <label class="switch"><input type="checkbox" id="tiff-transparent-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Transparent background</span></span></label>
           </div>
         </section>
         <!-- Marks and bleed card (both formats) — always the RIGHT slot. -->
@@ -619,6 +621,7 @@
   let _downsampleDpi = 300;     // target resolution for downsampling, in DPI (used only when _downsample)
   let _tiffDpi = 300;           // TIFF raster export resolution, in DPI
   let _tiffZip = true;          // compress the TIFF losslessly (Adobe Deflate) — on by default
+  let _tiffTransparent = false; // TIFF background: false = flatten to opaque white paper (print-safe), true = keep alpha
   let _exportFormat = "pdf";    // chosen in the export overflow — drives the modal title + layout
   let _hasImages = false;       // does the selection contain any raster image? (gates the Image-quality tab)
   let _activeTab = "marks";     // PDF modal tab: "marks" | "quality"
@@ -2425,13 +2428,15 @@
 
   // zip=true → Adobe Deflate (tag 8, zlib), lossless and widely supported → much smaller files.
   // zip=false → uncompressed (tag 1). Single strip either way. Async because deflate is.
-  async function buildCmykaTiff(data,w,h,dpi,zip) {
+  async function buildCmykaTiff(data,w,h,dpi,zip,alpha=true) {
+    const spp = alpha ? 5 : 4;                            // samples/pixel: CMYK(+A)
     const res = Math.round(dpi) || 300;
     const strip = zip ? await deflateBuf(data) : data;   // compressed (or raw) strip bytes
     const stripLen = strip.length, compression = zip ? 8 : 1;
-    const nT=15, iO=8, iSz=2+(nT*12)+4, eO=iO+iSz;
-    // Extra data: BitsPerSample (5 shorts = 10 bytes) + XRes (8) + YRes (8)
-    const bO=eO, xO=bO+10, yO=xO+8, sO=yO+8;
+    const nT = alpha ? 15 : 14;                           // the ExtraSamples tag only exists with alpha
+    const iO=8, iSz=2+(nT*12)+4, eO=iO+iSz;
+    // Extra data: BitsPerSample (spp shorts) + XRes (8) + YRes (8)
+    const bO=eO, xO=bO+spp*2, yO=xO+8, sO=yO+8;
     const buf=new ArrayBuffer(sO+stripLen), v=new DataView(buf), b=new Uint8Array(buf);
     let p=0;
     const w16=x=>{v.setUint16(p,x,true);p+=2;}, w32=x=>{v.setUint32(p,x,true);p+=4;};
@@ -2439,11 +2444,11 @@
     w16(0x4949); w16(42); w32(iO); w16(nT);
     t(256,4,1,w);           // ImageWidth
     t(257,4,1,h);           // ImageLength
-    t(258,3,5,bO);          // BitsPerSample → offset (5 shorts: 8,8,8,8,8)
+    t(258,3,spp,bO);        // BitsPerSample → offset (spp shorts of 8)
     t(259,3,1,compression); // Compression: 1 = none, 8 = Adobe Deflate (zlib)
     t(262,3,1,5);           // PhotometricInterpretation: CMYK
     t(273,4,1,sO);          // StripOffsets
-    t(277,3,1,5);           // SamplesPerPixel: 5 (CMYK+A)
+    t(277,3,1,spp);         // SamplesPerPixel: 5 (CMYK+A) or 4 (CMYK)
     t(278,4,1,h);           // RowsPerStrip
     t(279,4,1,stripLen);    // StripByteCounts (compressed length when zipped)
     t(282,5,1,xO);          // XResolution → offset (RATIONAL 300/1)
@@ -2451,16 +2456,30 @@
     t(284,3,1,1);           // PlanarConfiguration: chunky
     t(296,3,1,2);           // ResolutionUnit: inch
     t(332,3,1,1);           // InkSet: CMYK
-    t(338,3,1,2);           // ExtraSamples: 2 = unassociated alpha (INLINE)
+    if (alpha) t(338,3,1,2);// ExtraSamples: 2 = unassociated alpha (INLINE) — omitted for opaque CMYK
     w32(0); // next IFD
-    // BitsPerSample
-    p=bO; w16(8);w16(8);w16(8);w16(8);w16(8);
+    // BitsPerSample: spp shorts of 8
+    p=bO; for(let k=0;k<spp;k++) w16(8);
     // XResolution res/1, YResolution res/1
     p=xO; w32(res);w32(1);
     p=yO; w32(res);w32(1);
     // Pixel data (compressed or raw)
     b.set(strip, sO);
     return new Uint8Array(buf);
+  }
+
+  // Flatten a CMYK+alpha buffer onto opaque white paper: ink scales by coverage (alpha), the rest
+  // is paper (0 ink), alpha → 255. Then drop the alpha channel to a clean 4-channel CMYK buffer —
+  // most print RIPs prefer no alpha. Returns the 4-channel Uint8Array (w*h*4).
+  function flattenCmykaToCmyk(data, w, h) {
+    const out = new Uint8Array(w * h * 4);
+    for (let i = 0, j = 0; i < data.length; i += 5, j += 4) {
+      const A = data[i + 4];
+      if (A === 255) { out[j] = data[i]; out[j+1] = data[i+1]; out[j+2] = data[i+2]; out[j+3] = data[i+3]; }
+      else if (A === 0) { out[j] = out[j+1] = out[j+2] = out[j+3] = 0; }   // transparent → paper white
+      else { const a = A / 255; out[j] = Math.round(data[i]*a); out[j+1] = Math.round(data[i+1]*a); out[j+2] = Math.round(data[i+2]*a); out[j+3] = Math.round(data[i+3]*a); }
+    }
+    return out;
   }
 
   // 5-channel CMYK+Alpha (for TIFF — preserves transparency)
@@ -2797,6 +2816,7 @@
     const dpiWrap = document.getElementById("dpi-wrap");
     const tiffDpi = document.getElementById("tiff-dpi-input");
     const tiffZip = document.getElementById("tiff-zip-toggle");
+    const tiffTransparent = document.getElementById("tiff-transparent-toggle");
     if (!confirm || !exportPanel || !toggle || !bleedOn || !bleed || !downsample || !dpi || !tiffDpi) return;
 
     const LABELS = { pdf: "Export PDF", tiff: "Export TIFF" };
@@ -2828,6 +2848,7 @@
       cropMarks: _cropMarks, regMarks: _regMarks, colorBars: _colorBars, preserveSpot: _preserveSpot,
       pdfx: _pdfx, imagesCmyk: _imagesCmyk, pageInfo: _pageInfo, bleedOn: _bleedOn, bleedMm: _bleedMm,
       downsample: _downsample, downsampleDpi: _downsampleDpi, tiffDpi: _tiffDpi, tiffZip: _tiffZip,
+      tiffTransparent: _tiffTransparent,
     });
     // Disable "Save as default" while the current options already equal the saved defaults —
     // there is nothing to save (DS 2155:25145 shows the button in its disabled state).
@@ -2893,6 +2914,7 @@
     });
     tiffDpi.addEventListener("blur", () => { tiffDpi.value = String(_tiffDpi); });
     if (tiffZip) tiffZip.addEventListener("change", () => { _tiffZip = tiffZip.checked; persist(); });
+    if (tiffTransparent) tiffTransparent.addEventListener("change", () => { _tiffTransparent = tiffTransparent.checked; persist(); });
     // Called when code.js sends back the persisted settings.
     window.__applyExportSettings = (s) => {
       s = s || {};
@@ -2909,6 +2931,7 @@
       if (typeof s.downsampleDpi === "number" && s.downsampleDpi > 0) _downsampleDpi = s.downsampleDpi;
       if (typeof s.tiffDpi === "number" && s.tiffDpi > 0) _tiffDpi = s.tiffDpi;
       if (typeof s.tiffZip === "boolean") _tiffZip = s.tiffZip;
+      if (typeof s.tiffTransparent === "boolean") _tiffTransparent = s.tiffTransparent;
       toggle.checked = _cropMarks;
       regmarks.checked = _regMarks;
       colorbars.checked = _colorBars;
@@ -2922,6 +2945,7 @@
       dpi.value = String(_downsampleDpi);
       tiffDpi.value = String(_tiffDpi);
       if (tiffZip) tiffZip.checked = _tiffZip;
+      if (tiffTransparent) tiffTransparent.checked = _tiffTransparent;
       syncInputs();
       // These loaded values ARE the current defaults → nothing to save yet.
       _defaultsSnapshot = settingsSnapshot();
@@ -3703,6 +3727,7 @@
         } else {
           const artCmyka = await convertImageToCmyka(msg.pngBytes, msg.width, msg.height, _exportLookup);
           const anyMark = _cropMarks || _regMarks || _colorBars || _pageInfo;
+          let data, w, h;
           if (anyMark) {
             const now = new Date();
             const pad = (n) => String(n).padStart(2, "0");
@@ -3712,10 +3737,15 @@
               bleedPx: msg.bleedPx || 0, dpi: msg.dpi,
               cropMarks: _cropMarks, regMarks: _regMarks, colorBars: _colorBars, pageInfo: _pageInfo,
               piLeft: [msg.fileName, msg.frameName].filter(Boolean).join("  ·  "), piRight: stamp });
-            fileBytes = await buildCmykaTiff(composed.data, composed.w, composed.h, msg.dpi, _tiffZip);
+            data = composed.data; w = composed.w; h = composed.h;
           } else {
-            // No marks — the raster already carries any bleed (backend exported a slice), so ship as-is.
-            fileBytes = await buildCmykaTiff(artCmyka, msg.width, msg.height, msg.dpi, _tiffZip);
+            // No marks — the raster already carries any bleed (backend exported a slice).
+            data = artCmyka; w = msg.width; h = msg.height;
+          }
+          if (_tiffTransparent) {
+            fileBytes = await buildCmykaTiff(data, w, h, msg.dpi, _tiffZip, true);            // keep alpha
+          } else {
+            fileBytes = await buildCmykaTiff(flattenCmykaToCmyk(data, w, h), w, h, msg.dpi, _tiffZip, false); // opaque white paper, 4-channel CMYK
           }
           fileName = `${safe}_CMYK.tiff`; fileMime = "image/tiff";
         }
