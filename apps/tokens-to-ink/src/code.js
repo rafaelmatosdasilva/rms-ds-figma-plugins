@@ -522,13 +522,21 @@ async function _exportOneFrame(i) {
       const dpiScale = dpi / 72;
       // Figma units are points here (dpiScale = dpi/72), so bleed in units = bleed in points.
       const bleedU = _exportState.bleedOn ? (_exportState.bleedMm || 0) * 72 / 25.4 : 0;
-      const trimW = Math.round(node.width * dpiScale);
-      const trimH = Math.round(node.height * dpiScale);
-      let pngBytes, width, height, bleedPx = 0;
-      if (bleedU > 0 && node.absoluteBoundingBox) {
-        // Real bleed: export a Slice covering trim + bleed so the raster includes the artwork
-        // (and any siblings) that bleeds past the frame's cut line. exportAsync on a plain frame
-        // node only ever yields the trim box, so a slice is the only way to capture true bleed.
+      const bleedInside = _exportState.bleedInside;
+      let pngBytes, width, height, bleedPx = 0, trimW, trimH;
+      if (bleedInside && bleedU > 0) {
+        // The frame ALREADY includes the bleed: export it as-is (it carries the bleed art), and the
+        // cut is the frame inset by the bleed on every side — no slice needed.
+        pngBytes = await node.exportAsync({ format: "PNG", constraint: { type: "SCALE", value: dpiScale } });
+        width = Math.round(node.width * dpiScale);
+        height = Math.round(node.height * dpiScale);
+        bleedPx = Math.round(bleedU * dpiScale);
+        trimW = Math.round((node.width - 2 * bleedU) * dpiScale);
+        trimH = Math.round((node.height - 2 * bleedU) * dpiScale);
+      } else if (bleedU > 0 && node.absoluteBoundingBox) {
+        // Real bleed OUTSIDE the frame: export a Slice covering trim + bleed so the raster includes
+        // the artwork (and any siblings) that bleeds past the frame's cut line. exportAsync on a
+        // plain frame node only ever yields the trim box, so a slice is the only way to capture it.
         const abb = node.absoluteBoundingBox;
         let page = node.parent;
         while (page && page.type !== "PAGE") page = page.parent;
@@ -545,10 +553,12 @@ async function _exportOneFrame(i) {
         bleedPx = Math.round(bleedU * dpiScale);
         width = Math.round((abb.width + 2 * bleedU) * dpiScale);
         height = Math.round((abb.height + 2 * bleedU) * dpiScale);
+        trimW = Math.round(node.width * dpiScale);
+        trimH = Math.round(node.height * dpiScale);
       } else {
         pngBytes = await node.exportAsync({ format: "PNG", constraint: { type: "SCALE", value: dpiScale } });
-        width = trimW;
-        height = trimH;
+        width = trimW = Math.round(node.width * dpiScale);
+        height = trimH = Math.round(node.height * dpiScale);
       }
       if (_exportCancelled) return;
       figma.ui.postMessage({
@@ -673,7 +683,8 @@ figma.ui.onmessage = async (msg) => {
     // the raster carries the artwork that spills past the cut line — a plain frame export can't.
     const bleedOn = !!msg.bleedOn;
     const bleedMm = typeof msg.bleedMm === "number" && msg.bleedMm >= 0 ? msg.bleedMm : 3;
-    _exportState = { selection, format, colorLookup, tiffDpi, bleedOn, bleedMm };
+    const bleedInside = !!msg.bleedInside;   // the frame already contains the bleed → no slice, cut is inset
+    _exportState = { selection, format, colorLookup, tiffDpi, bleedOn, bleedMm, bleedInside };
     figma.ui.postMessage({ type: "export-ready", count: selection.length, format });
     return;
   }

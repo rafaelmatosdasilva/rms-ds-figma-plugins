@@ -50,6 +50,17 @@ describe('tokens-to-ink — crop marks', () => {
     expect(out.indexOf('0 0 0 0 K')).toBeLessThan(out.indexOf('1 1 1 1 K'));
   });
 
+  it('insets the cut and runs the marks across the bleed when the frame already includes it', async () => {
+    ui = bootUI();
+    // frame [0 0 64 64], 8.5pt bleed already inside → cut = [8.5 8.5 55.5 55.5], bleed ring around it.
+    const out = latin1(await ui.window.convertPdfToCmyk(pdfBytes(), {}, { cropMarks: true, bleedPt: 8.5, bleedInside: true }));
+    expect(out).toMatch(/\/TrimBox\s*\[\s*8\.5\s+8\.5\s+55\.5\s+55\.5\s*\]/); // trim = the inset cut
+    expect(out).toMatch(/\/BleedBox\s*\[\s*0\s+0\s+64\s+64\s*\]/);            // bleed box = the whole frame
+    // A crop line now STARTS at the cut (x=8.5) and runs outward past the frame edge (to -18),
+    // crossing the 8.5pt black bleed ring — the knockout is what keeps it visible there.
+    expect(out).toMatch(/8\.5 8\.5 m -18 8\.5 l/);
+  });
+
   it('places marks at the frame trim box, not the (larger) page box', async () => {
     ui = bootUI();
     // Simulate a frame (trim) sitting inside content that overflows the page box.

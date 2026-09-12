@@ -175,6 +175,30 @@ describe('tokens-to-ink — export', () => {
     });
   });
 
+  it('exports the frame as-is (no slice) when the artwork already includes the bleed (TIFF)', async () => {
+    // Bleed-inside: the frame already carries the bleed, so the cut is the frame INSET by the bleed
+    // and no slice is needed — export the frame straight.
+    const { scene, page, one } = exportScene();
+    const { figma, send, lastOf } = await loadPlugin(ENTRY, scene);
+    figma.currentPage = page;
+    let sliced = false;
+    figma.createSlice = () => { sliced = true; return { resize() {}, async exportAsync() { return new Uint8Array(); }, remove() {} }; };
+
+    await send({ type: 'export-request', format: 'tiff', bleedOn: true, bleedMm: 3, bleedInside: true });
+    await send({ type: 'export-frames' });
+
+    const dpiScale = 300 / 72, bleedU = 3 * 72 / 25.4;
+    expect(sliced).toBe(false);                          // no slice — the frame already has the bleed
+    expect(lastOf('export-data')).toMatchObject({
+      format: 'tiff',
+      width: Math.round(100 * dpiScale),                 // raster = the whole frame
+      height: Math.round(200 * dpiScale),
+      trimW: Math.round((100 - 2 * bleedU) * dpiScale),  // cut = frame inset by the bleed
+      trimH: Math.round((200 - 2 * bleedU) * dpiScale),
+      bleedPx: Math.round(bleedU * dpiScale),
+    });
+  });
+
   it('reports a frame that fails without abandoning the batch', async () => {
     const { scene, page, one } = exportScene();
     const { figma, send, lastOf } = await loadPlugin(ENTRY, scene);

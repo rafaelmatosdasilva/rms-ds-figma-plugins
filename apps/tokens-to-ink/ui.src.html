@@ -476,6 +476,8 @@
                 <span class="cropmarks-unit">mm</span>
               </div>
             </div>
+            <div class="dividerLine"></div>
+            <label class="switch"><input type="checkbox" id="bleed-inside-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Artwork already includes bleed</span></span></label>
           </div>
         </section>
       </div>
@@ -617,6 +619,7 @@
   let _pageInfo = false;        // print the file name + timestamp in the slug — off by default
   let _bleedOn = false;         // add a bleed margin around the trim — off by default
   let _bleedMm = 3;             // configurable bleed amount, in millimetres (used only when _bleedOn)
+  let _bleedInside = false;     // the Figma frame ALREADY includes the bleed → cut = frame inset by bleed, marks cross the bleed
   let _downsample = false;      // downsample embedded images on PDF export — off by default
   let _downsampleDpi = 300;     // target resolution for downsampling, in DPI (used only when _downsample)
   let _tiffDpi = 300;           // TIFF raster export resolution, in DPI
@@ -1754,7 +1757,7 @@
   // (BleedBox) whether or not marks are drawn, and crop marks can be drawn with zero bleed
   // (right at the trim). The trim box is the frame's own cut line (may be smaller than the
   // page box when art spills outside the frame).
-  function addPrintMarks(objs, nums, bleedPt, trimBox, cropMarks, regMarks, pageInfo, piLeft, piRight, colorBars) {
+  function addPrintMarks(objs, nums, bleedPt, trimBox, cropMarks, regMarks, pageInfo, piLeft, piRight, colorBars, bleedInside) {
     const b = Math.max(0, bleedPt || 0);
     const LEN = 18, WGT = 0.25, KO = 0.5;   // KO = white knockout, ~0.5pt of paper each side of a mark
     const REG_R = 4, REG_CROSS = 13, REG_OFF = 13; // InDesign-style target: small circle, long crosshair reaching well past it
@@ -1789,7 +1792,12 @@
       const mb = obj.body.match(/\/MediaBox\s*\[\s*([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s*\]/);
       if (!mb) continue;
       const mx0 = +mb[1], my0 = +mb[2], mx1 = +mb[3], my1 = +mb[4];
-      const t = (trimBox && isFinite(trimBox.x0)) ? trimBox : { x0: mx0, y0: my0, x1: mx1, y1: my1 };
+      let t = (trimBox && isFinite(trimBox.x0)) ? trimBox : { x0: mx0, y0: my0, x1: mx1, y1: my1 };
+      // When the Figma frame ALREADY includes the bleed, the real cut is inset by the bleed on
+      // every side. Treat that inset rect as the trim: the clip then covers the whole frame (= the
+      // bleed box), the crop marks land on the cut and run out across the bleed, and TrimBox/
+      // BleedBox come out right — no other change needed.
+      if (bleedInside && b > 0) t = { x0: t.x0 + b, y0: t.y0 + b, x1: t.x1 - b, y1: t.y1 - b };
       let body = obj.body;
       // ── Clip the page content to the bleed box (trim ± bleed; when there is no bleed this
       // is the frame's own bounding box). Overflow beyond the bleed is dropped from the
@@ -1809,15 +1817,18 @@
         const clipOpen = addStream(toBytes(`q ${f(bx0)} ${f(by0)} ${f(bw)} ${f(bh)} re W n\n`));
         const clipClose = addStream(toBytes(`Q\n`));
         let contents = `${clipOpen} 0 R ${origRefs} ${clipClose} 0 R`;
-        // ── Crop marks (optional): 8 corner lines, offset out from the trim by the bleed ──
+        // ── Crop marks (optional): 8 corner lines. Normally offset out from the trim by the bleed
+        // (clear of the art); when the frame includes the bleed they start AT the cut (off=0) and
+        // run out across the bleed ring, the knockout keeping them visible over the art. ──
         if (cropMarks) {
           const seg = [];
+          const off = bleedInside ? 0 : b;
           const h = (xa, xb, y) => seg.push(`${f(xa)} ${f(y)} m ${f(xb)} ${f(y)} l`); // horizontal
           const v = (x, ya, yb) => seg.push(`${f(x)} ${f(ya)} m ${f(x)} ${f(yb)} l`); // vertical
-          h(t.x0 - b, t.x0 - b - LEN, t.y0); h(t.x0 - b, t.x0 - b - LEN, t.y1);  // left of BL / TL
-          h(t.x1 + b, t.x1 + b + LEN, t.y0); h(t.x1 + b, t.x1 + b + LEN, t.y1);  // right of BR / TR
-          v(t.x0, t.y0 - b, t.y0 - b - LEN); v(t.x1, t.y0 - b, t.y0 - b - LEN);  // below BL / BR
-          v(t.x0, t.y1 + b, t.y1 + b + LEN); v(t.x1, t.y1 + b, t.y1 + b + LEN);  // above TL / TR
+          h(t.x0 - off, t.x0 - b - LEN, t.y0); h(t.x0 - off, t.x0 - b - LEN, t.y1);  // left of BL / TL
+          h(t.x1 + off, t.x1 + b + LEN, t.y0); h(t.x1 + off, t.x1 + b + LEN, t.y1);  // right of BR / TR
+          v(t.x0, t.y0 - off, t.y0 - b - LEN); v(t.x1, t.y0 - off, t.y0 - b - LEN);  // below BL / BR
+          v(t.x0, t.y1 + off, t.y1 + b + LEN); v(t.x1, t.y1 + off, t.y1 + b + LEN);  // above TL / TR
           contents += ` ${addStream(toBytes(strokeKO(seg.join('\n'))))} 0 R`;
         }
         // ── Registration marks (optional): a target centred on each side, past the bleed. ──
@@ -2374,7 +2385,7 @@
     window._lastPdfImagesUnconverted = (await convertPdfImages(objs,imgNums,ds,iccGray,colorLookup,!!(opts&&opts.imagesCmyk))).unconverted;  // >0 only in CMYK mode
 
     // ── Crop / trim marks (print) — added last so they emit as clean DeviceCMYK ──
-    if(opts&&(opts.cropMarks||opts.regMarks||opts.pageInfo||opts.colorBars||opts.bleedPt>0))addPrintMarks(objs,nums,opts.bleedPt,opts.trimBox,opts.cropMarks,opts.regMarks,opts.pageInfo,opts.pageInfoLeft,opts.pageInfoRight,opts.colorBars);
+    if(opts&&(opts.cropMarks||opts.regMarks||opts.pageInfo||opts.colorBars||opts.bleedPt>0))addPrintMarks(objs,nums,opts.bleedPt,opts.trimBox,opts.cropMarks,opts.regMarks,opts.pageInfo,opts.pageInfoLeft,opts.pageInfoRight,opts.colorBars,opts.bleedInside);
 
     // ── PDF/X-4 press-ready: embed the ICC output intent + XMP + per-page TrimBox ──
     const isPdfX = !!(opts && opts.pdfx) && applyPdfX(objs, nums, trailerDict, s2b, opts && opts.now);
@@ -2590,16 +2601,20 @@
     const baseW = Math.max(1, 0.25 * s);           // mark stroke weight (0.25pt)
     const KO = Math.max(1, 0.5 * s);               // white knockout: ~0.5pt of paper each side
     const tl = L.trimLeft, tt = L.trimTop, tr = L.trimRight, tb = L.trimBottom;
+    // crossBleed (frame already includes the bleed): the crop marks start at the CUT and run
+    // outward across the bleed ring, so their near end sits on the artwork (the knockout keeps
+    // them visible). Normally they are offset a bleed OUTSIDE the trim, clear of the art.
+    const cropOff = o.crossBleed ? 0 : b;
     const line = (x0, y0, x1, y1) => { ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); };
     const paint = (halo) => {
       ctx.strokeStyle = halo ? '#fff' : '#000';
       ctx.fillStyle   = halo ? '#fff' : '#000';
       ctx.lineWidth   = halo ? baseW + 2 * KO : baseW;
       if (o.cropMarks) {
-        line(tl - b, tt, tl - b - LEN, tt); line(tl - b, tb, tl - b - LEN, tb);   // horizontal, left of TL / BL
-        line(tr + b, tt, tr + b + LEN, tt); line(tr + b, tb, tr + b + LEN, tb);   // horizontal, right of TR / BR
-        line(tl, tt - b, tl, tt - b - LEN); line(tr, tt - b, tr, tt - b - LEN);   // vertical, above TL / TR
-        line(tl, tb + b, tl, tb + b + LEN); line(tr, tb + b, tr, tb + b + LEN);   // vertical, below BL / BR
+        line(tl - cropOff, tt, tl - b - LEN, tt); line(tl - cropOff, tb, tl - b - LEN, tb);   // horizontal, left of TL / BL
+        line(tr + cropOff, tt, tr + b + LEN, tt); line(tr + cropOff, tb, tr + b + LEN, tb);   // horizontal, right of TR / BR
+        line(tl, tt - cropOff, tl, tt - b - LEN); line(tr, tt - cropOff, tr, tt - b - LEN);   // vertical, above TL / TR
+        line(tl, tb + cropOff, tl, tb + b + LEN); line(tr, tb + cropOff, tr, tb + b + LEN);   // vertical, below BL / BR
       }
       if (o.regMarks) {
         const R = 4 * s, cx = (tl + tr) / 2, cy = (tt + tb) / 2;
@@ -2658,7 +2673,7 @@
     setExportBusy(true);
     _showExportProgress(`Preparing ${fmt.toUpperCase()} export…`);
 
-    parent.postMessage({ pluginMessage: { type: "export-request", format: fmt, tiffDpi: _tiffDpi, bleedOn: _bleedOn, bleedMm: _bleedMm } }, "*");
+    parent.postMessage({ pluginMessage: { type: "export-request", format: fmt, tiffDpi: _tiffDpi, bleedOn: _bleedOn, bleedMm: _bleedMm, bleedInside: _bleedInside } }, "*");
   }
 
   // Called when code.js replies with the real exportable frame count.
@@ -2817,6 +2832,7 @@
     const tiffDpi = document.getElementById("tiff-dpi-input");
     const tiffZip = document.getElementById("tiff-zip-toggle");
     const tiffTransparent = document.getElementById("tiff-transparent-toggle");
+    const bleedInside = document.getElementById("bleed-inside-toggle");
     if (!confirm || !exportPanel || !toggle || !bleedOn || !bleed || !downsample || !dpi || !tiffDpi) return;
 
     const LABELS = { pdf: "Export PDF", tiff: "Export TIFF" };
@@ -2848,7 +2864,7 @@
       cropMarks: _cropMarks, regMarks: _regMarks, colorBars: _colorBars, preserveSpot: _preserveSpot,
       pdfx: _pdfx, imagesCmyk: _imagesCmyk, pageInfo: _pageInfo, bleedOn: _bleedOn, bleedMm: _bleedMm,
       downsample: _downsample, downsampleDpi: _downsampleDpi, tiffDpi: _tiffDpi, tiffZip: _tiffZip,
-      tiffTransparent: _tiffTransparent,
+      tiffTransparent: _tiffTransparent, bleedInside: _bleedInside,
     });
     // Disable "Save as default" while the current options already equal the saved defaults —
     // there is nothing to save (DS 2155:25145 shows the button in its disabled state).
@@ -2915,6 +2931,7 @@
     tiffDpi.addEventListener("blur", () => { tiffDpi.value = String(_tiffDpi); });
     if (tiffZip) tiffZip.addEventListener("change", () => { _tiffZip = tiffZip.checked; persist(); });
     if (tiffTransparent) tiffTransparent.addEventListener("change", () => { _tiffTransparent = tiffTransparent.checked; persist(); });
+    if (bleedInside) bleedInside.addEventListener("change", () => { _bleedInside = bleedInside.checked; persist(); });
     // Called when code.js sends back the persisted settings.
     window.__applyExportSettings = (s) => {
       s = s || {};
@@ -2926,6 +2943,7 @@
       if (typeof s.imagesCmyk === "boolean") _imagesCmyk = s.imagesCmyk;
       _pageInfo = !!s.pageInfo;
       _bleedOn = !!s.bleedOn;
+      if (typeof s.bleedInside === "boolean") _bleedInside = s.bleedInside;
       _downsample = !!s.downsample;
       if (typeof s.bleedMm === "number" && s.bleedMm >= 0) _bleedMm = s.bleedMm;
       if (typeof s.downsampleDpi === "number" && s.downsampleDpi > 0) _downsampleDpi = s.downsampleDpi;
@@ -2940,6 +2958,7 @@
       if (cmykImages) cmykImages.checked = _imagesCmyk;
       pageinfo.checked = _pageInfo;
       bleedOn.checked = _bleedOn;
+      if (bleedInside) bleedInside.checked = _bleedInside;
       downsample.checked = _downsample;
       bleed.value = String(_bleedMm);
       dpi.value = String(_downsampleDpi);
@@ -3717,6 +3736,7 @@
           const stamp = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
           fileBytes = await convertPdfToCmyk(msg.pdfBytes, _exportLookup,
             { cropMarks: _cropMarks, regMarks: _regMarks, colorBars: _colorBars, preserveSpot: _preserveSpot, pdfx: _pdfx, bleedPt: _bleedOn ? _bleedMm * 72 / 25.4 : 0,
+              bleedInside: _bleedInside,
               downsample: _downsample, downsampleDpi: _downsampleDpi, imagesCmyk: _imagesCmyk, trimBox: msg.trimBox,
               pageInfo: _pageInfo,
               pageInfoLeft: [msg.fileName, msg.frameName].filter(Boolean).join("  ·  "),
@@ -3736,6 +3756,7 @@
               rasterW: msg.width, rasterH: msg.height, trimW: msg.trimW, trimH: msg.trimH,
               bleedPx: msg.bleedPx || 0, dpi: msg.dpi,
               cropMarks: _cropMarks, regMarks: _regMarks, colorBars: _colorBars, pageInfo: _pageInfo,
+              crossBleed: _bleedInside,
               piLeft: [msg.fileName, msg.frameName].filter(Boolean).join("  ·  "), piRight: stamp });
             data = composed.data; w = composed.w; h = composed.h;
           } else {

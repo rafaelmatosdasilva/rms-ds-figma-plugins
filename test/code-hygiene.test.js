@@ -46,6 +46,7 @@ const MAX_FUNCTION_LINES = 120;
 const LENGTH_BASELINE = {
   handleUsageScan: 482,       // impact-atlas: multi-phase scan, staged progress (+5 deleted-component guard 2026-07-31; +1 missed-local-var 2026-08-01; +1 external-var cache clear 2026-08-01; +2 board-page skips 2026-08-01)
   convertPdfToCmyk: 430,      // tokens-to-ink: PDF colour conversion
+  addPrintMarks: 127,         // tokens-to-ink: crop/registration/colour-bar/slug marks + knockout + bleed-inside cut
   handleInit: 181,            // impact-atlas (+1 missed-local-var 2026-08-01; +2 external-var cache clear & hasExternalLibraries consistency 2026-08-01)
   handlePlaceComponents: 138, // impact-atlas
   buildComponentIndex: 136,   // impact-atlas (+5 for the deleted-component remote guard, 2026-07-31; +1 board-page skip 2026-08-01)
