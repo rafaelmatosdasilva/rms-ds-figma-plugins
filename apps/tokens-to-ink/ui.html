@@ -447,6 +447,10 @@
         <section class="export-card-wrap" id="card-tiff" hidden>
           <div class="card">
             <span class="export-section-label">Output</span>
+            <label class="switch"><input type="checkbox" id="tiff-zip-toggle" class="switch-input" checked><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Compress (lossless ZIP)</span></span></label>
+            <div class="dividerLine"></div>
+            <label class="switch"><input type="checkbox" id="tiff-transparent-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Transparent background</span></span></label>
+            <div class="dividerLine"></div>
             <div class="switch-row">
               <span class="switch-description">Resolution</span>
               <div class="inputWrap cropmarks-bleed" id="tiff-dpi-wrap">
@@ -454,10 +458,6 @@
                 <span class="cropmarks-unit">dpi</span>
               </div>
             </div>
-            <div class="dividerLine"></div>
-            <label class="switch"><input type="checkbox" id="tiff-zip-toggle" class="switch-input" checked><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Compress (lossless ZIP)</span></span></label>
-            <div class="dividerLine"></div>
-            <label class="switch"><input type="checkbox" id="tiff-transparent-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Transparent background</span></span></label>
           </div>
         </section>
         <!-- Marks and bleed card (both formats) — always the RIGHT slot. -->
@@ -479,8 +479,6 @@
                 <span class="cropmarks-unit">mm</span>
               </div>
             </div>
-            <div class="dividerLine"></div>
-            <label class="switch"><input type="checkbox" id="bleed-inside-toggle" class="switch-input"><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Artwork already includes bleed</span></span></label>
           </div>
         </section>
       </div>
@@ -624,8 +622,9 @@
   let _imagesCmyk = false;      // convert embedded photos to CMYK — OFF by default (kept in RGB so reds stay true; RIP colour-manages via the FOGRA39 intent)
   let _pageInfo = false;        // print the file name + timestamp in the slug — off by default
   let _bleedOn = false;         // add a bleed margin around the trim — off by default
-  let _bleedMm = 3;             // configurable bleed amount, in millimetres (used only when _bleedOn)
-  let _bleedInside = false;     // the Figma frame ALREADY includes the bleed → cut = frame inset by bleed, marks cross the bleed
+  let _bleedMm = 3;             // configurable bleed amount, in millimetres (used only when _bleedOn). The
+                                // frame is assumed to ALREADY include this bleed: the cut is the frame inset
+                                // by the bleed, and the crop marks sit on the cut and cross the bleed ring.
   let _downsample = false;      // downsample embedded images on PDF export — off by default
   let _downsampleDpi = 300;     // target resolution for downsampling, in DPI (used only when _downsample)
   let _tiffDpi = 300;           // TIFF raster export resolution, in DPI
@@ -2679,7 +2678,7 @@
     setExportBusy(true);
     _showExportProgress(`Preparing ${fmt.toUpperCase()} export…`);
 
-    parent.postMessage({ pluginMessage: { type: "export-request", format: fmt, tiffDpi: _tiffDpi, bleedOn: _bleedOn, bleedMm: _bleedMm, bleedInside: _bleedInside } }, "*");
+    parent.postMessage({ pluginMessage: { type: "export-request", format: fmt, tiffDpi: _tiffDpi, bleedOn: _bleedOn, bleedMm: _bleedMm, bleedInside: _bleedOn } }, "*");
   }
 
   // Called when code.js replies with the real exportable frame count.
@@ -2838,7 +2837,6 @@
     const tiffDpi = document.getElementById("tiff-dpi-input");
     const tiffZip = document.getElementById("tiff-zip-toggle");
     const tiffTransparent = document.getElementById("tiff-transparent-toggle");
-    const bleedInside = document.getElementById("bleed-inside-toggle");
     if (!confirm || !exportPanel || !toggle || !bleedOn || !bleed || !downsample || !dpi || !tiffDpi) return;
 
     const LABELS = { pdf: "Export PDF", tiff: "Export TIFF" };
@@ -2870,7 +2868,7 @@
       cropMarks: _cropMarks, regMarks: _regMarks, colorBars: _colorBars, preserveSpot: _preserveSpot,
       pdfx: _pdfx, imagesCmyk: _imagesCmyk, pageInfo: _pageInfo, bleedOn: _bleedOn, bleedMm: _bleedMm,
       downsample: _downsample, downsampleDpi: _downsampleDpi, tiffDpi: _tiffDpi, tiffZip: _tiffZip,
-      tiffTransparent: _tiffTransparent, bleedInside: _bleedInside,
+      tiffTransparent: _tiffTransparent,
     });
     // Disable "Save as default" while the current options already equal the saved defaults —
     // there is nothing to save (DS 2155:25145 shows the button in its disabled state).
@@ -2937,7 +2935,6 @@
     tiffDpi.addEventListener("blur", () => { tiffDpi.value = String(_tiffDpi); });
     if (tiffZip) tiffZip.addEventListener("change", () => { _tiffZip = tiffZip.checked; persist(); });
     if (tiffTransparent) tiffTransparent.addEventListener("change", () => { _tiffTransparent = tiffTransparent.checked; persist(); });
-    if (bleedInside) bleedInside.addEventListener("change", () => { _bleedInside = bleedInside.checked; persist(); });
     // Called when code.js sends back the persisted settings.
     window.__applyExportSettings = (s) => {
       s = s || {};
@@ -2949,7 +2946,6 @@
       if (typeof s.imagesCmyk === "boolean") _imagesCmyk = s.imagesCmyk;
       _pageInfo = !!s.pageInfo;
       _bleedOn = !!s.bleedOn;
-      if (typeof s.bleedInside === "boolean") _bleedInside = s.bleedInside;
       _downsample = !!s.downsample;
       if (typeof s.bleedMm === "number" && s.bleedMm >= 0) _bleedMm = s.bleedMm;
       if (typeof s.downsampleDpi === "number" && s.downsampleDpi > 0) _downsampleDpi = s.downsampleDpi;
@@ -2964,7 +2960,6 @@
       if (cmykImages) cmykImages.checked = _imagesCmyk;
       pageinfo.checked = _pageInfo;
       bleedOn.checked = _bleedOn;
-      if (bleedInside) bleedInside.checked = _bleedInside;
       downsample.checked = _downsample;
       bleed.value = String(_bleedMm);
       dpi.value = String(_downsampleDpi);
@@ -3742,7 +3737,7 @@
           const stamp = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
           fileBytes = await convertPdfToCmyk(msg.pdfBytes, _exportLookup,
             { cropMarks: _cropMarks, regMarks: _regMarks, colorBars: _colorBars, preserveSpot: _preserveSpot, pdfx: _pdfx, bleedPt: _bleedOn ? _bleedMm * 72 / 25.4 : 0,
-              bleedInside: _bleedInside,
+              bleedInside: _bleedOn,
               downsample: _downsample, downsampleDpi: _downsampleDpi, imagesCmyk: _imagesCmyk, trimBox: msg.trimBox,
               pageInfo: _pageInfo,
               pageInfoLeft: [msg.fileName, msg.frameName].filter(Boolean).join("  ·  "),
@@ -3762,7 +3757,7 @@
               rasterW: msg.width, rasterH: msg.height, trimW: msg.trimW, trimH: msg.trimH,
               bleedPx: msg.bleedPx || 0, dpi: msg.dpi,
               cropMarks: _cropMarks, regMarks: _regMarks, colorBars: _colorBars, pageInfo: _pageInfo,
-              crossBleed: _bleedInside,
+              crossBleed: _bleedOn,
               piLeft: [msg.fileName, msg.frameName].filter(Boolean).join("  ·  "), piRight: stamp });
             data = composed.data; w = composed.w; h = composed.h;
           } else {
