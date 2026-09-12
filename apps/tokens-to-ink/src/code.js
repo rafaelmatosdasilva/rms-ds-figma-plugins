@@ -520,16 +520,42 @@ async function _exportOneFrame(i) {
     } else {
       const dpi = _exportState.tiffDpi || 300;
       const dpiScale = dpi / 72;
-      const pngBytes = await node.exportAsync({
-        format: "PNG", constraint: { type: "SCALE", value: dpiScale },
-      });
+      // Figma units are points here (dpiScale = dpi/72), so bleed in units = bleed in points.
+      const bleedU = _exportState.bleedOn ? (_exportState.bleedMm || 0) * 72 / 25.4 : 0;
+      const trimW = Math.round(node.width * dpiScale);
+      const trimH = Math.round(node.height * dpiScale);
+      let pngBytes, width, height, bleedPx = 0;
+      if (bleedU > 0 && node.absoluteBoundingBox) {
+        // Real bleed: export a Slice covering trim + bleed so the raster includes the artwork
+        // (and any siblings) that bleeds past the frame's cut line. exportAsync on a plain frame
+        // node only ever yields the trim box, so a slice is the only way to capture true bleed.
+        const abb = node.absoluteBoundingBox;
+        let page = node.parent;
+        while (page && page.type !== "PAGE") page = page.parent;
+        const slice = figma.createSlice();
+        try {
+          if (page) page.appendChild(slice);
+          slice.x = abb.x - bleedU;
+          slice.y = abb.y - bleedU;
+          slice.resize(abb.width + 2 * bleedU, abb.height + 2 * bleedU);
+          pngBytes = await slice.exportAsync({ format: "PNG", constraint: { type: "SCALE", value: dpiScale } });
+        } finally {
+          try { slice.remove(); } catch (_) { /* already gone */ }
+        }
+        bleedPx = Math.round(bleedU * dpiScale);
+        width = Math.round((abb.width + 2 * bleedU) * dpiScale);
+        height = Math.round((abb.height + 2 * bleedU) * dpiScale);
+      } else {
+        pngBytes = await node.exportAsync({ format: "PNG", constraint: { type: "SCALE", value: dpiScale } });
+        width = trimW;
+        height = trimH;
+      }
       if (_exportCancelled) return;
       figma.ui.postMessage({
         type: "export-data", format: "tiff",
         pngBytes: pngBytes, dpi,
-        width: Math.round(node.width * dpiScale),
-        height: Math.round(node.height * dpiScale),
-        colorLookup, frameName: node.name, index: i, total: selection.length,
+        width, height, trimW, trimH, bleedPx,
+        colorLookup, frameName: node.name, fileName: figma.root.name, index: i, total: selection.length,
       });
     }
   } catch (err) {
@@ -642,7 +668,12 @@ figma.ui.onmessage = async (msg) => {
     const colorLookup = await buildColorLookup(colorVariables, allVariablesById);
 
     const tiffDpi = typeof msg.tiffDpi === "number" && msg.tiffDpi > 0 ? msg.tiffDpi : 300;
-    _exportState = { selection, format, colorLookup, tiffDpi };
+    // TIFF marks/bleed are rendered UI-side onto the raster; the backend only needs the bleed
+    // amount, because REAL bleed means exporting a larger region (a Slice over trim + bleed) so
+    // the raster carries the artwork that spills past the cut line — a plain frame export can't.
+    const bleedOn = !!msg.bleedOn;
+    const bleedMm = typeof msg.bleedMm === "number" && msg.bleedMm >= 0 ? msg.bleedMm : 3;
+    _exportState = { selection, format, colorLookup, tiffDpi, bleedOn, bleedMm };
     figma.ui.postMessage({ type: "export-ready", count: selection.length, format });
     return;
   }

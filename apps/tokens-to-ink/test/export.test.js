@@ -132,6 +132,46 @@ describe('tokens-to-ink — export', () => {
     expect(lastOf('export-data')).toMatchObject({
       width: Math.round(100 * dpiScale),
       height: Math.round(200 * dpiScale),
+      trimW: Math.round(100 * dpiScale),
+      trimH: Math.round(200 * dpiScale),
+      bleedPx: 0,              // no bleed → plain frame export, marks (if any) are UI-side
+    });
+  });
+
+  it('exports a slice over trim + bleed for real bleed (TIFF)', async () => {
+    // Real bleed needs the artwork that spills PAST the cut line, which a frame export never
+    // yields — so the backend positions a Slice over trim ± bleed and exports that region.
+    const { scene, page, one } = exportScene();
+    const { figma, send, lastOf } = await loadPlugin(ENTRY, scene);
+    figma.currentPage = page;
+    one.absoluteBoundingBox = { x: 10, y: 20, width: 100, height: 200 };
+
+    let sliceProps = null, removed = false;
+    figma.createSlice = () => ({
+      x: 0, y: 0, w: 0, h: 0,
+      resize(w, h) { this.w = w; this.h = h; },
+      async exportAsync(s) { sliceProps = { x: this.x, y: this.y, w: this.w, h: this.h, s }; return new Uint8Array([9]); },
+      remove() { removed = true; },
+    });
+
+    await send({ type: 'export-request', format: 'tiff', bleedOn: true, bleedMm: 3 });
+    await send({ type: 'export-frames' });
+
+    const dpiScale = 300 / 72, bleedU = 3 * 72 / 25.4;
+    expect(sliceProps).toBeTruthy();
+    expect(sliceProps.x).toBeCloseTo(10 - bleedU, 3);   // positioned a bleed outside the trim box
+    expect(sliceProps.y).toBeCloseTo(20 - bleedU, 3);
+    expect(sliceProps.w).toBeCloseTo(100 + 2 * bleedU, 3);
+    expect(sliceProps.h).toBeCloseTo(200 + 2 * bleedU, 3);
+    expect(sliceProps.s).toMatchObject({ format: 'PNG', constraint: { type: 'SCALE', value: dpiScale } });
+    expect(removed).toBe(true);                          // slice always cleaned up
+    expect(lastOf('export-data')).toMatchObject({
+      format: 'tiff',
+      trimW: Math.round(100 * dpiScale),
+      trimH: Math.round(200 * dpiScale),
+      bleedPx: Math.round(bleedU * dpiScale),
+      width: Math.round((100 + 2 * bleedU) * dpiScale),
+      height: Math.round((200 + 2 * bleedU) * dpiScale),
     });
   });
 

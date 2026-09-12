@@ -2483,6 +2483,126 @@
     return out;
   }
 
+  // ── TIFF print marks ────────────────────────────────────────────────
+  // The PDF path draws crop/registration/colour-bar/file-info marks and bleed via addPrintMarks
+  // on the parsed PDF. A raster has no such layer, so we replicate the SAME geometry directly on
+  // the CMYK+alpha buffer: the artwork sits in the centre, the page grows by a mark margin on
+  // each side (only as far as the mark that lives on that edge needs), and marks are composited in
+  // registration colour (C=M=Y=K=100%). Real bleed comes from the backend, which exports a Slice
+  // over trim+bleed so `bleedPx` of live artwork already surrounds the trim in the raster.
+  //
+  // tiffMarkLayout is pure geometry (px), unit-tested; composeTiffMarks does the pixel work.
+  function tiffMarkLayout(o) {
+    const s = o.dpi / 72;                    // points → px
+    const mm = (v) => v * o.dpi / 25.4;      // mm → px
+    const LEN = 18 * s, REG_CROSS = 13 * s, REG_OFF = 13 * s, PI_SZ = 11 * s;
+    const b = o.bleedPx || 0;
+    const cropReach = o.cropMarks ? (b + LEN + 4 * s) : b;
+    const regReach  = o.regMarks  ? (b + REG_OFF + REG_CROSS) : b;
+    const baseMargin = Math.max(b, cropReach, regReach);
+    const barBand = o.colorBars ? ((o.cropMarks ? b + LEN : b + 4 * s) + 20 * s) : 0;
+    const Mside   = Math.round(baseMargin);
+    const Mtop    = Math.round(Math.max(baseMargin, barBand));
+    const Mbottom = Math.round(Math.max(baseMargin, o.hasSlug ? (b + PI_SZ + 6 * s) : 0));
+    const W = o.trimW + 2 * Mside, H = o.trimH + Mtop + Mbottom;
+    return {
+      s, mm, LEN, REG_CROSS, REG_OFF, PI_SZ, b, Mside, Mtop, Mbottom, W, H,
+      trimLeft: Mside, trimTop: Mtop, trimRight: Mside + o.trimW, trimBottom: Mtop + o.trimH,
+    };
+  }
+  window.tiffMarkLayout = tiffMarkLayout;   // exposed for tests
+
+  function composeTiffMarks(art, o) {
+    const hasSlug = !!(o.pageInfo && (o.piLeft || o.piRight));
+    const L = tiffMarkLayout({ trimW: o.trimW, trimH: o.trimH, bleedPx: o.bleedPx, dpi: o.dpi,
+      cropMarks: o.cropMarks, regMarks: o.regMarks, colorBars: o.colorBars, hasSlug });
+    const { W, H, s, mm, LEN, REG_CROSS, REG_OFF, PI_SZ, b } = L;
+    const buf = new Uint8Array(W * H * 5);   // C,M,Y,K,A — 0 = transparent paper margin
+
+    // 1) Place the artwork so its trim aligns; when bleed is on the raster is bleedPx larger on
+    //    every side, so its top-left sits bleedPx outside the trim (into the margin).
+    const artX = L.trimLeft - b, artY = L.trimTop - b;
+    for (let y = 0; y < o.rasterH; y++) {
+      const dy = artY + y; if (dy < 0 || dy >= H) continue;
+      for (let x = 0; x < o.rasterW; x++) {
+        const dx = artX + x; if (dx < 0 || dx >= W) continue;
+        const si = (y * o.rasterW + x) * 5, di = (dy * W + dx) * 5;
+        buf[di] = art[si]; buf[di + 1] = art[si + 1]; buf[di + 2] = art[si + 2]; buf[di + 3] = art[si + 3]; buf[di + 4] = art[si + 4];
+      }
+    }
+
+    // 2) Colour bars — flat DeviceCMYK patches written straight into the buffer (their border is
+    //    drawn on the registration canvas below). A K-tint wedge (left) + a CMYK strip (right).
+    let cbLeft = null, cbRight = null;
+    if (o.colorBars) {
+      const n = 11, INSET = mm(3), CENTER_GAP = 50 * s;
+      let SW = Math.min(18 * s, Math.floor(((o.trimW - CENTER_GAP) / 2 - INSET) / n));
+      if (SW >= 6 * s) {
+        SW = Math.floor(SW);
+        const wedge = [1, .9, .8, .7, .6, .5, .4, .3, .2, .1, 0];
+        const bar = [[0,0,1,0],[0,1,0,0],[1,0,0,0],[1,1,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,1],[0,0,.5,0],[0,.5,0,0],[.5,0,0,0],[0,0,0,.5]];
+        const groupW = n * SW;
+        const near = L.trimTop - (o.cropMarks ? (b + LEN) : (b + 4 * s));   // strip edge nearest the trim
+        const top = Math.round(near - SW);
+        const fillRect = (x0, y0, ww, hh, c) => {
+          const C = Math.round(c[0]*255), M = Math.round(c[1]*255), Yc = Math.round(c[2]*255), K = Math.round(c[3]*255);
+          for (let yy = 0; yy < hh; yy++) { const dy = y0 + yy; if (dy < 0 || dy >= H) continue;
+            for (let xx = 0; xx < ww; xx++) { const dx = x0 + xx; if (dx < 0 || dx >= W) continue;
+              const di = (dy * W + dx) * 5; buf[di]=C; buf[di+1]=M; buf[di+2]=Yc; buf[di+3]=K; buf[di+4]=255; } }
+        };
+        let lx = Math.round(L.trimLeft + INSET); for (const kt of wedge) { fillRect(lx, top, SW, SW, [0,0,0,kt]); lx += SW; }
+        let rx = Math.round(L.trimRight - INSET - groupW); for (const c of bar) { fillRect(rx, top, SW, SW, c); rx += SW; }
+        cbLeft  = { x: Math.round(L.trimLeft + INSET), y: top, w: groupW, h: SW };
+        cbRight = { x: Math.round(L.trimRight - INSET - groupW), y: top, w: groupW, h: SW };
+      }
+    }
+
+    // 3) Registration-coloured elements (crop marks, registration targets, colour-bar borders,
+    //    file-info text) — drawn on a 2D canvas in black, then composited as registration ink
+    //    using the canvas alpha as coverage. A canvas gives us arcs and text for free.
+    const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+    const ctx = cv.getContext('2d');
+    ctx.strokeStyle = '#000'; ctx.fillStyle = '#000'; ctx.lineCap = 'butt';
+    ctx.lineWidth = Math.max(1, 0.25 * s);
+    const line = (x0, y0, x1, y1) => { ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); };
+    const tl = L.trimLeft, tt = L.trimTop, tr = L.trimRight, tb = L.trimBottom;
+    if (o.cropMarks) {
+      line(tl - b, tt, tl - b - LEN, tt); line(tl - b, tb, tl - b - LEN, tb);   // horizontal, left of TL / BL
+      line(tr + b, tt, tr + b + LEN, tt); line(tr + b, tb, tr + b + LEN, tb);   // horizontal, right of TR / BR
+      line(tl, tt - b, tl, tt - b - LEN); line(tr, tt - b, tr, tt - b - LEN);   // vertical, above TL / TR
+      line(tl, tb + b, tl, tb + b + LEN); line(tr, tb + b, tr, tb + b + LEN);   // vertical, below BL / BR
+    }
+    if (o.regMarks) {
+      const R = 4 * s, cx = (tl + tr) / 2, cy = (tt + tb) / 2;
+      const target = (x, y) => {
+        ctx.beginPath(); ctx.arc(x, y, R, 0, Math.PI * 2); ctx.stroke();
+        line(x - REG_CROSS, y, x + REG_CROSS, y); line(x, y - REG_CROSS, x, y + REG_CROSS);
+      };
+      target(cx, tt - b - REG_OFF); target(cx, tb + b + REG_OFF);
+      target(tl - b - REG_OFF, cy); target(tr + b + REG_OFF, cy);
+    }
+    if (cbLeft)  { ctx.strokeRect(cbLeft.x + 0.5, cbLeft.y + 0.5, cbLeft.w, cbLeft.h); ctx.strokeRect(cbRight.x + 0.5, cbRight.y + 0.5, cbRight.w, cbRight.h); }
+    if (hasSlug) {
+      ctx.font = `${Math.round(PI_SZ)}px Helvetica, Arial, sans-serif`;
+      ctx.textBaseline = 'alphabetic';
+      const PAD = mm(5), baseY = tb + (o.cropMarks ? (b + LEN) : L.Mbottom) - mm(2);
+      if (o.piLeft)  { ctx.textAlign = 'left';  ctx.fillText(o.piLeft, tl + PAD, baseY); }
+      if (o.piRight) { ctx.textAlign = 'right'; ctx.fillText(o.piRight, tr - PAD, baseY); }
+    }
+    const img = ctx.getImageData(0, 0, W, H).data;   // marks coverage in the alpha channel
+    for (let p = 0, q = 0; p < img.length; p += 4, q += 5) {
+      const a = img[p + 3]; if (!a) continue;
+      const a01 = a / 255, inv = 1 - a01;
+      buf[q]     = Math.round(255 * a01 + buf[q]     * inv);
+      buf[q + 1] = Math.round(255 * a01 + buf[q + 1] * inv);
+      buf[q + 2] = Math.round(255 * a01 + buf[q + 2] * inv);
+      buf[q + 3] = Math.round(255 * a01 + buf[q + 3] * inv);
+      buf[q + 4] = Math.round(a + buf[q + 4] * inv);
+    }
+    return { data: buf, w: W, h: H };
+  }
+  window.composeTiffMarks = composeTiffMarks;   // exposed for the visual harness / debugging
+
   function downloadFile(bytes,name,mime){
     const blob=new Blob([bytes],{type:mime}),url=URL.createObjectURL(blob),a=document.createElement("a");
     a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);
@@ -2504,7 +2624,7 @@
     setExportBusy(true);
     _showExportProgress(`Preparing ${fmt.toUpperCase()} export…`);
 
-    parent.postMessage({ pluginMessage: { type: "export-request", format: fmt, tiffDpi: _tiffDpi } }, "*");
+    parent.postMessage({ pluginMessage: { type: "export-request", format: fmt, tiffDpi: _tiffDpi, bleedOn: _bleedOn, bleedMm: _bleedMm } }, "*");
   }
 
   // Called when code.js replies with the real exportable frame count.
@@ -3564,8 +3684,22 @@
           if (window._lastPdfImagesUnconverted > 0) _exportRgbFrames.push(msg.frameName);
           fileName = `${safe}_CMYK.pdf`; fileMime = "application/pdf";
         } else {
-          const cmyka = await convertImageToCmyka(msg.pngBytes, msg.width, msg.height, _exportLookup);
-          fileBytes = await buildCmykaTiff(cmyka, msg.width, msg.height, msg.dpi, _tiffZip);
+          const artCmyka = await convertImageToCmyka(msg.pngBytes, msg.width, msg.height, _exportLookup);
+          const anyMark = _cropMarks || _regMarks || _colorBars || _pageInfo;
+          if (anyMark) {
+            const now = new Date();
+            const pad = (n) => String(n).padStart(2, "0");
+            const stamp = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+            const composed = composeTiffMarks(artCmyka, {
+              rasterW: msg.width, rasterH: msg.height, trimW: msg.trimW, trimH: msg.trimH,
+              bleedPx: msg.bleedPx || 0, dpi: msg.dpi,
+              cropMarks: _cropMarks, regMarks: _regMarks, colorBars: _colorBars, pageInfo: _pageInfo,
+              piLeft: [msg.fileName, msg.frameName].filter(Boolean).join("  ·  "), piRight: stamp });
+            fileBytes = await buildCmykaTiff(composed.data, composed.w, composed.h, msg.dpi, _tiffZip);
+          } else {
+            // No marks — the raster already carries any bleed (backend exported a slice), so ship as-is.
+            fileBytes = await buildCmykaTiff(artCmyka, msg.width, msg.height, msg.dpi, _tiffZip);
+          }
           fileName = `${safe}_CMYK.tiff`; fileMime = "image/tiff";
         }
         // Disambiguate against earlier files this batch so same-named items don't

@@ -538,3 +538,42 @@ describe('tokens-to-ink UI — XSS in the results table', () => {
     expect(ui.$('#color-body').textContent).toContain(evil);
   });
 });
+
+describe('tokens-to-ink UI — TIFF mark layout', () => {
+  // tiffMarkLayout is pure geometry (px). At dpi=72, 1pt = 1px, so the constants read directly:
+  // crop tick 18 + 4 gap, registration 13 offset + 13 crosshair, file-info 11 + 6, colour-bar band.
+  const layout = (o) => { ui = loadUI(UI); return ui.window.tiffMarkLayout({ trimW: 100, trimH: 200, bleedPx: 0, dpi: 72, ...o }); };
+
+  it('adds no margin when nothing is enabled', () => {
+    const L = layout({});
+    expect(L.W).toBe(100); expect(L.H).toBe(200);
+    expect(L.trimLeft).toBe(0); expect(L.trimTop).toBe(0);
+  });
+
+  it('grows every side by the crop-mark reach (18 + 4)', () => {
+    const L = layout({ cropMarks: true });
+    expect(L.Mside).toBe(22); expect(L.Mtop).toBe(22); expect(L.Mbottom).toBe(22);
+    expect(L.W).toBe(100 + 44); expect(L.H).toBe(200 + 44);
+    expect(L.trimLeft).toBe(22); expect(L.trimTop).toBe(22);
+  });
+
+  it('uses the registration reach (13 + 13) when it is the largest mark', () => {
+    const L = layout({ regMarks: true });
+    expect(L.Mside).toBe(26); expect(L.W).toBe(100 + 52);
+  });
+
+  it('reserves extra TOP room for colour bars and extra BOTTOM room for the file-info slug', () => {
+    const bars = layout({ colorBars: true });
+    expect(bars.Mtop).toBe(24);                 // (0 + 4) + 20 band, no crop marks
+    expect(bars.Mbottom).toBe(0);
+    const slug = layout({ hasSlug: true });
+    expect(slug.Mbottom).toBe(17);              // 11pt text + 6 padding
+    expect(slug.Mtop).toBe(0);
+  });
+
+  it('never lets a margin fall below the bleed', () => {
+    const L = layout({ bleedPx: 30 });          // bleed alone, no marks
+    expect(L.Mside).toBe(30); expect(L.Mtop).toBe(30); expect(L.Mbottom).toBe(30);
+    expect(L.W).toBe(100 + 60); expect(L.H).toBe(200 + 60);
+  });
+});
