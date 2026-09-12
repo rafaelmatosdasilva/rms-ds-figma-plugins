@@ -27,6 +27,8 @@ structure-contract.mjs
 parity-history.json
 bound-tokens.json
 figma-screens.snapshot.json
+component-composition.snapshot.json
+component-prop-result.json
 packages/ui/src/*.snapshot.json
 apps/*/preview-*.html
 
