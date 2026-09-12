@@ -39,6 +39,17 @@ describe('tokens-to-ink — crop marks', () => {
     expect(out).toMatch(/\bS Q/);
   });
 
+  it('backs the marks with a white knockout so they stay visible over dark art', async () => {
+    ui = bootUI();
+    const out = latin1(await ui.window.convertPdfToCmyk(pdfBytes(), {}, { cropMarks: true, regMarks: true, bleedPt: 8.5 }));
+    // Each mark is stroked twice: a wider white knockout (0 0 0 0 K at WGT+2*KO = 1.25pt) first,
+    // then the registration ink (1 1 1 1 K at 0.25pt) on top.
+    expect(out).toMatch(/0 0 0 0 K 1\.25 w/);
+    expect(out).toMatch(/1 1 1 1 K 0\.25 w/);
+    // Knockout comes BEFORE the ink in the stream (drawn underneath).
+    expect(out.indexOf('0 0 0 0 K')).toBeLessThan(out.indexOf('1 1 1 1 K'));
+  });
+
   it('places marks at the frame trim box, not the (larger) page box', async () => {
     ui = bootUI();
     // Simulate a frame (trim) sitting inside content that overflows the page box.

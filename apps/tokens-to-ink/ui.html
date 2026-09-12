@@ -1704,7 +1704,7 @@
 
   // Content-stream ops for the registration targets — a circle + long crosshair centred on each
   // of the four sides, out past the bleed, stroked in registration colour (all four plates).
-  function registrationOps(t, b, f, wgt, R, CROSS, OFF) {
+  function registrationOps(t, b, f, wgt, R, CROSS, OFF, KO) {
     const seg = [], cx = (t.x0 + t.x1) / 2, cy = (t.y0 + t.y1) / 2, k = R * 0.5523;
     const target = (x, y) => {
       seg.push(`${f(x + R)} ${f(y)} m`);
@@ -1719,7 +1719,9 @@
     target(cx, t.y0 - b - OFF);   // bottom
     target(t.x0 - b - OFF, cy);   // left
     target(t.x1 + b + OFF, cy);   // right
-    return `q 1 1 1 1 K ${f(wgt)} w\n${seg.join('\n')}\nS Q\n`;
+    const segs = seg.join('\n');
+    // white knockout underneath, then registration ink — so the target stays visible over dark art
+    return `q 0 0 0 0 K ${f(wgt + 2 * (KO || 0))} w\n${segs}\nS 1 1 1 1 K ${f(wgt)} w\n${segs}\nS Q\n`;
   }
 
   // Content-stream ops for the top-slug colour bars: a left K-tint grayscale wedge and a right
@@ -1757,7 +1759,7 @@
   // page box when art spills outside the frame).
   function addPrintMarks(objs, nums, bleedPt, trimBox, cropMarks, regMarks, pageInfo, piLeft, piRight, colorBars) {
     const b = Math.max(0, bleedPt || 0);
-    const LEN = 18, WGT = 0.25;
+    const LEN = 18, WGT = 0.25, KO = 0.5;   // KO = white knockout, ~0.5pt of paper each side of a mark
     const REG_R = 4, REG_CROSS = 13, REG_OFF = 13; // InDesign-style target: small circle, long crosshair reaching well past it
     // One fixed print slug: the page enlarges ONCE to hold every mark. Each edge grows only as
     // far as the mark that lives on it needs — the sides for crop + registration, the TOP also
@@ -1778,6 +1780,10 @@
     const f = (v) => (Math.round(v * 1000) / 1000).toString();
     const toBytes = (s) => { const u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i) & 0xFF; return u; };
     const escPdf = (str) => String(str).replace(/[\\()]/g, (c) => '\\' + c);
+    // Stroke a path set with a white knockout underneath, then the registration ink on top, so a
+    // thin mark never disappears over dark/coloured bleed art (matches the TIFF). `segs` is the
+    // shared path ops; white (0 0 0 0 K) paints opaque paper, registration (1 1 1 1 K) the mark.
+    const strokeKO = (segs) => `q 0 0 0 0 K ${f(WGT + 2 * KO)} w\n${segs}\nS 1 1 1 1 K ${f(WGT)} w\n${segs}\nS Q\n`;
     let added = 0;
     for (const num of [...nums]) {
       const obj = objs[num];
@@ -1815,10 +1821,10 @@
           h(t.x1 + b, t.x1 + b + LEN, t.y0); h(t.x1 + b, t.x1 + b + LEN, t.y1);  // right of BR / TR
           v(t.x0, t.y0 - b, t.y0 - b - LEN); v(t.x1, t.y0 - b, t.y0 - b - LEN);  // below BL / BR
           v(t.x0, t.y1 + b, t.y1 + b + LEN); v(t.x1, t.y1 + b, t.y1 + b + LEN);  // above TL / TR
-          contents += ` ${addStream(toBytes(`q 1 1 1 1 K ${f(WGT)} w\n${seg.join('\n')}\nS Q\n`))} 0 R`;
+          contents += ` ${addStream(toBytes(strokeKO(seg.join('\n'))))} 0 R`;
         }
         // ── Registration marks (optional): a target centred on each side, past the bleed. ──
-        if (regMarks) contents += ` ${addStream(toBytes(registrationOps(t, b, f, WGT, REG_R, REG_CROSS, REG_OFF)))} 0 R`;
+        if (regMarks) contents += ` ${addStream(toBytes(registrationOps(t, b, f, WGT, REG_R, REG_CROSS, REG_OFF, KO)))} 0 R`;
         // ── Colour bars (optional): InDesign-style control strips in the top slug, sitting ABOVE
         // the crop marks (bar bottom at the crop-mark tip) so they stay clear of the artwork. ──
         if (colorBars) {
@@ -1841,10 +1847,13 @@
             // Bottom-align the text with the crop marks: baseline at the crop-mark tip, lifted 2 mm.
             const SZ = PI_SZ, ly = t.y0 - (cropMarks ? (b + LEN) : Mbottom) + 2 * 72 / 25.4;
             const PAD = 5 * 72 / 25.4;   // 5 mm inset from the trim edge, both sides
-            let ops = `q 1 1 1 1 k BT /HB ${SZ} Tf\n`;
-            if (piLeft)  ops += `1 0 0 1 ${f(t.x0 + PAD)} ${f(ly)} Tm (${escPdf(piLeft)}) Tj\n`;
-            if (piRight) { const rw = SZ * 0.5 * String(piRight).length; ops += `1 0 0 1 ${f(t.x1 - PAD - rw)} ${f(ly)} Tm (${escPdf(piRight)}) Tj\n`; }
-            ops += `ET Q\n`;
+            const glyphs = [];
+            if (piLeft)  glyphs.push(`1 0 0 1 ${f(t.x0 + PAD)} ${f(ly)} Tm (${escPdf(piLeft)}) Tj`);
+            if (piRight) { const rw = SZ * 0.5 * String(piRight).length; glyphs.push(`1 0 0 1 ${f(t.x1 - PAD - rw)} ${f(ly)} Tm (${escPdf(piRight)}) Tj`); }
+            const body2 = glyphs.join('\n');
+            // white knockout (text render mode 1 = stroke, wide) behind the registration fill (mode 0),
+            // so the slug stays legible over dark bleed art — matching the crop marks and the TIFF.
+            const ops = `q BT /HB ${SZ} Tf\n0 0 0 0 K ${f(WGT + 2 * KO)} w 1 Tr\n${body2}\n1 1 1 1 k 0 Tr\n${body2}\nET Q\n`;
             contents += ` ${addStream(toBytes(ops))} 0 R`;
           }
         }
@@ -2558,46 +2567,58 @@
     }
 
     // 3) Registration-coloured elements (crop marks, registration targets, colour-bar borders,
-    //    file-info text) — drawn on a 2D canvas in black, then composited as registration ink
-    //    using the canvas alpha as coverage. A canvas gives us arcs and text for free.
+    //    file-info text). Drawn TWICE on a 2D canvas: a white knockout halo (thicker) first, then
+    //    the black mark on top — so a thin registration line never vanishes over dark or coloured
+    //    artwork (print convention). Composited by luminance: the white halo becomes opaque paper
+    //    (knocks the art out), the black ink becomes registration (C=M=Y=K=100%).
     const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
     const ctx = cv.getContext('2d');
-    ctx.strokeStyle = '#000'; ctx.fillStyle = '#000'; ctx.lineCap = 'butt';
-    ctx.lineWidth = Math.max(1, 0.25 * s);
-    const line = (x0, y0, x1, y1) => { ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); };
+    ctx.lineCap = 'butt'; ctx.lineJoin = 'round';
+    const baseW = Math.max(1, 0.25 * s);           // mark stroke weight (0.25pt)
+    const KO = Math.max(1, 0.5 * s);               // white knockout: ~0.5pt of paper each side
     const tl = L.trimLeft, tt = L.trimTop, tr = L.trimRight, tb = L.trimBottom;
-    if (o.cropMarks) {
-      line(tl - b, tt, tl - b - LEN, tt); line(tl - b, tb, tl - b - LEN, tb);   // horizontal, left of TL / BL
-      line(tr + b, tt, tr + b + LEN, tt); line(tr + b, tb, tr + b + LEN, tb);   // horizontal, right of TR / BR
-      line(tl, tt - b, tl, tt - b - LEN); line(tr, tt - b, tr, tt - b - LEN);   // vertical, above TL / TR
-      line(tl, tb + b, tl, tb + b + LEN); line(tr, tb + b, tr, tb + b + LEN);   // vertical, below BL / BR
-    }
-    if (o.regMarks) {
-      const R = 4 * s, cx = (tl + tr) / 2, cy = (tt + tb) / 2;
-      const target = (x, y) => {
-        ctx.beginPath(); ctx.arc(x, y, R, 0, Math.PI * 2); ctx.stroke();
-        line(x - REG_CROSS, y, x + REG_CROSS, y); line(x, y - REG_CROSS, x, y + REG_CROSS);
-      };
-      target(cx, tt - b - REG_OFF); target(cx, tb + b + REG_OFF);
-      target(tl - b - REG_OFF, cy); target(tr + b + REG_OFF, cy);
-    }
-    if (cbLeft)  { ctx.strokeRect(cbLeft.x + 0.5, cbLeft.y + 0.5, cbLeft.w, cbLeft.h); ctx.strokeRect(cbRight.x + 0.5, cbRight.y + 0.5, cbRight.w, cbRight.h); }
-    if (hasSlug) {
-      ctx.font = `${Math.round(PI_SZ)}px Helvetica, Arial, sans-serif`;
-      ctx.textBaseline = 'alphabetic';
-      const PAD = mm(5), baseY = tb + (o.cropMarks ? (b + LEN) : L.Mbottom) - mm(2);
-      if (o.piLeft)  { ctx.textAlign = 'left';  ctx.fillText(o.piLeft, tl + PAD, baseY); }
-      if (o.piRight) { ctx.textAlign = 'right'; ctx.fillText(o.piRight, tr - PAD, baseY); }
-    }
-    const img = ctx.getImageData(0, 0, W, H).data;   // marks coverage in the alpha channel
+    const line = (x0, y0, x1, y1) => { ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); };
+    const paint = (halo) => {
+      ctx.strokeStyle = halo ? '#fff' : '#000';
+      ctx.fillStyle   = halo ? '#fff' : '#000';
+      ctx.lineWidth   = halo ? baseW + 2 * KO : baseW;
+      if (o.cropMarks) {
+        line(tl - b, tt, tl - b - LEN, tt); line(tl - b, tb, tl - b - LEN, tb);   // horizontal, left of TL / BL
+        line(tr + b, tt, tr + b + LEN, tt); line(tr + b, tb, tr + b + LEN, tb);   // horizontal, right of TR / BR
+        line(tl, tt - b, tl, tt - b - LEN); line(tr, tt - b, tr, tt - b - LEN);   // vertical, above TL / TR
+        line(tl, tb + b, tl, tb + b + LEN); line(tr, tb + b, tr, tb + b + LEN);   // vertical, below BL / BR
+      }
+      if (o.regMarks) {
+        const R = 4 * s, cx = (tl + tr) / 2, cy = (tt + tb) / 2;
+        const target = (x, y) => {
+          ctx.beginPath(); ctx.arc(x, y, R, 0, Math.PI * 2); ctx.stroke();
+          line(x - REG_CROSS, y, x + REG_CROSS, y); line(x, y - REG_CROSS, x, y + REG_CROSS);
+        };
+        target(cx, tt - b - REG_OFF); target(cx, tb + b + REG_OFF);
+        target(tl - b - REG_OFF, cy); target(tr + b + REG_OFF, cy);
+      }
+      if (cbLeft) { ctx.strokeRect(cbLeft.x + 0.5, cbLeft.y + 0.5, cbLeft.w, cbLeft.h); ctx.strokeRect(cbRight.x + 0.5, cbRight.y + 0.5, cbRight.w, cbRight.h); }
+      if (hasSlug) {
+        ctx.font = `${Math.round(PI_SZ)}px Helvetica, Arial, sans-serif`;
+        ctx.textBaseline = 'alphabetic'; ctx.lineWidth = 2 * KO;
+        const PAD = mm(5), baseY = tb + (o.cropMarks ? (b + LEN) : L.Mbottom) - mm(2);
+        const put = (txt, x, align) => { ctx.textAlign = align; if (halo) ctx.strokeText(txt, x, baseY); else ctx.fillText(txt, x, baseY); };
+        if (o.piLeft)  put(o.piLeft,  tl + PAD, 'left');
+        if (o.piRight) put(o.piRight, tr - PAD, 'right');
+      }
+    };
+    paint(true);    // white knockout halo underneath
+    paint(false);   // black registration ink on top
+    const img = ctx.getImageData(0, 0, W, H).data;
     for (let p = 0, q = 0; p < img.length; p += 4, q += 5) {
       const a = img[p + 3]; if (!a) continue;
       const a01 = a / 255, inv = 1 - a01;
-      buf[q]     = Math.round(255 * a01 + buf[q]     * inv);
-      buf[q + 1] = Math.round(255 * a01 + buf[q + 1] * inv);
-      buf[q + 2] = Math.round(255 * a01 + buf[q + 2] * inv);
-      buf[q + 3] = Math.round(255 * a01 + buf[q + 3] * inv);
-      buf[q + 4] = Math.round(a + buf[q + 4] * inv);
+      const ink = 255 - Math.round((img[p] + img[p + 1] + img[p + 2]) / 3);   // white halo → 0, black → 255
+      buf[q]     = Math.round(ink * a01 + buf[q]     * inv);
+      buf[q + 1] = Math.round(ink * a01 + buf[q + 1] * inv);
+      buf[q + 2] = Math.round(ink * a01 + buf[q + 2] * inv);
+      buf[q + 3] = Math.round(ink * a01 + buf[q + 3] * inv);
+      buf[q + 4] = Math.round(255 * a01 + buf[q + 4] * inv);   // mark + halo area becomes opaque paper
     }
     return { data: buf, w: W, h: H };
   }
@@ -2650,10 +2671,12 @@
           try {
             _dirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
           } catch (err) {
-            if (err.name === 'AbortError') {
-              dismissProgress(); setExportBusy(false); return;
-            }
-            _dirHandle = null; // sandbox blocked — fall through to downloadFile
+            // Only a genuine sandbox block (SecurityError — the picker isn't allowed in this
+            // frame) falls back to a silent download. A user cancel/deny (AbortError,
+            // NotAllowedError, anything else) must STOP — otherwise we export to the default
+            // downloads and wrongly report success for an export the user cancelled.
+            if (err && err.name === 'SecurityError') { _dirHandle = null; }
+            else { dismissProgress(); setExportBusy(false); return; }
           }
         }
       } else {
@@ -2665,10 +2688,10 @@
             types: [{ description: ext.toUpperCase() + ' file', accept: { [mime]: ['.' + ext] } }],
           });
         } catch (err) {
-          if (err.name === 'AbortError') {
-            dismissProgress(); setExportBusy(false); return;
-          }
-          _singleFileHandle = null; // sandbox blocked — fall through to downloadFile
+          // Only a genuine sandbox block (SecurityError) falls back to a silent download; a user
+          // cancel/deny stops the export so we never claim success for a file that wasn't saved.
+          if (err && err.name === 'SecurityError') { _singleFileHandle = null; }
+          else { dismissProgress(); setExportBusy(false); return; }
         }
       }
     }
