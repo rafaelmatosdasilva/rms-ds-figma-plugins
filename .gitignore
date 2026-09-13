@@ -19,6 +19,9 @@ parity-check-result.json
 apps/style-guide/
 apps/*/drafts/
 packages/ui/COMPONENTS.md
+# Design-intent layer — generated from Figma + code, project-specific & private (never public)
+packages/ui/src/design-intent.json
+packages/ui/src/design-intent.src.md
 
 # Internal DS-parity tooling + baselines — kept locally, not shipped
 ds-config.json
