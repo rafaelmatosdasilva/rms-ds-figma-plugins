@@ -132,10 +132,11 @@
 /* Extends base .scroll-area — adds layout-specific overrides only */
 .scroll-area {
   flex: 1;
-  /* DS panel Content slot = padding/l (16) top & bottom. The top used to be 0, relying on the
-     first dividerSection's own top padding for the spacing — but the DS made dividerSection
-     compact (padding 0), so top:0 left no space above the first divider. Restore padding/l top. */
-  padding: var(--padding-l) var(--padding-s) var(--padding-l) var(--padding-m);
+  /* DS panel MainContent slot: no top padding — the header slot (mode-toggle-row) owns the
+     padding/l gap above the first divider AND fills it opaquely, so the sticky divider sits flush
+     at top:0 with no transparent strip for list items to bleed through. (A top padding here put the
+     16px gap INSIDE the scroll area, above the sticky divider, where scrolling items showed through.) */
+  padding: 0 var(--padding-s) var(--padding-l) var(--padding-m);
   margin: 0; /* cancel base -16px margin — this layout uses its own padding */
   position: relative;
   scrollbar-gutter: stable; /* always reserve 8px for scrollbar so content never shifts */
@@ -294,10 +295,12 @@ body.browser-empty .right-panel {
 
 
 .mode-toggle-row {
-  /* DS panel "Top" frame = pad [16,16,0,16]: padding/l top + LR, ZERO bottom.
-     A non-zero bottom padding here stacks on top of the first divider's own
-     padding/xl and reads as an over-tall divider. Locked by RENDERED_ASSERTIONS. */
-  padding: var(--padding-l) var(--padding-l) 0 var(--padding-l);
+  /* DS panel HeadContent slot: a SOLID background fill over the WHOLE header slot (segmented
+     control + the gap down to the first divider), so nothing behind shows through. The bottom
+     padding/l is that opaque gap — it moved here from the scroll area's top padding, which was
+     transparent and let list items bleed above the sticky divider. Dividers are compact (0 top
+     padding) so this no longer stacks into an over-tall divider. Locked by RENDERED_ASSERTIONS. */
+  padding: var(--padding-l) var(--padding-l) var(--padding-l) var(--padding-l);
   flex-shrink: 0;
   position: relative;
   isolation: isolate;
@@ -330,9 +333,6 @@ body.browser-empty .right-panel {
   position: relative;
   overflow: hidden;
   background: var(--bg-detail);
-  /* DS panel head: the column-header dividers sit padding/l (16) below the status bar,
-     matching HeadContent's top padding/l — they were flush against the bar. */
-  padding-top: var(--padding-l);
 }
 
 /* Full-width header row — one dividerSection per column, seamless background.
@@ -344,13 +344,13 @@ body.browser-empty .right-panel {
   position: sticky;
   top: 0;
   z-index: 7;
-  /* No background here — each dividerSection paints its own (see #right-detail
-     .dividerSection). The two are flex:1 so together they still read as one
-     seamless strip, but an empty column can now opt out of the fill. */
+  /* DS panel HeadContent slot: a SOLID background fill over the WHOLE header slot, plus its
+     top padding/l — so the connector edge-lines and nodes behind the header never show through
+     the top strip. (Was transparent, relying on each divider's own fill, which left the padding
+     strip and empty columns see-through.) */
+  background: var(--bg-detail);
+  padding-top: var(--padding-l);
 }
-/* A column with no label has nothing to occlude, and its opaque strip visibly
-   clips the edge lines that run underneath it. Let them through. */
-#graph-col-headers .dividerSection.col-empty { background: transparent; }
 #right-detail .dividerSection { background: var(--bg-detail); } /* same surface for sticky bg */
 #graph-col-headers .dividerSection {
   flex: 1;
