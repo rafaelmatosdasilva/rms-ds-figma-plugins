@@ -168,18 +168,18 @@
 }
 
 /* When the selected item's own divider scrolls away (divider-away = position:static),
-   flow selected item up to fill the gap — but keep a gap/xl breathing space so it
-   never sits flush against the mode toggle above the scroll area */
+   the item pins FLUSH at the very top (top:0) — no breathing gap, so no earlier item can
+   bleed through above it. Safe now that the mode-toggle-row above the scroll area is opaque. */
 #var-list .dividerSection.divider-away ~ .var-item.node-selected,
 #comp-list .dividerSection.divider-away ~ .comp-item.node-selected {
-  top: var(--gap-xl);
+  top: 0;
 }
 
-/* When own divider is gone, next divider sits directly below selected item
-   (16 gap + 34 item + 6) not 70px */
+/* When own divider is gone, the next divider sits directly below the flush item
+   (0 top + 34 item + 6) not 70px */
 #var-list .dividerSection.divider-away ~ .var-item.node-selected ~ .dividerSection,
 #comp-list .dividerSection.divider-away ~ .comp-item.node-selected ~ .dividerSection {
-  top: 56px;
+  top: 40px;
   transition: top 0.18s ease;
 }
 
