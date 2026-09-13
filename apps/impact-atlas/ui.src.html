@@ -160,8 +160,29 @@
   top: 24px; /* sit flush below its own section divider (DS compact 24px height) — no gap for content to bleed through */
   bottom: 0;
   z-index: 8; /* above the sticky dividers (z-index 7) so the selection ring is never clipped by them */
-  background: var(--surface);
+  /* The element is the SQUARE slot backing (--bg, border-radius 0) so nothing scrolling behind the
+     pinned node shows through the pill's rounded corners. The visible rounded --surface card + ring
+     is redrawn on ::before (below the label). A child can't paint behind its parent's own fill, so
+     the fill must live on the element and the card on the pseudo. */
+  background: var(--bg);
+  border-radius: 0;
+  border-color: transparent;
   transition: top 0.18s ease;
+}
+#var-list .var-item.node-selected::before,
+#comp-list .comp-item.node-selected::before {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--thickness)); /* reach the border-box outer edge so the ring aligns */
+  background: var(--surface);
+  border: var(--thickness) solid var(--node-border-selected);
+  border-radius: var(--radius-full);
+  z-index: -1; /* above the element's --bg fill, below the label */
+  pointer-events: none;
+}
+#var-list .var-item.node-selected:hover::before,
+#comp-list .comp-item.node-selected:hover::before {
+  border-color: var(--node-border-selected-hover);
 }
 
 /* When the selected item's own divider scrolls away (divider-away = position:static),
