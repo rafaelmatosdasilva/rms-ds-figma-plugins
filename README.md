@@ -58,7 +58,7 @@ print-ready values, using the same variables you already use.
 - Reads your color variables and suggests CMYK equivalents — accept or override them.
 - Add CMYK, Pantone, RAL, and vinyl values to your tokens, stored as metadata.
 - Reuse stored print values wherever those variables are applied in designs.
-- Export selected artwork using mapped values for production-ready output.
+- Export selected artwork as print-ready CMYK PDF or TIFF, with crop marks and bleed.
 
 ![Tokens to Ink](docs/tokens-to-ink-preview.png)
 
