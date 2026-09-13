@@ -301,10 +301,13 @@ body.browser-empty .right-panel {
   z-index: 7;
   isolation: isolate;
 }
-/* Detail list view: sections stack flush (DS Frame 111 gap 0, pad 0) — the divider's
-   own padding/xl top is the only separation between sections */
+/* Detail list view: DS 308-7820 composes each group as an independent panel (type=secondary).
+   Each group's header carries the panel HeadContent spacing — padding/l (16) above, padding/s (8)
+   below — and the gap between groups is the next header's top margin (gap/xl = padding/l = 16).
+   Headers are sticky at top:0, so this top margin is off-screen when pinned (no bleed) and reads as
+   the group gap at rest. Pinned by RENDERED_ASSERTIONS so the per-group spacing can't drift silently. */
 #list-alias-hdr,
-#list-comp-hdr { margin-top: 0; margin-bottom: 0; }
+#list-comp-hdr { margin-top: var(--padding-l); margin-bottom: var(--padding-s); }
 
 /* Dividers that come AFTER the selected item stick below: 24 (divider) + 34 (item) + 8 (gap) */
 #var-list.has-list-selection .var-item.node-selected ~ .dividerSection,
@@ -626,23 +629,7 @@ body.browser-empty .right-panel {
   margin: 0;
   padding: 0 var(--padding-l);
 }
-/* DS panel head padding/l (16) above the first section header. An opaque sticky strip (not a
-   scroll-area top padding, which would let content bleed above the sticky divider) — it stays
-   pinned at the top, filled with the detail surface, and the dividers pin just below it. */
-#view-list::before {
-  content: '';
-  position: sticky;
-  top: 0;
-  z-index: 8;
-  display: block;
-  height: var(--padding-l);
-  background: var(--bg-detail);
-  margin: 0 calc(-1 * var(--padding-l)); /* full-bleed to the panel edges */
-}
-#view-list .dividerSection { top: var(--padding-l); } /* pin flush below the opaque header pad */
-
-
-.list-sec-body { flex-shrink: 0; padding-bottom: 0; } /* Rows→next divider flush (pad 0, gap 0) */
+.list-sec-body { flex-shrink: 0; padding-bottom: 0; } /* group gap comes from the next header's top margin */
 
 .lrow.dimmed { opacity: 0.65; }
 
