@@ -163,20 +163,6 @@
   background: var(--surface);
   transition: top 0.18s ease;
 }
-/* The slot BEHIND the pinned node is a header slot — fill it full-bleed with the header slot
-   surface (--bg), reaching the panel edges like the dividers (scroll-area padding -12/-8), so
-   when the node is sticky nothing scrolling behind shows through around it (corners, side strips).
-   The node card (--surface, rounded ring) sits on top of this slot fill. */
-#var-list .var-item.node-selected::before,
-#comp-list .comp-item.node-selected::before {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  left: calc(-1 * var(--padding-m));   /* -12 → scroll-area left edge */
-  right: calc(-1 * var(--padding-s));  /* -8  → scroll-area right edge */
-  background: var(--bg);
-  z-index: -1; /* behind the node card, above scrolling items (node is its own z:8 stacking context) */
-}
 
 /* When the selected item's own divider scrolls away (divider-away = position:static),
    the item pins FLUSH at the very top (top:0) — no breathing gap, so no earlier item can
