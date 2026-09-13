@@ -602,6 +602,20 @@ body.browser-empty .right-panel {
   margin: 0;
   padding: 0 var(--padding-l);
 }
+/* DS panel head padding/l (16) above the first section header. An opaque sticky strip (not a
+   scroll-area top padding, which would let content bleed above the sticky divider) — it stays
+   pinned at the top, filled with the detail surface, and the dividers pin just below it. */
+#view-list::before {
+  content: '';
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  display: block;
+  height: var(--padding-l);
+  background: var(--bg-detail);
+  margin: 0 calc(-1 * var(--padding-l)); /* full-bleed to the panel edges */
+}
+#view-list .dividerSection { top: var(--padding-l); } /* pin flush below the opaque header pad */
 
 
 .list-sec-body { flex-shrink: 0; padding-bottom: 0; } /* Rows→next divider flush (pad 0, gap 0) */
