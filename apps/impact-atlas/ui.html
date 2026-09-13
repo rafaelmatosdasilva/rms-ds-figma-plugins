@@ -160,7 +160,7 @@
 #var-list .var-item.node-selected,
 #comp-list .comp-item.node-selected {
   position: sticky;
-  top: 44px; /* sit below own section divider (DS 44px height) */
+  top: 24px; /* sit flush below its own section divider (DS compact 24px height) — no gap for content to bleed through */
   bottom: 0;
   z-index: 8; /* above the sticky dividers (z-index 7) so the selection ring is never clipped by them */
   background: var(--surface);
@@ -285,10 +285,10 @@ body.browser-empty .right-panel {
 #list-alias-hdr,
 #list-comp-hdr { margin-top: 0; margin-bottom: 0; }
 
-/* Dividers that come AFTER the selected item stick below: 44 (divider) + 34 (item) + 8 (gap) */
+/* Dividers that come AFTER the selected item stick below: 24 (divider) + 34 (item) + 8 (gap) */
 #var-list.has-list-selection .var-item.node-selected ~ .dividerSection,
 #comp-list.has-list-selection .comp-item.node-selected ~ .dividerSection {
-  top: 86px; /* 44 (own divider) + 34 (item) + 8 (gap) */
+  top: 66px; /* 24 (own compact divider) + 34 (item) + 8 (gap) */
   z-index: 7;
   transition: top 0.18s ease;
 }
@@ -3650,9 +3650,9 @@ function setupDividerTracking(listId) {
 
 function updateDividerTracking() {
   if (!_trackedSelDiv || !_trackedNextDiv || !_trackedList) return;
-  // Swap 14px before the next divider reaches its pinned top (86px, was 84 when
-  // the DS divider was 42px tall) so the collapse starts just ahead of contact
-  var pinned = _trackedList.scrollTop >= _trackedNextTop - 72;
+  // Swap 14px before the next divider reaches its pinned top (66px = 24 divider + 34 item + 8 gap;
+  // was 86 when the divider was 44px) so the collapse starts just ahead of contact
+  var pinned = _trackedList.scrollTop >= _trackedNextTop - 52;
   _trackedSelDiv.classList.toggle('divider-away', pinned);
 }
 
