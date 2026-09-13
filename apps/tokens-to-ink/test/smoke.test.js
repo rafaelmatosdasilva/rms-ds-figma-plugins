@@ -38,6 +38,19 @@ describe('tokens-to-ink — boot', () => {
     expect(lastOf('restore-height')).toMatchObject({ height: 720 });
   });
 
+  it('answers get-saved-height with null height when nothing is stored, so the UI can stop suppressing auto-fit', async () => {
+    // Previously the backend posted nothing when no size was saved, so the UI never learned the
+    // answer arrived and (per the on-open fix) would keep auto-fit suppressed forever. It must
+    // always answer — height null when there is nothing saved.
+    const { send, lastOf } = await loadPlugin(ENTRY, {
+      pages: [makePage('Page 1')],
+    });
+
+    await send({ type: 'get-saved-height' });
+
+    expect(lastOf('restore-height')).toMatchObject({ height: null });
+  });
+
   it('ignores unknown messages instead of throwing', async () => {
     const { send } = await loadPlugin(ENTRY, { pages: [makePage('Page 1')] });
     await expect(send({ type: 'not-a-real-message' })).resolves.not.toThrow();

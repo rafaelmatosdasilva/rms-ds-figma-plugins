@@ -497,7 +497,10 @@
 <!--@ICC-->
 <!--@UI-->
 <script>
-  // Request saved window height as soon as the UI is ready.
+  // Request saved window height as soon as the UI is ready. Until the answer arrives, suppress
+  // the content auto-fit so it can't override a saved/manual height on open (the answer is async,
+  // so without this the auto-fit fires first and clobbers the restored height).
+  window._heightRestorePending = true;
   parent.postMessage({ pluginMessage: { type: 'get-saved-height' } }, '*');
 
   let exportedCount = 0, exportTotal = 0, scanToastTimer = null;
@@ -3206,7 +3209,11 @@
     }
 
     if (msg.type === "restore-height") {
-      window._manualH = msg.height;
+      // Answer arrived: stop suppressing. A saved height pins the window (auto-fit stays off);
+      // no saved height (null) leaves auto-fit free to size the window to content on first open.
+      window._heightRestorePending = false;
+      if (msg.height) window._manualH = msg.height;
+      if (typeof window._notifyResize === 'function' && !window._manualH) window._notifyResize();
       return;
     }
 
@@ -3831,8 +3838,9 @@
     };
 
     function sendHeight() {
-      // Skip mid-drag, and skip entirely once user has manually set a height.
-      if (window._manualResizing || window._manualH) return;
+      // Skip mid-drag, once the user has manually set a height, and until the saved-height
+      // answer arrives (so auto-fit can't clobber a restored height on open).
+      if (window._manualResizing || window._manualH || window._heightRestorePending) return;
       parent.postMessage({ pluginMessage: { type: 'ui-resize', width: window.innerWidth, height: window._contentHeight() } }, '*');
     }
     window._notifyResize = sendHeight;

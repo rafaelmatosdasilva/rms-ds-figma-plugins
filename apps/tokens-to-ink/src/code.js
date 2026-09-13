@@ -575,9 +575,9 @@ figma.ui.onmessage = async (msg) => {
 
   if (msg.type === "get-saved-height") {
     const savedSize = await figma.clientStorage.getAsync('windowSize');
-    if (savedSize && savedSize.h) {
-      figma.ui.postMessage({ type: 'restore-height', height: savedSize.h });
-    }
+    // Always answer — height null when nothing is saved — so the UI stops suppressing auto-fit
+    // (a saved height pins the window; null lets auto-fit size to content on first open).
+    figma.ui.postMessage({ type: 'restore-height', height: (savedSize && savedSize.h) || null });
     return;
   }
 
