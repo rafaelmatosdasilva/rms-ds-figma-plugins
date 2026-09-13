@@ -330,6 +330,9 @@ body.browser-empty .right-panel {
   position: relative;
   overflow: hidden;
   background: var(--bg-detail);
+  /* DS panel head: the column-header dividers sit padding/l (16) below the status bar,
+     matching HeadContent's top padding/l — they were flush against the bar. */
+  padding-top: var(--padding-l);
 }
 
 /* Full-width header row — one dividerSection per column, seamless background.
