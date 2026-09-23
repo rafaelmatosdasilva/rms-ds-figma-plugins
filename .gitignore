@@ -16,7 +16,7 @@ parity-check-result.json
 .parity-refs
 
 # Internal reference / work-in-progress — kept locally, not shipped
-apps/style-guide/
+apps/styleguide/
 apps/*/drafts/
 packages/ui/COMPONENTS.md
 # Design-intent layer — generated from Figma + code, project-specific & private (never public)
