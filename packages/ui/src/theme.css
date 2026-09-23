@@ -100,7 +100,6 @@
     --text-secondary: var(--neutral-300); /* semantic/text/secondary/color N300 — same primitive both modes, no dark override */
     --text-muted: var(--neutral-400);   /* input/label L=N400 = segmentedControl/label/default */
     --accent: var(--neutral-100);       /* node/border/selected N100 */
-    --node-border-selected-hover: var(--neutral-200); /* node/border/selected/hover/color N200 both modes */
     /* Color primitives — red/green/yellow ramp */
     --red:    #c20000;
     --green:  #00804b;
@@ -452,7 +451,7 @@
     color: var(--node-label-selected);
   }
   .node:hover { border-color: var(--node-border-hover); background: var(--node-background-hover); }
-  .node.node-selected:hover { border-color: var(--node-border-selected-hover); }
+  .node.node-selected:hover { border-color: var(--node-border-selected); } /* selection wins on hover; Figma defines no combined selected+hover token */
   /* Disabled appearance — always token-driven, never opacity. Opacity would
      wash the tokens out to arbitrary values and break parity with the DS.
      Shared by: the true disabled state, external (library) nodes, and any
