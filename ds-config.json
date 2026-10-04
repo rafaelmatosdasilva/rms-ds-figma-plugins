@@ -304,10 +304,6 @@
     {
       "pattern": "border-radius\\s*:\\s*(0 16px 16px 0|16px 0 0 16px)",
       "_note": "pill halves at general/window-radii 16px"
-    },
-    {
-      "pattern": "padding:\\s*0 var\\(--padding-s\\) 0 calc",
-      "_note": "search-input left inset composed from tokens + the 16px DS icon box"
     }
   ],
   "iconCheck": {
