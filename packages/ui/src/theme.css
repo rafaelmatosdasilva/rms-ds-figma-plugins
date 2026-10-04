@@ -271,9 +271,9 @@
   }
 
   /* Sizing, Phone mode: Figma draws Phone frames at 350px and Desktop at 1680px (viewport/min-width).
-     The plugin windows are 600 to 1000px wide, so they keep Desktop; a window narrower than 480px
-     gets Phone's roomier padding and taller controls. */
-  @media (max-width: 480px) {
+     Phone applies on a phone or tablet (a touch screen with no hover) and in any window narrower than
+     480px. The plugin windows are 600 to 1000px wide on a desktop, so they keep Desktop. */
+  @media (max-width: 480px), (hover: none) and (pointer: coarse) {
     :root {
       --padding-xxs: 4px;          /* padding/xxs, Phone */
       --padding-xs: 8px;           /* padding/xs, Phone */
