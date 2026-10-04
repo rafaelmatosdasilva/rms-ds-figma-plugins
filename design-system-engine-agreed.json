@@ -116,6 +116,12 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "buttonPrimary · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T15:12:16.999Z",
+   "commit": "c58a0e9"
+  },
   "buttonPrimary · opacity (disabled)": {
    "figma": "0.16",
    "code": "0.16",
@@ -248,6 +254,12 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "buttonTertiary · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T15:12:16.999Z",
+   "commit": "c58a0e9"
+  },
   "buttonTertiary · opacity (disabled)": {
    "figma": "0.24",
    "code": "0.24",
@@ -307,6 +319,12 @@
    "code": "border on all sides",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "checkBox · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T15:12:16.999Z",
+   "commit": "c58a0e9"
   },
   "checkBox · font size": {
    "figma": "11px",
@@ -374,6 +392,12 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "dividerLine · height": {
+   "figma": "1.5",
+   "code": "1.5",
+   "at": "2026-10-04T15:12:16.999Z",
+   "commit": "c58a0e9"
+  },
   "dividerSection · font size": {
    "figma": "10px",
    "code": "10px",
@@ -421,6 +445,12 @@
    "code": "16px",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "emptyState · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T15:12:16.999Z",
+   "commit": "c58a0e9"
   },
   "highlight · background": {
    "figma": "paints a background",
@@ -554,6 +584,12 @@
    "at": "2026-10-04T13:51:32.490Z",
    "commit": "59c00c0"
   },
+  "loader · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T15:12:16.999Z",
+   "commit": "c58a0e9"
+  },
   "loader · font size": {
    "figma": "11px",
    "code": "11px",
@@ -619,6 +655,12 @@
    "code": "16px",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "modal · line height": {
+   "figma": "17px",
+   "code": "17px",
+   "at": "2026-10-04T15:14:52.888Z",
+   "commit": "c58a0e9"
   },
   "modal · padding (left/right)": {
    "figma": "16px",
@@ -3160,8 +3202,14 @@
   },
   "buttonPrimary · line height": {
    "figma": "16px",
-   "code": "11px",
-   "same": false
+   "code": "16px",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T15:12:16.999Z",
+     "side": "code"
+    }
+   ]
   },
   "buttonPrimary · opacity (disabled)": {
    "figma": "0.16",
@@ -3275,8 +3323,14 @@
   },
   "buttonTertiary · line height": {
    "figma": "16px",
-   "code": "24px",
-   "same": false
+   "code": "16px",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T15:12:16.999Z",
+     "side": "code"
+    }
+   ]
   },
   "buttonTertiary · opacity (disabled)": {
    "figma": "0.24",
@@ -3331,6 +3385,11 @@
   "card · stroke": {
    "figma": "draws a border",
    "code": "border on all sides",
+   "same": true
+  },
+  "checkBox · background": {
+   "figma": "no background",
+   "code": "no background",
    "same": true
   },
   "checkBox · font size": {
@@ -3397,12 +3456,16 @@
   },
   "dividerLine · height": {
    "figma": "1.5",
-   "code": "1",
-   "same": false,
+   "code": "1.5",
+   "same": true,
    "moves": [
     {
      "at": "2026-10-04T14:55:27.092Z",
      "side": "figma"
+    },
+    {
+     "at": "2026-10-04T15:12:16.999Z",
+     "side": "code"
     }
    ]
   },
@@ -3458,8 +3521,14 @@
   },
   "emptyState · line height": {
    "figma": "16px",
-   "code": "16.5px",
-   "same": false
+   "code": "16px",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T15:12:16.999Z",
+     "side": "code"
+    }
+   ]
   },
   "highlight · background": {
    "figma": "paints a background",
@@ -3578,6 +3647,11 @@
    "code": "16px",
    "same": true
   },
+  "loader · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
   "loader · font size": {
    "figma": "11px",
    "code": "11px",
@@ -3635,8 +3709,14 @@
   },
   "modal · line height": {
    "figma": "17px",
-   "code": "16px",
-   "same": false
+   "code": "17px",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T15:14:52.888Z",
+     "side": "code"
+    }
+   ]
   },
   "modal · padding (left/right)": {
    "figma": "16px",
@@ -3815,6 +3895,11 @@
    "figma": "16px",
    "code": "16px",
    "same": true
+  },
+  "panel · background": {
+   "figma": "paints a background",
+   "code": "no background",
+   "same": false
   },
   "panel · padding (left/right)": {
    "figma": "16px",
@@ -4028,13 +4113,17 @@
   },
   "toast · gap": {
    "figma": "16px",
-   "code": "4px",
-   "same": false,
+   "code": "16px",
+   "same": true,
    "moves": [
     {
      "at": "2026-10-04T14:58:47.252Z",
      "side": "code",
      "lead": true
+    },
+    {
+     "at": "2026-10-04T15:12:16.999Z",
+     "side": "code"
     }
    ]
   },

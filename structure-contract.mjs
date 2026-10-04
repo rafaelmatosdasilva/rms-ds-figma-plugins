@@ -212,7 +212,7 @@ export const CONTRACT = {
     propertyMap: {
       // DS states (544:74211): Default = base .node (node/border/default), Idle = .node-unselected
       // (node/border/idle), Hover = :hover, plus the Selected & Disabled axes.
-      'State':    { Default: '.node', Idle: '.node.node-unselected', Hover: '.node:hover' },
+      'State': { Default: '.node', Idle: '.node.node-unselected', Hover: '.node:hover', Disabled: '.node.node-disabled' },
       'Selected': { True: '.node.node-selected', False: '.node' },
       'Disabled': { True: '.node.node-disabled', False: '.node' },
       'Show Icon': '.node.no-icon .node-type-icon',
@@ -262,12 +262,12 @@ export const CONTRACT = {
     fillStructure: 'before', innerRadiusVar: 'radii/input', // Background rect binds radii/input (same --radius-full)
     strokeOnDefault: false,
     propertyMap: {
-      'State':          { Default: '.inputWrap', Hover: '.inputWrap:not(.inputWrap--readonly):hover' },
+      'State':          { Default: '.inputWrap', Hover: '.inputWrap:not(.inputWrap--readonly):hover', Focus: '.inputWrap:not(.inputWrap--readonly):focus-within' },
       'Disabled':       { True: '.inputWrap.inputWrap--disabled', False: '.inputWrap' },
       'Filled':          { True: '.inputWrap', False: '.inputWrap.empty' },
       'Show Icon Right': '.inputWrap.no-icon-right .icon-right',
       'Show Icon Left':  '.inputWrap.no-icon-left .icon-left',
-      'Show Label':      '.inputWrap .inputLabel',
+      'Show Label Before': '.inputWrap .inputLabel',
       'Show Value':      '.inputWrap.no-value .inputField',
     },
   },
@@ -548,6 +548,9 @@ export const CONTRACT = {
     fillStructure: 'none', innerInset: null, innerRadiusVar: 'radii/checkbox',
     strokeOnDefault: true, strokeOnAnyState: true,
     strokeSides: 'all',
+    propertyMap: {
+      'State': { Default: '.checkbox-box', Selected: '.checkbox-input:checked + .checkbox-box' },
+    },
   },
   // loader (DS 68:52296) — built base .loader (was toast variant). radii/toast pill, direct fill.
   loader: {

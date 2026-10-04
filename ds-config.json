@@ -337,7 +337,53 @@
     },
     "dividerSection": {
       "show button": ".dividerSection-action",
-      "label content": ".dividerSection-content"
+      "label content": ".dividerSection-content",
+      "number content": ".count"
+    },
+    "segmentedControlSegment": {
+      "Show Label": ".tab-label",
+      "Label Content": ".tab-label",
+      "Number Content": ".seg-number"
+    },
+    "switch": {
+      "Show Description": ".switch-description",
+      "Description Content": ".switch-description"
+    },
+    "checkBox": {
+      "Show Text": ".checkbox-text",
+      "Text Content": ".checkbox-text"
+    },
+    "loader": {
+      "Show Description": ".loader-description",
+      "Label": ".loader-title"
+    },
+    "listItem": {
+      "Show Icon": ".listItem-icon",
+      "Show Description": ".listItem-desc",
+      "DescriptionContent": ".listItem-desc",
+      "TitleContent": ".listItem-title"
+    },
+    "emptyState": {
+      "show-description": ".empty-state-desc",
+      "description-content": ".empty-state-desc",
+      "title-content": ".empty-state-title"
+    },
+    "buttonPrimary": {
+      "show-icon": ".buttonPrimary svg",
+      "show-label": ".buttonPrimary span"
+    },
+    "buttonSecondary": {
+      "show-label": ".buttonSecondary span"
+    },
+    "buttonQuaternary": {
+      "show-label": ".buttonQuaternary span"
+    },
+    "buttonList": {
+      "Show Icon": ".buttonList svg"
+    },
+    "overflow": {
+      "Show Title": ".overflow-label",
+      "Title Content": ".overflow-label"
     }
   },
   "docs": {
