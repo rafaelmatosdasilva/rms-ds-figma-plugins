@@ -9,7 +9,6 @@ name: ds-release
 on:
   push:
     branches: [main]
-    paths: [package.json]
   workflow_dispatch:
 
 permissions:
