@@ -602,6 +602,12 @@ export const CONTRACT = {
 // that only exist at runtime (toasts, list rows).
 export const RENDERED_ASSERTIONS = [
   // Figma props the code now builds (2026-10): each part drawn from a probe of the full component.
+  { plugin: 'impact-atlas', selector: '.buttonList .lrow-icon', prop: 'width', expected: '16px',
+    note: 'buttonList Content: its Icon (Show Icon) at 16, before the Title and its tooltipButton (Show Tooltip)',
+    probe: '<div class="buttonList"><div class="lrow-icon"><svg width="16" height="16"><use href="#icon-var-color"/></svg></div><span class="lrow-name">Title</span><span class="tooltipButton lib-badge"><svg width="12" height="12"><use href="#icon-library"/></svg></span><button class="buttonList-action buttonTertiary" aria-label="Focus on canvas"><svg width="16" height="16"><use href="#icon-focus"/></svg></button><svg width="16" height="16" class="buttonList-arrow"><use href="#icon-arrow-right"/></svg></div>' },
+  { plugin: 'impact-atlas', selector: '.loader-description', textStyle: 's',
+    note: 'loader Description = text style s (Show Description)',
+    probe: '<span class="loader"><span class="loader-content"><span class="loader-spinner"></span><span class="loader-text"><span class="loader-title">Title</span><span class="loader-description">Description</span></span></span><button class="buttonTertiary"><span>Cancel</span></button></span>' },
   { plugin: 'impact-atlas', selector: '.statusBar-content', prop: 'columnGap', expected: '8px',
     note: "statusBar Slot content: the product's items in one row at gap/m (the bar's own gap/xl separates groups)",
     probe: '<div class="statusBar"><div class="statusBar-content"><span class="statusBar-title">Title</span><span>Detail</span></div></div>' },

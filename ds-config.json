@@ -389,7 +389,7 @@
       "show-label": ".buttonQuaternary span"
     },
     "buttonList": {
-      "Show Icon": ".buttonList svg",
+      "Show Icon": ".lrow-icon",
       "Show Tooltip": ".lib-badge"
     },
     "overflow": {
