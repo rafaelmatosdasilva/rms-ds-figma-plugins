@@ -1,6 +1,6 @@
 {
   "name": "@rms/ds-core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "type": "module",
   "description": "The design system behind the RMS Figma plugins: theme, shared UI, core helpers, test helpers and the build and release tools.",
