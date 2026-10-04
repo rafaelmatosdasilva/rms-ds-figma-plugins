@@ -376,9 +376,8 @@
       "fillStructure": "none",
       "innerInset": null,
       "innerRadiusVar": null,
-      "strokeOnDefault": true,
+      "strokeOnDefault": false,
       "strokeOnAnyState": true,
-      "strokeSides": "right",
       "childFramePadding": [
         {
           "name": "Content",
@@ -396,7 +395,7 @@
       ],
       "iconSize": 16,
       "variantStroke": {
-        "dividerSection": true
+        "dividerSection": false
       },
       "variantHeight": {
         "dividerSection": 24
