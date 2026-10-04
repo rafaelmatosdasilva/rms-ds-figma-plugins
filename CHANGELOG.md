@@ -7,6 +7,15 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v1.0.2 · 4 October 2026
+
+- The code follows Figma: text styles on card, switch, modal and overflow; statusBar spacing and a content group;
+  actionBar and statusBar lines and background drawn as their own layers, with their Figma switches; highlightSelector
+  states; empty state and list item spacing.
+- Every Figma property the code lacked is built: descriptions, divider lines, actions, the modal header icon and close
+  button, the overflowList icon, the panel type and more.
+- Products take a design system update without a release of their own: it ships with their next published version.
+
 ## v1.0.1 · 4 October 2026
 
 - Each plugin moved to its own repository, with its history and releases. This repository is now the design system
