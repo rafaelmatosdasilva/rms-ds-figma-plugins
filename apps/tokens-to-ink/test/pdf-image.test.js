@@ -2,7 +2,7 @@ import { describe, it, expect, afterEach } from 'vitest';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 import { CompressionStream, DecompressionStream } from 'node:stream/web';
-import { loadUI } from '@rms/test-utils';
+import { loadUI } from '@rms/ds-core/test-utils';
 
 /** Boot the UI and give it the Web-Streams the browser has but jsdom lacks. */
 function bootUI() {

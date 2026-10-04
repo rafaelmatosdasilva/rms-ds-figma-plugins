@@ -7,52 +7,35 @@ settings:
 importers:
 
   .:
-    devDependencies:
-      '@rms/core':
-        specifier: workspace:*
-        version: link:packages/core
-      '@rms/test-utils':
-        specifier: workspace:*
-        version: link:packages/test-utils
+    dependencies:
       esbuild:
         specifier: ^0.21.0
         version: 0.21.5
       jsdom:
         specifier: ^30.0.0
         version: 30.0.0
+    devDependencies:
       vitest:
         specifier: ^2.1.0
         version: 2.1.9(jsdom@30.0.0)
 
   apps/font-scaling-lab:
     dependencies:
-      '@rms/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-    devDependencies:
-      '@rms/test-utils':
-        specifier: workspace:*
-        version: link:../../packages/test-utils
+      '@rms/ds-core':
+        specifier: link:../..
+        version: link:../..
 
   apps/impact-atlas:
     dependencies:
-      '@rms/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-    devDependencies:
-      '@rms/test-utils':
-        specifier: workspace:*
-        version: link:../../packages/test-utils
+      '@rms/ds-core':
+        specifier: link:../..
+        version: link:../..
 
   apps/tokens-to-ink:
     dependencies:
-      '@rms/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-    devDependencies:
-      '@rms/test-utils':
-        specifier: workspace:*
-        version: link:../../packages/test-utils
+      '@rms/ds-core':
+        specifier: link:../..
+        version: link:../..
 
   packages/core: {}
 

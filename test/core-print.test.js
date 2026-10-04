@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { pxToCm, pxToMm, matchPaperSize, effectiveImageDpi, collectImageFills } from '@rms/core';
+import { pxToCm, pxToMm, matchPaperSize, effectiveImageDpi, collectImageFills } from '../packages/core/index.js';
 
 describe('@rms/core — px → physical', () => {
   it('maps 595 px to A4 width (≈21 cm) at export scale', () => {

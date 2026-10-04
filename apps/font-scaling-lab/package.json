@@ -4,13 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node ../../scripts/build-plugin.mjs apps/font-scaling-lab",
-    "build:watch": "node ../../scripts/watch.mjs apps/font-scaling-lab"
+    "build": "rms-build .",
+    "build:watch": "rms-watch ."
   },
   "dependencies": {
-    "@rms/core": "workspace:*"
-  },
-  "devDependencies": {
-    "@rms/test-utils": "workspace:*"
+    "@rms/ds-core": "link:../.."
   }
 }

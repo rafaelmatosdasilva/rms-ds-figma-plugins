@@ -1,8 +1,38 @@
 {
-  "name": "rms-ds-figma-plugins",
+  "name": "@rms/ds-core",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
+  "type": "module",
+  "description": "The design system behind the RMS Figma plugins: theme, shared UI, core helpers, test helpers and the build and release tools.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rafaelmatosdasilva/rms-ds-figma-plugins.git"
+  },
   "packageManager": "pnpm@10.33.2",
+  "exports": {
+    "./core": "./packages/core/index.js",
+    "./test-utils": "./packages/test-utils/index.js",
+    "./theme.css": "./packages/ui/src/theme.css",
+    "./ui-shared.js": "./packages/ui/src/ui-shared.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "rms-build": "bin/build.mjs",
+    "rms-watch": "bin/watch.mjs",
+    "rms-inject-theme": "bin/inject-theme.mjs",
+    "rms-package": "bin/package.mjs",
+    "rms-check-manifests": "bin/check-manifests.mjs",
+    "rms-release": "bin/release.mjs",
+    "rms-release-notes": "bin/release-notes.mjs"
+  },
+  "files": [
+    "bin",
+    "packages/core",
+    "packages/test-utils",
+    "packages/ui/src/theme.css",
+    "packages/ui/src/ui-shared.js"
+  ],
   "scripts": {
     "build": "pnpm -r build && node scripts/sync-preview.mjs",
     "build:watch": "pnpm -r build:watch",
@@ -16,11 +46,19 @@
     "test:watch": "vitest",
     "sync:preview": "node scripts/sync-preview.mjs"
   },
-  "devDependencies": {
-    "@rms/core": "workspace:*",
-    "@rms/test-utils": "workspace:*",
+  "dependencies": {
     "esbuild": "^0.21.0",
-    "jsdom": "^30.0.0",
+    "jsdom": "^30.0.0"
+  },
+  "peerDependencies": {
+    "vitest": "^2.1.0"
+  },
+  "peerDependenciesMeta": {
+    "vitest": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
     "vitest": "^2.1.0"
   }
 }

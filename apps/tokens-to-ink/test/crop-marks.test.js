@@ -2,7 +2,7 @@ import { describe, it, expect, afterEach } from 'vitest';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 import { CompressionStream, DecompressionStream } from 'node:stream/web';
-import { loadUI } from '@rms/test-utils';
+import { loadUI } from '@rms/ds-core/test-utils';
 
 const UI = fileURLToPath(new URL('../ui.html', import.meta.url));
 // A real Figma export whose single page MediaBox is [ 0 0 64 64 ].

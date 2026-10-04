@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 import {
   loadPlugin, makeVar, makeCollection, makePage, makeComponent, makeComponentSet,
   makeInstance, makeNode,
-} from '@rms/test-utils';
+} from '@rms/ds-core/test-utils';
 
 const ENTRY = fileURLToPath(new URL('../src/code.js', import.meta.url));
 const paint = [{ type: 'SOLID', color: { r: 0.1, g: 0.2, b: 0.3 } }];

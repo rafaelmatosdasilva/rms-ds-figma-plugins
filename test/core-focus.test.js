@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { focusNode, getPageForNode } from '@rms/core';
+import { focusNode, getPageForNode } from '../packages/core/index.js';
 
 // Minimal figma-shaped stub: just what focusNode touches.
 function makeFigma(nodesById, currentPage) {
