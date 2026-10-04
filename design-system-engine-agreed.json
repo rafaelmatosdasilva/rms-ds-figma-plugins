@@ -1,0 +1,5477 @@
+{
+ "version": 1,
+ "$description": "What Figma and the code last agreed on, per fact, and the recent moves of each side. Written by rms-design-system-engine; commit it.",
+ "facts": {
+  "actionBar · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "actionBar · min height": {
+   "figma": "48",
+   "code": "48",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "actionBar · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "actionBar · padding (top/bottom)": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "actionBar · stroke": {
+   "figma": "draws a border",
+   "code": "border on bottom",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "badge · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "badge · font weight": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "badge · gap": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "badge · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonList · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonList · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonList · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonList · height": {
+   "figma": "40",
+   "code": "40",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonList · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "buttonList · padding (left/right)": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonPrimary · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonPrimary · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonPrimary · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonPrimary · height": {
+   "figma": "24",
+   "code": "24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonPrimary · opacity (disabled)": {
+   "figma": "0.16",
+   "code": "0.16",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonPrimary · padding (left/right)": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonPrimary · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonQuaternary · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonQuaternary · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonQuaternary · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonQuaternary · height": {
+   "figma": "24",
+   "code": "24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonQuaternary · padding (left/right)": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "buttonSecondary · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonSecondary · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonSecondary · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonSecondary · height": {
+   "figma": "24",
+   "code": "24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonSecondary · opacity (disabled)": {
+   "figma": "0.24",
+   "code": "0.24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonSecondary · padding (left/right)": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonSecondary · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonStepper · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonStepper · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonStepper · gap": {
+   "figma": "2px",
+   "code": "2px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonTertiary · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonTertiary · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonTertiary · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonTertiary · height": {
+   "figma": "24",
+   "code": "24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonTertiary · opacity (disabled)": {
+   "figma": "0.24",
+   "code": "0.24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonTertiary · padding (left/right)": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "buttonTertiary · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "card · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "card · gap": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "card · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "card · padding (top/bottom)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "card · radius": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "card · stroke": {
+   "figma": "draws a border",
+   "code": "border on all sides",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "checkBox · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "checkBox · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "checkBox · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "checkBox · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "checkBox · radius": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "checkBoxGroup · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "checkBoxGroup · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "checkBoxGroup · font weight": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "checkBoxGroup · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "checkBoxGroup · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "dividerLine · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "dividerSection · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "dividerSection · font weight": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "dividerSection · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "dividerSection · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "emptyState · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "emptyState · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "emptyState · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "emptyState · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "highlight · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "highlight · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "highlight · font weight": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "highlight · gap": {
+   "figma": "2px",
+   "code": "2px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "highlight · height": {
+   "figma": "24",
+   "code": "24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "highlight · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "highlight · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "highlightSelector · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "highlightSelector · height": {
+   "figma": "10",
+   "code": "10",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "highlightSelector · stroke": {
+   "figma": "draws a border",
+   "code": "border on all sides",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "input · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "input · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "input · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "input · gap": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "input · height": {
+   "figma": "24",
+   "code": "24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "input · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "input · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "listItem · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "listItem · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "listItem · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "listItem · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "listItem · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "loader · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "loader · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "loader · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "loader · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "loader · padding (left/right)": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "loader · padding (top/bottom)": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "loader · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "modal · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "modal · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "modal · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "modal · padding (top/bottom)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "modal · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "node · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "node · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "node · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "node · gap": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "node · min height": {
+   "figma": "40",
+   "code": "40",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "node · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "node · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "node · stroke": {
+   "figma": "draws a border",
+   "code": "border on all sides",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "overflow · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "overflow · padding (top/bottom)": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "overflow · radius": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "overflow · stroke": {
+   "figma": "draws a border",
+   "code": "border on all sides",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "overflowList · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "overflowList · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "overflowList · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "overflowList · gap": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "overflowList · height": {
+   "figma": "32",
+   "code": "32",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "overflowList · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "overflowList · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "overlay · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "overlay · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "overlay · padding (top/bottom)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "radioButton · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "radioButton · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "radioButton · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "radioButton · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "radioButton · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "radioButtonGroup · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "radioButtonGroup · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "radioButtonGroup · font weight": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "radioButtonGroup · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "radioButtonGroup · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControl · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControl · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControl · font weight": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControl · gap": {
+   "figma": "2px",
+   "code": "2px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControl · height": {
+   "figma": "24",
+   "code": "24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControl · padding (left/right)": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControl · padding (top/bottom)": {
+   "figma": "2px",
+   "code": "2px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControlSegment · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControlSegment · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControlSegment · font weight": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControlSegment · gap": {
+   "figma": "2px",
+   "code": "2px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControlSegment · height": {
+   "figma": "24",
+   "code": "24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControlSegment · padding (left/right)": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "segmentedControlSegment · padding (top/bottom)": {
+   "figma": "2px",
+   "code": "2px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "statusBar · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "statusBar · height": {
+   "figma": "48",
+   "code": "48",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "statusBar · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "statusBar · stroke": {
+   "figma": "draws a border",
+   "code": "border on bottom",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "swatch · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T13:51:32.490Z",
+   "commit": "59c00c0"
+  },
+  "swatch · height": {
+   "figma": "24",
+   "code": "24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "swatch · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "switch · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "switch · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "toast · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "toast · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "toast · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "toast · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "toast · padding (left/right)": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "toast · padding (top/bottom)": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "toast · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token actionbar/background [dark]": {
+   "figma": "#2c2c2c",
+   "code": "#2c2c2c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token actionbar/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token actionbar/border [dark]": {
+   "figma": "#424242",
+   "code": "#424242",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token actionbar/border [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/background/negative [dark]": {
+   "figma": "#fe6767",
+   "code": "#fe6767",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/background/negative [light]": {
+   "figma": "#c20000",
+   "code": "#c20000",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/background/neutral [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/background/neutral [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/background/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/background/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/background/warning [dark]": {
+   "figma": "#f7c522",
+   "code": "#f7c522",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/background/warning [light]": {
+   "figma": "#cf9e00",
+   "code": "#cf9e00",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/icon/negative [dark]": {
+   "figma": "#fe6767",
+   "code": "#fe6767",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/icon/negative [light]": {
+   "figma": "#c20000",
+   "code": "#c20000",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/icon/neutral [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/icon/neutral [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/icon/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/icon/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/icon/warning [dark]": {
+   "figma": "#f7c522",
+   "code": "#f7c522",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/icon/warning [light]": {
+   "figma": "#cf9e00",
+   "code": "#cf9e00",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/label/negative [dark]": {
+   "figma": "#fe6767",
+   "code": "#fe6767",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/label/negative [light]": {
+   "figma": "#c20000",
+   "code": "#c20000",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/label/neutral [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/label/neutral [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/label/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/label/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/label/warning [dark]": {
+   "figma": "#f7c522",
+   "code": "#f7c522",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token badge/label/warning [light]": {
+   "figma": "#cf9e00",
+   "code": "#cf9e00",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token button/min-height [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/background/hover [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/background/hover [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/background/selected [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/background/selected [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/iconPrimary [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/iconPrimary [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/iconSecondary [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/iconSecondary [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/text/default [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/text/default [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/text/hover [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/text/hover [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/text/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonList/text/selected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonPrimary/background [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonPrimary/background [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonPrimary/iconText [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonPrimary/iconText [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonQuaternary/background/hover [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonQuaternary/background/hover [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonQuaternary/iconText [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonQuaternary/iconText [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/background/default [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/background/default [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/background/hover [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/background/hover [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/border/default [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/border/default [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/border/hover [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/border/hover [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/icon [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/icon [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/text [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonSecondary/text [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonTertiary/background/active [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonTertiary/background/active [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonTertiary/background/default [dark]": {
+   "figma": "#212121",
+   "code": "#212121",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonTertiary/background/default [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonTertiary/iconText/active [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonTertiary/iconText/active [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonTertiary/iconText/default [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token buttonTertiary/iconText/default [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token card/border [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token card/border [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/background/default [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/background/default [light]": {
+   "figma": "#f7f7f7",
+   "code": "#f7f7f7",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/background/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/background/selected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/border/default [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/border/default [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/border/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/border/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/description [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/description [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/icon/selected [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/icon/selected [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/text/default [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/text/default [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/text/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token checkbox/text/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token dividerLine/border [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token dividerLine/border [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token dividerSection/divider [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token dividerSection/divider [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token dividerSection/height [light]": {
+   "figma": "6px",
+   "code": "6px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token dividerSection/number [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token dividerSection/number [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token dividerSection/title [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token dividerSection/title [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token emptyState/description [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token emptyState/description [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token emptyState/icon/neutral [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token emptyState/icon/neutral [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token emptyState/title [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token emptyState/title [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token figmaWindowChrome/background [dark]": {
+   "figma": "#2c2c2c",
+   "code": "#2c2c2c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token figmaWindowChrome/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token figmaWindowChrome/divider [dark]": {
+   "figma": "#424242",
+   "code": "#424242",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token figmaWindowChrome/divider [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token gap/l [light]": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token gap/m [light]": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token gap/s [light]": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token gap/xl [light]": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token gap/xs [light]": {
+   "figma": "2px",
+   "code": "2px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token gap/xxxl [light]": {
+   "figma": "32px",
+   "code": "32px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token general/min-height [light]": {
+   "figma": "60px",
+   "code": "60px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token general/thickness [light]": {
+   "figma": "1.5px",
+   "code": "1.5px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token icon/large [light]": {
+   "figma": "2px",
+   "code": "2px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token icon/small [light]": {
+   "figma": "1.5px",
+   "code": "1.5px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token icon/xsmall [light]": {
+   "figma": "1.2px",
+   "code": "1.2px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/background/filled [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/background/filled [light]": {
+   "figma": "#f7f7f7",
+   "code": "#f7f7f7",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/border/default [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/border/default [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/border/disabled [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/border/disabled [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/border/focus [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/border/focus [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/border/hover [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/border/hover [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/icon [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/icon [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/label [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/label [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/value/disabled [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/value/disabled [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/value/empty [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/value/empty [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/value/filled [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token input/value/filled [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token loader/background [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token loader/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token loader/description [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token loader/description [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token loader/spinner [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token loader/spinner [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token loader/title [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token loader/title [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token modal/background [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token modal/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token modal/title [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token modal/title [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/background/hover [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/background/hover [light]": {
+   "figma": "#f7f7f7",
+   "code": "#f7f7f7",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/background/selected [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/background/selected [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/border/disabled [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/border/disabled [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/border/hover [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/border/hover [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/border/idle [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/border/idle [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/border/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/border/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/icon/disabled [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/icon/disabled [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/icon/hover [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/icon/hover [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/icon/idle [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/icon/idle [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/icon/selected [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/icon/selected [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/label/disabled [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/label/disabled [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/label/hover [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/label/hover [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/label/idle [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/label/idle [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/label/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token node/label/selected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflow/background [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflow/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflow/border [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflow/border [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflow/text [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflow/text [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/background/default [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/background/default [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/background/hover [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/background/hover [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/border/default [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/border/default [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/border/hover [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/border/hover [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/label/default [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/label/default [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/label/hover [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token overflowList/label/hover [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token padding/l [light]": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token padding/m [light]": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token padding/s [light]": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token padding/xl [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token padding/xs [light]": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token padding/xxs [light]": {
+   "figma": "2px",
+   "code": "2px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token panel/border [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token panel/border [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radii/button [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radii/card [light]": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radii/checkbox [light]": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radii/input [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radii/modal [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radii/swatch [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radii/toast [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radii/tooltip [light]": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/background/default [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/background/default [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/background/selected [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/background/selected [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/border/current [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/border/current [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/border/default [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/border/default [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/border/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/border/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/border/unselected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/border/unselected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/description [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/description [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/text/current [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/text/current [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/text/default [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/text/default [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/text/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/text/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/text/unselected [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token radioButton/text/unselected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/background/default [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/background/default [light]": {
+   "figma": "#f7f7f7",
+   "code": "#f7f7f7",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/background/selected [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/background/selected [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/border/default [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/border/default [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/border/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/border/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/icon/default [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/icon/default [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/icon/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/icon/selected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/label/default [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/label/default [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/label/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token segmentedControl/label/selected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/content/primary [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/content/primary [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/content/secondary [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/content/secondary [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/negative [dark]": {
+   "figma": "#fe6767",
+   "code": "#fe6767",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/negative [light]": {
+   "figma": "#c20000",
+   "code": "#c20000",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/surface/elevationHigh [dark]": {
+   "figma": "#2c2c2c",
+   "code": "#2c2c2c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/surface/elevationHigh [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/surface/elevationLow [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/surface/elevationLow [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/surface/elevationMedium [dark]": {
+   "figma": "#212121",
+   "code": "#212121",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/surface/elevationMedium [light]": {
+   "figma": "#f7f7f7",
+   "code": "#f7f7f7",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/warning [dark]": {
+   "figma": "#f7c522",
+   "code": "#f7c522",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token semantic/warning [light]": {
+   "figma": "#cf9e00",
+   "code": "#cf9e00",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token statusbar/icon [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token statusbar/icon [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token statusbar/text [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token statusbar/text [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token swatch/border/empty/primary [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token swatch/border/empty/primary [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token swatch/border/filled/primary [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token swatch/border/filled/primary [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/background/enabledOff [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/background/enabledOff [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/background/enabledOn [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/background/enabledOn [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/description/enabledOff [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/description/enabledOff [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/description/enabledOn [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/description/enabledOn [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/knob/enabledOff [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/knob/enabledOff [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/knob/enabledOn [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token switch/knob/enabledOn [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/background/error [dark]": {
+   "figma": "#fe6767",
+   "code": "#fe6767",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/background/error [light]": {
+   "figma": "#c20000",
+   "code": "#c20000",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/background/success [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/background/success [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/icon/error [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/icon/error [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/icon/success [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/icon/success [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/title/error [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/title/error [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/title/success [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token toast/title/success [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token tooltipButton/icon [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token tooltipButton/icon [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token tooltipPopover/background [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token tooltipPopover/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token tooltipPopover/border [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token tooltipPopover/border [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token tooltipPopover/text [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token tooltipPopover/text [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token typography/l/lh [light]": {
+   "figma": "17px",
+   "code": "17px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token typography/l/size [light]": {
+   "figma": "13px",
+   "code": "13px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token typography/l/weight [light]": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token typography/m/lh [light]": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token typography/m/size [light]": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token typography/m/weight [light]": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token typography/s/lh [light]": {
+   "figma": "15px",
+   "code": "15px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token typography/s/size [light]": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "token typography/s/weight [light]": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "tooltipButton · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "tooltipButton · height": {
+   "figma": "24",
+   "code": "24",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "tooltipPopover · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "tooltipPopover · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "tooltipPopover · font weight": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "tooltipPopover · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "tooltipPopover · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "tooltipPopover · radius": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  },
+  "tooltipPopover · stroke": {
+   "figma": "draws a border",
+   "code": "border on all sides",
+   "at": "2026-10-04T12:33:53.010Z",
+   "commit": "a3042cb"
+  }
+ },
+ "seen": {
+  "actionBar · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "actionBar · min height": {
+   "figma": "48",
+   "code": "48",
+   "same": true
+  },
+  "actionBar · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "actionBar · padding (top/bottom)": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "actionBar · stroke": {
+   "figma": "draws a border",
+   "code": "border on bottom",
+   "same": true
+  },
+  "badge · background": {
+   "figma": "paints a background",
+   "code": "no background",
+   "same": false
+  },
+  "badge · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
+  "badge · font weight": {
+   "figma": "700",
+   "code": "700",
+   "same": true
+  },
+  "badge · gap": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "badge · line height": {
+   "figma": "15px",
+   "code": "16px",
+   "same": false
+  },
+  "badge · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "buttonList · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "buttonList · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "buttonList · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "buttonList · height": {
+   "figma": "40",
+   "code": "40",
+   "same": true
+  },
+  "buttonList · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "buttonList · padding (left/right)": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "buttonPrimary · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "buttonPrimary · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "buttonPrimary · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "buttonPrimary · height": {
+   "figma": "24",
+   "code": "24",
+   "same": true
+  },
+  "buttonPrimary · line height": {
+   "figma": "16px",
+   "code": "11px",
+   "same": false
+  },
+  "buttonPrimary · opacity (disabled)": {
+   "figma": "0.16",
+   "code": "0.16",
+   "same": true
+  },
+  "buttonPrimary · padding (left/right)": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "buttonPrimary · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "buttonQuaternary · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "buttonQuaternary · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "buttonQuaternary · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "buttonQuaternary · height": {
+   "figma": "24",
+   "code": "24",
+   "same": true
+  },
+  "buttonQuaternary · padding (left/right)": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "buttonSecondary · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "buttonSecondary · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "buttonSecondary · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "buttonSecondary · height": {
+   "figma": "24",
+   "code": "24",
+   "same": true
+  },
+  "buttonSecondary · opacity (disabled)": {
+   "figma": "0.24",
+   "code": "0.24",
+   "same": true
+  },
+  "buttonSecondary · padding (left/right)": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "buttonSecondary · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "buttonStepper · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "buttonStepper · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "buttonStepper · gap": {
+   "figma": "2px",
+   "code": "2px",
+   "same": true
+  },
+  "buttonTertiary · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "buttonTertiary · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "buttonTertiary · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "buttonTertiary · height": {
+   "figma": "24",
+   "code": "24",
+   "same": true
+  },
+  "buttonTertiary · line height": {
+   "figma": "16px",
+   "code": "24px",
+   "same": false
+  },
+  "buttonTertiary · opacity (disabled)": {
+   "figma": "0.24",
+   "code": "0.24",
+   "same": true
+  },
+  "buttonTertiary · padding (left/right)": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "buttonTertiary · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "card · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "card · gap": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "card · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "card · padding (top/bottom)": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "card · radius": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "card · stroke": {
+   "figma": "draws a border",
+   "code": "border on all sides",
+   "same": true
+  },
+  "checkBox · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "checkBox · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "checkBox · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "checkBox · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "checkBox · radius": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "checkBoxGroup · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "checkBoxGroup · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
+  "checkBoxGroup · font weight": {
+   "figma": "700",
+   "code": "700",
+   "same": true
+  },
+  "checkBoxGroup · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "checkBoxGroup · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "same": true
+  },
+  "dividerLine · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "dividerLine · height": {
+   "figma": "2",
+   "code": "1",
+   "same": false
+  },
+  "dividerSection · background": {
+   "figma": "no background",
+   "code": "paints a background",
+   "same": false
+  },
+  "dividerSection · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
+  "dividerSection · font weight": {
+   "figma": "700",
+   "code": "700",
+   "same": true
+  },
+  "dividerSection · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "dividerSection · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "same": true
+  },
+  "emptyState · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "emptyState · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "emptyState · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "emptyState · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "emptyState · line height": {
+   "figma": "16px",
+   "code": "16.5px",
+   "same": false
+  },
+  "highlight · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "highlight · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
+  "highlight · font weight": {
+   "figma": "700",
+   "code": "700",
+   "same": true
+  },
+  "highlight · gap": {
+   "figma": "2px",
+   "code": "2px",
+   "same": true
+  },
+  "highlight · height": {
+   "figma": "24",
+   "code": "24",
+   "same": true
+  },
+  "highlight · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "same": true
+  },
+  "highlight · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "highlightSelector · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "highlightSelector · height": {
+   "figma": "10",
+   "code": "10",
+   "same": true
+  },
+  "highlightSelector · stroke": {
+   "figma": "draws a border",
+   "code": "border on all sides",
+   "same": true
+  },
+  "input · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "input · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "input · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "input · gap": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "input · height": {
+   "figma": "24",
+   "code": "24",
+   "same": true
+  },
+  "input · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "input · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "listItem · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "listItem · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "listItem · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "listItem · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "listItem · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "loader · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "loader · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "loader · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "loader · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "loader · padding (left/right)": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "loader · padding (top/bottom)": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "loader · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "modal · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "modal · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "modal · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "modal · padding (top/bottom)": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "modal · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "node · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "node · font size": {
+   "figma": "11px",
+   "code": "13px",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T13:51:32.490Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
+  },
+  "node · font weight": {
+   "figma": "600",
+   "code": "500",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T13:51:32.490Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
+  },
+  "node · gap": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "node · line height": {
+   "figma": "16px",
+   "code": "18.2px",
+   "same": false
+  },
+  "node · min height": {
+   "figma": "40",
+   "code": "40",
+   "same": true
+  },
+  "node · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "node · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "node · stroke": {
+   "figma": "draws a border",
+   "code": "border on all sides",
+   "same": true
+  },
+  "overflow · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "overflow · padding (top/bottom)": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "overflow · radius": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "overflow · stroke": {
+   "figma": "draws a border",
+   "code": "border on all sides",
+   "same": true
+  },
+  "overflowList · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "overflowList · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "overflowList · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "overflowList · gap": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "overflowList · height": {
+   "figma": "32",
+   "code": "32",
+   "same": true
+  },
+  "overflowList · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "overflowList · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "overlay · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "overlay · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "overlay · padding (top/bottom)": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "panel · padding (left/right)": {
+   "figma": "16px",
+   "code": "0px",
+   "same": false
+  },
+  "radioButton · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "radioButton · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "radioButton · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "radioButton · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "radioButton · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "radioButtonGroup · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "radioButtonGroup · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
+  "radioButtonGroup · font weight": {
+   "figma": "700",
+   "code": "700",
+   "same": true
+  },
+  "radioButtonGroup · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "radioButtonGroup · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "same": true
+  },
+  "segmentedControl · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "segmentedControl · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
+  "segmentedControl · font weight": {
+   "figma": "700",
+   "code": "700",
+   "same": true
+  },
+  "segmentedControl · gap": {
+   "figma": "2px",
+   "code": "2px",
+   "same": true
+  },
+  "segmentedControl · height": {
+   "figma": "24",
+   "code": "24",
+   "same": true
+  },
+  "segmentedControl · padding (left/right)": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "segmentedControl · padding (top/bottom)": {
+   "figma": "2px",
+   "code": "2px",
+   "same": true
+  },
+  "segmentedControlSegment · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "segmentedControlSegment · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
+  "segmentedControlSegment · font weight": {
+   "figma": "700",
+   "code": "700",
+   "same": true
+  },
+  "segmentedControlSegment · gap": {
+   "figma": "2px",
+   "code": "2px",
+   "same": true
+  },
+  "segmentedControlSegment · height": {
+   "figma": "24",
+   "code": "24",
+   "same": true
+  },
+  "segmentedControlSegment · padding (left/right)": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "segmentedControlSegment · padding (top/bottom)": {
+   "figma": "2px",
+   "code": "2px",
+   "same": true
+  },
+  "statusBar · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "statusBar · gap": {
+   "figma": "16px",
+   "code": "8px",
+   "same": false
+  },
+  "statusBar · height": {
+   "figma": "48",
+   "code": "48",
+   "same": true
+  },
+  "statusBar · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "statusBar · padding (top/bottom)": {
+   "figma": "12px",
+   "code": "0px",
+   "same": false
+  },
+  "statusBar · stroke": {
+   "figma": "draws a border",
+   "code": "border on bottom",
+   "same": true
+  },
+  "swatch · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "swatch · height": {
+   "figma": "24",
+   "code": "24",
+   "same": true
+  },
+  "swatch · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "switch · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "switch · gap": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "toast · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "toast · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "toast · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "toast · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "toast · height": {
+   "figma": "32",
+   "code": "48",
+   "same": false
+  },
+  "toast · line height": {
+   "figma": "16px",
+   "code": "14.3px",
+   "same": false
+  },
+  "toast · padding (left/right)": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "toast · padding (top/bottom)": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "toast · radius": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "token actionbar/background [dark]": {
+   "figma": "#2c2c2c",
+   "code": "#2c2c2c",
+   "same": true
+  },
+  "token actionbar/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token actionbar/border [dark]": {
+   "figma": "#424242",
+   "code": "#424242",
+   "same": true
+  },
+  "token actionbar/border [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token badge/background/negative [dark]": {
+   "figma": "#fe6767",
+   "code": "#fe6767",
+   "same": true
+  },
+  "token badge/background/negative [light]": {
+   "figma": "#c20000",
+   "code": "#c20000",
+   "same": true
+  },
+  "token badge/background/neutral [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token badge/background/neutral [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token badge/background/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "same": true
+  },
+  "token badge/background/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "same": true
+  },
+  "token badge/background/warning [dark]": {
+   "figma": "#f7c522",
+   "code": "#f7c522",
+   "same": true
+  },
+  "token badge/background/warning [light]": {
+   "figma": "#cf9e00",
+   "code": "#cf9e00",
+   "same": true
+  },
+  "token badge/icon/negative [dark]": {
+   "figma": "#fe6767",
+   "code": "#fe6767",
+   "same": true
+  },
+  "token badge/icon/negative [light]": {
+   "figma": "#c20000",
+   "code": "#c20000",
+   "same": true
+  },
+  "token badge/icon/neutral [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token badge/icon/neutral [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token badge/icon/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "same": true
+  },
+  "token badge/icon/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "same": true
+  },
+  "token badge/icon/warning [dark]": {
+   "figma": "#f7c522",
+   "code": "#f7c522",
+   "same": true
+  },
+  "token badge/icon/warning [light]": {
+   "figma": "#cf9e00",
+   "code": "#cf9e00",
+   "same": true
+  },
+  "token badge/label/negative [dark]": {
+   "figma": "#fe6767",
+   "code": "#fe6767",
+   "same": true
+  },
+  "token badge/label/negative [light]": {
+   "figma": "#c20000",
+   "code": "#c20000",
+   "same": true
+  },
+  "token badge/label/neutral [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token badge/label/neutral [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token badge/label/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "same": true
+  },
+  "token badge/label/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "same": true
+  },
+  "token badge/label/warning [dark]": {
+   "figma": "#f7c522",
+   "code": "#f7c522",
+   "same": true
+  },
+  "token badge/label/warning [light]": {
+   "figma": "#cf9e00",
+   "code": "#cf9e00",
+   "same": true
+  },
+  "token button/min-height [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "token buttonList/background/hover [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token buttonList/background/hover [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token buttonList/background/selected [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "same": true
+  },
+  "token buttonList/background/selected [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token buttonList/iconPrimary [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "same": true
+  },
+  "token buttonList/iconPrimary [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "same": true
+  },
+  "token buttonList/iconSecondary [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "same": true
+  },
+  "token buttonList/iconSecondary [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "same": true
+  },
+  "token buttonList/text/default [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token buttonList/text/default [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token buttonList/text/hover [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token buttonList/text/hover [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token buttonList/text/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token buttonList/text/selected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token buttonPrimary/background [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token buttonPrimary/background [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token buttonPrimary/iconText [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token buttonPrimary/iconText [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token buttonQuaternary/background/hover [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token buttonQuaternary/background/hover [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token buttonQuaternary/iconText [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token buttonQuaternary/iconText [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token buttonSecondary/background/default [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token buttonSecondary/background/default [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token buttonSecondary/background/hover [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "same": true
+  },
+  "token buttonSecondary/background/hover [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token buttonSecondary/border/default [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "same": true
+  },
+  "token buttonSecondary/border/default [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token buttonSecondary/border/hover [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "same": true
+  },
+  "token buttonSecondary/border/hover [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token buttonSecondary/icon [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "same": true
+  },
+  "token buttonSecondary/icon [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token buttonSecondary/text [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "same": true
+  },
+  "token buttonSecondary/text [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token buttonTertiary/background/active [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token buttonTertiary/background/active [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token buttonTertiary/background/default [dark]": {
+   "figma": "#212121",
+   "code": "#212121",
+   "same": true
+  },
+  "token buttonTertiary/background/default [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "same": true
+  },
+  "token buttonTertiary/iconText/active [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token buttonTertiary/iconText/active [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token buttonTertiary/iconText/default [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "same": true
+  },
+  "token buttonTertiary/iconText/default [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token card/border [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "same": true
+  },
+  "token card/border [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token checkbox/background/default [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token checkbox/background/default [light]": {
+   "figma": "#f7f7f7",
+   "code": "#f7f7f7",
+   "same": true
+  },
+  "token checkbox/background/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token checkbox/background/selected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token checkbox/border/default [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "same": true
+  },
+  "token checkbox/border/default [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "same": true
+  },
+  "token checkbox/border/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token checkbox/border/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token checkbox/description [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token checkbox/description [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token checkbox/icon/selected [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token checkbox/icon/selected [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token checkbox/text/default [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "same": true
+  },
+  "token checkbox/text/default [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "same": true
+  },
+  "token checkbox/text/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token checkbox/text/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token dividerLine/border [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "same": true
+  },
+  "token dividerLine/border [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token dividerSection/divider [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "same": true
+  },
+  "token dividerSection/divider [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "same": true
+  },
+  "token dividerSection/height [light]": {
+   "figma": "6px",
+   "code": "6px",
+   "same": true
+  },
+  "token dividerSection/number [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token dividerSection/number [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "same": true
+  },
+  "token dividerSection/title [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "same": true
+  },
+  "token dividerSection/title [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token emptyState/description [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token emptyState/description [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "same": true
+  },
+  "token emptyState/icon/neutral [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "same": true
+  },
+  "token emptyState/icon/neutral [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "same": true
+  },
+  "token emptyState/title [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token emptyState/title [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token figmaWindowChrome/background [dark]": {
+   "figma": "#2c2c2c",
+   "code": "#2c2c2c",
+   "same": true
+  },
+  "token figmaWindowChrome/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token figmaWindowChrome/divider [dark]": {
+   "figma": "#424242",
+   "code": "#424242",
+   "same": true
+  },
+  "token figmaWindowChrome/divider [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token gap/l [light]": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "token gap/m [light]": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "token gap/s [light]": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "token gap/xl [light]": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "token gap/xs [light]": {
+   "figma": "2px",
+   "code": "2px",
+   "same": true
+  },
+  "token gap/xxxl [light]": {
+   "figma": "32px",
+   "code": "32px",
+   "same": true
+  },
+  "token general/min-height [light]": {
+   "figma": "60px",
+   "code": "60px",
+   "same": true
+  },
+  "token general/thickness [light]": {
+   "figma": "1.5px",
+   "code": "1.5px",
+   "same": true
+  },
+  "token icon/large [light]": {
+   "figma": "2px",
+   "code": "2px",
+   "same": true
+  },
+  "token icon/small [light]": {
+   "figma": "1.5px",
+   "code": "1.5px",
+   "same": true
+  },
+  "token icon/xsmall [light]": {
+   "figma": "1.2px",
+   "code": "1.2px",
+   "same": true
+  },
+  "token input/background/filled [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token input/background/filled [light]": {
+   "figma": "#f7f7f7",
+   "code": "#f7f7f7",
+   "same": true
+  },
+  "token input/border/default [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "same": true
+  },
+  "token input/border/default [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "same": true
+  },
+  "token input/border/disabled [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token input/border/disabled [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "same": true
+  },
+  "token input/border/focus [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token input/border/focus [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token input/border/hover [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "same": true
+  },
+  "token input/border/hover [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "same": true
+  },
+  "token input/icon [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "same": true
+  },
+  "token input/icon [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token input/label [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token input/label [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token input/value/disabled [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token input/value/disabled [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token input/value/empty [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "same": true
+  },
+  "token input/value/empty [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "same": true
+  },
+  "token input/value/filled [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token input/value/filled [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token loader/background [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token loader/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token loader/description [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "same": true
+  },
+  "token loader/description [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token loader/spinner [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "same": true
+  },
+  "token loader/spinner [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "same": true
+  },
+  "token loader/title [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token loader/title [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token modal/background [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token modal/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token modal/title [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token modal/title [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token node/background/hover [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token node/background/hover [light]": {
+   "figma": "#f7f7f7",
+   "code": "#f7f7f7",
+   "same": true
+  },
+  "token node/background/selected [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "same": true
+  },
+  "token node/background/selected [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token node/border/disabled [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "same": true
+  },
+  "token node/border/disabled [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token node/border/hover [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "same": true
+  },
+  "token node/border/hover [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token node/border/idle [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "same": true
+  },
+  "token node/border/idle [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "same": true
+  },
+  "token node/border/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token node/border/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token node/icon/disabled [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "same": true
+  },
+  "token node/icon/disabled [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "same": true
+  },
+  "token node/icon/hover [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token node/icon/hover [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token node/icon/idle [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "same": true
+  },
+  "token node/icon/idle [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "same": true
+  },
+  "token node/icon/selected [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token node/icon/selected [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token node/label/disabled [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "same": true
+  },
+  "token node/label/disabled [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token node/label/hover [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token node/label/hover [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "same": true
+  },
+  "token node/label/idle [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token node/label/idle [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "same": true
+  },
+  "token node/label/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token node/label/selected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token overflow/background [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "same": true
+  },
+  "token overflow/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token overflow/border [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "same": true
+  },
+  "token overflow/border [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "same": true
+  },
+  "token overflow/text [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token overflow/text [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "same": true
+  },
+  "token overflowList/background/default [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "same": true
+  },
+  "token overflowList/background/default [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token overflowList/background/hover [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token overflowList/background/hover [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token overflowList/border/default [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "same": true
+  },
+  "token overflowList/border/default [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "same": true
+  },
+  "token overflowList/border/hover [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "same": true
+  },
+  "token overflowList/border/hover [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "same": true
+  },
+  "token overflowList/label/default [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token overflowList/label/default [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "same": true
+  },
+  "token overflowList/label/hover [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token overflowList/label/hover [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "same": true
+  },
+  "token padding/l [light]": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "token padding/m [light]": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "token padding/s [light]": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "token padding/xl [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "token padding/xs [light]": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "token padding/xxs [light]": {
+   "figma": "2px",
+   "code": "2px",
+   "same": true
+  },
+  "token panel/border [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "same": true
+  },
+  "token panel/border [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token radii/button [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "token radii/card [light]": {
+   "figma": "12px",
+   "code": "12px",
+   "same": true
+  },
+  "token radii/checkbox [light]": {
+   "figma": "4px",
+   "code": "4px",
+   "same": true
+  },
+  "token radii/input [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "token radii/modal [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "token radii/swatch [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "token radii/toast [light]": {
+   "figma": "24px",
+   "code": "24px",
+   "same": true
+  },
+  "token radii/tooltip [light]": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "token radioButton/background/default [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token radioButton/background/default [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token radioButton/background/selected [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token radioButton/background/selected [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token radioButton/border/current [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token radioButton/border/current [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token radioButton/border/default [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "same": true
+  },
+  "token radioButton/border/default [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "same": true
+  },
+  "token radioButton/border/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token radioButton/border/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token radioButton/border/unselected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token radioButton/border/unselected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token radioButton/description [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token radioButton/description [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token radioButton/text/current [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token radioButton/text/current [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token radioButton/text/default [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "same": true
+  },
+  "token radioButton/text/default [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "same": true
+  },
+  "token radioButton/text/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token radioButton/text/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token radioButton/text/unselected [dark]": {
+   "figma": "#dbdbdb",
+   "code": "#dbdbdb",
+   "same": true
+  },
+  "token radioButton/text/unselected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token segmentedControl/background/default [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token segmentedControl/background/default [light]": {
+   "figma": "#f7f7f7",
+   "code": "#f7f7f7",
+   "same": true
+  },
+  "token segmentedControl/background/selected [dark]": {
+   "figma": "#303030",
+   "code": "#303030",
+   "same": true
+  },
+  "token segmentedControl/background/selected [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token segmentedControl/border/default [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "same": true
+  },
+  "token segmentedControl/border/default [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token segmentedControl/border/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token segmentedControl/border/selected [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token segmentedControl/icon/default [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token segmentedControl/icon/default [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "same": true
+  },
+  "token segmentedControl/icon/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token segmentedControl/icon/selected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token segmentedControl/label/default [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token segmentedControl/label/default [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token segmentedControl/label/selected [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token segmentedControl/label/selected [light]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token semantic/content/primary [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token semantic/content/primary [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token semantic/content/secondary [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token semantic/content/secondary [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "same": true
+  },
+  "token semantic/negative [dark]": {
+   "figma": "#fe6767",
+   "code": "#fe6767",
+   "same": true
+  },
+  "token semantic/negative [light]": {
+   "figma": "#c20000",
+   "code": "#c20000",
+   "same": true
+  },
+  "token semantic/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "same": true
+  },
+  "token semantic/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "same": true
+  },
+  "token semantic/surface/elevationHigh [dark]": {
+   "figma": "#2c2c2c",
+   "code": "#2c2c2c",
+   "same": true
+  },
+  "token semantic/surface/elevationHigh [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token semantic/surface/elevationLow [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token semantic/surface/elevationLow [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "same": true
+  },
+  "token semantic/surface/elevationMedium [dark]": {
+   "figma": "#212121",
+   "code": "#212121",
+   "same": true
+  },
+  "token semantic/surface/elevationMedium [light]": {
+   "figma": "#f7f7f7",
+   "code": "#f7f7f7",
+   "same": true
+  },
+  "token semantic/warning [dark]": {
+   "figma": "#f7c522",
+   "code": "#f7c522",
+   "same": true
+  },
+  "token semantic/warning [light]": {
+   "figma": "#cf9e00",
+   "code": "#cf9e00",
+   "same": true
+  },
+  "token statusbar/icon [dark]": {
+   "figma": "#878787",
+   "code": "#878787",
+   "same": true
+  },
+  "token statusbar/icon [light]": {
+   "figma": "#adadad",
+   "code": "#adadad",
+   "same": true
+  },
+  "token statusbar/text [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token statusbar/text [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token swatch/border/empty/primary [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "same": true
+  },
+  "token swatch/border/empty/primary [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token swatch/border/filled/primary [dark]": {
+   "figma": "#454545",
+   "code": "#454545",
+   "same": true
+  },
+  "token swatch/border/filled/primary [light]": {
+   "figma": "#d6d6d6",
+   "code": "#d6d6d6",
+   "same": true
+  },
+  "token switch/background/enabledOff [dark]": {
+   "figma": "#5e5e5e",
+   "code": "#5e5e5e",
+   "same": true
+  },
+  "token switch/background/enabledOff [light]": {
+   "figma": "#828282",
+   "code": "#828282",
+   "same": true
+  },
+  "token switch/background/enabledOn [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token switch/background/enabledOn [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token switch/description/enabledOff [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token switch/description/enabledOff [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "same": true
+  },
+  "token switch/description/enabledOn [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token switch/description/enabledOn [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "same": true
+  },
+  "token switch/knob/enabledOff [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token switch/knob/enabledOff [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "same": true
+  },
+  "token switch/knob/enabledOn [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token switch/knob/enabledOn [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token toast/background/error [dark]": {
+   "figma": "#fe6767",
+   "code": "#fe6767",
+   "same": true
+  },
+  "token toast/background/error [light]": {
+   "figma": "#c20000",
+   "code": "#c20000",
+   "same": true
+  },
+  "token toast/background/success [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "same": true
+  },
+  "token toast/background/success [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "same": true
+  },
+  "token toast/icon/error [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token toast/icon/error [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token toast/icon/success [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token toast/icon/success [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token toast/title/error [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token toast/title/error [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token toast/title/success [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token toast/title/success [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token tooltipButton/icon [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token tooltipButton/icon [light]": {
+   "figma": "#595959",
+   "code": "#595959",
+   "same": true
+  },
+  "token tooltipPopover/background [dark]": {
+   "figma": "#1c1c1c",
+   "code": "#1c1c1c",
+   "same": true
+  },
+  "token tooltipPopover/background [light]": {
+   "figma": "#ffffff",
+   "code": "#ffffff",
+   "same": true
+  },
+  "token tooltipPopover/border [dark]": {
+   "figma": "#2b2b2b",
+   "code": "#2b2b2b",
+   "same": true
+  },
+  "token tooltipPopover/border [light]": {
+   "figma": "#e8e8e8",
+   "code": "#e8e8e8",
+   "same": true
+  },
+  "token tooltipPopover/text [dark]": {
+   "figma": "#bfbfbf",
+   "code": "#bfbfbf",
+   "same": true
+  },
+  "token tooltipPopover/text [light]": {
+   "figma": "#404040",
+   "code": "#404040",
+   "same": true
+  },
+  "token typography/l/lh [light]": {
+   "figma": "17px",
+   "code": "17px",
+   "same": true
+  },
+  "token typography/l/size [light]": {
+   "figma": "13px",
+   "code": "13px",
+   "same": true
+  },
+  "token typography/l/weight [light]": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "token typography/m/lh [light]": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "token typography/m/size [light]": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "token typography/m/weight [light]": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
+  "token typography/s/lh [light]": {
+   "figma": "15px",
+   "code": "15px",
+   "same": true
+  },
+  "token typography/s/size [light]": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
+  "token typography/s/weight [light]": {
+   "figma": "700",
+   "code": "700",
+   "same": true
+  },
+  "tooltipButton · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "tooltipButton · height": {
+   "figma": "24",
+   "code": "24",
+   "same": true
+  },
+  "tooltipPopover · background": {
+   "figma": "paints a background",
+   "code": "paints a background",
+   "same": true
+  },
+  "tooltipPopover · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
+  "tooltipPopover · font weight": {
+   "figma": "700",
+   "code": "700",
+   "same": true
+  },
+  "tooltipPopover · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "tooltipPopover · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "same": true
+  },
+  "tooltipPopover · radius": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "tooltipPopover · stroke": {
+   "figma": "draws a border",
+   "code": "border on all sides",
+   "same": true
+  }
+ }
+}

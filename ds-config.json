@@ -348,7 +348,27 @@
   },
   "styleguide": {
     "out": "apps/style-guide/index.html",
-    "iconSource": "../rms-figma-impact-atlas/ui.html"
+    "iconSource": "../rms-figma-impact-atlas/ui.html",
+    "plugins": [
+      {
+        "key": "IA",
+        "match": "impact-atlas",
+        "name": "Impact Atlas",
+        "href": "https://github.com/rafaelmatosdasilva/rms-figma-impact-atlas"
+      },
+      {
+        "key": "TtI",
+        "match": "tokens-to-ink",
+        "name": "Tokens to Ink",
+        "href": "https://github.com/rafaelmatosdasilva/rms-figma-tokens-to-ink"
+      },
+      {
+        "key": "FSL",
+        "match": "font-scaling-lab",
+        "name": "Font Scaling Lab",
+        "href": "https://github.com/rafaelmatosdasilva/rms-figma-font-scaling-lab"
+      }
+    ]
   },
   "pluginDirs": {
     "impact-atlas": "../rms-figma-impact-atlas",
