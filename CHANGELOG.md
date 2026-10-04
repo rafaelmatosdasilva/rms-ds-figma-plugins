@@ -7,6 +7,12 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v1.0.3 · 4 October 2026
+
+- The code follows Figma: the modal is 320 wide; the empty state's illustration rule no longer reaches its action
+  button's icon; toast and status bar spacing follow Figma's structure.
+- The style guide samples show every part a switch turns on or off (buttonList, loader, tooltipButton).
+
 ## v1.0.2 · 4 October 2026
 
 - The code follows Figma: text styles on card, switch, modal and overflow; statusBar spacing and a content group;
