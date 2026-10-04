@@ -378,6 +378,10 @@
     "overflow": {
       "Show Title": ".overflow-label",
       "Title Content": ".overflow-label"
+    },
+    "input": {
+      "Label Before Content": ".inputLabel",
+      "Value Content": ".inputField"
     }
   },
   "docs": {
@@ -386,6 +390,8 @@
       "apps/styleguide/index.html"
     ]
   },
+  "_systemScripts_note": "The system's own script: the style guide runs it, so its components behave as in a product (the sliding pill, tooltips, toasts).",
+  "systemScripts": ["packages/ui/src/ui-shared.js"],
   "styleguide": {
     "out": "apps/style-guide/index.html",
     "iconSource": "../rms-figma-impact-atlas/ui.html",
