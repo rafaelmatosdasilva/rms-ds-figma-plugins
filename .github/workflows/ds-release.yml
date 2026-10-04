@@ -25,6 +25,10 @@ jobs:
           GH_TOKEN: ${{ secrets.PLUGINS_DISPATCH_TOKEN }}
           VERSION: ${{ inputs.version || github.ref_name }}
         run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "No PLUGINS_DISPATCH_TOKEN yet: nothing sent. Add the secret, then run this workflow by hand with the version." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
           for repo in $(node -p 'require("./products.json").products.map((p) => p.repo).join(" ")'); do
             echo "→ $repo"
             gh api "repos/$repo/dispatches" -f event_type=ds-release -F "client_payload[version]=$VERSION"
