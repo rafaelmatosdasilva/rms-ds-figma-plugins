@@ -14,7 +14,6 @@ dist/
 .design-system-engine-out/
 .design-system-engine-refs/
 design-system-engine-check-result.json
-design-system-engine-agreed.json
 design-system-engine-baseline.json
 .parity-refs/
 .parity-out/

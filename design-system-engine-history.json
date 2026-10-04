@@ -1,926 +1,6 @@
 [
   {
     "date": "2026-09-12",
-    "timestamp": "2026-09-12T20:22:24.944Z",
-    "pass": 21,
-    "planLimited": 0,
-    "fail": 0,
-    "total": 21,
-    "gates": [
-      {
-        "label": "Data is up to date  (Figma snapshots & build output are current)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Token values  (color · sizing · typography · breakpoints · text · animation)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Exception lists are valid  (no stale or overly broad entries)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Structure  (height · spacing · base-rule variable bindings)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Transitions  (duration · easing · property per DS selector)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Motion  (easing & duration variables → CSS)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "What this audit actually checked  (which DS components & states are covered)",
-        "pass": true,
-        "planLimited": false
-      }
-    ]
-  },
-  {
-    "date": "2026-09-12",
-    "timestamp": "2026-09-12T20:24:52.076Z",
-    "pass": 21,
-    "planLimited": 0,
-    "fail": 0,
-    "total": 21,
-    "gates": [
-      {
-        "label": "Data is up to date  (Figma snapshots & build output are current)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Token values  (color · sizing · typography · breakpoints · text · animation)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Exception lists are valid  (no stale or overly broad entries)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Structure  (height · spacing · base-rule variable bindings)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Transitions  (duration · easing · property per DS selector)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Motion  (easing & duration variables → CSS)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "What this audit actually checked  (which DS components & states are covered)",
-        "pass": true,
-        "planLimited": false
-      }
-    ]
-  },
-  {
-    "date": "2026-09-12",
-    "timestamp": "2026-09-12T20:25:57.930Z",
-    "pass": 21,
-    "planLimited": 0,
-    "fail": 0,
-    "total": 21,
-    "gates": [
-      {
-        "label": "Data is up to date  (Figma snapshots & build output are current)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Token values  (color · sizing · typography · breakpoints · text · animation)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Exception lists are valid  (no stale or overly broad entries)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Structure  (height · spacing · base-rule variable bindings)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Transitions  (duration · easing · property per DS selector)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Motion  (easing & duration variables → CSS)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "What this audit actually checked  (which DS components & states are covered)",
-        "pass": true,
-        "planLimited": false
-      }
-    ]
-  },
-  {
-    "date": "2026-09-12",
-    "timestamp": "2026-09-12T20:28:04.688Z",
-    "pass": 21,
-    "planLimited": 0,
-    "fail": 0,
-    "total": 21,
-    "gates": [
-      {
-        "label": "Data is up to date  (Figma snapshots & build output are current)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Token values  (color · sizing · typography · breakpoints · text · animation)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Exception lists are valid  (no stale or overly broad entries)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Structure  (height · spacing · base-rule variable bindings)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Transitions  (duration · easing · property per DS selector)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Motion  (easing & duration variables → CSS)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "What this audit actually checked  (which DS components & states are covered)",
-        "pass": true,
-        "planLimited": false
-      }
-    ]
-  },
-  {
-    "date": "2026-09-12",
-    "timestamp": "2026-09-12T20:33:57.763Z",
-    "pass": 20,
-    "planLimited": 0,
-    "fail": 1,
-    "total": 21,
-    "gates": [
-      {
-        "label": "Data is up to date  (Figma snapshots & build output are current)",
-        "pass": false,
-        "planLimited": false
-      },
-      {
-        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Token values  (color · sizing · typography · breakpoints · text · animation)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Exception lists are valid  (no stale or overly broad entries)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Structure  (height · spacing · base-rule variable bindings)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Transitions  (duration · easing · property per DS selector)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Motion  (easing & duration variables → CSS)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "What this audit actually checked  (which DS components & states are covered)",
-        "pass": true,
-        "planLimited": false
-      }
-    ]
-  },
-  {
-    "date": "2026-09-12",
-    "timestamp": "2026-09-12T20:42:26.093Z",
-    "pass": 20,
-    "planLimited": 0,
-    "fail": 1,
-    "total": 21,
-    "gates": [
-      {
-        "label": "Data is up to date  (Figma snapshots & build output are current)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Token values  (color · sizing · typography · breakpoints · text · animation)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Exception lists are valid  (no stale or overly broad entries)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Structure  (height · spacing · base-rule variable bindings)",
-        "pass": false,
-        "planLimited": false
-      },
-      {
-        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Transitions  (duration · easing · property per DS selector)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Motion  (easing & duration variables → CSS)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "What this audit actually checked  (which DS components & states are covered)",
-        "pass": true,
-        "planLimited": false
-      }
-    ]
-  },
-  {
-    "date": "2026-09-12",
-    "timestamp": "2026-09-12T20:43:16.252Z",
-    "pass": 21,
-    "planLimited": 0,
-    "fail": 0,
-    "total": 21,
-    "gates": [
-      {
-        "label": "Data is up to date  (Figma snapshots & build output are current)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Token values  (color · sizing · typography · breakpoints · text · animation)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Exception lists are valid  (no stale or overly broad entries)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Structure  (height · spacing · base-rule variable bindings)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Transitions  (duration · easing · property per DS selector)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Motion  (easing & duration variables → CSS)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "What this audit actually checked  (which DS components & states are covered)",
-        "pass": true,
-        "planLimited": false
-      }
-    ]
-  },
-  {
-    "date": "2026-09-12",
-    "timestamp": "2026-09-12T20:49:41.444Z",
-    "pass": 21,
-    "planLimited": 0,
-    "fail": 0,
-    "total": 21,
-    "gates": [
-      {
-        "label": "Data is up to date  (Figma snapshots & build output are current)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Token values  (color · sizing · typography · breakpoints · text · animation)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Exception lists are valid  (no stale or overly broad entries)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Structure  (height · spacing · base-rule variable bindings)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Transitions  (duration · easing · property per DS selector)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Motion  (easing & duration variables → CSS)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
-        "pass": true,
-        "planLimited": false
-      },
-      {
-        "label": "What this audit actually checked  (which DS components & states are covered)",
-        "pass": true,
-        "planLimited": false
-      }
-    ]
-  },
-  {
-    "date": "2026-09-12",
     "timestamp": "2026-09-12T20:50:30.876Z",
     "pass": 21,
     "planLimited": 0,
@@ -12135,6 +11215,1086 @@
       {
         "label": "Structure  (height · spacing · base-rule variable bindings)",
         "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Templates compose the right components  (each template/page uses the components Figma composes)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Transitions  (duration · easing · property per DS selector)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Motion  (easing & duration variables → CSS)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "What this audit actually checked  (which DS components & states are covered)",
+        "pass": true,
+        "planLimited": false
+      }
+    ]
+  },
+  {
+    "date": "2026-10-04",
+    "timestamp": "2026-10-04T13:57:07.688Z",
+    "pass": 20,
+    "planLimited": 2,
+    "fail": 3,
+    "total": 25,
+    "gates": [
+      {
+        "label": "Data is up to date  (Figma snapshots & build output are current)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Token values  (color · sizing · typography · breakpoints · text)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Exception lists are valid  (no stale or overly broad entries)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Docs tell the truth  (a style guide / DS doc references only tokens & vars that exist)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented text casing  (no text-transform the DS/Figma does not define)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No hand-built DS components  (screens use the DS component, not a local look-alike)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Structure  (height · spacing · base-rule variable bindings)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Templates compose the right components  (each template/page uses the components Figma composes)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Transitions  (duration · easing · property per DS selector)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Motion  (easing & duration variables → CSS)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "What this audit actually checked  (which DS components & states are covered)",
+        "pass": true,
+        "planLimited": false
+      }
+    ]
+  },
+  {
+    "date": "2026-10-04",
+    "timestamp": "2026-10-04T13:58:21.697Z",
+    "pass": 20,
+    "planLimited": 2,
+    "fail": 3,
+    "total": 25,
+    "gates": [
+      {
+        "label": "Data is up to date  (Figma snapshots & build output are current)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Token values  (color · sizing · typography · breakpoints · text)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Exception lists are valid  (no stale or overly broad entries)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Docs tell the truth  (a style guide / DS doc references only tokens & vars that exist)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented text casing  (no text-transform the DS/Figma does not define)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No hand-built DS components  (screens use the DS component, not a local look-alike)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Structure  (height · spacing · base-rule variable bindings)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Templates compose the right components  (each template/page uses the components Figma composes)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Transitions  (duration · easing · property per DS selector)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Motion  (easing & duration variables → CSS)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "What this audit actually checked  (which DS components & states are covered)",
+        "pass": true,
+        "planLimited": false
+      }
+    ]
+  },
+  {
+    "date": "2026-10-04",
+    "timestamp": "2026-10-04T14:55:26.764Z",
+    "pass": 18,
+    "planLimited": 2,
+    "fail": 5,
+    "total": 25,
+    "gates": [
+      {
+        "label": "Data is up to date  (Figma snapshots & build output are current)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Token values  (color · sizing · typography · breakpoints · text)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Exception lists are valid  (no stale or overly broad entries)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Docs tell the truth  (a style guide / DS doc references only tokens & vars that exist)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented text casing  (no text-transform the DS/Figma does not define)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No hand-built DS components  (screens use the DS component, not a local look-alike)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Structure  (height · spacing · base-rule variable bindings)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Templates compose the right components  (each template/page uses the components Figma composes)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Transitions  (duration · easing · property per DS selector)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Motion  (easing & duration variables → CSS)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "What this audit actually checked  (which DS components & states are covered)",
+        "pass": true,
+        "planLimited": false
+      }
+    ]
+  },
+  {
+    "date": "2026-10-04",
+    "timestamp": "2026-10-04T14:58:46.910Z",
+    "pass": 20,
+    "planLimited": 2,
+    "fail": 3,
+    "total": 25,
+    "gates": [
+      {
+        "label": "Data is up to date  (Figma snapshots & build output are current)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Token values  (color · sizing · typography · breakpoints · text)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Exception lists are valid  (no stale or overly broad entries)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Docs tell the truth  (a style guide / DS doc references only tokens & vars that exist)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented text casing  (no text-transform the DS/Figma does not define)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No hand-built DS components  (screens use the DS component, not a local look-alike)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Structure  (height · spacing · base-rule variable bindings)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Templates compose the right components  (each template/page uses the components Figma composes)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Transitions  (duration · easing · property per DS selector)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Motion  (easing & duration variables → CSS)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "What this audit actually checked  (which DS components & states are covered)",
+        "pass": true,
+        "planLimited": false
+      }
+    ]
+  },
+  {
+    "date": "2026-10-04",
+    "timestamp": "2026-10-04T15:00:01.341Z",
+    "pass": 20,
+    "planLimited": 2,
+    "fail": 3,
+    "total": 25,
+    "gates": [
+      {
+        "label": "Data is up to date  (Figma snapshots & build output are current)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Token values  (color · sizing · typography · breakpoints · text)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Exception lists are valid  (no stale or overly broad entries)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Docs tell the truth  (a style guide / DS doc references only tokens & vars that exist)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented text casing  (no text-transform the DS/Figma does not define)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No hand-built DS components  (screens use the DS component, not a local look-alike)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Structure  (height · spacing · base-rule variable bindings)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Templates compose the right components  (each template/page uses the components Figma composes)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Transitions  (duration · easing · property per DS selector)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Motion  (easing & duration variables → CSS)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "What this audit actually checked  (which DS components & states are covered)",
+        "pass": true,
+        "planLimited": false
+      }
+    ]
+  },
+  {
+    "date": "2026-10-04",
+    "timestamp": "2026-10-04T15:05:40.831Z",
+    "pass": 20,
+    "planLimited": 2,
+    "fail": 3,
+    "total": 25,
+    "gates": [
+      {
+        "label": "Data is up to date  (Figma snapshots & build output are current)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Token values  (color · sizing · typography · breakpoints · text)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Exception lists are valid  (no stale or overly broad entries)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Docs tell the truth  (a style guide / DS doc references only tokens & vars that exist)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented text casing  (no text-transform the DS/Figma does not define)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No hand-built DS components  (screens use the DS component, not a local look-alike)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Structure  (height · spacing · base-rule variable bindings)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Templates compose the right components  (each template/page uses the components Figma composes)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Transitions  (duration · easing · property per DS selector)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Motion  (easing & duration variables → CSS)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "What this audit actually checked  (which DS components & states are covered)",
+        "pass": true,
+        "planLimited": false
+      }
+    ]
+  },
+  {
+    "date": "2026-10-04",
+    "timestamp": "2026-10-04T15:12:16.573Z",
+    "pass": 20,
+    "planLimited": 2,
+    "fail": 3,
+    "total": 25,
+    "gates": [
+      {
+        "label": "Data is up to date  (Figma snapshots & build output are current)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Token values  (color · sizing · typography · breakpoints · text)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Exception lists are valid  (no stale or overly broad entries)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Docs tell the truth  (a style guide / DS doc references only tokens & vars that exist)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented text casing  (no text-transform the DS/Figma does not define)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No hand-built DS components  (screens use the DS component, not a local look-alike)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Structure  (height · spacing · base-rule variable bindings)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "All states are built  (each state implemented · correct selector · variable in the right rule)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Component props match Figma  (names, defaults, variant options & slots vs code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Sub-components match Figma  (the sub-components Figma nests are the ones the code uses)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Templates compose the right components  (each template/page uses the components Figma composes)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Markup  (ids · component classes · icon references · every DS screen control is built)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Required pieces are in place  (icon slots · component slots · form controls)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Icons  (symbol markup · path data · live Figma check · every Figma icon is in the code)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Transitions  (duration · easing · property per DS selector)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Motion  (easing & duration variables → CSS)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Shadows  (Figma effect styles → CSS box-shadow)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Renders correctly in a browser  (real computed styles vs the DS spec)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "What this audit actually checked  (which DS components & states are covered)",
+        "pass": true,
+        "planLimited": false
+      }
+    ]
+  },
+  {
+    "date": "2026-10-04",
+    "timestamp": "2026-10-04T15:14:52.525Z",
+    "pass": 20,
+    "planLimited": 2,
+    "fail": 3,
+    "total": 25,
+    "gates": [
+      {
+        "label": "Data is up to date  (Figma snapshots & build output are current)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Figma frame unchanged  (live frame vs saved reference screenshot)",
+        "pass": true,
+        "planLimited": true
+      },
+      {
+        "label": "Token values  (color · sizing · typography · breakpoints · text)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Tokens used in screens exist in CSS  (every token bound in a DS screen has a CSS variable)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Every mode is covered  (tokens adapt across light/dark and all configured modes)",
+        "pass": false,
+        "planLimited": false
+      },
+      {
+        "label": "Exception lists are valid  (no stale or overly broad entries)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented CSS variables  (every CSS variable traces back to a Figma token)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Docs tell the truth  (a style guide / DS doc references only tokens & vars that exist)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No invented text casing  (no text-transform the DS/Figma does not define)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "No hand-built DS components  (screens use the DS component, not a local look-alike)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Clean CSS  (no unused variables · no values that contradict Figma · safe containment)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Nested components keep their own styles  (no parent rule overrides a child component)",
+        "pass": true,
+        "planLimited": false
+      },
+      {
+        "label": "Structure  (height · spacing · base-rule variable bindings)",
+        "pass": false,
         "planLimited": false
       },
       {

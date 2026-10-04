@@ -40,7 +40,7 @@ export const EXPLICIT = {
   'badge/background/neutral':          '--badge-neutral',
   'badge/label/neutral':               '--badge-neutral',
   'badge/icon/neutral':                '--badge-neutral',
-  'overlay':                           null,  // rgba — skip comparison
+  'overlay':                           '--overlay-bg',  // a colour with its own opacity in Figma (88%), rgba in CSS
 };
 
 // ─── Color: tokens with no CSS implementation ────────────────────────────────
@@ -101,11 +101,19 @@ export const EXPLICIT_SIZING = {
   'radii/card':         '--radius-md',
   'radii/tooltip':      '--radius-tooltip',
   'radii/checkbox':     '--radius-checkbox',
+  // The text styles as variables (Figma 2026-10): the same values as the type scale above.
+  'typography/l/font-size':   '--l-size',
+  'typography/l/line-height': '--l-lh',
+  'typography/m/font-size':   '--m-size',
+  'typography/m/line-height': '--m-lh',
+  'typography/s/font-size':   '--s-size',
+  'typography/s/line-height': '--s-lh',
 };
 
 // Sizing tokens with no CSS consumer — map to reason string
 export const SIZING_SKIP = new Map([
   ['general/window-radii', 'Figma window-chrome corner radius — not controlled by HTML/CSS'],
+  ['viewport/min-width', 'The width each Figma mode draws its frames at (Desktop 1680, Phone 350): a canvas size, not a CSS value'],
   ['gap/xxl', 'Scale token with no component consumer — var removed per Hard Rule #2; declare when a component uses this spacing'],
 ]);
 
@@ -127,14 +135,10 @@ export const COVERED = new Set([
   'general/window-radii',
   // Type scale tokenised in the DS (2026-09): font-size/line-height are now variables, realized
   // in code by the scale vars --{m,s,l}-{size,lh} (Gate [3] verifies the values match Figma).
-  'typography/l/font-size', 'typography/l/line-height',
-  'typography/m/font-size', 'typography/m/line-height',
-  'typography/s/font-size', 'typography/s/line-height',
   // node/background/idle: the DS idle variant binds it, but the code intentionally renders the
   // resting node with no fill (its value equals the panel background) — documented in theme.css.
   'node/background/idle',
   'semantic/pattern/appearance',
-  'overlay',
   // Figma-only: STRING var (CSS cannot consume)
   'font-family',
   // Sizing scale token with no rule consumer (Hard Rule #2)
@@ -142,6 +146,8 @@ export const COVERED = new Set([
   // Sizing tokens with CSS vars via EXPLICIT_SIZING (gate [4] doesn't check EXPLICIT_SIZING)
   'general/thickness', 'general/min-height',
   'radii/button', 'radii/input', 'radii/swatch', 'radii/card',
+  'typography/l/font-size', 'typography/l/line-height', 'typography/m/font-size', 'typography/m/line-height',
+  'typography/s/font-size', 'typography/s/line-height',
   // listItem/icon has no CSS rule consumer — all icon rows use --buttonList-iconPrimary
   'listItem/icon',
   // listItem/title lost its last consumer with library-atlas (2026-07)

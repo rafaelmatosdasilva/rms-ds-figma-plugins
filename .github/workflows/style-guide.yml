@@ -4,7 +4,8 @@ name: style guide
 # rms-design-system-engine builds it (--styleguide) from what is committed here: the theme, the shared UI, the Figma
 # snapshots and the contracts. The products are checked out beside this repository, as the engine expects
 # (ds-config.json, pluginDirs), and products.json gives the links to each one. The engine builds a local page and knows
-# nothing about Pages; publishing is this workflow's job only.
+# nothing about Pages; publishing is this workflow's job only. The page must pass the engine's style guide check
+# (only the system's tokens and components on it, its own accessibility) or nothing is published.
 
 on:
   push:
@@ -52,12 +53,17 @@ jobs:
           for repo in $(node -p 'require("./rms-ds-figma-plugins/products.json").products.map((p) => p.repo).join(" ")'); do
             git clone --depth 1 "https://github.com/$repo.git" "${repo#*/}"
           done
-      - name: Build the style guide
+      - name: Audit against Figma (writes the differences the page shows; a failing audit still publishes)
+        working-directory: rms-ds-figma-plugins
+        run: node ../engine/audit.mjs || true
+      - name: Build the style guide, add the links, check the page against the system
         working-directory: rms-ds-figma-plugins
         run: |
           node ../engine/audit.mjs --styleguide
           node scripts/style-guide-links.mjs apps/style-guide/index.html
+          node ../engine/audit.mjs --styleguide-check apps/style-guide/index.html
           mkdir -p ../site && cp apps/style-guide/index.html ../site/index.html
+          cp .design-system-engine-out/differences.md ../site/differences.md 2>/dev/null || true
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

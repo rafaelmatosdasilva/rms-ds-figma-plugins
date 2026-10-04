@@ -76,7 +76,9 @@ The [living style guide](https://rafaelmatosdasilva.github.io/rms-ds-figma-plugi
 [rms-design-system-engine](https://github.com/rafaelmatosdasilva/rms-design-system-engine) and published on GitHub Pages
 by the `style guide` workflow, on every change to the system and once a week. It shows only what Figma and the code
 agree on, and links to each product listed in [`products.json`](products.json). Nothing in it is written by hand: to
-change it, change the system.
+change it, change the system. Its look is the system's own (its tokens, its text styles, its segmented control and
+text field), each component says which products use it and what still differs from Figma, and the workflow publishes
+it only when the engine's style guide check passes.
 
 ### Releasing a new version
 
@@ -108,6 +110,9 @@ rms-design-system-engine
 ```
 
 Refreshing the snapshots needs the Figma file, so only its owner does it (`rms-design-system-engine --recipe refresh-figma`).
+
+Every full check writes the differences between Figma and the code in one list, `.design-system-engine-out/differences.md`;
+the published style guide carries [the latest one](https://rafaelmatosdasilva.github.io/rms-ds-figma-plugins/differences.md).
 
 ## Contact
 

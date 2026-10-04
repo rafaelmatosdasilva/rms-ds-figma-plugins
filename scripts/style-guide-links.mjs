@@ -15,12 +15,12 @@ const link = (href, label, cls = '') => `<a${cls ? ` class="${cls}"` : ''} href=
 
 const block = `<div class="ds-links">
   <style>
-    .ds-links { padding: 12px 16px; border-bottom: var(--sg-line); display: grid; gap: 6px; }
-    .ds-links .ds-links-label { font-size: 9px; letter-spacing: 0.08em; color: var(--sg-muted); margin-top: 6px; }
-    .ds-links a { font-size: 11px; font-weight: 500; color: var(--sg-text-2); text-decoration: none; }
+    .ds-links { padding: var(--sg-space-m) var(--sg-space-l); border-bottom: var(--sg-line); display: grid; gap: var(--sg-space-xs); }
+    .ds-links .ds-links-label { font-size: var(--sg-xs); color: var(--sg-muted); margin-top: var(--sg-space-xs); }
+    .ds-links a { font-size: var(--sg-s); font-weight: var(--sg-s-weight); color: var(--sg-text-2); text-decoration: none; }
     .ds-links a:hover, .ds-links a:focus-visible { color: var(--sg-text); text-decoration: underline; }
     .ds-links .ds-product { display: grid; gap: 1px; }
-    .ds-links .ds-community { font-size: 10px; font-weight: 400; color: var(--sg-muted); }
+    .ds-links .ds-community { font-size: var(--sg-xs); font-weight: var(--sg-m-weight); color: var(--sg-muted); }
   </style>
   ${link(REPO, 'Repository and releases')}
   <div class="ds-links-label">Built with it</div>

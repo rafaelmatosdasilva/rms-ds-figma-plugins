@@ -1,1674 +1,1614 @@
 {
- "_updated": "2026-09-23T13:59:34.384Z",
- "_note": "Per-container geometry (h, pad [t,r,b,l], gap) captured from the DS layout frame(s). Consumed by RENDERED_ASSERTIONS frameGeom sourcing. Auto-generated - do not edit by hand.",
- "nodes": {
-  ".Impact Atlas Plugin": {
-   "h": 520,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  ".figmaWindow": {
-   "h": 40,
-   "pad": [
-    0,
-    16,
-    0,
-    16
-   ],
-   "gap": 8
-  },
-  "IA-Icon": {
-   "h": 16,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "actionBar": {
-   "h": 48,
-   "pad": [
-    12,
-    16,
-    12,
-    16
-   ],
-   "gap": null
-  },
-  "border": {
-   "h": 2,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "Frame 112": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 8
-  },
-  "buttonTertiary": {
-   "h": 24,
-   "pad": [
-    0,
-    4,
-    0,
-    4
-   ],
-   "gap": null
-  },
-  "LabelContainer": {
-   "h": 16,
-   "pad": [
-    0,
-    4,
-    0,
-    4
-   ],
-   "gap": 8
-  },
-  "Icon": [
-   {
-    "_path": "/.Impact Atlas Plugin/actionBar/Slot/Frame 112/buttonTertiary",
-    "h": 16,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/actionBar/Slot/input",
-    "h": 16,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/MainContent/Frame 5/buttonList/Container/Content/Text/tooltipButton",
-    "h": 12,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Empty State/emptyState/Content",
-    "h": 56,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab/.content/typescallinglab/Card/Body/Tags/tagSecondary",
-    "h": 13,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   }
-  ],
-  "input": {
-   "h": 24,
-   "pad": [
-    0,
-    8,
-    0,
-    8
-   ],
-   "gap": 4
-  },
-  "Frame 113": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 8
-  },
-  "buttonPrimary": [
-   {
-    "_path": "/.Impact Atlas Plugin/actionBar/Slot/Frame 113",
-    "h": 24,
-    "pad": [
-     0,
-     4,
-     0,
-     4
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab/.content/typescallinglab/Card",
-    "h": 32,
-    "pad": [
-     0.7957974076271057,
-     0.7957974076271057,
-     0.7957974076271057,
-     0.7957974076271057
-    ],
-    "gap": 31.83189582824707
-   }
-  ],
-  "Body": [
-   {
-    "_path": "/.Impact Atlas Plugin",
-    "h": 432,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content",
-    "h": 413,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Export",
-    "h": 168,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab/.content/typescallinglab/Card",
-    "h": 174,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 7.162176609039307
-   }
-  ],
-  "panel": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body",
-    "h": 432,
-    "pad": [
-     0,
-     16,
-     0,
-     16
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/List",
-    "h": 287,
-    "pad": [
-     0,
-     16,
-     0,
-     16
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/List",
-    "h": 460,
-    "pad": [
-     0,
-     16,
-     0,
-     16
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree",
-    "h": 384,
-    "pad": [
-     0,
-     16,
-     0,
-     16
-    ],
-    "gap": null
-   }
-  ],
-  "segmentedControl": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "segmentedControlSegment": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/panel/HeadContent/segmentedControl/Slot",
-    "h": 40,
-    "pad": [
-     2,
-     12,
-     2,
-     12
-    ],
-    "gap": 2
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/panel/HeadContent/segmentedControl/Slot",
-    "h": 24,
-    "pad": [
-     2,
-     12,
-     2,
-     12
-    ],
-    "gap": 2
-   }
-  ],
-  "dividerSection": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/panel/HeadContent",
-    "h": 23,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/HeadContent",
-    "h": 24,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   }
-  ],
-  "Content": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/panel/HeadContent/dividerSection",
-    "h": 23,
-    "pad": [
-     4,
-     0,
-     4,
-     0
-    ],
-    "gap": 4
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/panel/MainContent/List",
-    "h": 232,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body",
-    "h": 432,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/List/statusBar/Slot",
-    "h": 24,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/MainContent/Frame 5/buttonList/Container",
-    "h": 16,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 4
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Empty State/emptyState",
-    "h": 92,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 4
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors",
-    "h": 413,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/emptyState",
-    "h": 91,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 4
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row",
-    "h": 168,
-    "pad": [
-     24,
-     0,
-     24,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row",
-    "h": 136,
-    "pad": [
-     24,
-     0,
-     24,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row",
-    "h": 104,
-    "pad": [
-     24,
-     0,
-     24,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Export/Body",
-    "h": 120,
-    "pad": [
-     0,
-     16,
-     16,
-     16
-    ],
-    "gap": 16
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Export/Body/Content/radioButtonGroup/Slot/radioButton",
-    "h": 16,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Export/Body/Content/Cards/card/Slot/switch",
-    "h": 24,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Export/Body/Content/Cards/card/Slot/switch",
-    "h": 16,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/List/Frame 134/buttonList/Container",
-    "h": 24,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 4
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab/.content/typescallinglab/Card/buttonPrimary",
-    "h": 14,
-    "pad": [
-     0,
-     6.366379261016846,
-     0,
-     6.366379261016846
-    ],
-    "gap": 6.366379261016846
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/Suggestions/listItem/Frame 106/Main",
-    "h": 48,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   }
-  ],
-  "buttonSecondary": {
-   "h": 24,
-   "pad": [
-    0,
-    4,
-    0,
-    4
-   ],
-   "gap": null
-  },
-  "List": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/panel/MainContent",
-    "h": 232,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/panel/MainContent",
-    "h": 263,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content",
-    "h": 795,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent",
-    "h": 120,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent",
-    "h": 231,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   }
-  ],
-  "node": {
-   "h": 40,
-   "pad": [
-    0,
-    8,
-    0,
-    8
-   ],
-   "gap": 4
-  },
-  "statusBar": {
-   "h": 48,
-   "pad": [
-    12,
-    16,
-    12,
-    16
-   ],
-   "gap": 16
-  },
-  "dividerLine": {
-   "h": 2,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "Title": {
-   "h": 17,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "badge": {
-   "h": 19,
-   "pad": [
-    2,
-    8,
-    2,
-    8
-   ],
-   "gap": 4
-  },
-  "Actions": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/List/statusBar/Slot",
-    "h": 24,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/List/Frame 134/buttonList/Container",
-    "h": 16,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   }
-  ],
-  "buttonQuaternary": {
-   "h": 24,
-   "pad": [
-    0,
-    4,
-    0,
-    4
-   ],
-   "gap": null
-  },
-  "Frame 5": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/MainContent",
-    "h": 240,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/MainContent",
-    "h": 160,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   }
-  ],
-  "buttonList": {
-   "h": 40,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "Container": {
-   "h": 32,
-   "pad": [
-    4,
-    8,
-    4,
-    8
-   ],
-   "gap": 4
-  },
-  "Text": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/MainContent/Frame 5/buttonList/Container/Content",
-    "h": 16,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Empty State/emptyState/Content",
-    "h": 32,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/emptyState/Content",
-    "h": 31,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Export/Body/Content/radioButtonGroup/Slot/radioButton/Content",
-    "h": 16,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": -1
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/List/Frame 134/buttonList/Container/Content",
-    "h": 24,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab/.content/typescallinglab/Card/Body",
-    "h": 148,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 3.183189630508423
-   }
-  ],
-  "tooltipButton": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "Empty State": {
-   "h": 432,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "emptyState": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Empty State",
-    "h": 92,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 16
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body",
-    "h": 131,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 16
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent",
-    "h": 76,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 16
-   }
-  ],
-  "Tree": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content",
-    "h": 432,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Tree",
-    "h": 384,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   }
-  ],
-  "Frame 102": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/panel/MainContent",
-    "h": 424,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/panel/MainContent",
-    "h": 376,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   }
-  ],
-  ".connectors": [
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/Connectors",
-    "h": 95,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/Connectors",
-    "h": 47,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/Connectors",
-    "h": 0,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/Connectors",
-    "h": 97,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   }
-  ],
-  ".Tokens to Ink Plugin": {
-   "h": 520,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "TTI-Icon": [
-   {
-    "_path": "/.Tokens to Ink Plugin/.figmaWindow",
-    "h": 16,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/.figmaWindow/TTI-Icon",
-    "h": 16,
-    "pad": [
-     0.625,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   }
-  ],
-  "Frame 29": [
-   {
-    "_path": "/.Tokens to Ink Plugin/.figmaWindow/TTI-Icon/TTI-Icon/Group 2",
-    "h": 3,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 0.6762499809265137
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21/variable",
-    "h": 16,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21/variable",
-    "h": 24,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   }
-  ],
-  "Chips": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Button Tertiary": {
-   "h": 24,
-   "pad": [
-    0,
-    4,
-    0,
-    4
-   ],
-   "gap": null
-  },
-  "Colors": {
-   "h": 432,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "table/row": [
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body",
-    "h": 170,
-    "pad": [
-     0,
-     16,
-     0,
-     16
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body",
-    "h": 138,
-    "pad": [
-     0,
-     16,
-     0,
-     16
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body",
-    "h": 106,
-    "pad": [
-     0,
-     16,
-     0,
-     16
-    ],
-    "gap": null
-   }
-  ],
-  "Frame 21": [
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
-    "h": 32,
-    "pad": [
-     0,
-     16,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Output/Row4/swatch",
-    "h": 26,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": -16
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
-    "h": 40,
-    "pad": [
-     0,
-     16,
-     0,
-     0
-    ],
-    "gap": 8
-   }
-  ],
-  "swatch": [
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21",
-    "h": 24,
-    "pad": [
-     0,
-     8,
-     0,
-     8
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Output/Row4",
-    "h": 24,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   }
-  ],
-  "variable": [
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21",
-    "h": 32,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21",
-    "h": 40,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   }
-  ],
-  ".connector": [
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
-    "h": 96,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
-    "h": 64,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
-    "h": 32,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   }
-  ],
-  "Output": [
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
-    "h": 120,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
-    "h": 88,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
-    "h": 56,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   }
-  ],
-  "Row1": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Frame 8": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Frame 2": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": -2
-  },
-  "Row2": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Frame 7": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Row3": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Frame 9": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Row4": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Frame 18": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Export": {
-   "h": 216,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "radioButtonGroup": {
-   "h": 39,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 8
-  },
-  "radioButton": {
-   "h": 16,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 8
-  },
-  "Radio": {
-   "h": 16,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "Cards": {
-   "h": 49,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 16
-  },
-  "card": {
-   "h": 49,
-   "pad": [
-    16,
-    16,
-    16,
-    16
-   ],
-   "gap": 12
-  },
-  "switch": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 8
-  },
-  "Frame 135": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 12
-  },
-  ".Font Scaling Lab Plugin": {
-   "h": 520,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "FSL-Icon": {
-   "h": 16,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "Frame 36": {
-   "h": 5,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": -3.3202691078186035
-  },
-  "Frame 37": {
-   "h": 9,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": -3.1632766723632812
-  },
-  "scale": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 16
-  },
-  "buttonStepper": {
-   "h": 24,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 2
-  },
-  "Frame 134": {
-   "h": 200,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "Icon-check": {
-   "h": 56,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "Preview Area": {
-   "h": 432,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  ".content/typescallinglab": [
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/Preview Area",
-    "h": 432,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": null
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab",
-    "h": 432,
-    "pad": [
-     0,
-     47.74784469604492,
-     0,
-     47.74784469604492
-    ],
-    "gap": null
-   }
-  ],
-  "Card": {
-   "h": 248,
-   "pad": [
-    12.732758522033691,
-    12.732758522033691,
-    12.732758522033691,
-    12.732758522033691
-   ],
-   "gap": 15.915947914123535
-  },
-  "Tags": {
-   "h": 19,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 6.366379261016846
-  },
-  "tagSecondary": {
-   "h": 19,
-   "pad": [
-    0,
-    6.366379261016846,
-    0,
-    6.366379261016846
-   ],
-   "gap": 3.183189630508423
-  },
-  "Frame 39": {
-   "h": 66,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "highlight": {
-   "h": 24,
-   "pad": [
-    0,
-    8,
-    0,
-    8
-   ],
-   "gap": 2
-  },
-  "highlightSelector": {
-   "h": 42,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": null
-  },
-  "Frame 78": {
-   "h": 34,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Description": {
-   "h": 71,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 4
-  },
-  "Suggestions": {
-   "h": 145,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 12
-  },
-  "listItem": [
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/Suggestions",
-    "h": 58,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   },
-   {
-    "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/Suggestions",
-    "h": 48,
-    "pad": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "gap": 8
-   }
-  ],
-  "Frame 106": {
-   "h": 48,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 8
-  },
-  "Main": {
-   "h": 48,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 8
-  },
-  "Frame 83": {
-   "h": 48,
-   "pad": [
-    0,
-    0,
-    0,
-    0
-   ],
-   "gap": 2
-  },
-  "Action": {
-   "h": 24,
-   "pad": [
-    0,
-    4,
-    0,
-    4
-   ],
-   "gap": null
+  "_updated": "2026-10-04T14:33:40.485Z",
+  "_note": "Per-container geometry (h, pad [t,r,b,l], gap) captured from the DS layout frame(s). Consumed by RENDERED_ASSERTIONS frameGeom sourcing. Auto-generated - do not edit by hand.",
+  "nodes": {
+    ".Impact Atlas Plugin": {
+      "h": 520,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    ".figmaWindow": {
+      "h": 40,
+      "pad": [
+        0,
+        16,
+        0,
+        16
+      ],
+      "gap": 8
+    },
+    "IA-Icon": [
+      {
+        "_path": "/.Impact Atlas Plugin/.figmaWindow",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/.figmaWindow/IA-Icon",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": -2.7428572177886963
+      }
+    ],
+    "actionBar": {
+      "h": 48,
+      "pad": [
+        12,
+        16,
+        12,
+        16
+      ],
+      "gap": 0
+    },
+    "Frame 112": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 8
+    },
+    "buttonTertiary": {
+      "h": 24,
+      "pad": [
+        0,
+        4,
+        0,
+        4
+      ],
+      "gap": 0
+    },
+    "Icon": [
+      {
+        "_path": "/.Impact Atlas Plugin/actionBar/Slot/Frame 112/buttonTertiary",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/actionBar/Slot/input",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Empty State/emptyState/Content",
+        "h": 56,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21/variable/Frame 29/tooltipButton",
+        "h": 12,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      }
+    ],
+    "input": {
+      "h": 24,
+      "pad": [
+        0,
+        8,
+        0,
+        8
+      ],
+      "gap": 4
+    },
+    "Frame 113": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 8
+    },
+    "buttonPrimary": [
+      {
+        "_path": "/.Impact Atlas Plugin/actionBar/Slot/Frame 113",
+        "h": 24,
+        "pad": [
+          0,
+          4,
+          0,
+          4
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab/.content/typescallinglab/Card",
+        "h": 32,
+        "pad": [
+          0.7957974076271057,
+          0.7957974076271057,
+          0.7957974076271057,
+          0.7957974076271057
+        ],
+        "gap": 31.83189582824707
+      }
+    ],
+    "LabelContainer": {
+      "h": 16,
+      "pad": [
+        0,
+        4,
+        0,
+        4
+      ],
+      "gap": 8
+    },
+    "Body": [
+      {
+        "_path": "/.Impact Atlas Plugin",
+        "h": 432,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content",
+        "h": 413,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Export",
+        "h": 168,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab/.content/typescallinglab/Card",
+        "h": 174,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 7.162176609039307
+      }
+    ],
+    "panel": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body",
+        "h": 432,
+        "pad": [
+          0,
+          16,
+          0,
+          16
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/List",
+        "h": 287,
+        "pad": [
+          0,
+          16,
+          0,
+          16
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/List",
+        "h": 460,
+        "pad": [
+          0,
+          16,
+          0,
+          16
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree",
+        "h": 384,
+        "pad": [
+          0,
+          16,
+          0,
+          16
+        ],
+        "gap": 0
+      }
+    ],
+    "segmentedControl": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "segmentedControlSegment": {
+      "h": 24,
+      "pad": [
+        2,
+        12,
+        2,
+        12
+      ],
+      "gap": 2
+    },
+    "dividerSection": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body/panel/HeadContent",
+        "h": 23,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/HeadContent",
+        "h": 24,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      }
+    ],
+    "Content": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body/panel/HeadContent/dividerSection",
+        "h": 23,
+        "pad": [
+          4,
+          0,
+          4,
+          0
+        ],
+        "gap": 4
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/panel/MainContent/List",
+        "h": 232,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body",
+        "h": 432,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/List/statusBar/Slot",
+        "h": 24,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/MainContent/Frame 5/buttonList/Container",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 4
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Empty State/emptyState",
+        "h": 92,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 4
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors",
+        "h": 413,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row",
+        "h": 168,
+        "pad": [
+          24,
+          0,
+          24,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row",
+        "h": 136,
+        "pad": [
+          24,
+          0,
+          24,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row",
+        "h": 104,
+        "pad": [
+          24,
+          0,
+          24,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Export/Body",
+        "h": 120,
+        "pad": [
+          0,
+          16,
+          16,
+          16
+        ],
+        "gap": 16
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Export/Body/Content/radioButtonGroup/Slot/radioButton",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Export/Body/Content/Cards/card/Slot/switch",
+        "h": 24,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Export/Body/Content/Cards/card/Slot/switch",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/List/Frame 134/buttonList/Container",
+        "h": 24,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 4
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab/.content/typescallinglab/Card/buttonPrimary",
+        "h": 14,
+        "pad": [
+          0,
+          6.366379261016846,
+          0,
+          6.366379261016846
+        ],
+        "gap": 6.366379261016846
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/Suggestions/listItem/Frame 106/Main",
+        "h": 48,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      }
+    ],
+    "List": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body/panel/MainContent",
+        "h": 232,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/panel/MainContent",
+        "h": 263,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content",
+        "h": 795,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent",
+        "h": 120,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent",
+        "h": 231,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      }
+    ],
+    "node": {
+      "h": 40,
+      "pad": [
+        0,
+        8,
+        0,
+        8
+      ],
+      "gap": 4
+    },
+    "statusBar": {
+      "h": 48,
+      "pad": [
+        12,
+        16,
+        12,
+        16
+      ],
+      "gap": 16
+    },
+    "Title": {
+      "h": 17,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "badge": {
+      "h": 19,
+      "pad": [
+        2,
+        8,
+        2,
+        8
+      ],
+      "gap": 4
+    },
+    "Actions": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/List/statusBar/Slot",
+        "h": 24,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/List/Frame 134/buttonList/Container",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      }
+    ],
+    "buttonQuaternary": {
+      "h": 24,
+      "pad": [
+        0,
+        4,
+        0,
+        4
+      ],
+      "gap": 0
+    },
+    "dividerLine": {
+      "h": 2,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "Frame 5": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/MainContent",
+        "h": 240,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/MainContent",
+        "h": 160,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      }
+    ],
+    "buttonList": {
+      "h": 40,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "Container": {
+      "h": 32,
+      "pad": [
+        4,
+        8,
+        4,
+        8
+      ],
+      "gap": 4
+    },
+    "Text": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/List/panel/MainContent/Frame 5/buttonList/Container/Content",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Empty State/emptyState/Content",
+        "h": 32,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Export/Body/Content/radioButtonGroup/Slot/radioButton/Content",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": -1
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/List/Frame 134/buttonList/Container/Content",
+        "h": 24,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab/.content/typescallinglab/Card/Body",
+        "h": 148,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 3.183189630508423
+      }
+    ],
+    "buttonSecondary": {
+      "h": 24,
+      "pad": [
+        0,
+        4,
+        0,
+        4
+      ],
+      "gap": 0
+    },
+    "Empty State": {
+      "h": 432,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "emptyState": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Empty State",
+        "h": 92,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 16
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body",
+        "h": 131,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 16
+      }
+    ],
+    "Tree": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content",
+        "h": 432,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Tree",
+        "h": 384,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      }
+    ],
+    "Frame 102": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/panel/MainContent",
+        "h": 424,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/panel/MainContent",
+        "h": 376,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      }
+    ],
+    ".connectors": [
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/Connectors",
+        "h": 95,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/Connectors",
+        "h": 47,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/Connectors",
+        "h": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Impact Atlas Plugin/Body/Content/Tree/Tree/Connectors",
+        "h": 97,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      }
+    ],
+    ".Tokens to Ink Plugin": {
+      "h": 520,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "TTI-Icon": [
+      {
+        "_path": "/.Tokens to Ink Plugin/.figmaWindow",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/.figmaWindow/TTI-Icon",
+        "h": 16,
+        "pad": [
+          0.625,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      }
+    ],
+    "Frame 29": [
+      {
+        "_path": "/.Tokens to Ink Plugin/.figmaWindow/TTI-Icon/TTI-Icon/Group 2",
+        "h": 3,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0.6762499809265137
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21/variable",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21/variable",
+        "h": 24,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      }
+    ],
+    "Chips": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "Button Tertiary": {
+      "h": 24,
+      "pad": [
+        0,
+        4,
+        0,
+        4
+      ],
+      "gap": 0
+    },
+    "Colors": {
+      "h": 432,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "table/row": [
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body",
+        "h": 170,
+        "pad": [
+          0,
+          16,
+          0,
+          16
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body",
+        "h": 138,
+        "pad": [
+          0,
+          16,
+          0,
+          16
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body",
+        "h": 106,
+        "pad": [
+          0,
+          16,
+          0,
+          16
+        ],
+        "gap": 0
+      }
+    ],
+    "Frame 21": [
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
+        "h": 32,
+        "pad": [
+          0,
+          16,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Output/Row4/swatch",
+        "h": 26,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": -16
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
+        "h": 40,
+        "pad": [
+          0,
+          16,
+          0,
+          0
+        ],
+        "gap": 8
+      }
+    ],
+    "swatch": [
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21",
+        "h": 24,
+        "pad": [
+          0,
+          8,
+          0,
+          8
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Output/Row4",
+        "h": 24,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      }
+    ],
+    "variable": [
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21",
+        "h": 32,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content/Frame 21",
+        "h": 40,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      }
+    ],
+    ".connector": [
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
+        "h": 96,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
+        "h": 64,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
+        "h": 32,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      }
+    ],
+    "Output": [
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
+        "h": 120,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
+        "h": 88,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Tokens to Ink Plugin/Colors/Content/Body/table/row/Content",
+        "h": 56,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      }
+    ],
+    "Row1": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "Frame 8": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "Frame 2": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": -2
+    },
+    "Row2": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "Frame 7": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "Row3": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "Frame 9": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "Row4": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "Frame 18": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "tooltipButton": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "Export": {
+      "h": 216,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "radioButtonGroup": {
+      "h": 39,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 8
+    },
+    "radioButton": {
+      "h": 16,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 8
+    },
+    "Radio": {
+      "h": 16,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "Cards": {
+      "h": 49,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 16
+    },
+    "card": {
+      "h": 49,
+      "pad": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "gap": 12
+    },
+    "switch": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 8
+    },
+    "Frame 135": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 12
+    },
+    ".Font Scaling Lab Plugin": {
+      "h": 520,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "FSL-Icon": [
+      {
+        "_path": "/.Font Scaling Lab Plugin/.figmaWindow",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/.figmaWindow/FSL-Icon",
+        "h": 16,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": -2.7428572177886963
+      }
+    ],
+    "Frame 36": {
+      "h": 5,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": -3.3202691078186035
+    },
+    "Frame 37": {
+      "h": 9,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": -3.1632766723632812
+    },
+    "scale": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 16
+    },
+    "buttonStepper": {
+      "h": 24,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 2
+    },
+    "Frame 134": {
+      "h": 200,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "Preview Area": {
+      "h": 432,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    ".content/typescallinglab": [
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/Preview Area",
+        "h": 432,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 0
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/Preview Area/.content/typescallinglab",
+        "h": 432,
+        "pad": [
+          0,
+          47.74784469604492,
+          0,
+          47.74784469604492
+        ],
+        "gap": 0
+      }
+    ],
+    "Card": {
+      "h": 248,
+      "pad": [
+        12.732758522033691,
+        12.732758522033691,
+        12.732758522033691,
+        12.732758522033691
+      ],
+      "gap": 15.915947914123535
+    },
+    "Tags": {
+      "h": 19,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 6.366379261016846
+    },
+    "tagSecondary": {
+      "h": 19,
+      "pad": [
+        0,
+        6.366379261016846,
+        0,
+        6.366379261016846
+      ],
+      "gap": 3.183189630508423
+    },
+    "Frame 39": {
+      "h": 66,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "highlight": {
+      "h": 24,
+      "pad": [
+        0,
+        8,
+        0,
+        8
+      ],
+      "gap": 2
+    },
+    "highlightSelector": {
+      "h": 42,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 0
+    },
+    "Frame 78": {
+      "h": 34,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "Description": {
+      "h": 71,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 4
+    },
+    "Suggestions": {
+      "h": 145,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 12
+    },
+    "listItem": [
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/Suggestions",
+        "h": 58,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      },
+      {
+        "_path": "/.Font Scaling Lab Plugin/Body/panel/MainContent/Suggestions",
+        "h": 48,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gap": 8
+      }
+    ],
+    "Frame 106": {
+      "h": 48,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 8
+    },
+    "Main": {
+      "h": 48,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 8
+    },
+    "Frame 83": {
+      "h": 48,
+      "pad": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "gap": 2
+    }
   }
- }
 }
