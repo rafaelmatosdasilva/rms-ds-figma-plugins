@@ -16,8 +16,7 @@ parity-check-result.json
 .parity-refs
 
 # Internal reference / work-in-progress — kept locally, not shipped
-apps/styleguide/
-apps/*/drafts/
+drafts/
 packages/ui/COMPONENTS.md
 # Design-intent layer — generated from Figma + code, project-specific & private (never public)
 packages/ui/src/design-intent.json
@@ -33,7 +32,6 @@ figma-screens.snapshot.json
 component-composition.snapshot.json
 component-prop-result.json
 packages/ui/src/*.snapshot.json
-apps/*/preview-*.html
 
 # full findings written by the audit when a list is truncated
 .parity-out/

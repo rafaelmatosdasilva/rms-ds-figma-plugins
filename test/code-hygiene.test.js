@@ -20,37 +20,13 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-const SOURCES = [
-  'apps/impact-atlas/src/code.js',
-  'apps/impact-atlas/ui.src.html',
-  'apps/tokens-to-ink/src/code.js',
-  'apps/tokens-to-ink/ui.src.html',
-  'apps/font-scaling-lab/src/code.js',
-  'apps/font-scaling-lab/ui.src.html',
-  'packages/ui/src/ui-shared.js',
-].filter((f) => existsSync(join(ROOT, f)));
-
-/**
- * Functions knowingly left unused, with the reason. Same ratchet idea as the
- * length baseline: visible, but not blocking. Remove an entry once it's deleted
- * or wired up — the last test here fails if an entry stops being true.
- */
-const UNUSED_ALLOWLIST = {
-  // Shared package: a public helper the plugins don't call, kept as part of the
-  // package's surface. Everything else must be deleted rather than allowlisted.
-  createSegmentedControl: 'packages/ui — exported for consumers; no caller in this repo',
-};
+// The shared UI. Each product checks its own sources in its own repository, where a function it defines and only
+// the shared UI calls still counts as used. A shared helper exists for the products, so here it is never "unused".
+const SOURCES = ['packages/ui/src/ui-shared.js'].filter((f) => existsSync(join(ROOT, f)));
 
 /** Longest tolerated function, and the functions already above it. */
 const MAX_FUNCTION_LINES = 120;
-const LENGTH_BASELINE = {
-  handleUsageScan: 482,       // impact-atlas: multi-phase scan, staged progress (+5 deleted-component guard 2026-07-31; +1 missed-local-var 2026-08-01; +1 external-var cache clear 2026-08-01; +2 board-page skips 2026-08-01)
-  convertPdfToCmyk: 430,      // tokens-to-ink: PDF colour conversion
-  addPrintMarks: 127,         // tokens-to-ink: crop/registration/colour-bar/slug marks + knockout + bleed-inside cut
-  handleInit: 181,            // impact-atlas (+1 missed-local-var 2026-08-01; +2 external-var cache clear & hasExternalLibraries consistency 2026-08-01)
-  handlePlaceComponents: 138, // impact-atlas
-  buildComponentIndex: 136,   // impact-atlas (+5 for the deleted-component remote guard, 2026-07-31; +1 board-page skip 2026-08-01)
-};
+const LENGTH_BASELINE = {};
 
 function read(file) {
   return readFileSync(join(ROOT, file), 'utf8');
@@ -95,21 +71,7 @@ function declarationsIn(file) {
 
 describe('code hygiene', () => {
   const declarations = SOURCES.flatMap(declarationsIn);
-  const corpus = SOURCES.map(read).join('\n');
 
-  it('declares no function that is never used', () => {
-    const dead = declarations.filter(({ name }) => {
-      if (UNUSED_ALLOWLIST[name]) return false;
-      // Every mention anywhere: a call, a reference, an HTML handler attribute.
-      const mentions = corpus.match(new RegExp(`\\b${name}\\b`, 'g')) || [];
-      return mentions.length <= 1; // only its own declaration
-    });
-
-    expect(
-      dead.map((d) => `${d.file}: ${d.name}()`),
-      'unused function(s) — delete them, or wire them up',
-    ).toEqual([]);
-  });
 
   it('does not define the same logic twice', () => {
     const bodies = new Map();
@@ -146,18 +108,6 @@ describe('code hygiene', () => {
     expect(offences, 'function length ratchet').toEqual([]);
   });
 
-  it('keeps the unused allowlist honest', () => {
-    // An allowlisted function that is now used (or gone) must be removed from the
-    // list, or it hides a real finding later.
-    const declared = new Set(declarations.map((d) => d.name));
-    const stale = Object.keys(UNUSED_ALLOWLIST).filter((name) => {
-      if (!declared.has(name)) return true;                       // deleted
-      const mentions = corpus.match(new RegExp(`\\b${name}\\b`, 'g')) || [];
-      return mentions.length > 1;                                 // now used
-    });
-
-    expect(stale, 'allowlist entries no longer true — remove them').toEqual([]);
-  });
 
   it('keeps the length baseline honest', () => {
     // A baseline entry that no longer applies must go, or it silently permits

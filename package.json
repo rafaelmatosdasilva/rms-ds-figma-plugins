@@ -1,6 +1,6 @@
 {
   "name": "@rms/ds-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "The design system behind the RMS Figma plugins: theme, shared UI, core helpers, test helpers and the build and release tools.",
@@ -34,17 +34,8 @@
     "packages/ui/src/ui-shared.js"
   ],
   "scripts": {
-    "build": "pnpm -r build && node scripts/sync-preview.mjs",
-    "build:watch": "pnpm -r build:watch",
-    "build:tokens": "pnpm --filter @rms/tokens-to-ink build",
-    "build:font-scaling-lab": "pnpm --filter @rms/font-scaling-lab build",
-    "build:impact-atlas": "pnpm --filter @rms/impact-atlas build",
-    "release": "node scripts/release.mjs",
-    "check": "node scripts/check-manifests.mjs",
-    "package": "node scripts/package-plugin.mjs",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "sync:preview": "node scripts/sync-preview.mjs"
+    "test:watch": "vitest"
   },
   "dependencies": {
     "esbuild": "^0.21.0",
