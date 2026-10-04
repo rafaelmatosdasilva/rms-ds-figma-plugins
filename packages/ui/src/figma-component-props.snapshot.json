@@ -1,4 +1,41 @@
 {
+  "_updated": "2026-10-04T14:20:12.746Z",
+  "tooltipPopover": {
+    "nodeId": "821:72473",
+    "properties": {
+      "Label#1598:0": {
+        "type": "TEXT",
+        "defaultValue": "Label"
+      }
+    },
+    "annotations": []
+  },
+  "tooltipButton": {
+    "nodeId": "1810:27212",
+    "properties": {
+      "Icon#1829:0": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "1584:83149",
+        "preferredValues": [
+          {
+            "type": "COMPONENT",
+            "key": "7eab45f9cd150b2901ee130bd31b173f9df86788"
+          },
+          {
+            "type": "COMPONENT_SET",
+            "key": "89ec7a4da07385bde364af74b31acfbb748cf30c"
+          }
+        ]
+      }
+    },
+    "annotations": [
+      {
+        "label": "Icon can change depending on the feature",
+        "labelMarkdown": "Icon can change depending on the feature",
+        "categoryId": "1323:0"
+      }
+    ]
+  },
   "toast": {
     "nodeId": "836:101501",
     "properties": {
@@ -12,6 +49,50 @@
         "variantOptions": [
           "sucess",
           "error"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "table/row": {
+    "nodeId": "1:178",
+    "properties": {
+      "Show divider#3:8": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Tooltip#1337:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      }
+    },
+    "annotations": []
+  },
+  "switch": {
+    "nodeId": "2120:3385",
+    "properties": {
+      "Show Tooltip#2120:2": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Description#2120:3": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Description Content#2120:4": {
+        "type": "TEXT",
+        "defaultValue": "Description"
+      },
+      "Show Input#2223:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Enable": {
+        "type": "VARIANT",
+        "defaultValue": "True",
+        "variantOptions": [
+          "True",
+          "False"
         ]
       }
     },
@@ -36,11 +117,13 @@
     "properties": {
       "Slot#1390:0": {
         "type": "SLOT",
-        "defaultValue": {
-          "guid": {
-            "sessionID": -1,
-            "localID": -1
-          }
+        "description": "",
+        "slotSettings": {
+          "stretchChildOnInsert": true,
+          "displayEmptyByDefault": true,
+          "minChildren": null,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": true
         },
         "preferredValues": []
       },
@@ -103,13 +186,42 @@
     "properties": {
       "Slot#540:16": {
         "type": "SLOT",
-        "defaultValue": {
-          "guid": {
-            "sessionID": -1,
-            "localID": -1
-          }
+        "description": "",
+        "slotSettings": {
+          "stretchChildOnInsert": true,
+          "displayEmptyByDefault": false,
+          "minChildren": null,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": false
         },
         "preferredValues": []
+      }
+    },
+    "annotations": []
+  },
+  "radioButtonGroup": {
+    "nodeId": "2223:36588",
+    "properties": {
+      "Label#2064:3": {
+        "type": "TEXT",
+        "defaultValue": "Label"
+      },
+      "Slot#2064:4": {
+        "type": "SLOT",
+        "description": "",
+        "slotSettings": {
+          "stretchChildOnInsert": true,
+          "displayEmptyByDefault": false,
+          "minChildren": 1,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": false
+        },
+        "preferredValues": [
+          {
+            "type": "COMPONENT_SET",
+            "key": "18e0f96472a879f6920404e8c405eefcdb213aac"
+          }
+        ]
       }
     },
     "annotations": []
@@ -148,6 +260,49 @@
         ]
       }
     },
+    "annotations": [
+      {
+        "label": "Role: radio",
+        "labelMarkdown": ""
+      }
+    ]
+  },
+  "panel": {
+    "nodeId": "2287:68241",
+    "properties": {
+      "MainContent#2287:0": {
+        "type": "SLOT",
+        "description": "",
+        "slotSettings": {
+          "stretchChildOnInsert": false,
+          "displayEmptyByDefault": false,
+          "minChildren": null,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": false
+        },
+        "preferredValues": []
+      },
+      "HeadContent#2287:1": {
+        "type": "SLOT",
+        "description": "",
+        "slotSettings": {
+          "stretchChildOnInsert": false,
+          "displayEmptyByDefault": false,
+          "minChildren": null,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": false
+        },
+        "preferredValues": []
+      },
+      "type": {
+        "type": "VARIANT",
+        "defaultValue": "primary",
+        "variantOptions": [
+          "primary",
+          "secondary"
+        ]
+      }
+    },
     "annotations": []
   },
   "overlay": {
@@ -155,11 +310,13 @@
     "properties": {
       "Slot#672:0": {
         "type": "SLOT",
-        "defaultValue": {
-          "guid": {
-            "sessionID": -1,
-            "localID": -1
-          }
+        "description": "",
+        "slotSettings": {
+          "stretchChildOnInsert": false,
+          "displayEmptyByDefault": false,
+          "minChildren": null,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": false
         },
         "preferredValues": []
       }
@@ -207,11 +364,13 @@
     "properties": {
       "Slot#710:0": {
         "type": "SLOT",
-        "defaultValue": {
-          "guid": {
-            "sessionID": -1,
-            "localID": -1
-          }
+        "description": "",
+        "slotSettings": {
+          "stretchChildOnInsert": true,
+          "displayEmptyByDefault": true,
+          "minChildren": null,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": true
         },
         "preferredValues": [
           {
@@ -266,18 +425,25 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: button",
+        "labelMarkdown": ""
+      }
+    ]
   },
   "modal": {
     "nodeId": "672:141311",
     "properties": {
       "Slot#712:5": {
         "type": "SLOT",
-        "defaultValue": {
-          "guid": {
-            "sessionID": -1,
-            "localID": -1
-          }
+        "description": "",
+        "slotSettings": {
+          "stretchChildOnInsert": true,
+          "displayEmptyByDefault": true,
+          "minChildren": null,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": true
         },
         "preferredValues": []
       },
@@ -310,6 +476,20 @@
       "title Content#2227:7": {
         "type": "TEXT",
         "defaultValue": "Title"
+      }
+    },
+    "annotations": []
+  },
+  "loader": {
+    "nodeId": "68:52296",
+    "properties": {
+      "Label#166:1": {
+        "type": "TEXT",
+        "defaultValue": "Title"
+      },
+      "Show Description#934:1": {
+        "type": "BOOLEAN",
+        "defaultValue": true
       }
     },
     "annotations": []
@@ -430,7 +610,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: textbox",
+        "labelMarkdown": ""
+      }
+    ]
   },
   "highlightSelector": {
     "nodeId": "144:80986",
@@ -512,9 +697,90 @@
     },
     "annotations": [
       {
-        "label": "Background must match the containing surface. Set it explicitly using the surface color token. Never rely on transparency or CSS inheritance."
+        "label": "Background must match the containing surface. Set it explicitly using the surface color token. Never rely on transparency or CSS inheritance.",
+        "labelMarkdown": "Background must match the containing surface. Set it explicitly using the surface color token. Never rely on transparency or CSS inheritance.",
+        "categoryId": "209:0"
       }
     ]
+  },
+  "checkBoxGroup": {
+    "nodeId": "2064:29545",
+    "properties": {
+      "Slot#2064:1": {
+        "type": "SLOT",
+        "description": "",
+        "slotSettings": {
+          "stretchChildOnInsert": true,
+          "displayEmptyByDefault": false,
+          "minChildren": 1,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": true
+        },
+        "preferredValues": [
+          {
+            "type": "COMPONENT_SET",
+            "key": "23827df1c49b6ce542bc149b2e86210cb6030508"
+          }
+        ]
+      },
+      "Label Content#2064:2": {
+        "type": "TEXT",
+        "defaultValue": "Label"
+      }
+    },
+    "annotations": []
+  },
+  "checkBox": {
+    "nodeId": "1963:43561",
+    "properties": {
+      "Text Content#711:3": {
+        "type": "TEXT",
+        "defaultValue": "Text"
+      },
+      "Show Text#711:4": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Description#712:7": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Description Content#712:10": {
+        "type": "TEXT",
+        "defaultValue": "Description"
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Selected"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "card": {
+    "nodeId": "2120:62601",
+    "properties": {
+      "Slot#2120:5": {
+        "type": "SLOT",
+        "description": "",
+        "slotSettings": {
+          "stretchChildOnInsert": false,
+          "displayEmptyByDefault": false,
+          "minChildren": null,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": false
+        },
+        "preferredValues": []
+      },
+      "Show Title#2155:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      }
+    },
+    "annotations": []
   },
   "buttonTertiary": {
     "nodeId": "1:78",
@@ -546,7 +812,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: button",
+        "labelMarkdown": ""
+      }
+    ]
   },
   "buttonSecondary": {
     "nodeId": "1002:36578",
@@ -578,7 +849,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: button",
+        "labelMarkdown": ""
+      }
+    ]
   },
   "buttonQuaternary": {
     "nodeId": "937:16191",
@@ -609,7 +885,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: button",
+        "labelMarkdown": ""
+      }
+    ]
   },
   "buttonPrimary": {
     "nodeId": "1428:21123",
@@ -640,7 +921,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: button",
+        "labelMarkdown": ""
+      }
+    ]
   },
   "buttonList": {
     "nodeId": "789:35349",
@@ -752,11 +1038,13 @@
     "properties": {
       "Slot#334:3": {
         "type": "SLOT",
-        "defaultValue": {
-          "guid": {
-            "sessionID": -1,
-            "localID": -1
-          }
+        "description": null,
+        "slotSettings": {
+          "stretchChildOnInsert": true,
+          "displayEmptyByDefault": true,
+          "minChildren": null,
+          "maxChildren": null,
+          "allowPreferredValuesOnly": false
         },
         "preferredValues": []
       },
@@ -774,54 +1062,5 @@
       }
     },
     "annotations": []
-  },
-  ".figmaWindow": {
-    "nodeId": "3:4332",
-    "properties": {
-      "Title#106:3": {
-        "type": "TEXT",
-        "defaultValue": "Title"
-      },
-      "Icon#106:7": {
-        "type": "INSTANCE_SWAP",
-        "defaultValue": "140:45897",
-        "preferredValues": [
-          {
-            "type": "COMPONENT",
-            "key": "12832e63b687da7acb79dc7d29a03f92061f279a"
-          },
-          {
-            "type": "COMPONENT",
-            "key": "8e1ab178956558230eaf3318cdd9b52585773d56"
-          }
-        ]
-      }
-    },
-    "annotations": []
-  },
-  "tooltipButton": {
-    "nodeId": "1810:27212",
-    "properties": {
-      "Icon#1829:0": {
-        "type": "INSTANCE_SWAP",
-        "defaultValue": "1584:83149",
-        "preferredValues": [
-          {
-            "type": "COMPONENT",
-            "key": "7eab45f9cd150b2901ee130bd31b173f9df86788"
-          },
-          {
-            "type": "COMPONENT_SET",
-            "key": "89ec7a4da07385bde364af74b31acfbb748cf30c"
-          }
-        ]
-      }
-    },
-    "annotations": [
-      {
-        "label": "Icon can change depending on the feature"
-      }
-    ]
-  },
-  "_updated": "2026-09-23T13:59:33.280Z"
+  }
 }

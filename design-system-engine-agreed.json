@@ -272,6 +272,12 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "card · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T14:55:27.092Z",
+   "commit": "013469e"
+  },
   "card · gap": {
    "figma": "12px",
    "code": "12px",
@@ -596,6 +602,18 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "modal · font size": {
+   "figma": "13px",
+   "code": "13px",
+   "at": "2026-10-04T14:55:27.092Z",
+   "commit": "013469e"
+  },
+  "modal · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T14:55:27.092Z",
+   "commit": "013469e"
+  },
   "modal · gap": {
    "figma": "16px",
    "code": "16px",
@@ -739,6 +757,18 @@
    "code": "paints a background",
    "at": "2026-10-04T13:51:32.490Z",
    "commit": "59c00c0"
+  },
+  "overlay · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T14:55:27.092Z",
+   "commit": "013469e"
+  },
+  "overlay · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T14:55:27.092Z",
+   "commit": "013469e"
   },
   "overlay · padding (left/right)": {
    "figma": "16px",
@@ -944,11 +974,29 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "switch · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T14:55:27.092Z",
+   "commit": "013469e"
+  },
+  "switch · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-04T14:55:27.092Z",
+   "commit": "013469e"
+  },
   "switch · gap": {
    "figma": "8px",
    "code": "8px",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "switch · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T14:55:27.092Z",
+   "commit": "013469e"
   },
   "toast · background": {
    "figma": "paints a background",
@@ -2174,6 +2222,18 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "token overlay [dark]": {
+   "figma": "#2b2b2be0",
+   "code": "rgba(43,43,43,0.88)",
+   "at": "2026-10-04T14:13:38.871Z",
+   "commit": "013469e"
+  },
+  "token overlay [light]": {
+   "figma": "#e8e8e8e0",
+   "code": "rgba(232,232,232,0.88)",
+   "at": "2026-10-04T14:13:38.871Z",
+   "commit": "013469e"
+  },
   "token padding/l [light]": {
    "figma": "16px",
    "code": "16px",
@@ -2834,11 +2894,23 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "token typography/l/font-size [light]": {
+   "figma": "13px",
+   "code": "13px",
+   "at": "2026-10-04T14:13:38.871Z",
+   "commit": "013469e"
+  },
   "token typography/l/lh [light]": {
    "figma": "17px",
    "code": "17px",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "token typography/l/line-height [light]": {
+   "figma": "17px",
+   "code": "17px",
+   "at": "2026-10-04T14:13:38.871Z",
+   "commit": "013469e"
   },
   "token typography/l/size [light]": {
    "figma": "13px",
@@ -2852,11 +2924,23 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "token typography/m/font-size [light]": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-04T14:13:38.871Z",
+   "commit": "013469e"
+  },
   "token typography/m/lh [light]": {
    "figma": "16px",
    "code": "16px",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "token typography/m/line-height [light]": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T14:13:38.871Z",
+   "commit": "013469e"
   },
   "token typography/m/size [light]": {
    "figma": "11px",
@@ -2870,11 +2954,23 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "token typography/s/font-size [light]": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T14:13:38.871Z",
+   "commit": "013469e"
+  },
   "token typography/s/lh [light]": {
    "figma": "15px",
    "code": "15px",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "token typography/s/line-height [light]": {
+   "figma": "15px",
+   "code": "15px",
+   "at": "2026-10-04T14:13:38.871Z",
+   "commit": "013469e"
   },
   "token typography/s/size [light]": {
    "figma": "10px",
@@ -2950,9 +3046,16 @@
    "same": true
   },
   "actionBar · min height": {
-   "figma": "48",
+   "figma": "78.79",
    "code": "48",
-   "same": true
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T14:55:27.092Z",
+     "side": "figma",
+     "lead": true
+    }
+   ]
   },
   "actionBar · padding (left/right)": {
    "figma": "16px",
@@ -3189,6 +3292,16 @@
    "code": "no background",
    "same": true
   },
+  "card · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
+  "card · font weight": {
+   "figma": "700",
+   "code": "600",
+   "same": false
+  },
   "card · gap": {
    "figma": "12px",
    "code": "12px",
@@ -3265,14 +3378,27 @@
    "same": true
   },
   "dividerLine · background": {
-   "figma": "paints a background",
+   "figma": "no background",
    "code": "paints a background",
-   "same": true
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T14:55:27.092Z",
+     "side": "figma",
+     "lead": true
+    }
+   ]
   },
   "dividerLine · height": {
-   "figma": "2",
+   "figma": "1.5",
    "code": "1",
-   "same": false
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T14:55:27.092Z",
+     "side": "figma"
+    }
+   ]
   },
   "dividerSection · background": {
    "figma": "no background",
@@ -3298,6 +3424,11 @@
    "figma": "15px",
    "code": "15px",
    "same": true
+  },
+  "dividerSection · stroke": {
+   "figma": "border on right",
+   "code": "no visible border",
+   "same": false
   },
   "emptyState · background": {
    "figma": "no background",
@@ -3375,9 +3506,16 @@
    "same": true
   },
   "input · background": {
-   "figma": "paints a background",
+   "figma": "no background",
    "code": "paints a background",
-   "same": true
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T14:55:27.092Z",
+     "side": "figma",
+     "lead": true
+    }
+   ]
   },
   "input · font size": {
    "figma": "11px",
@@ -3474,10 +3612,25 @@
    "code": "paints a background",
    "same": true
   },
+  "modal · font size": {
+   "figma": "13px",
+   "code": "13px",
+   "same": true
+  },
+  "modal · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
   "modal · gap": {
    "figma": "16px",
    "code": "16px",
    "same": true
+  },
+  "modal · line height": {
+   "figma": "17px",
+   "code": "16px",
+   "same": false
   },
   "modal · padding (left/right)": {
    "figma": "16px",
@@ -3495,9 +3648,16 @@
    "same": true
   },
   "node · background": {
-   "figma": "no background",
+   "figma": "paints a background",
    "code": "no background",
-   "same": true
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T14:55:27.092Z",
+     "side": "figma",
+     "lead": true
+    }
+   ]
   },
   "node · font size": {
    "figma": "11px",
@@ -3558,6 +3718,16 @@
    "code": "paints a background",
    "same": true
   },
+  "overflow · font size": {
+   "figma": "10px",
+   "code": "11px",
+   "same": false
+  },
+  "overflow · font weight": {
+   "figma": "700",
+   "code": "600",
+   "same": false
+  },
   "overflow · padding (top/bottom)": {
    "figma": "4px",
    "code": "4px",
@@ -3609,8 +3779,25 @@
    "same": true
   },
   "overlay · background": {
-   "figma": "paints a background",
+   "figma": "no background",
    "code": "paints a background",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T14:55:27.092Z",
+     "side": "figma",
+     "lead": true
+    }
+   ]
+  },
+  "overlay · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "overlay · font weight": {
+   "figma": "600",
+   "code": "600",
    "same": true
   },
   "overlay · padding (left/right)": {
@@ -3798,9 +3985,24 @@
    "code": "no background",
    "same": true
   },
+  "switch · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
+  "switch · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true
+  },
   "switch · gap": {
    "figma": "8px",
    "code": "8px",
+   "same": true
+  },
+  "switch · line height": {
+   "figma": "16px",
+   "code": "16px",
    "same": true
   },
   "toast · background": {
@@ -4833,6 +5035,16 @@
    "code": "#e8e8e8",
    "same": true
   },
+  "token overlay [dark]": {
+   "figma": "#2b2b2be0",
+   "code": "rgba(43,43,43,0.88)",
+   "same": true
+  },
+  "token overlay [light]": {
+   "figma": "#e8e8e8e0",
+   "code": "rgba(232,232,232,0.88)",
+   "same": true
+  },
   "token padding/l [light]": {
    "figma": "16px",
    "code": "16px",
@@ -5383,7 +5595,17 @@
    "code": "#404040",
    "same": true
   },
+  "token typography/l/font-size [light]": {
+   "figma": "13px",
+   "code": "13px",
+   "same": true
+  },
   "token typography/l/lh [light]": {
+   "figma": "17px",
+   "code": "17px",
+   "same": true
+  },
+  "token typography/l/line-height [light]": {
    "figma": "17px",
    "code": "17px",
    "same": true
@@ -5398,7 +5620,17 @@
    "code": "600",
    "same": true
   },
+  "token typography/m/font-size [light]": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true
+  },
   "token typography/m/lh [light]": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "token typography/m/line-height [light]": {
    "figma": "16px",
    "code": "16px",
    "same": true
@@ -5413,7 +5645,17 @@
    "code": "600",
    "same": true
   },
+  "token typography/s/font-size [light]": {
+   "figma": "10px",
+   "code": "10px",
+   "same": true
+  },
   "token typography/s/lh [light]": {
+   "figma": "15px",
+   "code": "15px",
+   "same": true
+  },
+  "token typography/s/line-height [light]": {
    "figma": "15px",
    "code": "15px",
    "same": true
