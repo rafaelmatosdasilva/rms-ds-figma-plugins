@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import {
   scriptSource, functionBodyAt, handledTypes, backendPostedTypes, uiPostedTypes,
   iconRefsAndDefs, elementIdsUsedAndDefined, CORE_HANDLED,
-} from '@rms/test-utils';
+} from '../packages/test-utils/index.js';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const PLUGINS = ['impact-atlas', 'tokens-to-ink', 'font-scaling-lab'];

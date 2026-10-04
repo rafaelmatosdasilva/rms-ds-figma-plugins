@@ -4,13 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node ../../scripts/build-plugin.mjs apps/tokens-to-ink",
-    "build:watch": "node ../../scripts/watch.mjs apps/tokens-to-ink"
+    "build": "rms-build .",
+    "build:watch": "rms-watch ."
   },
   "dependencies": {
-    "@rms/core": "workspace:*"
-  },
-  "devDependencies": {
-    "@rms/test-utils": "workspace:*"
+    "@rms/ds-core": "link:../.."
   }
 }

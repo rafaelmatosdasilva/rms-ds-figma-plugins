@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { fileURLToPath } from 'node:url';
-import { loadPlugin, loadUI, makePage, makeNode } from '@rms/test-utils';
+import { loadPlugin, loadUI, makePage, makeNode } from '@rms/ds-core/test-utils';
 
 const CODE = fileURLToPath(new URL('../src/code.js', import.meta.url));
 const UI = fileURLToPath(new URL('../ui.html', import.meta.url));

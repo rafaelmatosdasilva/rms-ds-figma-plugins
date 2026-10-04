@@ -1,4 +1,4 @@
-import { rgbToHex, yieldTick, attachWindowResize, focusNode } from '@rms/core';
+import { rgbToHex, yieldTick, attachWindowResize, focusNode } from '@rms/ds-core/core';
 
 figma.showUI(__html__, { width: 1000, height: 540, title: 'Impact Atlas' });
 

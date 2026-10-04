@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseCmykString, rgbToCmyk, rgbToHex } from '@rms/core';
+import { parseCmykString, rgbToCmyk, rgbToHex } from '../packages/core/index.js';
 
 describe('@rms/core — parseCmykString', () => {
   it('parses a plain comma string', () => {

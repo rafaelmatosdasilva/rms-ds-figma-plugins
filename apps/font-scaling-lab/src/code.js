@@ -1,4 +1,4 @@
-import { attachWindowResize, focusNode } from '@rms/core';
+import { attachWindowResize, focusNode } from '@rms/ds-core/core';
 
 figma.showUI(__html__, { width: 720, height: 860, title: 'Font Scaling Lab' });
 

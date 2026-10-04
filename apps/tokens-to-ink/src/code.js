@@ -10,7 +10,7 @@ import {
   collectNodeColors, collectVarIds, collectImageFills,
   attachWindowResize, focusNode, getPageForNode,
   effectiveImageDpi,
-} from '@rms/core';
+} from '@rms/ds-core/core';
 
 figma.showUI(__html__, { width: 600, height: 600 });
 

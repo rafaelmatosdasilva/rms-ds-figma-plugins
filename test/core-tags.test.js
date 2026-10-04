@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseDescTag, setDescTag, removeDescTag } from '@rms/core';
+import { parseDescTag, setDescTag, removeDescTag } from '../packages/core/index.js';
 
 describe('@rms/core — description tags', () => {
   it('sets a tag on an empty description', () => {
