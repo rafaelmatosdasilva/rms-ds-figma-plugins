@@ -50,6 +50,18 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "badge · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T19:10:50.639Z",
+   "commit": "4f3eab0"
+  },
+  "badge · padding (top/bottom)": {
+   "figma": "2px",
+   "code": "2px",
+   "at": "2026-10-04T19:10:50.639Z",
+   "commit": "4f3eab0"
+  },
   "badge · radius": {
    "figma": "24px",
    "code": "24px",
@@ -230,6 +242,12 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "buttonTertiary · active while disabled (state=Disabled)": {
+   "figma": "no change",
+   "code": "no change",
+   "at": "2026-10-04T19:05:35.840Z",
+   "commit": "4f3eab0"
+  },
   "buttonTertiary · background": {
    "figma": "paints a background",
    "code": "paints a background",
@@ -290,11 +308,23 @@
    "at": "2026-10-04T14:55:27.092Z",
    "commit": "013469e"
   },
+  "card · font weight": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T19:05:35.840Z",
+   "commit": "4f3eab0"
+  },
   "card · gap": {
    "figma": "12px",
    "code": "12px",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "card · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "at": "2026-10-04T19:17:00.952Z",
+   "commit": "4f3eab0"
   },
   "card · padding (left/right)": {
    "figma": "16px",
@@ -548,6 +578,12 @@
    "at": "2026-10-04T13:51:32.490Z",
    "commit": "59c00c0"
   },
+  "input · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T19:10:50.639Z",
+   "commit": "4f3eab0"
+  },
   "input · radius": {
    "figma": "24px",
    "code": "24px",
@@ -734,6 +770,24 @@
    "at": "2026-10-04T13:51:32.490Z",
    "commit": "59c00c0"
   },
+  "overflow · font size": {
+   "figma": "10px",
+   "code": "10px",
+   "at": "2026-10-04T19:17:00.952Z",
+   "commit": "4f3eab0"
+  },
+  "overflow · font weight": {
+   "figma": "700",
+   "code": "700",
+   "at": "2026-10-04T19:17:00.952Z",
+   "commit": "4f3eab0"
+  },
+  "overflow · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "at": "2026-10-04T19:17:00.952Z",
+   "commit": "4f3eab0"
+  },
   "overflow · padding (top/bottom)": {
    "figma": "4px",
    "code": "4px",
@@ -823,6 +877,12 @@
    "code": "16px",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "panel · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T19:33:03.921Z",
+   "commit": "91bcdea"
   },
   "radioButton · background": {
    "figma": "no background",
@@ -974,6 +1034,12 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "statusBar · gap": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T19:17:00.952Z",
+   "commit": "4f3eab0"
+  },
   "statusBar · height": {
    "figma": "48",
    "code": "48",
@@ -985,6 +1051,12 @@
    "code": "16px",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "statusBar · padding (top/bottom)": {
+   "figma": "12px",
+   "code": "12px",
+   "at": "2026-10-04T19:17:00.952Z",
+   "commit": "4f3eab0"
   },
   "statusBar · stroke": {
    "figma": "draws a border",
@@ -1700,6 +1772,18 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "token emptyState/icon/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "at": "2026-10-04T19:33:03.921Z",
+   "commit": "91bcdea"
+  },
+  "token emptyState/icon/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "at": "2026-10-04T19:33:03.921Z",
+   "commit": "91bcdea"
+  },
   "token emptyState/title [dark]": {
    "figma": "#f5f5f5",
    "code": "#f5f5f5",
@@ -1981,6 +2065,18 @@
    "code": "#ffffff",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "token modal/icon [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T19:33:03.921Z",
+   "commit": "91bcdea"
+  },
+  "token modal/icon [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T19:33:03.921Z",
+   "commit": "91bcdea"
   },
   "token modal/title [dark]": {
    "figma": "#f5f5f5",
@@ -3074,6 +3170,18 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "tooltipPopover · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "at": "2026-10-04T19:10:50.639Z",
+   "commit": "4f3eab0"
+  },
+  "tooltipPopover · padding (top/bottom)": {
+   "figma": "4px",
+   "code": "4px",
+   "at": "2026-10-04T19:10:50.639Z",
+   "commit": "4f3eab0"
+  },
   "tooltipPopover · radius": {
    "figma": "8px",
    "code": "8px",
@@ -3145,6 +3253,16 @@
    "code": "16px",
    "same": false
   },
+  "badge · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "badge · padding (top/bottom)": {
+   "figma": "2px",
+   "code": "2px",
+   "same": true
+  },
   "badge · radius": {
    "figma": "24px",
    "code": "24px",
@@ -3167,8 +3285,15 @@
   },
   "buttonList · height": {
    "figma": "40",
-   "code": "40",
-   "same": true
+   "code": "35.47999572753906",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
   },
   "buttonList · line height": {
    "figma": "16px",
@@ -3197,8 +3322,15 @@
   },
   "buttonPrimary · height": {
    "figma": "24",
-   "code": "24",
-   "same": true
+   "code": "6.864013671875",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
   },
   "buttonPrimary · line height": {
    "figma": "16px",
@@ -3243,8 +3375,15 @@
   },
   "buttonQuaternary · height": {
    "figma": "24",
-   "code": "24",
-   "same": true
+   "code": "21.47998046875",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
   },
   "buttonQuaternary · padding (left/right)": {
    "figma": "4px",
@@ -3268,8 +3407,15 @@
   },
   "buttonSecondary · height": {
    "figma": "24",
-   "code": "24",
-   "same": true
+   "code": "6.864013671875",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
   },
   "buttonSecondary · opacity (disabled)": {
    "figma": "0.24",
@@ -3301,6 +3447,11 @@
    "code": "2px",
    "same": true
   },
+  "buttonTertiary · active while disabled (state=Disabled)": {
+   "figma": "no change",
+   "code": "no change",
+   "same": true
+  },
   "buttonTertiary · background": {
    "figma": "paints a background",
    "code": "paints a background",
@@ -3321,6 +3472,11 @@
    "code": "24",
    "same": true
   },
+  "buttonTertiary · hover while disabled (state=Disabled)": {
+   "figma": "no change",
+   "code": "changes text colour, background, border colour",
+   "same": false
+  },
   "buttonTertiary · line height": {
    "figma": "16px",
    "code": "16px",
@@ -3334,8 +3490,15 @@
   },
   "buttonTertiary · opacity (disabled)": {
    "figma": "0.24",
-   "code": "0.24",
-   "same": true
+   "code": "1",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
   },
   "buttonTertiary · padding (left/right)": {
    "figma": "4px",
@@ -3355,16 +3518,38 @@
   "card · font size": {
    "figma": "10px",
    "code": "10px",
-   "same": true
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code",
+     "lead": true
+    },
+    {
+     "at": "2026-10-04T19:17:00.952Z",
+     "side": "code"
+    }
+   ]
   },
   "card · font weight": {
    "figma": "700",
-   "code": "600",
-   "same": false
+   "code": "700",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code"
+    }
+   ]
   },
   "card · gap": {
    "figma": "12px",
    "code": "12px",
+   "same": true
+  },
+  "card · line height": {
+   "figma": "15px",
+   "code": "15px",
    "same": true
   },
   "card · padding (left/right)": {
@@ -3406,6 +3591,11 @@
    "figma": "8px",
    "code": "8px",
    "same": true
+  },
+  "checkBox · height (State=Default)": {
+   "figma": "30",
+   "code": "16",
+   "same": false
   },
   "checkBox · line height": {
    "figma": "16px",
@@ -3456,8 +3646,8 @@
   },
   "dividerLine · height": {
    "figma": "1.5",
-   "code": "1.5",
-   "same": true,
+   "code": "0.945068359375",
+   "same": false,
    "moves": [
     {
      "at": "2026-10-04T14:55:27.092Z",
@@ -3466,6 +3656,11 @@
     {
      "at": "2026-10-04T15:12:16.999Z",
      "side": "code"
+    },
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code",
+     "lead": true
     }
    ]
   },
@@ -3572,8 +3767,15 @@
   },
   "highlightSelector · height": {
    "figma": "10",
-   "code": "10",
-   "same": true
+   "code": "18",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
   },
   "highlightSelector · stroke": {
    "figma": "draws a border",
@@ -3615,6 +3817,11 @@
   "input · line height": {
    "figma": "16px",
    "code": "16px",
+   "same": true
+  },
+  "input · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
    "same": true
   },
   "input · radius": {
@@ -3747,25 +3954,33 @@
   },
   "node · font size": {
    "figma": "11px",
-   "code": "13px",
-   "same": false,
+   "code": "11px",
+   "same": true,
    "moves": [
     {
      "at": "2026-10-04T13:51:32.490Z",
      "side": "code",
      "lead": true
+    },
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code"
     }
    ]
   },
   "node · font weight": {
    "figma": "600",
-   "code": "500",
-   "same": false,
+   "code": "600",
+   "same": true,
    "moves": [
     {
      "at": "2026-10-04T13:51:32.490Z",
      "side": "code",
      "lead": true
+    },
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code"
     }
    ]
   },
@@ -3776,8 +3991,14 @@
   },
   "node · line height": {
    "figma": "16px",
-   "code": "18.2px",
-   "same": false
+   "code": "15.4px",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code"
+    }
+   ]
   },
   "node · min height": {
    "figma": "40",
@@ -3806,13 +4027,30 @@
   },
   "overflow · font size": {
    "figma": "10px",
-   "code": "11px",
-   "same": false
+   "code": "10px",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T19:17:00.952Z",
+     "side": "code"
+    }
+   ]
   },
   "overflow · font weight": {
    "figma": "700",
-   "code": "600",
-   "same": false
+   "code": "700",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T19:17:00.952Z",
+     "side": "code"
+    }
+   ]
+  },
+  "overflow · line height": {
+   "figma": "15px",
+   "code": "15px",
+   "same": true
   },
   "overflow · padding (top/bottom)": {
    "figma": "4px",
@@ -3851,8 +4089,15 @@
   },
   "overflowList · height": {
    "figma": "32",
-   "code": "32",
-   "same": true
+   "code": "28.384002685546875",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
   },
   "overflowList · line height": {
    "figma": "16px",
@@ -3903,8 +4148,14 @@
   },
   "panel · padding (left/right)": {
    "figma": "16px",
-   "code": "0px",
-   "same": false
+   "code": "16px",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T19:33:03.921Z",
+     "side": "code"
+    }
+   ]
   },
   "radioButton · background": {
    "figma": "no background",
@@ -4033,13 +4284,26 @@
   },
   "statusBar · gap": {
    "figma": "16px",
-   "code": "8px",
-   "same": false
+   "code": "16px",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T19:17:00.952Z",
+     "side": "code"
+    }
+   ]
   },
   "statusBar · height": {
    "figma": "48",
-   "code": "48",
-   "same": true
+   "code": "42.96000671386719",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T19:05:35.840Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
   },
   "statusBar · padding (left/right)": {
    "figma": "16px",
@@ -4048,8 +4312,18 @@
   },
   "statusBar · padding (top/bottom)": {
    "figma": "12px",
-   "code": "0px",
-   "same": false
+   "code": "12px",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T19:10:50.639Z",
+     "side": "code"
+    },
+    {
+     "at": "2026-10-04T19:17:00.952Z",
+     "side": "code"
+    }
+   ]
   },
   "statusBar · stroke": {
    "figma": "draws a border",
@@ -4668,6 +4942,16 @@
    "code": "#adadad",
    "same": true
   },
+  "token emptyState/icon/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "same": true
+  },
+  "token emptyState/icon/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "same": true
+  },
   "token emptyState/title [dark]": {
    "figma": "#f5f5f5",
    "code": "#f5f5f5",
@@ -4901,6 +5185,16 @@
   "token modal/background [light]": {
    "figma": "#ffffff",
    "code": "#ffffff",
+   "same": true
+  },
+  "token modal/icon [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token modal/icon [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
    "same": true
   },
   "token modal/title [dark]": {
@@ -5811,6 +6105,16 @@
   "tooltipPopover · line height": {
    "figma": "15px",
    "code": "15px",
+   "same": true
+  },
+  "tooltipPopover · padding (left/right)": {
+   "figma": "8px",
+   "code": "8px",
+   "same": true
+  },
+  "tooltipPopover · padding (top/bottom)": {
+   "figma": "4px",
+   "code": "4px",
    "same": true
   },
   "tooltipPopover · radius": {

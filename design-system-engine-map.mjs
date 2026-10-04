@@ -61,8 +61,6 @@ export const SKIP_TOKENS = new Set([
   'listItem/icon',                   // no CSS rule consumer — all icon rows use --buttonList-iconPrimary
   'listItem/title',                  // no CSS consumer since library-atlas removal (2026-07) — declare when a plugin uses it
   'listItem/description',            // last consumer removed with the retired Font Scaling Lab details rows (2026-07-31) — declare when a plugin uses it
-  'emptyState/icon/positive',        // no positive emptyState variant in any plugin yet — declare when added
-  'modal/icon',                      // DS modal header has an optional icon; no plugin renders one yet — declare when a modal shows an icon
   // panel/background split into two variants 2026-09-13 (panel is now a type=primary/secondary set):
   //  - primary   aliases semantic/surface/elevationMedium → --bg      (N900 both modes)
   //  - secondary aliases semantic/surface/elevationLow    → --bg-detail (N800 L / N1000 D)
@@ -155,8 +153,6 @@ export const COVERED = new Set([
   // listItem/description lost its last consumer when the retired Font Scaling Lab
   // details rows were removed (2026-07-31); DS token still exists, no CSS var now.
   'listItem/description',
-  // modal/icon — optional modal-header icon; no plugin renders one yet.
-  'modal/icon',
   // semantic/surface/elevation{Low,Medium,High} now consumed — mapped to --bg-detail / --bg /
   // --surface-elevation-high via EXPLICIT.
   // Settings collection icon-builder toggles bound inside DS frames (2026-07-11 bound walk).

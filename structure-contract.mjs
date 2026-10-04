@@ -10,7 +10,7 @@ export const CONTRACT = {
     h: 248,
     paddingVar: { tb: 'gap/xl', lr: 'gap/xl' },
     gapVar: 'gap/l',
-    fontSizeVar: null, fontWeightVar: null,
+    fontSizeVar: 's', fontWeightVar: 's',  // Figma: the card's text is the s style
     fillStructure: 'none', innerInset: null, innerRadiusVar: 'radii/card',
     strokeOnDefault: true, strokeOnAnyState: true,
     strokeSides: 'all',  // Figma: 1.5 all four sides (card/border)
@@ -23,14 +23,19 @@ export const CONTRACT = {
     gapVar: 'gap/m',
     // The root .switch row carries no direct text — the DS Description (m style) lives on the
     // .switch-description child (verified via its own rule), so no font var on the root.
-    fontSizeVar: null, fontWeightVar: null,
+    fontSizeVar: 'm', fontWeightVar: 'm',  // Figma binds the m style on the root (2026-10)
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: false,
     // DS Content frame (2083:26255) is FLUSH: Description right edge meets tooltipButton at x=62,
     // no gap token (gapPx 0). Pinned with gapPx so a re-added inner gap fails — .switch-content
     // once had gap/xs, pushing the icon ~4px off. (buttonSecondary is also flush but has no code
     // sub-selector, so it stays uncontracted/unbound — advisory-ignored, never a failure.)
-    children: [{ name: 'Content', cssSelector: '.switch-content', gapPx: 0 }],
+    children: [
+      { name: 'Content', cssSelector: '.switch-content', gapPx: 0 },
+      // Figma: the nested buttonSecondary keeps its own padding/xs left and right (the tooltip trigger).
+      { name: 'buttonSecondary', cssSelector: null, gapVar: null, paddingVar: { tb: null, lr: 'padding/xs' },
+        verifiedBy: 'the nested buttonSecondary component, whose own rule carries padding/xs left and right' },
+    ],
     propertyMap: { 'Enable': { True: '.switch-input:checked + .switch-track', False: '.switch-track' } },
   },
   // checkBoxGroup (DS 2064:29545) — a labelled vertical stack of checkboxes. No fixed
@@ -39,7 +44,7 @@ export const CONTRACT = {
   // Listed here so the naming round-trip recognises `.checkBoxGroup` as a DS component.
   checkBoxGroup: {
     _note: "Labelled vertical stack of checkboxes: Label (s, content/secondary) gap/m above a Slot that stacks rows at gap/s. Built base .checkBoxGroup (2026-08).",
-    h: 38,  // DS-measured (Label 15 + gap/m 8 + empty Slot 15); content-driven in CSS (no
+    h: 53,  // DS-measured (Label 15 + gap/m 8 + empty Slot 15); content-driven in CSS (no
             // COMPONENT_CSS_SELECTORS entry → height is not asserted against CSS, only vs snapshot)
     paddingVar: { tb: null, lr: null },
     gapVar: 'gap/m',
@@ -53,10 +58,10 @@ export const CONTRACT = {
   // RENDERED_ASSERTIONS. strokeOnAnyState is the nested radioButton's circle border.
   radioButtonGroup: {
     _note: "Labelled ROW of radios: Label (s, content/secondary) gap/m above a Slot spacing radios at gap/xxxl (32). Built base .radioButtonGroup (2026-09-09).",
-    h: 63,
+    h: 62.5,
     paddingVar: { tb: null, lr: null },
     gapVar: 'gap/m',
-    fontSizeVar: 's', fontWeightVar: 's',
+    fontSizeVar: null, fontWeightVar: null,  // Figma: no text style on the root; the label carries s
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',  // no OWN border — the only stroke is the nested radioButton's circle
@@ -78,9 +83,10 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: null },
     gapVar: null,
     fontSizeVar: null, fontWeightVar: null,
-    fillStructure: 'direct', innerInset: null, innerRadiusVar: null,
-    strokeOnDefault: true, strokeOnAnyState: true,
-    strokeSides: 'all',
+    fillStructure: 'before', innerInset: null, innerRadiusVar: null,
+    strokeOnDefault: false, strokeOnAnyState: true,
+    strokeSides: 'none',  // Figma: the ring is drawn by the layer under the fill, not a stroke on the root
+    propertyMap: { 'state': { default: '.highlightSelector', selected: '.highlightSelector.selected' } },
   },
   // dividerLine (DS) — a thin rule (dividerLine/border). Height informational (code renders 1px).
   dividerLine: {
@@ -89,7 +95,7 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: null },
     gapVar: null,
     fontSizeVar: null, fontWeightVar: null,
-    fillStructure: 'direct', innerInset: null, innerRadiusVar: null,
+    fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: false,
   },
   // buttonStepper (DS) — a −/value/+ row: two buttonSecondary flanking an input at gap/xs.
@@ -124,10 +130,14 @@ export const CONTRACT = {
     h: 130, sizing: 'hug',
     paddingVar: { tb: 'padding/l', lr: 'padding/l' },
     gapVar: 'gap/xl',
-    fontSizeVar: null, fontWeightVar: null,  // card is a container — the l-style text lives in the title child (.modal-title)
+    fontSizeVar: 'l', fontWeightVar: 'l',  // Figma binds the l style on the card
     fillStructure: 'direct', innerInset: null, innerRadiusVar: 'radii/modal',
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',
+    children: [
+      { name: 'header', cssSelector: '.modal-header', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } },
+      { name: 'Actions', cssSelector: '.modal-footer', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } },
+    ],
   },
   // emptyState (DS 1431:21215) — centred Icon + Title(m) + Description(s) → .empty-state.
   // Content-driven height; gap/xl between icon-group and text. No own fill/stroke.
@@ -139,6 +149,8 @@ export const CONTRACT = {
     fontSizeVar: 'm', fontWeightVar: 'm',
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: false,
+    children: [{ name: 'Content', cssSelector: '.empty-state-content', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } }],
+    propertyMap: { 'type': { default: '.empty-state', positive: '.empty-state.empty-state--positive' } },
   },
   // listItem (DS 503:49751) — a list row: Icon + Main(title m / description s), trailing dividerLine.
   // Content-driven height; gap/m row spacing. strokeOnAnyState is the trailing dividerLine's.
@@ -151,6 +163,7 @@ export const CONTRACT = {
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',
+    children: [{ name: 'Frame 106', cssSelector: '.listItem-row', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } }],
   },
   // overlay (DS) — a full-cover scrim (overlay/color) centring a Slot (loader). → .overlay
   overlay: {
@@ -158,8 +171,8 @@ export const CONTRACT = {
     h: 380, sizing: 'hug',
     paddingVar: { tb: 'padding/l', lr: 'padding/l' },
     gapVar: null,
-    fontSizeVar: null, fontWeightVar: null,
-    fillStructure: 'direct', innerInset: null, innerRadiusVar: null,
+    fontSizeVar: 'm', fontWeightVar: 'm',
+    fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',
   },
@@ -169,7 +182,7 @@ export const CONTRACT = {
     // intentionally per-project, so no fixed selector can be asserted.
     annotations: { 'Actions can changed based on the project needs': null },
     h: 40,
-    paddingVar: { tb: null, lr: 'padding/xs' },
+    paddingVar: { tb: null, lr: null },  // Figma: no root padding; the Container carries padding/s left and right
     gapVar: null, // Figma root has null; gap/s lives on "Content" child frame → asserted via CSS_PROPERTY_ASSERTIONS
     fontSizeVar: 'm', fontWeightVar: 'm',
     fillStructure: 'none', innerRadiusVar: null,
@@ -189,12 +202,12 @@ export const CONTRACT = {
       // DS "Container" child frame — flattened into .buttonList root: gap/s is on the root rule
       // (asserted in CSS_PROPERTY_ASSERTIONS), tb padding/xs is geometric (fixed h=40 + ::before
       // pill inset 4px 0). cssSelector: null skips the [3f] CSS lookup; snapshot cross-check runs.
-      { name: 'Container', cssSelector: null, gapVar: 'gap/s', paddingVar: { tb: 'padding/xs', lr: null },
+      { name: 'Container', cssSelector: null, gapVar: 'gap/s', paddingVar: { tb: 'padding/xs', lr: 'padding/s' },
         verifiedBy: 'geometric — tb padding/xs is absorbed by the fixed h=40 + ::before pill inset (4px 0); no code padding to assert' },
     ],
     propertyMap: {
       'State':       { default: '.buttonList', hover: '.buttonList:hover', selected: '.buttonList.selected' },
-      'show-button': '.buttonList.no-button .buttonList-action',
+      'show Action Focus': '.buttonList.no-button .buttonList-action',
     },
   },
   node: {
@@ -202,7 +215,7 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: 'padding/s' },
     gapVar: 'gap/s',
     fontSizeVar: 'm', fontWeightVar: 'm',
-    fillStructure: 'none', innerRadiusVar: 'radii/button',
+    fillStructure: 'direct', innerRadiusVar: 'radii/button',
     strokeOnDefault: true,
     strokeSides: 'all',  // Figma: 1.5 all four sides (verified 2026-08)
     // DS State=Default (the resting card) now carries node/border/default — the DS re-added the
@@ -259,7 +272,7 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: 'padding/s' },
     gapVar: 'gap/s',
     fontSizeVar: 'm', fontWeightVar: 'm',
-    fillStructure: 'before', innerRadiusVar: 'radii/input', // Background rect binds radii/input (same --radius-full)
+    fillStructure: 'none', innerRadiusVar: 'radii/input',
     strokeOnDefault: false,
     propertyMap: {
       'State':          { Default: '.inputWrap', Hover: '.inputWrap:not(.inputWrap--readonly):hover', Focus: '.inputWrap:not(.inputWrap--readonly):focus-within' },
@@ -367,10 +380,11 @@ export const CONTRACT = {
     h: 'auto',                                  // content-driven container
     paddingVar: { tb: 'padding/xs', lr: null },
     gapVar: null,
-    fontSizeVar: null, fontWeightVar: null,
+    fontSizeVar: 's', fontWeightVar: 's',
     fillStructure: 'direct', innerInset: null, innerRadiusVar: 'radii/card',
     strokeOnDefault: true, strokeOnAnyState: true,
     strokeSides: 'all',  // Figma: 1 all four sides on the flyout frame (verified 2026-08)
+    children: [{ name: 'Frame 27', cssSelector: '.overflow-label', gapVar: null, paddingVar: { tb: 'padding/xs', lr: 'padding/s' } }],
   },
   buttonPrimary: {
     h: 24,
@@ -412,7 +426,7 @@ export const CONTRACT = {
     // The component frame carries no stroke; the only stroke in its subtree belongs
     // to the nested buttonSecondary instance. Verified against Figma 2026-07-31.
     strokeOnDefault: false, strokeOnAnyState: true,
-    strokeSides: 'none',  // no OWN border — strokeOnAnyState is the nested buttonSecondary's (verified 2026-08)
+    strokeSides: 'none',  // no OWN border: Figma keeps a 1px right weight but its paint is hidden (checked 2026-10)
     children: [
       { name: 'Content', cssSelector: '.dividerSection-content', gapVar: 'gap/s',
         paddingVar: { tb: 'padding/xs', lr: null } },
@@ -462,6 +476,7 @@ export const CONTRACT = {
     innerRadiusVar: null,
     strokeOnDefault: false,
     strokeOnAnyState: true,
+    children: [{ name: 'Content', cssSelector: '.radioButton-content', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } }],
     strokeSides: 'all',  // Figma: 1.5 all four sides on the circular Radio child (verified 2026-08). Border is on the plugin .depth-circle — no base selector, so this documents intent (rendered checks cover the plugin CSS).
     propertyMap: {
       'State': {
@@ -490,26 +505,27 @@ export const CONTRACT = {
     fillStructure: 'direct',
     innerInset: null,
     innerRadiusVar: null,
-    strokeOnDefault: true,
-    strokeOnAnyState: true,
+    strokeOnDefault: false,
+    strokeOnAnyState: false,
     strokeSides: 'right',  // Figma: right-edge weight 1.5 (0/1.5/0/0) — the side-panel divider (verified 2026-08; edge weight preserved through the 2026-09-12 restructure). NOTE: the DS stroke PAINT now reads empty on the component + all in-context instances; the edge-weight geometry + the plugin .left-panel border-right (panel/border) hold the divider. No base selector, so this documents intent.
     children: [
       // 2026-09-12 restructure: two empty SLOTs filled per-context. Plugins hand-build the panel
       // (header row + .scroll-area), so cssSelector: null skips the [3f] CSS lookup — the snapshot
       // cross-check still runs. HeadContent top=padding/l, bottom=padding/s (tb records the top).
-      { name: 'HeadContent', cssSelector: null, gapVar: 'gap/xl', paddingVar: { tb: 'padding/l', lr: null },
+      { name: 'HeadContent', cssSelector: null, gapVar: null, paddingVar: { tb: null, lr: null },
         verifiedBy: 'RENDERED_ASSERTIONS .sidePanelHeader (paddingTop 16 / paddingBottom 8 / paddingLeft 16, font-scaling-lab). impact-atlas realizes the header region via .actionbar + .scroll-area, each with their own paddingTop assertions.' },
-      { name: 'MainContent', cssSelector: null, gapVar: 'gap/xl', paddingVar: { tb: null, lr: null } },
+      { name: 'MainContent', cssSelector: null, gapVar: null, paddingVar: { tb: null, lr: null } },
     ],
     propertyMap: {
       'side': { left: '.left-panel' },
+      'type': { primary: '.panel', secondary: '.panel.panel--secondary' },
     },
   },
   statusBar: {
     // Figma DS 789:38384: h=48 (24px content + padding/m × 2; tb rebound padding/l→padding/m
     // 2026-08), lr padding/l, root gap gap/xl (slot-group separation — flattened via flex:1
     // spacer in consumers; visible inter-item gap is the DS Content-level gap/m). Base class
-    // .statusBar in theme.css, which draws its own bottom stroke (dividerLine/border 1.5).
+    // .statusBar in theme.css, which draws Figma's top and bottom dividerLine layers.
     h: 48,
     gapVar: 'gap/xl',
     paddingVar: { tb: 'padding/m', lr: 'padding/l' },
@@ -518,25 +534,36 @@ export const CONTRACT = {
     fillStructure: 'none', // DS removed statusBar fill (verified 2026-07-11: fills=[] on 789:38384) — CSS has no background either
     innerInset: null,
     innerRadiusVar: null,
-    strokeOnDefault: true,
-    strokeOnAnyState: true,
-    strokeSides: 'bottom',  // .statusBar draws its own border-bottom (dividerLine/border, strokeBottomWeight 1.5). No base selCfg → documents intent; #sb-main-row height verified via RENDERED_ASSERTIONS.
+    // Figma (2026-10): no stroke on the root; two dividerLine layers draw the top and bottom lines.
+    strokeOnDefault: false,
+    strokeOnAnyState: false,
+    strokeSides: 'none',
+    propertyMap: {
+      'Show dividerLine Top':    '.statusBar.no-divider-top::before',
+      'Show dividerLine Bottom': '.statusBar.no-divider-bottom::after',
+    },
   },
   actionBar: {
     // Figma DS 138:16657: h=48 (24px content + padding/m × 2; tb rebound padding/s→padding/m
     // 2026-08), lr padding/l, root itemSpacing 0 (Slot — content gaps from slotted groups;
     // base uses gap/m). Base class .actionbar in theme.css.
-    h: 48,
+    h: 48, sizing: 'hug',  // Figma hugs its slot (78.79 is the placeholder content); 48 is the empty bar
     gapVar: null,
     paddingVar: { tb: 'padding/m', lr: 'padding/l' },
     fontSizeVar: null,
     fontWeightVar: null,
-    fillStructure: 'direct',
+    fillStructure: 'before',  // Figma: the background is its own layer
     innerInset: null,
     innerRadiusVar: null,
-    strokeOnDefault: true,
-    strokeOnAnyState: true,
-    strokeSides: 'bottom',  // Figma: stroke on the BOTTOM edge only (0/0/1.5/0) — .actionbar uses border-bottom (verified 2026-08)
+    // Figma (2026-10): no stroke on the root; two dividerLine layers draw the top and bottom lines.
+    strokeOnDefault: false,
+    strokeOnAnyState: false,
+    strokeSides: 'none',
+    propertyMap: {
+      'Show dividerLine Top':    '.actionbar.no-divider-top::after',
+      'Show dividerLine Bottom': '.actionbar.no-divider-bottom::after',
+      'Show Background':         '.actionbar.no-background::before',
+    },
   },
   // checkBox (DS 1963:43561) — built base .checkbox. Box (radii/checkbox, bordered) child + label.
   checkBox: {
@@ -545,9 +572,9 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: null },
     gapVar: 'gap/m',
     fontSizeVar: 'm', fontWeightVar: 'm',
-    fillStructure: 'none', innerInset: null, innerRadiusVar: 'radii/checkbox',
-    strokeOnDefault: true, strokeOnAnyState: true,
-    strokeSides: 'all',
+    fillStructure: 'none', innerInset: null, innerRadiusVar: null,
+    strokeOnDefault: false, strokeOnAnyState: true,
+    strokeSides: 'none',  // Figma: no stroke on the root; the box child carries it
     propertyMap: {
       'State': { Default: '.checkbox-box', Selected: '.checkbox-input:checked + .checkbox-box' },
     },
@@ -574,6 +601,46 @@ export const CONTRACT = {
 // read CSS text; this reads getComputedStyle. `probe` injects markup for components
 // that only exist at runtime (toasts, list rows).
 export const RENDERED_ASSERTIONS = [
+  // Figma props the code now builds (2026-10): each part drawn from a probe of the full component.
+  { plugin: 'impact-atlas', selector: '.statusBar-content', prop: 'columnGap', expected: '8px',
+    note: "statusBar Slot content: the product's items in one row at gap/m (the bar's own gap/xl separates groups)",
+    probe: '<div class="statusBar"><div class="statusBar-content"><span class="statusBar-title">Title</span><span>Detail</span></div></div>' },
+  { plugin: 'impact-atlas', selector: '.checkbox-description', textStyle: 's',
+    note: "checkBox Description = text style s (Show Description)",
+    probe: '<label class="checkbox"><input type="checkbox" class="checkbox-input"><span class="checkbox-box"><svg class="checkbox-check" width="16" height="16"><use href="#icon-check"/></svg></span><span class="checkbox-content"><span class="checkbox-text">Text</span><span class="checkbox-description">Description</span></span></label>' },
+  { plugin: 'impact-atlas', selector: '.radioButton-content', prop: 'rowGap', expected: '8px',
+    note: "radioButton Content: Text over the dividerLine, gap/m",
+    probe: '<label class="radioButton"><input type="radio" class="radioButton-input"><span class="radioButton-circle"></span><span class="radioButton-content"><span class="radioButton-text"><span class="radioButton-label">Text</span><span class="radioButton-description">Description</span></span><div class="dividerLine radioButton-divider"></div></span></label>' },
+  { plugin: 'impact-atlas', selector: '.radioButton-description', textStyle: 's',
+    note: "radioButton Description = text style s (Show Description)",
+    probe: '<label class="radioButton"><input type="radio" class="radioButton-input"><span class="radioButton-circle"></span><span class="radioButton-content"><span class="radioButton-text"><span class="radioButton-label">Text</span><span class="radioButton-description">Description</span></span><div class="dividerLine radioButton-divider"></div></span></label>' },
+  { plugin: 'impact-atlas', selector: '.switch', prop: 'columnGap', expected: '8px',
+    note: "switch: Content and the input (Show Input) spaced gap/m",
+    probe: '<label class="switch"><input type="checkbox" class="switch-input" checked><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Description</span><span class="tooltipButton switch-tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></span><div class="inputWrap switch-field"><input class="inputField" value="300"><span class="inputLabel-after">dpi</span></div></label>' },
+  { plugin: 'impact-atlas', selector: '.overflowList', prop: 'columnGap', expected: '4px',
+    note: "overflowList: icon (show-icon) and label spaced gap/s",
+    probe: '<button class="overflowList"><svg width="16" height="16"><use href="#icon-plus"/></svg><span>Value</span></button>' },
+  { plugin: 'impact-atlas', selector: '.modal-header', prop: 'columnGap', expected: '4px',
+    note: "modal header: icon, title and close button spaced gap/s",
+    probe: '<div class="modal-card"><div class="modal-header"><svg class="modal-icon" width="16" height="16"><use href="#icon-export"/></svg><h2 class="modal-title">Title</h2><button class="buttonSecondary modal-close" aria-label="Close"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div><div class="modal-slot"><span>Content</span></div><div class="modal-footer"><button class="buttonSecondary"><span>Cancel</span></button><button class="buttonPrimary"><span>Confirm</span></button></div></div>' },
+  { plugin: 'impact-atlas', selector: '.listItem-main', prop: 'rowGap', expected: '2px',
+    note: "listItem Frame 83: title over description, gap/xs",
+    probe: '<div class="listItem"><div class="listItem-row"><span class="listItem-icon"><svg width="16" height="16"><use href="#icon-focus"/></svg></span><div class="listItem-main"><span class="listItem-title">Title</span><span class="listItem-desc">Description</span></div><button class="buttonTertiary listItem-action" aria-label="Focus"><svg width="16" height="16"><use href="#icon-focus"/></svg></button></div><div class="dividerLine listItem-divider"></div></div>' },
+  { plugin: 'impact-atlas', selector: '.inputLabel-after', prop: 'fontSize', expected: '11px',
+    note: "input Label After = text style m (Show Label After)",
+    probe: '<div class="inputWrap"><span class="inputLabel">Label</span><input class="inputField" value="Value"><span class="inputLabel-after">Label</span></div>' },
+  { plugin: 'impact-atlas', selector: '.empty-state-content', prop: 'rowGap', expected: '4px',
+    note: "emptyState Content: icon over text, gap/s",
+    probe: '<div class="empty-state"><div class="empty-state-content"><svg width="56" height="56"><use href="#icon-empty-search"/></svg><div class="empty-state-text"><span class="empty-state-title">Title</span><span class="empty-state-desc">Description</span></div></div><button class="buttonPrimary empty-state-action"><svg width="16" height="16"><use href="#icon-plus"/></svg><span>label</span></button></div>' },
+  { plugin: 'impact-atlas', selector: '.card-title', textStyle: 's',
+    note: "card Title = text style s (Show Title)",
+    probe: '<div class="card"><span class="card-title">Output</span><div>Content</div></div>' },
+  { plugin: 'impact-atlas', selector: '.panel', prop: 'paddingLeft', expected: '16px',
+    note: "panel: padding/l left and right",
+    probe: '<div class="panel"><div>Head content</div><div>Main content</div></div>' },
+  { plugin: 'impact-atlas', selector: '.highlightSelector', prop: 'borderTopWidth', expected: '2px',
+    note: "highlightSelector Border layer: 2 inside",
+    probe: '<span class="highlightSelector"></span>' },
   // statusBar (DS 789:38384: h=48, padding/l LR, Title gap/s, Content gap/m)
   { plugin: 'impact-atlas', selector: '#sb-main-row',      prop: 'height',        expected: '48px', note: 'DS statusBar h (56→48, tb rebound padding/l→padding/m 2026-08)' },
   { plugin: 'impact-atlas', selector: '#sb-main-row',      prop: 'paddingLeft',   expected: '16px', note: 'DS statusBar padding/l' },
@@ -585,19 +652,17 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'paddingTop',    expected: '12px', note: 'DS actionBar padding/m (tb rebound padding/s→padding/m 2026-08)' },
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'paddingLeft',   expected: '16px', note: 'DS actionBar padding/l' },
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'columnGap',     expected: '8px',  note: 'base gap/m slot-content default' },
-  // actionBar got its own DS tokens on 2026-07-31 (it had been borrowing
-  // figmaWindowChrome/background). DS 138:16657 binds fills → actionbar/background and
-  // strokes → actionbar/border at strokeBottomWeight 1.5, strokeAlign INSIDE.
-  // Both modes asserted: the background differs per mode (N1000 vs N800), and the
-  // border is the same chain in both — pinning only one would leave the other open.
-  { plugin: 'impact-atlas', selector: '.actionbar', prop: 'background-color',
+  // actionBar (DS 138:16657, 2026-10): its background is its own layer (actionbar/background, drawn as
+  // ::before) and two dividerLine layers (actionbar/border, 1.5) lie over its top and bottom edges (::after).
+  // Both modes asserted: the background differs per mode (N1000 vs elevationHigh), the lines too.
+  { plugin: 'impact-atlas', selector: '.actionbar', pseudo: '::before', prop: 'background-color',
     expected: 'rgb(255, 255, 255)', colorScheme: 'light', note: 'actionbar/background light = N1000' },
-  { plugin: 'impact-atlas', selector: '.actionbar', prop: 'background-color',
+  { plugin: 'impact-atlas', selector: '.actionbar', pseudo: '::before', prop: 'background-color',
     expected: 'rgb(44, 44, 44)', colorScheme: 'dark', note: 'actionbar/background dark → elevationHigh → figmaWindowChrome/background #2c2c2c (2026-08)' },
-  { plugin: 'impact-atlas', selector: '.actionbar', prop: 'border-bottom-color',
-    expected: 'rgb(214, 214, 214)', colorScheme: 'light', note: 'actionbar/border → dividerLine/border light N700' },
-  { plugin: 'impact-atlas', selector: '.actionbar', prop: 'border-bottom-color',
-    expected: 'rgb(66, 66, 66)', colorScheme: 'dark', note: 'actionbar/border → figmaWindowChrome/divider dark #424242 (rebound 2026-08)' },
+  { plugin: 'impact-atlas', selector: '.actionbar', pseudo: '::after', prop: 'background-image',
+    expected: 'linear-gradient(rgb(214, 214, 214), rgb(214, 214, 214)), linear-gradient(rgb(214, 214, 214), rgb(214, 214, 214))', colorScheme: 'light', note: 'actionbar/border top and bottom lines → dividerLine/border light N700' },
+  { plugin: 'impact-atlas', selector: '.actionbar', pseudo: '::after', prop: 'background-image',
+    expected: 'linear-gradient(rgb(66, 66, 66), rgb(66, 66, 66)), linear-gradient(rgb(66, 66, 66), rgb(66, 66, 66))', colorScheme: 'dark', note: 'actionbar/border top and bottom lines → figmaWindowChrome/divider dark #424242 (rebound 2026-08)' },
   // Bare actionBar variant (DS 2120:28369): the Colors|Export segmented control sits in an
   // actionBar with the Background and Border boolean props toggled OFF. Same 48px height +
   // padding/m geometry as the base, but no fill and no divider, content centred. Locks the
@@ -1197,6 +1262,7 @@ export const ALLOWED_BROAD_RULES = {
   // empty-state — DECORATIVE
   '.empty-state-content svg':   'DECORATIVE — illustration slot, no nested sub-components',
   '.empty-state svg':           'DECORATIVE — illustration slot, no nested sub-components',
+  '.empty-state.empty-state--positive svg': 'DECORATIVE — the illustration of the DS type=positive variant turns positive; no nested sub-components',
 
   // Isolation-fix rules (the override rules themselves)
   '.node-focus-btn svg':        'ISOLATION FIX — leaf action button; this rule IS the isolation override',
