@@ -1,5 +1,15 @@
 {
   "_updated": "2026-10-04",
+  "_modeOrder": {
+    "color": [
+      "dark",
+      "light"
+    ],
+    "Sizing": [
+      "desktop",
+      "phone"
+    ]
+  },
   "_note": "Captured from Figma by rms-design-system-engine (the Figma tool of this session, Plugin API, read only). Do not edit by hand: refresh with rms-design-system-engine --refresh-figma.",
   "color": {
     "light": {
