@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -16,19 +16,57 @@ jobs:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-
-      # Regression tests: each plugin backend runs against a mocked `figma` and is
-      # driven through its real message handlers. Runs before the build so a broken
-      # behaviour fails fast, on every push and pull request.
-      - name: Run tests
+      - name: Design system tests (core helpers, shared UI hygiene)
         run: pnpm test
 
-      - run: pnpm build
-      # Fail if the committed build output is stale — i.e. someone changed a
-      # source file but committed without rebuilding. Keeps the sideloadable
-      # code.js / ui.html in sync with src.
-      - name: Check committed build output is up to date
-        run: git diff --exit-code
+  list:
+    runs-on: ubuntu-latest
+    outputs:
+      repos: ${{ steps.r.outputs.repos }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - id: r
+        run: echo "repos=$(node -p 'JSON.stringify(require("./products.json").products.map((p) => p.repo))')" >> "$GITHUB_OUTPUT"
 
-      - name: Validate plugin manifests
-        run: node scripts/check-manifests.mjs
+  products:
+    # Every product built on the design system, tested and built against THIS checkout, so a change that breaks one
+    # is seen here, before it is released. The built output may change (that is what a release ships); tests may not
+    # fail.
+    needs: [test, list]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        repo: ${{ fromJSON(needs.list.outputs.repos) }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: ds
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: ${{ matrix.repo }}
+          path: product
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        with:
+          package_json_file: product/package.json
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - name: Point the product at this design system checkout
+        working-directory: product
+        run: |
+          node -e '
+            const fs = require("fs"); const p = JSON.parse(fs.readFileSync("package.json", "utf8"));
+            p.dependencies["@rms/ds-core"] = "link:../ds"; fs.writeFileSync("package.json", JSON.stringify(p, null, 2) + "\n");'
+          (cd ../ds && pnpm install --frozen-lockfile)
+          pnpm install --no-frozen-lockfile
+      - name: Test
+        working-directory: product
+        run: pnpm test
+      - name: Build
+        working-directory: product
+        run: |
+          pnpm build
+          pnpm check
+          if git diff --quiet -- code.js ui.html; then echo "${{ matrix.repo }}: built output unchanged" >> "$GITHUB_STEP_SUMMARY";
+          else echo "${{ matrix.repo }}: built output changes (a release will ship it)" >> "$GITHUB_STEP_SUMMARY"; git diff --stat -- code.js ui.html; fi
