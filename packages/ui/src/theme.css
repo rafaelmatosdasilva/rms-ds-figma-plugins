@@ -1457,6 +1457,7 @@
   .tier-dot {
     width: var(--dividerSection-height); height: var(--dividerSection-height);
     border-radius: 50%;
+    background: var(--semantic-negative); /* DS 135:46577 Level ellipse fill = semantic/negative; a severity class below overrides it */
     flex-shrink: 0;
   }
   /* Severity variants — semantic tokens (base-first: variants live with the base) */
