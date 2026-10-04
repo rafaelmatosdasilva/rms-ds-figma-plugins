@@ -1,0 +1,8 @@
+{
+  "_note": "Everything built on this design system. A design system release (a vX.Y.Z tag) is sent to each repository listed here, which updates, rebuilds and releases itself (its ds-update workflow). Add a product here when it is created.",
+  "products": [
+    { "repo": "rafaelmatosdasilva/rms-figma-impact-atlas", "name": "Impact Atlas", "kind": "Figma plugin" },
+    { "repo": "rafaelmatosdasilva/rms-figma-tokens-to-ink", "name": "Tokens to Ink", "kind": "Figma plugin" },
+    { "repo": "rafaelmatosdasilva/rms-figma-font-scaling-lab", "name": "Font Scaling Lab", "kind": "Figma plugin" }
+  ]
+}
