@@ -270,6 +270,20 @@
        in COVERED; declare a var again when a plugin actually renders a listItem. */
   }
 
+  /* Sizing, Phone mode: Figma draws Phone frames at 350px and Desktop at 1680px (viewport/min-width).
+     Phone applies on a phone or tablet (a touch screen with no hover) and in any window narrower than
+     480px. The plugin windows are 600 to 1000px wide on a desktop, so they keep Desktop. */
+  @media (max-width: 480px), (hover: none) and (pointer: coarse) {
+    :root {
+      --padding-xxs: 4px;          /* padding/xxs, Phone */
+      --padding-xs: 8px;           /* padding/xs, Phone */
+      --padding-s: 10px;           /* padding/s, Phone */
+      --padding-m: 14px;           /* padding/m, Phone */
+      --padding-xl: 20px;          /* padding/xl, Phone */
+      --button-min-height: 32px;   /* button/min-height, Phone */
+    }
+  }
+
   @media (prefers-color-scheme: dark) {
     :root {
       /* Primitives — dark ramp (overrides light values in :root) */

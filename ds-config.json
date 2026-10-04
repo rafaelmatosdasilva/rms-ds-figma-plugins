@@ -242,7 +242,6 @@
     "max-width: 32px",
     "max-height: 2em",
     "max-width: 120px",
-    "@container (max-width: 72px)",
     "width: 16px",
     "height: 16px",
     "height: 32px",
@@ -258,7 +257,6 @@
     "width: 20px",
     "height: 20px",
     "bottom: 2px",
-    "letter-spacing: 0.06em",
     "letter-spacing: 0.2px",
     "border-radius: 2px",
     "border-radius: 13px",
@@ -288,10 +286,6 @@
     {
       "pattern": "(?:^|[;{])\\s*background-(position|size)\\s*:",
       "_note": "pattern/gradient geometry (checkerboard, dashed rules)"
-    },
-    {
-      "pattern": "(?:^|[;{])\\s*letter-spacing\\s*:",
-      "_note": "DS typography carries no letter-spacing token for these scales"
     },
     {
       "pattern": "(?:^|[;{])\\s*padding-right\\s*:\\s*(26|34|62)px",
