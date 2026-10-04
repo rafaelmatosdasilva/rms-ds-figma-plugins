@@ -602,6 +602,9 @@ export const CONTRACT = {
 // that only exist at runtime (toasts, list rows).
 export const RENDERED_ASSERTIONS = [
   // Figma props the code now builds (2026-10): each part drawn from a probe of the full component.
+  { plugin: 'impact-atlas', selector: '.tooltipButton', prop: 'height', expected: '24px',
+    note: 'tooltipButton 24x24 with its 12px icon; data-tip is the text its tooltipPopover shows on hover',
+    probe: '<span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span>' },
   { plugin: 'impact-atlas', selector: '.buttonList .lrow-icon', prop: 'width', expected: '16px',
     note: 'buttonList Content: its Icon (Show Icon) at 16, before the Title and its tooltipButton (Show Tooltip)',
     probe: '<div class="buttonList"><div class="lrow-icon"><svg width="16" height="16"><use href="#icon-var-color"/></svg></div><span class="lrow-name">Title</span><span class="tooltipButton lib-badge"><svg width="12" height="12"><use href="#icon-library"/></svg></span><button class="buttonList-action buttonTertiary" aria-label="Focus on canvas"><svg width="16" height="16"><use href="#icon-focus"/></svg></button><svg width="16" height="16" class="buttonList-arrow"><use href="#icon-arrow-right"/></svg></div>' },
@@ -780,28 +783,18 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.node.var-item', prop: 'color', expected: 'rgb(191, 191, 191)',
     forcePseudo: ['hover'], colorScheme: 'dark', note: 'sanity: hovered node label stays node/label/idle N300 dark',
     probe: '<button class="node var-item"><span class="var-name">t</span></button>' },
-  // Hovering a node must NOT dim its action buttons. `.node:hover svg` is (0,2,1)
-  // and outranks `.node-focus-btn svg` (0,1,1), so the DS hover colour has to stay
-  // scoped to the type-icon wrappers. forcePseudoOn hovers the NODE and measures the
-  // BUTTON — the only way to catch a parent rule overriding a child.
-  { plugin: 'impact-atlas', selector: '.node.graph-node.comp .node-goto-btn svg', prop: 'color',
-    expected: 'rgb(219, 219, 219)', forcePseudo: ['hover'], forcePseudoOn: '.node.graph-node.comp',
-    colorScheme: 'dark', note: 'goto icon keeps buttonTertiary text while the node is hovered — N200 #dbdbdb dark since the DS rebound buttonTertiary/iconText (was N300)',
-    probe: '<div class="node graph-node comp"><div class="node-type-icon"><svg></svg></div>' +
-           '<button class="node-goto-btn"><svg></svg></button></div>' },
+  // The DS node has no action buttons (Figma: icon, title and states only): only its type icon takes the hover colour.
   { plugin: 'impact-atlas', selector: '.node.graph-node.comp .node-type-icon svg', prop: 'color',
     expected: 'rgb(191, 191, 191)', forcePseudo: ['hover'], forcePseudoOn: '.node.graph-node.comp',
     colorScheme: 'dark', note: 'the type icon DOES take node/icon/hover — N300 dark #b8b8b8 since the DS rebound hover onto node/icon/selected (947:17057); it was N500 while it chained to idle',
-    probe: '<div class="node graph-node comp"><div class="node-type-icon"><svg></svg></div>' +
-           '<button class="node-goto-btn"><svg></svg></button></div>' },
+    probe: '<div class="node graph-node comp"><div class="node-type-icon"><svg></svg></div></div>' },
   // Same assertion in LIGHT. node/icon/hover resolves per mode (N400 light / N300
   // dark), and a dark-only assertion let the light value sit on the stale N600
   // chain unnoticed. Every mode-varying token needs an assertion per mode.
   { plugin: 'impact-atlas', selector: '.node.graph-node.comp .node-type-icon svg', prop: 'color',
     expected: 'rgb(89, 89, 89)', forcePseudo: ['hover'], forcePseudoOn: '.node.graph-node.comp',
     colorScheme: 'light', note: 'node/icon/hover light = N400 #595959 (alias of node/icon/selected)',
-    probe: '<div class="node graph-node comp"><div class="node-type-icon"><svg></svg></div>' +
-           '<button class="node-goto-btn"><svg></svg></button></div>' },
+    probe: '<div class="node graph-node comp"><div class="node-type-icon"><svg></svg></div></div>' },
   // ── input/border/focus (restored to the DS 2026-07-30) ──────────────────────
   // The focus ring is the only signal a field has keyboard focus, so it must beat the
   // resting/hover borders. The resting value (input/border/default) is verified on the
@@ -1207,7 +1200,7 @@ export const ALLOWED_BROAD_RULES = {
   '.sb-lib-badge svg':          'ISOLATED — as above, sidebar header variant; colour only, size comes from the inline svg attributes',
 
   // node — ISOLATED
-  '.node svg':                  'ISOLATED — .node-focus-btn/goto/drill/comp-item-focus-btn svg overrides in impact-atlas/ui.src.html',
+  '.node svg':                  'ISOLATED — the DS node holds only its type icon (no action buttons, as in Figma)',
   '.node.node-selected svg':    'ISOLATED — same action-button overrides cover all node states',
   '.node.node-unselected svg':  'ISOLATED — same action-button overrides',
   '.node.node-disabled svg':    'ISOLATED — same action-button overrides',
@@ -1269,19 +1262,10 @@ export const ALLOWED_BROAD_RULES = {
   '.button-group button:not(.selected):hover': 'OWNED children — hover state',
 
   // empty-state — DECORATIVE
-  '.empty-state-content svg':   'DECORATIVE — illustration slot, no nested sub-components',
-  '.empty-state svg':           'DECORATIVE — illustration slot, no nested sub-components',
-  '.empty-state.empty-state--positive svg': 'DECORATIVE — the illustration of the DS type=positive variant turns positive; no nested sub-components',
+  '.empty-state-content > svg': 'DECORATIVE — illustration slot (direct child only, so the action button keeps its own icon)',
+  '.empty-state.empty-state--positive .empty-state-content > svg': 'DECORATIVE — the illustration of the DS type=positive variant turns positive; no nested sub-components',
 
   // Isolation-fix rules (the override rules themselves)
-  '.node-focus-btn svg':        'ISOLATION FIX — leaf action button; this rule IS the isolation override',
-  '.node-goto-btn svg':         'ISOLATION FIX — leaf action button',
-  '.node-drill-btn svg':        'ISOLATION FIX — leaf action button',
-  '.comp-item-focus-btn svg':   'ISOLATION FIX — leaf action button',
-  '.node-focus-btn:hover svg':  'ISOLATION FIX — hover state of leaf action button',
-  '.node-goto-btn:hover svg':   'ISOLATION FIX — hover state',
-  '.node-drill-btn:hover svg':  'ISOLATION FIX — hover state',
-  '.comp-item-focus-btn:hover svg': 'ISOLATION FIX — hover state',
 
   // Plugin-specific leaf wrappers
   '.fork-item .f-head svg':     'PLUGIN-SPECIFIC — tokens-to-ink fork icon, leaf SVG slot',

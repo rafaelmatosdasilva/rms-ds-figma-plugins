@@ -543,8 +543,7 @@
     text-align: center;
   }
   .empty-state-content > * { margin: 0; }
-  .empty-state-content svg,
-  .empty-state svg {
+  .empty-state-content > svg {   /* the illustration only: never an icon inside its action button */
     display: block;
     margin: 0 auto;
     width: 56px;
@@ -568,7 +567,7 @@
   }
   .empty-state-action { align-self: center; }   /* DS show-action: a buttonPrimary under the content */
   /* DS type=positive: the icon turns positive (the check). */
-  .empty-state.empty-state--positive svg { color: var(--emptyState-icon-positive); }
+  .empty-state.empty-state--positive .empty-state-content > svg { color: var(--emptyState-icon-positive); }
   .empty-state-content .empty-state-title {
     max-width: 200px; margin: 0 auto;
     font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh);
@@ -846,7 +845,7 @@
   .actionbar.no-divider-bottom::after { background: linear-gradient(var(--actionbar-border), var(--actionbar-border)) top / 100% var(--thickness) no-repeat; }
   .actionbar.no-divider-top.no-divider-bottom::after { content: none; }
   .actionbar.no-background::before { content: none; }
-  #rescan-btn, .export-picker { margin-top: 0; align-self: center; }
+  #rescan-btn { margin-top: 0; align-self: center; }
   .buttonRescan {
     width: var(--button-min-height);
     height: var(--button-min-height);
@@ -1523,6 +1522,7 @@
     background: var(--modal-background);
     border-radius: var(--radius-modal);
     font-size: var(--l-size); font-weight: var(--l-weight); line-height: var(--l-lh); /* DS modal text style l */
+    width: 320px;                                /* DS modal: fixed 320 wide, height hugs its content */
     max-width: calc(100% - 2 * var(--padding-l));
     animation: modal-in var(--modal-duration) var(--modal-easing) both;
   }
