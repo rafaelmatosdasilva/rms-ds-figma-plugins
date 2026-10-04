@@ -1,6 +1,6 @@
 # A design system release: bump "version" in package.json and merge to main. This workflow tags it vX.Y.Z (once),
-# then tells every product in products.json, whose own ds-update workflow pins it, tests, builds and releases (or
-# opens a pull request when its tests fail, or stops when nothing it ships changed).
+# then tells every product in products.json, whose own ds-update workflow pins it, tests, builds and commits the
+# update without releasing the product (or opens a pull request when its tests fail).
 #
 # The dispatch needs PLUGINS_DISPATCH_TOKEN (a fine-grained token with Contents read and write on those
 # repositories). Without it nothing is sent, and each product still picks the release up on its own daily check.

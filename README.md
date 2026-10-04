@@ -83,10 +83,10 @@ it only when the engine's style guide check passes.
 ### Releasing a new version
 
 Bump `version` in `package.json` and merge to main. The release workflow tags `vX.Y.Z`, and every product picks it
-up: its `ds-update` workflow pins the new version, runs its tests and builds, then releases it (the next Figma
-Community version, drafted on GitHub with its sideload zip), opens a pull request when its tests fail, or only
-updates the pin when nothing it ships changed. Every pull request here also tests and builds each product against
-the change before it can be released. Publishing in Figma Community stays a manual step.
+up: its `ds-update` workflow pins the new version, runs its tests and builds, then commits the update to its main
+branch, or opens a pull request when its tests fail. A product's own version does not change and no release is
+drafted: the update ships with the next version you publish there (`pnpm release`, then publish in Figma Community).
+Every pull request here also tests and builds each product against the change before it can be released.
 
 ### Adding a product
 
