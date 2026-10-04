@@ -378,6 +378,10 @@
     "overflow": {
       "Show Title": ".overflow-label",
       "Title Content": ".overflow-label"
+    },
+    "input": {
+      "Label Before Content": ".inputLabel",
+      "Value Content": ".inputField"
     }
   },
   "docs": {
