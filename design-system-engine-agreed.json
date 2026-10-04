@@ -1022,6 +1022,12 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "toast · height": {
+   "figma": "32",
+   "code": "32",
+   "at": "2026-10-04T14:58:47.252Z",
+   "commit": "eeeb19a"
+  },
   "toast · padding (left/right)": {
    "figma": "12px",
    "code": "12px",
@@ -4022,13 +4028,26 @@
   },
   "toast · gap": {
    "figma": "16px",
-   "code": "16px",
-   "same": true
+   "code": "4px",
+   "same": false,
+   "moves": [
+    {
+     "at": "2026-10-04T14:58:47.252Z",
+     "side": "code",
+     "lead": true
+    }
+   ]
   },
   "toast · height": {
    "figma": "32",
-   "code": "48",
-   "same": false
+   "code": "32",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T14:58:47.252Z",
+     "side": "code"
+    }
+   ]
   },
   "toast · line height": {
    "figma": "16px",

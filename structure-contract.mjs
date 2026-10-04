@@ -248,8 +248,8 @@ export const CONTRACT = {
     fillStructure: 'before', innerRadiusVar: 'radii/button',
     strokeOnDefault: false,
     propertyMap: {
-      // Figma states: negative/warning/positive/neutral → CSS classes: high/medium/low/none
-      'State':      { negative: '.badge.high', warning: '.badge.medium', positive: '.badge.low', neutral: '.badge.none' },
+      // Figma Type: negative/warning/positive/neutral → CSS classes: high/medium/low/none
+      'Type':       { negative: '.badge.high', warning: '.badge.medium', positive: '.badge.low', neutral: '.badge.none' },
       'Show Label': '.badge.no-label .badge-label',
       'Show Icon':  '.badge.no-icon svg',
     },
@@ -290,13 +290,12 @@ export const CONTRACT = {
     fontSizeVar: 'm', fontWeightVar: 'm',
     fillStructure: 'direct', innerRadiusVar: 'radii/toast',
     strokeOnDefault: false,
-    // Success icon↔title gap is gap/s on Frame 39, flattened onto .toast root (gap: var(--gap-s)).
+    // The icon and title sit in Frame 39 (gap/s), drawn as .toast-body inside the .toast root (gap/xl).
     children: [
-      // The loading banner (.progress-msg) keeps its content frame: spinner↔text group, gap/m.
-      { name: 'content', cssSelector: '.toast-content', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } },
+      { name: 'Frame 39', cssSelector: '.toast-body', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } },
     ],
     propertyMap: {
-      'state':            { loading: '.progress-msg', sucess: '.toast' }, // DS typo: "sucess"
+      'Type':             { sucess: '.toast', error: '.toast.toast-error' }, // DS typo: "sucess"
       'Show Description': '.toast-description',
     },
   },
@@ -559,6 +558,10 @@ export const CONTRACT = {
     fontSizeVar: 'm', fontWeightVar: 'm',
     fillStructure: 'direct', innerInset: null, innerRadiusVar: 'radii/toast',
     strokeOnDefault: false, strokeOnAnyState: false,
+    children: [
+      // The spinner and text group, gap/m (the loading banner's content frame before it moved here).
+      { name: 'content', cssSelector: '.loader-content', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } },
+    ],
   },
 };
 
@@ -1090,7 +1093,7 @@ export const COMPONENT_CSS_SELECTORS = {
   badge:            { main: '.badge' },
   input:            { main: '.inputWrap',                fontSel: '.inputField', skipTBPadding: true },
   tooltipPopover:   { main: '#tt' },
-  toast:            { main: '.progress-msg' },
+  toast:            { main: '.toast' },
   buttonSecondary:  { main: '.buttonSecondary' },
   buttonQuaternary: { main: '.buttonQuaternary' },
   swatch:           { main: '.swatch' },
@@ -1347,27 +1350,27 @@ export const ICON_SYMBOLS = {
   //   strokeBased: true — <symbol> tag must have fill="none"; prevents fill-path replacement of a stroke-only DS icon
   //   Render size is NOT declared here — the viewBox on <symbol> is the icon container;
   //   use it at whatever size the design calls for.
-  'icon-fit':         { desc: 'DS ICON — Icon-Fit node 149-101965; four corner-bracket arrows (fit-to-frame); fill-based compound path', nodeId: '149:101965', dsName: 'Icon-Fit', strokeNone: true },
-  'icon-library':     { desc: 'DS ICON — Icon/Library node 1584-83149; size=xsmall (12px) variant; fill-based compound path (two stacked book spines)', nodeId: '1584:83149', dsName: 'Icon-Library', strokeNone: true },
-  'icon-info':        { desc: 'DS ICON — Icon/Info node 67-46370; fill-based compound path (circle ring + i-body rect + dot rect)', nodeId: '67:46370', dsName: 'Icon-Info', strokeNone: true },
+  'icon-fit':         { desc: 'DS ICON — Icon-Fit node 149-101965; four corner-bracket arrows (fit-to-frame); fill-based compound path', nodeId: '149:101965', dsName: 'Icon-fit', strokeNone: true },
+  'icon-library':     { desc: 'DS ICON — Icon/Library node 1584-83149; size=xsmall (12px) variant; fill-based compound path (two stacked book spines)', nodeId: '1584:83149', dsName: 'Icon-library', strokeNone: true },
+  'icon-info':        { desc: 'DS ICON — Icon/Info node 67-46370; fill-based compound path (circle ring + i-body rect + dot rect)', nodeId: '67:46370', dsName: 'Icon-info', strokeNone: true },
   'icon-check':       { desc: 'DS ICON — Icon/check size=small node 365-16969; fill-based checkmark chevron (Boolean Union export)', nodeId: '365:16969', dsName: 'Icon-check', strokeNone: true },
-  'icon-reset':       { desc: 'DS ICON — Icon/Reset node 3-4257; fill-based compound path (arc + arrow indicating undo/reset)', nodeId: '3:4257', dsName: 'Icon-Reset', strokeNone: true },
-  'icon-empty-token':     { desc: 'DS ICON — Icon/object/token node 1546-27305; size=large (56px) variant; fill-based compound path, rotated -45 and drawn in a shared 56x56 DS frame so it keeps its scale relative to icon-empty-component', nodeId: '1546:27305', dsName: 'Icon-object-Token', idDiffersFromDsName: 'Empty-state rendering of the token glyph (size=large). The "empty-" prefix distinguishes it from the 16px icon-variable that uses the same DS component at size=small.', strokeNone: true },
+  'icon-reset':       { desc: 'DS ICON — Icon/Reset node 3-4257; fill-based compound path (arc + arrow indicating undo/reset)', nodeId: '3:4257', dsName: 'Icon-reset', strokeNone: true },
+  'icon-empty-token':     { desc: 'DS ICON — Icon/object/token node 1546-27305; size=large (56px) variant; fill-based compound path, rotated -45 and drawn in a shared 56x56 DS frame so it keeps its scale relative to icon-empty-component', nodeId: '1546:27305', dsName: 'Icon-object-token', idDiffersFromDsName: 'Empty-state rendering of the token glyph (size=large). The "empty-" prefix distinguishes it from the 16px icon-variable that uses the same DS component at size=small.', strokeNone: true },
   'icon-empty-component': { desc: 'DS ICON — Icon/object/component node 1546-30341; size=large (56px) variant; fill-based compound path, same shared 56x56 frame', nodeId: '1546:30341', dsName: 'Icon-object-component', idDiffersFromDsName: 'Empty-state rendering of the component glyph (size=large). The "empty-" prefix distinguishes it from the 16px icon-component that uses the same DS component at size=small.', strokeNone: true },
-  'icon-plus':        { desc: 'DS ICON — Icon/Plus node 2-2879; fill-based compound path (cross/add mark)', nodeId: '2:2879', dsName: 'Icon-Plus', strokeNone: true },
+  'icon-plus':        { desc: 'DS ICON — Icon/Plus node 2-2879; fill-based compound path (cross/add mark)', nodeId: '2:2879', dsName: 'Icon-plus', strokeNone: true },
   'icon-export':      { desc: 'DS ICON — Icon-export node 31-932 (renamed from Icon-download + redrawn 2026-08); upload/export arrow out of a tray', nodeId: '31:932', dsName: 'Icon-export', strokeNone: true },
-  'icon-update':      { desc: 'DS ICON — Icon/Update node 31-66777; fill-based compound path (two circular refresh arrows)', nodeId: '31:66777', dsName: 'Icon-Update', strokeNone: true },
-  'icon-copy':        { desc: 'DS ICON — Icon/Copy node 1390:21732; fill-based compound path (two overlapping rectangles = copy to clipboard)', nodeId: '1390:21732', dsName: 'Icon-Copy', strokeNone: true },
+  'icon-update':      { desc: 'DS ICON — Icon/Update node 31-66777; fill-based compound path (two circular refresh arrows)', nodeId: '31:66777', dsName: 'Icon-update', strokeNone: true },
+  'icon-copy':        { desc: 'DS ICON — Icon/Copy node 1390:21732; fill-based compound path (two overlapping rectangles = copy to clipboard)', nodeId: '1390:21732', dsName: 'Icon-copy', strokeNone: true },
   'icon-arrow-right': { desc: 'DS ICON — Icon/arrowRight node 364-62670; fill-based compound path (rightward chevron >)', nodeId: '364:62670', dsName: 'Icon-arrowRight', strokeNone: true },
   // The DS component is Icon/object/token — there is no "Icon/object/variable"; the old
   // desc named a component that does not exist in the file. Corrected against live Figma
   // 2026-07-24.
-  'icon-variable':    { desc: 'DS ICON — Icon/object/token node 541-84085; size=small (16px) variant; fill-based compound path (hexagonal outline + inner polygon + circle cutout)', nodeId: '541:84085', dsName: 'Icon-object-Token', idDiffersFromDsName: 'The DS names this glyph after the token object; the plugins use it to mark Figma variables, matching Figma\'s own product wording and the sibling icon-var-COLOR/FLOAT/STRING/BOOLEAN set. Renaming to icon-token would put it at odds with every surrounding identifier. icon-empty-token keeps the DS wording because that one is a token-flavoured empty state, not a variable marker.', strokeNone: true },
+  'icon-variable':    { desc: 'DS ICON — Icon/object/token node 541-84085; size=small (16px) variant; fill-based compound path (hexagonal outline + inner polygon + circle cutout)', nodeId: '541:84085', dsName: 'Icon-object-token', idDiffersFromDsName: 'The DS names this glyph after the token object; the plugins use it to mark Figma variables, matching Figma\'s own product wording and the sibling icon-var-COLOR/FLOAT/STRING/BOOLEAN set. Renaming to icon-token would put it at odds with every surrounding identifier. icon-empty-token keeps the DS wording because that one is a token-flavoured empty state, not a variable marker.', strokeNone: true },
   'icon-object-component':   { desc: 'DS ICON — Icon/object/component node 402-62613; fill-based compound path (four-diamond cross)', nodeId: '402:62613', dsName: 'Icon-object-component', strokeNone: true },
-  'icon-focus':       { desc: 'DS ICON — Icon/focus node 31-601; fill-based compound path (five concentric rings)', nodeId: '31:601', dsName: 'Icon-Focus', strokeNone: true },
+  'icon-focus':       { desc: 'DS ICON — Icon/focus node 31-601; fill-based compound path (five concentric rings)', nodeId: '31:601', dsName: 'Icon-focus', strokeNone: true },
   'icon-search':      { desc: 'DS ICON — Icon/Search node 308-10855; fill-based compound path (magnifying glass ring + handle)', nodeId: '308:10855', dsName: 'Icon-search', strokeNone: true },
-  'icon-clear':       { desc: 'DS ICON — Icon/Clear node 3-4163; fill-based compound path (circle ring + X cross)', nodeId: '3:4163', dsName: 'Icon-Clear', strokeNone: true },
-  'icon-list':        { desc: 'DS ICON — Icon/List node 546-76251; fill-based compound path (two bullet+line rows)', nodeId: '546:76251', dsName: 'Icon-List', strokeNone: true },
+  'icon-clear':       { desc: 'DS ICON — Icon/Clear node 3-4163; fill-based compound path (circle ring + X cross)', nodeId: '3:4163', dsName: 'Icon-clear', strokeNone: true },
+  'icon-list':        { desc: 'DS ICON — Icon/List node 546-76251; fill-based compound path (two bullet+line rows)', nodeId: '546:76251', dsName: 'Icon-list', strokeNone: true },
   'icon-settings':    { desc: 'DS ICON — Icon/settings node 973-17080; fill-based compound path (gear/cog with inner circle)', nodeId: '973:17080', dsName: 'Icon-settings', strokeNone: true },
   'icon-var-color':      { desc: 'DS ICON — Icon/var/color node 308-49949; fill-based compound path (paint drop)', nodeId: '308:49949', dsName: 'Icon-var-color', strokeNone: true },
   'icon-var-number':     { desc: 'DS ICON — Icon/var/number node 308-49931; fill-based compound path (numeric/hash rules)', nodeId: '308:49931', dsName: 'Icon-var-number', strokeNone: true },

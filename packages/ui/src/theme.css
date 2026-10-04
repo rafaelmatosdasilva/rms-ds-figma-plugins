@@ -538,7 +538,7 @@
     max-width: 200px;  /* emptyState Figma component w=200 */
     margin: 0 auto;
     font-size: var(--m-size);
-    line-height: 1.5;
+    line-height: var(--m-lh);
     color: var(--emptyState-title); /* emptyState/title/color */
   }
   /* DS EmptyState (node 1431:21215): Icon + Text(title/s-gap/description).
@@ -646,7 +646,7 @@
     font-size: var(--m-size);
     font-weight: var(--m-weight);
     white-space: nowrap;
-    line-height: var(--button-min-height);
+    line-height: var(--m-lh);
     transition: background 0.15s ease, color 0.15s ease;
   }
   .buttonTertiary:hover {
@@ -779,7 +779,7 @@
     border: none;
     border-radius: var(--radius-full);
     font-family: inherit;
-    line-height: 1;
+    line-height: var(--m-lh);
     flex-shrink: 0;
     transition: background 0.15s ease, color 0.15s ease;
   }
@@ -904,7 +904,7 @@
   }
   .progress-msg--scan.has-eta { transform: translateY(-8px); }
   .scan-info { display: flex; flex-direction: column; gap: var(--gap-xs); justify-content: center; }
-  .scan-label { display: flex; align-items: center; gap: var(--gap-s); font-size: var(--m-size); font-weight: var(--m-weight); line-height: 1.3; white-space: nowrap; }
+  .scan-label { display: flex; align-items: center; gap: var(--gap-s); font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); white-space: nowrap; }
   .scan-pct {
     display: inline-block; text-align: right;
     max-width: 0; overflow: hidden; opacity: 0;
@@ -1363,7 +1363,7 @@
   .tableRow.selected,
   .tableRow.selected:hover { background: var(--buttonList-background-selected); }
   .dividerLine {
-    height: 1px;
+    height: var(--thickness);   /* general/thickness, the 1.5px Figma draws the line at */
     background: var(--border);   /* dividerLine/border/color = N700 both modes (L #d6d6d6, D #303030) */
     flex-shrink: 0;
     margin: 0;
@@ -1423,11 +1423,13 @@
   .toast {
     background: var(--toast-background-success); color: var(--toast-title-success);
     height: 32px; padding: var(--padding-s) var(--padding-m); /* Figma: h=32, tb=padding/s (8px), lr=padding/m (12px) */
+    flex-shrink: 0; /* fixed-height DS component, never compressed */
     font-size: var(--m-size); font-weight: var(--m-weight);
-    display: inline-flex; align-items: center; justify-content: center; gap: var(--gap-s);
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--gap-xl); /* gap/xl, the DS root */
     border-radius: var(--radius-toast); white-space: nowrap; pointer-events: auto;
     animation: toast-in 0.22s cubic-bezier(0.16, 0.84, 0.44, 1); z-index: 9999;
   }
+  .toast-body { display: inline-flex; align-items: center; gap: var(--gap-s); /* DS Frame 39: icon and title, gap/s */ }
   .toast.toast-out { animation: toast-out 0.22s cubic-bezier(0.4, 0, 0.84, 0.16) forwards; }
   .toast-icon { color: var(--loader-spinner); display: inline-flex; flex-shrink: 0; }
   .toast .toast-icon { color: var(--toast-icon-success); }
