@@ -10,7 +10,7 @@ export const CONTRACT = {
     h: 248,
     paddingVar: { tb: 'gap/xl', lr: 'gap/xl' },
     gapVar: 'gap/l',
-    fontSizeVar: null, fontWeightVar: null,
+    fontSizeVar: 's', fontWeightVar: 's',  // Figma: the card's text is the s style
     fillStructure: 'none', innerInset: null, innerRadiusVar: 'radii/card',
     strokeOnDefault: true, strokeOnAnyState: true,
     strokeSides: 'all',  // Figma: 1.5 all four sides (card/border)
@@ -23,14 +23,19 @@ export const CONTRACT = {
     gapVar: 'gap/m',
     // The root .switch row carries no direct text — the DS Description (m style) lives on the
     // .switch-description child (verified via its own rule), so no font var on the root.
-    fontSizeVar: null, fontWeightVar: null,
+    fontSizeVar: 'm', fontWeightVar: 'm',  // Figma binds the m style on the root (2026-10)
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: false,
     // DS Content frame (2083:26255) is FLUSH: Description right edge meets tooltipButton at x=62,
     // no gap token (gapPx 0). Pinned with gapPx so a re-added inner gap fails — .switch-content
     // once had gap/xs, pushing the icon ~4px off. (buttonSecondary is also flush but has no code
     // sub-selector, so it stays uncontracted/unbound — advisory-ignored, never a failure.)
-    children: [{ name: 'Content', cssSelector: '.switch-content', gapPx: 0 }],
+    children: [
+      { name: 'Content', cssSelector: '.switch-content', gapPx: 0 },
+      // Figma: the nested buttonSecondary keeps its own padding/xs left and right (the tooltip trigger).
+      { name: 'buttonSecondary', cssSelector: null, gapVar: null, paddingVar: { tb: null, lr: 'padding/xs' },
+        verifiedBy: 'the nested buttonSecondary component, whose own rule carries padding/xs left and right' },
+    ],
     propertyMap: { 'Enable': { True: '.switch-input:checked + .switch-track', False: '.switch-track' } },
   },
   // checkBoxGroup (DS 2064:29545) — a labelled vertical stack of checkboxes. No fixed
@@ -39,7 +44,7 @@ export const CONTRACT = {
   // Listed here so the naming round-trip recognises `.checkBoxGroup` as a DS component.
   checkBoxGroup: {
     _note: "Labelled vertical stack of checkboxes: Label (s, content/secondary) gap/m above a Slot that stacks rows at gap/s. Built base .checkBoxGroup (2026-08).",
-    h: 38,  // DS-measured (Label 15 + gap/m 8 + empty Slot 15); content-driven in CSS (no
+    h: 53,  // DS-measured (Label 15 + gap/m 8 + empty Slot 15); content-driven in CSS (no
             // COMPONENT_CSS_SELECTORS entry → height is not asserted against CSS, only vs snapshot)
     paddingVar: { tb: null, lr: null },
     gapVar: 'gap/m',
@@ -53,10 +58,10 @@ export const CONTRACT = {
   // RENDERED_ASSERTIONS. strokeOnAnyState is the nested radioButton's circle border.
   radioButtonGroup: {
     _note: "Labelled ROW of radios: Label (s, content/secondary) gap/m above a Slot spacing radios at gap/xxxl (32). Built base .radioButtonGroup (2026-09-09).",
-    h: 63,
+    h: 62.5,
     paddingVar: { tb: null, lr: null },
     gapVar: 'gap/m',
-    fontSizeVar: 's', fontWeightVar: 's',
+    fontSizeVar: null, fontWeightVar: null,  // Figma: no text style on the root; the label carries s
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',  // no OWN border — the only stroke is the nested radioButton's circle
@@ -78,9 +83,9 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: null },
     gapVar: null,
     fontSizeVar: null, fontWeightVar: null,
-    fillStructure: 'direct', innerInset: null, innerRadiusVar: null,
-    strokeOnDefault: true, strokeOnAnyState: true,
-    strokeSides: 'all',
+    fillStructure: 'before', innerInset: null, innerRadiusVar: null,
+    strokeOnDefault: false, strokeOnAnyState: true,
+    strokeSides: 'none',  // Figma: the ring is drawn by the layer under the fill, not a stroke on the root
   },
   // dividerLine (DS) — a thin rule (dividerLine/border). Height informational (code renders 1px).
   dividerLine: {
@@ -89,7 +94,7 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: null },
     gapVar: null,
     fontSizeVar: null, fontWeightVar: null,
-    fillStructure: 'direct', innerInset: null, innerRadiusVar: null,
+    fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: false,
   },
   // buttonStepper (DS) — a −/value/+ row: two buttonSecondary flanking an input at gap/xs.
@@ -124,10 +129,16 @@ export const CONTRACT = {
     h: 130, sizing: 'hug',
     paddingVar: { tb: 'padding/l', lr: 'padding/l' },
     gapVar: 'gap/xl',
-    fontSizeVar: null, fontWeightVar: null,  // card is a container — the l-style text lives in the title child (.modal-title)
+    fontSizeVar: 'l', fontWeightVar: 'l',  // Figma binds the l style on the card
     fillStructure: 'direct', innerInset: null, innerRadiusVar: 'radii/modal',
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',
+    children: [
+      // The code's header is the title alone (no header icon is built), so the frame is flattened.
+      { name: 'header', cssSelector: null, gapVar: 'gap/s', paddingVar: { tb: null, lr: null },
+        verifiedBy: 'flattened: the header holds only .modal-title in the code, so the gap has nothing to space' },
+      { name: 'Actions', cssSelector: '.modal-footer', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } },
+    ],
   },
   // emptyState (DS 1431:21215) — centred Icon + Title(m) + Description(s) → .empty-state.
   // Content-driven height; gap/xl between icon-group and text. No own fill/stroke.
@@ -139,6 +150,7 @@ export const CONTRACT = {
     fontSizeVar: 'm', fontWeightVar: 'm',
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: false,
+    children: [{ name: 'Content', cssSelector: '.empty-state-text', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } }],
   },
   // listItem (DS 503:49751) — a list row: Icon + Main(title m / description s), trailing dividerLine.
   // Content-driven height; gap/m row spacing. strokeOnAnyState is the trailing dividerLine's.
@@ -151,6 +163,7 @@ export const CONTRACT = {
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',
+    children: [{ name: 'Frame 106', cssSelector: '.listItem-row', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } }],
   },
   // overlay (DS) — a full-cover scrim (overlay/color) centring a Slot (loader). → .overlay
   overlay: {
@@ -158,8 +171,8 @@ export const CONTRACT = {
     h: 380, sizing: 'hug',
     paddingVar: { tb: 'padding/l', lr: 'padding/l' },
     gapVar: null,
-    fontSizeVar: null, fontWeightVar: null,
-    fillStructure: 'direct', innerInset: null, innerRadiusVar: null,
+    fontSizeVar: 'm', fontWeightVar: 'm',
+    fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',
   },
@@ -169,7 +182,7 @@ export const CONTRACT = {
     // intentionally per-project, so no fixed selector can be asserted.
     annotations: { 'Actions can changed based on the project needs': null },
     h: 40,
-    paddingVar: { tb: null, lr: 'padding/xs' },
+    paddingVar: { tb: null, lr: null },  // Figma: no root padding; the Container carries padding/s left and right
     gapVar: null, // Figma root has null; gap/s lives on "Content" child frame → asserted via CSS_PROPERTY_ASSERTIONS
     fontSizeVar: 'm', fontWeightVar: 'm',
     fillStructure: 'none', innerRadiusVar: null,
@@ -189,7 +202,7 @@ export const CONTRACT = {
       // DS "Container" child frame — flattened into .buttonList root: gap/s is on the root rule
       // (asserted in CSS_PROPERTY_ASSERTIONS), tb padding/xs is geometric (fixed h=40 + ::before
       // pill inset 4px 0). cssSelector: null skips the [3f] CSS lookup; snapshot cross-check runs.
-      { name: 'Container', cssSelector: null, gapVar: 'gap/s', paddingVar: { tb: 'padding/xs', lr: null },
+      { name: 'Container', cssSelector: null, gapVar: 'gap/s', paddingVar: { tb: 'padding/xs', lr: 'padding/s' },
         verifiedBy: 'geometric — tb padding/xs is absorbed by the fixed h=40 + ::before pill inset (4px 0); no code padding to assert' },
     ],
     propertyMap: {
@@ -202,7 +215,7 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: 'padding/s' },
     gapVar: 'gap/s',
     fontSizeVar: 'm', fontWeightVar: 'm',
-    fillStructure: 'none', innerRadiusVar: 'radii/button',
+    fillStructure: 'direct', innerRadiusVar: 'radii/button',
     strokeOnDefault: true,
     strokeSides: 'all',  // Figma: 1.5 all four sides (verified 2026-08)
     // DS State=Default (the resting card) now carries node/border/default — the DS re-added the
@@ -259,7 +272,7 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: 'padding/s' },
     gapVar: 'gap/s',
     fontSizeVar: 'm', fontWeightVar: 'm',
-    fillStructure: 'before', innerRadiusVar: 'radii/input', // Background rect binds radii/input (same --radius-full)
+    fillStructure: 'none', innerRadiusVar: 'radii/input',
     strokeOnDefault: false,
     propertyMap: {
       'State':          { Default: '.inputWrap', Hover: '.inputWrap:not(.inputWrap--readonly):hover', Focus: '.inputWrap:not(.inputWrap--readonly):focus-within' },
@@ -367,10 +380,11 @@ export const CONTRACT = {
     h: 'auto',                                  // content-driven container
     paddingVar: { tb: 'padding/xs', lr: null },
     gapVar: null,
-    fontSizeVar: null, fontWeightVar: null,
+    fontSizeVar: 's', fontWeightVar: 's',
     fillStructure: 'direct', innerInset: null, innerRadiusVar: 'radii/card',
     strokeOnDefault: true, strokeOnAnyState: true,
     strokeSides: 'all',  // Figma: 1 all four sides on the flyout frame (verified 2026-08)
+    children: [{ name: 'Frame 27', cssSelector: '.overflow-label', gapVar: null, paddingVar: { tb: 'padding/xs', lr: 'padding/s' } }],
   },
   buttonPrimary: {
     h: 24,
@@ -412,7 +426,7 @@ export const CONTRACT = {
     // The component frame carries no stroke; the only stroke in its subtree belongs
     // to the nested buttonSecondary instance. Verified against Figma 2026-07-31.
     strokeOnDefault: false, strokeOnAnyState: true,
-    strokeSides: 'none',  // no OWN border — strokeOnAnyState is the nested buttonSecondary's (verified 2026-08)
+    strokeSides: 'none',  // no OWN border: Figma keeps a 1px right weight but its paint is hidden (checked 2026-10)
     children: [
       { name: 'Content', cssSelector: '.dividerSection-content', gapVar: 'gap/s',
         paddingVar: { tb: 'padding/xs', lr: null } },
@@ -462,6 +476,8 @@ export const CONTRACT = {
     innerRadiusVar: null,
     strokeOnDefault: false,
     strokeOnAnyState: true,
+    children: [{ name: 'Content', cssSelector: null, gapVar: 'gap/m', paddingVar: { tb: null, lr: null },
+      verifiedBy: 'flattened: the Content frame holds only .radioButton-label in the code' }],
     strokeSides: 'all',  // Figma: 1.5 all four sides on the circular Radio child (verified 2026-08). Border is on the plugin .depth-circle — no base selector, so this documents intent (rendered checks cover the plugin CSS).
     propertyMap: {
       'State': {
@@ -490,16 +506,16 @@ export const CONTRACT = {
     fillStructure: 'direct',
     innerInset: null,
     innerRadiusVar: null,
-    strokeOnDefault: true,
-    strokeOnAnyState: true,
+    strokeOnDefault: false,
+    strokeOnAnyState: false,
     strokeSides: 'right',  // Figma: right-edge weight 1.5 (0/1.5/0/0) — the side-panel divider (verified 2026-08; edge weight preserved through the 2026-09-12 restructure). NOTE: the DS stroke PAINT now reads empty on the component + all in-context instances; the edge-weight geometry + the plugin .left-panel border-right (panel/border) hold the divider. No base selector, so this documents intent.
     children: [
       // 2026-09-12 restructure: two empty SLOTs filled per-context. Plugins hand-build the panel
       // (header row + .scroll-area), so cssSelector: null skips the [3f] CSS lookup — the snapshot
       // cross-check still runs. HeadContent top=padding/l, bottom=padding/s (tb records the top).
-      { name: 'HeadContent', cssSelector: null, gapVar: 'gap/xl', paddingVar: { tb: 'padding/l', lr: null },
+      { name: 'HeadContent', cssSelector: null, gapVar: null, paddingVar: { tb: null, lr: null },
         verifiedBy: 'RENDERED_ASSERTIONS .sidePanelHeader (paddingTop 16 / paddingBottom 8 / paddingLeft 16, font-scaling-lab). impact-atlas realizes the header region via .actionbar + .scroll-area, each with their own paddingTop assertions.' },
-      { name: 'MainContent', cssSelector: null, gapVar: 'gap/xl', paddingVar: { tb: null, lr: null } },
+      { name: 'MainContent', cssSelector: null, gapVar: null, paddingVar: { tb: null, lr: null } },
     ],
     propertyMap: {
       'side': { left: '.left-panel' },
@@ -509,7 +525,7 @@ export const CONTRACT = {
     // Figma DS 789:38384: h=48 (24px content + padding/m × 2; tb rebound padding/l→padding/m
     // 2026-08), lr padding/l, root gap gap/xl (slot-group separation — flattened via flex:1
     // spacer in consumers; visible inter-item gap is the DS Content-level gap/m). Base class
-    // .statusBar in theme.css, which draws its own bottom stroke (dividerLine/border 1.5).
+    // .statusBar in theme.css, which draws Figma's top and bottom dividerLine layers.
     h: 48,
     gapVar: 'gap/xl',
     paddingVar: { tb: 'padding/m', lr: 'padding/l' },
@@ -518,25 +534,36 @@ export const CONTRACT = {
     fillStructure: 'none', // DS removed statusBar fill (verified 2026-07-11: fills=[] on 789:38384) — CSS has no background either
     innerInset: null,
     innerRadiusVar: null,
-    strokeOnDefault: true,
-    strokeOnAnyState: true,
-    strokeSides: 'bottom',  // .statusBar draws its own border-bottom (dividerLine/border, strokeBottomWeight 1.5). No base selCfg → documents intent; #sb-main-row height verified via RENDERED_ASSERTIONS.
+    // Figma (2026-10): no stroke on the root; two dividerLine layers draw the top and bottom lines.
+    strokeOnDefault: false,
+    strokeOnAnyState: false,
+    strokeSides: 'none',
+    propertyMap: {
+      'Show dividerLine Top':    '.statusBar.no-divider-top::before',
+      'Show dividerLine Bottom': '.statusBar.no-divider-bottom::after',
+    },
   },
   actionBar: {
     // Figma DS 138:16657: h=48 (24px content + padding/m × 2; tb rebound padding/s→padding/m
     // 2026-08), lr padding/l, root itemSpacing 0 (Slot — content gaps from slotted groups;
     // base uses gap/m). Base class .actionbar in theme.css.
-    h: 48,
+    h: 48, sizing: 'hug',  // Figma hugs its slot (78.79 is the placeholder content); 48 is the empty bar
     gapVar: null,
     paddingVar: { tb: 'padding/m', lr: 'padding/l' },
     fontSizeVar: null,
     fontWeightVar: null,
-    fillStructure: 'direct',
+    fillStructure: 'before',  // Figma: the background is its own layer
     innerInset: null,
     innerRadiusVar: null,
-    strokeOnDefault: true,
-    strokeOnAnyState: true,
-    strokeSides: 'bottom',  // Figma: stroke on the BOTTOM edge only (0/0/1.5/0) — .actionbar uses border-bottom (verified 2026-08)
+    // Figma (2026-10): no stroke on the root; two dividerLine layers draw the top and bottom lines.
+    strokeOnDefault: false,
+    strokeOnAnyState: false,
+    strokeSides: 'none',
+    propertyMap: {
+      'Show dividerLine Top':    '.actionbar.no-divider-top::after',
+      'Show dividerLine Bottom': '.actionbar.no-divider-bottom::after',
+      'Show Background':         '.actionbar.no-background::before',
+    },
   },
   // checkBox (DS 1963:43561) — built base .checkbox. Box (radii/checkbox, bordered) child + label.
   checkBox: {
@@ -545,9 +572,9 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: null },
     gapVar: 'gap/m',
     fontSizeVar: 'm', fontWeightVar: 'm',
-    fillStructure: 'none', innerInset: null, innerRadiusVar: 'radii/checkbox',
-    strokeOnDefault: true, strokeOnAnyState: true,
-    strokeSides: 'all',
+    fillStructure: 'none', innerInset: null, innerRadiusVar: null,
+    strokeOnDefault: false, strokeOnAnyState: true,
+    strokeSides: 'none',  // Figma: no stroke on the root; the box child carries it
     propertyMap: {
       'State': { Default: '.checkbox-box', Selected: '.checkbox-input:checked + .checkbox-box' },
     },

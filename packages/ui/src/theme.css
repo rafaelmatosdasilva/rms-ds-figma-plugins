@@ -811,21 +811,35 @@
     padding: var(--padding-m) var(--padding-l); /* DS actionBar 138:16657: tb padding/m, lr padding/l (tb rebound padding/s→padding/m 2026-08) */
     margin: 0 calc(-1 * var(--padding-l));
     min-height: 48px; /* 24px content + padding/m × 2; hugs taller when chips wrap to more rows */
-    background: var(--actionbar-background);
-    /* DS 138:16657 binds strokes to actionbar/border with strokeBottomWeight 1.5 and
-       strokeAlign INSIDE — a bottom rule only, drawn inside the 40px (box-sizing is
-       border-box globally, so the height is unaffected). */
-    border-bottom: var(--thickness) solid var(--actionbar-border);
+    position: relative;
+    isolation: isolate;
+  }
+  /* DS 138:16657 (2026-10): no fill or stroke on the frame. Its background is its own layer
+     (actionbar/background) and two dividerLine layers (actionbar/border, 1.5) lie over its top
+     and bottom edges. */
+  .actionbar::before {
+    content: ''; position: absolute; inset: 0; z-index: -1;
+    background: var(--actionbar-background); pointer-events: none;
+  }
+  .actionbar::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(var(--actionbar-border), var(--actionbar-border)) top / 100% var(--thickness) no-repeat,
+      linear-gradient(var(--actionbar-border), var(--actionbar-border)) bottom / 100% var(--thickness) no-repeat;
   }
 
   /* actionBar with the Background and Border boolean props toggled off (DS 2120:28369):
      a bare 48px bar — same padding/min-height geometry, no fill, no divider. Used to host
      a centred control (e.g. the Colors|Export segmented control) with DS breathing room. */
   .actionbar--plain {
-    background: transparent;
-    border-bottom: none;
     justify-content: center;
   }
+  .actionbar:where(.actionbar--plain)::before, .actionbar:where(.actionbar--plain)::after { content: none; }
+  /* Its Figma switches: Show dividerLine Top, Show dividerLine Bottom and Show Background, each on by default. */
+  .actionbar.no-divider-top::after { background: linear-gradient(var(--actionbar-border), var(--actionbar-border)) bottom / 100% var(--thickness) no-repeat; }
+  .actionbar.no-divider-bottom::after { background: linear-gradient(var(--actionbar-border), var(--actionbar-border)) top / 100% var(--thickness) no-repeat; }
+  .actionbar.no-divider-top.no-divider-bottom::after { content: none; }
+  .actionbar.no-background::before { content: none; }
   #rescan-btn, .export-picker { margin-top: 0; align-self: center; }
   .buttonRescan {
     width: var(--button-min-height);
@@ -1130,11 +1144,12 @@
     padding: var(--gap-xl);
     border: var(--thickness) solid var(--card-border);
     border-radius: var(--radius-md);
+    font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); /* DS card text style s */
   }
   /* switch (DS 2120:3385) — toggle track pill + sliding knob + description, with On/Off
      states. The hidden input drives :checked; the track/knob/label recolour and the knob
      slides right. Track/knob dimensions are component-specific (no DS size token). */
-  .switch { display: inline-flex; align-items: center; gap: var(--gap-m); cursor: pointer; user-select: none; }
+  .switch { display: inline-flex; align-items: center; gap: var(--gap-m); cursor: pointer; user-select: none; font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); /* DS switch text style m */ }
   .switch-input { position: absolute; width: 1px; height: 1px; opacity: 0; margin: 0; pointer-events: none; }
   .switch-track {
     position: relative;
@@ -1242,6 +1257,7 @@
     border: var(--thickness) solid var(--overflow-border);
     border-radius: var(--radius-md);
     padding: var(--padding-xs) 0;
+    font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); /* DS overflow text style s */
     overflow: clip;
   }
   .overflow-label {
@@ -1486,6 +1502,7 @@
     padding: var(--padding-l);                   /* DS padding = 16 */
     background: var(--modal-background);
     border-radius: var(--radius-modal);
+    font-size: var(--l-size); font-weight: var(--l-weight); line-height: var(--l-lh); /* DS modal text style l */
     max-width: calc(100% - 2 * var(--padding-l));
     animation: modal-in var(--modal-duration) var(--modal-easing) both;
   }
@@ -1553,16 +1570,24 @@
      gap is the DS Content-level gap/m). Bottom divider is this component's own
      border-bottom (below) — consumers must NOT add another on a wrapper. */
   .statusBar {
-    height: 48px; /* 24px content + padding/m × 2 (tb rebound padding/l→padding/m 2026-08); implemented as fixed height + 0 vertical padding */
+    height: 48px; /* 24px content + padding/m × 2 */
     display: flex;
     align-items: center;
-    padding: 0 var(--padding-l);
-    gap: var(--gap-m);
-    /* DS 789:38384 binds strokes to dividerLine/border with strokeBottomWeight 1.5
-       and strokeAlign INSIDE — a bottom rule only, inside the 48px. */
-    border-bottom: var(--thickness) solid var(--border);
+    padding: var(--padding-m) var(--padding-l);
+    gap: var(--gap-xl); /* DS root gap/xl */
+    position: relative;
     flex-shrink: 0; /* fixed-height DS component — must not compress in a flex column */
   }
+  /* DS 789:38384 (2026-10): no stroke on the frame; two dividerLine layers (dividerLine/border, 1.5)
+     lie over its top and bottom edges. */
+  .statusBar::before, .statusBar::after {
+    content: ''; position: absolute; left: 0; right: 0; height: var(--thickness);
+    background: var(--border); pointer-events: none;
+  }
+  .statusBar::before { top: 0; }
+  .statusBar::after { bottom: 0; }
+  /* Its Figma switches: Show dividerLine Top and Show dividerLine Bottom, each on by default. */
+  .statusBar.no-divider-top::before, .statusBar.no-divider-bottom::after { content: none; }
   /* DS Title group: type icon ↔ label, gap/s */
   .statusBar-title {
     display: flex;
