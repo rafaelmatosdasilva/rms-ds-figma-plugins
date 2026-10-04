@@ -1,0 +1,74 @@
+name: style guide
+
+# Publishes the design system's living style guide on GitHub Pages, so anyone can see it without the Figma file.
+# rms-design-system-engine builds it (--styleguide) from what is committed here: the theme, the shared UI, the Figma
+# snapshots and the contracts. The products are checked out beside this repository, as the engine expects
+# (ds-config.json, pluginDirs), and products.json gives the links to each one. The engine builds a local page and knows
+# nothing about Pages; publishing is this workflow's job only.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/ui/src/**'
+      - 'ds-config.json'
+      - 'contract.authored.json'
+      - 'structure-contract.mjs'
+      - 'design-system-engine-map.mjs'
+      - 'bound-tokens.json'
+      - 'component-state-tokens.json'
+      - 'products.json'
+      - 'scripts/style-guide-links.mjs'
+      - '.github/workflows/style-guide.yml'
+  schedule:
+    - cron: '41 5 * * 1'   # weekly, so an improvement to the engine's template or a product's new icons reach the page
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: rms-ds-figma-plugins
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: rafaelmatosdasilva/rms-design-system-engine
+          path: engine
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - name: Check out the products beside the design system
+        run: |
+          for repo in $(node -p 'require("./rms-ds-figma-plugins/products.json").products.map((p) => p.repo).join(" ")'); do
+            git clone --depth 1 "https://github.com/$repo.git" "${repo#*/}"
+          done
+      - name: Build the style guide
+        working-directory: rms-ds-figma-plugins
+        run: |
+          node ../engine/audit.mjs --styleguide
+          node scripts/style-guide-links.mjs apps/style-guide/index.html
+          mkdir -p ../site && cp apps/style-guide/index.html ../site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
