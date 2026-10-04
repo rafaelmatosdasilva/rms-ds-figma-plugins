@@ -1,0 +1,827 @@
+{
+  "toast": {
+    "nodeId": "836:101501",
+    "properties": {
+      "LabelContent#836:0": {
+        "type": "TEXT",
+        "defaultValue": "Title"
+      },
+      "Type": {
+        "type": "VARIANT",
+        "defaultValue": "sucess",
+        "variantOptions": [
+          "sucess",
+          "error"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "swatch": {
+    "nodeId": "31:38588",
+    "properties": {
+      "filled": {
+        "type": "VARIANT",
+        "defaultValue": "true",
+        "variantOptions": [
+          "true",
+          "false"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "statusBar": {
+    "nodeId": "789:38384",
+    "properties": {
+      "Slot#1390:0": {
+        "type": "SLOT",
+        "defaultValue": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        },
+        "preferredValues": []
+      },
+      "Show dividerLine Bottom#2049:1": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show dividerLine Top#2049:2": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      }
+    },
+    "annotations": []
+  },
+  "segmentedControlSegment": {
+    "nodeId": "540:63413",
+    "properties": {
+      "Label Content#540:10": {
+        "type": "TEXT",
+        "defaultValue": "Label"
+      },
+      "Icon Content#541:18": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "308:49949",
+        "preferredValues": []
+      },
+      "Show Label#958:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Icon#1221:3": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Number#1238:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Number Content#1238:3": {
+        "type": "TEXT",
+        "defaultValue": "1"
+      },
+      "Show Status#1239:6": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Selected": {
+        "type": "VARIANT",
+        "defaultValue": "False",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "segmentedControl": {
+    "nodeId": "540:64924",
+    "properties": {
+      "Slot#540:16": {
+        "type": "SLOT",
+        "defaultValue": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        },
+        "preferredValues": []
+      }
+    },
+    "annotations": []
+  },
+  "radioButton": {
+    "nodeId": "711:18562",
+    "properties": {
+      "Text Content#711:3": {
+        "type": "TEXT",
+        "defaultValue": "Text"
+      },
+      "Show Text#711:4": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Description#712:7": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Description Content#712:10": {
+        "type": "TEXT",
+        "defaultValue": "Description"
+      },
+      "Show Divider Line#2227:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Selected",
+          "Current",
+          "Unselected"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "overlay": {
+    "nodeId": "166:31563",
+    "properties": {
+      "Slot#672:0": {
+        "type": "SLOT",
+        "defaultValue": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        },
+        "preferredValues": []
+      }
+    },
+    "annotations": []
+  },
+  "overflowList": {
+    "nodeId": "789:35422",
+    "properties": {
+      "title-content#789:2": {
+        "type": "TEXT",
+        "defaultValue": "Value"
+      },
+      "show-icon#2004:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "icon-content#2004:3": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "1992:27132",
+        "preferredValues": [
+          {
+            "type": "COMPONENT",
+            "key": "42f9bdc1408bac2134d5d238591e1b358a1de8e3"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "9b4335033870feae565c4ad82ff6cf72a56235fd"
+          }
+        ]
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "overflow": {
+    "nodeId": "65:11757",
+    "properties": {
+      "Slot#710:0": {
+        "type": "SLOT",
+        "defaultValue": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        },
+        "preferredValues": [
+          {
+            "type": "COMPONENT_SET",
+            "key": "c1872d59cd9519bebf81e69fa88af8e9a9f48eb0"
+          }
+        ]
+      },
+      "Show Title#710:1": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Title Content#710:2": {
+        "type": "TEXT",
+        "defaultValue": "Text"
+      }
+    },
+    "annotations": []
+  },
+  "node": {
+    "nodeId": "544:74211",
+    "properties": {
+      "iconContent#544:1": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "308:49949",
+        "preferredValues": []
+      },
+      "Show Icon#546:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Title#607:0": {
+        "type": "TEXT",
+        "defaultValue": "Title"
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Idle",
+        "variantOptions": [
+          "Default",
+          "Idle",
+          "Hover",
+          "Disabled"
+        ]
+      },
+      "Selected": {
+        "type": "VARIANT",
+        "defaultValue": "False",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "modal": {
+    "nodeId": "672:141311",
+    "properties": {
+      "Slot#712:5": {
+        "type": "SLOT",
+        "defaultValue": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        },
+        "preferredValues": []
+      },
+      "show-slot#712:6": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "show-icon#2004:6": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "icon-content#2004:7": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "31:932",
+        "preferredValues": [
+          {
+            "type": "COMPONENT",
+            "key": "9ad8f082043be284ded6392e7d5b41b50b7dc7df"
+          }
+        ]
+      },
+      "Show CloseButton#2223:3": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Actions#2227:6": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "title Content#2227:7": {
+        "type": "TEXT",
+        "defaultValue": "Title"
+      }
+    },
+    "annotations": []
+  },
+  "listItem": {
+    "nodeId": "503:49751",
+    "properties": {
+      "Show dividerLine#503:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "iconContent#503:1": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "31:601",
+        "preferredValues": []
+      },
+      "DescriptionContent#503:2": {
+        "type": "TEXT",
+        "defaultValue": "Description"
+      },
+      "TitleContent#503:3": {
+        "type": "TEXT",
+        "defaultValue": "Title"
+      },
+      "Show Icon#2001:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Description#2001:1": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Action#2001:2": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      }
+    },
+    "annotations": []
+  },
+  "input": {
+    "nodeId": "1:5",
+    "properties": {
+      "Label Before Content#1:0": {
+        "type": "TEXT",
+        "defaultValue": "Label"
+      },
+      "Value Content#1:3": {
+        "type": "TEXT",
+        "defaultValue": "Value"
+      },
+      "Show Icon Right#3:3": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Icon Right Content#308:0": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:2879",
+        "preferredValues": [
+          {
+            "type": "COMPONENT",
+            "key": "801797c6171e43c22d8ea0b2ce6ea7d81a13e4b3"
+          }
+        ]
+      },
+      "Icon Left Content#308:4": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:2879",
+        "preferredValues": [
+          {
+            "type": "COMPONENT",
+            "key": "801797c6171e43c22d8ea0b2ce6ea7d81a13e4b3"
+          }
+        ]
+      },
+      "Show Icon Left#308:8": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Label Before#308:12": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Value#544:2": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Label After#1963:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Label After Content#2003:0": {
+        "type": "TEXT",
+        "defaultValue": "Label"
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Focus"
+        ]
+      },
+      "Filled": {
+        "type": "VARIANT",
+        "defaultValue": "True",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      },
+      "Disabled": {
+        "type": "VARIANT",
+        "defaultValue": "True",
+        "variantOptions": [
+          "True",
+          "False"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "highlightSelector": {
+    "nodeId": "144:80986",
+    "properties": {
+      "state": {
+        "type": "VARIANT",
+        "defaultValue": "default",
+        "variantOptions": [
+          "default",
+          "selected"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "highlight": {
+    "nodeId": "146:82457",
+    "properties": {
+      "Label#364:2": {
+        "type": "TEXT",
+        "defaultValue": "Label"
+      }
+    },
+    "annotations": []
+  },
+  "emptyState": {
+    "nodeId": "1431:21215",
+    "properties": {
+      "show-action#1431:4": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "title-content#1431:5": {
+        "type": "TEXT",
+        "defaultValue": "Title"
+      },
+      "description-content#1431:6": {
+        "type": "TEXT",
+        "defaultValue": "Description"
+      },
+      "show-description#1431:9": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "type": {
+        "type": "VARIANT",
+        "defaultValue": "default",
+        "variantOptions": [
+          "default",
+          "positive"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "dividerSection": {
+    "nodeId": "135:46577",
+    "properties": {
+      "label content#135:0": {
+        "type": "TEXT",
+        "defaultValue": "Text"
+      },
+      "show priority#363:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "number content#505:2": {
+        "type": "TEXT",
+        "defaultValue": "1"
+      },
+      "show number#505:3": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "show button#1590:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      }
+    },
+    "annotations": [
+      {
+        "label": "Background must match the containing surface. Set it explicitly using the surface color token. Never rely on transparency or CSS inheritance."
+      }
+    ]
+  },
+  "buttonTertiary": {
+    "nodeId": "1:78",
+    "properties": {
+      "show-Icon#31:16": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "icon-content#31:19": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:2879",
+        "preferredValues": []
+      },
+      "label-content#31:22": {
+        "type": "TEXT",
+        "defaultValue": "label"
+      },
+      "show-label#109:12": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "state": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Disabled",
+          "Default",
+          "Active"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "buttonSecondary": {
+    "nodeId": "1002:36578",
+    "properties": {
+      "label-content#1002:0": {
+        "type": "TEXT",
+        "defaultValue": "label"
+      },
+      "icon-content#1002:1": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:2879",
+        "preferredValues": []
+      },
+      "show-icon#1002:2": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "show-label#1002:3": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "state": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Disabled"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "buttonQuaternary": {
+    "nodeId": "937:16191",
+    "properties": {
+      "show-Icon#31:16": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "icon-content#31:19": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:2879",
+        "preferredValues": []
+      },
+      "label-content#31:22": {
+        "type": "TEXT",
+        "defaultValue": "label"
+      },
+      "show-label#109:12": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "state": {
+        "type": "VARIANT",
+        "defaultValue": "default",
+        "variantOptions": [
+          "default",
+          "hover"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "buttonPrimary": {
+    "nodeId": "1428:21123",
+    "properties": {
+      "label-content#1428:0": {
+        "type": "TEXT",
+        "defaultValue": "label"
+      },
+      "icon-content#1428:1": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:2879",
+        "preferredValues": []
+      },
+      "show-icon#1428:2": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "show-label#1428:3": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "disabled": {
+        "type": "VARIANT",
+        "defaultValue": "false",
+        "variantOptions": [
+          "false",
+          "true"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "buttonList": {
+    "nodeId": "789:35349",
+    "properties": {
+      "icon-content#789:0": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "308:49949",
+        "preferredValues": [
+          {
+            "type": "COMPONENT",
+            "key": "ba1480ac995c529d0586ce9d87eece8816ecf05b"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "d4d3a90ccbb1cdd396783938d3e66b6137bb7563"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "a90ca0c7a47e577d32e3812a8a354686de7cb148"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "d91ea84853a20ceb42309324ebc40798a3cdada4"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "182cc3ebba68e368606c9e258aee1d94bcf2f53c"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "28d72fe9691efd90c20a7ac13d5a02fbcc1d0b76"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "3faaab5b4b6dd8a71fdf541e49e73070f6b24699"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "7cb047d0fbefb05ce0915c3dff471c119338a283"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "ff0dbb5c457fc83814fa8da7e47b02fc3af9b28a"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "e5e09aecc6c4e393463596b1a85a002ed3865b4d"
+          }
+        ]
+      },
+      "Item Title Content#789:1": {
+        "type": "TEXT",
+        "defaultValue": "Title"
+      },
+      "show Action Focus#1167:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Tooltip#1289:4": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Icon#1997:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "default",
+        "variantOptions": [
+          "default",
+          "hover",
+          "selected"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "badge": {
+    "nodeId": "310:29494",
+    "properties": {
+      "Label Content#310:1": {
+        "type": "TEXT",
+        "defaultValue": "Label"
+      },
+      "Show Label#310:2": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Icon#310:7": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Type": {
+        "type": "VARIANT",
+        "defaultValue": "negative",
+        "variantOptions": [
+          "negative",
+          "warning",
+          "positive",
+          "neutral"
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "actionBar": {
+    "nodeId": "138:16657",
+    "properties": {
+      "Slot#334:3": {
+        "type": "SLOT",
+        "defaultValue": {
+          "guid": {
+            "sessionID": -1,
+            "localID": -1
+          }
+        },
+        "preferredValues": []
+      },
+      "Show dividerLine Top#2120:6": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show dividerLine Bottom#2120:7": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Show Background#2126:0": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      }
+    },
+    "annotations": []
+  },
+  ".figmaWindow": {
+    "nodeId": "3:4332",
+    "properties": {
+      "Title#106:3": {
+        "type": "TEXT",
+        "defaultValue": "Title"
+      },
+      "Icon#106:7": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "140:45897",
+        "preferredValues": [
+          {
+            "type": "COMPONENT",
+            "key": "12832e63b687da7acb79dc7d29a03f92061f279a"
+          },
+          {
+            "type": "COMPONENT",
+            "key": "8e1ab178956558230eaf3318cdd9b52585773d56"
+          }
+        ]
+      }
+    },
+    "annotations": []
+  },
+  "tooltipButton": {
+    "nodeId": "1810:27212",
+    "properties": {
+      "Icon#1829:0": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "1584:83149",
+        "preferredValues": [
+          {
+            "type": "COMPONENT",
+            "key": "7eab45f9cd150b2901ee130bd31b173f9df86788"
+          },
+          {
+            "type": "COMPONENT_SET",
+            "key": "89ec7a4da07385bde364af74b31acfbb748cf30c"
+          }
+        ]
+      }
+    },
+    "annotations": [
+      {
+        "label": "Icon can change depending on the feature"
+      }
+    ]
+  },
+  "_updated": "2026-09-23T13:59:33.280Z"
+}

@@ -1,0 +1,113 @@
+{
+  "_note": "Hand-authored contract layer (rms-design-system-engine) — COMMIT this file. It holds decisions only (Figma->code bindings, semantics, notes), never captured DS values, so it is safe to share and applies in CI. The generated contracts/ + tokens.json are local, gitignored views built from this + the Figma snapshots. Resolve a prop rename or slot by adding, under a component: \"bindings\": { \"<figmaProp>\": { \"attribute\": \"codeName\" } }  or  { \"slot\": \"slotName\" }. Optional agent guidance per component: \"whenNotToUse\" (string), \"useInstead\" (string or list), \"neverCombineWith\" (list of component names). Optional decision status: \"status\" (current | deprecated | experimental), \"supersededBy\" (the component that won), \"since\", \"rationale\" (the why).",
+  "components": {
+    "buttonList": {
+      "bindings": {}
+    },
+    "node": {
+      "bindings": {}
+    },
+    "segmentedControl": {
+      "bindings": {}
+    },
+    "badge": {
+      "bindings": {}
+    },
+    "input": {
+      "bindings": {}
+    },
+    "toast": {
+      "bindings": {}
+    },
+    "buttonTertiary": {
+      "bindings": {}
+    },
+    "swatch": {
+      "bindings": {}
+    },
+    "overflowList": {
+      "bindings": {}
+    },
+    "buttonSecondary": {
+      "bindings": {}
+    },
+    "buttonQuaternary": {
+      "bindings": {}
+    },
+    "dividerSection": {
+      "bindings": {}
+    },
+    "radioButton": {
+      "bindings": {}
+    },
+    "panel": {
+      "bindings": {}
+    },
+    "statusBar": {
+      "bindings": {}
+    },
+    "actionBar": {
+      "bindings": {}
+    },
+    "overflow": {
+      "bindings": {}
+    },
+    "buttonPrimary": {
+      "bindings": {}
+    },
+    "tooltipButton": {
+      "bindings": {}
+    },
+    "tooltipPopover": {
+      "bindings": {}
+    },
+    "checkBox": {
+      "bindings": {}
+    },
+    "loader": {
+      "bindings": {}
+    },
+    "checkBoxGroup": {
+      "bindings": {}
+    },
+    "radioButtonGroup": {
+      "bindings": {}
+    },
+    "highlight": {
+      "bindings": {}
+    },
+    "highlightSelector": {
+      "bindings": {}
+    },
+    "dividerLine": {
+      "bindings": {}
+    },
+    "buttonStepper": {
+      "bindings": {}
+    },
+    "segmentedControlSegment": {
+      "bindings": {}
+    },
+    "modal": {
+      "bindings": {}
+    },
+    "emptyState": {
+      "bindings": {}
+    },
+    "listItem": {
+      "bindings": {}
+    },
+    "overlay": {
+      "bindings": {}
+    },
+    "card": {
+      "bindings": {}
+    },
+    "switch": {
+      "bindings": {}
+    },
+    ".figmaWindow": {
+      "bindings": {}
+    }
+  }
+}

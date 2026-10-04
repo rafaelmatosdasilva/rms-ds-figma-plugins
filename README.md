@@ -82,6 +82,22 @@ the change before it can be released. Publishing in Figma Community stays a manu
 2. Copy `ds-update.yml` (and `build.yml`, `release.yml`) from a plugin repository.
 3. Add it to [`products.json`](products.json) and to this README.
 
+### Checking the system against Figma
+
+[rms-design-system-engine](https://github.com/rafaelmatosdasilva/rms-figma-code-parity) checks that the code says what
+the Figma file says. Its inputs are committed here, so a check needs no access to the file: `ds-config.json`, the Figma
+snapshots in `packages/ui/src/*.snapshot.json`, `bound-tokens.json`, `component-state-tokens.json`,
+`structure-contract.mjs`, `contract.authored.json` and the audit history. The products are read from their own
+repositories, checked out beside this one (`../rms-figma-impact-atlas` and the others, named in `pluginDirs`), so a
+variable or class only a product uses counts as used.
+
+```sh
+git clone https://github.com/rafaelmatosdasilva/rms-figma-impact-atlas ../rms-figma-impact-atlas   # and each product
+rms-design-system-engine
+```
+
+Refreshing the snapshots needs the Figma file, so only its owner does it (`rms-design-system-engine --recipe refresh-figma`).
+
 ## Contact
 
 Feedback and ideas are welcome:

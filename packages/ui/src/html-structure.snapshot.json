@@ -1,0 +1,619 @@
+{
+  "_updated": "2026-09-12",
+  "impact-atlas": {
+    "ids": [
+      "canvas-scan-btn",
+      "scan-status-change-btn",
+      "scan-status-level",
+      "search-wrap",
+      "search-input",
+      "search-clear",
+      "last-scan-bar",
+      "scan-age-label",
+      "rescan-btn",
+      "browser-mode-toggle",
+      "btn-mode-tokens",
+      "btn-mode-comps",
+      "canvas-scan-bar",
+      "browser-body",
+      "browser-loading",
+      "loading-text",
+      "all-list",
+      "var-list",
+      "comp-list",
+      "browser-empty",
+      "browser-empty-text",
+      "browser-empty-clear",
+      "right-placeholder",
+      "right-placeholder-icon",
+      "right-placeholder-text",
+      "right-detail",
+      "status-bar",
+      "sb-main-row",
+      "sb-type-icon",
+      "sb-name",
+      "sb-impact",
+      "sb-canvas-count",
+      "sb-focus-btn",
+      "sb-lib-badge",
+      "sb-export-btn",
+      "view-mode-toggle",
+      "btn-view-graph",
+      "btn-view-list",
+      "view-graph",
+      "graph-body",
+      "graph-col-headers",
+      "gcol-2-lbl-wrap",
+      "gcol-2-lbl",
+      "gcol-2-count",
+      "gcol-3-lbl-wrap",
+      "gcol-3-count",
+      "graph-cols",
+      "gcol-2-wrap",
+      "gcol-2",
+      "gcol-3-wrap",
+      "gcol-3",
+      "graph-edges",
+      "graph-empty",
+      "view-list",
+      "list-alias-hdr",
+      "list-alias-body",
+      "list-comp-hdr",
+      "list-comp-body",
+      "right-library",
+      "lib-detail-type",
+      "lib-detail-name",
+      "lib-detail-coll",
+      "lib-ref-list",
+      "lib-ref-empty",
+      "cross-edges",
+      "ce-spine",
+      "ce-bracket",
+      "toast-container",
+      "progress-container",
+      "deep-scan-modal",
+      "depth-opt-1",
+      "depth-radio-1",
+      "depth-opt-2",
+      "depth-radio-2",
+      "depth-opt-3",
+      "depth-radio-3",
+      "modal-cancel-btn",
+      "modal-confirm-btn",
+      "tt"
+    ],
+    "components": [
+      {
+        "id": "scan-status-change-btn",
+        "classes": [
+          "buttonTertiary"
+        ]
+      },
+      {
+        "id": "rescan-btn",
+        "classes": [
+          "buttonTertiary"
+        ]
+      },
+      {
+        "id": "browser-mode-toggle",
+        "classes": [
+          "segmented-control"
+        ]
+      },
+      {
+        "id": "browser-empty-clear",
+        "classes": [
+          "buttonSecondary"
+        ]
+      },
+      {
+        "id": "sb-impact",
+        "classes": [
+          "badge"
+        ]
+      },
+      {
+        "id": "sb-focus-btn",
+        "classes": [
+          "buttonTertiary"
+        ]
+      },
+      {
+        "id": "sb-export-btn",
+        "classes": [
+          "buttonQuaternary"
+        ]
+      },
+      {
+        "id": "view-mode-toggle",
+        "classes": [
+          "segmented-control"
+        ]
+      },
+      {
+        "id": "gcol-2-lbl-wrap",
+        "classes": [
+          "dividerSection"
+        ]
+      },
+      {
+        "id": "gcol-3-lbl-wrap",
+        "classes": [
+          "dividerSection"
+        ]
+      },
+      {
+        "id": null,
+        "classes": [
+          "buttonSecondary"
+        ]
+      },
+      {
+        "id": "list-alias-hdr",
+        "classes": [
+          "dividerSection"
+        ]
+      },
+      {
+        "id": "list-comp-hdr",
+        "classes": [
+          "dividerSection"
+        ]
+      },
+      {
+        "id": "modal-cancel-btn",
+        "classes": [
+          "buttonSecondary"
+        ]
+      },
+      {
+        "id": "modal-confirm-btn",
+        "classes": [
+          "buttonPrimary"
+        ]
+      }
+    ],
+    "icons": [
+      {
+        "context": "#scan-status-change-btn",
+        "icon": "icon-settings"
+      },
+      {
+        "context": "#search-wrap",
+        "icon": "icon-search"
+      },
+      {
+        "context": "#search-clear",
+        "icon": "icon-clear"
+      },
+      {
+        "context": "#rescan-btn",
+        "icon": "icon-update"
+      },
+      {
+        "context": "#btn-mode-tokens",
+        "icon": "icon-variable"
+      },
+      {
+        "context": "#btn-mode-comps",
+        "icon": "icon-object-component"
+      },
+      {
+        "context": "#browser-empty",
+        "icon": "icon-empty-search"
+      },
+      {
+        "context": "#right-placeholder",
+        "icon": "icon-empty-token"
+      },
+      {
+        "context": "#sb-focus-btn",
+        "icon": "icon-focus"
+      },
+      {
+        "context": "#sb-lib-badge",
+        "icon": "icon-library"
+      },
+      {
+        "context": "#sb-export-btn",
+        "icon": "icon-copy"
+      },
+      {
+        "context": "#btn-view-graph",
+        "icon": "icon-tree"
+      },
+      {
+        "context": "#btn-view-list",
+        "icon": "icon-list"
+      },
+      {
+        "context": ".buttonSecondary",
+        "icon": "icon-fit"
+      },
+      {
+        "context": "#graph-empty",
+        "icon": "icon-empty-graph"
+      }
+    ],
+    "buttonContent": [
+      {
+        "id": "scan-status-change-btn",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "search-clear",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "rescan-btn",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "btn-mode-tokens",
+        "svg": true,
+        "spans": [
+          "tab-label"
+        ],
+        "text": "Tokens"
+      },
+      {
+        "id": "btn-mode-comps",
+        "svg": true,
+        "spans": [
+          "tab-label"
+        ],
+        "text": "Components"
+      },
+      {
+        "id": "browser-empty-clear",
+        "svg": false,
+        "spans": [],
+        "text": "Clear search"
+      },
+      {
+        "id": "sb-focus-btn",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "sb-export-btn",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "btn-view-graph",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "btn-view-list",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "modal-cancel-btn",
+        "svg": false,
+        "spans": [],
+        "text": "Cancel"
+      },
+      {
+        "id": "modal-confirm-btn",
+        "svg": false,
+        "spans": [],
+        "text": "Apply and Scan"
+      }
+    ]
+  },
+  "tokens-to-ink": {
+    "ids": [
+      "progress-container",
+      "results-ui",
+      "actionbar",
+      "source-chips",
+      "rescan-btn",
+      "rescan-label",
+      "view-tabs-row",
+      "view-tabs",
+      "view-colors-btn",
+      "view-export-btn",
+      "colors-panel",
+      "no-colors-state",
+      "color-body",
+      "export-panel",
+      "fmt-pdf",
+      "fmt-tiff",
+      "card-output",
+      "pdfx-toggle",
+      "preservespot-toggle",
+      "cmyk-images-toggle",
+      "downsample-toggle",
+      "dpi-wrap",
+      "dpi-input",
+      "preflight-images-section",
+      "preflight-images-header",
+      "preflight-images",
+      "preflight-cmyk-section",
+      "preflight-cmyk-header",
+      "preflight-cmyk",
+      "card-tiff",
+      "tiff-zip-toggle",
+      "tiff-transparent-toggle",
+      "tiff-dpi-wrap",
+      "tiff-dpi-input",
+      "card-marks",
+      "cropmarks-toggle",
+      "regmarks-toggle",
+      "colorbars-toggle",
+      "pageinfo-toggle",
+      "bleed-toggle",
+      "bleed-wrap",
+      "bleed-input",
+      "export-savedefault-btn",
+      "export-confirm-btn",
+      "export-confirm-label",
+      "toast-container",
+      "convert-canvas",
+      "tt"
+    ],
+    "components": [
+      {
+        "id": "rescan-btn",
+        "classes": [
+          "buttonPrimary"
+        ]
+      },
+      {
+        "id": "view-tabs",
+        "classes": [
+          "segmented-control"
+        ]
+      },
+      {
+        "id": "dpi-wrap",
+        "classes": [
+          "inputWrap"
+        ]
+      },
+      {
+        "id": "tiff-dpi-wrap",
+        "classes": [
+          "inputWrap"
+        ]
+      },
+      {
+        "id": "bleed-wrap",
+        "classes": [
+          "inputWrap"
+        ]
+      },
+      {
+        "id": "export-savedefault-btn",
+        "classes": [
+          "buttonTertiary"
+        ]
+      },
+      {
+        "id": "export-confirm-btn",
+        "classes": [
+          "buttonPrimary"
+        ]
+      }
+    ],
+    "icons": [
+      {
+        "context": "#rescan-label",
+        "icon": "icon-update"
+      },
+      {
+        "context": "#view-colors-btn",
+        "icon": "icon-var-color"
+      },
+      {
+        "context": "#view-export-btn",
+        "icon": "icon-export"
+      },
+      {
+        "context": "#no-colors-state",
+        "icon": "icon-empty-colors"
+      },
+      {
+        "context": "#pdfx-toggle",
+        "icon": "icon-info"
+      },
+      {
+        "context": "#preservespot-toggle",
+        "icon": "icon-info"
+      },
+      {
+        "context": "#cmyk-images-toggle",
+        "icon": "icon-info"
+      },
+      {
+        "context": "#export-confirm-label",
+        "icon": "icon-export"
+      }
+    ],
+    "buttonContent": [
+      {
+        "id": "rescan-btn",
+        "svg": true,
+        "spans": [],
+        "text": "Scan file"
+      },
+      {
+        "id": "view-colors-btn",
+        "svg": true,
+        "spans": [
+          "tab-label"
+        ],
+        "text": "Colors"
+      },
+      {
+        "id": "view-export-btn",
+        "svg": true,
+        "spans": [
+          "tab-label"
+        ],
+        "text": "Export"
+      },
+      {
+        "id": "export-savedefault-btn",
+        "svg": false,
+        "spans": [],
+        "text": "Save as default"
+      },
+      {
+        "id": "export-confirm-btn",
+        "svg": true,
+        "spans": [],
+        "text": "Export PDF"
+      }
+    ]
+  },
+  "font-scaling-lab": {
+    "ids": [
+      "progress-container",
+      "empty-state",
+      "scan-btn",
+      "results-ui",
+      "actionbar",
+      "focus-frame-btn",
+      "frame-name",
+      "scale-stepper",
+      "scale-dec",
+      "scale-input",
+      "scale-inc",
+      "gen-btn",
+      "issues-panel",
+      "issues-list",
+      "panel-resize-handle",
+      "preview-grid",
+      "zoom-wrap",
+      "zoom-canvas",
+      "img-scaled",
+      "issue-overlays",
+      "label-layer",
+      "zoom-reset",
+      "zoom-hint",
+      "details-panel",
+      "details-resize-handle",
+      "details-type-icon",
+      "details-title",
+      "details-close",
+      "details-body",
+      "toast-container",
+      "tt"
+    ],
+    "components": [
+      {
+        "id": "scan-btn",
+        "classes": [
+          "buttonPrimary"
+        ]
+      },
+      {
+        "id": "focus-frame-btn",
+        "classes": [
+          "buttonTertiary"
+        ]
+      },
+      {
+        "id": "scale-dec",
+        "classes": [
+          "buttonSecondary"
+        ]
+      },
+      {
+        "id": "scale-inc",
+        "classes": [
+          "buttonSecondary"
+        ]
+      },
+      {
+        "id": "gen-btn",
+        "classes": [
+          "buttonPrimary"
+        ]
+      },
+      {
+        "id": "zoom-reset",
+        "classes": [
+          "buttonSecondary"
+        ]
+      },
+      {
+        "id": "details-close",
+        "classes": [
+          "buttonSecondary"
+        ]
+      }
+    ],
+    "icons": [
+      {
+        "context": "#frame-name",
+        "icon": "icon-focus"
+      },
+      {
+        "context": "#details-type-icon",
+        "icon": "icon-object-frame"
+      }
+    ],
+    "buttonContent": [
+      {
+        "id": "scan-btn",
+        "svg": false,
+        "spans": [],
+        "text": "Render preview"
+      },
+      {
+        "id": "focus-frame-btn",
+        "svg": true,
+        "spans": [
+          "frame-name"
+        ],
+        "text": ""
+      },
+      {
+        "id": "scale-dec",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "scale-inc",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "gen-btn",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "zoom-reset",
+        "svg": true,
+        "spans": [],
+        "text": "Reset view"
+      },
+      {
+        "id": "details-close",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      }
+    ]
+  }
+}
