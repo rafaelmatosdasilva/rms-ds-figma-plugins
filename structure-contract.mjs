@@ -86,6 +86,7 @@ export const CONTRACT = {
     fillStructure: 'before', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',  // Figma: the ring is drawn by the layer under the fill, not a stroke on the root
+    propertyMap: { 'state': { default: '.highlightSelector', selected: '.highlightSelector.selected' } },
   },
   // dividerLine (DS) — a thin rule (dividerLine/border). Height informational (code renders 1px).
   dividerLine: {
@@ -134,9 +135,7 @@ export const CONTRACT = {
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',
     children: [
-      // The code's header is the title alone (no header icon is built), so the frame is flattened.
-      { name: 'header', cssSelector: null, gapVar: 'gap/s', paddingVar: { tb: null, lr: null },
-        verifiedBy: 'flattened: the header holds only .modal-title in the code, so the gap has nothing to space' },
+      { name: 'header', cssSelector: '.modal-header', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } },
       { name: 'Actions', cssSelector: '.modal-footer', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } },
     ],
   },
@@ -150,7 +149,8 @@ export const CONTRACT = {
     fontSizeVar: 'm', fontWeightVar: 'm',
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: false,
-    children: [{ name: 'Content', cssSelector: '.empty-state-text', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } }],
+    children: [{ name: 'Content', cssSelector: '.empty-state-content', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } }],
+    propertyMap: { 'type': { default: '.empty-state', positive: '.empty-state.empty-state--positive' } },
   },
   // listItem (DS 503:49751) — a list row: Icon + Main(title m / description s), trailing dividerLine.
   // Content-driven height; gap/m row spacing. strokeOnAnyState is the trailing dividerLine's.
@@ -207,7 +207,7 @@ export const CONTRACT = {
     ],
     propertyMap: {
       'State':       { default: '.buttonList', hover: '.buttonList:hover', selected: '.buttonList.selected' },
-      'show-button': '.buttonList.no-button .buttonList-action',
+      'show Action Focus': '.buttonList.no-button .buttonList-action',
     },
   },
   node: {
@@ -476,8 +476,7 @@ export const CONTRACT = {
     innerRadiusVar: null,
     strokeOnDefault: false,
     strokeOnAnyState: true,
-    children: [{ name: 'Content', cssSelector: null, gapVar: 'gap/m', paddingVar: { tb: null, lr: null },
-      verifiedBy: 'flattened: the Content frame holds only .radioButton-label in the code' }],
+    children: [{ name: 'Content', cssSelector: '.radioButton-content', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } }],
     strokeSides: 'all',  // Figma: 1.5 all four sides on the circular Radio child (verified 2026-08). Border is on the plugin .depth-circle — no base selector, so this documents intent (rendered checks cover the plugin CSS).
     propertyMap: {
       'State': {
@@ -519,6 +518,7 @@ export const CONTRACT = {
     ],
     propertyMap: {
       'side': { left: '.left-panel' },
+      'type': { primary: '.panel', secondary: '.panel.panel--secondary' },
     },
   },
   statusBar: {
@@ -601,6 +601,46 @@ export const CONTRACT = {
 // read CSS text; this reads getComputedStyle. `probe` injects markup for components
 // that only exist at runtime (toasts, list rows).
 export const RENDERED_ASSERTIONS = [
+  // Figma props the code now builds (2026-10): each part drawn from a probe of the full component.
+  { plugin: 'impact-atlas', selector: '.statusBar-content', prop: 'columnGap', expected: '8px',
+    note: "statusBar Slot content: the product's items in one row at gap/m (the bar's own gap/xl separates groups)",
+    probe: '<div class="statusBar"><div class="statusBar-content"><span class="statusBar-title">Title</span><span>Detail</span></div></div>' },
+  { plugin: 'impact-atlas', selector: '.checkbox-description', textStyle: 's',
+    note: "checkBox Description = text style s (Show Description)",
+    probe: '<label class="checkbox"><input type="checkbox" class="checkbox-input"><span class="checkbox-box"><svg class="checkbox-check" width="16" height="16"><use href="#icon-check"/></svg></span><span class="checkbox-content"><span class="checkbox-text">Text</span><span class="checkbox-description">Description</span></span></label>' },
+  { plugin: 'impact-atlas', selector: '.radioButton-content', prop: 'rowGap', expected: '8px',
+    note: "radioButton Content: Text over the dividerLine, gap/m",
+    probe: '<label class="radioButton"><input type="radio" class="radioButton-input"><span class="radioButton-circle"></span><span class="radioButton-content"><span class="radioButton-text"><span class="radioButton-label">Text</span><span class="radioButton-description">Description</span></span><div class="dividerLine radioButton-divider"></div></span></label>' },
+  { plugin: 'impact-atlas', selector: '.radioButton-description', textStyle: 's',
+    note: "radioButton Description = text style s (Show Description)",
+    probe: '<label class="radioButton"><input type="radio" class="radioButton-input"><span class="radioButton-circle"></span><span class="radioButton-content"><span class="radioButton-text"><span class="radioButton-label">Text</span><span class="radioButton-description">Description</span></span><div class="dividerLine radioButton-divider"></div></span></label>' },
+  { plugin: 'impact-atlas', selector: '.switch', prop: 'columnGap', expected: '8px',
+    note: "switch: Content and the input (Show Input) spaced gap/m",
+    probe: '<label class="switch"><input type="checkbox" class="switch-input" checked><span class="switch-track"><span class="switch-knob"></span></span><span class="switch-content"><span class="switch-description">Description</span><span class="tooltipButton switch-tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></span><div class="inputWrap switch-field"><input class="inputField" value="300"><span class="inputLabel-after">dpi</span></div></label>' },
+  { plugin: 'impact-atlas', selector: '.overflowList', prop: 'columnGap', expected: '4px',
+    note: "overflowList: icon (show-icon) and label spaced gap/s",
+    probe: '<button class="overflowList"><svg width="16" height="16"><use href="#icon-plus"/></svg><span>Value</span></button>' },
+  { plugin: 'impact-atlas', selector: '.modal-header', prop: 'columnGap', expected: '4px',
+    note: "modal header: icon, title and close button spaced gap/s",
+    probe: '<div class="modal-card"><div class="modal-header"><svg class="modal-icon" width="16" height="16"><use href="#icon-export"/></svg><h2 class="modal-title">Title</h2><button class="buttonSecondary modal-close" aria-label="Close"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div><div class="modal-slot"><span>Content</span></div><div class="modal-footer"><button class="buttonSecondary"><span>Cancel</span></button><button class="buttonPrimary"><span>Confirm</span></button></div></div>' },
+  { plugin: 'impact-atlas', selector: '.listItem-main', prop: 'rowGap', expected: '2px',
+    note: "listItem Frame 83: title over description, gap/xs",
+    probe: '<div class="listItem"><div class="listItem-row"><span class="listItem-icon"><svg width="16" height="16"><use href="#icon-focus"/></svg></span><div class="listItem-main"><span class="listItem-title">Title</span><span class="listItem-desc">Description</span></div><button class="buttonTertiary listItem-action" aria-label="Focus"><svg width="16" height="16"><use href="#icon-focus"/></svg></button></div><div class="dividerLine listItem-divider"></div></div>' },
+  { plugin: 'impact-atlas', selector: '.inputLabel-after', prop: 'fontSize', expected: '11px',
+    note: "input Label After = text style m (Show Label After)",
+    probe: '<div class="inputWrap"><span class="inputLabel">Label</span><input class="inputField" value="Value"><span class="inputLabel-after">Label</span></div>' },
+  { plugin: 'impact-atlas', selector: '.empty-state-content', prop: 'rowGap', expected: '4px',
+    note: "emptyState Content: icon over text, gap/s",
+    probe: '<div class="empty-state"><div class="empty-state-content"><svg width="56" height="56"><use href="#icon-empty-search"/></svg><div class="empty-state-text"><span class="empty-state-title">Title</span><span class="empty-state-desc">Description</span></div></div><button class="buttonPrimary empty-state-action"><svg width="16" height="16"><use href="#icon-plus"/></svg><span>label</span></button></div>' },
+  { plugin: 'impact-atlas', selector: '.card-title', textStyle: 's',
+    note: "card Title = text style s (Show Title)",
+    probe: '<div class="card"><span class="card-title">Output</span><div>Content</div></div>' },
+  { plugin: 'impact-atlas', selector: '.panel', prop: 'paddingLeft', expected: '16px',
+    note: "panel: padding/l left and right",
+    probe: '<div class="panel"><div>Head content</div><div>Main content</div></div>' },
+  { plugin: 'impact-atlas', selector: '.highlightSelector', prop: 'borderTopWidth', expected: '2px',
+    note: "highlightSelector Border layer: 2 inside",
+    probe: '<span class="highlightSelector"></span>' },
   // statusBar (DS 789:38384: h=48, padding/l LR, Title gap/s, Content gap/m)
   { plugin: 'impact-atlas', selector: '#sb-main-row',      prop: 'height',        expected: '48px', note: 'DS statusBar h (56→48, tb rebound padding/l→padding/m 2026-08)' },
   { plugin: 'impact-atlas', selector: '#sb-main-row',      prop: 'paddingLeft',   expected: '16px', note: 'DS statusBar padding/l' },
@@ -612,19 +652,17 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'paddingTop',    expected: '12px', note: 'DS actionBar padding/m (tb rebound padding/s→padding/m 2026-08)' },
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'paddingLeft',   expected: '16px', note: 'DS actionBar padding/l' },
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'columnGap',     expected: '8px',  note: 'base gap/m slot-content default' },
-  // actionBar got its own DS tokens on 2026-07-31 (it had been borrowing
-  // figmaWindowChrome/background). DS 138:16657 binds fills → actionbar/background and
-  // strokes → actionbar/border at strokeBottomWeight 1.5, strokeAlign INSIDE.
-  // Both modes asserted: the background differs per mode (N1000 vs N800), and the
-  // border is the same chain in both — pinning only one would leave the other open.
-  { plugin: 'impact-atlas', selector: '.actionbar', prop: 'background-color',
+  // actionBar (DS 138:16657, 2026-10): its background is its own layer (actionbar/background, drawn as
+  // ::before) and two dividerLine layers (actionbar/border, 1.5) lie over its top and bottom edges (::after).
+  // Both modes asserted: the background differs per mode (N1000 vs elevationHigh), the lines too.
+  { plugin: 'impact-atlas', selector: '.actionbar', pseudo: '::before', prop: 'background-color',
     expected: 'rgb(255, 255, 255)', colorScheme: 'light', note: 'actionbar/background light = N1000' },
-  { plugin: 'impact-atlas', selector: '.actionbar', prop: 'background-color',
+  { plugin: 'impact-atlas', selector: '.actionbar', pseudo: '::before', prop: 'background-color',
     expected: 'rgb(44, 44, 44)', colorScheme: 'dark', note: 'actionbar/background dark → elevationHigh → figmaWindowChrome/background #2c2c2c (2026-08)' },
-  { plugin: 'impact-atlas', selector: '.actionbar', prop: 'border-bottom-color',
-    expected: 'rgb(214, 214, 214)', colorScheme: 'light', note: 'actionbar/border → dividerLine/border light N700' },
-  { plugin: 'impact-atlas', selector: '.actionbar', prop: 'border-bottom-color',
-    expected: 'rgb(66, 66, 66)', colorScheme: 'dark', note: 'actionbar/border → figmaWindowChrome/divider dark #424242 (rebound 2026-08)' },
+  { plugin: 'impact-atlas', selector: '.actionbar', pseudo: '::after', prop: 'background-image',
+    expected: 'linear-gradient(rgb(214, 214, 214), rgb(214, 214, 214)), linear-gradient(rgb(214, 214, 214), rgb(214, 214, 214))', colorScheme: 'light', note: 'actionbar/border top and bottom lines → dividerLine/border light N700' },
+  { plugin: 'impact-atlas', selector: '.actionbar', pseudo: '::after', prop: 'background-image',
+    expected: 'linear-gradient(rgb(66, 66, 66), rgb(66, 66, 66)), linear-gradient(rgb(66, 66, 66), rgb(66, 66, 66))', colorScheme: 'dark', note: 'actionbar/border top and bottom lines → figmaWindowChrome/divider dark #424242 (rebound 2026-08)' },
   // Bare actionBar variant (DS 2120:28369): the Colors|Export segmented control sits in an
   // actionBar with the Background and Border boolean props toggled OFF. Same 48px height +
   // padding/m geometry as the base, but no fill and no divider, content centred. Locks the
@@ -1224,6 +1262,7 @@ export const ALLOWED_BROAD_RULES = {
   // empty-state — DECORATIVE
   '.empty-state-content svg':   'DECORATIVE — illustration slot, no nested sub-components',
   '.empty-state svg':           'DECORATIVE — illustration slot, no nested sub-components',
+  '.empty-state.empty-state--positive svg': 'DECORATIVE — the illustration of the DS type=positive variant turns positive; no nested sub-components',
 
   // Isolation-fix rules (the override rules themselves)
   '.node-focus-btn svg':        'ISOLATION FIX — leaf action button; this rule IS the isolation override',

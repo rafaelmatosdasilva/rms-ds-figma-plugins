@@ -202,6 +202,16 @@
       "var": "--node-icon-disabled",
       "selector": ".has-selection .node:not(.node-selected) .var-type-icon svg",
       "_note": "The receded and external node states deliberately render with the DS disabled tokens (decision 2026-07-22) — they are visually the disabled treatment without the disabled semantics, so the selector has no \"disabled\" indicator."
+    },
+    {
+      "var": "--checkbox-text-selected",
+      "selector": ".checkbox-input:checked ~ .checkbox-content .checkbox-text",
+      "_note": "a checkbox's :checked IS its selected state — the checked label (inside the DS Content, with a description) uses text/selected"
+    },
+    {
+      "var": "--radioButton-text-selected",
+      "selector": ".radioButton-input:checked ~ .radioButton-content .radioButton-label",
+      "_note": "a radio's :checked IS its selected state — the checked label (inside the DS Content, with a description) uses text/selected"
     }
   ],
   "componentSelectors": {
@@ -321,7 +331,10 @@
     },
     "radioButton": {
       "Text Content": ".radioButton-label",
-      "Show Text": ".radioButton-label"
+      "Show Text": ".radioButton-label",
+      "Show Description": ".radioButton-description",
+      "Description Content": ".radioButton-description",
+      "Show Divider Line": ".radioButton-divider"
     },
     "toast": {
       "Show Description": ".toast-description"
@@ -341,11 +354,15 @@
     },
     "switch": {
       "Show Description": ".switch-description",
-      "Description Content": ".switch-description"
+      "Description Content": ".switch-description",
+      "Show Tooltip": ".switch-tooltip",
+      "Show Input": ".switch-field"
     },
     "checkBox": {
       "Show Text": ".checkbox-text",
-      "Text Content": ".checkbox-text"
+      "Text Content": ".checkbox-text",
+      "Show Description": ".checkbox-description",
+      "Description Content": ".checkbox-description"
     },
     "loader": {
       "Show Description": ".loader-description",
@@ -355,12 +372,15 @@
       "Show Icon": ".listItem-icon",
       "Show Description": ".listItem-desc",
       "DescriptionContent": ".listItem-desc",
-      "TitleContent": ".listItem-title"
+      "TitleContent": ".listItem-title",
+      "Show dividerLine": ".listItem-divider",
+      "Show Action": ".listItem-action"
     },
     "emptyState": {
       "show-description": ".empty-state-desc",
       "description-content": ".empty-state-desc",
-      "title-content": ".empty-state-title"
+      "title-content": ".empty-state-title",
+      "show-action": ".empty-state-action"
     },
     "buttonPrimary": {
       "show-icon": ".buttonPrimary svg",
@@ -373,7 +393,8 @@
       "show-label": ".buttonQuaternary span"
     },
     "buttonList": {
-      "Show Icon": ".buttonList svg"
+      "Show Icon": ".buttonList svg",
+      "Show Tooltip": ".lib-badge"
     },
     "overflow": {
       "Show Title": ".overflow-label",
@@ -381,7 +402,20 @@
     },
     "input": {
       "Label Before Content": ".inputLabel",
-      "Value Content": ".inputField"
+      "Value Content": ".inputField",
+      "Show Label After": ".inputLabel-after"
+    },
+    "overflowList": {
+      "show-icon": ".overflowList svg"
+    },
+    "modal": {
+      "show-slot": ".modal-slot",
+      "show-icon": ".modal-icon",
+      "Show CloseButton": ".modal-close",
+      "Show Actions": ".modal-footer"
+    },
+    "card": {
+      "Show Title": ".card-title"
     }
   },
   "docs": {

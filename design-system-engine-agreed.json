@@ -878,6 +878,12 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "panel · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-04T19:33:03.921Z",
+   "commit": "91bcdea"
+  },
   "radioButton · background": {
    "figma": "no background",
    "code": "no background",
@@ -1766,6 +1772,18 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "token emptyState/icon/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "at": "2026-10-04T19:33:03.921Z",
+   "commit": "91bcdea"
+  },
+  "token emptyState/icon/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "at": "2026-10-04T19:33:03.921Z",
+   "commit": "91bcdea"
+  },
   "token emptyState/title [dark]": {
    "figma": "#f5f5f5",
    "code": "#f5f5f5",
@@ -2047,6 +2065,18 @@
    "code": "#ffffff",
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
+  },
+  "token modal/icon [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "at": "2026-10-04T19:33:03.921Z",
+   "commit": "91bcdea"
+  },
+  "token modal/icon [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
+   "at": "2026-10-04T19:33:03.921Z",
+   "commit": "91bcdea"
   },
   "token modal/title [dark]": {
    "figma": "#f5f5f5",
@@ -4118,8 +4148,14 @@
   },
   "panel · padding (left/right)": {
    "figma": "16px",
-   "code": "0px",
-   "same": false
+   "code": "16px",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-04T19:33:03.921Z",
+     "side": "code"
+    }
+   ]
   },
   "radioButton · background": {
    "figma": "no background",
@@ -4906,6 +4942,16 @@
    "code": "#adadad",
    "same": true
   },
+  "token emptyState/icon/positive [dark]": {
+   "figma": "#0cdf88",
+   "code": "#0cdf88",
+   "same": true
+  },
+  "token emptyState/icon/positive [light]": {
+   "figma": "#00804b",
+   "code": "#00804b",
+   "same": true
+  },
   "token emptyState/title [dark]": {
    "figma": "#f5f5f5",
    "code": "#f5f5f5",
@@ -5139,6 +5185,16 @@
   "token modal/background [light]": {
    "figma": "#ffffff",
    "code": "#ffffff",
+   "same": true
+  },
+  "token modal/icon [dark]": {
+   "figma": "#f5f5f5",
+   "code": "#f5f5f5",
+   "same": true
+  },
+  "token modal/icon [light]": {
+   "figma": "#0a0a0a",
+   "code": "#0a0a0a",
    "same": true
   },
   "token modal/title [dark]": {

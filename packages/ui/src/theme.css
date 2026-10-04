@@ -175,6 +175,7 @@
     --toast-icon-success:       var(--neutral-1000); /* toast/icon/success/color N1000 both */
     --modal-background: var(--neutral-1000);         /* modal/background N1000 */
     --modal-title: var(--neutral-100);       /* modal/title N100 */
+    --modal-icon: var(--neutral-100);        /* modal/icon N100 */
     /* Tooltip */
     --tooltipPopover-background:     var(--neutral-1000);   /* tooltip/background/color N1000 — same primitive both modes */
     --tooltipPopover-border: var(--neutral-800);    /* tooltip/border/color N800 — same primitive both modes */
@@ -228,6 +229,7 @@
     --emptyState-title:          var(--neutral-100);       /* emptyState/title/color N1 both */
     --emptyState-description:    var(--neutral-300);       /* emptyState/description/color N300 both modes (L #404040, D #bfbfbf) */
     --emptyState-icon-neutral:           var(--neutral-600);       /* emptyState/icon/neutral/color L=N6, D→override */
+    --emptyState-icon-positive:          var(--semantic-positive); /* emptyState/icon/positive/color → semantic/positive */
 
     /* Radio button (mode-aware) */
     --radioButton-background:             var(--neutral-1000); /* radioButton/background/default N1000 both */
@@ -534,11 +536,13 @@
     color: var(--emptyState-title); /* emptyState/title/color */
     text-align: center;
   }
+  /* DS Content: the icon over the text, gap/s. */
   .empty-state-content {
+    display: flex; flex-direction: column; align-items: center;
+    gap: var(--gap-s);
     text-align: center;
   }
   .empty-state-content > * { margin: 0; }
-  .empty-state-content > * + * { margin-top: 16px; }
   .empty-state-content svg,
   .empty-state svg {
     display: block;
@@ -560,9 +564,11 @@
      max-width 200. Wrap the two in .empty-state-text so gap/s sits between them while the
      icon keeps its gap/xl from the group. */
   .empty-state-text {
-    display: flex; flex-direction: column; align-items: center;
-    gap: var(--gap-s); /* gap/s = 4px */
+    display: flex; flex-direction: column; align-items: center;   /* DS Text: title over description, no gap */
   }
+  .empty-state-action { align-self: center; }   /* DS show-action: a buttonPrimary under the content */
+  /* DS type=positive: the icon turns positive (the check). */
+  .empty-state.empty-state--positive svg { color: var(--emptyState-icon-positive); }
   .empty-state-content .empty-state-title {
     max-width: 200px; margin: 0 auto;
     font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh);
@@ -881,7 +887,7 @@
     -webkit-text-fill-color: var(--text);
     transition: background-color 9999s ease-in-out 0s;
   }
-  .inputWrap .inputLabel {
+  .inputWrap .inputLabel, .inputWrap .inputLabel-after {
     font-size: var(--m-size); font-weight: var(--m-weight);
     color: var(--input-label);
     user-select: none; pointer-events: none;
@@ -1086,7 +1092,9 @@
   /* Own weight/line-height so the label matches the DS text style (Inter SemiBold 600,
      11px) instead of inheriting a heavier weight from a surrounding container. */
   .checkbox-text { font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); color: var(--checkbox-text); }
-  .checkbox-input:checked ~ .checkbox-text { color: var(--checkbox-text-selected); }
+  .checkbox-input:checked ~ .checkbox-text, .checkbox-input:checked ~ .checkbox-content .checkbox-text { color: var(--checkbox-text-selected); }
+  /* DS Content: Text over Description (Show Description), stacked with no gap. */
+  .checkbox-content { display: flex; flex-direction: column; min-width: 0; }
   .checkbox-input:focus-visible + .checkbox-box { outline: var(--thickness) solid var(--input-border-focus); outline-offset: 1px; }
   /* checkbox/description (DS checkBox Description child) — s text style, muted. */
   .checkbox-description { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--checkbox-description); }
@@ -1114,10 +1122,11 @@
   /* highlightSelector (DS) — a 10px selection marker: red fill + 2px highlightSelector/border ring. */
   .highlightSelector {
     width: 10px; height: 10px; box-sizing: border-box;
-    background: var(--highlight-background);
-    border: 2px solid var(--highlightSelector-border);
+    border: 2px solid var(--highlightSelector-border);   /* DS Border layer, 2 inside */
     flex-shrink: 0;
   }
+  /* DS state=selected: the Background layer fills with highlightSelector/border and BorderOutside adds a 4px ring outside. */
+  .highlightSelector.selected { background: var(--highlightSelector-border); box-shadow: 0 0 0 4px var(--highlightSelector-border); }
   /* buttonStepper (DS) — a −/value/+ row: two buttonSecondary flanking an input, gap/xs.
      Pure layout wrapper; the children are the DS .buttonSecondary + input components. */
   .buttonStepper { display: inline-flex; align-items: center; gap: var(--gap-xs); }
@@ -1125,7 +1134,9 @@
   .listItem { display: flex; flex-direction: column; gap: var(--gap-m); }
   .listItem-row { display: flex; align-items: center; gap: var(--gap-m); }
   .listItem-icon { display: inline-flex; flex-shrink: 0; color: var(--listItem-icon); }
-  .listItem-main { display: flex; flex-direction: column; gap: var(--padding-s); min-width: 0; }
+  .listItem-main { display: flex; flex-direction: column; gap: var(--gap-xs); min-width: 0; flex: 1; }   /* DS Frame 83: title over description, gap/xs */
+  .listItem-action { flex-shrink: 0; }
+  .listItem-divider { align-self: stretch; }   /* DS Show dividerLine: a dividerLine under the row */   /* DS Action: a buttonTertiary at the end of the row (Show Action) */
   .listItem-title { font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); color: var(--listItem-title); }
   .listItem-desc { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--listItem-description); }
   /* overlay (DS) — a full-cover scrim centring a Slot (e.g. a loader). */
@@ -1146,10 +1157,13 @@
     border-radius: var(--radius-md);
     font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); /* DS card text style s */
   }
+  /* DS card Title (Show Title): s text, content/secondary. */
+  .card-title { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--text-secondary); }
   /* switch (DS 2120:3385) — toggle track pill + sliding knob + description, with On/Off
      states. The hidden input drives :checked; the track/knob/label recolour and the knob
      slides right. Track/knob dimensions are component-specific (no DS size token). */
   .switch { display: inline-flex; align-items: center; gap: var(--gap-m); cursor: pointer; user-select: none; font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); /* DS switch text style m */ }
+  .switch-tooltip, .switch-field { flex-shrink: 0; }   /* DS Show Tooltip (a tooltipButton after the description) and Show Input (an input after the content) */
   .switch-input { position: absolute; width: 1px; height: 1px; opacity: 0; margin: 0; pointer-events: none; }
   .switch-track {
     position: relative;
@@ -1211,7 +1225,12 @@
   .radioButton-input:checked + .radioButton-circle::after { transform: scale(1); }
   .radioButton-input:focus-visible + .radioButton-circle { outline: var(--thickness) solid var(--input-border-focus); outline-offset: 1px; }
   .radioButton-label { font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); color: var(--radioButton-text); }
-  .radioButton-input:checked ~ .radioButton-label { color: var(--radioButton-text-selected); }
+  .radioButton-input:checked ~ .radioButton-label, .radioButton-input:checked ~ .radioButton-content .radioButton-label { color: var(--radioButton-text-selected); }
+  /* DS Content (711:18562): the Text frame (label over Description, no gap) above an optional dividerLine, gap/m. */
+  .radioButton-content { display: flex; flex-direction: column; gap: var(--gap-m); min-width: 0; flex: 1; }
+  .radioButton-text { display: flex; flex-direction: column; }
+  .radioButton-divider { align-self: stretch; }   /* DS Show Divider Line: a dividerLine under the text */
+  .radioButton-description { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--radioButton-description); }
   .seg-status {
     width: var(--dividerSection-height); height: var(--dividerSection-height);
     border-radius: var(--radius-full);
@@ -1290,6 +1309,7 @@
     white-space: nowrap;
     transition: background 0.1s ease, color 0.1s ease;
   }
+  .overflowList svg { flex-shrink: 0; }   /* DS Icon before the label (show-icon) */
   .overflowList:hover {
     background: var(--overflowList-background-hover);
     color: var(--overflowList-label-hover);
@@ -1512,6 +1532,11 @@
     font-size: var(--l-size); font-weight: var(--m-weight); line-height: var(--l-lh);   /* DS title 13px Semi Bold */
     color: var(--modal-title);
   }
+  /* DS header: an optional icon (show-icon), the title and an optional close button (Show CloseButton), gap/s. */
+  .modal-header { display: flex; align-items: center; gap: var(--gap-s); }
+  .modal-header .modal-title { flex: 1; min-width: 0; }
+  .modal-icon { flex-shrink: 0; color: var(--modal-icon); }
+  .modal-close { flex-shrink: 0; }
   .modal-slot { display: flex; flex-direction: column; gap: var(--gap-l); width: 100%; }   /* DS Slot itemSpacing = 12 */
   .modal-footer { display: flex; flex-direction: row; gap: var(--gap-m); width: 100%; }   /* DS footer gap = 8 */
   .modal-footer button { flex: 1; justify-content: center; }   /* centre the label when stretched */
@@ -1588,6 +1613,14 @@
   .statusBar::after { bottom: 0; }
   /* Its Figma switches: Show dividerLine Top and Show dividerLine Bottom, each on by default. */
   .statusBar.no-divider-top::before, .statusBar.no-divider-bottom::after { content: none; }
+  /* ── Panel ── DS panel (2287:68241): a vertical surface with padding/l left and right; type=primary
+     paints panel/background/primary (elevation medium), type=secondary panel/background/secondary
+     (elevation low). Its HeadContent and MainContent slots are filled by the product. */
+  .panel { display: flex; flex-direction: column; padding: 0 var(--padding-l); background: var(--bg); }
+  .panel.panel--secondary { background: var(--bg-detail); }
+  /* DS Slot content group: the items a product puts in the bar sit in one row at gap/m (the bar's own gap/xl
+     separates groups). */
+  .statusBar-content { display: flex; align-items: center; gap: var(--gap-m); min-width: 0; }
   /* DS Title group: type icon ↔ label, gap/s */
   .statusBar-title {
     display: flex;
