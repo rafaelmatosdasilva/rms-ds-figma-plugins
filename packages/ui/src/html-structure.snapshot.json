@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-09-12",
+  "_updated": "2026-10-04",
   "impact-atlas": {
     "ids": [
       "canvas-scan-btn",
@@ -87,6 +87,12 @@
         "id": "scan-status-change-btn",
         "classes": [
           "buttonTertiary"
+        ]
+      },
+      {
+        "id": "search-wrap",
+        "classes": [
+          "inputWrap"
         ]
       },
       {

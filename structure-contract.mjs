@@ -644,7 +644,8 @@ export const RENDERED_ASSERTIONS = [
   // statusBar (DS 789:38384: h=48, padding/l LR, Title gap/s, Content gap/m)
   { plugin: 'impact-atlas', selector: '#sb-main-row',      prop: 'height',        expected: '48px', note: 'DS statusBar h (56→48, tb rebound padding/l→padding/m 2026-08)' },
   { plugin: 'impact-atlas', selector: '#sb-main-row',      prop: 'paddingLeft',   expected: '16px', note: 'DS statusBar padding/l' },
-  { plugin: 'impact-atlas', selector: '#sb-main-row',      prop: 'columnGap',     expected: '8px',  note: 'DS statusBar Content gap/m' },
+  { plugin: 'impact-atlas', selector: '#sb-main-row',      prop: 'columnGap',     expected: '16px', note: 'DS statusBar root gap/xl between slot content groups' },
+  { plugin: 'impact-atlas', selector: '#sb-main-row .statusBar-content', prop: 'columnGap', expected: '8px', note: 'DS statusBar Content gap/m' },
   { plugin: 'impact-atlas', selector: '.statusBar-title',  prop: 'columnGap',     expected: '4px',  note: 'DS statusBar Title gap/s' },
 
   // actionBar (DS 138:16657: h=40, tb padding/s, lr padding/l)
@@ -737,10 +738,10 @@ export const RENDERED_ASSERTIONS = [
   // is a real token with a correct value, it adapts across modes, and nothing mapped
   // these bespoke elements to the DS input component. Asserting BOTH modes is the
   // point — a light-only assertion would still be green with the bug present.
-  { plugin: 'impact-atlas', selector: '.search-input', prop: 'border-top-color',
+  { plugin: 'impact-atlas', selector: '#search-wrap', prop: 'border-top-color',
     expected: 'rgb(94, 94, 94)', colorScheme: 'dark',
     note: 'DS input/border/default dark = N500 #5e5e5e (2026-08 refactor)' },
-  { plugin: 'impact-atlas', selector: '.search-input', prop: 'border-top-color',
+  { plugin: 'impact-atlas', selector: '#search-wrap', prop: 'border-top-color',
     expected: 'rgb(173, 173, 173)', colorScheme: 'light',
     note: 'DS input/border/default light = N600 #adadad (2026-08 refactor)' },
   { plugin: 'font-scaling-lab', selector: '#scale-input', prop: 'border-top-color',
@@ -851,8 +852,8 @@ export const RENDERED_ASSERTIONS = [
     probe: '<div class="scroll-area"><div class="dividerSection">High</div></div>' },
   // Search-field icon = DS Input icon size (snapshot input.iconSize, currently 16). Was 12px.
   // iconSizeOf sources the expected value from the DS snapshot so it can't silently drift.
-  { plugin: 'impact-atlas', selector: '.search-icon', prop: 'width',  iconSizeOf: 'input', note: 'DS Input icon size' },
-  { plugin: 'impact-atlas', selector: '.search-icon', prop: 'height', iconSizeOf: 'input', note: 'DS Input icon size' },
+  { plugin: 'impact-atlas', selector: '#search-wrap .icon-left', prop: 'width',  iconSizeOf: 'input', note: 'DS Input icon size (the search field is the DS input, its Icon Left)' },
+  { plugin: 'impact-atlas', selector: '#search-wrap .icon-left', prop: 'height', iconSizeOf: 'input', note: 'DS Input icon size (the search field is the DS input, its Icon Left)' },
 
   // (.mode-toggle-row ↔ DS "Top" frame padding is now an auto-expanded FRAME_GEOMETRY_MAP
   //  entry below — the 7px-above-first-divider bug is locked there, sourced from the frame.)
@@ -921,8 +922,10 @@ export const RENDERED_ASSERTIONS = [
   // toast (DS: success h=32 gap/s; loading content gap/m, container gap/xl)
   { plugin: 'impact-atlas', selector: '.toast',            prop: 'height',        expected: '32px', note: 'DS toast success h',
     probe: '<div class="toast"><span class="toast-icon"></span><span>Done</span></div>' },
-  { plugin: 'impact-atlas', selector: '.toast',            prop: 'columnGap',     expected: '4px',  note: 'DS toast Frame 39 gap/s',
-    probe: '<div class="toast"><span class="toast-icon"></span><span>Done</span></div>' },
+  { plugin: 'impact-atlas', selector: '.toast',            prop: 'columnGap',     expected: '16px', note: 'DS toast root gap/xl',
+    probe: '<div class="toast"><span class="toast-body"><span class="toast-icon"></span><span>Done</span></span></div>' },
+  { plugin: 'impact-atlas', selector: '.toast-body',       prop: 'columnGap',     expected: '4px',  note: 'DS toast Frame 39 gap/s',
+    probe: '<div class="toast"><span class="toast-body"><span class="toast-icon"></span><span>Done</span></span></div>' },
   { plugin: 'impact-atlas', selector: '.progress-msg',     prop: 'columnGap',     expected: '16px', note: 'DS toast loading container gap/xl',
     probe: '<div class="progress-msg"><div class="toast-content"><div class="toast-spinner"></div><span>Working</span></div></div>' },
   { plugin: 'impact-atlas', selector: '.toast-content',    prop: 'columnGap',     expected: '8px',  note: 'DS toast loading content gap/m (rebound from gap/s 2026-07)',
@@ -1277,7 +1280,6 @@ export const ALLOWED_BROAD_RULES = {
   // Plugin-specific leaf wrappers
   '.fork-item .f-head svg':     'PLUGIN-SPECIFIC — tokens-to-ink fork icon, leaf SVG slot',
   '.no-issues svg':             'PLUGIN-SPECIFIC — font-scaling-lab empty state icon',
-  '.search-wrap svg.search-icon': 'PLUGIN-SPECIFIC — impact-atlas search icon slot (DS icon-search sprite via var(--input-icon)); native input wrapper',
 
 };
 
