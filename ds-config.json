@@ -1,0 +1,358 @@
+{
+  "name": "RMS Design System",
+  "figmaFileKey": "nHSN6XqTsE7U6f43aZ641P",
+  "maxSnapshotAgeDays": 2,
+  "versionLockStrict": true,
+  "frames": [
+    {
+      "name": "Impact Atlas",
+      "nodeId": "308-10425",
+      "plugin": "impact-atlas"
+    },
+    {
+      "name": "Tokens to Ink",
+      "nodeId": "42-210732",
+      "plugin": "tokens-to-ink"
+    },
+    {
+      "name": "Font Scaling Lab",
+      "nodeId": "106-36547",
+      "plugin": "font-scaling-lab"
+    }
+  ],
+  "_screens_note": "Reference SCREENS for the Markup gate (screen element completeness). Detail views/modals whose DS controls must each have a code counterpart. Captured by refreshScreenElements into figma-screens.snapshot.json.",
+  "screens": [
+    {
+      "name": "Tokens to Ink — Export",
+      "nodeId": "2120-48124",
+      "plugin": "tokens-to-ink"
+    },
+    {
+      "name": "Tokens to Ink — Preflight modal",
+      "nodeId": "2225-28241",
+      "plugin": "tokens-to-ink"
+    }
+  ],
+  "screenElementStrict": false,
+  "knownScreenElementExemptions": [],
+  "figma": {
+    "colorCollection": "Styling",
+    "sizingCollection": "Sizing",
+    "primitivePrefix": "primitives/",
+    "componentsPage": "1:439",
+    "modes": [
+      {
+        "name": "Light",
+        "snapshotKey": "light",
+        "cssSelector": "root"
+      },
+      {
+        "name": "Dark",
+        "snapshotKey": "dark",
+        "cssSelector": "dark-media"
+      }
+    ]
+  },
+  "paths": {
+    "themeCSS": "packages/ui/src/theme.css",
+    "snapshotVars": "packages/ui/src/figma-vars.snapshot.json",
+    "snapshotStructure": "packages/ui/src/figma-structure.snapshot.json",
+    "snapshotFrameGeometry": "packages/ui/src/figma-frame-geometry.snapshot.json",
+    "compPropsSnapshot": "packages/ui/src/figma-component-props.snapshot.json",
+    "pluginCSS": [
+      "../rms-figma-impact-atlas/ui.src.html",
+      "../rms-figma-tokens-to-ink/ui.src.html",
+      "../rms-figma-font-scaling-lab/ui.src.html"
+    ],
+    "plugins": [
+      "impact-atlas",
+      "tokens-to-ink",
+      "font-scaling-lab"
+    ],
+    "sharedIconSources": [
+      "packages/ui/src/ui-shared.js"
+    ],
+    "snapshotIcons": "packages/ui/src/figma-icons.snapshot.json"
+  },
+  "visualRefs": ".parity-refs",
+  "visualRegression": {
+    "mode": "advisory"
+  },
+  "scanExcludeDirs": [
+    "drafts",
+    "styleguide"
+  ],
+  "scanExcludeFilenames": [
+    "ui.html",
+    "preview-*.html"
+  ],
+  "gate6ExcludeDirs": [],
+  "exemptionCheck": {
+    "alwaysNative": []
+  },
+  "knownUnimplementedComponents": [
+    ".figmaWindow",
+    "table/row"
+  ],
+  "_knownUndeclaredStrokeSidesNote": "Escape hatch for strokeful DS components whose per-side stroke geometry hasn't been verified against Figma yet. Empty = every strokeful component has a verified strokeSides in structure-contract.mjs (all 13 declared 2026-08-13). Only add a name here as a temporary park when a NEW strokeful component appears and its sides aren't yet read.",
+  "knownUndeclaredStrokeSides": [],
+  "knownPluginSelectors": [
+    "buttonPrimary",
+    "buttonAddOutput",
+    "buttonRescan",
+    "buttonUnpair",
+    "inputWrap",
+    "inputField",
+    "inputLabel",
+    "tableRow",
+    "dividerLine",
+    "sidePanel",
+    "sidePanelResize",
+    "sidePanelHeader",
+    "sidePanelBody"
+  ],
+  "visualRefScale": 3,
+  "knownStateExemptions": [
+    {
+      "var": "--checkbox-icon-selected",
+      "selector": ".checkbox-check",
+      "_note": "a checkbox's :checked IS its selected state — the checkmark only renders when checked, so its icon colour uses icon/selected on the base .checkbox-check"
+    },
+    {
+      "var": "--checkbox-background-selected",
+      "selector": ".checkbox-input:checked + .checkbox-box",
+      "_note": "a checkbox's :checked IS its selected state — the checked box uses background/selected"
+    },
+    {
+      "var": "--checkbox-border-selected",
+      "selector": ".checkbox-input:checked + .checkbox-box",
+      "_note": "a checkbox's :checked IS its selected state — the checked box uses border/selected"
+    },
+    {
+      "var": "--checkbox-text-selected",
+      "selector": ".checkbox-input:checked ~ .checkbox-text",
+      "_note": "a checkbox's :checked IS its selected state — the checked label uses text/selected"
+    },
+    {
+      "var": "--radioButton-border-selected",
+      "selector": ".radioButton-input:checked + .radioButton-circle",
+      "_note": "a radio's :checked IS its selected state — the checked ring uses border/selected"
+    },
+    {
+      "var": "--radioButton-background-selected",
+      "selector": ".radioButton-circle::after",
+      "_note": "selected radio (DS 711:18574) is a light disc (border/selected) with a dark 8px centre dot = radioButton/background/selected; the dot only shows via :checked scale"
+    },
+    {
+      "var": "--radioButton-text-selected",
+      "selector": ".radioButton-input:checked ~ .radioButton-label",
+      "_note": "a radio's :checked IS its selected state — the checked label uses text/selected"
+    },
+    {
+      "var": "--segmentedControl-background-selected",
+      "selector": ".seg-pill",
+      "_note": "seg-pill IS the selected-state pill visual for segmentedControl"
+    },
+    {
+      "var": "--segmentedControl-border-selected",
+      "selector": ".seg-pill",
+      "_note": "same — seg-pill always renders in selected state"
+    },
+    {
+      "var": "--radioButton-background-selected",
+      "selector": ".depth-radio-input:checked + .depth-circle",
+      "_note": "CSS :checked = radioButton Current state; selected background fills the circle"
+    },
+    {
+      "var": "--node-border-disabled",
+      "selector": ".node.node-external",
+      "_note": "The receded and external node states deliberately render with the DS disabled tokens (decision 2026-07-22) — they are visually the disabled treatment without the disabled semantics, so the selector has no \"disabled\" indicator."
+    },
+    {
+      "var": "--node-label-disabled",
+      "selector": ".node.node-external",
+      "_note": "The receded and external node states deliberately render with the DS disabled tokens (decision 2026-07-22) — they are visually the disabled treatment without the disabled semantics, so the selector has no \"disabled\" indicator."
+    },
+    {
+      "var": "--node-border-disabled",
+      "selector": ".has-selection .node:not(.node-selected)",
+      "_note": "The receded and external node states deliberately render with the DS disabled tokens (decision 2026-07-22) — they are visually the disabled treatment without the disabled semantics, so the selector has no \"disabled\" indicator."
+    },
+    {
+      "var": "--node-label-disabled",
+      "selector": ".has-selection .node:not(.node-selected)",
+      "_note": "The receded and external node states deliberately render with the DS disabled tokens (decision 2026-07-22) — they are visually the disabled treatment without the disabled semantics, so the selector has no \"disabled\" indicator."
+    },
+    {
+      "var": "--node-icon-disabled",
+      "selector": ".node.node-external .node-type-icon svg",
+      "_note": "The receded and external node states deliberately render with the DS disabled tokens (decision 2026-07-22) — they are visually the disabled treatment without the disabled semantics, so the selector has no \"disabled\" indicator."
+    },
+    {
+      "var": "--node-icon-disabled",
+      "selector": ".node.node-external .var-type-icon svg",
+      "_note": "The receded and external node states deliberately render with the DS disabled tokens (decision 2026-07-22) — they are visually the disabled treatment without the disabled semantics, so the selector has no \"disabled\" indicator."
+    },
+    {
+      "var": "--node-icon-disabled",
+      "selector": ".has-selection .node:not(.node-selected) .node-type-icon svg",
+      "_note": "The receded and external node states deliberately render with the DS disabled tokens (decision 2026-07-22) — they are visually the disabled treatment without the disabled semantics, so the selector has no \"disabled\" indicator."
+    },
+    {
+      "var": "--node-icon-disabled",
+      "selector": ".has-selection .node:not(.node-selected) .var-type-icon svg",
+      "_note": "The receded and external node states deliberately render with the DS disabled tokens (decision 2026-07-22) — they are visually the disabled treatment without the disabled semantics, so the selector has no \"disabled\" indicator."
+    }
+  ],
+  "componentSelectors": {
+    "Input": ".inputWrap",
+    "segmentedControlSegment": ".segmented-control button",
+    "modal": ".modal-card",
+    "emptyState": ".empty-state",
+    "Tooltip": "#tt"
+  },
+  "knownUnusedVars": [
+    "--l-weight",
+    "--min-height",
+    "--icon-xsmall",
+    "--icon-small",
+    "--icon-large"
+  ],
+  "knownPhantomBorderExceptions": [
+    ".switch-input:focus-visible + .switch-track",
+    ".loader-spinner"
+  ],
+  "knownHardcodedExceptions": [
+    {
+      "file": "theme.css",
+      "pattern": "border: 2px solid var\\(--highlightSelector-border\\)",
+      "note": "highlightSelector DS stroke is 2px — no thickness token (--thickness is 1.5); DS-faithful literal"
+    },
+    "height: 100vh",
+    "min-height: 40px",
+    "padding: 32px",
+    "margin-top: 16px",
+    "width: 56px",
+    "height: 56px",
+    "stroke-width: 2px",
+    "max-width: 200px",
+    "max-width: 240px",
+    "height: 40px",
+    "height: 48px",
+    "max-width: 32px",
+    "max-height: 2em",
+    "max-width: 120px",
+    "@container (max-width: 72px)",
+    "width: 16px",
+    "height: 16px",
+    "height: 32px",
+    "inset: 4px 0",
+    "::-webkit-scrollbar",
+    "border: 2px solid transparent",
+    "width: 5px",
+    "top: 12px",
+    "bottom: 12px",
+    "padding-right: 12px",
+    "right: 2px",
+    "left: 2px",
+    "width: 20px",
+    "height: 20px",
+    "bottom: 2px",
+    "letter-spacing: 0.06em",
+    "letter-spacing: 0.2px",
+    "border-radius: 2px",
+    "border-radius: 13px",
+    "outline-offset: 1px",
+    {
+      "file": "font-scaling-lab/ui.src.html",
+      "pattern": "rgba\\(219,0,0",
+      "note": "Light-mode focus-ring — no DS effect style yet (figmaEffectStyle: null)"
+    },
+    {
+      "file": "font-scaling-lab/ui.src.html",
+      "pattern": "rgba\\(254,103,103",
+      "note": "Dark-mode focus-ring — no DS effect style yet (figmaEffectStyle: null)"
+    },
+    {
+      "pattern": "(?:^|[;{])\\s*(top|right|bottom|left)\\s*:",
+      "_note": "absolute positioning offsets — geometry, not DS spacing"
+    },
+    {
+      "pattern": "(?:^|[;{])\\s*(width|min-width|max-width|height|min-height|max-height)\\s*:",
+      "_note": "element sizing; DS component heights are covered by CSS_HEIGHT_RULES + rendered assertions"
+    },
+    {
+      "pattern": "margin[a-z-]*\\s*:\\s*[^;]*-[0-9]",
+      "_note": "negative margins pull content out of a container — layout compensation, no DS equivalent"
+    },
+    {
+      "pattern": "(?:^|[;{])\\s*background-(position|size)\\s*:",
+      "_note": "pattern/gradient geometry (checkerboard, dashed rules)"
+    },
+    {
+      "pattern": "(?:^|[;{])\\s*letter-spacing\\s*:",
+      "_note": "DS typography carries no letter-spacing token for these scales"
+    },
+    {
+      "pattern": "(?:^|[;{])\\s*padding-right\\s*:\\s*(26|34|62)px",
+      "_note": "computed insets clearing absolutely-positioned buttons inside the search field"
+    },
+    {
+      "pattern": "border-radius\\s*:\\s*(0 16px 16px 0|16px 0 0 16px)",
+      "_note": "pill halves at general/window-radii 16px"
+    },
+    {
+      "pattern": "padding:\\s*0 var\\(--padding-s\\) 0 calc",
+      "_note": "search-input left inset composed from tokens + the 16px DS icon box"
+    }
+  ],
+  "iconCheck": {
+    "exactName": true,
+    "enforceIconSizes": true,
+    "iconSlotSelectors": [
+      ".var-type-icon",
+      ".node-type-icon",
+      ".lrow-icon",
+      ".sb-type-icon"
+    ]
+  },
+  "_knownUnusedVarsNote": "DS tokens with no consumer in these plugins yet. general/min-height (60px) and the icon/* stroke weights arrived 2026-07-30; the 24px control height is --button-min-height. emptyState/description has no rendered description element (emptyState is in knownUnimplementedComponents).",
+  "frameworkComponents": false,
+  "htmlRealization": true,
+  "htmlRealizationStrict": false,
+  "htmlRealizations": {
+    "badge": {
+      "Label Content": ".badge-label",
+      "Show Label": ".badge-label"
+    },
+    "radioButton": {
+      "Text Content": ".radioButton-label",
+      "Show Text": ".radioButton-label"
+    },
+    "toast": {
+      "Show Description": ".toast-description"
+    },
+    "node": {
+      "Title": ".node-name"
+    },
+    "dividerSection": {
+      "show button": ".dividerSection-action",
+      "label content": ".dividerSection-content"
+    }
+  },
+  "docs": {
+    "auto": true,
+    "surfaces": [
+      "apps/styleguide/index.html"
+    ]
+  },
+  "styleguide": {
+    "out": "apps/style-guide/index.html",
+    "iconSource": "../rms-figma-impact-atlas/ui.html"
+  },
+  "pluginDirs": {
+    "impact-atlas": "../rms-figma-impact-atlas",
+    "tokens-to-ink": "../rms-figma-tokens-to-ink",
+    "font-scaling-lab": "../rms-figma-font-scaling-lab"
+  }
+}

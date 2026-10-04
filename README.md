@@ -5,6 +5,8 @@
 
 The design system behind my Figma plugins, and the index of everything built with it.
 
+**[See the living style guide](https://rafaelmatosdasilva.github.io/rms-ds-figma-plugins/)**: every token and component of the system, in light and dark.
+
 Each product lives in its own repository, with its own releases, issues and history. Click **Watch → Custom →
 Releases** on a product's repository to be notified about its new versions.
 
@@ -68,6 +70,14 @@ A product depends on it like this:
 
 The source of the system is a Figma file, kept private.
 
+### The style guide
+
+The [living style guide](https://rafaelmatosdasilva.github.io/rms-ds-figma-plugins/) is built from this repository by
+[rms-design-system-engine](https://github.com/rafaelmatosdasilva/rms-design-system-engine) and published on GitHub Pages
+by the `style guide` workflow, on every change to the system and once a week. It shows only what Figma and the code
+agree on, and links to each product listed in [`products.json`](products.json). Nothing in it is written by hand: to
+change it, change the system.
+
 ### Releasing a new version
 
 Bump `version` in `package.json` and merge to main. The release workflow tags `vX.Y.Z`, and every product picks it
@@ -80,7 +90,24 @@ the change before it can be released. Publishing in Figma Community stays a manu
 
 1. Create its repository, and depend on `@rms/ds-core` at the current version.
 2. Copy `ds-update.yml` (and `build.yml`, `release.yml`) from a plugin repository.
-3. Add it to [`products.json`](products.json) and to this README.
+3. Add it to [`products.json`](products.json) (its name, repository and Figma Community page, which the style guide
+   links to) and to this README.
+
+### Checking the system against Figma
+
+[rms-design-system-engine](https://github.com/rafaelmatosdasilva/rms-design-system-engine) checks that the code says what
+the Figma file says. Its inputs are committed here, so a check needs no access to the file: `ds-config.json`, the Figma
+snapshots in `packages/ui/src/*.snapshot.json`, `bound-tokens.json`, `component-state-tokens.json`,
+`structure-contract.mjs`, `contract.authored.json` and the audit history. The products are read from their own
+repositories, checked out beside this one (`../rms-figma-impact-atlas` and the others, named in `pluginDirs`), so a
+variable or class only a product uses counts as used.
+
+```sh
+git clone https://github.com/rafaelmatosdasilva/rms-figma-impact-atlas ../rms-figma-impact-atlas   # and each product
+rms-design-system-engine
+```
+
+Refreshing the snapshots needs the Figma file, so only its owner does it (`rms-design-system-engine --recipe refresh-figma`).
 
 ## Contact
 

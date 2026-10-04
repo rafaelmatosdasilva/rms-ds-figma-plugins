@@ -1,0 +1,851 @@
+{
+  "_updated": "2026-09-23",
+  "_note": "Per-component structural facts captured from live Figma by /rms-figma-code-parity. Do not edit by hand. h in px ('auto' = hug). paddingVar/gapVar/radiusVar are Figma token names (null = unbound/none). fontSizeVar/fontWeightVar = bound fontSize/fontWeight variable on the primary (first, depth-first) TEXT node; when unbound, the applied text style's scale key (last path segment, lowercased) for both fields; null when no text/style. innerRadiusVar = first bound radius var on the State=Default frame, else on a child named *Background*. strokeOnDefault = stroke on State=Default variant. strokeOnAnyState = stroke exists on ANY variant of the COMPONENT_SET (controls Gate [3c] phantom border scan — when false, any CSS border/outline on a matching selector is a phantom).",
+  "components": {
+    "buttonList": {
+      "nodeId": "789:35349",
+      "h": 40,
+      "paddingVar": {
+        "tb": null,
+        "lr": "padding/xs"
+      },
+      "gapVar": null,
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": true,
+      "strokeOnAnyState": true,
+      "hoverPill": {
+        "innerH": 32,
+        "radiusVar": "radii/button"
+      },
+      "childFramePadding": [
+        {
+          "name": "Container",
+          "paddingVar": {
+            "tb": "padding/xs",
+            "lr": null
+          }
+        }
+      ],
+      "childFrameGaps": [
+        {
+          "name": "Container",
+          "gapVar": "gap/s"
+        }
+      ],
+      "iconSize": 16,
+      "variantStroke": {
+        "State=default": true,
+        "State=hover": true,
+        "State=selected": true
+      },
+      "variantHeight": {
+        "State=default": 40,
+        "State=hover": 40,
+        "State=selected": 40
+      }
+    },
+    "node": {
+      "nodeId": "544:74211",
+      "h": 40,
+      "paddingVar": {
+        "tb": null,
+        "lr": "padding/s"
+      },
+      "gapVar": "gap/s",
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": "radii/button",
+      "strokeOnDefault": true,
+      "strokeOnAnyState": true,
+      "restingState": "idle",
+      "restingStroke": false,
+      "iconSize": 16,
+      "variantStroke": {
+        "State=Idle, Selected=False": false,
+        "State=Default, Selected=False": true,
+        "State=Hover, Selected=False": true,
+        "State=Default, Selected=True": true,
+        "State=Disabled, Selected=False": true
+      },
+      "variantHeight": {
+        "State=Idle, Selected=False": 40,
+        "State=Default, Selected=False": 40,
+        "State=Hover, Selected=False": 40,
+        "State=Default, Selected=True": 40,
+        "State=Disabled, Selected=False": 40
+      }
+    },
+    "segmentedControl": {
+      "nodeId": "540:63413",
+      "h": 24,
+      "paddingVar": {
+        "tb": "padding/xxs",
+        "lr": "padding/m"
+      },
+      "gapVar": "gap/xs",
+      "fontSizeVar": "s",
+      "fontWeightVar": "s",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "iconSize": 16,
+      "variantStroke": {
+        "Selected=False": false,
+        "Selected=True": false
+      },
+      "variantHeight": {
+        "Selected=False": 24,
+        "Selected=True": 24
+      }
+    },
+    "badge": {
+      "nodeId": "310:29494",
+      "h": 19,
+      "paddingVar": {
+        "tb": "padding/xxs",
+        "lr": "padding/s"
+      },
+      "gapVar": "gap/s",
+      "fontSizeVar": "s",
+      "fontWeightVar": "s",
+      "fillStructure": "before",
+      "innerInset": null,
+      "innerRadiusVar": "radii/button",
+      "strokeOnDefault": false,
+      "strokeOnAnyState": false,
+      "variantStroke": {
+        "State=negative": false,
+        "State=warning": false,
+        "State=positive": false,
+        "State=neutral": false
+      },
+      "variantHeight": {
+        "State=negative": 20,
+        "State=warning": 20,
+        "State=positive": 20,
+        "State=neutral": 20
+      }
+    },
+    "input": {
+      "nodeId": "1:5",
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": "padding/s"
+      },
+      "gapVar": "gap/s",
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "before",
+      "innerInset": null,
+      "innerRadiusVar": "radii/input",
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "iconSize": 16,
+      "variantStroke": {
+        "State=Default, Filled=True, Disabled=True": false,
+        "State=Hover, Filled=True, Disabled=True": false,
+        "State=Default, Filled=True, Disabled=False": false,
+        "State=Hover, Filled=True, Disabled=False": false,
+        "State=Default, Filled=False, Disabled=False": false,
+        "State=focus, Filled=False, Disabled=False": false
+      },
+      "variantHeight": {
+        "State=Default, Filled=True, Disabled=True": 24,
+        "State=Hover, Filled=True, Disabled=True": 24,
+        "State=Default, Filled=True, Disabled=False": 24,
+        "State=Hover, Filled=True, Disabled=False": 24,
+        "State=Default, Filled=False, Disabled=False": 24,
+        "State=focus, Filled=False, Disabled=False": 24
+      }
+    },
+    "toast": {
+      "nodeId": "836:101501",
+      "h": 32,
+      "paddingVar": {
+        "tb": "padding/s",
+        "lr": "padding/m"
+      },
+      "gapVar": "gap/xl",
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": "radii/toast",
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "childFrameGaps": [
+        {
+          "name": "content",
+          "gapVar": "gap/m"
+        }
+      ],
+      "iconSize": 16,
+      "variantStroke": {
+        "state=sucess": false,
+        "state=error": false
+      },
+      "variantHeight": {
+        "state=sucess": 32,
+        "state=error": 32
+      }
+    },
+    "buttonTertiary": {
+      "nodeId": "1:78",
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": "padding/xs"
+      },
+      "gapVar": null,
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "before",
+      "innerInset": null,
+      "innerRadiusVar": "radii/button",
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "childFramePadding": [
+        {
+          "name": "LabelContainer",
+          "paddingVar": {
+            "tb": null,
+            "lr": "padding/xs"
+          }
+        }
+      ],
+      "iconSize": 16,
+      "variantStroke": {
+        "state=default": false,
+        "state=active": false,
+        "state=Disabled": false
+      },
+      "variantHeight": {
+        "state=default": 24,
+        "state=active": 24,
+        "state=Disabled": 24
+      },
+      "variantOpacity": {
+        "disabled": 0.24
+      }
+    },
+    "swatch": {
+      "nodeId": "31:38588",
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": null,
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": "radii/swatch",
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "variantStroke": {
+        "filled=true": false,
+        "filled=false": false
+      },
+      "variantHeight": {
+        "filled=true": 24,
+        "filled=false": 24
+      }
+    },
+    "overflowList": {
+      "nodeId": "789:35422",
+      "h": 32,
+      "paddingVar": {
+        "tb": null,
+        "lr": "padding/s"
+      },
+      "gapVar": "gap/s",
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "before",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "variantStroke": {
+        "State=Default": false,
+        "State=Hover": false
+      },
+      "variantHeight": {
+        "State=Default": 32,
+        "State=Hover": 32
+      }
+    },
+    "buttonSecondary": {
+      "nodeId": "1002:36578",
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": "padding/xs"
+      },
+      "gapVar": null,
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "before",
+      "innerInset": null,
+      "innerRadiusVar": "radii/button",
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "childFramePadding": [
+        {
+          "name": "LabelContainer",
+          "paddingVar": {
+            "tb": null,
+            "lr": "padding/xs"
+          }
+        }
+      ],
+      "iconSize": 16,
+      "variantStroke": {
+        "state=Default": false,
+        "state=hover": false,
+        "state=Disabled": false
+      },
+      "variantHeight": {
+        "state=Default": 24,
+        "state=hover": 24,
+        "state=Disabled": 24
+      },
+      "variantOpacity": {
+        "disabled": 0.24
+      }
+    },
+    "buttonQuaternary": {
+      "nodeId": "937:16191",
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": "padding/xs"
+      },
+      "gapVar": null,
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "childFramePadding": [
+        {
+          "name": "LabelContainer",
+          "paddingVar": {
+            "tb": null,
+            "lr": "padding/xs"
+          }
+        }
+      ],
+      "iconSize": 16,
+      "variantStroke": {
+        "state=default": false,
+        "state=hover": false
+      },
+      "variantHeight": {
+        "state=default": 24,
+        "state=hover": 24
+      }
+    },
+    "dividerSection": {
+      "nodeId": "135:46577",
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": "gap/m",
+      "fontSizeVar": "s",
+      "fontWeightVar": "s",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "variantStroke": {
+        "dividerSection": false
+      },
+      "variantHeight": {
+        "dividerSection": 24
+      },
+      "childFramePadding": [
+        {
+          "name": "Content",
+          "paddingVar": {
+            "tb": "padding/xs",
+            "lr": null
+          }
+        }
+      ],
+      "childFrameGaps": [
+        {
+          "name": "Content",
+          "gapVar": "gap/s"
+        }
+      ]
+    },
+    "radioButton": {
+      "nodeId": "711:18562",
+      "h": 40,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": "gap/m",
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "variantStroke": {
+        "State=Default": false,
+        "State=Selected": false,
+        "State=Current": false,
+        "State=Unselected": false
+      },
+      "variantHeight": {
+        "State=Default": 40,
+        "State=Selected": 40,
+        "State=Current": 40,
+        "State=Unselected": 40
+      }
+    },
+    "panel": {
+      "nodeId": "2287:68241",
+      "h": 460,
+      "paddingVar": {
+        "tb": null,
+        "lr": "padding/l"
+      },
+      "gapVar": null,
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": true,
+      "strokeOnAnyState": true,
+      "strokeSides": "right",
+      "childFramePadding": [
+        {
+          "name": "HeadContent",
+          "paddingVar": {
+            "tb": "padding/l",
+            "lr": null
+          }
+        },
+        {
+          "name": "MainContent",
+          "paddingVar": {
+            "tb": null,
+            "lr": null
+          }
+        }
+      ],
+      "childFrameGaps": [
+        {
+          "name": "HeadContent",
+          "gapVar": "gap/xl"
+        },
+        {
+          "name": "MainContent",
+          "gapVar": "gap/xl"
+        }
+      ],
+      "variantHeight": {
+        "type=primary": 460,
+        "type=secondary": 460
+      },
+      "variantFill": {
+        "type=primary": "panel/background/primary/color",
+        "type=secondary": "panel/background/secondary/color"
+      }
+    },
+    "statusBar": {
+      "nodeId": "789:38384",
+      "h": 48,
+      "paddingVar": {
+        "tb": "padding/m",
+        "lr": "padding/l"
+      },
+      "gapVar": "gap/xl",
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": true,
+      "strokeOnAnyState": true
+    },
+    "actionBar": {
+      "nodeId": "138:16657",
+      "h": 48,
+      "paddingVar": {
+        "tb": "padding/m",
+        "lr": "padding/l"
+      },
+      "gapVar": null,
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": true,
+      "strokeOnAnyState": true
+    },
+    "overflow": {
+      "nodeId": "65:11757",
+      "h": "auto",
+      "paddingVar": {
+        "tb": "padding/xs",
+        "lr": null
+      },
+      "gapVar": null,
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": "radii/card",
+      "strokeOnDefault": true,
+      "strokeOnAnyState": true
+    },
+    "buttonPrimary": {
+      "nodeId": "1428:21123",
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": "padding/xs"
+      },
+      "gapVar": null,
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "before",
+      "innerInset": null,
+      "innerRadiusVar": "radii/button",
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "variantHeight": {
+        "disabled=false": 24,
+        "disabled=true": 24
+      },
+      "variantOpacity": {
+        "disabled": 0.16
+      },
+      "childFramePadding": [
+        {
+          "name": "LabelContainer",
+          "paddingVar": {
+            "tb": null,
+            "lr": "padding/xs"
+          }
+        }
+      ]
+    },
+    "tooltipButton": {
+      "nodeId": "1810:27212",
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": null,
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": false,
+      "iconSize": 12
+    },
+    "tooltipPopover": {
+      "nodeId": "821:72473",
+      "h": 23,
+      "paddingVar": {
+        "tb": "padding/xs",
+        "lr": "padding/s"
+      },
+      "gapVar": "gap/xl",
+      "fontSizeVar": "s",
+      "fontWeightVar": "s",
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": "radii/tooltip",
+      "strokeOnDefault": true,
+      "strokeOnAnyState": true,
+      "variantStroke": {
+        "tooltipPopover": true
+      },
+      "variantHeight": {
+        "tooltipPopover": 24
+      }
+    },
+    "checkBox": {
+      "nodeId": "1963:43561",
+      "h": 30,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": "gap/m",
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": "radii/checkbox",
+      "strokeOnDefault": true,
+      "strokeOnAnyState": true
+    },
+    "loader": {
+      "nodeId": "68:52296",
+      "h": 45,
+      "paddingVar": {
+        "tb": "padding/s",
+        "lr": "padding/m"
+      },
+      "gapVar": "gap/xl",
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": "radii/toast",
+      "strokeOnDefault": false,
+      "strokeOnAnyState": false
+    },
+    "checkBoxGroup": {
+      "nodeId": "2064:29545",
+      "h": 38,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": "gap/m",
+      "fontSizeVar": "s",
+      "fontWeightVar": "s",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": false
+    },
+    "radioButtonGroup": {
+      "h": 63,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": "gap/m",
+      "fontSizeVar": "s",
+      "fontWeightVar": "s",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true
+    },
+    "highlight": {
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": "padding/s"
+      },
+      "gapVar": "gap/xs",
+      "fontSizeVar": "s",
+      "fontWeightVar": "s",
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": false
+    },
+    "highlightSelector": {
+      "h": 10,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": null,
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": true,
+      "strokeOnAnyState": true,
+      "variantStroke": {
+        "state=default": true,
+        "state=selected": true
+      },
+      "variantHeight": {
+        "state=default": 10,
+        "state=selected": 10
+      }
+    },
+    "dividerLine": {
+      "h": 2,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": null,
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": false
+    },
+    "buttonStepper": {
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": "gap/xs",
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true
+    },
+    "segmentedControlSegment": {
+      "h": 24,
+      "paddingVar": {
+        "tb": "padding/xxs",
+        "lr": "padding/m"
+      },
+      "gapVar": "gap/xs",
+      "fontSizeVar": "s",
+      "fontWeightVar": "s",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true,
+      "variantStroke": {
+        "Selected=False": false,
+        "Selected=True": false
+      },
+      "variantHeight": {
+        "Selected=False": 24,
+        "Selected=True": 24
+      }
+    },
+    "modal": {
+      "h": 130,
+      "paddingVar": {
+        "tb": "padding/l",
+        "lr": "padding/l"
+      },
+      "gapVar": "gap/xl",
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": "radii/modal",
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true
+    },
+    "emptyState": {
+      "h": 131,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": "gap/xl",
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": false,
+      "variantStroke": {
+        "type=default": false,
+        "type=positive": false
+      },
+      "variantHeight": {
+        "type=default": 131,
+        "type=positive": 131
+      }
+    },
+    "listItem": {
+      "h": 43,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": "gap/m",
+      "fontSizeVar": "m",
+      "fontWeightVar": "m",
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true
+    },
+    "overlay": {
+      "h": 380,
+      "paddingVar": {
+        "tb": "padding/l",
+        "lr": "padding/l"
+      },
+      "gapVar": null,
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "direct",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": true
+    },
+    "card": {
+      "h": 248,
+      "paddingVar": {
+        "tb": "gap/xl",
+        "lr": "gap/xl"
+      },
+      "gapVar": "gap/l",
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": "radii/card",
+      "strokeOnDefault": true,
+      "strokeOnAnyState": true,
+      "strokeSides": "all"
+    },
+    "switch": {
+      "h": 24,
+      "paddingVar": {
+        "tb": null,
+        "lr": null
+      },
+      "gapVar": "gap/m",
+      "fontSizeVar": null,
+      "fontWeightVar": null,
+      "fillStructure": "none",
+      "innerInset": null,
+      "innerRadiusVar": null,
+      "strokeOnDefault": false,
+      "strokeOnAnyState": false
+    }
+  },
+  "_figmaVersion": "2399757150685421510"
+}
