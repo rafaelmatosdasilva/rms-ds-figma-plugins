@@ -1,36 +1,54 @@
-# A design system release (a vX.Y.Z tag on this repository) reaches every product built on it.
+# A design system release: bump "version" in package.json and merge to main. This workflow tags it vX.Y.Z (once),
+# then tells every product in products.json, whose own ds-update workflow pins it, tests, builds and releases (or
+# opens a pull request when its tests fail, or stops when nothing it ships changed).
 #
-# Each repository in products.json gets a `ds-release` dispatch with the version; its own ds-update workflow pins
-# it, tests, builds and releases (or opens a pull request when its tests fail, or stops when nothing it ships
-# changed). Needs PLUGINS_DISPATCH_TOKEN: a fine-grained token with Contents read and write on those repositories.
+# The dispatch needs PLUGINS_DISPATCH_TOKEN (a fine-grained token with Contents read and write on those
+# repositories). Without it nothing is sent, and each product still picks the release up on its own daily check.
 name: ds-release
 
 on:
   push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+    branches: [main]
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Design system version to send, e.g. v1.0.1'
-        required: true
+
+permissions:
+  contents: write
 
 jobs:
-  dispatch:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - name: Tag the version once
+        id: tag
+        run: |
+          VERSION="v$(node -p 'require("./package.json").version')"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          if git rev-parse -q --verify "refs/tags/$VERSION" >/dev/null; then
+            echo "$VERSION is already tagged: nothing to release." | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "new=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$VERSION" -m "@rms/ds-core $VERSION"
+          git push origin "$VERSION"
+          echo "Tagged $VERSION." | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "new=true" >> "$GITHUB_OUTPUT"
       - name: Send the version to every product
+        if: steps.tag.outputs.new == 'true'
         env:
           GH_TOKEN: ${{ secrets.PLUGINS_DISPATCH_TOKEN }}
-          VERSION: ${{ inputs.version || github.ref_name }}
+          VERSION: ${{ steps.tag.outputs.version }}
         run: |
           if [ -z "$GH_TOKEN" ]; then
-            echo "No PLUGINS_DISPATCH_TOKEN yet: nothing sent. Add the secret, then run this workflow by hand with the version." | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "No PLUGINS_DISPATCH_TOKEN: nothing sent; each product picks $VERSION up on its daily check." | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           for repo in $(node -p 'require("./products.json").products.map((p) => p.repo).join(" ")'); do
-            echo "→ $repo"
-            gh api "repos/$repo/dispatches" -f event_type=ds-release -F "client_payload[version]=$VERSION"
-            echo "- $repo: sent $VERSION" >> "$GITHUB_STEP_SUMMARY"
+            gh api "repos/$repo/dispatches" -f event_type=ds-release -F "client_payload[version]=$VERSION" \
+              && echo "- $repo: sent $VERSION" >> "$GITHUB_STEP_SUMMARY" \
+              || echo "- $repo: not sent (does it exist yet?)" >> "$GITHUB_STEP_SUMMARY"
           done
