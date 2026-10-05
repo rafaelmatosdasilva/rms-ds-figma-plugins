@@ -7,6 +7,20 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.2 · 5 October 2026
+
+- Every button shows the system's focus ring when the keyboard reaches it (`:focus-visible`, the ring the checkbox,
+  switch and radio already draw), so a keyboard user sees where they are (WCAG 2.4.7). A click shows no ring.
+- The radio builds all four of Figma's states on its own `.radioButton`: Current (`.radioButton--current`, a ring
+  around a small dot) and Unselected (`.radioButton--unselected`, the dot alone) join Default and Selected, and its
+  contract maps them to these selectors instead of Impact Atlas's own `.depth-*` radio, which stays listed as an
+  exception until it moves onto the DS radio.
+- The input's reference markup is a `<label class="inputWrap">`, so its labels name the field for a screen reader.
+- The style guide workflow passes the `FIGMA_TOKEN` secret to the build: once it is set, each component's Figma image
+  of every variant appears beside the code on the published page.
+- The published style guide no longer adds a Repository and releases link to its menu; the overview still links the
+  repository.
+
 ## v2.0.1 · 5 October 2026
 
 - The code follows Figma: the resting node has its idle background; the badge icon is a 6px dot in its tone's colour;

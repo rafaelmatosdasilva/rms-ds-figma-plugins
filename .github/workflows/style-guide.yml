@@ -19,7 +19,6 @@ on:
       - 'bound-tokens.json'
       - 'component-state-tokens.json'
       - 'products.json'
-      - 'scripts/style-guide-links.mjs'
       - '.github/workflows/style-guide.yml'
   schedule:
     - cron: '41 5 * * 1'   # weekly, so an improvement to the engine's template or a product's new icons reach the page
@@ -58,9 +57,12 @@ jobs:
         run: node ../engine/audit.mjs || true
       - name: Build the style guide, add the links, check the page against the system
         working-directory: rms-ds-figma-plugins
+        # With the FIGMA_TOKEN secret set, each component's Figma image of every variant goes on the page (Figma beside
+        # the code); without it the page is built the same, with no Figma images.
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
         run: |
           node ../engine/audit.mjs --styleguide
-          node scripts/style-guide-links.mjs apps/style-guide/index.html
           node ../engine/audit.mjs --styleguide-check apps/style-guide/index.html
           mkdir -p ../site && cp apps/style-guide/index.html ../site/index.html
           cp .design-system-engine-out/differences.md ../site/differences.md 2>/dev/null || true

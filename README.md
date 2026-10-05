@@ -78,7 +78,8 @@ by the `style guide` workflow, on every change to the system and once a week. It
 agree on, with a link to this repository in its sidebar. Nothing in it is written by hand: to
 change it, change the system. Its look is the system's own (its tokens, its text styles, its segmented control and
 text field), each component says which products use it and what still differs from Figma, and the workflow publishes
-it only when the engine's style guide check passes.
+it only when the engine's style guide check passes. With the `FIGMA_TOKEN` repository secret set (a Figma personal
+access token that can read the file), each component's Figma image of every variant appears beside the code.
 
 ### Releasing a new version
 
