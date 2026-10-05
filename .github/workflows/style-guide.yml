@@ -19,7 +19,6 @@ on:
       - 'bound-tokens.json'
       - 'component-state-tokens.json'
       - 'products.json'
-      - 'scripts/style-guide-links.mjs'
       - '.github/workflows/style-guide.yml'
   schedule:
     - cron: '41 5 * * 1'   # weekly, so an improvement to the engine's template or a product's new icons reach the page
@@ -64,7 +63,6 @@ jobs:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
         run: |
           node ../engine/audit.mjs --styleguide
-          node scripts/style-guide-links.mjs apps/style-guide/index.html
           node ../engine/audit.mjs --styleguide-check apps/style-guide/index.html
           mkdir -p ../site && cp apps/style-guide/index.html ../site/index.html
           cp .design-system-engine-out/differences.md ../site/differences.md 2>/dev/null || true

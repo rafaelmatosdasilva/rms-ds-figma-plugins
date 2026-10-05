@@ -18,6 +18,8 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 - The input's reference markup is a `<label class="inputWrap">`, so its labels name the field for a screen reader.
 - The style guide workflow passes the `FIGMA_TOKEN` secret to the build: once it is set, each component's Figma image
   of every variant appears beside the code on the published page.
+- The published style guide no longer adds a Repository and releases link to its menu; the overview still links the
+  repository.
 
 ## v2.0.1 · 5 October 2026
 
