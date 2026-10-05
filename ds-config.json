@@ -51,7 +51,10 @@
         "snapshotKey": "dark",
         "cssSelector": "dark-media"
       }
-    ]
+    ],
+    "namingConvention": {
+      "iconTextAlias": false
+    }
   },
   "paths": {
     "themeCSS": "packages/ui/src/theme.css",
@@ -222,8 +225,8 @@
     "Tooltip": "#tt"
   },
   "knownUnusedVars": [
-    "--l-weight",
-    "--min-height",
+    "--typography-l-font-weight",
+    "--general-min-height",
     "--icon-xsmall",
     "--icon-small",
     "--icon-large"
@@ -236,7 +239,7 @@
     {
       "file": "theme.css",
       "pattern": "border: 2px solid var\\(--highlightSelector-border\\)",
-      "note": "highlightSelector DS stroke is 2px — no thickness token (--thickness is 1.5); DS-faithful literal"
+      "note": "highlightSelector DS stroke is 2px — no thickness token (--general-thickness is 1.5); DS-faithful literal"
     },
     "height: 100vh",
     "min-height: 40px",
@@ -420,7 +423,9 @@
     ]
   },
   "_systemScripts_note": "The system's own script: the style guide runs it, so its components behave as in a product (the sliding pill, tooltips, toasts).",
-  "systemScripts": ["packages/ui/src/ui-shared.js"],
+  "systemScripts": [
+    "packages/ui/src/ui-shared.js"
+  ],
   "styleguide": {
     "out": "apps/style-guide/index.html",
     "iconSource": "../rms-figma-impact-atlas/ui.html",
@@ -449,5 +454,6 @@
     "impact-atlas": "../rms-figma-impact-atlas",
     "tokens-to-ink": "../rms-figma-tokens-to-ink",
     "font-scaling-lab": "../rms-figma-font-scaling-lab"
-  }
+  },
+  "figmaNames": "strict"
 }

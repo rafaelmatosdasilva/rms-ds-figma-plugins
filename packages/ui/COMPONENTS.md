@@ -42,7 +42,7 @@ document.body.appendChild(control);
 
 ### Styling
 
-- **Border**: Inactive buttons show `var(--border)` color
+- **Border**: Inactive buttons show `var(--dividerLine-border)` color
 - **Selected state**: Selected button shows `var(--accent)` border
 - **Hover**: Inactive buttons show text color change on hover
 - **Dark mode**: Automatic color adjustments via CSS custom properties

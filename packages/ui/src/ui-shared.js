@@ -1,5 +1,5 @@
 // ── Border thickness ──────────────────────────────────────────────────────────
-// --thickness is the DS general/thickness value (1.5px), defined statically in theme.css.
+// --general-thickness is the DS general/thickness value (1.5px), defined statically in theme.css.
 // We deliberately DON'T snap it to physical pixels by DPR: rounding distorts the designed
 // weight (round → 1.33px on 1.5× = too thin; ceil → 2px = too thick). Keep the exact DS 1.5px
 // and let the browser anti-alias it. (No JS override.)
