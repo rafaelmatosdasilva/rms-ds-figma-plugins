@@ -1,6 +1,6 @@
 {
   "_updated": "2026-10-04",
-  "_note": "Per-component structural facts captured from live Figma by /rms-figma-code-parity. Do not edit by hand. h in px ('auto' = hug). paddingVar/gapVar/radiusVar are Figma token names (null = unbound/none). fontSizeVar/fontWeightVar = bound fontSize/fontWeight variable on the primary (first, depth-first) TEXT node; when unbound, the applied text style's scale key (last path segment, lowercased) for both fields; null when no text/style. innerRadiusVar = first bound radius var on the State=Default frame, else on a child named *Background*. strokeOnDefault = stroke on State=Default variant. strokeOnAnyState = stroke exists on ANY variant of the COMPONENT_SET (controls Gate [3c] phantom border scan — when false, any CSS border/outline on a matching selector is a phantom).",
+  "_note": "Per-component structural facts captured from live Figma by /rms-figma-code-parity. Do not edit by hand. h in px ('auto' = hug). paddingVar/gapVar/radiusVar are Figma token names (null = unbound/none). fontSizeVar/fontWeightVar = bound fontSize/fontWeight variable on the primary (first, depth-first) TEXT node; when unbound, the applied text style's scale key (last path segment, lowercased) for both fields; null when no text/style. innerRadiusVar = first bound radius var on the State=Default frame, else on a child named *Background*. strokeOnDefault = stroke on State=Default variant. strokeOnAnyState = stroke exists on ANY variant of the COMPONENT_SET (controls Gate [3c] phantom border scan — when false, any CSS border/outline on a matching selector is a phantom). sizingV = the Default variant's vertical sizing in Figma (HUG: its height follows its content, FIXED, FILL); layout = its auto-layout direction (HORIZONTAL, VERTICAL, NONE).",
   "components": {
     "buttonList": {
       "nodeId": "789:35349",
@@ -47,7 +47,9 @@
         "State=default": 40,
         "State=hover": 40,
         "State=selected": 40
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "node": {
       "nodeId": "544:74211",
@@ -81,7 +83,9 @@
         "State=Hover, Selected=False": 40,
         "State=Default, Selected=True": 40,
         "State=Disabled, Selected=False": 40
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "segmentedControl": {
       "nodeId": "540:63413",
@@ -106,7 +110,9 @@
       "variantHeight": {
         "Selected=False": 24,
         "Selected=True": 24
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "badge": {
       "nodeId": "310:29494",
@@ -134,7 +140,9 @@
         "Type=warning": 19,
         "Type=positive": 19,
         "Type=neutral": 19
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "input": {
       "nodeId": "1:5",
@@ -165,7 +173,9 @@
         "State=Hover, Filled=True, Disabled=False": 24,
         "State=Default, Filled=False, Disabled=False": 24,
         "State=Focus, Filled=False, Disabled=False": 24
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "toast": {
       "nodeId": "836:101501",
@@ -200,7 +210,9 @@
       "variantFill": {
         "Type=sucess": "toast/background/success/color",
         "Type=error": "toast/background/error/color"
-      }
+      },
+      "sizingV": "FIXED",
+      "layout": "HORIZONTAL"
     },
     "buttonTertiary": {
       "nodeId": "1:78",
@@ -239,7 +251,9 @@
       },
       "variantOpacity": {
         "disabled": 0.24
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "swatch": {
       "nodeId": "31:38588",
@@ -263,7 +277,9 @@
       "variantHeight": {
         "filled=true": 24,
         "filled=false": 24
-      }
+      },
+      "sizingV": "FIXED",
+      "layout": "HORIZONTAL"
     },
     "overflowList": {
       "nodeId": "789:35422",
@@ -288,7 +304,9 @@
       "variantHeight": {
         "State=Default": 32,
         "State=Hover": 32
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "buttonSecondary": {
       "nodeId": "1002:36578",
@@ -327,7 +345,9 @@
       },
       "variantOpacity": {
         "disabled": 0.24
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "buttonQuaternary": {
       "nodeId": "937:16191",
@@ -361,7 +381,9 @@
       "variantHeight": {
         "state=default": 24,
         "state=hover": 24
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "dividerSection": {
       "nodeId": "135:46577",
@@ -399,7 +421,9 @@
       },
       "variantHeight": {
         "dividerSection": 24
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "radioButton": {
       "nodeId": "711:18562",
@@ -433,7 +457,9 @@
         "State=Selected": 39.5,
         "State=Current": 39.5,
         "State=Unselected": 39.5
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "panel": {
       "nodeId": "2287:68241",
@@ -461,7 +487,9 @@
       "variantFill": {
         "type=primary": "panel/background/primary/color",
         "type=secondary": "panel/background/secondary/color"
-      }
+      },
+      "sizingV": "FIXED",
+      "layout": "VERTICAL"
     },
     "statusBar": {
       "nodeId": "789:38384",
@@ -477,7 +505,9 @@
       "innerInset": null,
       "innerRadiusVar": null,
       "strokeOnDefault": false,
-      "strokeOnAnyState": false
+      "strokeOnAnyState": false,
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "actionBar": {
       "nodeId": "138:16657",
@@ -493,7 +523,9 @@
       "innerInset": null,
       "innerRadiusVar": null,
       "strokeOnDefault": false,
-      "strokeOnAnyState": false
+      "strokeOnAnyState": false,
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "overflow": {
       "nodeId": "65:11757",
@@ -519,7 +551,9 @@
             "lr": "padding/s"
           }
         }
-      ]
+      ],
+      "sizingV": "HUG",
+      "layout": "VERTICAL"
     },
     "buttonPrimary": {
       "nodeId": "1428:21123",
@@ -556,7 +590,9 @@
       },
       "variantOpacity": {
         "disabled": 0.16
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "tooltipButton": {
       "nodeId": "1810:27212",
@@ -573,7 +609,9 @@
       "innerRadiusVar": null,
       "strokeOnDefault": false,
       "strokeOnAnyState": false,
-      "iconSize": 12
+      "iconSize": 12,
+      "sizingV": "FIXED",
+      "layout": "NONE"
     },
     "tooltipPopover": {
       "nodeId": "821:72473",
@@ -596,7 +634,9 @@
       },
       "variantHeight": {
         "tooltipPopover": 23
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "checkBox": {
       "nodeId": "1963:43561",
@@ -620,7 +660,9 @@
       "variantHeight": {
         "State=Default": 30,
         "State=Selected": 31
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "loader": {
       "nodeId": "68:52296",
@@ -642,7 +684,9 @@
           "name": "content",
           "gapVar": "gap/m"
         }
-      ]
+      ],
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "checkBoxGroup": {
       "nodeId": "2064:29545",
@@ -658,7 +702,9 @@
       "innerInset": null,
       "innerRadiusVar": null,
       "strokeOnDefault": false,
-      "strokeOnAnyState": true
+      "strokeOnAnyState": true,
+      "sizingV": "HUG",
+      "layout": "VERTICAL"
     },
     "radioButtonGroup": {
       "nodeId": "2223:36588",
@@ -674,7 +720,9 @@
       "innerInset": null,
       "innerRadiusVar": null,
       "strokeOnDefault": false,
-      "strokeOnAnyState": true
+      "strokeOnAnyState": true,
+      "sizingV": "HUG",
+      "layout": "VERTICAL"
     },
     "highlight": {
       "nodeId": "146:82457",
@@ -691,7 +739,9 @@
       "innerRadiusVar": null,
       "strokeOnDefault": false,
       "strokeOnAnyState": false,
-      "iconSize": 16
+      "iconSize": 16,
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "highlightSelector": {
       "nodeId": "144:80986",
@@ -715,7 +765,9 @@
       "variantHeight": {
         "state=default": 10,
         "state=selected": 10
-      }
+      },
+      "sizingV": "FIXED",
+      "layout": "HORIZONTAL"
     },
     "dividerLine": {
       "nodeId": "1:102",
@@ -731,7 +783,9 @@
       "innerInset": null,
       "innerRadiusVar": null,
       "strokeOnDefault": false,
-      "strokeOnAnyState": false
+      "strokeOnAnyState": false,
+      "sizingV": "HUG",
+      "layout": "VERTICAL"
     },
     "buttonStepper": {
       "nodeId": "252:22089",
@@ -748,7 +802,9 @@
       "innerRadiusVar": null,
       "strokeOnDefault": false,
       "strokeOnAnyState": true,
-      "iconSize": 16
+      "iconSize": 16,
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "segmentedControlSegment": {
       "nodeId": "540:63413",
@@ -773,7 +829,9 @@
       "variantHeight": {
         "Selected=False": 24,
         "Selected=True": 24
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "modal": {
       "nodeId": "672:141311",
@@ -800,7 +858,9 @@
           "gapVar": "gap/m"
         }
       ],
-      "iconSize": 16
+      "iconSize": 16,
+      "sizingV": "HUG",
+      "layout": "VERTICAL"
     },
     "emptyState": {
       "nodeId": "1431:21215",
@@ -831,7 +891,9 @@
       "variantHeight": {
         "type=default": 131,
         "type=positive": 131
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "VERTICAL"
     },
     "listItem": {
       "nodeId": "503:49751",
@@ -854,7 +916,9 @@
           "gapVar": "gap/m"
         }
       ],
-      "iconSize": 16
+      "iconSize": 16,
+      "sizingV": "HUG",
+      "layout": "VERTICAL"
     },
     "overlay": {
       "nodeId": "166:31563",
@@ -870,7 +934,9 @@
       "innerInset": null,
       "innerRadiusVar": null,
       "strokeOnDefault": false,
-      "strokeOnAnyState": false
+      "strokeOnAnyState": false,
+      "sizingV": "FIXED",
+      "layout": "VERTICAL"
     },
     "card": {
       "nodeId": "2120:62601",
@@ -887,7 +953,9 @@
       "innerRadiusVar": "radii/card",
       "strokeOnDefault": true,
       "strokeOnAnyState": true,
-      "strokeSides": "all"
+      "strokeSides": "all",
+      "sizingV": "FIXED",
+      "layout": "VERTICAL"
     },
     "switch": {
       "nodeId": "2120:3385",
@@ -921,7 +989,9 @@
       "variantHeight": {
         "Enable=True": 24,
         "Enable=False": 24
-      }
+      },
+      "sizingV": "HUG",
+      "layout": "HORIZONTAL"
     },
     "table/row": {
       "nodeId": "1:178",
@@ -947,7 +1017,9 @@
           }
         }
       ],
-      "iconSize": 12
+      "iconSize": 12,
+      "sizingV": "HUG",
+      "layout": "VERTICAL"
     }
   },
   "_figmaVersion": "2399757150685421510"
