@@ -477,7 +477,7 @@ export const CONTRACT = {
     strokeOnDefault: false,
     strokeOnAnyState: true,
     children: [{ name: 'Content', cssSelector: '.radioButton-content', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } }],
-    strokeSides: 'all',  // Figma: 1.5 all four sides on the circular Radio child (verified 2026-08). Border is on the plugin .depth-circle — no base selector, so this documents intent (rendered checks cover the plugin CSS).
+    strokeSides: 'all',  // Figma: 1.5 all four sides on the circular Radio child (verified 2026-08). Border is on the DS .radioButton-circle, which Impact Atlas's scan depth uses too.
     propertyMap: {
       'State': {
         Default:    '.radioButton',
@@ -836,10 +836,8 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.radioButtonGroup-label', textStyle: 's',
     note: 'radioButtonGroup Label = text style s',
     probe: '<div class="radioButtonGroup"><span class="radioButtonGroup-label">L</span><div class="radioButtonGroup-slot"></div></div>' },
-  { plugin: 'impact-atlas', selector: '.depth-circle',     prop: 'borderTopWidth', expected: '2px',
-    note: 'ring + connector share --depth-stroke; deliberately NOT general/thickness (1.5px)' },
-  { plugin: 'impact-atlas', selector: '.depth-circle-col', prop: 'height',         expected: '14.3px',
-    note: 'label line box (--typography-m-font-size 11px x 1.3) — a fixed padding here drifts with the type scale' },
+  { plugin: 'impact-atlas', selector: '.depth-option .radioButton-content', prop: 'paddingBottom', expected: '16px',
+    note: 'scan depth: the room under each step for the connector to the next one = padding/l (the step is the DS radio since 2026-10)' },
   // An empty graph column header must not paint: its opaque strip clipped the edge
   // lines running underneath it. Background now lives on the child dividerSections.
   // DS panel HeadContent slot has a SOLID background fill over the whole header — the sticky
@@ -1030,6 +1028,10 @@ export const PLUGIN_DS_OVERRIDES = {
     'SURFACE — sticky header over the detail panel needs the panel surface (semantic/background → --semantic-surface-elevationLow) instead of the base --semantic-surface-elevationMedium to avoid a seam',
   '#graph-col-headers .dividerSection':
     'LAYOUT — column flex/gutters only; wrapper carries the sticky behavior; geometry is the DS base (44px). Compact 20px variant retired 2026-07-11 — tree and list view must render the same dividerSection height. Locked by RENDERED_ASSERTIONS.',
+
+  // ── impact-atlas scan depth: the DS radio stacked with connectors (2026-10) ──
+  '.depth-option .radioButton-content':
+    'LAYOUT — the room under each scan depth step for the connector line to the next one (padding/l); only Impact Atlas stacks radios with connectors, so it is not the base radio\'s spacing',
 
   // ── misc justified ──
   '.section-label':
@@ -1402,7 +1404,6 @@ export const PSEUDO_ELEMENTS = {
   '.sidePanelResize::after':   'LAYOUT — drag handle visual line indicator; plugin layout utility, not a DS component',
   // Plugin-specific UI — impact-atlas custom components; no DS component equivalent
   '.depth-option:not(:last-child)::after':     'PLUGIN-SPECIFIC — animated connector line between depth selector steps; impact-atlas custom UI',
-  '.depth-circle::after':                      'PLUGIN-SPECIFIC — inner selection dot of depth selector circle; impact-atlas custom radio UI',
   '.radioButton-circle::after':                'DS radioButton — the 8px inner dot (radioButton/background/selected) shown when checked; the disc itself fills with radioButton/border/selected. Base component.',
 };
 
