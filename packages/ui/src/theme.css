@@ -1244,13 +1244,14 @@
   .radioButton-input:checked + .radioButton-circle::after { transform: scale(1); }
   /* Current (DS 714:47410): the ring in border/current around a small dot of the same colour, its words in text/current.
      Unselected (DS 723:147515): the dot alone, no ring, in border/unselected; its words in text/unselected. */
-  .radioButton.radioButton--current .radioButton-circle { border-color: var(--radioButton-border-current); }
+  /* Current wins over a checked input: the one chosen in a stepper is its current step, never a filled disc. */
+  .radioButton.radioButton--current .radioButton-circle, .radioButton.radioButton--current .radioButton-input:checked + .radioButton-circle { border-color: var(--radioButton-border-current); background: var(--radioButton-background); }
   .radioButton.radioButton--current .radioButton-circle::after,
   .radioButton.radioButton--unselected .radioButton-circle::after { width: 6px; height: 6px; transform: scale(1); }
   .radioButton.radioButton--current .radioButton-circle::after { background: var(--radioButton-border-current); }
   .radioButton.radioButton--unselected .radioButton-circle { border-color: transparent; background: transparent; }
   .radioButton.radioButton--unselected .radioButton-circle::after { background: var(--radioButton-border-unselected); }
-  .radioButton.radioButton--current .radioButton-label { color: var(--radioButton-text-current); }
+  .radioButton.radioButton--current .radioButton-label, .radioButton.radioButton--current .radioButton-input:checked ~ .radioButton-content .radioButton-label { color: var(--radioButton-text-current); }
   .radioButton.radioButton--unselected .radioButton-label { color: var(--radioButton-text-unselected); }
   .radioButton-input:focus-visible + .radioButton-circle { outline: var(--general-thickness) solid var(--input-border-focus); outline-offset: 1px; }
   .radioButton-label { font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); color: var(--radioButton-text); }

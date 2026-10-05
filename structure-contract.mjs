@@ -95,7 +95,7 @@ export const CONTRACT = {
     paddingVar: { tb: null, lr: null },
     gapVar: null,
     fontSizeVar: null, fontWeightVar: null,
-    fillStructure: 'none', innerInset: null, innerRadiusVar: null,
+    fillStructure: 'before', innerInset: null, innerRadiusVar: null,   // Figma fills a layer behind it (the code paints its own background: both paint)
     strokeOnDefault: false, strokeOnAnyState: false,
   },
   // buttonStepper (DS) — a −/value/+ row: two buttonSecondary flanking an input at gap/xs.
@@ -172,7 +172,7 @@ export const CONTRACT = {
     paddingVar: { tb: 'padding/l', lr: 'padding/l' },
     gapVar: null,
     fontSizeVar: 'm', fontWeightVar: 'm',
-    fillStructure: 'none', innerInset: null, innerRadiusVar: null,
+    fillStructure: 'before', innerInset: null, innerRadiusVar: null,   // Figma fills a layer behind the loader slot (the code paints the scrim on .overlay: both paint)
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',
   },
@@ -422,7 +422,7 @@ export const CONTRACT = {
     // Root gap separates Content from the optional trailing action (DS 135:46577).
     gapVar: 'gap/m',
     fontSizeVar: 's', fontWeightVar: 's',
-    fillStructure: 'none', innerInset: null, innerRadiusVar: null,
+    fillStructure: 'direct', innerInset: null, innerRadiusVar: null,   // Figma fills the component itself, as the code does (sticky, on elevationMedium)
     // The component frame carries no stroke; the only stroke in its subtree belongs
     // to the nested buttonSecondary instance. Verified against Figma 2026-07-31.
     strokeOnDefault: false, strokeOnAnyState: true,
@@ -665,7 +665,6 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.statusBar-title',  prop: 'columnGap',     expected: '4px',  note: 'DS statusBar Title gap/s' },
 
   // actionBar (DS 138:16657: h=40, tb padding/s, lr padding/l)
-  { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'minHeight',     expected: '48px', note: 'DS actionBar h=48 as a MINIMUM — the bar grows to hug wrapped chips (min-height, not fixed height)' },
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'paddingTop',    expected: '12px', note: 'DS actionBar padding/m (tb rebound padding/s→padding/m 2026-08)' },
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'paddingLeft',   expected: '16px', note: 'DS actionBar padding/l' },
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'columnGap',     expected: '8px',  note: 'base gap/m slot-content default' },
@@ -689,8 +688,8 @@ export const RENDERED_ASSERTIONS = [
     expected: 'rgba(0, 0, 0, 0)', note: 'DS 2120:28369 Background boolean off → transparent' },
   { plugin: 'tokens-to-ink', selector: '.actionbar--plain', prop: 'border-bottom-style',
     expected: 'none', note: 'DS 2120:28369 Border boolean off → no bottom divider' },
-  { plugin: 'tokens-to-ink', selector: '.actionbar--plain', prop: 'min-height',
-    expected: '48px', note: 'DS 2120:28369 actionBar height (24 content + padding/m ×2)' },
+  { plugin: 'tokens-to-ink', selector: '.actionbar--plain', prop: 'paddingTop',
+    expected: '12px', note: 'DS 2120:28369 keeps the bar\'s padding/m, so it hugs 24px content at 48 (no min-height since v2.0.1)' },
   { plugin: 'tokens-to-ink', selector: '.actionbar--plain', prop: 'justify-content',
     expected: 'center', note: 'the slot centres the segmented control' },
   // Standalone dividerLine (DS 1:102) binds dividerLine/border/color = N700 in BOTH modes.
@@ -1333,7 +1332,7 @@ export const CSS_PROPERTY_ASSERTIONS = [
   // (.switch-content flush gap is now enforced via the switch CONTRACT children gapPx entry —
   //  childFrameGaps now captures unbound/zero inner gaps, so the structured mechanism covers it.)
   // actionBar (theme.css base class) — DS 138:16657: tb padding/m, lr padding/l, h=48
-  { sel: '.actionbar', prop: 'min-height',  expected: '48px'        }, // DS: 24 content + padding/m × 2 (min-height — grows for wrapped chips)
+  // (No min-height: DS 138:16657 hugs its content, 24 + padding/m × 2 = 48, taller when chips wrap; v2.0.1.)
   { sel: '.actionbar', prop: 'padding', expectedVar: '--padding-m'  }, // DS: tb padding/m
   { sel: '.actionbar', prop: 'padding', expectedVar: '--padding-l'  }, // DS: lr padding/l
   // buttonList arrow: shown on both hover AND selected, uses iconSecondary (DS: buttonList/iconSecondary/color)
