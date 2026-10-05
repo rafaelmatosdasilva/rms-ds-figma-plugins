@@ -248,41 +248,157 @@
   "knownHardcodedExceptions": [
     {
       "file": "theme.css",
-      "pattern": "border: 2px solid var\\(--highlightSelector-border\\)",
-      "note": "highlightSelector DS stroke is 2px — no thickness token (--general-thickness is 1.5); DS-faithful literal"
+      "pattern": "height: 100vh"
     },
-    "height: 100vh",
-    "min-height: 40px",
-    "padding: 32px",
-    "width: 56px",
-    "height: 56px",
-    "stroke-width: 2px",
-    "max-width: 200px",
-    "max-width: 240px",
-    "height: 40px",
-    "height: 48px",
-    "max-width: 32px",
-    "max-height: 2em",
-    "max-width: 120px",
-    "width: 16px",
-    "height: 16px",
-    "height: 32px",
-    "inset: 4px 0",
+    {
+      "file": "rms-figma-impact-atlas/ui.src.html",
+      "pattern": "height: 100vh"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "min-height: 40px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "padding: 32px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "width: 56px"
+    },
+    {
+      "file": "rms-figma-tokens-to-ink/ui.src.html",
+      "pattern": "width: 56px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "height: 56px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "stroke-width: 2px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "max-width: 200px"
+    },
+    {
+      "file": "rms-figma-font-scaling-lab/ui.src.html",
+      "pattern": "max-width: 200px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "max-width: 240px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "height: 40px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "height: 48px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "max-width: 32px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "max-height: 2em"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "max-width: 120px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "width: 16px"
+    },
+    {
+      "file": "rms-figma-impact-atlas/ui.src.html",
+      "pattern": "width: 16px"
+    },
+    {
+      "file": "rms-figma-tokens-to-ink/ui.src.html",
+      "pattern": "width: 16px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "height: 16px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "height: 32px"
+    },
+    {
+      "file": "rms-figma-tokens-to-ink/ui.src.html",
+      "pattern": "height: 32px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "inset: 4px 0"
+    },
     "::-webkit-scrollbar",
-    "border: 2px solid transparent",
-    "width: 5px",
-    "top: 12px",
-    "bottom: 12px",
-    "padding-right: 12px",
-    "right: 2px",
-    "left: 2px",
-    "width: 20px",
-    "height: 20px",
-    "bottom: 2px",
-    "letter-spacing: 0.2px",
-    "border-radius: 2px",
-    "border-radius: 13px",
-    "outline-offset: 1px",
+    {
+      "file": "theme.css",
+      "pattern": "border: 2px solid transparent"
+    },
+    {
+      "file": "rms-figma-font-scaling-lab/ui.src.html",
+      "pattern": "border: 2px solid transparent"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "width: 5px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "top: 12px"
+    },
+    {
+      "file": "rms-figma-font-scaling-lab/ui.src.html",
+      "pattern": "bottom: 12px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "padding-right: 12px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "right: 2px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "left: 2px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "width: 20px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "height: 20px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "bottom: 2px"
+    },
+    {
+      "file": "rms-figma-font-scaling-lab/ui.src.html",
+      "pattern": "bottom: 2px"
+    },
+    {
+      "file": "rms-figma-font-scaling-lab/ui.src.html",
+      "pattern": "letter-spacing: 0\\.2px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "border-radius: 13px"
+    },
+    {
+      "file": "theme.css",
+      "pattern": "outline-offset: 1px"
+    },
     {
       "file": "font-scaling-lab/ui.src.html",
       "pattern": "rgba\\(219,0,0",
