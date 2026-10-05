@@ -215,6 +215,16 @@
       "var": "--radioButton-text-selected",
       "selector": ".radioButton-input:checked ~ .radioButton-content .radioButton-label",
       "_note": "a radio's :checked IS its selected state — the checked label (inside the DS Content, with a description) uses text/selected"
+    },
+    {
+      "var": "--radioButton-border-selected",
+      "selector": ".depth-option.done .depth-circle",
+      "_note": "Impact Atlas's own radio markup (.depth-option, .depth-circle): its Selected state (.done) uses the DS radio tokens; to move onto the DS .radioButton, whose Selected is .radioButton-input:checked"
+    },
+    {
+      "var": "--radioButton-text-selected",
+      "selector": ".depth-option.done .depth-label",
+      "_note": "Impact Atlas's own radio markup (.depth-option, .depth-label): its Selected state (.done) uses the DS radio tokens; to move onto the DS .radioButton"
     }
   ],
   "componentSelectors": {

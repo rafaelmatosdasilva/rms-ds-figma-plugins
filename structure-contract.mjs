@@ -463,9 +463,9 @@ export const CONTRACT = {
   },
   radioButton: {
     // Figma DS: HORIZONTAL layout, gap/m between circle and content, no padding on root.
-    // In Impact Atlas the radioButton maps to .depth-option (Default), .depth-option.done (Selected),
-    // .depth-radio-input:checked (Current), .depth-option.unavailable (Unselected).
-    // The border lives on the .depth-circle child, not the root — strokeOnDefault: false.
+    // The DS builds every State on its own .radioButton (2026-10): Selected is its input checked, Current and
+    // Unselected are modifier classes (Impact Atlas's .depth-* radio is that product's own markup).
+    // The border lives on the .radioButton-circle child, not the root — strokeOnDefault: false.
     h: 40, sizing: 'hug',   // hugs content — h is informational, not gated (DS grew 33→40 on 2026-09-09)
     gapVar: 'gap/m',
     paddingVar: { tb: null, lr: null },
@@ -480,10 +480,10 @@ export const CONTRACT = {
     strokeSides: 'all',  // Figma: 1.5 all four sides on the circular Radio child (verified 2026-08). Border is on the plugin .depth-circle — no base selector, so this documents intent (rendered checks cover the plugin CSS).
     propertyMap: {
       'State': {
-        Default:    '.depth-option',
-        Selected:   '.depth-option.done',
-        Current:    '.depth-radio-input:checked',
-        Unselected: '.depth-option.unavailable',
+        Default:    '.radioButton',
+        Selected:   '.radioButton-input:checked + .radioButton-circle',
+        Current:    '.radioButton.radioButton--current',
+        Unselected: '.radioButton.radioButton--unselected',
       },
     },
   },
@@ -643,7 +643,8 @@ export const RENDERED_ASSERTIONS = [
     probe: '<div class="listItem"><div class="listItem-row"><span class="listItem-icon"><svg width="16" height="16"><use href="#icon-focus"/></svg></span><div class="listItem-main"><span class="listItem-title">Title</span><span class="listItem-desc">Description</span></div><button class="buttonTertiary listItem-action" aria-label="Focus"><svg width="16" height="16"><use href="#icon-focus"/></svg></button></div><div class="dividerLine listItem-divider"></div></div>' },
   { plugin: 'impact-atlas', selector: '.inputLabel-after', prop: 'fontSize', expected: '11px',
     note: "input Label After = text style m (Show Label After)",
-    probe: '<div class="inputWrap"><span class="inputLabel">Label</span><input class="inputField" value="Value"><span class="inputLabel-after">Label</span></div>' },
+    // A <label> around it, so its labels name the field for a screen reader (WCAG 1.3.1, 4.1.2); .inputWrap styles either tag.
+    probe: '<label class="inputWrap"><span class="inputLabel">Label</span><input class="inputField" value="Value"><span class="inputLabel-after">Label</span></label>' },
   { plugin: 'impact-atlas', selector: '.empty-state-content', prop: 'rowGap', expected: '4px',
     note: "emptyState Content: icon over text, gap/s",
     probe: '<div class="empty-state"><div class="empty-state-content"><svg width="56" height="56"><use href="#icon-empty-search"/></svg><div class="empty-state-text"><span class="empty-state-title">Title</span><span class="empty-state-desc">Description</span></div></div><button class="buttonPrimary empty-state-action"><svg width="16" height="16"><use href="#icon-plus"/></svg><span>label</span></button></div>' },
