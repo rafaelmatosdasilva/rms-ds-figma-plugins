@@ -9,7 +9,7 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ## v2.0.3 · 5 October 2026
 
-- The radio can be Selected by a class, `.radioButton--selected`, where several in a group are selected at once (Impact Atlas's scanned depths), and Current wins over a checked input, so the step chosen in a stepper shows as current, not as a filled disc.
+- On the radio, Current wins over a checked input, so the step chosen in a stepper (Impact Atlas's scan depth) shows as current, a ring around a dot, never a filled disc.
 - The contract says what Figma says about three fills: the overlay and the divider line fill a layer behind their content, and the section divider fills itself. The code already paints all three.
 - The action bar has no minimum height, as Figma draws it (it hugs its 24px content and padding/m to 48, taller when chips wrap); the contract no longer asks for one, and the plain bar's check reads its padding.
 - Every hardcoded value exception names the file it covers, so none applies repo-wide, and the two that excused code now gone are removed.
