@@ -1,6 +1,6 @@
 {
   "_updated": "2026-10-04",
-  "_note": "Per-component structural facts captured from live Figma by /rms-figma-code-parity. Do not edit by hand. h in px ('auto' = hug). paddingVar/gapVar/radiusVar are Figma token names (null = unbound/none). fontSizeVar/fontWeightVar = bound fontSize/fontWeight variable on the primary (first, depth-first) TEXT node; when unbound, the applied text style's scale key (last path segment, lowercased) for both fields; null when no text/style. innerRadiusVar = first bound radius var on the State=Default frame, else on a child named *Background*. strokeOnDefault = stroke on State=Default variant. strokeOnAnyState = stroke exists on ANY variant of the COMPONENT_SET (controls Gate [3c] phantom border scan — when false, any CSS border/outline on a matching selector is a phantom). sizingV = the Default variant's vertical sizing in Figma (HUG: its height follows its content, FIXED, FILL); layout = its auto-layout direction (HORIZONTAL, VERTICAL, NONE).",
+  "_note": "Per-component structural facts captured from live Figma by /rms-figma-code-parity. Do not edit by hand. h in px ('auto' = hug). paddingVar/gapVar/radiusVar are Figma token names (null = unbound/none). fontSizeVar/fontWeightVar = bound fontSize/fontWeight variable on the primary (first, depth-first) TEXT node; when unbound, the applied text style's scale key (last path segment, lowercased) for both fields; null when no text/style. innerRadiusVar = first bound radius var on the State=Default frame, else on a child named *Background*. strokeOnDefault = stroke on State=Default variant. strokeOnAnyState = stroke exists on ANY variant of the COMPONENT_SET (controls Gate [3c] phantom border scan — when false, any CSS border/outline on a matching selector is a phantom). sizingV = the Default variant's vertical sizing in Figma (HUG: its height follows its content, FIXED, FILL); layout = its auto-layout direction (HORIZONTAL, VERTICAL, NONE). slot = the Default variant holds a slot (its height comes from what a product puts in it). minH = its minimum height in Figma (null: none). fillStructure 'before' also when a child rectangle covers the whole frame, whatever its name.",
   "components": {
     "buttonList": {
       "nodeId": "789:35349",
@@ -49,7 +49,9 @@
         "State=selected": 40
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 40
     },
     "node": {
       "nodeId": "544:74211",
@@ -85,7 +87,9 @@
         "State=Disabled, Selected=False": 40
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 40
     },
     "segmentedControl": {
       "nodeId": "540:63413",
@@ -112,7 +116,9 @@
         "Selected=True": 24
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 24
     },
     "badge": {
       "nodeId": "310:29494",
@@ -142,7 +148,9 @@
         "Type=neutral": 19
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": null
     },
     "input": {
       "nodeId": "1:5",
@@ -175,7 +183,9 @@
         "State=Focus, Filled=False, Disabled=False": 24
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 24
     },
     "toast": {
       "nodeId": "836:101501",
@@ -212,7 +222,9 @@
         "Type=error": "toast/background/error/color"
       },
       "sizingV": "FIXED",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": null
     },
     "buttonTertiary": {
       "nodeId": "1:78",
@@ -253,7 +265,9 @@
         "disabled": 0.24
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 24
     },
     "swatch": {
       "nodeId": "31:38588",
@@ -279,7 +293,9 @@
         "filled=false": 24
       },
       "sizingV": "FIXED",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": null
     },
     "overflowList": {
       "nodeId": "789:35422",
@@ -306,7 +322,9 @@
         "State=Hover": 32
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 32
     },
     "buttonSecondary": {
       "nodeId": "1002:36578",
@@ -347,7 +365,9 @@
         "disabled": 0.24
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 24
     },
     "buttonQuaternary": {
       "nodeId": "937:16191",
@@ -383,7 +403,9 @@
         "state=hover": 24
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 24
     },
     "dividerSection": {
       "nodeId": "135:46577",
@@ -395,7 +417,7 @@
       "gapVar": "gap/m",
       "fontSizeVar": "s",
       "fontWeightVar": "s",
-      "fillStructure": "none",
+      "fillStructure": "direct",
       "innerInset": null,
       "innerRadiusVar": null,
       "strokeOnDefault": false,
@@ -423,7 +445,9 @@
         "dividerSection": 24
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": null
     },
     "radioButton": {
       "nodeId": "711:18562",
@@ -459,7 +483,9 @@
         "State=Unselected": 39.5
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": null
     },
     "panel": {
       "nodeId": "2287:68241",
@@ -488,8 +514,10 @@
         "type=primary": "panel/background/primary/color",
         "type=secondary": "panel/background/secondary/color"
       },
-      "sizingV": "FIXED",
-      "layout": "VERTICAL"
+      "sizingV": "FILL",
+      "layout": "VERTICAL",
+      "slot": true,
+      "minH": null
     },
     "statusBar": {
       "nodeId": "789:38384",
@@ -507,7 +535,9 @@
       "strokeOnDefault": false,
       "strokeOnAnyState": false,
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": true,
+      "minH": 48
     },
     "actionBar": {
       "nodeId": "138:16657",
@@ -525,7 +555,9 @@
       "strokeOnDefault": false,
       "strokeOnAnyState": false,
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": true,
+      "minH": null
     },
     "overflow": {
       "nodeId": "65:11757",
@@ -553,7 +585,9 @@
         }
       ],
       "sizingV": "HUG",
-      "layout": "VERTICAL"
+      "layout": "VERTICAL",
+      "slot": true,
+      "minH": null
     },
     "buttonPrimary": {
       "nodeId": "1428:21123",
@@ -592,7 +626,9 @@
         "disabled": 0.16
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 24
     },
     "tooltipButton": {
       "nodeId": "1810:27212",
@@ -611,7 +647,9 @@
       "strokeOnAnyState": false,
       "iconSize": 12,
       "sizingV": "FIXED",
-      "layout": "NONE"
+      "layout": "NONE",
+      "slot": false,
+      "minH": null
     },
     "tooltipPopover": {
       "nodeId": "821:72473",
@@ -636,7 +674,9 @@
         "tooltipPopover": 23
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": null
     },
     "checkBox": {
       "nodeId": "1963:43561",
@@ -662,7 +702,9 @@
         "State=Selected": 31
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 24
     },
     "loader": {
       "nodeId": "68:52296",
@@ -686,7 +728,9 @@
         }
       ],
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": null
     },
     "checkBoxGroup": {
       "nodeId": "2064:29545",
@@ -704,7 +748,9 @@
       "strokeOnDefault": false,
       "strokeOnAnyState": true,
       "sizingV": "HUG",
-      "layout": "VERTICAL"
+      "layout": "VERTICAL",
+      "slot": true,
+      "minH": null
     },
     "radioButtonGroup": {
       "nodeId": "2223:36588",
@@ -722,7 +768,9 @@
       "strokeOnDefault": false,
       "strokeOnAnyState": true,
       "sizingV": "HUG",
-      "layout": "VERTICAL"
+      "layout": "VERTICAL",
+      "slot": true,
+      "minH": null
     },
     "highlight": {
       "nodeId": "146:82457",
@@ -741,7 +789,9 @@
       "strokeOnAnyState": false,
       "iconSize": 16,
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 24
     },
     "highlightSelector": {
       "nodeId": "144:80986",
@@ -767,7 +817,9 @@
         "state=selected": 10
       },
       "sizingV": "FIXED",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": null
     },
     "dividerLine": {
       "nodeId": "1:102",
@@ -779,13 +831,15 @@
       "gapVar": null,
       "fontSizeVar": null,
       "fontWeightVar": null,
-      "fillStructure": "none",
+      "fillStructure": "before",
       "innerInset": null,
       "innerRadiusVar": null,
       "strokeOnDefault": false,
       "strokeOnAnyState": false,
       "sizingV": "HUG",
-      "layout": "VERTICAL"
+      "layout": "VERTICAL",
+      "slot": false,
+      "minH": null
     },
     "buttonStepper": {
       "nodeId": "252:22089",
@@ -804,7 +858,9 @@
       "strokeOnAnyState": true,
       "iconSize": 16,
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": null
     },
     "segmentedControlSegment": {
       "nodeId": "540:63413",
@@ -831,7 +887,9 @@
         "Selected=True": 24
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": 24
     },
     "modal": {
       "nodeId": "672:141311",
@@ -860,7 +918,9 @@
       ],
       "iconSize": 16,
       "sizingV": "HUG",
-      "layout": "VERTICAL"
+      "layout": "VERTICAL",
+      "slot": true,
+      "minH": null
     },
     "emptyState": {
       "nodeId": "1431:21215",
@@ -893,7 +953,9 @@
         "type=positive": 131
       },
       "sizingV": "HUG",
-      "layout": "VERTICAL"
+      "layout": "VERTICAL",
+      "slot": false,
+      "minH": null
     },
     "listItem": {
       "nodeId": "503:49751",
@@ -918,7 +980,9 @@
       ],
       "iconSize": 16,
       "sizingV": "HUG",
-      "layout": "VERTICAL"
+      "layout": "VERTICAL",
+      "slot": false,
+      "minH": 32
     },
     "overlay": {
       "nodeId": "166:31563",
@@ -930,13 +994,15 @@
       "gapVar": null,
       "fontSizeVar": "m",
       "fontWeightVar": "m",
-      "fillStructure": "none",
+      "fillStructure": "before",
       "innerInset": null,
       "innerRadiusVar": null,
       "strokeOnDefault": false,
       "strokeOnAnyState": false,
-      "sizingV": "FIXED",
-      "layout": "VERTICAL"
+      "sizingV": "FILL",
+      "layout": "VERTICAL",
+      "slot": true,
+      "minH": null
     },
     "card": {
       "nodeId": "2120:62601",
@@ -954,8 +1020,10 @@
       "strokeOnDefault": true,
       "strokeOnAnyState": true,
       "strokeSides": "all",
-      "sizingV": "FIXED",
-      "layout": "VERTICAL"
+      "sizingV": "HUG",
+      "layout": "VERTICAL",
+      "slot": true,
+      "minH": null
     },
     "switch": {
       "nodeId": "2120:3385",
@@ -991,7 +1059,9 @@
         "Enable=False": 24
       },
       "sizingV": "HUG",
-      "layout": "HORIZONTAL"
+      "layout": "HORIZONTAL",
+      "slot": false,
+      "minH": null
     },
     "table/row": {
       "nodeId": "1:178",
@@ -1019,7 +1089,9 @@
       ],
       "iconSize": 12,
       "sizingV": "HUG",
-      "layout": "VERTICAL"
+      "layout": "VERTICAL",
+      "slot": false,
+      "minH": null
     }
   },
   "_figmaVersion": "2399757150685421510"

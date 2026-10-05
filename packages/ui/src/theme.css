@@ -69,6 +69,7 @@
     /* Node component tokens — mode-aware via neutral ramp */
     /* node/background/idle retired from the DS — the resting node has no fill token now
        (transparent; only hover/selected carry a background). */
+    --node-background-idle:                 var(--neutral-900);  /* node/background/idle L=N900 #f7f7f7, D→override */
     --node-background-hover:                var(--neutral-900);  /* node/background/default L=N900 #f7f7f7, D→override */
     --node-background-selected:       var(--neutral-1000); /* node/background/selected N1000 */
     /* node/border/default — DS State=Default (the resting card) carries a stroke again; the
@@ -346,6 +347,7 @@
       --scrollbar-thumb-hover: rgba(255,255,255,0.4);
       --overlay: rgba(43,43,43,0.88); /* overlay/color: #2b2b2b at 88% */
       /* Node tokens — different primitives per mode */
+      --node-background-idle:                 var(--neutral-800);  /* node/background/idle Dark = N800 */
       --node-background-hover:                var(--neutral-800);  /* node/background/default Dark = N800 #2c2c2c */
       --node-background-selected:       var(--neutral-700);  /* Dark = N700 */
       --node-border-hover:      var(--neutral-600);  /* Dark = N300 */
@@ -504,7 +506,7 @@
     border-color: var(--node-border-hover);
   }
   .node.node-unselected {
-    background: transparent;
+    background: var(--node-background-idle);   /* DS State=Idle fills node/background/idle */
     border-color: var(--node-border-idle);
     color: var(--node-label-idle);
   }
@@ -601,10 +603,11 @@
   #tt {
     position: fixed;
     background: var(--tooltipPopover-background);
-    border: var(--general-thickness) solid var(--tooltipPopover-border);
+    box-shadow: inset 0 0 0 var(--general-thickness) var(--tooltipPopover-border);   /* DS stroke is inside: it adds no height (15 + padding/xs × 2 = 23) */
     color: var(--tooltipPopover-text);
     font-size: var(--typography-s-font-size);
     font-weight: var(--typography-s-font-weight);
+    line-height: var(--typography-s-line-height);   /* DS Label 15px: 15 + padding/xs × 2 = 23 */
     padding: var(--padding-xs) var(--padding-s);
     gap: var(--gap-xl);
     border-radius: var(--radii-tooltip);
@@ -828,7 +831,7 @@
     gap: var(--gap-m); /* slot-content gap — DS actionBar root itemSpacing is 0 (Slot); gap/m is the content-level default */
     padding: var(--padding-m) var(--padding-l); /* DS actionBar 138:16657: tb padding/m, lr padding/l (tb rebound padding/s→padding/m 2026-08) */
     margin: 0 calc(-1 * var(--padding-l));
-    min-height: 48px; /* 24px content + padding/m × 2; hugs taller when chips wrap to more rows */
+    /* DS 138:16657 hugs its content with no minimum: 24px content + padding/m × 2 = 48, taller when chips wrap. */
     position: relative;
     isolation: isolate;
   }
@@ -883,7 +886,7 @@
   .inputWrap:not(.inputWrap--readonly):hover { border-color: var(--input-border-hover); }
   .inputWrap:not(.inputWrap--readonly):focus-within { border-color: var(--input-border-focus) !important; }
   .inputWrap.inputWrap--readonly { background: transparent; border-color: var(--input-auto-border); pointer-events: none; opacity: 0.8; }
-  .inputWrap.inputWrap--disabled { border-color: var(--input-border-disabled); pointer-events: none; opacity: 0.5; }
+  .inputWrap.inputWrap--disabled { background: transparent; border-color: var(--input-border-disabled); pointer-events: none; opacity: 0.5; }   /* DS Disabled=True: Background has no fill */
   .inputWrap.inputWrap--disabled .inputField { color: var(--input-value-disabled); }
   .inputField {
     background: transparent; border: none;
@@ -1109,7 +1112,7 @@
   .checkbox-content { display: flex; flex-direction: column; min-width: 0; }
   .checkbox-input:focus-visible + .checkbox-box { outline: var(--general-thickness) solid var(--input-border-focus); outline-offset: 1px; }
   /* checkbox/description (DS checkBox Description child) — s text style, muted. */
-  .checkbox-description { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--checkbox-description); }
+  .checkbox-description { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--checkbox-description); margin-top: -1px; }   /* DS Content itemSpacing -1 (16 + 15 - 1 = 30) */
   /* checkBoxGroup (DS 2064:29545) — a labelled vertical stack of checkboxes.
      Label (s style, content/secondary) sits gap/m above a Slot that stacks the
      checkbox rows at gap/s. */
@@ -1134,11 +1137,12 @@
   /* highlightSelector (DS) — a 10px selection marker: red fill + 2px highlightSelector/border ring. */
   .highlightSelector {
     width: 10px; height: 10px; box-sizing: border-box;
-    border: 2px solid var(--highlightSelector-border);   /* DS Border layer, 2 inside */
+    border: 2px solid color-mix(in srgb, var(--highlightSelector-border) 40%, transparent);   /* DS Border layer, 2 inside, layer opacity 40% */
+    background: color-mix(in srgb, var(--semantic-negative) 20%, transparent);              /* DS Background layer: semantic/negative at 20% */
     flex-shrink: 0;
   }
   /* DS state=selected: the Background layer fills with highlightSelector/border and BorderOutside adds a 4px ring outside. */
-  .highlightSelector.selected { background: var(--highlightSelector-border); box-shadow: 0 0 0 4px var(--highlightSelector-border); }
+  .highlightSelector.selected { background: var(--highlightSelector-border); border-color: var(--highlightSelector-border); box-shadow: 0 0 0 4px var(--highlightSelector-border); }
   /* buttonStepper (DS) — a −/value/+ row: two buttonSecondary flanking an input, gap/xs.
      Pure layout wrapper; the children are the DS .buttonSecondary + input components. */
   .buttonStepper { display: inline-flex; align-items: center; gap: var(--gap-xs); }
@@ -1242,7 +1246,7 @@
   .radioButton-content { display: flex; flex-direction: column; gap: var(--gap-m); min-width: 0; flex: 1; }
   .radioButton-text { display: flex; flex-direction: column; }
   .radioButton-divider { align-self: stretch; }   /* DS Show Divider Line: a dividerLine under the text */
-  .radioButton-description { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--radioButton-description); }
+  .radioButton-description { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--radioButton-description); margin-top: -1px; }   /* DS Text itemSpacing -1 (16 + 15 - 1 = 30) */
   .seg-status {
     width: var(--dividerSection-height); height: var(--dividerSection-height);
     border-radius: var(--radii-button);
@@ -1263,6 +1267,7 @@
     border-radius: var(--radii-button);   /* radii/button = 24px */
     font-size: var(--typography-s-font-size);
     font-weight: var(--typography-s-font-weight);
+    line-height: var(--typography-s-line-height);   /* DS Label 15px: 15 + padding/xxs × 2 = 19 */
     flex-shrink: 0;
     white-space: nowrap;
   }
@@ -1283,6 +1288,13 @@
   .badge.low svg { color: var(--badge-icon-positive); }
   .badge svg { flex-shrink: 0; }
   .badge.no-icon svg { display: none; }
+  /* DS badge icon: a 6px dot in the tone's own colour (badge/icon/<tone>), hidden by Show Icon off. */
+  .badge-icon { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; background: currentColor; }
+  .badge.high .badge-icon, .badge.clipped .badge-icon, .badge.truncated .badge-icon, .badge.overflow .badge-icon { background: var(--badge-icon-negative); }
+  .badge.medium .badge-icon { background: var(--badge-icon-warning); }
+  .badge.low .badge-icon    { background: var(--badge-icon-positive); }
+  .badge.none .badge-icon   { background: var(--badge-icon-neutral); }
+  .badge.no-icon .badge-icon { display: none; }
   .badge.no-label .badge-label { display: none; }
 
   /* ── Overflow container (flyout/dropdown panel) ── */
@@ -1607,7 +1619,7 @@
   }
   .loader-text { display: flex; flex-direction: column; }
   .loader-title { font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); color: var(--loader-title); }
-  .loader-description { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--loader-description); }
+  .loader-description { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--loader-description); margin-top: -2px; }   /* DS Text itemSpacing -2 (16 + 15 - 2 = 29) */
 
   /* ── Status bar ── DS statusBar 789:38384: height from its content plus padding/l top and bottom, all padding padding/l,
      root gap gap/xl between slot groups (flattened — flex spacer separates groups; visible inter-item

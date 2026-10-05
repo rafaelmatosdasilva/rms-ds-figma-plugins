@@ -7,6 +7,15 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.1 · 5 October 2026
+
+- The code follows Figma: the resting node has its idle background; the badge icon is a 6px dot in its tone's colour;
+  the tooltip and badge text use the s line height, and the tooltip's border is drawn inside, so it adds no height; a
+  disabled input has no fill; the checkbox, radio and loader descriptions sit as close to their titles as in Figma;
+  the highlight selector's background and border follow Figma's layers; the action bar has no minimum height.
+- Figma's structure snapshot records each component's vertical sizing and layout, and Figma now sets the card to hug
+  its content and the panel and overlay to fill their container, so every component's height is compared.
+
 ## v2.0.0 · 4 October 2026
 
 - Every CSS variable carries its Figma variable's name, so code and Figma read the same: `typography/m/font-size` is
