@@ -162,11 +162,6 @@
       "_note": "same — seg-pill always renders in selected state"
     },
     {
-      "var": "--radioButton-background-selected",
-      "selector": ".depth-radio-input:checked + .depth-circle",
-      "_note": "CSS :checked = radioButton Current state; selected background fills the circle"
-    },
-    {
       "var": "--node-border-disabled",
       "selector": ".node.node-external",
       "_note": "The receded and external node states deliberately render with the DS disabled tokens (decision 2026-07-22) — they are visually the disabled treatment without the disabled semantics, so the selector has no \"disabled\" indicator."
@@ -215,16 +210,6 @@
       "var": "--radioButton-text-selected",
       "selector": ".radioButton-input:checked ~ .radioButton-content .radioButton-label",
       "_note": "a radio's :checked IS its selected state — the checked label (inside the DS Content, with a description) uses text/selected"
-    },
-    {
-      "var": "--radioButton-border-selected",
-      "selector": ".depth-option.done .depth-circle",
-      "_note": "Impact Atlas's own radio markup (.depth-option, .depth-circle): its Selected state (.done) uses the DS radio tokens; to move onto the DS .radioButton, whose Selected is .radioButton-input:checked"
-    },
-    {
-      "var": "--radioButton-text-selected",
-      "selector": ".depth-option.done .depth-label",
-      "_note": "Impact Atlas's own radio markup (.depth-option, .depth-label): its Selected state (.done) uses the DS radio tokens; to move onto the DS .radioButton"
     }
   ],
   "componentSelectors": {
