@@ -264,7 +264,7 @@ export const CONTRACT = {
       // Figma Type: negative/warning/positive/neutral → CSS classes: high/medium/low/none
       'Type':       { negative: '.badge.high', warning: '.badge.medium', positive: '.badge.low', neutral: '.badge.none' },
       'Show Label': '.badge.no-label .badge-label',
-      'Show Icon':  '.badge.no-icon svg',
+      'Show Icon': '.badge.no-icon .badge-icon',
     },
   },
   input: {
@@ -611,6 +611,12 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.loader-description', textStyle: 's',
     note: 'loader Description = text style s (Show Description)',
     probe: '<span class="loader"><span class="loader-content"><span class="loader-spinner"></span><span class="loader-text"><span class="loader-title">Title</span><span class="loader-description">Description</span></span></span><button class="buttonTertiary"><span>Cancel</span></button></span>' },
+  { plugin: 'impact-atlas', selector: '.badge', prop: 'height', expected: '19px',
+    note: 'badge (DS 310:29494): a 6px dot and its label (s text style) at padding/xxs, 19px high',
+    probe: '<span class="badge high"><span class="badge-icon" aria-hidden="true"></span><span class="badge-label">Label</span></span>' },
+  { plugin: 'font-scaling-lab', selector: '.buttonStepper', prop: 'columnGap', expected: '2px',
+    note: 'buttonStepper (DS 252:22089): buttonSecondary · input · buttonSecondary at gap/xs, 24px high',
+    probe: '<div class="buttonStepper"><button class="buttonSecondary" aria-label="Decrease"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="8" x2="12" y2="8"/></svg></button><div class="inputWrap"><input class="inputField" value="100%" aria-label="Value"></div><button class="buttonSecondary" aria-label="Increase"><svg width="16" height="16"><use href="#icon-plus"/></svg></button></div>' },
   { plugin: 'impact-atlas', selector: '.statusBar-content', prop: 'columnGap', expected: '8px',
     note: "statusBar Slot content: the product's items in one row at gap/m (the bar's own gap/xl separates groups)",
     probe: '<div class="statusBar"><div class="statusBar-content"><span class="statusBar-title">Title</span><span>Detail</span></div></div>' },
