@@ -177,7 +177,7 @@ export const CONTRACT = {
     strokeSides: 'none',
   },
   buttonList: {
-    _note: "strokeSides=bottom (items stack touching — only bottom stroke visible). hover/selected Content h=32, fills full outer width (outer padding=0). CSS: border-bottom only; ::before inset=4px_0, border-radius=var(--radius-full)",
+    _note: "strokeSides=bottom (items stack touching — only bottom stroke visible). hover/selected Content h=32, fills full outer width (outer padding=0). CSS: border-bottom only; ::before inset=4px_0, border-radius=var(--radii-button)",
     // Prose guidance from the DS, nothing to verify in CSS: the action slot is
     // intentionally per-project, so no fixed selector can be asserted.
     annotations: { 'Actions can changed based on the project needs': null },
@@ -435,7 +435,7 @@ export const CONTRACT = {
       { name: 'Content', cssSelector: '.dividerSection-content', paddingVar: { tb: 'padding/xs', lr: null } },
     ],
     annotations: {
-      'Background must match the containing surface. Set it explicitly using the surface color token. Never rely on transparency or CSS inheritance.': { sel: '.dividerSection', prop: 'background', expectedVar: '--bg' },
+      'Background must match the containing surface. Set it explicitly using the surface color token. Never rely on transparency or CSS inheritance.': { sel: '.dividerSection', prop: 'background', expectedVar: '--semantic-surface-elevationMedium' },
     },
     propertyMap: {
       'show priority':  '.dividerSection.no-priority .tier-dot',
@@ -488,9 +488,9 @@ export const CONTRACT = {
     },
   },
   panel: {
-    _note: "2026-09-13: panel is now a COMPONENT_SET (2287:68241) with variants type=primary (fill panel/background/primary = elevationMedium/--bg) and type=secondary (fill panel/background/secondary = elevationLow/--bg-detail). Both variants: VERTICAL, lr padding/l, slots HeadContent (top padding/l, bottom padding/s, gap/xl) over MainContent (gap/xl). Right-edge weight 1.5 preserved (side divider); stroke paint empty — edge geometry + .left-panel/.sidePanel border-right (panel/border) hold it. Empty structural shell; plugins hand-build (header row + .scroll-area / .sidePanel), so documentary. Primary surface = .left-panel/.sidePanel (--bg); secondary = #right-detail/#graph-body (--bg-detail).",
+    _note: "2026-09-13: panel is now a COMPONENT_SET (2287:68241) with variants type=primary (fill panel/background/primary = elevationMedium/--semantic-surface-elevationMedium) and type=secondary (fill panel/background/secondary = elevationLow/--semantic-surface-elevationLow). Both variants: VERTICAL, lr padding/l, slots HeadContent (top padding/l, bottom padding/s, gap/xl) over MainContent (gap/xl). Right-edge weight 1.5 preserved (side divider); stroke paint empty — edge geometry + .left-panel/.sidePanel border-right (panel/border) hold it. Empty structural shell; plugins hand-build (header row + .scroll-area / .sidePanel), so documentary. Primary surface = .left-panel/.sidePanel (--semantic-surface-elevationMedium); secondary = #right-detail/#graph-body (--semantic-surface-elevationLow).",
     // Figma DS: VERTICAL container, fill=panel/background/color, stroke=panel/border/color.
-    // In plugins: .left-panel uses --bg (panel/background via EXPLICIT) and --divider for border.
+    // In plugins: .left-panel uses --semantic-surface-elevationMedium (panel/background via EXPLICIT) and --divider for border.
     // Only the left panel is a DS panel; right panel is a bare content container.
     // 2026-09-12 restructure (node 505:48510 → 505:43484): the single Content slot was split
     // into two SLOTs — HeadContent (top padding/l, bottom padding/s, gap/xl) over MainContent
@@ -687,7 +687,7 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'tokens-to-ink', selector: '.actionbar--plain', prop: 'justify-content',
     expected: 'center', note: 'the slot centres the segmented control' },
   // Standalone dividerLine (DS 1:102) binds dividerLine/border/color = N700 in BOTH modes.
-  // It must route through --border (dividerLine), NOT --divider (dividerSection/divider),
+  // It must route through --dividerLine-border (dividerLine), NOT --divider (dividerSection/divider),
   // which overrides to N600 in dark and left the line a step too light. Both modes pinned.
   { plugin: 'impact-atlas', selector: '.dividerLine', prop: 'background-color',
     expected: 'rgb(214, 214, 214)', colorScheme: 'light', note: 'dividerLine/border light N700 #d6d6d6',
@@ -741,9 +741,9 @@ export const RENDERED_ASSERTIONS = [
   // (see FORM_CONTROL_BINDINGS at the end of this file — the gate that now enforces
   //  this class of bug generically, rather than one assertion at a time)
   // ── Form controls that are DS input instances without carrying .inputWrap ──
-  // Both were wired to --border (dividerLine) instead of --input-border. The two
+  // Both were wired to --dividerLine-border (dividerLine) instead of --input-border. The two
   // resolve to the SAME N700 in light and diverge only in dark (#303030 vs #454545),
-  // so the bug was invisible in light mode and every token-level gate passed: --border
+  // so the bug was invisible in light mode and every token-level gate passed: --dividerLine-border
   // is a real token with a correct value, it adapts across modes, and nothing mapped
   // these bespoke elements to the DS input component. Asserting BOTH modes is the
   // point — a light-only assertion would still be green with the bug present.
@@ -761,7 +761,7 @@ export const RENDERED_ASSERTIONS = [
     note: 'DS input/border/default light = N600 #adadad' },
   // NB: no rendered border-WIDTH assertion here — Chrome rounds a 1.5px border to whole
   // device pixels, so getComputedStyle reports "2px" and the check is DPR-dependent.
-  // The width is covered statically instead (the rule now uses var(--thickness)).
+  // The width is covered statically instead (the rule now uses var(--general-thickness)).
 
   // dividerSection — DS base geometry (h=44 = padding/xl top + 16 content + padding/xs
   // bottom) in EVERY context: left-panel lists, detail list view, tree column headers.
@@ -833,16 +833,16 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.depth-circle',     prop: 'borderTopWidth', expected: '2px',
     note: 'ring + connector share --depth-stroke; deliberately NOT general/thickness (1.5px)' },
   { plugin: 'impact-atlas', selector: '.depth-circle-col', prop: 'height',         expected: '14.3px',
-    note: 'label line box (--m-size 11px x 1.3) — a fixed padding here drifts with the type scale' },
+    note: 'label line box (--typography-m-font-size 11px x 1.3) — a fixed padding here drifts with the type scale' },
   // An empty graph column header must not paint: its opaque strip clipped the edge
   // lines running underneath it. Background now lives on the child dividerSections.
   // DS panel HeadContent slot has a SOLID background fill over the whole header — the sticky
   // header must be opaque so connector edge-lines / nodes behind never show through the top strip.
-  // --bg-detail (elevationLow / panel/background/secondary): light #e8e8e8, dark #1c1c1c — assert BOTH modes.
+  // --semantic-surface-elevationLow (elevationLow / panel/background/secondary): light #e8e8e8, dark #1c1c1c — assert BOTH modes.
   { plugin: 'impact-atlas', selector: '#graph-col-headers', prop: 'backgroundColor', expected: 'rgb(232, 232, 232)', colorScheme: 'light',
-    note: 'DS header slot fill = --bg-detail (elevationLow) light; opaque so nothing bleeds through the top' },
+    note: 'DS header slot fill = --semantic-surface-elevationLow (elevationLow) light; opaque so nothing bleeds through the top' },
   { plugin: 'impact-atlas', selector: '#graph-col-headers', prop: 'backgroundColor', expected: 'rgb(28, 28, 28)', colorScheme: 'dark',
-    note: 'DS header slot fill = --bg-detail (elevationLow) dark; opaque so nothing bleeds through the top' },
+    note: 'DS header slot fill = --semantic-surface-elevationLow (elevationLow) dark; opaque so nothing bleeds through the top' },
   { plugin: 'impact-atlas', selector: '.scroll-area .dividerSection',       prop: 'height',     expected: '24px', note: 'DS dividerSection h — compact 24 (2026-09-09); same in tree and list view',
     probe: '<div class="scroll-area"><div class="dividerSection">High</div></div>' },
   { plugin: 'impact-atlas', selector: '.scroll-area .dividerSection',       prop: 'paddingTop', expected: '0px', note: 'DS 2026-09-09: root padding removed',
@@ -866,13 +866,13 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.scroll-area .dividerSection.p2', prop: 'marginTop', expected: '8px', note: 'DS left-panel List gap/m between sections',
     probe: '<div class="scroll-area"><div class="dividerSection">High</div><div class="dividerSection p2">Medium</div></div>' },
   { plugin: 'impact-atlas', selector: '#graph-col-headers', prop: 'paddingTop', expected: '16px', note: 'DS panel HeadContent top padding/l (16) — the opaque header slot owns the gap below the status bar' },
-  // List-view header slot (mode-toggle-row): same DS HeadContent fill — opaque --bg (elevationMedium /
+  // List-view header slot (mode-toggle-row): same DS HeadContent fill — opaque --semantic-surface-elevationMedium (elevationMedium /
   // panel/background/primary) over the segmented control AND the padding/l gap down to the first divider,
   // so list items don't bleed above the sticky divider. Assert BOTH modes + the opaque gap.
   { plugin: 'impact-atlas', selector: '.mode-toggle-row', prop: 'backgroundColor', expected: 'rgb(247, 247, 247)', colorScheme: 'light',
-    note: 'DS header slot fill = --bg (elevationMedium) light; opaque so list items do not bleed through the gap' },
+    note: 'DS header slot fill = --semantic-surface-elevationMedium (elevationMedium) light; opaque so list items do not bleed through the gap' },
   { plugin: 'impact-atlas', selector: '.mode-toggle-row', prop: 'backgroundColor', expected: 'rgb(33, 33, 33)', colorScheme: 'dark',
-    note: 'DS header slot fill = --bg (elevationMedium) dark; opaque so list items do not bleed through the gap' },
+    note: 'DS header slot fill = --semantic-surface-elevationMedium (elevationMedium) dark; opaque so list items do not bleed through the gap' },
   { plugin: 'impact-atlas', selector: '.mode-toggle-row', prop: 'paddingBottom', expected: '16px',
     note: 'DS HeadContent: the padding/l gap to the first divider lives on the opaque header slot, not the scroll area (transparent there = bleed)' },
   // DS 308-7820: the detail list is a stack of independent panels (type=secondary), one per group.
@@ -885,7 +885,7 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '#list-comp-hdr',  prop: 'marginBottom', expected: '8px',  note: 'DS per-group panel HeadContent bottom padding/s' },
 
   // node label color must flow from the .node state classes to the name spans —
-  // caught 2026-07-11: .var-name/.node-name declared color: var(--text) and rendered
+  // caught 2026-07-11: .var-name/.node-name declared color: var(--semantic-content-primary) and rendered
   // bright #ededed instead of node/label/unselected. Fixed to color: inherit.
   // colorScheme:'dark' pins the check to the DS-canonical dark appearance (node/label/
   // unselected dark = N300 #b8b8b8 = rgb(184,184,184)) so it can't flip with host OS theme.
@@ -1021,7 +1021,7 @@ export const PLUGIN_DS_OVERRIDES = {
 
   // ── dividerSection surface context ──
   '#right-detail .dividerSection':
-    'SURFACE — sticky header over the detail panel needs the panel surface (semantic/background → --bg-detail) instead of the base --bg to avoid a seam',
+    'SURFACE — sticky header over the detail panel needs the panel surface (semantic/background → --semantic-surface-elevationLow) instead of the base --semantic-surface-elevationMedium to avoid a seam',
   '#graph-col-headers .dividerSection':
     'LAYOUT — column flex/gutters only; wrapper carries the sticky behavior; geometry is the DS base (44px). Compact 20px variant retired 2026-07-11 — tree and list view must render the same dividerSection height. Locked by RENDERED_ASSERTIONS.',
 
@@ -1071,14 +1071,14 @@ export const CSS_BASE_RULE_VARS = [
   { key: 'buttonList/text/selected',     selector: '.buttonList.selected',           prop: 'color',      expectedVar: '--buttonList-text-selected'      },
   { key: 'buttonList/icon/selected',     selector: '.buttonList.selected svg',       prop: 'color',      expectedVar: '--buttonList-iconPrimary'               },
   // badge — semantic color vars must stay token-bound per state
-  { key: 'badge/text/high',             selector: '.badge.high',                    prop: 'color',      expectedVar: '--semantic-negative'             },
-  { key: 'badge/bg/high',               selector: '.badge.high',                    prop: 'background', expectedVar: '--semantic-negative'             },
-  { key: 'badge/text/medium',           selector: '.badge.medium',                  prop: 'color',      expectedVar: '--semantic-warning'              },
-  { key: 'badge/bg/medium',             selector: '.badge.medium',                  prop: 'background', expectedVar: '--semantic-warning'              },
-  { key: 'badge/text/low',              selector: '.badge.low',                     prop: 'color',      expectedVar: '--semantic-positive'             },
-  { key: 'badge/bg/low',               selector: '.badge.low',                     prop: 'background', expectedVar: '--semantic-positive'             },
-  { key: 'badge/text/none',             selector: '.badge.none',                    prop: 'color',      expectedVar: '--badge-neutral'                 },
-  { key: 'badge/bg/none',              selector: '.badge.none',                    prop: 'background', expectedVar: '--badge-neutral'                 },
+  { key: 'badge/text/high',             selector: '.badge.high',                    prop: 'color',      expectedVar: '--badge-label-negative'             },
+  { key: 'badge/bg/high',               selector: '.badge.high',                    prop: 'background', expectedVar: '--badge-background-negative'             },
+  { key: 'badge/text/medium',           selector: '.badge.medium',                  prop: 'color',      expectedVar: '--badge-label-warning'              },
+  { key: 'badge/bg/medium',             selector: '.badge.medium',                  prop: 'background', expectedVar: '--badge-background-warning'              },
+  { key: 'badge/text/low',              selector: '.badge.low',                     prop: 'color',      expectedVar: '--badge-label-positive'             },
+  { key: 'badge/bg/low',               selector: '.badge.low',                     prop: 'background', expectedVar: '--badge-background-positive'             },
+  { key: 'badge/text/none',             selector: '.badge.none',                    prop: 'color',      expectedVar: '--badge-label-neutral'                 },
+  { key: 'badge/bg/none',              selector: '.badge.none',                    prop: 'background', expectedVar: '--badge-background-neutral'                 },
   // segmentedControl — state colors across default/selected
   { key: 'segControl/label/default',    selector: '.segmented-control button',                    prop: 'color',        expectedVar: '--segmentedControl-label'            },
   { key: 'segControl/icon/default',     selector: '.segmented-control svg',                       prop: 'color',        expectedVar: '--segmentedControl-icon'             },
@@ -1091,7 +1091,7 @@ export const CSS_BASE_RULE_VARS = [
   { key: 'input/border/default',        selector: '.inputWrap',                                    prop: 'border',       expectedVar: '--input-border'                  },
   { key: 'input/border/hover',          selector: '.inputWrap:not(.inputWrap--readonly):hover',    prop: 'border-color', expectedVar: '--input-border-hover'            },
     { key: 'input/border/disabled',       selector: '.inputWrap.inputWrap--disabled',                prop: 'border-color', expectedVar: '--input-border-disabled'         },
-  { key: 'input/value/default',         selector: '.inputField',                                   prop: 'color',        expectedVar: '--input-value'                   },
+  { key: 'input/value/default',         selector: '.inputField',                                   prop: 'color',        expectedVar: '--input-value-filled'                   },
   { key: 'input/label/default',         selector: '.inputWrap .inputLabel',                        prop: 'color',        expectedVar: '--input-label'                   },
   { key: 'input/icon/default',          selector: '.inputWrap svg',                                prop: 'color',        expectedVar: '--input-icon'                    },
   // buttonSecondary — bg/text/border across default/hover
@@ -1102,15 +1102,15 @@ export const CSS_BASE_RULE_VARS = [
   { key: 'buttonSecondary/bg/hover',       selector: '.buttonSecondary:hover', prop: 'background',   expectedVar: '--buttonSecondary-background-hover' },
   // buttonTertiary — bg+text across default/hover (light-mode index now avoids dark-mode overwrite)
   { key: 'buttonTertiary/bg/default',   selector: '.buttonTertiary',       prop: 'background', expectedVar: '--buttonTertiary-background'       },
-  { key: 'buttonTertiary/text/default', selector: '.buttonTertiary',       prop: 'color',      expectedVar: '--buttonTertiary-text'             },
+  { key: 'buttonTertiary/text/default', selector: '.buttonTertiary',       prop: 'color',      expectedVar: '--buttonTertiary-iconText'             },
   { key: 'buttonTertiary/bg/hover',     selector: '.buttonTertiary:hover', prop: 'background', expectedVar: '--buttonTertiary-background-active'},
-  { key: 'buttonTertiary/text/hover',   selector: '.buttonTertiary:hover', prop: 'color',      expectedVar: '--buttonTertiary-text-active'      },
+  { key: 'buttonTertiary/text/hover',   selector: '.buttonTertiary:hover', prop: 'color',      expectedVar: '--buttonTertiary-iconText-active'      },
   // buttonQuaternary — text default; hover pill bg (covered by CSS_PROPERTY_ASSERTIONS too, but keep both layers)
-  { key: 'buttonQuaternary/text/default', selector: '.buttonQuaternary',               prop: 'color',      expectedVar: '--buttonQuaternary-text'          },
+  { key: 'buttonQuaternary/text/default', selector: '.buttonQuaternary',               prop: 'color',      expectedVar: '--buttonQuaternary-iconText'          },
   { key: 'buttonQuaternary/bg/hover',     selector: '.buttonQuaternary:hover::before', prop: 'background', expectedVar: '--buttonQuaternary-background-hover' },
   // swatch — border vars per filled/empty state
-  { key: 'swatch/border/filled', selector: '.swatch',       prop: 'border',       expectedVar: '--swatch-border-filled' },
-  { key: 'swatch/border/empty',  selector: '.swatch.empty', prop: 'border-color', expectedVar: '--swatch-border-empty'  },
+  { key: 'swatch/border/filled', selector: '.swatch',       prop: 'border',       expectedVar: '--swatch-border-filled-primary' },
+  { key: 'swatch/border/empty',  selector: '.swatch.empty', prop: 'border-color', expectedVar: '--swatch-border-empty-primary'  },
   // overflowList — bg/border/label default + all hover state
   { key: 'overflowList/bg/default',     selector: '.overflowList',       prop: 'background',   expectedVar: '--overflowList-background'      },
   { key: 'overflowList/border/default', selector: '.overflowList',       prop: 'border-bottom', expectedVar: '--overflowList-border'         },
@@ -1136,20 +1136,20 @@ export const FIGMA_LAYOUT_TO_CSS = {
   'padding/s':   '--padding-s',
   'padding/m':   '--padding-m',
   'padding/l':   '--padding-l',
-  'radii/button':  '--radius-full',
-  'radii/input':   '--radius-full',
-  'radii/tooltip': '--radius-tooltip',
-  'radii/swatch':  '--radius-swatch',
-  'radii/toast':   '--radius-toast',
-  'radii/checkbox': '--radius-checkbox',
-  'radii/card':    '--radius-md',
+  'radii/button':  '--radii-button',
+  'radii/input':   '--radii-input',
+  'radii/tooltip': '--radii-tooltip',
+  'radii/swatch':  '--radii-swatch',
+  'radii/toast':   '--radii-toast',
+  'radii/checkbox': '--radii-checkbox',
+  'radii/card':    '--radii-card',
 };
 
 // ─── Font scale key → CSS var mapping ────────────────────────────────────────
 export const FONT_SCALE_TO_CSS = {
-  'm': { size: '--m-size', weight: '--m-weight' },
-  's': { size: '--s-size', weight: '--s-weight' },
-  'l': { size: '--l-size', weight: '--l-weight' },
+  'm': { size: '--typography-m-font-size', weight: '--typography-m-font-weight' },
+  's': { size: '--typography-s-font-size', weight: '--typography-s-font-weight' },
+  'l': { size: '--typography-l-font-size', weight: '--typography-l-font-weight' },
 };
 
 // ─── Per-component CSS selector config for property binding checks ────────────
@@ -1236,7 +1236,7 @@ export const ALLOWED_BROAD_RULES = {
 
   // buttonList — ISOLATED (action buttons are display:none by default, shown on hover as buttonTertiary;
   // SVG color: broad .buttonList svg rule uses iconPrimary; arrow overrides to iconSecondary via higher-specificity rule;
-  // action button svg overrides to --buttonTertiary-text via hover-specific rule)
+  // action button svg overrides to --buttonTertiary-iconText via hover-specific rule)
   '.buttonList svg':            'ISOLATED — icon color inherits --buttonList-iconPrimary; action buttons hidden by default (display:none)',
   '.buttonList.selected svg':   'ISOLATED — selected state; same isolation',
   '.buttonList:hover svg':      'ISOLATED — hover state; same isolation',
@@ -1249,8 +1249,8 @@ export const ALLOWED_BROAD_RULES = {
   '.buttonList:hover .tooltipButton svg':    'ISOLATION FIX — same, hover state',
   '.buttonList.hovered .tooltipButton svg':  'ISOLATION FIX — same, keyboard-nav hover',
   '.buttonList.selected .tooltipButton svg': 'ISOLATION FIX — same, selected state',
-  '.buttonList .buttonList-action svg': 'LEAF — action buttons are buttonTertiary leaf components; color overridden to --buttonTertiary-text via high-specificity hover rule',
-  '.buttonList:not(.selected):hover .buttonList-action svg': 'LEAF — action button icon on hover uses --buttonTertiary-text (DS: buttonTertiary/iconText/default/color)',
+  '.buttonList .buttonList-action svg': 'LEAF — action buttons are buttonTertiary leaf components; color overridden to --buttonTertiary-iconText via high-specificity hover rule',
+  '.buttonList:not(.selected):hover .buttonList-action svg': 'LEAF — action button icon on hover uses --buttonTertiary-iconText (DS: buttonTertiary/iconText/default/color)',
   '.buttonList:not(.selected).hovered .buttonList-action svg': 'LEAF — same as above for .hovered class variant',
 
   // tableRow — LEAF
@@ -1263,6 +1263,13 @@ export const ALLOWED_BROAD_RULES = {
 
   // empty-state — DECORATIVE
   '.empty-state-content > svg': 'DECORATIVE — illustration slot (direct child only, so the action button keeps its own icon)',
+  '.badge.none svg': 'OWN-ICON — the badge\'s own icon takes its tone\'s badge/icon token',
+  '.badge.high svg': 'OWN-ICON — badge/icon/negative',
+  '.badge.clipped svg': 'OWN-ICON — badge/icon/negative',
+  '.badge.truncated svg': 'OWN-ICON — badge/icon/negative',
+  '.badge.overflow svg': 'OWN-ICON — badge/icon/negative',
+  '.badge.medium svg': 'OWN-ICON — badge/icon/warning',
+  '.badge.low svg': 'OWN-ICON — badge/icon/positive',
   '.empty-state.empty-state--positive .empty-state-content > svg': 'DECORATIVE — the illustration of the DS type=positive variant turns positive; no nested sub-components',
 
   // Isolation-fix rules (the override rules themselves)
@@ -1345,12 +1352,12 @@ export const CSS_PROPERTY_ASSERTIONS = [
   { sel: '.badge', prop: 'padding', expectedVar: '--padding-s' },
   // dividerSection — DS node 135-46577: paddingTop=24 (padding/xl), paddingBottom=2 (padding/xxs),
   // LR=0 intentional — sidePanelBody already provides 16px horizontal padding (adding both = 32px double-indent).
-  { sel: '.dividerSection', prop: 'background', expectedVar: '--bg'         },
+  { sel: '.dividerSection', prop: 'background', expectedVar: '--semantic-surface-elevationMedium'         },
   { sel: '.dividerSection-content', prop: 'padding', expectedVar: '--padding-xs' },  // DS 2026-09-09: root padding is 0; vertical rhythm is the Content's padding/xs (top+bottom)
   // buttonSecondary — DS: h=24 (HUG content), paddingLr=padding/xs, root gap FLUSH (rootGap 0 —
   // spacing is the LabelContainer/span padding). Root gap:0 is enforced via the gapPx contract field.
   { sel: '.buttonSecondary', prop: 'padding',       expectedVar: '--padding-xs' },
-  { sel: '.buttonSecondary', prop: 'border-radius', expectedVar: '--radius-full' },
+  { sel: '.buttonSecondary', prop: 'border-radius', expectedVar: '--radii-button' },
   // buttonQuaternary — DS: min-h-[24px] (Figma), paddingLr=padding/xs, no gap at root (gap/s from LabelContainer)
   { sel: '.buttonQuaternary', prop: 'height',        present:     false           }, // Figma uses min-height — fixed height is wrong
   { sel: '.buttonQuaternary', prop: 'min-height',    expectedVar: '--button-min-height'  },
@@ -1365,7 +1372,7 @@ export const CSS_PROPERTY_ASSERTIONS = [
   // disabled hover must NOT show the pill — ::before background must be reset to transparent
   { sel: '.buttonQuaternary:disabled:hover::before', prop: 'background', expected: 'transparent' },
   // swatch — DS: 24×24 (var(--button-min-height)), innerRadiusVar=radii/swatch; no padding/gap
-  { sel: '.swatch', prop: 'border-radius', expectedVar: '--radius-swatch' },
+  { sel: '.swatch', prop: 'border-radius', expectedVar: '--radii-swatch' },
   // overflowList — DS: h=32px (hardcoded, in knownHardcodedExceptions), paddingLr=padding/s, gapVar=gap/s at root
   { sel: '.overflowList', prop: 'padding', expectedVar: '--padding-s' },
   { sel: '.overflowList', prop: 'height',  expected:    '32px'        }, // Figma FIXED 32px; no sizing token → documented exception
@@ -1580,7 +1587,7 @@ export const BUTTON_CLASS_RULES = [
 
 // ─── Form controls that are DS input instances (gate [13c]) ──────────────────
 // Both plugins hand-roll a search/number field instead of using .inputWrap, so no
-// gate mapped them to the DS input component. They were bordered with --border
+// gate mapped them to the DS input component. They were bordered with --dividerLine-border
 // (dividerLine), which resolves to the SAME primitive as --input-border in light and
 // one ramp step darker in dark — correct-looking in one mode, too dim in the other,
 // and green across every token-level gate. This binding makes the element answerable
@@ -1596,7 +1603,7 @@ export const FORM_CONTROL_BINDINGS = [
         '--input-auto-border',
       ],
       'background': [
-        '--input-background', '--input-background-disabled', '--surface',
+        '--input-background', '--input-background-disabled', '--input-background-filled',
       ],
     },
   },

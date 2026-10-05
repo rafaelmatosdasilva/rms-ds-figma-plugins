@@ -7,6 +7,15 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.0 · 4 October 2026
+
+- Every CSS variable carries its Figma variable's name, so code and Figma read the same: `typography/m/font-size` is
+  `--typography-m-font-size`, `semantic/content/primary` is `--semantic-content-primary`, `radii/button` is
+  `--radii-button`, `buttonPrimary/iconText` is `--buttonPrimary-iconText`. Where one variable stood for several Figma
+  tokens, each has its own, aliased as in Figma (the badge's background, label and icon per tone; the input's radius).
+  A breaking change for anything that reads the old names; the three plugins move with this release.
+- The audit now fails when a variable is not called by its Figma name (`figmaNames: "strict"`).
+
 ## v1.0.3 · 4 October 2026
 
 - The code follows Figma: the modal is 320 wide; the empty state's illustration rule no longer reaches its action

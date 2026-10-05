@@ -7,40 +7,9 @@
 // Tokens where the naming convention (token/path → --token-path, drop /default /color)
 // does NOT produce the real CSS var name.  null = rgba/non-hex — skip comparison.
 export const EXPLICIT = {
-  'buttonPrimary/iconText':            '--buttonPrimary-text',
-  'buttonSecondary/text':              '--buttonSecondary-text',
-  'buttonSecondary/icon':              '--buttonSecondary-text',
-  'buttonTertiary/iconText/default':   '--buttonTertiary-text',
-  'buttonTertiary/iconText/active':    '--buttonTertiary-text-active',
-  'buttonQuaternary/iconText':         '--buttonQuaternary-text',
-  'dividerLine/border':                '--border',
-  'input/background/filled':           '--surface',
-  'input/value/filled':                '--text',
-  'semantic/content/primary':          '--text',
-  'semantic/content/secondary':        '--text-secondary',
-  // Surfaces — the DS elevation scale (semantic/background was retired; app/panel = medium,
-  // detail = low, actionbar/titlebar = high → figmaWindowChrome/background).
-  'semantic/surface/elevationMedium':  '--bg',
-  'semantic/surface/elevationLow':     '--bg-detail',
-  'semantic/surface/elevationHigh':    '--surface-elevation-high',
-  'figmaWindowChrome/background':       '--figmaWindowChrome-background',
-  'swatch/border/filled/primary':      '--swatch-border-filled',
-  'swatch/border/empty/primary':       '--swatch-border-empty',
-  'node/border/disabled':              '--node-border-disabled',
-  'segmentedControl/border/selected':  '--segmentedControl-border-selected',
-  'badge/background/negative':         '--semantic-negative',
-  'badge/background/warning':          '--semantic-warning',
-  'badge/background/positive':         '--semantic-positive',
-  'badge/label/negative':              '--semantic-negative',
-  'badge/label/warning':               '--semantic-warning',
-  'badge/label/positive':              '--semantic-positive',
-  'badge/icon/negative':               '--semantic-negative',
-  'badge/icon/warning':                '--semantic-warning',
-  'badge/icon/positive':               '--semantic-positive',
-  'badge/background/neutral':          '--badge-neutral',
-  'badge/label/neutral':               '--badge-neutral',
-  'badge/icon/neutral':                '--badge-neutral',
-  'overlay':                           '--overlay-bg',  // a colour with its own opacity in Figma (88%), rgba in CSS
+  // Every CSS variable carries its Figma token's name (token/path → --token-path, /default and /color dropped).
+  // Only a token whose CSS form needs a note stays here.
+  'overlay':                           '--overlay',  // a colour with its own opacity in Figma (88%), rgba in CSS
 };
 
 // ─── Color: tokens with no CSS implementation ────────────────────────────────
@@ -62,8 +31,8 @@ export const SKIP_TOKENS = new Set([
   'listItem/title',                  // no CSS consumer since library-atlas removal (2026-07) — declare when a plugin uses it
   'listItem/description',            // last consumer removed with the retired Font Scaling Lab details rows (2026-07-31) — declare when a plugin uses it
   // panel/background split into two variants 2026-09-13 (panel is now a type=primary/secondary set):
-  //  - primary   aliases semantic/surface/elevationMedium → --bg      (N900 both modes)
-  //  - secondary aliases semantic/surface/elevationLow    → --bg-detail (N800 L / N1000 D)
+  //  - primary   aliases semantic/surface/elevationMedium → --semantic-surface-elevationMedium      (N900 both modes)
+  //  - secondary aliases semantic/surface/elevationLow    → --semantic-surface-elevationLow (N800 L / N1000 D)
   // Both covered via the existing surface vars — no dedicated panel-bg var (matches the 2026-08 rebind).
   'panel/background/primary',
   'panel/background/secondary',
@@ -89,23 +58,8 @@ export const KNOWN_NULL = new Set([
 
 // ─── Sizing: EXPLICIT sizing token→CSS var deviations ────────────────────────
 export const EXPLICIT_SIZING = {
-  'general/min-height': '--min-height',
-  'general/thickness':  '--thickness',
-  'radii/button':       '--radius-full',
-  'radii/input':        '--radius-full',
-  'radii/swatch':       '--radius-swatch',
-  'radii/modal':        '--radius-modal',
-  'radii/toast':        '--radius-toast',
-  'radii/card':         '--radius-md',
-  'radii/tooltip':      '--radius-tooltip',
-  'radii/checkbox':     '--radius-checkbox',
-  // The text styles as variables (Figma 2026-10): the same values as the type scale above.
-  'typography/l/font-size':   '--l-size',
-  'typography/l/line-height': '--l-lh',
-  'typography/m/font-size':   '--m-size',
-  'typography/m/line-height': '--m-lh',
-  'typography/s/font-size':   '--s-size',
-  'typography/s/line-height': '--s-lh',
+  // Every sizing variable carries its Figma token's name (radii/button → --radii-button, typography/m/font-size →
+  // --typography-m-font-size): nothing to map.
 };
 
 // Sizing tokens with no CSS consumer — map to reason string
@@ -125,8 +79,8 @@ export const COVERED = new Set([
   'figmaWindowChrome/title', 'figmaWindowChrome/button',
   // figmaWindowChrome/divider now has --figmaWindowChrome-divider (actionbar/border rebound to it, 2026-08).
   // figmaWindowChrome/background now has a CSS var — consumed via semantic/surface/elevationHigh → actionbar/background.
-  // panel/background split 2026-09-13 into primary (→ --bg, elevationMedium) and
-  // secondary (→ --bg-detail, elevationLow) — the panel is now a type=primary/secondary set.
+  // panel/background split 2026-09-13 into primary (→ --semantic-surface-elevationMedium, elevationMedium) and
+  // secondary (→ --semantic-surface-elevationLow, elevationLow) — the panel is now a type=primary/secondary set.
   'panel/background/primary',
   'panel/background/secondary',
   'highlight/icon', 'highlight/background', 'highlight/text', 'highlightSelector/border',
@@ -153,8 +107,8 @@ export const COVERED = new Set([
   // listItem/description lost its last consumer when the retired Font Scaling Lab
   // details rows were removed (2026-07-31); DS token still exists, no CSS var now.
   'listItem/description',
-  // semantic/surface/elevation{Low,Medium,High} now consumed — mapped to --bg-detail / --bg /
-  // --surface-elevation-high via EXPLICIT.
+  // semantic/surface/elevation{Low,Medium,High} now consumed — mapped to --semantic-surface-elevationLow / --semantic-surface-elevationMedium /
+  // --semantic-surface-elevationHigh via EXPLICIT.
   // Settings collection icon-builder toggles bound inside DS frames (2026-07-11 bound walk).
   // Figma authoring config for the icon components — no CSS consumer, same class as figmaWindowChrome.
   'icon/background',
@@ -195,37 +149,37 @@ export const SYSTEM_VARS = new Set([
   '--depth-label-lh',  // label line box; circle column + connector derive geometry from it
   '--depth-stroke',    // radio ring + connector share one stroke weight
   // Semantic one-word aliases
-  '--bg', '--bg-secondary', '--bg-detail',
-  '--text', '--text-secondary', '--text-muted',
-  '--border',
-  '--surface', '--accent',
+  '--semantic-surface-elevationMedium', '--bg-secondary', '--semantic-surface-elevationLow',
+  '--semantic-content-primary', '--semantic-content-secondary', '--text-muted',
+  '--dividerLine-border',
+  '--input-background-filled', '--accent',
   // Primitive neutral scale
   ...Array.from({ length: 10 }, (_, i) => `--neutral-${(i + 1) * 100}`),
   // Sizing scale
   '--gap-xs', '--gap-s', '--gap-m', '--gap-l', '--gap-xl',
   '--padding-xxs', '--padding-xs', '--padding-s', '--padding-m', '--padding-l',
   // Typography scale
-  '--m-size', '--m-weight', '--m-lh',
-  '--s-size', '--s-weight', '--s-lh',
-  '--l-size', '--l-weight', '--l-lh',
+  '--typography-m-font-size', '--typography-m-font-weight', '--typography-m-line-height',
+  '--typography-s-font-size', '--typography-s-font-weight', '--typography-s-line-height',
+  '--typography-l-font-size', '--typography-l-font-weight', '--typography-l-line-height',
   // Structural sizing
-  '--min-height', '--thickness',
-  '--radius-full', '--radius-swatch', '--radius-modal', '--radius-toast',
-  '--radius-md', '--radius-tooltip', '--radius-sm', '--radius-checkbox',
+  '--general-min-height', '--general-thickness',
+  '--radii-button', '--radii-swatch', '--radii-modal', '--radii-toast',
+  '--radii-card', '--radii-tooltip', '--radius-sm', '--radii-checkbox',
   // System / browser chrome
-  '--overlay-bg', '--scrollbar-thumb', '--scrollbar-thumb-hover',
+  '--overlay', '--scrollbar-thumb', '--scrollbar-thumb-hover',
   '--input-auto-border',
   '--figmaWindowChrome-background',
   // Badge (grouped under semantic colors, not individual token vars)
-  '--badge-neutral',
+  '--badge-background-neutral',
   '--semantic-negative', '--semantic-warning', '--semantic-positive',
   // Swatch border aliases
-  '--swatch-border-filled', '--swatch-border-empty',
+  '--swatch-border-filled-primary', '--swatch-border-empty-primary',
   // Primitive color aliases (light/dark adaptive)
   '--red', '--green', '--yellow',
   // Internal component aliases (no dedicated DS token)
   '--input-background',
-  '--input-value',
+  '--input-value-filled',
   '--hex-sub-color',
   // tableRow component vars (DS removed tableRow color tokens 2026-06-16)
   '--tableRow-text', '--tableRow-background-hover', '--tableRow-icon',
@@ -271,15 +225,15 @@ export const NEUTRAL_DARK = {
 // Enables Gate [2] to verify typography token values (size, weight, line-height).
 // Each key must be declared in :root; value is [scale, prop] from snap.typography.
 export const TYPO = {
-  '--m-size':   ['m', 'size'],
-  '--m-weight': ['m', 'weight'],
-  '--m-lh':     ['m', 'lh'],
-  '--s-size':   ['s', 'size'],
-  '--s-weight': ['s', 'weight'],
-  '--s-lh':     ['s', 'lh'],
-  '--l-size':   ['l', 'size'],
-  '--l-weight': ['l', 'weight'],
-  '--l-lh':     ['l', 'lh'],
+  '--typography-m-font-size':   ['m', 'size'],
+  '--typography-m-font-weight': ['m', 'weight'],
+  '--typography-m-line-height':     ['m', 'lh'],
+  '--typography-s-font-size':   ['s', 'size'],
+  '--typography-s-font-weight': ['s', 'weight'],
+  '--typography-s-line-height':     ['s', 'lh'],
+  '--typography-l-font-size':   ['l', 'size'],
+  '--typography-l-font-weight': ['l', 'weight'],
+  '--typography-l-line-height':     ['l', 'lh'],
 };
 
 // ─── EFFECTS: hardcoded CSS effects that must be present per selector ─────────
@@ -298,13 +252,13 @@ export const FOCUS_CONTRACT = [
 // ─── SCOPE RULES: CSS vars constrained to specific CSS property types ──────────
 // Prevents color tokens from accidentally being used as spacing values.
 export const SCOPE_RULES = [
-  { var: '--text',           allowedProps: ['color', 'fill', 'stroke', '-webkit-text-fill-color'] },
-  { var: '--text-secondary', allowedProps: ['color', 'fill', 'stroke', '-webkit-text-fill-color'] },
+  { var: '--semantic-content-primary',           allowedProps: ['color', 'fill', 'stroke', '-webkit-text-fill-color'] },
+  { var: '--semantic-content-secondary', allowedProps: ['color', 'fill', 'stroke', '-webkit-text-fill-color'] },
   { var: '--text-muted',     allowedProps: ['color', 'fill', 'stroke', '-webkit-text-fill-color'] },
-  { var: '--bg',             allowedProps: ['background', 'background-color'] },
+  { var: '--semantic-surface-elevationMedium',             allowedProps: ['background', 'background-color'] },
   { var: '--bg-secondary',   allowedProps: ['background', 'background-color'] },
-  { var: '--bg-detail',      allowedProps: ['background', 'background-color'] },
-  { var: '--surface',        allowedProps: ['background', 'background-color'] },
+  { var: '--semantic-surface-elevationLow',      allowedProps: ['background', 'background-color'] },
+  { var: '--input-background-filled',        allowedProps: ['background', 'background-color'] },
 ];
 
 // ─── Gate [17]: curated contrast pairs (solid-on-solid) — hard-fail below `min` ───

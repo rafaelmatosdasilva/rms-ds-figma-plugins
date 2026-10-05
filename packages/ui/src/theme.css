@@ -3,30 +3,31 @@
     --font-family: Inter;
 
     /* Type scale — mirrors Figma font-scale variables m / s / l */
-    --m-size:   11px;
-    --m-weight: 600;
-    --m-lh:     16px;
-    --s-size:   10px;
-    --s-weight: 700;
-    --s-lh:     15px;
-    --l-size:   13px;
-    --l-weight: 600;
-    --l-lh:     17px;
+    --typography-m-font-size:   11px;
+    --typography-m-font-weight: 600;
+    --typography-m-line-height:     16px;
+    --typography-s-font-size:   10px;
+    --typography-s-font-weight: 700;
+    --typography-s-line-height:     15px;
+    --typography-l-font-size:   13px;
+    --typography-l-font-weight: 600;
+    --typography-l-line-height:     17px;
 
     /* Radius scale — aligned to Figma DS */
-    --radius-full:    24px;  /* pill: buttons, nodes, inputs, badges (radii/button, radii/input) */
-    --radius-modal:   var(--radius-full); /* modals (radii/modal = 24px) */
-    --radius-swatch:  var(--radius-full); /* swatch chips (radii/swatch = 24px, aliases radii/input) */
-    --radius-md:      12px;  /* cards (radii/card) */
-    --radius-toast:   24px;  /* toasts (radii/toast = 24px, aliases radii/button) */
-    --radius-tooltip:  8px;  /* tooltip (radii/tooltip) */
-    --radius-checkbox: 4px;  /* checkbox box (radii/checkbox) */
+    --radii-button:    24px;  /* radii/button: buttons, nodes, badges and every other pill */
+    --radii-input:    24px;  /* radii/input: the input field */
+    --radii-modal:   var(--radii-button); /* modals (radii/modal = 24px) */
+    --radii-swatch:  var(--radii-input); /* swatch chips (radii/swatch = 24px, aliases radii/input) */
+    --radii-card:      12px;  /* cards (radii/card) */
+    --radii-toast:   24px;  /* toasts (radii/toast = 24px, aliases radii/button) */
+    --radii-tooltip:  8px;  /* tooltip (radii/tooltip) */
+    --radii-checkbox: 4px;  /* checkbox box (radii/checkbox) */
 
     /* Border width */
     --icon-xsmall: 1.2px;  /* icon/xsmall stroke */
     --icon-small:  1.5px;  /* icon/small stroke */
     --icon-large:  2px;    /* icon/large stroke */
-    --thickness:   1.5px;  /* general/thickness */
+    --general-thickness:   1.5px;  /* general/thickness */
 
     /* Modal animation */
     --modal-duration: 0.28s;
@@ -48,8 +49,8 @@
     --neutral-1000: #ffffff;
 
     /* Spacing tokens — Figma DS (gap/*, padding/*, general/*) */
-    --min-height:  60px;  /* general/min-height */
-    --button-min-height: 24px; /* button/min-height — the 24px control height (was --min-height before the DS split the two) */
+    --general-min-height:  60px;  /* general/min-height */
+    --button-min-height: 24px; /* button/min-height — the 24px control height (was --general-min-height before the DS split the two) */
     --dividerSection-height: 6px; /* dividerSection/height — the level/priority dot box (DS 135:46577 binds it to the Level ellipse) */
     --gap-xs:      2px;
     --gap-s:       4px;
@@ -89,15 +90,15 @@
     /* Base — mode-aware via neutral ramp */
     /* Surfaces — the DS elevation scale (semantic/surface/elevation{Low,Medium,High}). */
     --figmaWindowChrome-background: #ffffff; /* figmaWindowChrome/background — direct DS value (L #fff / D #2c2c2c) */
-    --surface-elevation-high:   var(--figmaWindowChrome-background); /* semantic/surface/elevationHigh → figmaWindowChrome/background */
-    --bg: var(--neutral-900);           /* semantic/surface/elevationMedium N900 (app/panel surface) */
-    --bg-detail: var(--neutral-800);    /* semantic/surface/elevationLow L=N800, D→N1000 (detail surface) */
+    --semantic-surface-elevationHigh:   var(--figmaWindowChrome-background); /* semantic/surface/elevationHigh → figmaWindowChrome/background */
+    --semantic-surface-elevationMedium: var(--neutral-900);           /* semantic/surface/elevationMedium N900 (app/panel surface) */
+    --semantic-surface-elevationLow: var(--neutral-800);    /* semantic/surface/elevationLow L=N800, D→N1000 (detail surface) */
     --bg-secondary: var(--neutral-800); /* hover/secondary surface N800 */
-    --surface: var(--neutral-900);      /* input/background/filled L=N900, D→override */
-    --border: var(--neutral-700);       /* dividerLine/border L=N700, D→override */
-    --panel-border: var(--border);      /* panel/border/color → dividerLine/border (N700 both modes) */
-    --text: var(--neutral-100);         /* semantic/text/primary N100 */
-    --text-secondary: var(--neutral-300); /* semantic/text/secondary/color N300 — same primitive both modes, no dark override */
+    --input-background-filled: var(--neutral-900);      /* input/background/filled L=N900, D→override */
+    --dividerLine-border: var(--neutral-700);       /* dividerLine/border L=N700, D→override */
+    --panel-border: var(--dividerLine-border);      /* panel/border/color → dividerLine/border (N700 both modes) */
+    --semantic-content-primary: var(--neutral-100);         /* semantic/text/primary N100 */
+    --semantic-content-secondary: var(--neutral-300); /* semantic/text/secondary/color N300 — same primitive both modes, no dark override */
     --text-muted: var(--neutral-400);   /* input/label L=N400 = segmentedControl/label/default */
     --accent: var(--neutral-100);       /* node/border/selected N100 */
     /* Color primitives — red/green/yellow ramp */
@@ -117,9 +118,9 @@
     --toast-icon-error:       var(--neutral-1000);      /* toast/icon/error/color */
     /* Buttons */
     --buttonTertiary-background:          var(--neutral-800); /* buttonTertiary/background/default L=N800, D→N900 override */
-    --buttonTertiary-text:        var(--neutral-100); /* buttonTertiary/iconText/default L=N100, D→N300 override */
+    --buttonTertiary-iconText:        var(--neutral-100); /* buttonTertiary/iconText/default L=N100, D→N300 override */
     --buttonTertiary-background-active:   var(--neutral-1000);/* buttonTertiary/background/active N1000 */
-    --buttonTertiary-text-active: var(--neutral-200); /* buttonTertiary/iconText/active L=N200, D→N100 override */
+    --buttonTertiary-iconText-active: var(--neutral-200); /* buttonTertiary/iconText/active L=N200, D→N100 override */
     /* buttonList component */
     --buttonList-background-hover:    var(--neutral-1000); /* buttonList/background/hover L=N10, D→override */
     --buttonList-background-selected: var(--neutral-1000); /* buttonList/background/selected L=N10, D→override */
@@ -133,16 +134,17 @@
     --buttonSecondary-background-hover:   var(--neutral-1000);/* buttonSecondary/background/hover L=N1000, D→override */
     --buttonSecondary-border-hover:       var(--neutral-700); /* buttonSecondary/border/hover L=N700, D→override */
     --buttonSecondary-text:       var(--neutral-200); /* buttonSecondary/text L=N200, D→override */
+    --buttonSecondary-icon:       var(--buttonSecondary-text); /* buttonSecondary/icon → buttonSecondary/text */
     /* buttonQuaternary — ghost icon-only action button */
-    --buttonQuaternary-text:             var(--neutral-400); /* buttonQuaternary/iconText/color L=N400, D→auto */
+    --buttonQuaternary-iconText:             var(--neutral-400); /* buttonQuaternary/iconText/color L=N400, D→auto */
     --buttonQuaternary-background-hover: var(--neutral-1000);/* buttonQuaternary/background/hover/color N1000 */
     /* Primary button — different primitive per mode */
     --buttonPrimary-background:   var(--neutral-200);  /* buttonPrimary/background L=N200, D→override */
-    --buttonPrimary-text: var(--neutral-1000); /* buttonPrimary/iconText/color N1000 */
+    --buttonPrimary-iconText: var(--neutral-1000); /* buttonPrimary/iconText/color N1000 */
     /* Swatches */
-    --swatch-border-filled: var(--buttonSecondary-border); /* swatch/border/filled → buttonSecondary/border (both modes) */
-    --swatch-border-empty:  var(--neutral-700);             /* swatch/border/empty L=N700, D→buttonSecondary-border */
-    /* Swatch stripe color = same as --border; gap = transparent. No separate vars needed. */
+    --swatch-border-filled-primary: var(--buttonSecondary-border); /* swatch/border/filled → buttonSecondary/border (both modes) */
+    --swatch-border-empty-primary:  var(--neutral-700);             /* swatch/border/empty L=N700, D→buttonSecondary-border */
+    /* Swatch stripe color = same as --dividerLine-border; gap = transparent. No separate vars needed. */
     /* Inputs */
     --input-border:             var(--neutral-600); /* input/border/default/color L=N600, D→override */
     --input-border-focus:              var(--neutral-100); /* input/border/focus/color  L=N100 */
@@ -150,15 +152,15 @@
     --input-value-empty:        var(--neutral-500); /* input/value/empty/color   L=N5, D→override */
     --input-value-disabled:     var(--neutral-400); /* input/value/disabled/color L=N4, D→override */
     --input-border-disabled:    var(--neutral-800); /* input/border/disabled/color N800 both (replaces removed input/background/disabled) */
-    --input-background:          var(--surface);       /* input/background/filled → surface alias */
-    --input-value:               var(--neutral-100);   /* input/value/filled/color N1 both */
+    --input-background:          var(--input-background-filled);       /* input/background/filled → surface alias */
+    --input-value-filled:               var(--neutral-100);   /* input/value/filled/color N1 both */
     --input-label:               var(--neutral-400);   /* input/label/color L=N4, D→override */
     --input-icon:                var(--neutral-400);   /* input/icon/color L=N4, D→override */
     --input-auto-border: rgba(0,0,0,0.1);
     /* Action bar — gained its own DS tokens 2026-07-31 (was borrowing figmaWindowChrome).
        Border now chains actionbar/border → figmaWindowChrome/divider (rebound 2026-08):
        light still resolves to N700 (#d6d6d6) via dividerLine, dark is chrome grey #424242. */
-    --actionbar-background: var(--surface-elevation-high); /* actionbar/background → semantic/surface/elevationHigh */
+    --actionbar-background: var(--semantic-surface-elevationHigh); /* actionbar/background → semantic/surface/elevationHigh */
     --figmaWindowChrome-divider: var(--neutral-700);    /* figmaWindowChrome/divider L=N700 #d6d6d6, D→#424242 (chrome grey, no primitive) */
     --actionbar-border:     var(--figmaWindowChrome-divider); /* actionbar/border → figmaWindowChrome/divider (both modes) */
     /* figmaWindowChrome/background, /title, /button — Figma-native chrome,
@@ -167,7 +169,7 @@
     --scrollbar-thumb: rgba(0,0,0,0.2);
     --scrollbar-thumb-hover: rgba(0,0,0,0.35);
     /* Misc */
-    --overlay-bg: rgba(232,232,232,0.88); /* overlay/color: #e8e8e8 at 88% */
+    --overlay: rgba(232,232,232,0.88); /* overlay/color: #e8e8e8 at 88% */
     /* toast loading tokens retired — the loading variant moved to the `loader` component
        (loader/* tokens); the progress UI now uses --loader-background/spinner/title/description. */
     --toast-background-success: var(--semantic-positive); /* toast/background/success/color — mode-aware via semantic */
@@ -221,7 +223,18 @@
     --listItem-title:       var(--neutral-100); /* listItem/title N100 both modes */
     --listItem-description: var(--neutral-400); /* listItem/description L=N400, D→N300 override */
     /* Badge neutral (mode-aware) */
-    --badge-neutral: var(--neutral-700);  /* badge/background/neutral/color L=N700, D→override */
+    --badge-background-neutral: var(--neutral-700);  /* badge/background/neutral/color L=N700, D→override */
+    --badge-label-neutral: var(--badge-background-neutral);   /* badge/label/neutral → badge/background/neutral */
+    --badge-icon-neutral:  var(--badge-background-neutral);   /* badge/icon/neutral → badge/background/neutral */
+    --badge-background-negative: var(--semantic-negative);         /* badge/background/negative → semantic/negative */
+    --badge-label-negative:      var(--badge-background-negative); /* badge/label/negative → badge/background/negative */
+    --badge-icon-negative:       var(--badge-background-negative); /* badge/icon/negative → badge/background/negative */
+    --badge-background-warning:  var(--semantic-warning);          /* badge/background/warning → semantic/warning */
+    --badge-label-warning:       var(--badge-background-warning);
+    --badge-icon-warning:        var(--badge-background-warning);
+    --badge-background-positive: var(--semantic-positive);         /* badge/background/positive → semantic/positive */
+    --badge-label-positive:      var(--badge-background-positive);
+    --badge-icon-positive:       var(--badge-background-positive);
     /* Status bar */
     --statusbar-text: var(--neutral-100); /* statusbar/text/color N1 both modes */
     --statusbar-icon: var(--neutral-600); /* statusbar/icon/color L=N6, D→override */
@@ -245,7 +258,7 @@
     --radioButton-text-selected:       var(--neutral-100);  /* radioButton/text/selected N100 both */
     --radioButton-text-unselected:     var(--neutral-200);  /* radioButton/text/unselected N200 both */
     /* Checkbox */
-    --checkbox-background:          var(--surface); /* checkbox/background/default → input/background/filled (N900 L / N800 D) */
+    --checkbox-background:          var(--input-background-filled); /* checkbox/background/default → input/background/filled (N900 L / N800 D) */
     --checkbox-border:              var(--neutral-600);  /* checkbox/border/default L=N6, D→override */
     --checkbox-background-selected: var(--buttonPrimary-background);  /* checkbox/background/selected → buttonPrimary/background (N200 L / N100 D) */
     --checkbox-border-selected:     var(--neutral-100);  /* checkbox/border/selected N100 both */
@@ -301,23 +314,23 @@
       --neutral-1000: #1c1c1c;
       /* Base — tokens with different primitives per mode */
       --bg-secondary: var(--neutral-900); /* dark hover surface = same as bg */
-      --surface: var(--neutral-800);      /* input/background/filled Dark = N800 */
-      --border: var(--neutral-700);       /* dividerLine/border Dark = N700 #303030 */
+      --input-background-filled: var(--neutral-800);      /* input/background/filled Dark = N800 */
+      --dividerLine-border: var(--neutral-700);       /* dividerLine/border Dark = N700 #303030 */
       --text-muted: var(--neutral-300);   /* semantic/text/secondary Dark = N300 */
       /* Buttons */
       --buttonTertiary-background: var(--neutral-900); /* D=N900 (#212121) — L uses N800, split alias */
-      --buttonTertiary-text: var(--neutral-200);       /* D=N300 (#b8b8b8) — L uses N100, split alias */
+      --buttonTertiary-iconText: var(--neutral-200);       /* D=N300 (#b8b8b8) — L uses N100, split alias */
       /* --buttonTertiary-background-active: N1000 both modes — var(--neutral-1000) in :root resolves correctly via primitive */
-      --buttonTertiary-text-active: var(--neutral-100); /* D=N100 (#ededed) — L uses N200, split alias */
-      --buttonQuaternary-text: var(--neutral-300); /* Dark = N300 (#b8b8b8); light uses N400 */
+      --buttonTertiary-iconText-active: var(--neutral-100); /* D=N100 (#ededed) — L uses N200, split alias */
+      --buttonQuaternary-iconText: var(--neutral-300); /* Dark = N300 (#b8b8b8); light uses N400 */
       --buttonSecondary-background:         var(--neutral-800); /* Dark = N800 */
       --buttonSecondary-border:     var(--neutral-600); /* Dark = N600 */
       --buttonSecondary-background-hover:   var(--neutral-700); /* Dark = N700 */
       --buttonSecondary-border-hover:       var(--neutral-500); /* Dark = N500 */
       --buttonSecondary-text:       var(--neutral-200); /* Dark = N200 */
       --buttonPrimary-background:   var(--neutral-100);  /* D=N100=#ededed */
-      --swatch-border-filled: var(--buttonSecondary-border); /* Dark → buttonSecondary/border (= N600) */
-      --swatch-border-empty:  var(--buttonSecondary-border); /* Dark → buttonSecondary/border/default/color */
+      --swatch-border-filled-primary: var(--buttonSecondary-border); /* Dark → buttonSecondary/border (= N600) */
+      --swatch-border-empty-primary:  var(--buttonSecondary-border); /* Dark → buttonSecondary/border/default/color */
       --input-border:              var(--neutral-500); /* input/border/default D=N500 */
       --input-border-hover:               var(--neutral-400);   /* input/border/hover D=N400 */
       --input-value-empty:         var(--neutral-400);   /* input/value/empty D=N400 */
@@ -331,7 +344,7 @@
       --figmaWindowChrome-background: #2c2c2c;                /* figmaWindowChrome/background Dark (elevationHigh → actionbar) */
       --scrollbar-thumb: rgba(255,255,255,0.2);
       --scrollbar-thumb-hover: rgba(255,255,255,0.4);
-      --overlay-bg: rgba(43,43,43,0.88); /* overlay/color: #2b2b2b at 88% */
+      --overlay: rgba(43,43,43,0.88); /* overlay/color: #2b2b2b at 88% */
       /* Node tokens — different primitives per mode */
       --node-background-hover:                var(--neutral-800);  /* node/background/default Dark = N800 #2c2c2c */
       --node-background-selected:       var(--neutral-700);  /* Dark = N700 */
@@ -355,7 +368,7 @@
       --overflowList-border:           var(--neutral-600); /* D=N600 */
       --overflowList-label:            var(--neutral-100); /* D=N100 */
       --overflowList-label-hover:      var(--neutral-100); /* D=N100 */
-      --badge-neutral: var(--neutral-300);           /* Dark = N300 */
+      --badge-background-neutral: var(--neutral-300);           /* Dark = N300 */
       --emptyState-icon-neutral: var(--neutral-400);         /* Dark = N400 */
       --listItem-icon:        var(--neutral-400); /* Dark = N400 */
       --listItem-description: var(--neutral-300); /* Dark = N300 */
@@ -391,23 +404,23 @@
       --red:    #fe6767;
       --green:  #0cdf88;
       --yellow: #f7c522;
-      --bg-detail: var(--neutral-1000);  /* semantic/background Dark = N1000 */
+      --semantic-surface-elevationLow: var(--neutral-1000);  /* semantic/background Dark = N1000 */
       --figmaWindowChrome-divider: #424242; /* figmaWindowChrome/divider Dark — chrome grey, no neutral primitive */
       --checkbox-description: var(--neutral-300); /* checkbox/description Dark = N3 (mirrors radioButton/description) */
     }
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { background: var(--bg) !important; overflow: hidden; }
+  html { background: var(--semantic-surface-elevationMedium) !important; overflow: hidden; }
   body {
     overflow-x: hidden;
     font-family: var(--font-family), ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: var(--m-size);
-    font-weight: var(--m-weight);
-    color: var(--text);
-    background: var(--bg);
+    font-size: var(--typography-m-font-size);
+    font-weight: var(--typography-m-font-weight);
+    color: var(--semantic-content-primary);
+    background: var(--semantic-surface-elevationMedium);
     padding: 0 var(--padding-l);
-    line-height: var(--m-lh);
+    line-height: var(--typography-m-line-height);
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -425,7 +438,7 @@
     appearance: none;
     font-family: inherit;
     cursor: pointer;
-    font-weight: var(--m-weight);
+    font-weight: var(--typography-m-font-weight);
     transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
   }
   button:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
@@ -444,9 +457,9 @@
     gap: var(--gap-s);
     background: transparent; /* DS State=Default has no fill — resting node is transparent (shows the panel) */
     /* DS State=Default (the resting card) carries node/border/default. The width is
-       reserved (var(--thickness)) so hover/select never shifts layout. */
-    border: var(--thickness) solid var(--node-border-default);
-    border-radius: var(--radius-full);
+       reserved (var(--general-thickness)) so hover/select never shifts layout. */
+    border: var(--general-thickness) solid var(--node-border-default);
+    border-radius: var(--radii-button);
     padding: 0 var(--padding-s);
     min-height: 40px;
     flex-shrink: 0; /* DS node is a fixed 40px — must not compress as a flex-column list row */
@@ -455,8 +468,8 @@
     box-sizing: border-box;
     text-align: left;
     font-family: inherit;
-    font-size: var(--m-size);
-    font-weight: var(--m-weight);
+    font-size: var(--typography-m-font-size);
+    font-weight: var(--typography-m-font-weight);
     color: var(--node-label-idle);
     transition: border-color 0.1s, background 0.1s, color 0.1s;
     user-select: text;
@@ -554,8 +567,8 @@
   .empty-state-content p {
     max-width: 200px;  /* emptyState Figma component w=200 */
     margin: 0 auto;
-    font-size: var(--m-size);
-    line-height: var(--m-lh);
+    font-size: var(--typography-m-font-size);
+    line-height: var(--typography-m-line-height);
     color: var(--emptyState-title); /* emptyState/title/color */
   }
   /* DS EmptyState (node 1431:21215): Icon + Text(title/s-gap/description).
@@ -570,12 +583,12 @@
   .empty-state.empty-state--positive .empty-state-content > svg { color: var(--emptyState-icon-positive); }
   .empty-state-content .empty-state-title {
     max-width: 200px; margin: 0 auto;
-    font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh);
+    font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height);
     color: var(--emptyState-title); /* emptyState/title/color */
   }
   .empty-state-content .empty-state-desc {
     max-width: 200px; margin: 0 auto;
-    font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh);
+    font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height);
     color: var(--emptyState-description); /* emptyState/description/color (N300) — dedicated var */
   }
   /* DS Content group: icon → text sit gap/s (4px) apart, not the generic gap/xl. */
@@ -588,13 +601,13 @@
   #tt {
     position: fixed;
     background: var(--tooltipPopover-background);
-    border: var(--thickness) solid var(--tooltipPopover-border);
+    border: var(--general-thickness) solid var(--tooltipPopover-border);
     color: var(--tooltipPopover-text);
-    font-size: var(--s-size);
-    font-weight: var(--s-weight);
+    font-size: var(--typography-s-font-size);
+    font-weight: var(--typography-s-font-weight);
     padding: var(--padding-xs) var(--padding-s);
     gap: var(--gap-xl);
-    border-radius: var(--radius-tooltip);
+    border-radius: var(--radii-tooltip);
     white-space: pre-wrap;
     word-break: break-word;
     max-width: 240px;
@@ -602,7 +615,7 @@
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.15s ease;
-    line-height: var(--s-lh);
+    line-height: var(--typography-s-line-height);
   }
   #tt.tt-visible { opacity: 1; }
 
@@ -612,20 +625,20 @@
     align-items: center;
     justify-content: center;
     background: var(--buttonSecondary-background);
-    border: var(--thickness) solid var(--buttonSecondary-border);
-    border-radius: var(--radius-full);
+    border: var(--general-thickness) solid var(--buttonSecondary-border);
+    border-radius: var(--radii-button);
     color: var(--buttonSecondary-text);
     cursor: pointer;
     flex-shrink: 0;
     font-family: inherit;
-    font-size: var(--m-size);
-    font-weight: var(--m-weight);
+    font-size: var(--typography-m-font-size);
+    font-weight: var(--typography-m-font-weight);
     padding: 0 var(--padding-xs);
     gap: 0;  /* DS root is flush (rootGap 0); label↔icon spacing is the span's padding/xs, mirroring the DS LabelContainer */
     transition: border-color 0.15s ease, color 0.15s ease;
   }
   .buttonSecondary:hover { border-color: var(--buttonSecondary-border-hover); color: var(--buttonSecondary-text); background: var(--buttonSecondary-background-hover); }
-  .buttonSecondary svg { order: 1; }
+  .buttonSecondary svg { order: 1; color: var(--buttonSecondary-icon); }
   /* DS LabelContainer: label wrapped in span carries padding/xs LR inside the root's padding/xs —
      mirrors Figma structure exactly (same pattern as .buttonTertiary span) */
   .buttonSecondary span { white-space: nowrap; padding: 0 var(--padding-xs); }
@@ -657,31 +670,31 @@
     padding: 0 var(--padding-xs);  /* padding/xs = 4px LR per DS component */
     gap: 0;  /* DS root flush (rootGap 0) — label↔icon spacing is the span padding only */
     background: var(--buttonTertiary-background);
-    border: var(--thickness) solid var(--buttonTertiary-background);
-    border-radius: var(--radius-full);
-    color: var(--buttonTertiary-text);
+    border: var(--general-thickness) solid var(--buttonTertiary-background);
+    border-radius: var(--radii-button);
+    color: var(--buttonTertiary-iconText);
     cursor: pointer;
     flex-shrink: 0;
-    font-size: var(--m-size);
-    font-weight: var(--m-weight);
+    font-size: var(--typography-m-font-size);
+    font-weight: var(--typography-m-font-weight);
     white-space: nowrap;
-    line-height: var(--m-lh);
+    line-height: var(--typography-m-line-height);
     transition: background 0.15s ease, color 0.15s ease;
   }
   .buttonTertiary:hover {
     background: var(--buttonTertiary-background-active);
-    color: var(--buttonTertiary-text-active);
-    border-color: var(--buttonTertiary-text-active); /* DS active state: Background.strokes = buttonTertiary/iconText/active/color */
+    color: var(--buttonTertiary-iconText-active);
+    border-color: var(--buttonTertiary-iconText-active); /* DS active state: Background.strokes = buttonTertiary/iconText/active/color */
   }
-  .buttonTertiary svg { display: block; flex-shrink: 0; stroke: var(--buttonTertiary-text); transition: stroke 0.15s ease; }
-  .buttonTertiary:hover svg { stroke: var(--buttonTertiary-text-active); }
+  .buttonTertiary svg { display: block; flex-shrink: 0; stroke: var(--buttonTertiary-iconText); transition: stroke 0.15s ease; }
+  .buttonTertiary:hover svg { stroke: var(--buttonTertiary-iconText-active); }
   .buttonTertiary span { white-space: nowrap; padding: 0 var(--padding-xs); /* LabelContainer inner padding — matches Figma 4px LR inside LabelContainer frame */ }
 
   @media (prefers-color-scheme: dark) {
-    .buttonTertiary { color: var(--buttonTertiary-text); }
-    .buttonTertiary svg { stroke: var(--buttonTertiary-text); }
-    .buttonTertiary:hover { color: var(--buttonTertiary-text-active); border-color: var(--buttonTertiary-text-active); }
-    .buttonTertiary:hover svg { stroke: var(--buttonTertiary-text-active); }
+    .buttonTertiary { color: var(--buttonTertiary-iconText); }
+    .buttonTertiary svg { stroke: var(--buttonTertiary-iconText); }
+    .buttonTertiary:hover { color: var(--buttonTertiary-iconText-active); border-color: var(--buttonTertiary-iconText-active); }
+    .buttonTertiary:hover svg { stroke: var(--buttonTertiary-iconText-active); }
   }
 
   /* ── Ghost action button (buttonQuaternary DS component) ── */
@@ -724,13 +737,13 @@
     outline: none;
     -webkit-appearance: none;
     appearance: none;
-    border-radius: var(--radius-full);
-    color: var(--buttonQuaternary-text);
+    border-radius: var(--radii-button);
+    color: var(--buttonQuaternary-iconText);
     cursor: pointer;
     flex-shrink: 0;
     font-family: inherit;
-    font-size: var(--m-size);
-    font-weight: var(--m-weight);
+    font-size: var(--typography-m-font-size);
+    font-weight: var(--typography-m-font-weight);
     white-space: nowrap;
     position: relative;
     transition: opacity 0.15s ease;
@@ -739,13 +752,13 @@
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: var(--radius-full);
+    border-radius: var(--radii-button);
     background: transparent;
     transition: background 0.15s ease;
     pointer-events: none;
   }
   .buttonQuaternary > * { position: relative; z-index: 1; }
-  .buttonQuaternary svg { display: block; flex-shrink: 0; stroke: var(--buttonQuaternary-text); }
+  .buttonQuaternary svg { display: block; flex-shrink: 0; stroke: var(--buttonQuaternary-iconText); }
   .buttonQuaternary:hover::before { background: var(--buttonQuaternary-background-hover); }
 
   /* ── Icon-only variant ── */
@@ -790,15 +803,15 @@
     /* DS 1428:21123: padding/xs on the frame + padding/xs inside its LabelContainer.
        Mirrors Figma structurally, same pattern as the other three buttons. */
     padding: 0 var(--padding-xs);
-    font-size: var(--m-size);
-    color: var(--buttonPrimary-text);
+    font-size: var(--typography-m-font-size);
+    color: var(--buttonPrimary-iconText);
     cursor: pointer;
     white-space: nowrap;
     background: var(--buttonPrimary-background);
     border: none;
-    border-radius: var(--radius-full);
+    border-radius: var(--radii-button);
     font-family: inherit;
-    line-height: var(--m-lh);
+    line-height: var(--typography-m-line-height);
     flex-shrink: 0;
     transition: background 0.15s ease, color 0.15s ease;
   }
@@ -829,8 +842,8 @@
   .actionbar::after {
     content: ''; position: absolute; inset: 0; pointer-events: none;
     background:
-      linear-gradient(var(--actionbar-border), var(--actionbar-border)) top / 100% var(--thickness) no-repeat,
-      linear-gradient(var(--actionbar-border), var(--actionbar-border)) bottom / 100% var(--thickness) no-repeat;
+      linear-gradient(var(--actionbar-border), var(--actionbar-border)) top / 100% var(--general-thickness) no-repeat,
+      linear-gradient(var(--actionbar-border), var(--actionbar-border)) bottom / 100% var(--general-thickness) no-repeat;
   }
 
   /* actionBar with the Background and Border boolean props toggled off (DS 2120:28369):
@@ -841,8 +854,8 @@
   }
   .actionbar:where(.actionbar--plain)::before, .actionbar:where(.actionbar--plain)::after { content: none; }
   /* Its Figma switches: Show dividerLine Top, Show dividerLine Bottom and Show Background, each on by default. */
-  .actionbar.no-divider-top::after { background: linear-gradient(var(--actionbar-border), var(--actionbar-border)) bottom / 100% var(--thickness) no-repeat; }
-  .actionbar.no-divider-bottom::after { background: linear-gradient(var(--actionbar-border), var(--actionbar-border)) top / 100% var(--thickness) no-repeat; }
+  .actionbar.no-divider-top::after { background: linear-gradient(var(--actionbar-border), var(--actionbar-border)) bottom / 100% var(--general-thickness) no-repeat; }
+  .actionbar.no-divider-bottom::after { background: linear-gradient(var(--actionbar-border), var(--actionbar-border)) top / 100% var(--general-thickness) no-repeat; }
   .actionbar.no-divider-top.no-divider-bottom::after { content: none; }
   .actionbar.no-background::before { content: none; }
   #rescan-btn { margin-top: 0; align-self: center; }
@@ -861,8 +874,8 @@
   .inputWrap {
     display: flex; align-items: center;
     background: var(--input-background);
-    border: var(--thickness) solid var(--input-border); /* input/border/default */
-    border-radius: var(--radius-full);
+    border: var(--general-thickness) solid var(--input-border); /* input/border/default */
+    border-radius: var(--radii-input);
     padding: 0 var(--padding-s);  /* padding/s = 8px LR, symmetric per DS component */
     height: var(--button-min-height); gap: var(--gap-s);
     transition: border-color 0.15s ease;
@@ -874,8 +887,8 @@
   .inputWrap.inputWrap--disabled .inputField { color: var(--input-value-disabled); }
   .inputField {
     background: transparent; border: none;
-    color: var(--input-value); font-family: inherit;
-    font-size: var(--m-size); font-weight: var(--m-weight);
+    color: var(--input-value-filled); font-family: inherit;
+    font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight);
     padding: 0 4px; flex: 1; min-width: 0; outline: none;
   }
   .inputField::placeholder { color: var(--input-value-empty); }
@@ -883,11 +896,11 @@
   .inputField:-webkit-autofill:hover,
   .inputField:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px var(--input-background) inset;
-    -webkit-text-fill-color: var(--text);
+    -webkit-text-fill-color: var(--input-value-filled);
     transition: background-color 9999s ease-in-out 0s;
   }
   .inputWrap .inputLabel, .inputWrap .inputLabel-after {
-    font-size: var(--m-size); font-weight: var(--m-weight);
+    font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight);
     color: var(--input-label);
     user-select: none; pointer-events: none;
     white-space: nowrap; flex-shrink: 0; line-height: 1;
@@ -905,7 +918,7 @@
     pointer-events: none;
   }
   #progress-container:not(:empty) {
-    background: var(--overlay-bg);
+    background: var(--overlay);
     backdrop-filter: blur(4px);
     pointer-events: none;
   }
@@ -922,9 +935,9 @@
     background: var(--loader-background); color: var(--loader-title);
     height: 48px; padding: var(--padding-s) var(--padding-m); /* Figma: h=48, paddingVar tb=padding/s lr=padding/m */
     flex-shrink: 0; /* DS toast is a fixed 48px — never compress */
-    font-size: var(--m-size); font-weight: var(--m-weight);
+    font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight);
     display: inline-flex; align-items: center; gap: var(--gap-xl); /* gap/xl = 16px */
-    border-radius: var(--radius-toast); white-space: nowrap; pointer-events: auto;
+    border-radius: var(--radii-toast); white-space: nowrap; pointer-events: auto;
     animation: modal-in var(--modal-duration) var(--modal-easing) both;
   }
   .progress-msg.progress-out {
@@ -937,7 +950,7 @@
   }
   .progress-msg--scan.has-eta { transform: translateY(-8px); }
   .scan-info { display: flex; flex-direction: column; gap: var(--gap-xs); justify-content: center; }
-  .scan-label { display: flex; align-items: center; gap: var(--gap-s); font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); white-space: nowrap; }
+  .scan-label { display: flex; align-items: center; gap: var(--gap-s); font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); white-space: nowrap; }
   .scan-pct {
     display: inline-block; text-align: right;
     max-width: 0; overflow: hidden; opacity: 0;
@@ -945,7 +958,7 @@
   }
   .scan-pct.pct-visible { max-width: 32px; opacity: 1; }
   .scan-eta {
-    font-size: var(--m-size); line-height: 1.3;
+    font-size: var(--typography-m-font-size); line-height: 1.3;
     max-height: 0; opacity: 0; overflow: hidden;
     transition: max-height 0.01s, opacity 0.3s ease;
   }
@@ -961,8 +974,8 @@
     gap: 0;
     padding: 0;
     background: var(--segmentedControl-background);
-    border: var(--thickness) solid var(--segmentedControl-border);
-    border-radius: var(--radius-full);
+    border: var(--general-thickness) solid var(--segmentedControl-border);
+    border-radius: var(--radii-button);
     flex-shrink: 0;
     position: relative; /* needed for pill absolute positioning */
   }
@@ -971,9 +984,9 @@
   .seg-pill {
     position: absolute;
     top: 0; bottom: 0; left: 0; width: 0;
-    border-radius: var(--radius-full);
+    border-radius: var(--radii-button);
     background: var(--segmentedControl-background-selected);
-    border: var(--thickness) solid var(--segmentedControl-border-selected);
+    border: var(--general-thickness) solid var(--segmentedControl-border-selected);
     pointer-events: none;
     z-index: 0;
     transition: left 0.22s cubic-bezier(0.4, 0, 0.2, 1),
@@ -988,21 +1001,21 @@
     padding: var(--padding-xxs) var(--padding-m); /* 2px T/B, 12px L/R */
     height: var(--button-min-height);
     background: transparent;
-    border: var(--thickness) solid transparent; /* transparent border — selected replaces it */
+    border: var(--general-thickness) solid transparent; /* transparent border — selected replaces it */
     position: relative; z-index: 1; /* sit above the pill */
-    border-radius: var(--radius-full);
+    border-radius: var(--radii-button);
     color: var(--segmentedControl-label);
     cursor: pointer;
     font-family: inherit;
-    font-size: var(--s-size);     /* DS label text style = s (10px/700) */
-    font-weight: var(--s-weight);
+    font-size: var(--typography-s-font-size);     /* DS label text style = s (10px/700) */
+    font-weight: var(--typography-s-font-weight);
     white-space: nowrap;
     transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
     flex-shrink: 0;
   }
 
   .segmented-control button:hover:not(.selected) {
-    color: var(--text);
+    color: var(--semantic-content-primary);
   }
 
   /* tab-label: visible by default; auto-collapses when button is too narrow (container query below) */
@@ -1070,8 +1083,8 @@
     width: 16px; height: 16px;
     display: inline-flex; align-items: center; justify-content: center;
     background: var(--checkbox-background);
-    border: var(--thickness) solid var(--checkbox-border);
-    border-radius: var(--radius-checkbox);
+    border: var(--general-thickness) solid var(--checkbox-border);
+    border-radius: var(--radii-checkbox);
     transition: background 0.12s ease, border-color 0.12s ease, border-radius 0.12s ease;
   }
   /* The tick fills the 16px box so its DS-native 2pt stroke renders at 2px (a 12px svg
@@ -1085,28 +1098,28 @@
   .checkbox-input:checked + .checkbox-box {
     background: var(--checkbox-background-selected);
     border-color: var(--checkbox-border-selected);
-    border-radius: var(--radius-checkbox);
+    border-radius: var(--radii-checkbox);
   }
   .checkbox-input:checked + .checkbox-box .checkbox-check { opacity: 1; transform: scale(1); }
   /* Own weight/line-height so the label matches the DS text style (Inter SemiBold 600,
      11px) instead of inheriting a heavier weight from a surrounding container. */
-  .checkbox-text { font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); color: var(--checkbox-text); }
+  .checkbox-text { font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); color: var(--checkbox-text); }
   .checkbox-input:checked ~ .checkbox-text, .checkbox-input:checked ~ .checkbox-content .checkbox-text { color: var(--checkbox-text-selected); }
   /* DS Content: Text over Description (Show Description), stacked with no gap. */
   .checkbox-content { display: flex; flex-direction: column; min-width: 0; }
-  .checkbox-input:focus-visible + .checkbox-box { outline: var(--thickness) solid var(--input-border-focus); outline-offset: 1px; }
+  .checkbox-input:focus-visible + .checkbox-box { outline: var(--general-thickness) solid var(--input-border-focus); outline-offset: 1px; }
   /* checkbox/description (DS checkBox Description child) — s text style, muted. */
-  .checkbox-description { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--checkbox-description); }
+  .checkbox-description { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--checkbox-description); }
   /* checkBoxGroup (DS 2064:29545) — a labelled vertical stack of checkboxes.
      Label (s style, content/secondary) sits gap/m above a Slot that stacks the
      checkbox rows at gap/s. */
   .checkBoxGroup { display: flex; flex-direction: column; gap: var(--gap-m); }
-  .checkBoxGroup-label { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--text-secondary); }
+  .checkBoxGroup-label { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--semantic-content-secondary); }
   .checkBoxGroup-slot { display: flex; flex-direction: row; gap: var(--gap-xxxl); }   /* DS Slot: HORIZONTAL, gap/xxxl (32) — same as radioButtonGroup-slot */
   /* radioButtonGroup (DS 239-…) — a labelled group of radios laid in a ROW. Label
      (s style, content/secondary) sits gap/m above a Slot that spaces the radios at gap/xxxl. */
   .radioButtonGroup { display: flex; flex-direction: column; gap: var(--gap-m); }
-  .radioButtonGroup-label { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--text-secondary); }
+  .radioButtonGroup-label { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--semantic-content-secondary); }
   .radioButtonGroup-slot { display: flex; flex-direction: row; gap: var(--gap-xxxl); }
   /* highlight (DS) — a red highlight pill: bg highlight/background, s text, gap/xs, padding/s LR, h24. */
   .highlight {
@@ -1114,7 +1127,7 @@
     height: 24px; padding: 0 var(--padding-s);
     background: var(--highlight-background);
     color: var(--highlight-text);
-    font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh);
+    font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height);
     flex-shrink: 0;
   }
   .highlight svg { color: var(--highlight-icon); }
@@ -1136,14 +1149,14 @@
   .listItem-main { display: flex; flex-direction: column; gap: var(--gap-xs); min-width: 0; flex: 1; }   /* DS Frame 83: title over description, gap/xs */
   .listItem-action { flex-shrink: 0; }
   .listItem-divider { align-self: stretch; }   /* DS Show dividerLine: a dividerLine under the row */   /* DS Action: a buttonTertiary at the end of the row (Show Action) */
-  .listItem-title { font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); color: var(--listItem-title); }
-  .listItem-desc { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--listItem-description); }
+  .listItem-title { font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); color: var(--listItem-title); }
+  .listItem-desc { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--listItem-description); }
   /* overlay (DS) — a full-cover scrim centring a Slot (e.g. a loader). */
   .overlay {
     position: absolute; inset: 0; z-index: 100;
     display: flex; align-items: center; justify-content: center;
     padding: var(--padding-l);
-    background: var(--overlay-bg);
+    background: var(--overlay);
   }
   /* Card (DS 2120:62601) — bordered rounded container. Padding bound to gap/xl (16),
      items stacked at gap/l (12), 1.5px card/border, radii/card (12). */
@@ -1152,23 +1165,23 @@
     flex-direction: column;
     gap: var(--gap-l);
     padding: var(--gap-xl);
-    border: var(--thickness) solid var(--card-border);
-    border-radius: var(--radius-md);
-    font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); /* DS card text style s */
+    border: var(--general-thickness) solid var(--card-border);
+    border-radius: var(--radii-card);
+    font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); /* DS card text style s */
   }
   /* DS card Title (Show Title): s text, content/secondary. */
-  .card-title { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--text-secondary); }
+  .card-title { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--semantic-content-secondary); }
   /* switch (DS 2120:3385) — toggle track pill + sliding knob + description, with On/Off
      states. The hidden input drives :checked; the track/knob/label recolour and the knob
      slides right. Track/knob dimensions are component-specific (no DS size token). */
-  .switch { display: inline-flex; align-items: center; gap: var(--gap-m); cursor: pointer; user-select: none; font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); /* DS switch text style m */ }
+  .switch { display: inline-flex; align-items: center; gap: var(--gap-m); cursor: pointer; user-select: none; font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); /* DS switch text style m */ }
   .switch-tooltip, .switch-field { flex-shrink: 0; }   /* DS Show Tooltip (a tooltipButton after the description) and Show Input (an input after the content) */
   .switch-input { position: absolute; width: 1px; height: 1px; opacity: 0; margin: 0; pointer-events: none; }
   .switch-track {
     position: relative;
     flex-shrink: 0;
     width: 46px; height: 24px;
-    border-radius: var(--radius-full);
+    border-radius: var(--radii-button);
     background: var(--switch-background-enabledOff);
     transition: background 0.15s ease;
   }
@@ -1181,8 +1194,8 @@
   }
   .switch-input:checked + .switch-track { background: var(--switch-background-enabledOn); }
   .switch-input:checked + .switch-track .switch-knob { background: var(--switch-knob-enabledOn); transform: translateX(18px); }
-  .switch-input:focus-visible + .switch-track { outline: var(--thickness) solid var(--input-border-focus); outline-offset: 1px; }
-  .switch-description { font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); color: var(--switch-description-enabledOff); }
+  .switch-input:focus-visible + .switch-track { outline: var(--general-thickness) solid var(--input-border-focus); outline-offset: 1px; }
+  .switch-description { font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); color: var(--switch-description-enabledOff); }
   .switch-input:checked ~ .switch-content .switch-description,
   .switch-input:checked ~ .switch-description { color: var(--switch-description-enabledOn); }
   .switch.disabled { opacity: 0.4; pointer-events: none; }
@@ -1201,8 +1214,8 @@
   .radioButton-circle {
     flex-shrink: 0;
     width: 16px; height: 16px;
-    border-radius: var(--radius-full);
-    border: var(--thickness) solid var(--radioButton-border);
+    border-radius: var(--radii-button);
+    border: var(--general-thickness) solid var(--radioButton-border);
     background: var(--radioButton-background);
     display: inline-flex; align-items: center; justify-content: center;
     box-sizing: border-box;
@@ -1213,7 +1226,7 @@
      dark centre, not a dark circle with a small light dot. */
   .radioButton-circle::after {
     content: ''; width: 8px; height: 8px;
-    border-radius: var(--radius-full);
+    border-radius: var(--radii-button);
     background: var(--radioButton-background-selected);
     transform: scale(0); transition: transform 0.15s ease;
   }
@@ -1222,22 +1235,22 @@
     border-color: var(--radioButton-border-selected);
   }
   .radioButton-input:checked + .radioButton-circle::after { transform: scale(1); }
-  .radioButton-input:focus-visible + .radioButton-circle { outline: var(--thickness) solid var(--input-border-focus); outline-offset: 1px; }
-  .radioButton-label { font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); color: var(--radioButton-text); }
+  .radioButton-input:focus-visible + .radioButton-circle { outline: var(--general-thickness) solid var(--input-border-focus); outline-offset: 1px; }
+  .radioButton-label { font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); color: var(--radioButton-text); }
   .radioButton-input:checked ~ .radioButton-label, .radioButton-input:checked ~ .radioButton-content .radioButton-label { color: var(--radioButton-text-selected); }
   /* DS Content (711:18562): the Text frame (label over Description, no gap) above an optional dividerLine, gap/m. */
   .radioButton-content { display: flex; flex-direction: column; gap: var(--gap-m); min-width: 0; flex: 1; }
   .radioButton-text { display: flex; flex-direction: column; }
   .radioButton-divider { align-self: stretch; }   /* DS Show Divider Line: a dividerLine under the text */
-  .radioButton-description { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--radioButton-description); }
+  .radioButton-description { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--radioButton-description); }
   .seg-status {
     width: var(--dividerSection-height); height: var(--dividerSection-height);
-    border-radius: var(--radius-full);
+    border-radius: var(--radii-button);
     background: currentColor;
     flex-shrink: 0;
   }
   .segmented-control button.no-status .seg-status { display: none; }
-  .seg-number { font-size: var(--s-size); font-weight: var(--s-weight); flex-shrink: 0; }
+  .seg-number { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); flex-shrink: 0; }
   .segmented-control button.no-number .seg-number { display: none; }
 
   /* ── Badge component (mirrors .details-status from type-scaling-lab) ── */
@@ -1247,22 +1260,27 @@
     align-self: flex-start;
     gap: var(--gap-s);                             /* gap/s = 4px — DS badge icon↔label gap */
     padding: var(--padding-xxs) var(--padding-s);  /* padding/xxs T/B + padding/s (8px) L/R */
-    border-radius: var(--radius-full);   /* radii/button = 24px */
-    font-size: var(--s-size);
-    font-weight: var(--s-weight);
+    border-radius: var(--radii-button);   /* radii/button = 24px */
+    font-size: var(--typography-s-font-size);
+    font-weight: var(--typography-s-font-weight);
     flex-shrink: 0;
     white-space: nowrap;
   }
 
   /* Tier variants — mode-aware via semantic tokens */
-  .badge.none     { background: color-mix(in srgb, var(--badge-neutral)     12%, transparent); color: var(--badge-neutral); }
-  .badge.high     { background: color-mix(in srgb, var(--semantic-negative) 12%, transparent); color: var(--semantic-negative); }
-  .badge.medium   { background: color-mix(in srgb, var(--semantic-warning)  15%, transparent); color: var(--semantic-warning); }
-  .badge.low      { background: color-mix(in srgb, var(--semantic-positive) 12%, transparent); color: var(--semantic-positive); }
+  .badge.none     { background: color-mix(in srgb, var(--badge-background-neutral)     12%, transparent); color: var(--badge-label-neutral); }
+  .badge.high     { background: color-mix(in srgb, var(--badge-background-negative) 12%, transparent); color: var(--badge-label-negative); }
+  .badge.medium   { background: color-mix(in srgb, var(--badge-background-warning)  15%, transparent); color: var(--badge-label-warning); }
+  .badge.low      { background: color-mix(in srgb, var(--badge-background-positive) 12%, transparent); color: var(--badge-label-positive); }
   /* Issue type variants */
-  .badge.clipped  { background: color-mix(in srgb, var(--semantic-negative) 12%, transparent); color: var(--semantic-negative); }
-  .badge.truncated{ background: color-mix(in srgb, var(--semantic-negative) 12%, transparent); color: var(--semantic-negative); }
-  .badge.overflow { background: color-mix(in srgb, var(--semantic-negative) 12%, transparent); color: var(--semantic-negative); }
+  .badge.clipped  { background: color-mix(in srgb, var(--badge-background-negative) 12%, transparent); color: var(--badge-label-negative); }
+  .badge.truncated{ background: color-mix(in srgb, var(--badge-background-negative) 12%, transparent); color: var(--badge-label-negative); }
+  .badge.overflow { background: color-mix(in srgb, var(--badge-background-negative) 12%, transparent); color: var(--badge-label-negative); }
+  /* Each tone's icon by its own Figma token (badge/icon/…) */
+  .badge.none svg { color: var(--badge-icon-neutral); }
+  .badge.high svg, .badge.clipped svg, .badge.truncated svg, .badge.overflow svg { color: var(--badge-icon-negative); }
+  .badge.medium svg { color: var(--badge-icon-warning); }
+  .badge.low svg { color: var(--badge-icon-positive); }
   .badge svg { flex-shrink: 0; }
   .badge.no-icon svg { display: none; }
   .badge.no-label .badge-label { display: none; }
@@ -1272,15 +1290,15 @@
     display: flex;
     flex-direction: column;
     background: var(--overflow-background);
-    border: var(--thickness) solid var(--overflow-border);
-    border-radius: var(--radius-md);
+    border: var(--general-thickness) solid var(--overflow-border);
+    border-radius: var(--radii-card);
     padding: var(--padding-xs) 0;
-    font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); /* DS overflow text style s */
+    font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); /* DS overflow text style s */
     overflow: clip;
   }
   .overflow-label {
-    font-size: var(--s-size);
-    font-weight: var(--s-weight);
+    font-size: var(--typography-s-font-size);
+    font-weight: var(--typography-s-font-weight);
     color: var(--overflow-text);
     padding: var(--padding-xs) var(--padding-s);
     white-space: nowrap;
@@ -1295,14 +1313,14 @@
     background: var(--overflowList-background);
     /* DS overflowList item (789:35422) binds ONLY strokeBottomWeight (general/thickness);
        top/left/right are 0. It's a row divider, not a boxed border. */
-    border-bottom: var(--thickness) solid var(--overflowList-border);
+    border-bottom: var(--general-thickness) solid var(--overflowList-border);
     padding: 0 var(--padding-s);
     gap: var(--gap-s);
     flex-shrink: 0; /* DS overflowList is a fixed 32px — never compress as a flyout row */
     height: 32px;
     font-family: inherit;
-    font-size: var(--m-size);
-    font-weight: var(--m-weight);
+    font-size: var(--typography-m-font-size);
+    font-weight: var(--typography-m-font-weight);
     color: var(--overflowList-label);
     cursor: pointer;
     white-space: nowrap;
@@ -1325,13 +1343,13 @@
     width: 100%;
     text-align: left;
     background: transparent;
-    border-bottom: var(--thickness) solid var(--border); /* border-bottom only — items stack touching */
+    border-bottom: var(--general-thickness) solid var(--dividerLine-border); /* border-bottom only — items stack touching */
     padding: 0 var(--padding-xs);           /* padding/xs LR — icon+text inset */
     height: 40px;
     flex-shrink: 0; /* DS buttonList is a fixed 40px (hug) — must never compress in a constrained flex list */
     font-family: inherit;
-    font-size: var(--m-size);
-    font-weight: var(--m-weight);
+    font-size: var(--typography-m-font-size);
+    font-weight: var(--typography-m-font-weight);
     color: var(--buttonList-text);
     cursor: pointer;
     position: relative;
@@ -1342,7 +1360,7 @@
     content: '';
     position: absolute;
     inset: 4px 0;                  /* 4px top/bottom, full width — matches Content frame */
-    border-radius: var(--radius-full);
+    border-radius: var(--radii-button);
     background: transparent;
     transition: background 0.1s ease;
     pointer-events: none;
@@ -1384,7 +1402,7 @@
     margin-right: var(--gap-s); /* DS Actions gap/m (action↔arrow) = root gap/s + this 4px */
   }
   .buttonList:not(.selected):hover .buttonList-action svg,
-  .buttonList:not(.selected).hovered .buttonList-action svg { color: var(--buttonTertiary-text); }
+  .buttonList:not(.selected).hovered .buttonList-action svg { color: var(--buttonTertiary-iconText); }
   .buttonList.no-button .buttonList-action { display: none; } /* stays hidden even on hover */
 
   /* ── List row (tableRow DS component) ── */
@@ -1399,8 +1417,8 @@
     border: none;
     color: var(--tableRow-text);
     font-family: inherit;
-    font-size: var(--s-size);    /* s scale = 10px */
-    font-weight: var(--s-weight); /* s scale = 700 */
+    font-size: var(--typography-s-font-size);    /* s scale = 10px */
+    font-weight: var(--typography-s-font-weight); /* s scale = 700 */
     text-align: left;
     cursor: pointer;
     position: relative;
@@ -1412,24 +1430,24 @@
   .tableRow.selected,
   .tableRow.selected:hover { background: var(--buttonList-background-selected); }
   .dividerLine {
-    height: var(--thickness);   /* general/thickness, the 1.5px Figma draws the line at */
-    background: var(--border);   /* dividerLine/border/color = N700 both modes (L #d6d6d6, D #303030) */
+    height: var(--general-thickness);   /* general/thickness, the 1.5px Figma draws the line at */
+    background: var(--dividerLine-border);   /* dividerLine/border/color = N700 both modes (L #d6d6d6, D #303030) */
     flex-shrink: 0;
     margin: 0;
   }
   .actionbar + .dividerLine {
     margin: 0 calc(-1 * var(--padding-l));
-    background: var(--border);
+    background: var(--dividerLine-border);
   }
 
   .dividerSection {
     display: flex; align-items: center; gap: var(--gap-m);  /* DS 135:46577 root gap/m = 8px */
     padding: 0; /* DS 135:46577 (2026-09-09): compact — root has no padding; vertical rhythm is the Content's padding/xs. Was padding/l top + padding/xs bottom (h44); now h24. */
-    font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh);
+    font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height);
     color: var(--dividerSection-title); /* dividerSection/title/color */
     flex-shrink: 0;
     position: sticky; top: 0; z-index: 2;
-    background: var(--bg);
+    background: var(--semantic-surface-elevationMedium);
   }
   /* Content — the label group (dot + title + count). Its own xs vertical padding
      keeps the text's rhythm independent of an optional action button beside it
@@ -1464,7 +1482,7 @@
   .tier-dot.low    { background: var(--semantic-positive); }
   .tier-dot.medium { background: var(--semantic-warning); }
   .tier-dot.high   { background: var(--semantic-negative); }
-  .tier-dot.none   { background: var(--badge-neutral); opacity: 0.45; } /* neutral severity — badge/background/neutral */
+  .tier-dot.none   { background: var(--badge-background-neutral); opacity: 0.45; } /* neutral severity — badge/background/neutral */
 
   /* segmented-control: tab with no results — dimmed, cannot be selected */
   .segmented-control button.tab-empty { opacity: 0.35; cursor: default; pointer-events: none; }
@@ -1474,9 +1492,9 @@
     background: var(--toast-background-success); color: var(--toast-title-success);
     height: 32px; padding: var(--padding-s) var(--padding-m); /* Figma: h=32, tb=padding/s (8px), lr=padding/m (12px) */
     flex-shrink: 0; /* fixed-height DS component, never compressed */
-    font-size: var(--m-size); font-weight: var(--m-weight);
+    font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight);
     display: inline-flex; align-items: center; justify-content: center; gap: var(--gap-xl); /* gap/xl, the DS root */
-    border-radius: var(--radius-toast); white-space: nowrap; pointer-events: auto;
+    border-radius: var(--radii-toast); white-space: nowrap; pointer-events: auto;
     animation: toast-in 0.22s cubic-bezier(0.16, 0.84, 0.44, 1); z-index: 9999;
   }
   .toast-body { display: inline-flex; align-items: center; gap: var(--gap-s); /* DS Frame 39: icon and title, gap/s */ }
@@ -1489,7 +1507,7 @@
   .toast.toast-error { background: var(--toast-background-error); color: var(--toast-title-error); }
   .toast.toast-error .toast-icon { color: var(--toast-icon-error); }
   .toast-description {
-    font-size: var(--m-size);
+    font-size: var(--typography-m-font-size);
     color: var(--loader-description);
     opacity: 0.85;
     white-space: nowrap;
@@ -1510,7 +1528,7 @@
   .modal.is-open { display: flex; }
   .modal-overlay {
     position: absolute; inset: 0;
-    background: var(--overlay-bg);
+    background: var(--overlay);
     backdrop-filter: blur(4px);
     animation: modal-bg-in var(--modal-duration) var(--modal-easing) both;
   }
@@ -1521,8 +1539,8 @@
     gap: var(--gap-xl);                          /* DS itemSpacing = 16 */
     padding: var(--padding-l);                   /* DS padding = 16 */
     background: var(--modal-background);
-    border-radius: var(--radius-modal);
-    font-size: var(--l-size); font-weight: var(--l-weight); line-height: var(--l-lh); /* DS modal text style l */
+    border-radius: var(--radii-modal);
+    font-size: var(--typography-l-font-size); font-weight: var(--typography-l-font-weight); line-height: var(--typography-l-line-height); /* DS modal text style l */
     width: 320px;                                /* DS modal: fixed 320 wide, height hugs its content */
     max-width: calc(100% - 2 * var(--padding-l));
     animation: modal-in var(--modal-duration) var(--modal-easing) both;
@@ -1530,7 +1548,7 @@
   .modal.is-closing .modal-card { animation: modal-out var(--modal-duration-out) var(--modal-easing-out) both; }
   .modal-card h2, .modal-title {
     margin: 0;
-    font-size: var(--l-size); font-weight: var(--m-weight); line-height: var(--l-lh);   /* DS title 13px Semi Bold */
+    font-size: var(--typography-l-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-l-line-height);   /* DS title 13px Semi Bold */
     color: var(--modal-title);
   }
   /* DS header: an optional icon (show-icon), the title and an optional close button (Show CloseButton), gap/s. */
@@ -1545,7 +1563,7 @@
   /* ── Toast/progress overlay ── */
   #toast-overlay {
     position: fixed; inset: 0; z-index: 9996;
-    background: var(--overlay-bg);
+    background: var(--overlay);
     backdrop-filter: blur(4px);
     opacity: 0; pointer-events: none;
     transition: opacity 0.2s ease;
@@ -1556,7 +1574,7 @@
   .toast-spinner {
     /* DS toast Spinner instance box is 14x14; the 13px Union inside it is the glyph. */
     width: 14px; height: 14px;
-    border: var(--thickness) solid currentColor; /* general/thickness */
+    border: var(--general-thickness) solid currentColor; /* general/thickness */
     border-top-color: transparent;
     border-radius: 50%;
     opacity: 0.7;
@@ -1574,22 +1592,22 @@
     gap: var(--gap-xl);
     padding: var(--padding-s) var(--padding-m);
     background: var(--loader-background);
-    border-radius: var(--radius-toast);
+    border-radius: var(--radii-toast);
     flex-shrink: 0;
   }
   .loader-content { display: flex; align-items: center; gap: var(--gap-m); /* gap/m — spinner↔text */ }
   .loader-spinner {
     /* DS Spinner instance box is 14x14; mirrors .toast-spinner. */
     width: 14px; height: 14px; flex-shrink: 0;
-    border: var(--thickness) solid var(--loader-spinner);
+    border: var(--general-thickness) solid var(--loader-spinner);
     border-top-color: transparent;
     border-radius: 50%;
     animation: toast-spin 0.8s linear infinite;
     display: inline-block;
   }
   .loader-text { display: flex; flex-direction: column; }
-  .loader-title { font-size: var(--m-size); font-weight: var(--m-weight); line-height: var(--m-lh); color: var(--loader-title); }
-  .loader-description { font-size: var(--s-size); font-weight: var(--s-weight); line-height: var(--s-lh); color: var(--loader-description); }
+  .loader-title { font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); color: var(--loader-title); }
+  .loader-description { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--loader-description); }
 
   /* ── Status bar ── DS statusBar 789:38384: height from its content plus padding/l top and bottom, all padding padding/l,
      root gap gap/xl between slot groups (flattened — flex spacer separates groups; visible inter-item
@@ -1607,8 +1625,8 @@
   /* DS 789:38384 (2026-10): no stroke on the frame; two dividerLine layers (dividerLine/border, 1.5)
      lie over its top and bottom edges. */
   .statusBar::before, .statusBar::after {
-    content: ''; position: absolute; left: 0; right: 0; height: var(--thickness);
-    background: var(--border); pointer-events: none;
+    content: ''; position: absolute; left: 0; right: 0; height: var(--general-thickness);
+    background: var(--dividerLine-border); pointer-events: none;
   }
   .statusBar::before { top: 0; }
   .statusBar::after { bottom: 0; }
@@ -1617,8 +1635,8 @@
   /* ── Panel ── DS panel (2287:68241): a vertical surface with padding/l left and right; type=primary
      paints panel/background/primary (elevation medium), type=secondary panel/background/secondary
      (elevation low). Its HeadContent and MainContent slots are filled by the product. */
-  .panel { display: flex; flex-direction: column; padding: 0 var(--padding-l); background: var(--bg); }
-  .panel.panel--secondary { background: var(--bg-detail); }
+  .panel { display: flex; flex-direction: column; padding: 0 var(--padding-l); background: var(--semantic-surface-elevationMedium); }
+  .panel.panel--secondary { background: var(--semantic-surface-elevationLow); }
   /* DS Slot content group: the items a product puts in the bar sit in one row at gap/m (the bar's own gap/xl
      separates groups). */
   .statusBar-content { display: flex; align-items: center; gap: var(--gap-m); min-width: 0; }
@@ -1634,17 +1652,17 @@
   .swatch {
     width: var(--button-min-height);
     height: var(--button-min-height);
-    border-radius: var(--radius-swatch);
-    border: var(--thickness) solid var(--swatch-border-filled);
+    border-radius: var(--radii-swatch);
+    border: var(--general-thickness) solid var(--swatch-border-filled-primary);
     flex-shrink: 0;
   }
   .swatch.empty {
     background: repeating-linear-gradient(
       -45deg,
-      var(--border) 0px, var(--border) 1.2px,
+      var(--dividerLine-border) 0px, var(--dividerLine-border) 1.2px,
       transparent 1.2px, transparent 5.6px
     );
-    border-color: var(--swatch-border-empty);
+    border-color: var(--swatch-border-empty-primary);
   }
 
   /* Custom scrollbar — overlay-style, no layout impact when content fits */
@@ -1653,7 +1671,7 @@
   ::-webkit-scrollbar-corner { background: transparent; }
   ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb);
-    border-radius: var(--radius-full); /* radii/button pill */
+    border-radius: var(--radii-button); /* radii/button pill */
     border: 2px solid transparent;
     background-clip: content-box;
   }
@@ -1664,15 +1682,15 @@
     position: relative;
     flex-shrink: 0;
     height: 100%;
-    background: var(--bg);
+    background: var(--semantic-surface-elevationMedium);
     overflow: hidden;
     transition: width 0.18s ease;
     display: flex;
     flex-direction: column;
   }
   .sidePanel.resizing { transition: none; }
-  .sidePanel--left  { border-right: var(--thickness) solid var(--panel-border); }
-  .sidePanel--right { border-left:  var(--thickness) solid var(--panel-border); }
+  .sidePanel--left  { border-right: var(--general-thickness) solid var(--panel-border); }
+  .sidePanel--right { border-left:  var(--general-thickness) solid var(--panel-border); }
 
   .sidePanelResize {
     position: absolute;
@@ -1688,7 +1706,7 @@
     position: absolute;
     top: 12px; bottom: 12px;
     width: 1px;
-    background: var(--border);
+    background: var(--dividerLine-border);
     opacity: 0;
     transition: opacity 0.15s;
   }
@@ -1702,7 +1720,7 @@
     /* DS panel HeadContent slot: top padding/l (16), bottom padding/s (8), lr padding/l (16). */
     padding: var(--padding-l) var(--padding-l) var(--padding-s);
     flex-shrink: 0;
-    background: var(--bg);
+    background: var(--semantic-surface-elevationMedium);
   }
 
   .sidePanelBody {
@@ -1740,7 +1758,7 @@
   /* Generic 16×16 spinner. Use width/height overrides for other sizes. Reuses toast-spin keyframe. */
   .spinner {
     width: 16px; height: 16px;
-    border: var(--thickness) solid var(--border);
+    border: var(--general-thickness) solid var(--dividerLine-border);
     border-top-color: var(--accent);
     border-radius: 50%;
     animation: toast-spin 0.7s linear infinite;
@@ -1751,8 +1769,8 @@
   /* Group heading — the DS `s` text style (there is no uppercase text style in
      Figma, so no text-transform). Layout padding set per plugin context. */
   .section-label {
-    font-size: var(--s-size);
-    font-weight: var(--s-weight);
+    font-size: var(--typography-s-font-size);
+    font-weight: var(--typography-s-font-weight);
     color: var(--text-muted);
     flex-shrink: 0;
   }
