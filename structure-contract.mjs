@@ -779,10 +779,11 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '#search-wrap', prop: 'border-top-color',
     expected: 'rgb(173, 173, 173)', colorScheme: 'light',
     note: 'DS input/border/default light = N600 #adadad (2026-08 refactor)' },
-  { plugin: 'font-scaling-lab', selector: '#scale-input', prop: 'border-top-color',
+  // The scale stepper is the system's buttonStepper: its input's border is on the system's .inputWrap.
+  { plugin: 'font-scaling-lab', selector: '#scale-stepper .inputWrap', prop: 'border-top-color',
     expected: 'rgb(94, 94, 94)', colorScheme: 'dark',
     note: 'DS input/border/default dark = N500 #5e5e5e' },
-  { plugin: 'font-scaling-lab', selector: '#scale-input', prop: 'border-top-color',
+  { plugin: 'font-scaling-lab', selector: '#scale-stepper .inputWrap', prop: 'border-top-color',
     expected: 'rgb(173, 173, 173)', colorScheme: 'light',
     note: 'DS input/border/default light = N600 #adadad' },
   // NB: no rendered border-WIDTH assertion here — Chrome rounds a 1.5px border to whole
@@ -824,7 +825,7 @@ export const RENDERED_ASSERTIONS = [
   // ── input/border/focus (restored to the DS 2026-07-30) ──────────────────────
   // The focus ring is the only signal a field has keyboard focus, so it must beat the
   // resting/hover borders. The resting value (input/border/default) is verified on the
-  // real .search-input / #scale-input above; here we only need the focused ring differs.
+  // real .search-input / #scale-stepper .inputWrap above; here we only need the focused ring differs.
   // (A resting probe assertion was dropped: in headless CDP a shorthand-only `border`
   // on a freshly-injected hidden probe computes border-*-color as the background, not
   // the var — a probe quirk, not a code bug; the real value is #5e5e5e, verified in-browser.)
@@ -1532,6 +1533,9 @@ export const ICON_USAGES = [
   { plugin: 'tokens-to-ink', selector: '#view-colors-btn',       icon: 'icon-var-color'},
   // font-scaling-lab
   { plugin: 'font-scaling-lab', selector: '#focus-frame-btn',    icon: 'icon-focus'    },
+  // font-scaling-lab — the scale stepper (the system's buttonStepper): decrease and increase.
+  { plugin: 'font-scaling-lab', selector: '#scale-dec',          icon: 'icon-minus'    },
+  { plugin: 'font-scaling-lab', selector: '#scale-inc',          icon: 'icon-plus'     },
 ];
 
 // ─── Component slot parity (Gate [14]) ────────────────────────────────────────
