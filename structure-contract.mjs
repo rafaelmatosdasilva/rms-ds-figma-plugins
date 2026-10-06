@@ -502,9 +502,8 @@ export const CONTRACT = {
     },
   },
   panel: {
-    _note: "2026-09-13: panel is now a COMPONENT_SET (2287:68241) with variants type=primary (fill panel/background/primary = elevationMedium/--semantic-surface-elevationMedium) and type=secondary (fill panel/background/secondary = elevationLow/--semantic-surface-elevationLow). Both variants: VERTICAL, lr padding/l, slots Head Content (top padding/l, bottom padding/s, gap/xl) over Main Content (gap/xl). Right-edge weight 1.5 preserved (side divider); stroke paint empty — edge geometry + .left-panel/.sidePanel border-right (panel/border) hold it. Empty structural shell; plugins hand-build (header row + .scroll-area / .sidePanel), so documentary. Primary surface = .left-panel/.sidePanel (--semantic-surface-elevationMedium); secondary = #right-detail/#graph-body (--semantic-surface-elevationLow).",
+    _note: "panel (2287:68241): Type=Primary (elevation medium) and Type=Secondary (elevation low); lr padding/l; slots Head Content (top padding/l, bottom padding/s, gap/xl) over Main Content (gap/xl); a 1.5 divider on its right edge. 2026-10-06: the system has one panel, .panel (slots .panel-head and .panel-main, .panel--right for a divider on the left, .panel--resizable with a .panel-resize handle), used by every product.",
     // Figma DS: VERTICAL container, fill=panel/background/color, stroke=panel/border/color.
-    // In plugins: .left-panel uses --semantic-surface-elevationMedium (panel/background via EXPLICIT) and --divider for border.
     // Only the left panel is a DS panel; right panel is a bare content container.
     // 2026-09-12 restructure (node 505:48510 → 505:43484): the single Content slot was split
     // into two SLOTs — Head Content (top padding/l, bottom padding/s, gap/xl) over Main Content
@@ -528,12 +527,12 @@ export const CONTRACT = {
       // cross-check still runs. Head Content top=padding/l, bottom=padding/s (tb records the top).
       // 2026-10-06: the slots are named Head Content and Main Content in Figma, and the Figma
       // capture now reads slots too (their gap/xl and the Head Content padding/l).
-      { name: 'Head Content', cssSelector: null, gapVar: 'gap/xl', paddingVar: { tb: 'padding/l', lr: null },
-        verifiedBy: 'RENDERED_ASSERTIONS .sidePanelHeader (paddingTop 16 / paddingBottom 8 / paddingLeft 16, font-scaling-lab). impact-atlas realizes the header region via .actionbar + .scroll-area, each with their own paddingTop assertions.' },
+      // 2026-10-06: the system has one panel (.panel); its slots are .panel-head and .panel-main.
+      { name: 'Head Content', cssSelector: '.panel-head', gapVar: 'gap/xl', paddingVar: { tb: 'padding/l', lr: null },
+        verifiedBy: 'RENDERED_ASSERTIONS .panel-head (paddingTop 16 / paddingBottom 8 / paddingLeft 16) and .panel-main (paddingLeft 16).' },
       { name: 'Main Content', cssSelector: null, gapVar: 'gap/xl', paddingVar: { tb: null, lr: null } },
     ],
     propertyMap: {
-      'side': { left: '.left-panel' },
       'Type': { Primary: '.panel', Secondary: '.panel.panel--secondary' },
     },
   },
@@ -671,9 +670,9 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.card-title', textStyle: 's',
     note: "card Title = text style s (Show Title)",
     probe: '<div class="card"><span class="card-title">Output</span><div>Content</div></div>' },
-  { plugin: 'impact-atlas', selector: '.panel', prop: 'paddingLeft', expected: '16px',
-    note: "panel: padding/l left and right",
-    probe: '<div class="panel"><div>Head content</div><div>Main content</div></div>' },
+  { plugin: 'impact-atlas', selector: '.panel-main', prop: 'paddingLeft', expected: '16px',
+    note: "panel: padding/l left and right, carried by its slots",
+    probe: '<div class="panel"><div class="panel-head">Head content</div><div class="panel-main">Main content</div></div>' },
   { plugin: 'impact-atlas', selector: '.highlightSelector', prop: 'borderTopWidth', expected: '2px',
     note: "highlightSelector Border layer: 2 inside",
     probe: '<span class="highlightSelector"></span>' },
@@ -745,18 +744,18 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'font-scaling-lab', selector: '.buttonList .issue-primary .tooltipButton', prop: 'margin-left', expected: '-8px',
     note: 'tooltipButton flush after the title in a buttonList — cancels .issue-primary gap/m so DS gap 0',
     probe: '<div class="buttonList"><div class="issue-primary"><span class="txt">t</span><span class="tooltipButton"><svg width="16" height="16"><use href="#icon-info"/></svg></span></div></div>' },
-  // DS panel Head Content slot (base .sidePanelHeader): top padding/l (16), bottom padding/s (8),
+  // DS panel Head Content slot (base .panel-head): top padding/l (16), bottom padding/s (8),
   // lr padding/l (16). The top was padding/s (8) — the header sat too high against the panel top.
   // Pinned per-side so a regression on any edge fails (Gate [20] computed style, in font-scaling-lab).
-  { plugin: 'font-scaling-lab', selector: '.sidePanelHeader', prop: 'paddingTop', expected: '16px',
+  { plugin: 'font-scaling-lab', selector: '.panel-head', prop: 'paddingTop', expected: '16px',
     note: 'DS panel Head Content top = padding/l',
-    probe: '<div class="sidePanel sidePanel--left"><div class="sidePanelHeader"><span>t</span></div></div>' },
-  { plugin: 'font-scaling-lab', selector: '.sidePanelHeader', prop: 'paddingBottom', expected: '8px',
+    probe: '<div class="panel panel--resizable"><div class="panel-head"><span>t</span></div></div>' },
+  { plugin: 'font-scaling-lab', selector: '.panel-head', prop: 'paddingBottom', expected: '8px',
     note: 'DS panel Head Content bottom = padding/s',
-    probe: '<div class="sidePanel sidePanel--left"><div class="sidePanelHeader"><span>t</span></div></div>' },
-  { plugin: 'font-scaling-lab', selector: '.sidePanelHeader', prop: 'paddingLeft', expected: '16px',
-    note: 'DS panel lr = padding/l (carried on the header/body, not the shell)',
-    probe: '<div class="sidePanel sidePanel--left"><div class="sidePanelHeader"><span>t</span></div></div>' },
+    probe: '<div class="panel panel--resizable"><div class="panel-head"><span>t</span></div></div>' },
+  { plugin: 'font-scaling-lab', selector: '.panel-head', prop: 'paddingLeft', expected: '16px',
+    note: 'DS panel lr = padding/l (carried by its slots, not the shell)',
+    probe: '<div class="panel panel--resizable"><div class="panel-head"><span>t</span></div></div>' },
   // The dividerSection action (place button) is LEFT-aligned, immediately after the title
   // (DS 135:46577: justify MIN, button at gap/m after Content). margin-left must be 0 —
   // margin-left:auto wrongly pushed it to the right edge.
@@ -1380,7 +1379,7 @@ export const CSS_PROPERTY_ASSERTIONS = [
   { sel: '.badge', prop: 'gap',     expectedVar: '--gap-s'     },
   { sel: '.badge', prop: 'padding', expectedVar: '--padding-s' },
   // dividerSection — DS node 135-46577: paddingTop=24 (padding/xl), paddingBottom=2 (padding/xxs),
-  // LR=0 intentional — sidePanelBody already provides 16px horizontal padding (adding both = 32px double-indent).
+  // LR=0 intentional — .panel-main already provides 16px horizontal padding (adding both = 32px double-indent).
   { sel: '.dividerSection', prop: 'background', expectedVar: '--semantic-surface-elevationMedium'         },
   { sel: '.dividerSection-content', prop: 'padding', expectedVar: '--padding-xs' },  // DS 2026-09-09: root padding is 0; vertical rhythm is the Content's padding/xs (top+bottom)
   // buttonSecondary — DS: h=24 (HUG content), paddingLr=padding/xs, root gap FLUSH (rootGap 0 —
@@ -1422,7 +1421,7 @@ export const PSEUDO_ELEMENTS = {
   '.buttonQuaternary::before': 'DS PILL — buttonQuaternary Content frame inset fill; hover bg layer',
   '.buttonList::before':       'DS PILL — buttonList Content frame h=32 pill (inset: 4px 0); hover/selected bg',
   // Layout utilities — not DS components; no Figma token layer
-  '.sidePanelResize::after':   'LAYOUT — drag handle visual line indicator; plugin layout utility, not a DS component',
+  '.panel-resize::after':      'DS panel — the drag handle line of a resizable panel, shown on hover and while dragging',
   // Plugin-specific UI — impact-atlas custom components; no DS component equivalent
   '.depth-option:not(:last-child)::after':     'PLUGIN-SPECIFIC — animated connector line between depth selector steps; impact-atlas custom UI',
   '.radioButton-circle::after':                'DS radioButton — the 8px inner dot (radioButton/background/selected) shown when checked; the disc itself fills with radioButton/border/selected. Base component.',
@@ -1540,6 +1539,8 @@ export const ICON_USAGES = [
   // font-scaling-lab — the scale stepper (the system's buttonStepper): decrease and increase.
   { plugin: 'font-scaling-lab', selector: '#scale-dec',          icon: 'icon-minus'    },
   { plugin: 'font-scaling-lab', selector: '#scale-inc',          icon: 'icon-plus'     },
+  { plugin: 'font-scaling-lab', selector: '#details-close',      icon: 'icon-cross'    },
+  { plugin: 'font-scaling-lab', selector: '#gen-btn',            icon: 'icon-update'   },
 ];
 
 // ─── Component slot parity (Gate [14]) ────────────────────────────────────────
@@ -1562,6 +1563,9 @@ export const COMPONENT_USAGES = [
   // tokens-to-ink inline Export screen action bar (replaced the modal footer)
   { plugin: 'tokens-to-ink', selector: '#export-savedefault-btn', expectedClass: 'buttonTertiary' },
   { plugin: 'tokens-to-ink', selector: '#export-confirm-btn',    expectedClass: 'buttonPrimary'   },
+  { plugin: 'tokens-to-ink', selector: '#export-preflight-btn',  expectedClass: 'buttonSecondary' },
+  { plugin: 'tokens-to-ink', selector: '#preflight-close',       expectedClass: 'buttonSecondary' },
+  { plugin: 'tokens-to-ink', selector: '#preflight-rescan',      expectedClass: 'buttonPrimary'   },
   // tokens-to-ink — #scan-btn retired 2026-07-29: the plugin scans on launch, so
   // the "select something first" empty state it lived in can never be correct.
   { plugin: 'tokens-to-ink', selector: '#rescan-btn',            expectedClass: 'buttonPrimary'   },
@@ -1604,7 +1608,7 @@ export const TRANSITION_CONTRACT = {
   '.segmented-control button':  ['background 0.18s ease', 'border-color 0.18s ease', 'color 0.18s ease'],
 
   // Layout / shell
-  '.sidePanel':                 'width 0.18s ease',
+  '.panel--resizable':          'width 0.18s ease',
 
   // Overlay / flyout
   '#tt':                        'opacity 0.15s ease',

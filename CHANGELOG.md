@@ -7,6 +7,12 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.7 · 6 October 2026
+
+- One panel. The system's panel is `.panel`, as Figma's panel: Type Primary or Secondary, its Head Content (`.panel-head`) over its Main Content (`.panel-main`, which scrolls), its divider on the right, or on the left with `.panel--right`. `.panel--resizable` adds a drag handle (`.panel-resize`, `initPanelResize()`). The separate side panel (`.sidePanel`, `initSidePanelResize()`) is gone; Font Scaling Lab and Impact Atlas use the panel, and look exactly as before.
+- Font Scaling Lab's close and generate buttons use the system's close and update icons; the contract records them.
+- Tokens to Ink's Preflight buttons are in the contract; gap/xxl, which no product uses any more, is listed as unused.
+
 ## v2.0.6 · 6 October 2026
 
 - The close and image icons (Icon-cross and Icon-image in Figma) are in the icon sheet, for Tokens to Ink's Preflight dialog.
