@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-10-04",
+  "_updated": "2026-10-06",
   "_note": "Per-component structural facts captured from live Figma by /rms-figma-code-parity. Do not edit by hand. h in px ('auto' = hug). paddingVar/gapVar/radiusVar are Figma token names (null = unbound/none). fontSizeVar/fontWeightVar = bound fontSize/fontWeight variable on the primary (first, depth-first) TEXT node; when unbound, the applied text style's scale key (last path segment, lowercased) for both fields; null when no text/style. innerRadiusVar = first bound radius var on the State=Default frame, else on a child named *Background*. strokeOnDefault = stroke on State=Default variant. strokeOnAnyState = stroke exists on ANY variant of the COMPONENT_SET (controls Gate [3c] phantom border scan — when false, any CSS border/outline on a matching selector is a phantom). sizingV = the Default variant's vertical sizing in Figma (HUG: its height follows its content, FIXED, FILL); layout = its auto-layout direction (HORIZONTAL, VERTICAL, NONE). slot = the Default variant holds a slot (its height comes from what a product puts in it). minH = its minimum height in Figma (null: none). fillStructure 'before' also when a child rectangle covers the whole frame, whatever its name.",
   "components": {
     "buttonList": {
@@ -502,6 +502,25 @@
       "innerRadiusVar": null,
       "strokeOnDefault": false,
       "strokeOnAnyState": false,
+      "childFramePadding": [
+        {
+          "name": "Head Content",
+          "paddingVar": {
+            "tb": "padding/l",
+            "lr": null
+          }
+        }
+      ],
+      "childFrameGaps": [
+        {
+          "name": "Head Content",
+          "gapVar": "gap/xl"
+        },
+        {
+          "name": "Main Content",
+          "gapVar": "gap/xl"
+        }
+      ],
       "variantStroke": {
         "Type=Primary": false,
         "Type=Secondary": false
@@ -554,6 +573,12 @@
       "innerRadiusVar": null,
       "strokeOnDefault": false,
       "strokeOnAnyState": false,
+      "childFrameGaps": [
+        {
+          "name": "Slot",
+          "gapVar": "gap/m"
+        }
+      ],
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": true,
@@ -693,6 +718,13 @@
       "innerRadiusVar": null,
       "strokeOnDefault": false,
       "strokeOnAnyState": true,
+      "childFrameGaps": [
+        {
+          "name": "Content",
+          "gapVar": null,
+          "gapPx": -1
+        }
+      ],
       "variantStroke": {
         "State=Default": false,
         "State=Selected": false
@@ -747,6 +779,12 @@
       "innerRadiusVar": null,
       "strokeOnDefault": false,
       "strokeOnAnyState": true,
+      "childFrameGaps": [
+        {
+          "name": "Slot",
+          "gapVar": "gap/xxxl"
+        }
+      ],
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": true,
@@ -767,6 +805,12 @@
       "innerRadiusVar": null,
       "strokeOnDefault": false,
       "strokeOnAnyState": true,
+      "childFrameGaps": [
+        {
+          "name": "Slot",
+          "gapVar": "gap/xxxl"
+        }
+      ],
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": true,
@@ -912,6 +956,10 @@
           "gapVar": "gap/s"
         },
         {
+          "name": "Slot",
+          "gapVar": "gap/m"
+        },
+        {
           "name": "Actions",
           "gapVar": "gap/m"
         }
@@ -1020,6 +1068,12 @@
       "strokeOnDefault": true,
       "strokeOnAnyState": true,
       "strokeSides": "all",
+      "childFrameGaps": [
+        {
+          "name": "Slot",
+          "gapVar": "gap/m"
+        }
+      ],
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": true,
@@ -1047,6 +1101,18 @@
             "tb": null,
             "lr": "padding/xs"
           }
+        }
+      ],
+      "childFrameGaps": [
+        {
+          "name": "buttonSecondary",
+          "gapVar": null,
+          "gapPx": 0
+        },
+        {
+          "name": "Content",
+          "gapVar": null,
+          "gapPx": 0
         }
       ],
       "iconSize": 12,
@@ -1087,12 +1153,18 @@
           }
         }
       ],
+      "childFrameGaps": [
+        {
+          "name": "Content",
+          "gapVar": null,
+          "gapPx": 0
+        }
+      ],
       "iconSize": 12,
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": false,
       "minH": null
     }
-  },
-  "_figmaVersion": "2399757150685421510"
+  }
 }

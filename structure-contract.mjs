@@ -14,6 +14,11 @@ export const CONTRACT = {
     fillStructure: 'none', innerInset: null, innerRadiusVar: 'radii/card',
     strokeOnDefault: true, strokeOnAnyState: true,
     strokeSides: 'all',  // Figma: 1.5 all four sides (card/border)
+    children: [
+      // Figma card Slot spaces what a product puts in it at gap/m. The slot has no element of its
+      // own in the code (the product's content sits in .card), so only the snapshot cross-check runs.
+      { name: 'Slot', cssSelector: null, gapVar: 'gap/m', paddingVar: { tb: null, lr: null } },
+    ],
   },
   // switch (DS 2120:3385) — toggle track + knob + description, On/Off states. No own border
   // (the track/knob are filled shapes); h is the 24px track height.
@@ -51,6 +56,9 @@ export const CONTRACT = {
     fontSizeVar: 's', fontWeightVar: 's',
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: false,
+    children: [
+      { name: 'Slot', cssSelector: '.checkBoxGroup-slot', gapVar: 'gap/xxxl', paddingVar: { tb: null, lr: null } },
+    ],
   },
   // radioButtonGroup (DS) — a labelled group of radios laid in a ROW. Label (s style,
   // content/secondary) sits gap/m above a Slot that spaces the radios at gap/xxxl.
@@ -65,6 +73,9 @@ export const CONTRACT = {
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',  // no OWN border — the only stroke is the nested radioButton's circle
+    children: [
+      { name: 'Slot', cssSelector: '.radioButtonGroup-slot', gapVar: 'gap/xxxl', paddingVar: { tb: null, lr: null } },
+    ],
   },
   // highlight (DS) — a red highlight pill: bg highlight/background, s text, gap/xs, padding/s LR, h24.
   highlight: {
@@ -136,6 +147,7 @@ export const CONTRACT = {
     strokeSides: 'none',
     children: [
       { name: 'header', cssSelector: '.modal-header', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } },
+      { name: 'Slot', cssSelector: '.modal-slot', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } },
       { name: 'Actions', cssSelector: '.modal-footer', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } },
     ],
   },
@@ -490,12 +502,12 @@ export const CONTRACT = {
     },
   },
   panel: {
-    _note: "2026-09-13: panel is now a COMPONENT_SET (2287:68241) with variants type=primary (fill panel/background/primary = elevationMedium/--semantic-surface-elevationMedium) and type=secondary (fill panel/background/secondary = elevationLow/--semantic-surface-elevationLow). Both variants: VERTICAL, lr padding/l, slots HeadContent (top padding/l, bottom padding/s, gap/xl) over MainContent (gap/xl). Right-edge weight 1.5 preserved (side divider); stroke paint empty — edge geometry + .left-panel/.sidePanel border-right (panel/border) hold it. Empty structural shell; plugins hand-build (header row + .scroll-area / .sidePanel), so documentary. Primary surface = .left-panel/.sidePanel (--semantic-surface-elevationMedium); secondary = #right-detail/#graph-body (--semantic-surface-elevationLow).",
+    _note: "2026-09-13: panel is now a COMPONENT_SET (2287:68241) with variants type=primary (fill panel/background/primary = elevationMedium/--semantic-surface-elevationMedium) and type=secondary (fill panel/background/secondary = elevationLow/--semantic-surface-elevationLow). Both variants: VERTICAL, lr padding/l, slots Head Content (top padding/l, bottom padding/s, gap/xl) over Main Content (gap/xl). Right-edge weight 1.5 preserved (side divider); stroke paint empty — edge geometry + .left-panel/.sidePanel border-right (panel/border) hold it. Empty structural shell; plugins hand-build (header row + .scroll-area / .sidePanel), so documentary. Primary surface = .left-panel/.sidePanel (--semantic-surface-elevationMedium); secondary = #right-detail/#graph-body (--semantic-surface-elevationLow).",
     // Figma DS: VERTICAL container, fill=panel/background/color, stroke=panel/border/color.
     // In plugins: .left-panel uses --semantic-surface-elevationMedium (panel/background via EXPLICIT) and --divider for border.
     // Only the left panel is a DS panel; right panel is a bare content container.
     // 2026-09-12 restructure (node 505:48510 → 505:43484): the single Content slot was split
-    // into two SLOTs — HeadContent (top padding/l, bottom padding/s, gap/xl) over MainContent
+    // into two SLOTs — Head Content (top padding/l, bottom padding/s, gap/xl) over Main Content
     // (gap/xl). The panel gained lr padding/l (previously the child rows carried it). It is an
     // empty structural shell filled per-context; the plugins hand-build the panel (header row +
     // .scroll-area), so these fields document intent, not a base selector to assert against.
@@ -513,10 +525,12 @@ export const CONTRACT = {
     children: [
       // 2026-09-12 restructure: two empty SLOTs filled per-context. Plugins hand-build the panel
       // (header row + .scroll-area), so cssSelector: null skips the [3f] CSS lookup — the snapshot
-      // cross-check still runs. HeadContent top=padding/l, bottom=padding/s (tb records the top).
-      { name: 'HeadContent', cssSelector: null, gapVar: null, paddingVar: { tb: null, lr: null },
+      // cross-check still runs. Head Content top=padding/l, bottom=padding/s (tb records the top).
+      // 2026-10-06: the slots are named Head Content and Main Content in Figma, and the Figma
+      // capture now reads slots too (their gap/xl and the Head Content padding/l).
+      { name: 'Head Content', cssSelector: null, gapVar: 'gap/xl', paddingVar: { tb: 'padding/l', lr: null },
         verifiedBy: 'RENDERED_ASSERTIONS .sidePanelHeader (paddingTop 16 / paddingBottom 8 / paddingLeft 16, font-scaling-lab). impact-atlas realizes the header region via .actionbar + .scroll-area, each with their own paddingTop assertions.' },
-      { name: 'MainContent', cssSelector: null, gapVar: null, paddingVar: { tb: null, lr: null } },
+      { name: 'Main Content', cssSelector: null, gapVar: 'gap/xl', paddingVar: { tb: null, lr: null } },
     ],
     propertyMap: {
       'side': { left: '.left-panel' },
@@ -566,6 +580,10 @@ export const CONTRACT = {
       'Show Divider Line Bottom': '.actionbar.no-divider-bottom::after',
       'Show Background':         '.actionbar.no-background::before',
     },
+    children: [
+      // The Figma Slot (gap/m) has no element of its own: its items sit directly in .actionbar.
+      { name: 'Slot', cssSelector: '.actionbar', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } },
+    ],
   },
   // checkBox (DS 1963:43561) — built base .checkbox. Box (radii/checkbox, bordered) child + label.
   checkBox: {
@@ -727,14 +745,14 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'font-scaling-lab', selector: '.buttonList .issue-primary .tooltipButton', prop: 'margin-left', expected: '-8px',
     note: 'tooltipButton flush after the title in a buttonList — cancels .issue-primary gap/m so DS gap 0',
     probe: '<div class="buttonList"><div class="issue-primary"><span class="txt">t</span><span class="tooltipButton"><svg width="16" height="16"><use href="#icon-info"/></svg></span></div></div>' },
-  // DS panel HeadContent slot (base .sidePanelHeader): top padding/l (16), bottom padding/s (8),
+  // DS panel Head Content slot (base .sidePanelHeader): top padding/l (16), bottom padding/s (8),
   // lr padding/l (16). The top was padding/s (8) — the header sat too high against the panel top.
   // Pinned per-side so a regression on any edge fails (Gate [20] computed style, in font-scaling-lab).
   { plugin: 'font-scaling-lab', selector: '.sidePanelHeader', prop: 'paddingTop', expected: '16px',
-    note: 'DS panel HeadContent top = padding/l',
+    note: 'DS panel Head Content top = padding/l',
     probe: '<div class="sidePanel sidePanel--left"><div class="sidePanelHeader"><span>t</span></div></div>' },
   { plugin: 'font-scaling-lab', selector: '.sidePanelHeader', prop: 'paddingBottom', expected: '8px',
-    note: 'DS panel HeadContent bottom = padding/s',
+    note: 'DS panel Head Content bottom = padding/s',
     probe: '<div class="sidePanel sidePanel--left"><div class="sidePanelHeader"><span>t</span></div></div>' },
   { plugin: 'font-scaling-lab', selector: '.sidePanelHeader', prop: 'paddingLeft', expected: '16px',
     note: 'DS panel lr = padding/l (carried on the header/body, not the shell)',
@@ -842,7 +860,7 @@ export const RENDERED_ASSERTIONS = [
     note: 'scan depth: the room under each step for the connector to the next one = padding/l (the step is the DS radio since 2026-10)' },
   // An empty graph column header must not paint: its opaque strip clipped the edge
   // lines running underneath it. Background now lives on the child dividerSections.
-  // DS panel HeadContent slot has a SOLID background fill over the whole header — the sticky
+  // DS panel Head Content slot has a SOLID background fill over the whole header — the sticky
   // header must be opaque so connector edge-lines / nodes behind never show through the top strip.
   // --semantic-surface-elevationLow (elevationLow / panel/background/secondary): light #e8e8e8, dark #1c1c1c — assert BOTH modes.
   { plugin: 'impact-atlas', selector: '#graph-col-headers', prop: 'backgroundColor', expected: 'rgb(232, 232, 232)', colorScheme: 'light',
@@ -871,8 +889,8 @@ export const RENDERED_ASSERTIONS = [
   // .p2 is probe-only — keeps the global re-query from matching #list-comp-hdr (which is 0 by DS spec)
   { plugin: 'impact-atlas', selector: '.scroll-area .dividerSection.p2', prop: 'marginTop', expected: '8px', note: 'DS left-panel List gap/m between sections',
     probe: '<div class="scroll-area"><div class="dividerSection">High</div><div class="dividerSection p2">Medium</div></div>' },
-  { plugin: 'impact-atlas', selector: '#graph-col-headers', prop: 'paddingTop', expected: '16px', note: 'DS panel HeadContent top padding/l (16) — the opaque header slot owns the gap below the status bar' },
-  // List-view header slot (mode-toggle-row): same DS HeadContent fill — opaque --semantic-surface-elevationMedium (elevationMedium /
+  { plugin: 'impact-atlas', selector: '#graph-col-headers', prop: 'paddingTop', expected: '16px', note: 'DS panel Head Content top padding/l (16) — the opaque header slot owns the gap below the status bar' },
+  // List-view header slot (mode-toggle-row): same DS Head Content fill — opaque --semantic-surface-elevationMedium (elevationMedium /
   // panel/background/primary) over the segmented control AND the padding/l gap down to the first divider,
   // so list items don't bleed above the sticky divider. Assert BOTH modes + the opaque gap.
   { plugin: 'impact-atlas', selector: '.mode-toggle-row', prop: 'backgroundColor', expected: 'rgb(247, 247, 247)', colorScheme: 'light',
@@ -880,15 +898,15 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.mode-toggle-row', prop: 'backgroundColor', expected: 'rgb(33, 33, 33)', colorScheme: 'dark',
     note: 'DS header slot fill = --semantic-surface-elevationMedium (elevationMedium) dark; opaque so list items do not bleed through the gap' },
   { plugin: 'impact-atlas', selector: '.mode-toggle-row', prop: 'paddingBottom', expected: '16px',
-    note: 'DS HeadContent: the padding/l gap to the first divider lives on the opaque header slot, not the scroll area (transparent there = bleed)' },
+    note: 'DS Head Content: the padding/l gap to the first divider lives on the opaque header slot, not the scroll area (transparent there = bleed)' },
   // DS 308-7820: the detail list is a stack of independent panels (type=secondary), one per group.
-  // Each group's header carries the panel HeadContent spacing — padding/l (16) top, padding/s (8)
+  // Each group's header carries the panel Head Content spacing — padding/l (16) top, padding/s (8)
   // bottom — and the gap between groups is the next header's top margin (gap/xl = 16). Pin all four so
   // the per-group panel spacing can't silently drift back to flat (which is how it kept shipping wrong).
-  { plugin: 'impact-atlas', selector: '#list-alias-hdr', prop: 'marginTop',    expected: '16px', note: 'DS per-group panel HeadContent top padding/l' },
-  { plugin: 'impact-atlas', selector: '#list-alias-hdr', prop: 'marginBottom', expected: '8px',  note: 'DS per-group panel HeadContent bottom padding/s' },
-  { plugin: 'impact-atlas', selector: '#list-comp-hdr',  prop: 'marginTop',    expected: '16px', note: 'DS per-group panel HeadContent top padding/l (also the gap/xl between groups)' },
-  { plugin: 'impact-atlas', selector: '#list-comp-hdr',  prop: 'marginBottom', expected: '8px',  note: 'DS per-group panel HeadContent bottom padding/s' },
+  { plugin: 'impact-atlas', selector: '#list-alias-hdr', prop: 'marginTop',    expected: '16px', note: 'DS per-group panel Head Content top padding/l' },
+  { plugin: 'impact-atlas', selector: '#list-alias-hdr', prop: 'marginBottom', expected: '8px',  note: 'DS per-group panel Head Content bottom padding/s' },
+  { plugin: 'impact-atlas', selector: '#list-comp-hdr',  prop: 'marginTop',    expected: '16px', note: 'DS per-group panel Head Content top padding/l (also the gap/xl between groups)' },
+  { plugin: 'impact-atlas', selector: '#list-comp-hdr',  prop: 'marginBottom', expected: '8px',  note: 'DS per-group panel Head Content bottom padding/s' },
 
   // node label color must flow from the .node state classes to the name spans —
   // caught 2026-07-11: .var-name/.node-name declared color: var(--semantic-content-primary) and rendered
