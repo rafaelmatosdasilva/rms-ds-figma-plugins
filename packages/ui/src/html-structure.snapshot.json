@@ -337,6 +337,7 @@
       "no-colors-state",
       "color-body",
       "export-panel",
+      "export-format-label",
       "fmt-pdf",
       "fmt-tiff",
       "card-output",
@@ -346,12 +347,6 @@
       "downsample-toggle",
       "dpi-wrap",
       "dpi-input",
-      "preflight-images-section",
-      "preflight-images-header",
-      "preflight-images",
-      "preflight-cmyk-section",
-      "preflight-cmyk-header",
-      "preflight-cmyk",
       "card-tiff",
       "tiff-zip-toggle",
       "tiff-transparent-toggle",
@@ -366,8 +361,14 @@
       "bleed-wrap",
       "bleed-input",
       "export-savedefault-btn",
+      "export-preflight-btn",
       "export-confirm-btn",
       "export-confirm-label",
+      "preflight-modal",
+      "preflight-title",
+      "preflight-close",
+      "preflight-slot",
+      "preflight-rescan",
       "toast-container",
       "convert-canvas",
       "tt"
@@ -410,7 +411,25 @@
         ]
       },
       {
+        "id": "export-preflight-btn",
+        "classes": [
+          "buttonSecondary"
+        ]
+      },
+      {
         "id": "export-confirm-btn",
+        "classes": [
+          "buttonPrimary"
+        ]
+      },
+      {
+        "id": "preflight-close",
+        "classes": [
+          "buttonSecondary"
+        ]
+      },
+      {
+        "id": "preflight-rescan",
         "classes": [
           "buttonPrimary"
         ]
@@ -448,6 +467,14 @@
       {
         "context": "#export-confirm-label",
         "icon": "icon-export"
+      },
+      {
+        "context": "#preflight-close",
+        "icon": "icon-cross"
+      },
+      {
+        "context": "#preflight-rescan",
+        "icon": "icon-update"
       }
     ],
     "buttonContent": [
@@ -480,10 +507,28 @@
         "text": "Save as default"
       },
       {
+        "id": "export-preflight-btn",
+        "svg": false,
+        "spans": [],
+        "text": "Preflight"
+      },
+      {
         "id": "export-confirm-btn",
         "svg": true,
         "spans": [],
         "text": "Export PDF"
+      },
+      {
+        "id": "preflight-close",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
+        "id": "preflight-rescan",
+        "svg": true,
+        "spans": [],
+        "text": "Rescan"
       }
     ]
   },

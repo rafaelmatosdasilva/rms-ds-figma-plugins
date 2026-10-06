@@ -7,6 +7,12 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.6 · 6 October 2026
+
+- The close and image icons (Icon-cross and Icon-image in Figma) are in the icon sheet, for Tokens to Ink's Preflight dialog.
+- Tokens to Ink builds its Export screen with the system's radioButtonGroup, and its Preflight as Figma draws it, the system's modal over the system's overlay with a dividerSection and listItem rows; the contract follows.
+- A component the system has not built yet, such as table/row, is no longer counted as a product's hand-built gap.
+
 ## v2.0.5 · 6 October 2026
 
 - The highlight selector, selected, is drawn as Figma draws it: its fill at 20% and its outer ring at 48%, so what it marks shows through (the code painted both solid).
