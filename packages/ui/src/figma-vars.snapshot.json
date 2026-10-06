@@ -140,7 +140,7 @@
       "semantic/content/secondary/color": "#404040",
       "input/icon/color": "#595959",
       "input/value/disabled/color": "#595959",
-      "overflowList/label/hover/color": "#0a0a0a",
+      "overflowList/label/hover/color": "#e8e8e8",
       "overflowList/background/hover/color": "#ffffff",
       "overflowList/border/default/color": "#e8e8e8",
       "overflowList/border/hover/color": "#e8e8e8",
@@ -733,7 +733,7 @@
         "primitives/Neutral 300"
       ],
       "overflowList/label/hover/color": [
-        "primitives/Neutral 100"
+        "primitives/Neutral 800"
       ],
       "panel/border/color": [
         "dividerLine/border/color",

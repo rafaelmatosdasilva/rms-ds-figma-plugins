@@ -533,12 +533,6 @@
     "font-scaling-lab": "../rms-figma-font-scaling-lab"
   },
   "figmaNames": "strict",
-  "knownLowContrast": [
-    "badge [Type=Warning · light]",
-    "badge [Type=Positive · light]",
-    "badge [Type=Neutral · light]"
-  ],
-  "_knownLowContrastNote": "The owner keeps the badge colours as they are (2026-10-06): in light mode each label is its tint's own colour, below 4.5:1. The differences list leaves them out; the style guide's Accessibility area still measures them.",
   "knownRawTokens": [
     "overlay/color",
     "figmaWindowChrome/background/color",
