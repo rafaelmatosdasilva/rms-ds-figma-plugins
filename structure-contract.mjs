@@ -1455,6 +1455,8 @@ export const ICON_SYMBOLS = {
   'icon-empty-component': { desc: 'DS ICON — Icon/object/component node 1546-30341; size=large (56px) variant; fill-based compound path, same shared 56x56 frame', nodeId: '1546:30341', dsName: 'Icon-object-component', idDiffersFromDsName: 'Empty-state rendering of the component glyph (size=large). The "empty-" prefix distinguishes it from the 16px icon-component that uses the same DS component at size=small.', strokeNone: true },
   'icon-plus':        { desc: 'DS ICON — Icon/Plus node 2-2879; fill-based compound path (cross/add mark)', nodeId: '2:2879', dsName: 'Icon-plus', strokeNone: true },
   'icon-minus':       { desc: 'DS ICON — Icon-minus node 252-23314; fill-based bar (the stepper\'s decrease)', nodeId: '252:23314', dsName: 'Icon-minus', strokeNone: true },
+  'icon-cross':       { desc: 'DS ICON — Icon-cross node 1-90; fill-based X (close)', nodeId: '1:90', dsName: 'Icon-cross', strokeNone: true },
+  'icon-image':       { desc: 'DS ICON — Icon-image node 1992-26861; fill-based picture frame (an image layer)', nodeId: '1992:26861', dsName: 'Icon-image', strokeNone: true },
   'icon-export':      { desc: 'DS ICON — Icon-export node 31-932 (renamed from Icon-download + redrawn 2026-08); upload/export arrow out of a tray', nodeId: '31:932', dsName: 'Icon-export', strokeNone: true },
   'icon-update':      { desc: 'DS ICON — Icon/Update node 31-66777; fill-based compound path (two circular refresh arrows)', nodeId: '31:66777', dsName: 'Icon-update', strokeNone: true },
   'icon-copy':        { desc: 'DS ICON — Icon/Copy node 1390:21732; fill-based compound path (two overlapping rectangles = copy to clipboard)', nodeId: '1390:21732', dsName: 'Icon-copy', strokeNone: true },
@@ -1531,6 +1533,8 @@ export const ICON_USAGES = [
   { plugin: 'tokens-to-ink', selector: '#view-export-btn',       icon: 'icon-export'   },
   { plugin: 'tokens-to-ink', selector: '#export-confirm-btn',    icon: 'icon-export'   },
   { plugin: 'tokens-to-ink', selector: '#view-colors-btn',       icon: 'icon-var-color'},
+  { plugin: 'tokens-to-ink', selector: '#preflight-close',       icon: 'icon-cross'    },
+  { plugin: 'tokens-to-ink', selector: '#preflight-rescan',      icon: 'icon-update'   },
   // font-scaling-lab
   { plugin: 'font-scaling-lab', selector: '#focus-frame-btn',    icon: 'icon-focus'    },
   // font-scaling-lab — the scale stepper (the system's buttonStepper): decrease and increase.
