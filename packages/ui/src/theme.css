@@ -1144,12 +1144,13 @@
     background: color-mix(in srgb, var(--semantic-negative) 20%, transparent);              /* DS Background layer: semantic/negative at 20% */
     flex-shrink: 0;
   }
-  /* DS state=selected: the Background layer fills with highlightSelector/border and BorderOutside adds a 4px ring outside. */
-  .highlightSelector.selected { background: var(--highlightSelector-border); border-color: var(--highlightSelector-border); box-shadow: 0 0 0 4px var(--highlightSelector-border); }
+  /* DS state=selected: the Background layer fills with highlightSelector/border at 20% and BorderOutside adds a 4px ring outside at 48%. */
+  .highlightSelector.selected { background: color-mix(in srgb, var(--highlightSelector-border) 20%, transparent); border-color: var(--highlightSelector-border); box-shadow: 0 0 0 4px color-mix(in srgb, var(--highlightSelector-border) 48%, transparent); }   /* DS Selected: Background at 20%, Border 2 inside, BorderOutside 4 outside at 48% */
   /* buttonStepper (DS) — a −/value/+ row: two buttonSecondary flanking an input, gap/xs.
      Pure layout wrapper; the children are the DS .buttonSecondary + input components. */
   .buttonStepper { display: inline-flex; align-items: center; gap: var(--gap-xs); }
   .buttonStepper > .inputWrap { width: 119px; flex-shrink: 0; }   /* DS buttonStepper 252:22089: its input is fixed at 119 wide */
+  .buttonStepper > .inputWrap .inputField { text-align: center; }   /* DS buttonStepper: its value is centred */
   /* listItem (DS 503:49751) — a list row: Icon + Main(title m / description s), with a trailing dividerLine. */
   .listItem { display: flex; flex-direction: column; gap: var(--gap-m); }
   .listItem-row { display: flex; align-items: center; gap: var(--gap-m); }

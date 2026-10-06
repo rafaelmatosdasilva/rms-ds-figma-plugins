@@ -7,6 +7,11 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.5 · 6 October 2026
+
+- The highlight selector, selected, is drawn as Figma draws it: its fill at 20% and its outer ring at 48%, so what it marks shows through (the code painted both solid).
+- The stepper centres its value, as Figma does.
+
 ## v2.0.4 · 6 October 2026
 
 - The minus icon (Icon-minus in Figma) is in the icon sheet, for the stepper's decrease button, and the stepper's input is 119 wide, as Figma draws it.

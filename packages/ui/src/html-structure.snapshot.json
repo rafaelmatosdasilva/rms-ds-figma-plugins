@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-10-04",
+  "_updated": "2026-10-06",
   "impact-atlas": {
     "ids": [
       "canvas-scan-btn",
@@ -541,6 +541,12 @@
         ]
       },
       {
+        "id": null,
+        "classes": [
+          "inputWrap"
+        ]
+      },
+      {
         "id": "scale-inc",
         "classes": [
           "buttonSecondary"
@@ -569,6 +575,14 @@
       {
         "context": "#frame-name",
         "icon": "icon-focus"
+      },
+      {
+        "context": "#scale-dec",
+        "icon": "icon-minus"
+      },
+      {
+        "context": "#scale-inc",
+        "icon": "icon-plus"
       },
       {
         "context": "#details-type-icon",
