@@ -532,6 +532,10 @@
     "tokens-to-ink": "../rms-figma-tokens-to-ink",
     "font-scaling-lab": "../rms-figma-font-scaling-lab"
   },
+  "a11y": {
+    "reflow": true
+  },
+  "_a11yNote": "The audit tries every component 320 pixels wide (WCAG 1.4.10 Reflow): nothing may need sideways scrolling.",
   "figmaNames": "strict",
   "knownRawTokens": [
     "overlay/color",
