@@ -7,6 +7,10 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## Not released yet
+
+- The Figma data is read again from Figma (6 October). The variables and the tokens the screens use are unchanged. The capture now reads each component's slots too, so the contract names them: the panel's Head Content and Main Content (gap/xl, Head Content padding/l on top), and the Slot of the action bar, card, modal, checkbox group and radio group. The modal's Slot spaces its content at gap/m in Figma while .modal-slot uses gap/l; the audit lists it, and the code is unchanged until that is decided.
+
 ## v2.0.3 · 5 October 2026
 
 - On the radio, Current wins over a checked input, so the step chosen in a stepper (Impact Atlas's scan depth) shows as current, a ring around a dot, never a filled disc.
