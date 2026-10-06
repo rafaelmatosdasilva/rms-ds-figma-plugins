@@ -86,7 +86,7 @@ export const CONTRACT = {
     fillStructure: 'before', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',  // Figma: the ring is drawn by the layer under the fill, not a stroke on the root
-    propertyMap: { 'state': { default: '.highlightSelector', selected: '.highlightSelector.selected' } },
+    propertyMap: { 'State': { Default: '.highlightSelector', Selected: '.highlightSelector.selected' } },
   },
   // dividerLine (DS) — a thin rule (dividerLine/border). Height informational (code renders 1px).
   dividerLine: {
@@ -150,7 +150,7 @@ export const CONTRACT = {
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: false,
     children: [{ name: 'Content', cssSelector: '.empty-state-content', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } }],
-    propertyMap: { 'type': { default: '.empty-state', positive: '.empty-state.empty-state--positive' } },
+    propertyMap: { 'Type': { Default: '.empty-state', Positive: '.empty-state.empty-state--positive' } },
   },
   // listItem (DS 503:49751) — a list row: Icon + Main(title m / description s), trailing dividerLine.
   // Content-driven height; gap/m row spacing. strokeOnAnyState is the trailing dividerLine's.
@@ -175,6 +175,8 @@ export const CONTRACT = {
     fillStructure: 'before', innerInset: null, innerRadiusVar: null,   // Figma fills a layer behind the loader slot (the code paints the scrim on .overlay: both paint)
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',
+    // Figma's sizing note: the overlay fills whatever a product places it in (no geometry to assert from it).
+    annotations: { 'Sizing: fill. It covers its container; its width and height come from where a product places it.': null },
   },
   buttonList: {
     _note: "strokeSides=bottom (items stack touching — only bottom stroke visible). hover/selected Content h=32, fills full outer width (outer padding=0). CSS: border-bottom only; ::before inset=4px_0, border-radius=var(--radii-button)",
@@ -195,8 +197,8 @@ export const CONTRACT = {
     // gap/m (action↔arrow) = root gap/s + margin-right on .buttonList-action.
     // Locked by RENDERED_ASSERTIONS (columnGap 4px asserted across all three states).
     states: {
-      hover:    { paddingVar: { r: 'padding/s' } },
-      selected: { paddingVar: { r: 'padding/s' } },
+      Hover:    { paddingVar: { r: 'padding/s' } },
+      Selected: { paddingVar: { r: 'padding/s' } },
     },
     children: [
       // DS "Container" child frame — flattened into .buttonList root: gap/s is on the root rule
@@ -206,8 +208,8 @@ export const CONTRACT = {
         verifiedBy: 'geometric — tb padding/xs is absorbed by the fixed h=40 + ::before pill inset (4px 0); no code padding to assert' },
     ],
     propertyMap: {
-      'State':       { default: '.buttonList', hover: '.buttonList:hover', selected: '.buttonList.selected' },
-      'show Action Focus': '.buttonList.no-button .buttonList-action',
+      'State':       { Default: '.buttonList', Hover: '.buttonList:hover', Selected: '.buttonList.selected' },
+      'Show Action Focus': '.buttonList.no-button .buttonList-action',
     },
   },
   node: {
@@ -262,7 +264,7 @@ export const CONTRACT = {
     strokeOnDefault: false,
     propertyMap: {
       // Figma Type: negative/warning/positive/neutral → CSS classes: high/medium/low/none
-      'Type':       { negative: '.badge.high', warning: '.badge.medium', positive: '.badge.low', neutral: '.badge.none' },
+      'Type':       { Negative: '.badge.high', Warning: '.badge.medium', Positive: '.badge.low', Neutral: '.badge.none' },
       'Show Label': '.badge.no-label .badge-label',
       'Show Icon': '.badge.no-icon .badge-icon',
     },
@@ -308,7 +310,7 @@ export const CONTRACT = {
       { name: 'Frame 39', cssSelector: '.toast-body', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } },
     ],
     propertyMap: {
-      'Type':             { sucess: '.toast', error: '.toast.toast-error' }, // DS typo: "sucess"
+      'Type':             { Success: '.toast', Error: '.toast.toast-error' },
       'Show Description': '.toast-description',
     },
   },
@@ -326,9 +328,9 @@ export const CONTRACT = {
       { name: 'LabelContainer', cssSelector: '.buttonSecondary span', gapVar: null, paddingVar: { tb: null, lr: 'padding/xs' } },
     ],
     propertyMap: {
-      'state':      { Default: '.buttonSecondary', hover: '.buttonSecondary:hover', Disabled: '.buttonSecondary:disabled' },
-      'show-icon':  '.buttonSecondary svg',
-      'show-label': '.buttonSecondary:has(svg):not(:has(span))',
+      'State':      { Default: '.buttonSecondary', hover: '.buttonSecondary:hover', Disabled: '.buttonSecondary:disabled' },
+      'Show Icon':  '.buttonSecondary svg',
+      'Show Label': '.buttonSecondary:has(svg):not(:has(span))',
     },
   },
   buttonQuaternary: {
@@ -343,9 +345,9 @@ export const CONTRACT = {
       { name: 'LabelContainer', cssSelector: '.buttonQuaternary span', gapVar: null, paddingVar: { tb: null, lr: 'padding/xs' } },
     ],
     propertyMap: {
-      'state':      { default: '.buttonQuaternary', hover: '.buttonQuaternary:hover::before' },
-      'show-Icon':  '.buttonQuaternary svg',
-      'show-label': '.buttonQuaternary:has(svg):not(:has(span))',
+      'State':      { Default: '.buttonQuaternary', Hover: '.buttonQuaternary:hover::before' },
+      'Show Icon':  '.buttonQuaternary svg',
+      'Show Label': '.buttonQuaternary:has(svg):not(:has(span))',
     },
   },
   swatch: {
@@ -357,7 +359,7 @@ export const CONTRACT = {
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'all',  // Figma: 1.5 all four sides on the Background rect (verified 2026-08)
     propertyMap: {
-      'filled': { true: '.swatch', false: '.swatch.empty' },
+      'Filled': { True: '.swatch', False: '.swatch.empty' },
     },
   },
   overflowList: {
@@ -401,7 +403,7 @@ export const CONTRACT = {
     childFramePadding: [
       { name: 'LabelContainer', cssSelector: '.buttonPrimary span', paddingVar: { tb: null, lr: 'padding/xs' } },
     ],
-    propertyMap: { 'disabled': { false: '.buttonPrimary', true: '.buttonPrimary:disabled' } },
+    propertyMap: { 'Disabled': { False: '.buttonPrimary', True: '.buttonPrimary:disabled' } },
   },
   tooltipButton: {
     // DS node 1810:27212 — 24×24 info/help trigger. Icon varies by feature
@@ -438,10 +440,10 @@ export const CONTRACT = {
       'Background must match the containing surface. Set it explicitly using the surface color token. Never rely on transparency or CSS inheritance.': { sel: '.dividerSection', prop: 'background', expectedVar: '--semantic-surface-elevationMedium' },
     },
     propertyMap: {
-      'show priority':  '.dividerSection.no-priority .tier-dot',
-      'show number':    '.dividerSection.no-number .count',
-      'label content':  null, // TEXT — skip
-      'number content': null, // TEXT — skip
+      'Show Priority':  '.dividerSection.no-priority .tier-dot',
+      'Show Number':    '.dividerSection.no-number .count',
+      'Label Content':  null, // TEXT — skip
+      'Number Content': null, // TEXT — skip
     },
   },
   buttonTertiary: {
@@ -456,9 +458,9 @@ export const CONTRACT = {
       { name: 'LabelContainer', cssSelector: '.buttonTertiary span', gapVar: null, paddingVar: { tb: null, lr: 'padding/xs' } },
     ],
     propertyMap: {
-      'state':      { default: '.buttonTertiary', active: '.buttonTertiary:hover', Disabled: '.buttonTertiary:disabled' },
-      'show-Icon':  '.buttonTertiary svg',
-      'show-label': '.buttonTertiary span',
+      'State':      { default: '.buttonTertiary', active: '.buttonTertiary:hover', Disabled: '.buttonTertiary:disabled' },
+      'Show Icon':  '.buttonTertiary svg',
+      'Show Label': '.buttonTertiary span',
     },
   },
   radioButton: {
@@ -518,7 +520,7 @@ export const CONTRACT = {
     ],
     propertyMap: {
       'side': { left: '.left-panel' },
-      'type': { primary: '.panel', secondary: '.panel.panel--secondary' },
+      'Type': { Primary: '.panel', Secondary: '.panel.panel--secondary' },
     },
   },
   statusBar: {
@@ -539,8 +541,8 @@ export const CONTRACT = {
     strokeOnAnyState: false,
     strokeSides: 'none',
     propertyMap: {
-      'Show dividerLine Top':    '.statusBar.no-divider-top::before',
-      'Show dividerLine Bottom': '.statusBar.no-divider-bottom::after',
+      'Show Divider Line Top':    '.statusBar.no-divider-top::before',
+      'Show Divider Line Bottom': '.statusBar.no-divider-bottom::after',
     },
   },
   actionBar: {
@@ -560,8 +562,8 @@ export const CONTRACT = {
     strokeOnAnyState: false,
     strokeSides: 'none',
     propertyMap: {
-      'Show dividerLine Top':    '.actionbar.no-divider-top::after',
-      'Show dividerLine Bottom': '.actionbar.no-divider-bottom::after',
+      'Show Divider Line Top':    '.actionbar.no-divider-top::after',
+      'Show Divider Line Bottom': '.actionbar.no-divider-bottom::after',
       'Show Background':         '.actionbar.no-background::before',
     },
   },

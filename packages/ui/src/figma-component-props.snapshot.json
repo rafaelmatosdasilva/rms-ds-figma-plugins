@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-10-04T14:20:12.746Z",
+  "_updated": "2026-10-06T06:48:39.787Z",
   "tooltipPopover": {
     "nodeId": "821:72473",
     "properties": {
@@ -39,16 +39,16 @@
   "toast": {
     "nodeId": "836:101501",
     "properties": {
-      "LabelContent#836:0": {
+      "Label Content#836:0": {
         "type": "TEXT",
         "defaultValue": "Title"
       },
       "Type": {
         "type": "VARIANT",
-        "defaultValue": "sucess",
+        "defaultValue": "Success",
         "variantOptions": [
-          "sucess",
-          "error"
+          "Success",
+          "Error"
         ]
       }
     },
@@ -57,7 +57,7 @@
   "table/row": {
     "nodeId": "1:178",
     "properties": {
-      "Show divider#3:8": {
+      "Show Divider#3:8": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
@@ -96,17 +96,22 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: checkbox",
+        "labelMarkdown": ""
+      }
+    ]
   },
   "swatch": {
     "nodeId": "31:38588",
     "properties": {
-      "filled": {
+      "Filled": {
         "type": "VARIANT",
-        "defaultValue": "true",
+        "defaultValue": "True",
         "variantOptions": [
-          "true",
-          "false"
+          "True",
+          "False"
         ]
       }
     },
@@ -118,20 +123,20 @@
       "Slot#1390:0": {
         "type": "SLOT",
         "description": "",
+        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": true,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": true
-        },
-        "preferredValues": []
+        }
       },
-      "Show dividerLine Bottom#2049:1": {
+      "Show Divider Line Bottom#2049:1": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "Show dividerLine Top#2049:2": {
+      "Show Divider Line Top#2049:2": {
         "type": "BOOLEAN",
         "defaultValue": true
       }
@@ -187,14 +192,14 @@
       "Slot#540:16": {
         "type": "SLOT",
         "description": "",
+        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": false,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        },
-        "preferredValues": []
+        }
       }
     },
     "annotations": []
@@ -209,19 +214,19 @@
       "Slot#2064:4": {
         "type": "SLOT",
         "description": "",
+        "preferredValues": [
+          {
+            "type": "COMPONENT_SET",
+            "key": "18e0f96472a879f6920404e8c405eefcdb213aac"
+          }
+        ],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": false,
           "minChildren": 1,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        },
-        "preferredValues": [
-          {
-            "type": "COMPONENT_SET",
-            "key": "18e0f96472a879f6920404e8c405eefcdb213aac"
-          }
-        ]
+        }
       }
     },
     "annotations": []
@@ -270,36 +275,36 @@
   "panel": {
     "nodeId": "2287:68241",
     "properties": {
-      "MainContent#2287:0": {
+      "Main Content#2287:0": {
         "type": "SLOT",
         "description": "",
+        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": false,
           "displayEmptyByDefault": false,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        },
-        "preferredValues": []
+        }
       },
-      "HeadContent#2287:1": {
+      "Head Content#2287:1": {
         "type": "SLOT",
         "description": "",
+        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": false,
           "displayEmptyByDefault": false,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        },
-        "preferredValues": []
+        }
       },
-      "type": {
+      "Type": {
         "type": "VARIANT",
-        "defaultValue": "primary",
+        "defaultValue": "Primary",
         "variantOptions": [
-          "primary",
-          "secondary"
+          "Primary",
+          "Secondary"
         ]
       }
     },
@@ -311,30 +316,35 @@
       "Slot#672:0": {
         "type": "SLOT",
         "description": "",
+        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": false,
           "displayEmptyByDefault": false,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        },
-        "preferredValues": []
+        }
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Sizing: fill. It covers its container; its width and height come from where a product places it.",
+        "labelMarkdown": ""
+      }
+    ]
   },
   "overflowList": {
     "nodeId": "789:35422",
     "properties": {
-      "title-content#789:2": {
+      "Title Content#789:2": {
         "type": "TEXT",
         "defaultValue": "Value"
       },
-      "show-icon#2004:0": {
+      "Show Icon#2004:0": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "icon-content#2004:3": {
+      "Icon Content#2004:3": {
         "type": "INSTANCE_SWAP",
         "defaultValue": "1992:27132",
         "preferredValues": [
@@ -357,7 +367,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: button",
+        "labelMarkdown": ""
+      }
+    ]
   },
   "overflow": {
     "nodeId": "65:11757",
@@ -365,19 +380,19 @@
       "Slot#710:0": {
         "type": "SLOT",
         "description": "",
+        "preferredValues": [
+          {
+            "type": "COMPONENT_SET",
+            "key": "c1872d59cd9519bebf81e69fa88af8e9a9f48eb0"
+          }
+        ],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": true,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": true
-        },
-        "preferredValues": [
-          {
-            "type": "COMPONENT_SET",
-            "key": "c1872d59cd9519bebf81e69fa88af8e9a9f48eb0"
-          }
-        ]
+        }
       },
       "Show Title#710:1": {
         "type": "BOOLEAN",
@@ -393,7 +408,7 @@
   "node": {
     "nodeId": "544:74211",
     "properties": {
-      "iconContent#544:1": {
+      "Icon Content#544:1": {
         "type": "INSTANCE_SWAP",
         "defaultValue": "308:49949",
         "preferredValues": []
@@ -438,24 +453,24 @@
       "Slot#712:5": {
         "type": "SLOT",
         "description": "",
+        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": true,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": true
-        },
-        "preferredValues": []
+        }
       },
-      "show-slot#712:6": {
+      "Show Slot#712:6": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "show-icon#2004:6": {
+      "Show Icon#2004:6": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "icon-content#2004:7": {
+      "Icon Content#2004:7": {
         "type": "INSTANCE_SWAP",
         "defaultValue": "31:932",
         "preferredValues": [
@@ -465,7 +480,7 @@
           }
         ]
       },
-      "Show CloseButton#2223:3": {
+      "Show Close Button#2223:3": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
@@ -473,7 +488,7 @@
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "title Content#2227:7": {
+      "Title Content#2227:7": {
         "type": "TEXT",
         "defaultValue": "Title"
       }
@@ -497,20 +512,20 @@
   "listItem": {
     "nodeId": "503:49751",
     "properties": {
-      "Show dividerLine#503:0": {
+      "Show Divider Line#503:0": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "iconContent#503:1": {
+      "Icon Content#503:1": {
         "type": "INSTANCE_SWAP",
         "defaultValue": "31:601",
         "preferredValues": []
       },
-      "DescriptionContent#503:2": {
+      "Description Content#503:2": {
         "type": "TEXT",
         "defaultValue": "Description"
       },
-      "TitleContent#503:3": {
+      "Title Content#503:3": {
         "type": "TEXT",
         "defaultValue": "Title"
       },
@@ -620,12 +635,12 @@
   "highlightSelector": {
     "nodeId": "144:80986",
     "properties": {
-      "state": {
+      "State": {
         "type": "VARIANT",
-        "defaultValue": "default",
+        "defaultValue": "Default",
         "variantOptions": [
-          "default",
-          "selected"
+          "Default",
+          "Selected"
         ]
       }
     },
@@ -644,28 +659,28 @@
   "emptyState": {
     "nodeId": "1431:21215",
     "properties": {
-      "show-action#1431:4": {
+      "Show Action#1431:4": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "title-content#1431:5": {
+      "Title Content#1431:5": {
         "type": "TEXT",
         "defaultValue": "Title"
       },
-      "description-content#1431:6": {
+      "Description Content#1431:6": {
         "type": "TEXT",
         "defaultValue": "Description"
       },
-      "show-description#1431:9": {
+      "Show Description#1431:9": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "type": {
+      "Type": {
         "type": "VARIANT",
-        "defaultValue": "default",
+        "defaultValue": "Default",
         "variantOptions": [
-          "default",
-          "positive"
+          "Default",
+          "Positive"
         ]
       }
     },
@@ -674,23 +689,23 @@
   "dividerSection": {
     "nodeId": "135:46577",
     "properties": {
-      "label content#135:0": {
+      "Label Content#135:0": {
         "type": "TEXT",
         "defaultValue": "Text"
       },
-      "show priority#363:0": {
+      "Show Priority#363:0": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "number content#505:2": {
+      "Number Content#505:2": {
         "type": "TEXT",
         "defaultValue": "1"
       },
-      "show number#505:3": {
+      "Show Number#505:3": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "show button#1590:0": {
+      "Show Button#1590:0": {
         "type": "BOOLEAN",
         "defaultValue": true
       }
@@ -709,19 +724,19 @@
       "Slot#2064:1": {
         "type": "SLOT",
         "description": "",
+        "preferredValues": [
+          {
+            "type": "COMPONENT_SET",
+            "key": "23827df1c49b6ce542bc149b2e86210cb6030508"
+          }
+        ],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": false,
           "minChildren": 1,
           "maxChildren": null,
           "allowPreferredValuesOnly": true
-        },
-        "preferredValues": [
-          {
-            "type": "COMPONENT_SET",
-            "key": "23827df1c49b6ce542bc149b2e86210cb6030508"
-          }
-        ]
+        }
       },
       "Label Content#2064:2": {
         "type": "TEXT",
@@ -758,7 +773,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: checkbox",
+        "labelMarkdown": ""
+      }
+    ]
   },
   "card": {
     "nodeId": "2120:62601",
@@ -766,14 +786,14 @@
       "Slot#2120:5": {
         "type": "SLOT",
         "description": "",
+        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": false,
           "displayEmptyByDefault": false,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        },
-        "preferredValues": []
+        }
       },
       "Show Title#2155:0": {
         "type": "BOOLEAN",
@@ -785,24 +805,24 @@
   "buttonTertiary": {
     "nodeId": "1:78",
     "properties": {
-      "show-Icon#31:16": {
+      "Show Icon#31:16": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "icon-content#31:19": {
+      "Icon Content#31:19": {
         "type": "INSTANCE_SWAP",
         "defaultValue": "2:2879",
         "preferredValues": []
       },
-      "label-content#31:22": {
+      "Label Content#31:22": {
         "type": "TEXT",
         "defaultValue": "label"
       },
-      "show-label#109:12": {
+      "Show Label#109:12": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "state": {
+      "State": {
         "type": "VARIANT",
         "defaultValue": "Default",
         "variantOptions": [
@@ -822,24 +842,24 @@
   "buttonSecondary": {
     "nodeId": "1002:36578",
     "properties": {
-      "label-content#1002:0": {
+      "Label Content#1002:0": {
         "type": "TEXT",
         "defaultValue": "label"
       },
-      "icon-content#1002:1": {
+      "Icon Content#1002:1": {
         "type": "INSTANCE_SWAP",
         "defaultValue": "2:2879",
         "preferredValues": []
       },
-      "show-icon#1002:2": {
+      "Show Icon#1002:2": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "show-label#1002:3": {
+      "Show Label#1002:3": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "state": {
+      "State": {
         "type": "VARIANT",
         "defaultValue": "Default",
         "variantOptions": [
@@ -859,29 +879,29 @@
   "buttonQuaternary": {
     "nodeId": "937:16191",
     "properties": {
-      "show-Icon#31:16": {
+      "Show Icon#31:16": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "icon-content#31:19": {
+      "Icon Content#31:19": {
         "type": "INSTANCE_SWAP",
         "defaultValue": "2:2879",
         "preferredValues": []
       },
-      "label-content#31:22": {
+      "Label Content#31:22": {
         "type": "TEXT",
         "defaultValue": "label"
       },
-      "show-label#109:12": {
+      "Show Label#109:12": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "state": {
+      "State": {
         "type": "VARIANT",
-        "defaultValue": "default",
+        "defaultValue": "Default",
         "variantOptions": [
-          "default",
-          "hover"
+          "Default",
+          "Hover"
         ]
       }
     },
@@ -895,29 +915,29 @@
   "buttonPrimary": {
     "nodeId": "1428:21123",
     "properties": {
-      "label-content#1428:0": {
+      "Label Content#1428:0": {
         "type": "TEXT",
         "defaultValue": "label"
       },
-      "icon-content#1428:1": {
+      "Icon Content#1428:1": {
         "type": "INSTANCE_SWAP",
         "defaultValue": "2:2879",
         "preferredValues": []
       },
-      "show-icon#1428:2": {
+      "Show Icon#1428:2": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "show-label#1428:3": {
+      "Show Label#1428:3": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "disabled": {
+      "Disabled": {
         "type": "VARIANT",
-        "defaultValue": "false",
+        "defaultValue": "False",
         "variantOptions": [
-          "false",
-          "true"
+          "False",
+          "True"
         ]
       }
     },
@@ -931,7 +951,7 @@
   "buttonList": {
     "nodeId": "789:35349",
     "properties": {
-      "icon-content#789:0": {
+      "Icon Content#789:0": {
         "type": "INSTANCE_SWAP",
         "defaultValue": "308:49949",
         "preferredValues": [
@@ -981,7 +1001,7 @@
         "type": "TEXT",
         "defaultValue": "Title"
       },
-      "show Action Focus#1167:0": {
+      "Show Action Focus#1167:0": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
@@ -995,11 +1015,11 @@
       },
       "State": {
         "type": "VARIANT",
-        "defaultValue": "default",
+        "defaultValue": "Default",
         "variantOptions": [
-          "default",
-          "hover",
-          "selected"
+          "Default",
+          "Hover",
+          "Selected"
         ]
       }
     },
@@ -1022,12 +1042,12 @@
       },
       "Type": {
         "type": "VARIANT",
-        "defaultValue": "negative",
+        "defaultValue": "Negative",
         "variantOptions": [
-          "negative",
-          "warning",
-          "positive",
-          "neutral"
+          "Negative",
+          "Warning",
+          "Positive",
+          "Neutral"
         ]
       }
     },
@@ -1039,20 +1059,20 @@
       "Slot#334:3": {
         "type": "SLOT",
         "description": null,
+        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": true,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        },
-        "preferredValues": []
+        }
       },
-      "Show dividerLine Top#2120:6": {
+      "Show Divider Line Top#2120:6": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
-      "Show dividerLine Bottom#2120:7": {
+      "Show Divider Line Bottom#2120:7": {
         "type": "BOOLEAN",
         "defaultValue": true
       },
