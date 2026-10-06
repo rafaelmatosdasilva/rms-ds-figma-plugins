@@ -43,7 +43,7 @@
       "buttonSecondary/icon/color": "#2b2b2b",
       "buttonTertiary/iconText/default/color": "#0a0a0a",
       "buttonQuaternary/iconText/color": "#595959",
-      "checkbox/border/default/color": "#adadad",
+      "checkbox/border/default/color": "#828282",
       "checkbox/border/selected/color": "#0a0a0a",
       "checkbox/text/default/color": "#404040",
       "checkbox/text/selected/color": "#0a0a0a",
@@ -73,7 +73,7 @@
       "input/value/filled/color": "#0a0a0a",
       "input/value/empty/color": "#828282",
       "input/background/filled/color": "#f7f7f7",
-      "input/border/default/color": "#adadad",
+      "input/border/default/color": "#828282",
       "modal/background/color": "#ffffff",
       "modal/title/color": "#0a0a0a",
       "node/background/idle/color": "#f7f7f7",
@@ -96,7 +96,7 @@
       "overflowList/background/default/color": "#ffffff",
       "overflowList/label/default/color": "#404040",
       "overlay/color": "#e8e8e8e0",
-      "radioButton/border/default/color": "#adadad",
+      "radioButton/border/default/color": "#828282",
       "radioButton/border/selected/color": "#0a0a0a",
       "radioButton/border/current/color": "#0a0a0a",
       "radioButton/border/unselected/color": "#0a0a0a",
@@ -147,7 +147,7 @@
       "overflow/text/color": "#828282",
       "highlight/icon/color": "#ffffff",
       "tooltipPopover/text/color": "#404040",
-      "input/border/hover/color": "#828282",
+      "input/border/hover/color": "#595959",
       "toast/icon/success/color": "#ffffff",
       "segmentedControl/background/selected/color": "#ffffff",
       "buttonSecondary/background/hover/color": "#ffffff",
@@ -233,7 +233,7 @@
       "input/value/filled/color": "#f5f5f5",
       "input/value/empty/color": "#878787",
       "input/background/filled/color": "#2b2b2b",
-      "input/border/default/color": "#5e5e5e",
+      "input/border/default/color": "#878787",
       "modal/background/color": "#1c1c1c",
       "modal/title/color": "#f5f5f5",
       "node/background/idle/color": "#2b2b2b",
@@ -307,7 +307,7 @@
       "overflow/text/color": "#bfbfbf",
       "highlight/icon/color": "#1c1c1c",
       "tooltipPopover/text/color": "#bfbfbf",
-      "input/border/hover/color": "#878787",
+      "input/border/hover/color": "#bfbfbf",
       "toast/icon/success/color": "#1c1c1c",
       "segmentedControl/background/selected/color": "#303030",
       "buttonSecondary/background/hover/color": "#303030",
@@ -525,7 +525,7 @@
         "primitives/Neutral 200"
       ],
       "checkbox/border/default/color": [
-        "primitives/Neutral 600"
+        "primitives/Neutral 500"
       ],
       "checkbox/border/selected/color": [
         "primitives/Neutral 100"
@@ -592,7 +592,7 @@
         "primitives/Neutral 900"
       ],
       "input/border/default/color": [
-        "primitives/Neutral 600"
+        "primitives/Neutral 500"
       ],
       "input/border/disabled/color": [
         "primitives/Neutral 800"
@@ -601,7 +601,7 @@
         "primitives/Neutral 100"
       ],
       "input/border/hover/color": [
-        "primitives/Neutral 500"
+        "primitives/Neutral 400"
       ],
       "input/icon/color": [
         "primitives/Neutral 400"
@@ -749,7 +749,7 @@
         "primitives/Neutral 100"
       ],
       "radioButton/border/default/color": [
-        "primitives/Neutral 600"
+        "primitives/Neutral 500"
       ],
       "radioButton/border/selected/color": [
         "primitives/Neutral 100"
@@ -1106,7 +1106,7 @@
         "primitives/Neutral 800"
       ],
       "input/border/default/color": [
-        "primitives/Neutral 500"
+        "primitives/Neutral 400"
       ],
       "input/border/disabled/color": [
         "primitives/Neutral 800"
@@ -1115,7 +1115,7 @@
         "primitives/Neutral 100"
       ],
       "input/border/hover/color": [
-        "primitives/Neutral 400"
+        "primitives/Neutral 300"
       ],
       "input/icon/color": [
         "primitives/Neutral 200"

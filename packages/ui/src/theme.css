@@ -147,9 +147,9 @@
     --swatch-border-empty-primary:  var(--neutral-700);             /* swatch/border/empty L=N700, D→buttonSecondary-border */
     /* Swatch stripe color = same as --dividerLine-border; gap = transparent. No separate vars needed. */
     /* Inputs */
-    --input-border:             var(--neutral-600); /* input/border/default/color L=N600, D→override */
+    --input-border:             var(--neutral-500); /* input/border/default/color L=N500 (3:1, WCAG 1.4.11), D→override */
     --input-border-focus:              var(--neutral-100); /* input/border/focus/color  L=N100 */
-    --input-border-hover:              var(--neutral-500); /* input/border/hover/color  L=N500 */
+    --input-border-hover:              var(--neutral-400); /* input/border/hover/color  L=N400 */
     --input-value-empty:        var(--neutral-500); /* input/value/empty/color   L=N5, D→override */
     --input-value-disabled:     var(--neutral-400); /* input/value/disabled/color L=N4, D→override */
     --input-border-disabled:    var(--neutral-800); /* input/border/disabled/color N800 both (replaces removed input/background/disabled) */
@@ -242,7 +242,7 @@
 
     /* Radio button (mode-aware) */
     --radioButton-background:             var(--neutral-1000); /* radioButton/background/default N1000 both */
-    --radioButton-border:         var(--neutral-600);  /* radioButton/border/default L=N6, D→override */
+    --radioButton-border:         var(--neutral-500);  /* radioButton/border/default L=N5 (3:1, WCAG 1.4.11), D→override */
     --radioButton-border-selected: var(--neutral-100); /* radioButton/border/selected N100 both */
     --radioButton-text:           var(--neutral-300);  /* radioButton/text/default L=N3, D→override */
     --radioButton-text-current:   var(--neutral-100);  /* radioButton/text/current N100 both */
@@ -255,7 +255,7 @@
     --radioButton-text-unselected:     var(--neutral-200);  /* radioButton/text/unselected N200 both */
     /* Checkbox */
     --checkbox-background:          var(--input-background-filled); /* checkbox/background/default → input/background/filled (N900 L / N800 D) */
-    --checkbox-border:              var(--neutral-600);  /* checkbox/border/default L=N6, D→override */
+    --checkbox-border:              var(--neutral-500);  /* checkbox/border/default L=N5 (3:1, WCAG 1.4.11), D→override */
     --checkbox-background-selected: var(--buttonPrimary-background);  /* checkbox/background/selected → buttonPrimary/background (N200 L / N100 D) */
     --checkbox-border-selected:     var(--neutral-100);  /* checkbox/border/selected N100 both */
     --checkbox-icon-selected:       var(--neutral-1000); /* checkbox/icon/selected → N1000 both */
@@ -327,8 +327,8 @@
       --buttonPrimary-background:   var(--neutral-100);  /* D=N100=#ededed */
       --swatch-border-filled-primary: var(--buttonSecondary-border); /* Dark → buttonSecondary/border (= N600) */
       --swatch-border-empty-primary:  var(--buttonSecondary-border); /* Dark → buttonSecondary/border/default/color */
-      --input-border:              var(--neutral-500); /* input/border/default D=N500 */
-      --input-border-hover:               var(--neutral-400);   /* input/border/hover D=N400 */
+      --input-border:              var(--neutral-400); /* input/border/default D=N400 (3:1, WCAG 1.4.11) */
+      --input-border-hover:               var(--neutral-300);   /* input/border/hover D=N300 */
       --input-value-empty:         var(--neutral-400);   /* input/value/empty D=N400 */
       --radioButton-text: var(--neutral-200);  /* radioButton/text/default Dark = N200 */
       --checkbox-border: var(--neutral-400);   /* checkbox/border/default Dark = N400 */
@@ -617,7 +617,7 @@
     transition: opacity 0.15s ease;
     line-height: var(--typography-s-line-height);
   }
-  #tt.tt-visible { opacity: 1; }
+  #tt.tt-visible { opacity: 1; pointer-events: auto; }   /* the pointer can rest on it (WCAG 1.4.13) */
 
   /* ── Secondary button (refresh, export, add) ── */
   .buttonSecondary {

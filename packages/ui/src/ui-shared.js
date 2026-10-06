@@ -180,10 +180,15 @@ function varTypeIconHtml(type, size) {
 }
 
 // ── Universal tooltip engine ──────────────────────────────────────────────────
+// What a [data-tip] says, shown after a short wait on hover or keyboard focus (WCAG 1.4.13): it stays while the
+// pointer moves onto it and rests there, stays until the pointer or the focus leaves (a short grace covers the gap
+// between the trigger and the tip), and Escape closes it. A screen reader hears it as the trigger's description.
 (function () {
-  const PAD = 10, DELAY = 1000;
+  const PAD = 10, DELAY = 1000, GRACE = 300;
   const tt = document.getElementById('tt');
-  let showTimer = null, cursorX = 0, cursorY = 0, activeEl = null;
+  if (!tt) return;
+  tt.setAttribute('role', 'tooltip');
+  let showTimer = null, hideTimer = null, cursorX = 0, cursorY = 0, activeEl = null, byFocus = false;
 
   function place() {
     const vw = window.innerWidth, vh = window.innerHeight;
@@ -194,47 +199,64 @@ function varTypeIconHtml(type, size) {
     tt.style.left = x + 'px';
     tt.style.top  = y + 'px';
   }
+  // A tip opened from the keyboard sits under its trigger.
+  function placeAt(el) { const r = el.getBoundingClientRect(); cursorX = r.left; cursorY = r.bottom - 6; place(); }
 
-  function show(el) {
+  function show(el, focus) {
+    clearTimeout(hideTimer);
+    if (activeEl && activeEl !== el) activeEl.removeAttribute('aria-describedby');
+    activeEl = el; byFocus = !!focus;
     tt.textContent = el.dataset.tip;
+    el.setAttribute('aria-describedby', 'tt');
     tt.classList.remove('tt-visible');
     clearTimeout(showTimer);
     showTimer = setTimeout(() => {
-      place();
+      if (byFocus) placeAt(el); else place();
       tt.classList.add('tt-visible');
     }, DELAY);
   }
 
   function hide() {
-    clearTimeout(showTimer);
+    clearTimeout(showTimer); clearTimeout(hideTimer);
     tt.classList.remove('tt-visible');
+    if (activeEl) activeEl.removeAttribute('aria-describedby');
     activeEl = null;
   }
+  const hideSoon = () => { clearTimeout(hideTimer); hideTimer = setTimeout(hide, GRACE); };
 
   document.addEventListener('mousemove', (e) => {
     cursorX = e.clientX;
     cursorY = e.clientY;
-    if (tt.classList.contains('tt-visible')) place();
+    // It follows the pointer over its trigger only: once the pointer is on the tip, the tip stays put.
+    if (tt.classList.contains('tt-visible') && activeEl && activeEl.contains(e.target)) place();
   });
 
   document.addEventListener('mouseover', (e) => {
+    if (tt.contains(e.target)) { clearTimeout(hideTimer); return; }   // the pointer rests on the tip
     const el = e.target.closest('[data-tip]');
-    if (el && el !== activeEl) {
-      activeEl = el;
-      show(el);
-    } else if (!el) {
-      hide();
-    }
+    if (el && el === activeEl) { clearTimeout(hideTimer); return; }
+    if (el) show(el, false);
+    else if (activeEl && !byFocus) hideSoon();
   });
 
   document.addEventListener('mouseout', (e) => {
-    const el = e.target.closest('[data-tip]');
-    if (el && !el.contains(e.relatedTarget)) hide();
+    const to = e.relatedTarget;
+    if (!activeEl || byFocus) return;
+    if (to && (activeEl.contains(to) || tt.contains(to))) return;
+    if (activeEl.contains(e.target) || tt.contains(e.target)) hideSoon();
   });
 
-  document.addEventListener('mousedown', hide);
+  document.addEventListener('focusin', (e) => {
+    const el = e.target.closest && e.target.closest('[data-tip]');
+    if (el) show(el, true);
+  });
+  document.addEventListener('focusout', (e) => {
+    if (activeEl && byFocus && activeEl.contains(e.target)) hide();
+  });
+
+  document.addEventListener('mousedown', (e) => { if (!tt.contains(e.target)) hide(); });
   document.addEventListener('scroll',    hide, true);
-  document.addEventListener('keydown',   hide, true);
+  document.addEventListener('keydown',   (e) => { if (e.key === 'Escape' || !byFocus) hide(); }, true);
 })();
 
 // ── HTML escape ───────────────────────────────────────────────────────────────
@@ -260,10 +282,20 @@ function showToast(msg, opts) {
   if (toastTimer) clearTimeout(toastTimer);
   const cls  = isError ? 'toast toast-error' : 'toast';
   const icon = isError ? '#icon-warning' : '#icon-check';
+  // Said by a screen reader as it appears (WCAG 4.1.3): a failure at once (alert), a confirmation politely (status).
   document.getElementById('toast-container').innerHTML =
-    `<div class="${cls}"><span class="toast-body"><span class="toast-icon"><svg width="16" height="16"><use href="${icon}"/></svg></span><span>${esc(msg)}</span></span></div>`;
-  // A failure is worth more reading time than a confirmation.
-  toastTimer = setTimeout(dismissToast, isError ? 8000 : 5000);
+    `<div class="${cls}" role="${isError ? 'alert' : 'status'}" aria-atomic="true"><span class="toast-body"><span class="toast-icon" aria-hidden="true"><svg width="16" height="16"><use href="${icon}"/></svg></span><span>${esc(msg)}</span></span></div>`;
+  // A failure is worth more reading time than a confirmation. The time stops while the pointer or the focus is on the
+  // toast and starts again when it leaves, so a slow reader keeps it as long as they need (WCAG 2.2.1).
+  const ms = isError ? 8000 : 5000;
+  toastTimer = setTimeout(dismissToast, ms);
+  const t = document.querySelector('#toast-container .toast');
+  if (t) {
+    const hold = () => { clearTimeout(toastTimer); toastTimer = null; };
+    const resume = () => { clearTimeout(toastTimer); toastTimer = setTimeout(dismissToast, ms); };
+    t.addEventListener('mouseenter', hold); t.addEventListener('focusin', hold);
+    t.addEventListener('mouseleave', resume); t.addEventListener('focusout', resume);
+  }
 }
 
 // Every plugin reports failures the same way — negative toast, no inline banner.
@@ -296,7 +328,8 @@ function showProgress(msg, opts) {
   const cancelHtml = cancel
     ? `<button class="buttonTertiary" id="progress-cancel-btn"><span>Cancel</span></button>`
     : '';
-  cont.innerHTML = `<div class="progress-msg${cls ? ' ' + cls : ''}"><div class="toast-content"><div class="toast-spinner"></div><span class="progress-text">${esc(msg)}</span></div>${cancelHtml}</div>`;
+  // A screen reader hears the progress as it starts and as its words change (WCAG 4.1.3).
+  cont.innerHTML = `<div class="progress-msg${cls ? ' ' + cls : ''}" role="status"><div class="toast-content"><div class="toast-spinner" aria-hidden="true"></div><span class="progress-text">${esc(msg)}</span></div>${cancelHtml}</div>`;
   if (cancel) {
     const btn = document.getElementById('progress-cancel-btn');
     if (btn) btn.addEventListener('click', cancel);
