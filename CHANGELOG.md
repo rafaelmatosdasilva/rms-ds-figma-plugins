@@ -7,6 +7,10 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.12 · 6 October 2026
+
+- The overflow list item's hover label is Figma's again (Neutral 800 in Light); what Figma holds is the design's choice. Its contrast on the white row (1.23:1) is flagged for the design team to fix. The badge's Light colours are no longer kept quiet (`knownLowContrast` is gone): a contrast below WCAG is always flagged.
+
 ## v2.0.11 · 6 October 2026
 
 - An overflow list item's label stays readable on hover in Light (Neutral 100, it was Neutral 800 on a white row), changed in Figma too.
