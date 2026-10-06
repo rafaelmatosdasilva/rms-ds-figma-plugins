@@ -194,7 +194,7 @@
     --overflowList-border:           var(--neutral-800);  /* overflowList/border/default L=N800, D→override */
     --overflowList-border-hover:     var(--overflowList-border); /* overflowList/border/hover → overflowList/border/default */
     --overflowList-label:            var(--neutral-300);  /* overflowList/label/default L=N3, D→override */
-    --overflowList-label-hover:      var(--neutral-800);  /* overflowList/label/hover L=N8, D→override */
+    --overflowList-label-hover:      var(--neutral-100);  /* overflowList/label/hover L=N100 (readable on the white row), D→override */
     /* Segmented control */
     --segmentedControl-background:          var(--neutral-900); /* segmentedControl/background/default L=N900, D→N800 override */
     --segmentedControl-border:              var(--neutral-700);  /* segmentedControl/border/default N700, D=N600 */

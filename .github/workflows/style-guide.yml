@@ -6,6 +6,11 @@ name: style guide
 # (ds-config.json, pluginDirs), and products.json gives the links to each one. The engine builds a local page and knows
 # nothing about Pages; publishing is this workflow's job only. The page must pass the engine's style guide check
 # (only the system's tokens and components on it, its own accessibility) or nothing is published.
+#
+# It republishes on its own: on a push here, and every hour when the engine, this repository or a product has a commit
+# the published page was not built from. The page carries sources.txt (the commit of each one it was built from), and
+# the hourly run compares it with the commits now, so nobody has to start a run by hand and an hour with no change
+# builds nothing.
 
 on:
   push:
@@ -21,7 +26,7 @@ on:
       - 'products.json'
       - '.github/workflows/style-guide.yml'
   schedule:
-    - cron: '41 5 * * 1'   # weekly, so an improvement to the engine's template or a product's new icons reach the page
+    - cron: '17 * * * *'   # hourly: builds only when the engine, this repository or a product changed since the page was built
   workflow_dispatch:
 
 permissions:
@@ -34,7 +39,40 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # The commit of each source the page is built from, and whether the published page was built from them all.
+  changed:
+    runs-on: ubuntu-latest
+    outputs:
+      build: ${{ steps.compare.outputs.build }}
+      engine: ${{ steps.compare.outputs.engine }}
+      sources: ${{ steps.compare.outputs.sources }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: rms-ds-figma-plugins
+      - id: pages
+        uses: actions/configure-pages@v5
+      - id: compare
+        run: |
+          engine=$(git ls-remote https://github.com/rafaelmatosdasilva/rms-design-system-engine.git refs/heads/main | cut -f1)
+          {
+            echo "rafaelmatosdasilva/rms-ds-figma-plugins $GITHUB_SHA"
+            echo "rafaelmatosdasilva/rms-design-system-engine $engine"
+            for repo in $(node -p 'require("./rms-ds-figma-plugins/products.json").products.map((p) => p.repo).join(" ")'); do
+              echo "$repo $(git ls-remote "https://github.com/$repo.git" HEAD | cut -f1)"
+            done
+          } > sources.txt
+          published=$(curl -fsSL "${{ steps.pages.outputs.base_url }}/sources.txt" 2>/dev/null || true)
+          build=true
+          if [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$published" = "$(cat sources.txt)" ]; then build=false; fi
+          echo "build=$build" >> "$GITHUB_OUTPUT"
+          echo "engine=$engine" >> "$GITHUB_OUTPUT"
+          echo "sources=$(base64 -w0 sources.txt)" >> "$GITHUB_OUTPUT"
+          echo "Built from now:"; cat sources.txt; echo "Build: $build"
+
   build:
+    needs: changed
+    if: needs.changed.outputs.build == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -43,6 +81,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: rafaelmatosdasilva/rms-design-system-engine
+          ref: ${{ needs.changed.outputs.engine }}
           path: engine
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
@@ -72,6 +111,7 @@ jobs:
           node ../engine/audit.mjs --styleguide-check apps/style-guide/index.html
           mkdir -p ../site && cp apps/style-guide/index.html ../site/index.html
           cp .design-system-engine-out/differences.md ../site/differences.md 2>/dev/null || true
+          echo "${{ needs.changed.outputs.sources }}" | base64 -d > ../site/sources.txt
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

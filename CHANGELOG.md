@@ -7,6 +7,12 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.11 · 6 October 2026
+
+- An overflow list item's label stays readable on hover in Light (Neutral 100, it was Neutral 800 on a white row), changed in Figma too.
+- The style guide republishes on its own within the hour after the engine or a product changes, and builds nothing when nothing did.
+- The badge's Light colours stay as they are, kept on purpose (`knownLowContrast`); Figma's window chrome colours are kept as Figma's own (`knownRawTokens`).
+
 ## v2.0.10 · 6 October 2026
 
 Accessibility, WCAG 2.1 A and AA, from the engine's new checks.
