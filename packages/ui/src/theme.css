@@ -1149,6 +1149,7 @@
   /* buttonStepper (DS) — a −/value/+ row: two buttonSecondary flanking an input, gap/xs.
      Pure layout wrapper; the children are the DS .buttonSecondary + input components. */
   .buttonStepper { display: inline-flex; align-items: center; gap: var(--gap-xs); }
+  .buttonStepper > .inputWrap { width: 119px; flex-shrink: 0; }   /* DS buttonStepper 252:22089: its input is fixed at 119 wide */
   /* listItem (DS 503:49751) — a list row: Icon + Main(title m / description s), with a trailing dividerLine. */
   .listItem { display: flex; flex-direction: column; gap: var(--gap-m); }
   .listItem-row { display: flex; align-items: center; gap: var(--gap-m); }
@@ -1582,7 +1583,7 @@
   .modal-header .modal-title { flex: 1; min-width: 0; }
   .modal-icon { flex-shrink: 0; color: var(--modal-icon); }
   .modal-close { flex-shrink: 0; }
-  .modal-slot { display: flex; flex-direction: column; gap: var(--gap-l); width: 100%; }   /* DS Slot itemSpacing = 12 */
+  .modal-slot { display: flex; flex-direction: column; gap: var(--gap-m); width: 100%; }   /* DS modal Slot: gap/m (8) */
   .modal-footer { display: flex; flex-direction: row; gap: var(--gap-m); width: 100%; }   /* DS footer gap = 8 */
   .modal-footer button { flex: 1; justify-content: center; }   /* centre the label when stretched */
 
