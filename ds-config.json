@@ -529,9 +529,7 @@
   },
   "docs": {
     "auto": true,
-    "surfaces": [
-      "apps/styleguide/index.html"
-    ]
+    "_note": "The style guide (styleguide.out) is checked by the style guide check; the hand-written page that was listed here is gone."
   },
   "_systemScripts_note": "The system's own script: the style guide runs it, so its components behave as in a product (the sliding pill, tooltips, toasts).",
   "systemScripts": [
