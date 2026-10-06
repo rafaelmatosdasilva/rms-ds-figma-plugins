@@ -7,6 +7,10 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.8 · 6 October 2026
+
+- The panel has padding/l left and right on itself, as in Figma (it sat on its two slots). Its Main Content still reaches the panel's edges, so its scroll bar runs along the edge and nothing moves in the products.
+
 ## v2.0.7 · 6 October 2026
 
 - One panel. The system's panel is `.panel`, as Figma's panel: Type Primary or Secondary, its Head Content (`.panel-head`) over its Main Content (`.panel-main`, which scrolls), its divider on the right, or on the left with `.panel--right`. `.panel--resizable` adds a drag handle (`.panel-resize`, `initPanelResize()`). The separate side panel (`.sidePanel`, `initSidePanelResize()`) is gone; Font Scaling Lab and Impact Atlas use the panel, and look exactly as before.

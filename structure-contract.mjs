@@ -529,7 +529,7 @@ export const CONTRACT = {
       // capture now reads slots too (their gap/xl and the Head Content padding/l).
       // 2026-10-06: the system has one panel (.panel); its slots are .panel-head and .panel-main.
       { name: 'Head Content', cssSelector: '.panel-head', gapVar: 'gap/xl', paddingVar: { tb: 'padding/l', lr: null },
-        verifiedBy: 'RENDERED_ASSERTIONS .panel-head (paddingTop 16 / paddingBottom 8 / paddingLeft 16) and .panel-main (paddingLeft 16).' },
+        verifiedBy: 'RENDERED_ASSERTIONS .panel-head (paddingTop 16 / paddingBottom 8), .panel (paddingLeft 16) and .panel-main (paddingLeft 16).' },
       { name: 'Main Content', cssSelector: null, gapVar: 'gap/xl', paddingVar: { tb: null, lr: null } },
     ],
     propertyMap: {
@@ -671,7 +671,7 @@ export const RENDERED_ASSERTIONS = [
     note: "card Title = text style s (Show Title)",
     probe: '<div class="card"><span class="card-title">Output</span><div>Content</div></div>' },
   { plugin: 'impact-atlas', selector: '.panel-main', prop: 'paddingLeft', expected: '16px',
-    note: "panel: padding/l left and right, carried by its slots",
+    note: "panel Main Content: reaches the panel's edges and keeps padding/l inside",
     probe: '<div class="panel"><div class="panel-head">Head content</div><div class="panel-main">Main content</div></div>' },
   { plugin: 'impact-atlas', selector: '.highlightSelector', prop: 'borderTopWidth', expected: '2px',
     note: "highlightSelector Border layer: 2 inside",
@@ -753,8 +753,8 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'font-scaling-lab', selector: '.panel-head', prop: 'paddingBottom', expected: '8px',
     note: 'DS panel Head Content bottom = padding/s',
     probe: '<div class="panel panel--resizable"><div class="panel-head"><span>t</span></div></div>' },
-  { plugin: 'font-scaling-lab', selector: '.panel-head', prop: 'paddingLeft', expected: '16px',
-    note: 'DS panel lr = padding/l (carried by its slots, not the shell)',
+  { plugin: 'font-scaling-lab', selector: '.panel', prop: 'paddingLeft', expected: '16px',
+    note: 'DS panel lr = padding/l, on the panel itself as in Figma',
     probe: '<div class="panel panel--resizable"><div class="panel-head"><span>t</span></div></div>' },
   // The dividerSection action (place button) is LEFT-aligned, immediately after the title
   // (DS 135:46577: justify MIN, button at gap/m after Content). margin-left must be 0 —

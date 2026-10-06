@@ -1663,14 +1663,15 @@
   /* ── Panel ── DS panel (2287:68241), the system's one panel. A vertical surface: Type=Primary paints
      elevation medium, Type=Secondary elevation low. Its divider sits on the edge that meets the content,
      the right by default (.panel--right puts it on the left). Its two slots are .panel-head (Head Content:
-     padding/l top, padding/s bottom, gap/xl) over .panel-main (Main Content, which scrolls). Figma's
-     padding/l left and right is carried by the two slots rather than the shell, so the scroll bar runs to
-     the panel's edge and a closed panel is 0 wide. .panel--resizable adds a drag handle on that edge
+     padding/l top, padding/s bottom, gap/xl) over .panel-main (Main Content, which scrolls). The panel has
+     padding/l left and right, as in Figma; .panel-main reaches past it to the panel's edges, so its scroll bar
+     runs along the edge while its content keeps the same padding/l. .panel--resizable adds a drag handle on that edge
      (.panel-resize), driven by initPanelResize() in ui-shared.js. */
   .panel {
     position: relative;
     display: flex; flex-direction: column;
     min-width: 0; min-height: 0;
+    padding: 0 var(--padding-l);
     background: var(--semantic-surface-elevationMedium);
     border-right: var(--general-thickness) solid var(--panel-border);
   }
@@ -1678,13 +1679,14 @@
   .panel.panel--right { border-right: 0; border-left: var(--general-thickness) solid var(--panel-border); }
   .panel-head {
     display: flex; align-items: flex-start; gap: var(--gap-xl);
-    padding: var(--padding-l) var(--padding-l) var(--padding-s);
+    padding: var(--padding-l) 0 var(--padding-s);
     flex-shrink: 0;
     background: inherit;
   }
   .panel-main {
     flex: 1; min-height: 0;
     overflow-y: auto; overflow-x: hidden;
+    margin: 0 calc(-1 * var(--padding-l));
     padding: 0 var(--padding-l);
   }
   .panel--resizable { flex-shrink: 0; height: 100%; overflow: hidden; transition: width 0.18s ease; }
