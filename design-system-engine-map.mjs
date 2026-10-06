@@ -180,9 +180,6 @@ export const SYSTEM_VARS = new Set([
   // Internal component aliases (no dedicated DS token)
   '--input-background',
   '--input-value-filled',
-  '--hex-sub-color',
-  // tableRow component vars (DS removed tableRow color tokens 2026-06-16)
-  '--tableRow-text', '--tableRow-background-hover', '--tableRow-icon',
   // Animation / motion vars (no Figma token equivalent)
   '--modal-duration', '--modal-duration-out',
   '--modal-easing', '--modal-easing-out', '--modal-offset',

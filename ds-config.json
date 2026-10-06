@@ -95,8 +95,7 @@
     "alwaysNative": []
   },
   "knownUnimplementedComponents": [
-    ".figmaWindow",
-    "table/row"
+    ".figmaWindow"
   ],
   "_knownUndeclaredStrokeSidesNote": "Escape hatch for strokeful DS components whose per-side stroke geometry hasn't been verified against Figma yet. Empty = every strokeful component has a verified strokeSides in structure-contract.mjs (all 13 declared 2026-08-13). Only add a name here as a temporary park when a NEW strokeful component appears and its sides aren't yet read.",
   "knownUndeclaredStrokeSides": [],
@@ -214,7 +213,8 @@
     "segmentedControlSegment": ".segmented-control button",
     "modal": ".modal-card",
     "emptyState": ".empty-state",
-    "Tooltip": "#tt"
+    "Tooltip": "#tt",
+    "table/row": ".tableRow"
   },
   "knownUnusedVars": [
     "--typography-l-font-weight",
@@ -247,10 +247,6 @@
     },
     {
       "file": "theme.css",
-      "pattern": "width: 56px"
-    },
-    {
-      "file": "rms-figma-tokens-to-ink/ui.src.html",
       "pattern": "width: 56px"
     },
     {
@@ -314,20 +310,12 @@
       "pattern": "height: 32px"
     },
     {
-      "file": "rms-figma-tokens-to-ink/ui.src.html",
-      "pattern": "height: 32px"
-    },
-    {
       "file": "theme.css",
       "pattern": "inset: 4px 0"
     },
     "::-webkit-scrollbar",
     {
       "file": "theme.css",
-      "pattern": "border: 2px solid transparent"
-    },
-    {
-      "file": "rms-figma-font-scaling-lab/ui.src.html",
       "pattern": "border: 2px solid transparent"
     },
     {
@@ -367,30 +355,12 @@
       "pattern": "bottom: 2px"
     },
     {
-      "file": "rms-figma-font-scaling-lab/ui.src.html",
-      "pattern": "bottom: 2px"
-    },
-    {
-      "file": "rms-figma-font-scaling-lab/ui.src.html",
-      "pattern": "letter-spacing: 0\\.2px"
-    },
-    {
       "file": "theme.css",
       "pattern": "border-radius: 13px"
     },
     {
       "file": "theme.css",
       "pattern": "outline-offset: 1px"
-    },
-    {
-      "file": "font-scaling-lab/ui.src.html",
-      "pattern": "rgba\\(219,0,0",
-      "note": "Light-mode focus-ring — no DS effect style yet (figmaEffectStyle: null)"
-    },
-    {
-      "file": "font-scaling-lab/ui.src.html",
-      "pattern": "rgba\\(254,103,103",
-      "note": "Dark-mode focus-ring — no DS effect style yet (figmaEffectStyle: null)"
     },
     {
       "pattern": "(?:^|[;{])\\s*(top|right|bottom|left)\\s*:",
