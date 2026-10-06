@@ -7,6 +7,11 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.9 · 6 October 2026
+
+- table/row, built as in Figma (1:178): a row of a table whose Content, padding/xl top and bottom, holds what it describes (a swatch, its name in text style m with a tooltipButton, its value), a 16px connector and its outputs (rows of a swatch, inputs and a buttonQuaternary at gap/s, stacked at gap/m), with a dividerLine under it. `.tableRow` and its parts (`.tableRow-content`, `-variable`, `-info`, `-nameRow`, `-name`, `-value`, `-connector`, `-output`, `-outputRow`). It replaces the old list row of the same class, which no product used and whose colours Figma no longer has.
+- The unused `--hex-sub-color` is gone (the row's value is semantic content secondary).
+
 ## v2.0.8 · 6 October 2026
 
 - The panel has padding/l left and right on itself, as in Figma (it sat on its two slots). Its Main Content still reaches the panel's edges, so its scroll bar runs along the edge and nothing moves in the products.

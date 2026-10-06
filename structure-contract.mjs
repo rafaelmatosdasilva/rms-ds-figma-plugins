@@ -177,6 +177,23 @@ export const CONTRACT = {
     strokeSides: 'none',
     children: [{ name: 'Frame 106', cssSelector: '.listItem-row', gapVar: 'gap/m', paddingVar: { tb: null, lr: null } }],
   },
+  // table/row (DS 1:178) — a table's row: Content (padding/xl top and bottom) holds what it describes (swatch, name m
+  // with a tooltipButton, value), a 16px connector and its outputs; a dividerLine under it. Root padding/l left and right.
+  'table/row': {
+    _note: "Table row (DS 1:178): Content (padding/xl t+b) = variable (gap/m, padding/l right) · connector 16 · output (gap/m; rows gap/s); dividerLine under it. Built base .tableRow (2026-10-06).",
+    h: 201.5, sizing: 'hug',
+    paddingVar: { tb: null, lr: 'padding/l' },
+    gapVar: null,
+    fontSizeVar: 'm', fontWeightVar: 'm',
+    fillStructure: 'none', innerInset: null, innerRadiusVar: null,
+    strokeOnDefault: false, strokeOnAnyState: true,
+    strokeSides: 'none',
+    children: [{ name: 'Content', cssSelector: '.tableRow-content', gapVar: null, paddingVar: { tb: 'padding/xl', lr: null } }],
+    propertyMap: {
+      'Show Divider': '.tableRow > .dividerLine',
+      'Show Tooltip': '.tableRow-nameRow > .tooltipButton',
+    },
+  },
   // overlay (DS) — a full-cover scrim (overlay/color) centring a Slot (loader). → .overlay
   overlay: {
     _note: "Full-cover scrim (overlay/color) centring a loader Slot. Built base .overlay (2026-09-10).",
@@ -711,6 +728,19 @@ export const RENDERED_ASSERTIONS = [
     expected: '12px', note: 'DS 2120:28369 keeps the bar\'s padding/m, so it hugs 24px content at 48 (no min-height since v2.0.1)' },
   { plugin: 'tokens-to-ink', selector: '.actionbar--plain', prop: 'justify-content',
     expected: 'center', note: 'the slot centres the segmented control' },
+  // table/row (DS 1:178): Content padding/xl top and bottom, the root padding/l left and right, the name in text style m.
+  { plugin: 'tokens-to-ink', selector: '.tableRow-content', prop: 'paddingTop', expected: '24px',
+    note: 'table/row Content: padding/xl top and bottom (Show Divider, Show Tooltip on)',
+    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
+  { plugin: 'tokens-to-ink', selector: '.tableRow', prop: 'paddingLeft', expected: '16px',
+    note: 'table/row root: padding/l left and right, so its dividerLine ends where its content does',
+    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
+  { plugin: 'tokens-to-ink', selector: '.tableRow-name', textStyle: 'm',
+    note: 'table/row Name = text style m, semantic content primary',
+    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
+  { plugin: 'tokens-to-ink', selector: '.tableRow-outputRow', prop: 'columnGap', expected: '4px',
+    note: 'table/row Output rows: swatch, inputs and buttonQuaternary at gap/s',
+    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
   // Standalone dividerLine (DS 1:102) binds dividerLine/border/color = N700 in BOTH modes.
   // It must route through --dividerLine-border (dividerLine), NOT --divider (dividerSection/divider),
   // which overrides to N600 in dark and left the line a step too light. Both modes pinned.
@@ -1202,6 +1232,7 @@ export const COMPONENT_CSS_SELECTORS = {
   overflow:         { main: '.overflow' },     // strokeSides check (all-sides flyout border)
   actionBar:        { main: '.actionbar' },    // strokeSides check (bottom-only border)
   dividerSection:   { main: '.dividerSection', skipLRPadding: true }, // LR padding/l intentionally from parent container
+  'table/row':      { main: '.tableRow', fontSel: '.tableRow-name' },
   // buttonTertiary: omitted — dark-mode override in theme.css overwrites the main block in buildBlockIndex;
   //   root padding/radius are visually correct; Gate [3f] children check covers LabelContainer span.
 };
@@ -1280,9 +1311,6 @@ export const ALLOWED_BROAD_RULES = {
   '.buttonList .buttonList-action svg': 'LEAF — action buttons are buttonTertiary leaf components; color overridden to --buttonTertiary-iconText via high-specificity hover rule',
   '.buttonList:not(.selected):hover .buttonList-action svg': 'LEAF — action button icon on hover uses --buttonTertiary-iconText (DS: buttonTertiary/iconText/default/color)',
   '.buttonList:not(.selected).hovered .buttonList-action svg': 'LEAF — same as above for .hovered class variant',
-
-  // tableRow — LEAF
-  '.tableRow svg':              'LEAF — leaf component',
 
   // button-group — OWNED CHILDREN
   '.button-group button':                   'OWNED children — plugin UI grouping, not a DS button sub-component',
@@ -1603,7 +1631,6 @@ export const TRANSITION_CONTRACT = {
   '.inputWrap':                 'border-color 0.15s ease',
   '.node':                      ['border-color 0.1s', 'background 0.1s', 'color 0.1s'],
   '.overflowList':              ['background 0.1s ease', 'color 0.1s ease'],
-  '.tableRow':                  'background 0.1s',
   '.seg-pill':                  ['left 0.22s cubic-bezier(0.4, 0, 0.2, 1)', 'width 0.22s cubic-bezier(0.4, 0, 0.2, 1)'],
   '.segmented-control button':  ['background 0.18s ease', 'border-color 0.18s ease', 'color 0.18s ease'],
 

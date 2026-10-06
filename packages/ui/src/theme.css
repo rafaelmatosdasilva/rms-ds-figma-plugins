@@ -184,7 +184,6 @@
     --tooltipPopover-border: var(--neutral-800);    /* tooltip/border/color N800 — same primitive both modes */
     --tooltipPopover-text:   var(--neutral-300);    /* tooltip/text/color N300 — same primitive both modes */
     --tooltipButton-icon: var(--neutral-400); /* tooltipButton/icon/color — split alias: L=N400 #595959, D→N300 #bfbfbf (1810:27212) */
-    --hex-sub-color: var(--neutral-300); /* input/value/empty secondary: N3 both modes */
     /* Overflow container */
     --overflow-background: var(--neutral-1000); /* overflow/background/color L=N1000, D→override */
     --overflow-border:     var(--neutral-800);  /* overflow/border/color L=N800, D→override */
@@ -196,10 +195,6 @@
     --overflowList-border-hover:     var(--overflowList-border); /* overflowList/border/hover → overflowList/border/default */
     --overflowList-label:            var(--neutral-300);  /* overflowList/label/default L=N3, D→override */
     --overflowList-label-hover:      var(--neutral-800);  /* overflowList/label/hover L=N8, D→override */
-    /* Table row */
-    --tableRow-text:             var(--neutral-200); /* tableRow/text/color N200 both modes */
-    --tableRow-background-hover: var(--neutral-800); /* tableRow/background/hover/color N800 both modes */
-    --tableRow-icon:             var(--neutral-500); /* tableRow/icon/color L=N500, D→override */
     /* Segmented control */
     --segmentedControl-background:          var(--neutral-900); /* segmentedControl/background/default L=N900, D→N800 override */
     --segmentedControl-border:              var(--neutral-700);  /* segmentedControl/border/default N700, D=N600 */
@@ -361,7 +356,6 @@
       --dividerSection-number: var(--neutral-300);  /* Dark = N300 */
       --dividerSection-divider: var(--neutral-500); /* Dark = N500 */
       --statusbar-icon: var(--neutral-400);      /* D=N400 */
-      --tableRow-icon: var(--neutral-400);       /* D=N400 */
       --overflow-background: var(--neutral-700);  /* D=N700 */
       --overflow-border:     var(--neutral-600);  /* D=N600 */
       --overflow-text:       var(--neutral-300);  /* D=N3 */
@@ -1433,30 +1427,25 @@
   .buttonList:not(.selected).hovered .buttonList-action svg { color: var(--buttonTertiary-iconText); }
   .buttonList.no-button .buttonList-action { display: none; } /* stays hidden even on hover */
 
-  /* ── List row (tableRow DS component) ── */
-  /* Figma: h=32px fixed, no T/B padding, gap/m icon↔text, s-size/s-weight text, full-width bg (no radius) */
-  .tableRow {
-    display: flex; align-items: center; gap: var(--gap-m);  /* gap/m = 8px */
-    min-height: 32px;
-    width: 100%;
-    padding: 0;
-    flex-shrink: 0;
-    background: transparent;
-    border: none;
-    color: var(--tableRow-text);
-    font-family: inherit;
-    font-size: var(--typography-s-font-size);    /* s scale = 10px */
-    font-weight: var(--typography-s-font-weight); /* s scale = 700 */
-    text-align: left;
-    cursor: pointer;
-    position: relative;
-    transition: background 0.1s;
-  }
-  .tableRow svg { color: var(--tableRow-icon); flex-shrink: 0; }
-  .tableRow:not(.selected):hover,
-  .tableRow:not(.selected).hovered { background: var(--tableRow-background-hover); }
-  .tableRow.selected,
-  .tableRow.selected:hover { background: var(--buttonList-background-selected); }
+  /* ── table/row (DS 1:178) ──
+     A table's row: Content (padding/xl top and bottom) holds what the row describes (a swatch, its name in text
+     style m with a tooltipButton, Show Tooltip, and its value), a 16px connector, and its outputs (rows of a swatch,
+     inputs and a buttonQuaternary at gap/s, stacked at gap/m, then an add button). A dividerLine under it (Show
+     Divider). The row takes padding/l left and right, so its line ends where its content does. */
+  .tableRow { display: flex; flex-direction: column; justify-content: center; padding: 0 var(--padding-l); }
+  .tableRow-content { display: flex; align-items: center; padding: var(--padding-xl) 0; }
+  .tableRow-variable { display: flex; align-items: center; gap: var(--gap-m); flex: 1 1 0; min-width: 0; padding-right: var(--padding-l); }
+  .tableRow-info { display: flex; flex-direction: column; justify-content: center; flex: 1 1 0; min-width: 0; }
+  .tableRow-nameRow { display: flex; align-items: center; min-width: 0; }
+  .tableRow-nameRow > .tooltipButton { flex-shrink: 0; }   /* DS Show Tooltip: right after the name, no gap */
+  .tableRow-name, .tableRow-value { font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); }
+  .tableRow-name { color: var(--semantic-content-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .tableRow-value { color: var(--semantic-content-secondary); }
+  /* DS connector (2:3037): the 16px column that links the row to its outputs, as tall as the row, its branch centred. */
+  .tableRow-connector { display: flex; align-items: center; align-self: stretch; flex-shrink: 0; width: 16px; }
+  .tableRow-output { display: flex; flex-direction: column; gap: var(--gap-m); flex: 1 1 0; min-width: 0; }
+  .tableRow-outputRow { display: flex; align-items: center; gap: var(--gap-s); }
+  .tableRow > .dividerLine { align-self: stretch; }   /* DS Show Divider */
   .dividerLine {
     height: var(--general-thickness);   /* general/thickness, the 1.5px Figma draws the line at */
     background: var(--dividerLine-border);   /* dividerLine/border/color = N700 both modes (L #d6d6d6, D #303030) */

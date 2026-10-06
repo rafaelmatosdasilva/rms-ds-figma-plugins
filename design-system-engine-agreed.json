@@ -866,6 +866,12 @@
    "at": "2026-10-04T12:33:53.010Z",
    "commit": "a3042cb"
   },
+  "node · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-06T11:36:51.283Z",
+   "commit": "deafba5"
+  },
   "node · min height": {
    "figma": "40",
    "code": "40",
@@ -1309,6 +1315,42 @@
    "code": "16px",
    "at": "2026-10-04T14:55:27.092Z",
    "commit": "013469e"
+  },
+  "table/row · background": {
+   "figma": "no background",
+   "code": "no background",
+   "at": "2026-10-06T11:36:51.283Z",
+   "commit": "deafba5"
+  },
+  "table/row · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "at": "2026-10-06T11:39:34.455Z",
+   "commit": "deafba5"
+  },
+  "table/row · font weight": {
+   "figma": "600",
+   "code": "600",
+   "at": "2026-10-06T11:39:34.455Z",
+   "commit": "deafba5"
+  },
+  "table/row · height sizing": {
+   "figma": "follows its content",
+   "code": "follows its content",
+   "at": "2026-10-06T11:39:34.455Z",
+   "commit": "deafba5"
+  },
+  "table/row · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-06T11:39:34.455Z",
+   "commit": "deafba5"
+  },
+  "table/row · padding (left/right)": {
+   "figma": "16px",
+   "code": "16px",
+   "at": "2026-10-06T11:39:34.455Z",
+   "commit": "deafba5"
   },
   "toast · background": {
    "figma": "paints a background",
@@ -4350,11 +4392,15 @@
   },
   "node · line height": {
    "figma": "16px",
-   "code": "15.4px",
-   "same": false,
+   "code": "16px",
+   "same": true,
    "moves": [
     {
      "at": "2026-10-04T19:05:35.840Z",
+     "side": "code"
+    },
+    {
+     "at": "2026-10-06T11:36:51.283Z",
      "side": "code"
     }
    ]
@@ -4536,8 +4582,8 @@
   },
   "panel · padding (left/right)": {
    "figma": "16px",
-   "code": "0px",
-   "same": false,
+   "code": "16px",
+   "same": true,
    "moves": [
     {
      "at": "2026-10-04T19:33:03.921Z",
@@ -4547,6 +4593,10 @@
      "at": "2026-10-06T11:07:48.324Z",
      "side": "code",
      "lead": true
+    },
+    {
+     "at": "2026-10-06T11:36:51.283Z",
+     "side": "code"
     }
    ]
   },
@@ -4803,6 +4853,53 @@
    "same": true
   },
   "switch · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "table/row · background": {
+   "figma": "no background",
+   "code": "no background",
+   "same": true
+  },
+  "table/row · font size": {
+   "figma": "11px",
+   "code": "11px",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-06T11:39:34.455Z",
+     "side": "code"
+    }
+   ]
+  },
+  "table/row · font weight": {
+   "figma": "600",
+   "code": "600",
+   "same": true,
+   "moves": [
+    {
+     "at": "2026-10-06T11:39:34.455Z",
+     "side": "code"
+    }
+   ]
+  },
+  "table/row · height sizing": {
+   "figma": "follows its content",
+   "code": "follows its content",
+   "same": true
+  },
+  "table/row · line height": {
+   "figma": "16px",
+   "code": "16px",
+   "same": true
+  },
+  "table/row · min height": {
+   "figma": "none",
+   "code": "32",
+   "same": false
+  },
+  "table/row · padding (left/right)": {
    "figma": "16px",
    "code": "16px",
    "same": true
