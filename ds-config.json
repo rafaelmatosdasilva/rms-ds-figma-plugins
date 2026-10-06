@@ -75,7 +75,8 @@
     "sharedIconSources": [
       "packages/ui/src/ui-shared.js"
     ],
-    "snapshotIcons": "packages/ui/src/figma-icons.snapshot.json"
+    "snapshotIcons": "packages/ui/src/figma-icons.snapshot.json",
+    "snapshotScreenComponents": "packages/ui/src/figma-screen-components.snapshot.json"
   },
   "visualRefs": ".parity-refs",
   "visualRegression": {
@@ -564,5 +565,9 @@
     "tokens-to-ink": "../rms-figma-tokens-to-ink",
     "font-scaling-lab": "../rms-figma-font-scaling-lab"
   },
-  "figmaNames": "strict"
+  "figmaNames": "strict",
+  "knownRawTokens": [
+    "overlay/color"
+  ],
+  "_knownRawTokensNote": "overlay/color holds a raw colour in Figma on purpose (the owner chose to follow Figma, 2026-10-06), so the token layering advice leaves it out."
 }

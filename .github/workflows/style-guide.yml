@@ -52,6 +52,12 @@ jobs:
           for repo in $(node -p 'require("./rms-ds-figma-plugins/products.json").products.map((p) => p.repo).join(" ")'); do
             git clone --depth 1 "https://github.com/$repo.git" "${repo#*/}"
           done
+      # The audit measures each component where the style guide draws it (its whole default markup, as Figma's
+      # default variant), so the page is built first; without it the audit measures bare elements and reports
+      # heights that are not the component's. It is built again below with the differences this audit wrote.
+      - name: Build the style guide the audit measures on
+        working-directory: rms-ds-figma-plugins
+        run: node ../engine/audit.mjs --styleguide
       - name: Audit against Figma (writes the differences the page shows; a failing audit still publishes)
         working-directory: rms-ds-figma-plugins
         run: node ../engine/audit.mjs || true

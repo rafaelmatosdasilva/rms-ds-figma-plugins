@@ -7,9 +7,13 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
-## Not released yet
+## v2.0.4 · 6 October 2026
 
-- The Figma data is read again from Figma (6 October). The variables and the tokens the screens use are unchanged. The capture now reads each component's slots too, so the contract names them: the panel's Head Content and Main Content (gap/xl, Head Content padding/l on top), and the Slot of the action bar, card, modal, checkbox group and radio group. The modal's Slot spaces its content at gap/m in Figma while .modal-slot uses gap/l; the audit lists it, and the code is unchanged until that is decided.
+- The minus icon (Icon-minus in Figma) is in the icon sheet, for the stepper's decrease button, and the stepper's input is 119 wide, as Figma draws it.
+- The audit reads which system components each product screen uses in Figma, and fails where a product's code builds one by hand. Today that is 13, listed in the audit for the products to take up.
+- The style guide is built before the audit on GitHub, so the audit measures each component as the page draws it. The heights the published To do list showed for checkBox, dividerSection, highlightSelector, loader and radioButton were measured on bare elements; drawn whole they already match Figma.
+- overlay/color keeps the raw colour Figma gives it, on purpose, and leaves the token layering advice.
+- The Figma data is read again from Figma (6 October). The variables and the tokens the screens use are unchanged. The capture now reads each component's slots too, so the contract names them: the panel's Head Content and Main Content (gap/xl, Head Content padding/l on top), and the Slot of the action bar, card, modal, checkbox group and radio group. The modal's Slot spaces its content at gap/m, as Figma has it (it was gap/l in the code).
 
 ## v2.0.3 · 5 October 2026
 
