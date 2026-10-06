@@ -39,14 +39,14 @@
       ],
       "iconSize": 16,
       "variantStroke": {
-        "State=default": true,
-        "State=hover": true,
-        "State=selected": true
+        "State=Default": true,
+        "State=Hover": true,
+        "State=Selected": true
       },
       "variantHeight": {
-        "State=default": 40,
-        "State=hover": 40,
-        "State=selected": 40
+        "State=Default": 40,
+        "State=Hover": 40,
+        "State=Selected": 40
       },
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
@@ -136,16 +136,16 @@
       "strokeOnDefault": false,
       "strokeOnAnyState": false,
       "variantStroke": {
-        "Type=negative": false,
-        "Type=warning": false,
-        "Type=positive": false,
-        "Type=neutral": false
+        "Type=Negative": false,
+        "Type=Warning": false,
+        "Type=Positive": false,
+        "Type=Neutral": false
       },
       "variantHeight": {
-        "Type=negative": 19,
-        "Type=warning": 19,
-        "Type=positive": 19,
-        "Type=neutral": 19
+        "Type=Negative": 19,
+        "Type=Warning": 19,
+        "Type=Positive": 19,
+        "Type=Neutral": 19
       },
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
@@ -210,16 +210,16 @@
       ],
       "iconSize": 16,
       "variantStroke": {
-        "Type=sucess": false,
-        "Type=error": false
+        "Type=Success": false,
+        "Type=Error": false
       },
       "variantHeight": {
-        "Type=sucess": 32,
-        "Type=error": 32
+        "Type=Success": 32,
+        "Type=Error": 32
       },
       "variantFill": {
-        "Type=sucess": "toast/background/success/color",
-        "Type=error": "toast/background/error/color"
+        "Type=Success": "toast/background/success/color",
+        "Type=Error": "toast/background/error/color"
       },
       "sizingV": "FIXED",
       "layout": "HORIZONTAL",
@@ -252,14 +252,14 @@
       ],
       "iconSize": 16,
       "variantStroke": {
-        "state=Default": false,
-        "state=Disabled": false,
-        "state=Active": false
+        "State=Default": false,
+        "State=Disabled": false,
+        "State=Active": false
       },
       "variantHeight": {
-        "state=Default": 24,
-        "state=Disabled": 24,
-        "state=Active": 24
+        "State=Default": 24,
+        "State=Disabled": 24,
+        "State=Active": 24
       },
       "variantOpacity": {
         "disabled": 0.24
@@ -285,12 +285,12 @@
       "strokeOnDefault": false,
       "strokeOnAnyState": true,
       "variantStroke": {
-        "filled=true": false,
-        "filled=false": false
+        "Filled=True": false,
+        "Filled=False": false
       },
       "variantHeight": {
-        "filled=true": 24,
-        "filled=false": 24
+        "Filled=True": 24,
+        "Filled=False": 24
       },
       "sizingV": "FIXED",
       "layout": "HORIZONTAL",
@@ -352,14 +352,14 @@
       ],
       "iconSize": 16,
       "variantStroke": {
-        "state=Default": false,
-        "state=Hover": false,
-        "state=Disabled": false
+        "State=Default": false,
+        "State=Hover": false,
+        "State=Disabled": false
       },
       "variantHeight": {
-        "state=Default": 24,
-        "state=Hover": 24,
-        "state=Disabled": 24
+        "State=Default": 24,
+        "State=Hover": 24,
+        "State=Disabled": 24
       },
       "variantOpacity": {
         "disabled": 0.24
@@ -395,12 +395,12 @@
       ],
       "iconSize": 16,
       "variantStroke": {
-        "state=default": false,
-        "state=hover": false
+        "State=Default": false,
+        "State=Hover": false
       },
       "variantHeight": {
-        "state=default": 24,
-        "state=hover": 24
+        "State=Default": 24,
+        "State=Hover": 24
       },
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
@@ -503,16 +503,16 @@
       "strokeOnDefault": false,
       "strokeOnAnyState": false,
       "variantStroke": {
-        "type=primary": false,
-        "type=secondary": false
+        "Type=Primary": false,
+        "Type=Secondary": false
       },
       "variantHeight": {
-        "type=primary": 460,
-        "type=secondary": 460
+        "Type=Primary": 460,
+        "Type=Secondary": 460
       },
       "variantFill": {
-        "type=primary": "panel/background/primary/color",
-        "type=secondary": "panel/background/secondary/color"
+        "Type=Primary": "panel/background/primary/color",
+        "Type=Secondary": "panel/background/secondary/color"
       },
       "sizingV": "FILL",
       "layout": "VERTICAL",
@@ -615,12 +615,12 @@
       ],
       "iconSize": 16,
       "variantStroke": {
-        "disabled=false": false,
-        "disabled=true": false
+        "Disabled=False": false,
+        "Disabled=True": false
       },
       "variantHeight": {
-        "disabled=false": 24,
-        "disabled=true": 24
+        "Disabled=False": 24,
+        "Disabled=True": 24
       },
       "variantOpacity": {
         "disabled": 0.16
@@ -809,12 +809,12 @@
       "strokeOnDefault": false,
       "strokeOnAnyState": true,
       "variantStroke": {
-        "state=default": false,
-        "state=selected": false
+        "State=Default": false,
+        "State=Selected": false
       },
       "variantHeight": {
-        "state=default": 10,
-        "state=selected": 10
+        "State=Default": 10,
+        "State=Selected": 10
       },
       "sizingV": "FIXED",
       "layout": "HORIZONTAL",
@@ -945,12 +945,12 @@
       ],
       "iconSize": 56,
       "variantStroke": {
-        "type=default": false,
-        "type=positive": false
+        "Type=Default": false,
+        "Type=Positive": false
       },
       "variantHeight": {
-        "type=default": 131,
-        "type=positive": 131
+        "Type=Default": 131,
+        "Type=Positive": 131
       },
       "sizingV": "HUG",
       "layout": "VERTICAL",

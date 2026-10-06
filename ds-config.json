@@ -452,9 +452,9 @@
       "Title": ".node-name"
     },
     "dividerSection": {
-      "show button": ".dividerSection-action",
-      "label content": ".dividerSection-content",
-      "number content": ".count"
+      "Show Button": ".dividerSection-action",
+      "Label Content": ".dividerSection-content",
+      "Number Content": ".count"
     },
     "segmentedControlSegment": {
       "Show Label": ".tab-label",
@@ -480,26 +480,26 @@
     "listItem": {
       "Show Icon": ".listItem-icon",
       "Show Description": ".listItem-desc",
-      "DescriptionContent": ".listItem-desc",
-      "TitleContent": ".listItem-title",
-      "Show dividerLine": ".listItem-divider",
+      "Description Content": ".listItem-desc",
+      "Title Content": ".listItem-title",
+      "Show Divider Line": ".listItem-divider",
       "Show Action": ".listItem-action"
     },
     "emptyState": {
-      "show-description": ".empty-state-desc",
-      "description-content": ".empty-state-desc",
-      "title-content": ".empty-state-title",
-      "show-action": ".empty-state-action"
+      "Show Description": ".empty-state-desc",
+      "Description Content": ".empty-state-desc",
+      "Title Content": ".empty-state-title",
+      "Show Action": ".empty-state-action"
     },
     "buttonPrimary": {
-      "show-icon": ".buttonPrimary svg",
-      "show-label": ".buttonPrimary span"
+      "Show Icon": ".buttonPrimary svg",
+      "Show Label": ".buttonPrimary span"
     },
     "buttonSecondary": {
-      "show-label": ".buttonSecondary span"
+      "Show Label": ".buttonSecondary span"
     },
     "buttonQuaternary": {
-      "show-label": ".buttonQuaternary span"
+      "Show Label": ".buttonQuaternary span"
     },
     "buttonList": {
       "Show Icon": ".lrow-icon",
@@ -515,12 +515,12 @@
       "Show Label After": ".inputLabel-after"
     },
     "overflowList": {
-      "show-icon": ".overflowList svg"
+      "Show Icon": ".overflowList svg"
     },
     "modal": {
-      "show-slot": ".modal-slot",
-      "show-icon": ".modal-icon",
-      "Show CloseButton": ".modal-close",
+      "Show Slot": ".modal-slot",
+      "Show Icon": ".modal-icon",
+      "Show Close Button": ".modal-close",
       "Show Actions": ".modal-footer"
     },
     "card": {
