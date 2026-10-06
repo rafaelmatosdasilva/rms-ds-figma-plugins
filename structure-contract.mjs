@@ -803,11 +803,11 @@ export const RENDERED_ASSERTIONS = [
   // these bespoke elements to the DS input component. Asserting BOTH modes is the
   // point — a light-only assertion would still be green with the bug present.
   { plugin: 'impact-atlas', selector: '#search-wrap', prop: 'border-top-color',
-    expected: 'rgb(94, 94, 94)', colorScheme: 'dark',
-    note: 'DS input/border/default dark = N500 #5e5e5e (2026-08 refactor)' },
+    expected: 'rgb(135, 135, 135)', colorScheme: 'dark',
+    note: 'DS input/border/default dark = N400 #878787 (v2.0.10, 3:1 against the field)' },
   { plugin: 'impact-atlas', selector: '#search-wrap', prop: 'border-top-color',
-    expected: 'rgb(173, 173, 173)', colorScheme: 'light',
-    note: 'DS input/border/default light = N600 #adadad (2026-08 refactor)' },
+    expected: 'rgb(130, 130, 130)', colorScheme: 'light',
+    note: 'DS input/border/default light = N500 #828282 (v2.0.10, 3:1 against the field)' },
   // The scale stepper is the system's buttonStepper: its input's border is on the system's .inputWrap.
   { plugin: 'font-scaling-lab', selector: '#scale-stepper .inputWrap', prop: 'border-top-color',
     expected: 'rgb(94, 94, 94)', colorScheme: 'dark',
