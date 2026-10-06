@@ -4536,12 +4536,17 @@
   },
   "panel · padding (left/right)": {
    "figma": "16px",
-   "code": "16px",
-   "same": true,
+   "code": "0px",
+   "same": false,
    "moves": [
     {
      "at": "2026-10-04T19:33:03.921Z",
      "side": "code"
+    },
+    {
+     "at": "2026-10-06T11:07:48.324Z",
+     "side": "code",
+     "lead": true
     }
    ]
   },
