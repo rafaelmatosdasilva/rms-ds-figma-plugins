@@ -646,7 +646,7 @@ export const RENDERED_ASSERTIONS = [
     probe: '<div class="buttonList"><div class="lrow-icon"><svg width="16" height="16"><use href="#icon-var-color"/></svg></div><span class="lrow-name">Title</span><span class="tooltipButton lib-badge"><svg width="12" height="12"><use href="#icon-library"/></svg></span><button class="buttonList-action buttonTertiary" aria-label="Focus on canvas"><svg width="16" height="16"><use href="#icon-focus"/></svg></button><svg width="16" height="16" class="buttonList-arrow"><use href="#icon-arrow-right"/></svg></div>' },
   { plugin: 'impact-atlas', selector: '.loader-description', textStyle: 's',
     note: 'loader Description = text style s (Show Description)',
-    probe: '<span class="loader"><span class="loader-content"><span class="loader-spinner"></span><span class="loader-text"><span class="loader-title">Title</span><span class="loader-description">Description</span></span></span><button class="buttonTertiary"><span>Cancel</span></button></span>' },
+    probe: '<span class="loader" role="status"><span class="loader-content"><span class="loader-spinner" aria-hidden="true"></span><span class="loader-text"><span class="loader-title">Title</span><span class="loader-description">Description</span></span></span><button class="buttonTertiary"><span>Cancel</span></button></span>' },
   { plugin: 'impact-atlas', selector: '.badge', prop: 'height', expected: '19px',
     note: 'badge (DS 310:29494): a 6px dot and its label (s text style) at padding/xxs, 19px high',
     probe: '<span class="badge high"><span class="badge-icon" aria-hidden="true"></span><span class="badge-label">Label</span></span>' },
@@ -974,11 +974,11 @@ export const RENDERED_ASSERTIONS = [
 
   // toast (DS: success h=32 gap/s; loading content gap/m, container gap/xl)
   { plugin: 'impact-atlas', selector: '.toast',            prop: 'height',        expected: '32px', note: 'DS toast success h',
-    probe: '<div class="toast"><span class="toast-icon"></span><span>Done</span></div>' },
+    probe: '<div class="toast" role="status" aria-atomic="true"><span class="toast-icon"></span><span>Done</span></div>' },
   { plugin: 'impact-atlas', selector: '.toast',            prop: 'columnGap',     expected: '16px', note: 'DS toast root gap/xl',
-    probe: '<div class="toast"><span class="toast-body"><span class="toast-icon"></span><span>Done</span></span></div>' },
+    probe: '<div class="toast" role="status" aria-atomic="true"><span class="toast-body"><span class="toast-icon"></span><span>Done</span></span></div>' },
   { plugin: 'impact-atlas', selector: '.toast-body',       prop: 'columnGap',     expected: '4px',  note: 'DS toast Frame 39 gap/s',
-    probe: '<div class="toast"><span class="toast-body"><span class="toast-icon"></span><span>Done</span></span></div>' },
+    probe: '<div class="toast" role="status" aria-atomic="true"><span class="toast-body"><span class="toast-icon"></span><span>Done</span></span></div>' },
   { plugin: 'impact-atlas', selector: '.progress-msg',     prop: 'columnGap',     expected: '16px', note: 'DS toast loading container gap/xl',
     probe: '<div class="progress-msg"><div class="toast-content"><div class="toast-spinner"></div><span>Working</span></div></div>' },
   { plugin: 'impact-atlas', selector: '.toast-content',    prop: 'columnGap',     expected: '8px',  note: 'DS toast loading content gap/m (rebound from gap/s 2026-07)',

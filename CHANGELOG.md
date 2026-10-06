@@ -7,6 +7,15 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.10 · 6 October 2026
+
+Accessibility, WCAG 2.1 A and AA, from the engine's new checks.
+
+- The default edge of an input, a checkbox and a radio button stands out 3:1 from what is around it (Neutral 500 in Light, Neutral 400 in Dark for the input), changed in Figma too. The input's hover edge is one step darker still, so it shows.
+- The tooltip stays while the pointer moves onto it and rests there, stays until the pointer or the focus leaves, closes with Escape, also opens from the keyboard, and is read as its trigger's description.
+- A toast is announced as it appears (a confirmation politely, a failure at once), and its time stops while the pointer or the focus is on it.
+- The loader and the progress message are announced, their spinner silent.
+
 ## v2.0.9 · 6 October 2026
 
 - table/row, built as in Figma (1:178): a row of a table whose Content, padding/xl top and bottom, holds what it describes (a swatch, its name in text style m with a tooltipButton, its value), a 16px connector and its outputs (rows of a swatch, inputs and a buttonQuaternary at gap/s, stacked at gap/m), with a dividerLine under it. `.tableRow` and its parts (`.tableRow-content`, `-variable`, `-info`, `-nameRow`, `-name`, `-value`, `-connector`, `-output`, `-outputRow`). It replaces the old list row of the same class, which no product used and whose colours Figma no longer has.
