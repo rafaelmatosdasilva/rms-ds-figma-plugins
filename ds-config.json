@@ -109,11 +109,7 @@
     "inputField",
     "inputLabel",
     "tableRow",
-    "dividerLine",
-    "sidePanel",
-    "sidePanelResize",
-    "sidePanelHeader",
-    "sidePanelBody"
+    "dividerLine"
   ],
   "visualRefScale": 3,
   "knownStateExemptions": [
@@ -225,7 +221,8 @@
     "--general-min-height",
     "--icon-xsmall",
     "--icon-small",
-    "--icon-large"
+    "--icon-large",
+    "--gap-xxl"
   ],
   "knownPhantomBorderExceptions": [
     ".switch-input:focus-visible + .switch-track",
@@ -430,7 +427,7 @@
       ".sb-type-icon"
     ]
   },
-  "_knownUnusedVarsNote": "DS tokens with no consumer in these plugins yet. general/min-height (60px) and the icon/* stroke weights arrived 2026-07-30; the 24px control height is --button-min-height. emptyState/description has no rendered description element (emptyState is in knownUnimplementedComponents).",
+  "_knownUnusedVarsNote": "DS tokens with no consumer in these plugins yet. general/min-height (60px) and the icon/* stroke weights arrived 2026-07-30; the 24px control height is --button-min-height. emptyState/description has no rendered description element (emptyState is in knownUnimplementedComponents). gap/xxl lost its one consumer on 2026-10-06, when Tokens to Ink's Format radios moved into the system's radioButtonGroup (its slot is gap/xxxl in Figma).",
   "frameworkComponents": false,
   "htmlRealization": true,
   "htmlRealizationStrict": false,

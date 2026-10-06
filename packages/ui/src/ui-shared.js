@@ -415,16 +415,16 @@ initWindowResize({
   },
 });
 
-// ── Side panel resize ─────────────────────────────────────────────────────────
-// Auto-detects direction from sidePanel--left / sidePanel--right class.
+// ── Panel resize (the system's panel, .panel--resizable) ──────────────────────
+// Drags its .panel-resize handle; a .panel--right panel grows to the left.
 // opts: { min, max, defaultWidth, onDrag(w), onSave(w) }
 // If onDrag is omitted, sets panel style.width directly during drag.
 // Double-clicking the handle resets to defaultWidth (if provided).
-function initSidePanelResize(panelEl, opts) {
+function initPanelResize(panelEl, opts) {
   opts = opts || {};
-  var handle = panelEl.querySelector('.sidePanelResize');
+  var handle = panelEl.querySelector('.panel-resize');
   if (!handle) return;
-  var isRight = panelEl.classList.contains('sidePanel--right');
+  var isRight = panelEl.classList.contains('panel--right');
   var min = opts.min || 120;
   var max = opts.max || 600;
   var dragging = false, startX = 0, startW = 0;

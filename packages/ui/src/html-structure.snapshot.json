@@ -630,8 +630,16 @@
         "icon": "icon-plus"
       },
       {
+        "context": "#gen-btn",
+        "icon": "icon-update"
+      },
+      {
         "context": "#details-type-icon",
         "icon": "icon-object-frame"
+      },
+      {
+        "context": "#details-close",
+        "icon": "icon-cross"
       }
     ],
     "buttonContent": [

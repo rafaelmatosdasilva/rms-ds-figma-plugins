@@ -1660,11 +1660,55 @@
   .statusBar::after { bottom: 0; }
   /* Its Figma switches: Show dividerLine Top and Show dividerLine Bottom, each on by default. */
   .statusBar.no-divider-top::before, .statusBar.no-divider-bottom::after { content: none; }
-  /* ── Panel ── DS panel (2287:68241): a vertical surface with padding/l left and right; type=primary
-     paints panel/background/primary (elevation medium), type=secondary panel/background/secondary
-     (elevation low). Its HeadContent and MainContent slots are filled by the product. */
-  .panel { display: flex; flex-direction: column; padding: 0 var(--padding-l); background: var(--semantic-surface-elevationMedium); }
+  /* ── Panel ── DS panel (2287:68241), the system's one panel. A vertical surface: Type=Primary paints
+     elevation medium, Type=Secondary elevation low. Its divider sits on the edge that meets the content,
+     the right by default (.panel--right puts it on the left). Its two slots are .panel-head (Head Content:
+     padding/l top, padding/s bottom, gap/xl) over .panel-main (Main Content, which scrolls). Figma's
+     padding/l left and right is carried by the two slots rather than the shell, so the scroll bar runs to
+     the panel's edge and a closed panel is 0 wide. .panel--resizable adds a drag handle on that edge
+     (.panel-resize), driven by initPanelResize() in ui-shared.js. */
+  .panel {
+    position: relative;
+    display: flex; flex-direction: column;
+    min-width: 0; min-height: 0;
+    background: var(--semantic-surface-elevationMedium);
+    border-right: var(--general-thickness) solid var(--panel-border);
+  }
   .panel.panel--secondary { background: var(--semantic-surface-elevationLow); }
+  .panel.panel--right { border-right: 0; border-left: var(--general-thickness) solid var(--panel-border); }
+  .panel-head {
+    display: flex; align-items: flex-start; gap: var(--gap-xl);
+    padding: var(--padding-l) var(--padding-l) var(--padding-s);
+    flex-shrink: 0;
+    background: inherit;
+  }
+  .panel-main {
+    flex: 1; min-height: 0;
+    overflow-y: auto; overflow-x: hidden;
+    padding: 0 var(--padding-l);
+  }
+  .panel--resizable { flex-shrink: 0; height: 100%; overflow: hidden; transition: width 0.18s ease; }
+  .panel--resizable.resizing { transition: none; }
+  .panel-resize {
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    width: 5px;
+    cursor: ew-resize;
+    z-index: 3;
+  }
+  .panel--right > .panel-resize { right: auto; left: 0; }
+  .panel-resize::after {
+    content: '';
+    position: absolute;
+    top: 12px; bottom: 12px; right: 2px;
+    width: 1px;
+    background: var(--dividerLine-border);
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .panel--right > .panel-resize::after { right: auto; left: 2px; }
+  .panel-resize:hover::after,
+  .panel-resize.dragging::after { opacity: 1; }
   /* DS Slot content group: the items a product puts in the bar sit in one row at gap/m (the bar's own gap/xl
      separates groups). */
   .statusBar-content { display: flex; align-items: center; gap: var(--gap-m); min-width: 0; }
@@ -1704,59 +1748,6 @@
     background-clip: content-box;
   }
   ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); background-clip: content-box; }
-
-  /* ── Side panel ── */
-  .sidePanel {
-    position: relative;
-    flex-shrink: 0;
-    height: 100%;
-    background: var(--semantic-surface-elevationMedium);
-    overflow: hidden;
-    transition: width 0.18s ease;
-    display: flex;
-    flex-direction: column;
-  }
-  .sidePanel.resizing { transition: none; }
-  .sidePanel--left  { border-right: var(--general-thickness) solid var(--panel-border); }
-  .sidePanel--right { border-left:  var(--general-thickness) solid var(--panel-border); }
-
-  .sidePanelResize {
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 5px;
-    cursor: ew-resize;
-    z-index: 3;
-  }
-  .sidePanel--left  .sidePanelResize { right: 0; }
-  .sidePanel--right .sidePanelResize { left: 0; }
-  .sidePanelResize::after {
-    content: '';
-    position: absolute;
-    top: 12px; bottom: 12px;
-    width: 1px;
-    background: var(--dividerLine-border);
-    opacity: 0;
-    transition: opacity 0.15s;
-  }
-  .sidePanel--left  .sidePanelResize::after { right: 2px; }
-  .sidePanel--right .sidePanelResize::after { left: 2px; }
-  .sidePanelResize:hover::after,
-  .sidePanelResize.dragging::after { opacity: 1; }
-
-  .sidePanelHeader {
-    display: flex; align-items: flex-start; gap: var(--gap-m);
-    /* DS panel HeadContent slot: top padding/l (16), bottom padding/s (8), lr padding/l (16). */
-    padding: var(--padding-l) var(--padding-l) var(--padding-s);
-    flex-shrink: 0;
-    background: var(--semantic-surface-elevationMedium);
-  }
-
-  .sidePanelBody {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 0 var(--padding-l);
-  }
 
   /* ── Resize corner grip ── */
   #resize-handle {
