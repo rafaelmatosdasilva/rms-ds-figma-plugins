@@ -8,6 +8,7 @@
       "bindings": {}
     },
     "segmentedControl": {
+      "version": "1.0.0",
       "bindings": {}
     },
     "badge": {
