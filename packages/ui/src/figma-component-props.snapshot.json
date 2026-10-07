@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-10-06T06:48:39.787Z",
+  "_updated": "2026-10-07T12:58:56.710Z",
   "tooltipPopover": {
     "nodeId": "821:72473",
     "properties": {
@@ -8,7 +8,12 @@
         "defaultValue": "Label"
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: tooltip",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "tooltipButton": {
     "nodeId": "1810:27212",
@@ -33,6 +38,10 @@
         "label": "Icon can change depending on the feature",
         "labelMarkdown": "Icon can change depending on the feature",
         "categoryId": "1323:0"
+      },
+      {
+        "label": "Role: button",
+        "categoryId": "2457:0"
       }
     ]
   },
@@ -66,7 +75,12 @@
         "defaultValue": true
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: row",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "switch": {
     "nodeId": "2120:3385",
@@ -96,12 +110,7 @@
         ]
       }
     },
-    "annotations": [
-      {
-        "label": "Role: checkbox",
-        "labelMarkdown": ""
-      }
-    ]
+    "annotations": []
   },
   "swatch": {
     "nodeId": "31:38588",
@@ -115,7 +124,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: img",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "statusBar": {
     "nodeId": "789:38384",
@@ -123,14 +137,14 @@
       "Slot#1390:0": {
         "type": "SLOT",
         "description": "",
-        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": true,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": true
-        }
+        },
+        "preferredValues": []
       },
       "Show Divider Line Bottom#2049:1": {
         "type": "BOOLEAN",
@@ -141,7 +155,12 @@
         "defaultValue": true
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: toolbar",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "segmentedControlSegment": {
     "nodeId": "540:63413",
@@ -184,7 +203,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: radio",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "segmentedControl": {
     "nodeId": "540:64924",
@@ -192,17 +216,22 @@
       "Slot#540:16": {
         "type": "SLOT",
         "description": "",
-        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": false,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        }
+        },
+        "preferredValues": []
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: radiogroup",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "radioButtonGroup": {
     "nodeId": "2223:36588",
@@ -214,22 +243,27 @@
       "Slot#2064:4": {
         "type": "SLOT",
         "description": "",
-        "preferredValues": [
-          {
-            "type": "COMPONENT_SET",
-            "key": "18e0f96472a879f6920404e8c405eefcdb213aac"
-          }
-        ],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": false,
           "minChildren": 1,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        }
+        },
+        "preferredValues": [
+          {
+            "type": "COMPONENT_SET",
+            "key": "18e0f96472a879f6920404e8c405eefcdb213aac"
+          }
+        ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: radiogroup",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "radioButton": {
     "nodeId": "711:18562",
@@ -267,8 +301,7 @@
     },
     "annotations": [
       {
-        "label": "Role: radio",
-        "labelMarkdown": ""
+        "label": "Role: radio"
       }
     ]
   },
@@ -278,26 +311,26 @@
       "Main Content#2287:0": {
         "type": "SLOT",
         "description": "",
-        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": false,
           "displayEmptyByDefault": false,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        }
+        },
+        "preferredValues": []
       },
       "Head Content#2287:1": {
         "type": "SLOT",
         "description": "",
-        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": false,
           "displayEmptyByDefault": false,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        }
+        },
+        "preferredValues": []
       },
       "Type": {
         "type": "VARIANT",
@@ -308,7 +341,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: region",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "overlay": {
     "nodeId": "166:31563",
@@ -316,20 +354,24 @@
       "Slot#672:0": {
         "type": "SLOT",
         "description": "",
-        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": false,
           "displayEmptyByDefault": false,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        }
+        },
+        "preferredValues": []
       }
     },
     "annotations": [
       {
         "label": "Sizing: fill. It covers its container; its width and height come from where a product places it.",
-        "labelMarkdown": ""
+        "categoryId": "209:0"
+      },
+      {
+        "label": "Role: presentation",
+        "categoryId": "2457:0"
       }
     ]
   },
@@ -369,8 +411,7 @@
     },
     "annotations": [
       {
-        "label": "Role: button",
-        "labelMarkdown": ""
+        "label": "Role: button"
       }
     ]
   },
@@ -380,19 +421,19 @@
       "Slot#710:0": {
         "type": "SLOT",
         "description": "",
-        "preferredValues": [
-          {
-            "type": "COMPONENT_SET",
-            "key": "c1872d59cd9519bebf81e69fa88af8e9a9f48eb0"
-          }
-        ],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": true,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": true
-        }
+        },
+        "preferredValues": [
+          {
+            "type": "COMPONENT_SET",
+            "key": "c1872d59cd9519bebf81e69fa88af8e9a9f48eb0"
+          }
+        ]
       },
       "Show Title#710:1": {
         "type": "BOOLEAN",
@@ -403,7 +444,12 @@
         "defaultValue": "Text"
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: group",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "node": {
     "nodeId": "544:74211",
@@ -443,7 +489,7 @@
     "annotations": [
       {
         "label": "Role: button",
-        "labelMarkdown": ""
+        "categoryId": "2457:0"
       }
     ]
   },
@@ -453,14 +499,14 @@
       "Slot#712:5": {
         "type": "SLOT",
         "description": "",
-        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": true,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": true
-        }
+        },
+        "preferredValues": []
       },
       "Show Slot#712:6": {
         "type": "BOOLEAN",
@@ -493,7 +539,12 @@
         "defaultValue": "Title"
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: dialog",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "loader": {
     "nodeId": "68:52296",
@@ -507,7 +558,12 @@
         "defaultValue": true
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: status",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "listItem": {
     "nodeId": "503:49751",
@@ -542,7 +598,12 @@
         "defaultValue": true
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: listitem",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "input": {
     "nodeId": "1:5",
@@ -628,7 +689,7 @@
     "annotations": [
       {
         "label": "Role: textbox",
-        "labelMarkdown": ""
+        "categoryId": "2457:0"
       }
     ]
   },
@@ -644,7 +705,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: presentation",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "highlight": {
     "nodeId": "146:82457",
@@ -654,7 +720,12 @@
         "defaultValue": "Label"
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: mark",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "emptyState": {
     "nodeId": "1431:21215",
@@ -684,7 +755,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: group",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "dividerSection": {
     "nodeId": "135:46577",
@@ -715,6 +791,20 @@
         "label": "Background must match the containing surface. Set it explicitly using the surface color token. Never rely on transparency or CSS inheritance.",
         "labelMarkdown": "Background must match the containing surface. Set it explicitly using the surface color token. Never rely on transparency or CSS inheritance.",
         "categoryId": "209:0"
+      },
+      {
+        "label": "Role: heading",
+        "categoryId": "2457:0"
+      }
+    ]
+  },
+  "dividerLine": {
+    "nodeId": "1:102",
+    "properties": {},
+    "annotations": [
+      {
+        "label": "Role: separator",
+        "categoryId": "2457:0"
       }
     ]
   },
@@ -724,26 +814,31 @@
       "Slot#2064:1": {
         "type": "SLOT",
         "description": "",
-        "preferredValues": [
-          {
-            "type": "COMPONENT_SET",
-            "key": "23827df1c49b6ce542bc149b2e86210cb6030508"
-          }
-        ],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": false,
           "minChildren": 1,
           "maxChildren": null,
           "allowPreferredValuesOnly": true
-        }
+        },
+        "preferredValues": [
+          {
+            "type": "COMPONENT_SET",
+            "key": "23827df1c49b6ce542bc149b2e86210cb6030508"
+          }
+        ]
       },
       "Label Content#2064:2": {
         "type": "TEXT",
         "defaultValue": "Label"
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: group",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "checkBox": {
     "nodeId": "1963:43561",
@@ -776,7 +871,7 @@
     "annotations": [
       {
         "label": "Role: checkbox",
-        "labelMarkdown": ""
+        "categoryId": "2457:0"
       }
     ]
   },
@@ -786,21 +881,26 @@
       "Slot#2120:5": {
         "type": "SLOT",
         "description": "",
-        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": false,
           "displayEmptyByDefault": false,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        }
+        },
+        "preferredValues": []
       },
       "Show Title#2155:0": {
         "type": "BOOLEAN",
         "defaultValue": true
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: group",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "buttonTertiary": {
     "nodeId": "1:78",
@@ -835,7 +935,17 @@
     "annotations": [
       {
         "label": "Role: button",
-        "labelMarkdown": ""
+        "categoryId": "2457:0"
+      }
+    ]
+  },
+  "buttonStepper": {
+    "nodeId": "252:22089",
+    "properties": {},
+    "annotations": [
+      {
+        "label": "Role: spinbutton",
+        "categoryId": "2457:0"
       }
     ]
   },
@@ -872,7 +982,7 @@
     "annotations": [
       {
         "label": "Role: button",
-        "labelMarkdown": ""
+        "categoryId": "2457:0"
       }
     ]
   },
@@ -908,7 +1018,7 @@
     "annotations": [
       {
         "label": "Role: button",
-        "labelMarkdown": ""
+        "categoryId": "2457:0"
       }
     ]
   },
@@ -944,7 +1054,7 @@
     "annotations": [
       {
         "label": "Role: button",
-        "labelMarkdown": ""
+        "categoryId": "2457:0"
       }
     ]
   },
@@ -1023,7 +1133,12 @@
         ]
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: button",
+        "categoryId": "2457:0"
+      }
+    ]
   },
   "badge": {
     "nodeId": "310:29494",
@@ -1059,14 +1174,14 @@
       "Slot#334:3": {
         "type": "SLOT",
         "description": null,
-        "preferredValues": [],
         "slotSettings": {
           "stretchChildOnInsert": true,
           "displayEmptyByDefault": true,
           "minChildren": null,
           "maxChildren": null,
           "allowPreferredValuesOnly": false
-        }
+        },
+        "preferredValues": []
       },
       "Show Divider Line Top#2120:6": {
         "type": "BOOLEAN",
@@ -1081,6 +1196,11 @@
         "defaultValue": true
       }
     },
-    "annotations": []
+    "annotations": [
+      {
+        "label": "Role: toolbar",
+        "categoryId": "2457:0"
+      }
+    ]
   }
 }

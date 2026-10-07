@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-10-06T07:04:27.063Z",
+  "_updated": "2026-10-07T13:02:42.253Z",
   "_note": "Per-container geometry (h, pad [t,r,b,l], gap) captured from the DS layout frame(s). Consumed by RENDERED_ASSERTIONS frameGeom sourcing. Auto-generated - do not edit by hand.",
   "nodes": {
     ".Impact Atlas Plugin": {
