@@ -187,14 +187,14 @@
     /* Overflow container */
     --overflow-background: var(--neutral-1000); /* overflow/background/color L=N1000, D→override */
     --overflow-border:     var(--neutral-800);  /* overflow/border/color L=N800, D→override */
-    --overflow-text:       var(--neutral-500);  /* overflow/text/color L=N5, D→override */
+    --overflow-text:       var(--neutral-400);  /* overflow/text/color L=N4, D→override */
     /* Overflow list items */
     --overflowList-background:       var(--neutral-1000); /* overflowList/background/default L=N1000, D→override */
     --overflowList-background-hover: var(--neutral-1000); /* overflowList/background/hover L=N1000, D→override */
     --overflowList-border:           var(--neutral-800);  /* overflowList/border/default L=N800, D→override */
     --overflowList-border-hover:     var(--overflowList-border); /* overflowList/border/hover → overflowList/border/default */
     --overflowList-label:            var(--neutral-300);  /* overflowList/label/default L=N3, D→override */
-    --overflowList-label-hover:      var(--neutral-800);  /* overflowList/label/hover L=N8, D→override */
+    --overflowList-label-hover:      var(--neutral-100);  /* overflowList/label/hover N1 both modes */
     /* Segmented control */
     --segmentedControl-background:          var(--neutral-900); /* segmentedControl/background/default L=N900, D→N800 override */
     --segmentedControl-border:              var(--neutral-700);  /* segmentedControl/border/default N700, D=N600 */
@@ -206,8 +206,8 @@
     --segmentedControl-background-selected: var(--neutral-1000); /* segmentedControl/background/selected L=N10, D→override */
     /* Divider section */
     --dividerSection-title:   var(--neutral-400);  /* dividerSection/title/color L=N4, D→override */
-    --dividerSection-number:  var(--neutral-500);  /* dividerSection/number/color L=N5, D→override */
-    --dividerSection-divider: var(--neutral-600);  /* dividerSection/divider/color L=N6 */
+    --dividerSection-number:  var(--neutral-400);  /* dividerSection/number/color L=N4, D→override */
+    --dividerSection-divider: var(--neutral-400);  /* dividerSection/divider/color L=N4, D→override */
     /* Highlight (a red highlight pill) + highlightSelector (a small selection marker).
        All alias mode-aware base vars, so no dark override is needed. */
     --highlight-background:    var(--semantic-negative); /* highlight/background → semantic/negative → red */
@@ -220,16 +220,16 @@
     --listItem-description: var(--neutral-400); /* listItem/description L=N400, D→N300 override */
     /* Badge neutral (mode-aware) */
     --badge-background-neutral: var(--neutral-700);  /* badge/background/neutral/color L=N700, D→override */
-    --badge-label-neutral: var(--badge-background-neutral);   /* badge/label/neutral → badge/background/neutral */
+    --badge-label-neutral: var(--semantic-content-secondary); /* badge/label/neutral L→semantic/content/secondary, D→override */
     --badge-icon-neutral:  var(--badge-background-neutral);   /* badge/icon/neutral → badge/background/neutral */
     --badge-background-negative: var(--semantic-negative);         /* badge/background/negative → semantic/negative */
     --badge-label-negative:      var(--badge-background-negative); /* badge/label/negative → badge/background/negative */
     --badge-icon-negative:       var(--badge-background-negative); /* badge/icon/negative → badge/background/negative */
     --badge-background-warning:  var(--semantic-warning);          /* badge/background/warning → semantic/warning */
-    --badge-label-warning:       var(--badge-background-warning);
+    --badge-label-warning:       var(--semantic-content-secondary); /* L→semantic/content/secondary, D→override */
     --badge-icon-warning:        var(--badge-background-warning);
     --badge-background-positive: var(--semantic-positive);         /* badge/background/positive → semantic/positive */
-    --badge-label-positive:      var(--badge-background-positive);
+    --badge-label-positive:      var(--semantic-content-secondary); /* L→semantic/content/secondary, D→override */
     --badge-icon-positive:       var(--badge-background-positive);
     /* Status bar */
     --statusbar-text: var(--neutral-100); /* statusbar/text/color N1 both modes */
@@ -354,7 +354,7 @@
       --segmentedControl-background-selected: var(--neutral-700); /* Dark = N700 (#303030) */
       --dividerSection-title:  var(--neutral-200);  /* Dark = N200 */
       --dividerSection-number: var(--neutral-300);  /* Dark = N300 */
-      --dividerSection-divider: var(--neutral-500); /* Dark = N500 */
+      --dividerSection-divider: var(--neutral-300); /* Dark = N300 */
       --statusbar-icon: var(--neutral-400);      /* D=N400 */
       --overflow-background: var(--neutral-700);  /* D=N700 */
       --overflow-border:     var(--neutral-600);  /* D=N600 */
@@ -365,6 +365,9 @@
       --overflowList-label:            var(--neutral-100); /* D=N100 */
       --overflowList-label-hover:      var(--neutral-100); /* D=N100 */
       --badge-background-neutral: var(--neutral-300);           /* Dark = N300 */
+      --badge-label-neutral:  var(--badge-background-neutral);  /* Dark → badge/background/neutral */
+      --badge-label-warning:  var(--badge-background-warning);  /* Dark → badge/background/warning */
+      --badge-label-positive: var(--badge-background-positive); /* Dark → badge/background/positive */
       --emptyState-icon-neutral: var(--neutral-400);         /* Dark = N400 */
       --listItem-icon:        var(--neutral-400); /* Dark = N400 */
       --listItem-description: var(--neutral-300); /* Dark = N300 */
