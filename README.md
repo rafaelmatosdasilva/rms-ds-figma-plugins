@@ -115,7 +115,7 @@ Refreshing the snapshots needs the Figma file, so only its owner does it (`rms-d
 Every full check writes the differences between Figma and the code in one list, `.design-system-engine-out/differences.md`;
 the published style guide carries [the latest one](https://rafaelmatosdasilva.github.io/rms-ds-figma-plugins/differences.md).
 
-What is still to do, for the system, its products and the engine, and every idea not yet built, is kept in one list,
+What is still to do for the system, its products and the engine, every idea not yet built and every article behind them are kept in one file,
 [BACKLOG.md](BACKLOG.md).
 
 ## Contact
