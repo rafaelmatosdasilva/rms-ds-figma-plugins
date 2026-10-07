@@ -7,6 +7,10 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.14 · 7 October 2026
+
+- A segmented control's options share its width evenly: each is as wide as the widest, whether the control hugs its options or fills its row.
+
 ## v2.0.13 · 6 October 2026
 
 - The audit tries every component 320 pixels wide (WCAG 1.4.10 Reflow): nothing needs sideways scrolling, so the criterion is checked instead of left for a person.
