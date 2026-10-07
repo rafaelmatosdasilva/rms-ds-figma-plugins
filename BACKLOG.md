@@ -1,188 +1,228 @@
-# Backlog
+# Backlog and ideas
 
-Everything still to do and every idea not yet built, in one place, for the design system, its three products and the engine that checks them, [rms-design-system-engine](https://github.com/rafaelmatosdasilva/rms-design-system-engine). Status as of 7 October 2026. A new session starts here.
+The one place for every open task, every idea not yet built and every article behind them, for the design system, its three products and the engine that checks them ([rms-design-system-engine](https://github.com/rafaelmatosdasilva/rms-design-system-engine)). Status as of 7 October 2026. A new session starts here.
 
-It lives in this repository because the engine's repository must stay free of product and component names (its no-testbed-names test fails on them). Two longer files hold the detail. [docs/backlog/engine-ideas.md](docs/backlog/engine-ideas.md) is the full ideas list with its sources (I1 to I95, S1 to S36), and [docs/backlog/authoring-plan.md](docs/backlog/authoring-plan.md) is the plan for choosing who authors each area. Their status lines are older than this file, and where they differ this file is right.
+It lives in this repository because the engine's repository must stay free of product and component names. When an item is done, delete it here in the same pull request. A new idea goes at the end of its group with its source, and a new article goes at the end of Sources.
 
-When an item is done, remove it here in the same pull request or move it to Done recently. A new idea goes under Ideas not started, with its source.
+Who acts is marked **Claude** or **You**. Size is S, M or L.
 
-## Next up, in the agreed order
+## 1. Next up, in the agreed order
 
-1. **Clear the To do items that are Claude's to fix in the code.** The 17 rows under Claude in the code below, plus the roles the code must render to match the role annotations in Figma (engine issue E1).
-2. **Product overrides go back to the system.** Gather every product rule laid over a system component, and every product's own version of one, into one list. Each item is either fixed in the system or promoted to a new variant, ranked higher when several products make the same change. Then the edit check refuses new product patches over system components.
-3. **Every finding says why, and every exception is accountable.** Each finding and rule cites its source (a Figma annotation, a guideline, a contract line, a WCAG criterion or a past decision). Each kept exception (knownRawTokens, knownReimplementations and the rest) carries a reason, an owner and a review date, and comes back in To do once the date passes. Overlaps I19, I77 and I91.
-4. **Components use semantic tokens only.** Flag a component that uses a primitive such as `--neutral-800` directly, and a token whose value is the same in every mode of its collection. In the same pass, group colours that look almost the same (the five reds). The engine's rule of no imposed structure still holds, so the check runs only when the project declares its layers in `ds-config.json`.
+- **N1. Clear Claude's fixes from the To do page** (Claude, M). Everything in section 2.
+- **N2. Product overrides go back to the system** (Claude, L). One list of every product rule laid over a system component and every product's own version of one. Each is fixed in the system or promoted to a variant, ranked by how many products repeat it. Then the edit check refuses new product patches. Sources S43, S44.
+- **N3. Every finding says why, every exception is accountable** (Claude, M). Findings cite their source (a Figma annotation, a guideline, a contract line, a WCAG criterion, a past decision). Exceptions such as knownRawTokens carry a reason, an owner and a review date, and come back in To do when the date passes. Covers ideas I19, I77 and I91. Sources S9, S33, S35, S42, S43.
+- **N4. Components use semantic tokens only** (Claude, M). Flag a component that uses a primitive directly and a token with the same value in every mode, and group colours that look almost the same (the five reds). Runs only when the project declares its layers in `ds-config.json`, since the engine never imposes a structure. Sources S41, S43.
 
-## To do rows, by who acts
+## 2. Claude's fixes from the To do page
 
-Counted from the style guide's To do page on 7 October, before [design system #40](https://github.com/rafaelmatosdasilva/rms-ds-figma-plugins/pull/40), which closed the segmentedControl contract row.
+- **T1. Reduced motion, WCAG 2.3.3** (Claude, S). buttonList, buttonPrimary, buttonQuaternary, buttonSecondary, buttonTertiary, input, modal, node, overflowList, overlay, toast and the segmented `.seg-pill` still move when someone asks for less motion.
+- **T2. Names for icon-only buttons, 4.1.2** (Claude, S). buttonPrimary and buttonSecondary without a label have no name a screen reader can read.
+- **T3. buttonList by keyboard, 2.1.1** (Claude, S). Tab never reaches it.
+- **T4. States a screen reader misses, 4.1.2** (Claude, S). input Disabled needs `disabled` or `aria-disabled`, radioButton Current needs `aria-checked`, toast Error needs its state announced.
+- **T5. Impact Atlas onto the system loader** (Claude, M). It draws its own (`.loading-state`, `.spinner`). The system also draws its spinner three ways, and one would do.
+- **T6. Roles the code must render** (Claude, M). 22 components render a different role from Figma's annotation (toolbar for actionBar and statusBar, img for swatch, row for table/row, radio for each segment and more). Fix E2 first, since some are false readings.
+- **T7. buttonStepper arrow keys** (Claude, S). ArrowUp and ArrowDown must change `aria-valuenow`, as a spinbutton does.
 
-### Claude in the code (17)
+## 3. Engine issues found in use
 
-- **Reduced motion (2.3.3).** buttonList, buttonPrimary, buttonQuaternary, buttonSecondary, buttonTertiary, input, modal, node, overflowList, overlay and toast still move when the person asks for less motion. Add a `prefers-reduced-motion` rule for each, and for the segmented control's `.seg-pill`.
-- **Names (4.1.2).** Icon-only buttonPrimary and buttonSecondary have no name a screen reader can read.
-- **Keyboard (2.1.1).** Tab never reaches buttonList.
-- **States a screen reader misses (4.1.2).** input Disabled needs `disabled` or `aria-disabled`, and radioButton Current needs `aria-checked`. toast Type=Error is listed under You in Figma, but its fix is in the code too.
-- **Impact Atlas draws its own loader** (`.loading-state` and `.spinner` in `ui.src.html`). Move it to the system's loader. The system itself draws its spinner three ways (`.spinner`, the toast's and the loader's), and one would do.
+- **E1. Role mismatches go to You in Figma** (Claude, S). The annotation is right and the code has to change, so these rows belong to Claude in the code.
+- **E2. The wrong element is checked for a role** (Claude, S). card reads as a link, and emptyState, listItem, modal and dividerSection as buttons, because the check takes a control inside the preview instead of the component.
+- **E3. Notes become To do rows** (Claude, S). Figma notes in the Intent and Implementation categories are not requirements.
+- **E4. Written-down expected colours go stale** (Claude, S). Font Scaling Lab's stepper border fails Gate 24 because a fixed colour was never updated. Work the colour out from the Figma variable.
+- **E7. Up to date goes by file dates, Gate 1** (Claude, S). A product counts as stale when the theme file is newer, even with identical content.
+- **E8. One accessibility reading flips between runs** (Claude, M). Font Scaling Lab's input edge reads 2.9 to 1 in some runs and passes in others.
+- **E9. Variables that look paired are listed apart** (Claude, S). highlight/background in Figma and `--highlight-background` in the code show as two variables under You decide.
+- **E10. Comparison mistakes from the deeper facts** (Claude, M). buttonList's bottom border is compared through its top, a dividerLine width set by the page is compared, switch text is compared on the wrong layer, and a radius set per corner is reported four times.
 
-### You in Figma (28)
+## 4. Differences between Figma and the code
 
-- **Roles.** 22 rows read Figma says role X, it renders as Y (actionBar, buttonList, buttonStepper, buttonTertiary, card, checkBoxGroup, dividerLine, dividerSection, emptyState, highlight, highlightSelector, listItem, modal, node, overflow, overlay, segmentedControl, segmentedControlSegment, statusBar, swatch, table/row, tooltipButton). The Figma annotation is right and the code has to change, so these are Claude's (E1). Some are false readings (E2). One more row says buttonStepper's arrow keys leave aria-valuenow unchanged, also a code fix.
-- **switch has no role annotation.** Add one in Figma.
-- **Three annotations no check reads.** dividerSection's background note, overlay's Sizing fill note and tooltipButton's icon note. They are notes, not requirements (E3).
+- **D1. tooltipPopover border** (Claude, S). Figma has a 1.5px border the code lacks.
+- **D2. highlightSelector Selected radius** (Claude, S). Figma has a 4px radius the code lacks.
+- **D3. segmentedControl gap and radius** (You, S). A 1px gap with no variable, and radii/button on the root but radii/input on its Slot. Decide in Figma, then the code follows.
+- **D4. A focus state in Figma for 12 components** (You, M). buttonList, buttonPrimary, buttonQuaternary, buttonSecondary, buttonStepper, buttonTertiary, checkBox, node, overflowList, radioButton, segmentedControlSegment and tooltipButton. The code already draws one.
+- **D5. A role annotation on switch** (You, S).
+- **D6. Three notes no check reads** (You, S). The dividerSection background note, the overlay Sizing fill note and the tooltipButton icon note.
 
-### You decide (33)
+## 5. Waiting on you
 
-- **Variables only one side has.** `--text-muted` (actionBar and node), `--input-background`, `--input-auto-border`, the four modal motion variables (`--modal-duration`, `--modal-easing` and their out versions), and panel/background/primary and secondary in Figma only.
-- **Pairs that look like one variable.** highlight, highlightSelector, listItem and node list the same name on each side as two variables, such as highlight/background in Figma and `--highlight-background` in the code. Check whether the engine fails to pair them (E9) before deciding.
-- **Font Scaling Lab stepper border.** Two rows, both the stale expected colour (E4).
+- **O1. The STYLE_GUIDE_DISPATCH secret** in each product's repository, so the style guide republishes when a product changes.
+- **O2. The GitHub About text** for the engine, from the last proposal.
+- **O3. Variables only one side has, You decide** (33 rows). `--text-muted`, `--input-background`, `--input-auto-border`, the four modal motion variables, and the panel backgrounds only in Figma. Check E9 first.
+- **O4. Criteria to check by hand** (169 rows). WCAG criteria only a person can judge.
+- **O5. A main heading in Impact Atlas.** It needs a visually hidden utility in the system, a design decision.
+- **O6. Written guidance per component.** When to use, when not to and common mistakes, written in Figma or the guidelines. Source S45.
+- **O7. Figma refreshes need edit access to the file.** The other account cannot read it, so any Figma change needs someone with access.
 
-### You check by hand (169)
+## 6. Started, not finished
 
-WCAG criteria only a person can judge, such as whether instructions rely only on shape or position. Not urgent.
+- **P1. Prototype evaluation** (Claude, M). Tasks and a scorer, and new tasks (states, flow, dialog, phone, one primary action) measured against Claude alone.
+- **P2. Prototypes use every source of intent** (Claude, M). Descriptions, annotations, guidelines, notes, patterns, templates, pages and designed screens.
+- **P3. Interactive prototypes** (Claude, M). The system's own scripts run, so overlays, selections and dialogs work.
+- **P4. Prototype drawing fidelity** (Claude, M). Mode, size, clipping, absolute layers and unbuilt components on a real system.
+- **P5. A case study from every evaluation run** (Claude, M).
+- **P6. WCAG 2.1 A and AA per component** (Claude, L). Every criterion checked by the engine, prototypes included.
+- **P7. Strokes, font sizes and bound typography** (Claude, M). Capture rules and a reader, with their evaluation.
+- **P8. Stand-ins and FILL sizing** (Claude, M).
+- **P9. The remaining To do differences** (Claude, M).
+- **P10. Engine-wide improvements** (Claude, L). Kept only where quality rises.
+- **P11. Split the plugins** (Claude, L). One public repository per plugin, the system core here.
+- **P12. Authoring plan, stages 1 to 5** (Claude, L). Choose who authors each area (Figma, the code or both). `authority.mjs`, `--decide`, `--author`, `--fix-figma` and `--retire-figma` do not exist yet. Detail in [docs/backlog/authoring-plan.md](docs/backlog/authoring-plan.md).
 
-## Engine issues found in use
+## 7. Ideas not started
 
-- **E1. Role mismatches are routed to You in Figma.** The Figma annotation is right and the code has to change, so they belong to Claude in the code.
-- **E2. The style guide checks the wrong element for a role.** card reads as a link, and emptyState, listItem, modal and dividerSection as buttons, because the check takes a control inside the preview instead of the component itself.
-- **E3. Notes that are not requirements become To do rows.** Figma notes in the Intent and Implementation categories land in To do as tasks.
-- **E4. Written-down expected colours go stale.** Font Scaling Lab's stepper border fails Gate 24 because a fixed colour was never updated after Figma changed. Work the expected colour out from the Figma variable instead.
-- **E7. Data is up to date goes by file dates, not content (Gate 1).** A product counts as stale whenever the theme file is newer, even when the content is identical.
-- **E8. One accessibility reading flips between runs.** Font Scaling Lab's input edge reads 2.9 to 1 (3 to 1 needed) in some runs and passes in others. Likely a colour read during a transition or from a stale build.
-- **E9. Variables that look paired are listed as only on one side.** See You decide above.
-- **E10. Comparison mistakes the deeper facts surfaced.** buttonList's bottom-only border is compared through `border-top-color`, dividerLine's width set by the page is compared, switch Enable=False text colour is compared against the wrong text layer, and a radius set per corner is reported once per corner.
+### Style guide
 
-E5 (segmentedControl read from its segment's node) and E6 (deeper facts for every component, read on every refresh) are done, in [design system #40](https://github.com/rafaelmatosdasilva/rms-ds-figma-plugins/pull/40) and [engine #78](https://github.com/rafaelmatosdasilva/rms-design-system-engine/pull/78).
+- **G1. Light and dark side by side** in the Playground (Claude, S).
+- **G2. Visual changes per release**, a before and after picture in What's new (Claude, M).
+- **G3. A templates overview**, what each template is made of and the screen it comes from (Claude, M). Source S45.
+- **G4. Real product pages per component**, pictures of the screens where it appears (Claude, M). Source S45.
+- **G5. Mark a To check row as checked**, saving who and when until the component changes, so the accessibility table can reach fully compliant (Claude, M).
+- **G6. The badge link bug** could not be reproduced and needs where it failed (You, S).
 
-## Differences between Figma and the code
+### From the review of the README
 
-The deeper facts compare 480 facts on 36 components and find 15 differences, most of them E10. These are real or need a decision.
+- **R1. Is the Figma file reliable enough to compare**, a check run before parity (Claude, M). Source S46.
+- **R2. One model for rules, evidence and verdicts** behind every gate, with I91 and I93 as first steps (Claude, L). Source S46.
+- **R3. How an agent puts components together**, not only which ones it uses (Claude, L). Source S46.
 
-- **tooltipPopover** has no 1.5px border in the code.
-- **highlightSelector** Selected has no 4px corner radius in the code.
-- **segmentedControl** has a 1px gap in Figma with no variable, and its root uses radii/button while its Slot uses radii/input. Decide in Figma, then the code follows.
-- **No focus state in Figma** for 12 components (buttonList, buttonPrimary, buttonQuaternary, buttonSecondary, buttonStepper, buttonTertiary, checkBox, node, overflowList, radioButton, segmentedControlSegment, tooltipButton). The code draws one, so add it in Figma for both to match.
+### From the engine's ideas list
 
-## Waiting on the owner
+- **I6. Token layering across brands** (M). Hold until a second brand is planned. Source S2.
+- **I7. Judgment evaluation**, the built result against the contract (L). Source S1.
+- **I11. Evidence honesty conventions** (S). Sources S11, S12.
+- **I12. AI readiness scorecard, the rest** (M). Sources S8, S11, S12.
+- **I17. Naming advice**, tokens named by look rather than role, advice only (S). Sources S4, S5, S10.
+- **I25. A contract view in the DSDS format** (M). Source S20.
+- **I26. A code example per component, the rest** (S). Source S16.
+- **I27. Evaluation metrics, the rest**, time and token cost per task (S). Source S16.
+- **I71. Warn at commit, block at push**, only for what the code already uses (M). Source S32.
+- **I72. A component only in code gets its Figma spec** in the hand-back; check first how much exists (S). Source S32.
+- **I76. Imports** from the old library or the system's insides are flagged with the import to write (S). Source S33.
+- **I82. Where each component lives**, a usage map in `--query`, the contracts and the report (M). Sources S32, S34.
+- **I83. A new component is a decision**, a near-copy of a system component is sent back (M). Source S34.
+- **I87. `--scaffold` in build mode**, writing what is exact from Figma (L). Source S38.
+- **I88. `--improve`**, the engine proposes its own fixes, measured, and you decide (M). Source S40.
+- **I89. AI behaviour in design systems**, later (L). Source S39.
+- **I90. `--context` for one component**, a task-sized contract with its evidence (M). Source S35.
+- **I93. A verification headline**, contracts passing, drifting and not checked (S). Source S35.
+- **I95. A prompt box in the style guide**, later (L). Source S36.
 
-- **The STYLE_GUIDE_DISPATCH secret** in each product's repository, so the style guide republishes on its own when a product changes.
-- **The GitHub About text** for the engine, pasted from the last proposal.
-- **Figma refreshes need edit access to the file.** Another account can do everything else here as long as the design in Figma does not change.
+### Token layers
 
-## Work in progress
+Source S41.
 
-Started and not finished.
+- **L2. A token belongs in the first layer where its value can change** (M).
+- **L3. Each layer points at the one before it**, no skipped or backward aliases (S).
+- **L4. Each layer holds only its own kind of token**, set in `ds-config.json` (S).
+- **L5. Split merged axes**, High Contrast Dark becomes Theme and Contrast (M).
+- **L6. Test every combination of switches** for contrast and for resolving in the code (M).
+- **L7. Products set modes only at the root** (S).
+- **L8. A style guide switch for every axis** found in Figma (M).
+- **L9. A token budget report**, duplicates, single-use and unused tokens (S).
+- **L10. Owners per layer**, so To do names the owning team (S).
+- **L11. A rename sweep**, every use of a renamed token updated in one change (M).
+- **L12. Brand guidance for agents**, from Figma descriptions and annotations (M).
 
-- Prototype evaluation tasks and scorer, and measuring prototypes against Claude alone with new tasks (states, flow, dialog, phone, one primary action).
-- Prototypes use every source of intent the engine collects (descriptions, annotations, guidelines, notes, patterns, templates, pages, designed screens), with the request in view.
-- Interactive prototypes (system scripts, overlays, selections).
-- Prototype drawing fidelity on a real system (mode, size, clipping, absolute layers, unbuilt components, options).
-- A case study and reports from every evaluation run.
-- Accessibility in four parts (prototype accessibility, the style guide runs component code, states follow props, accessibility build tasks), and every WCAG 2.1 A and AA criterion per component checked by the engine.
-- Capture rules for strokes and font sizes, a reader for bound typography, and their evaluation.
-- Stand-ins and FILL sizing.
-- The remaining To do differences between Figma and the code.
-- Engine-wide improvements without lowering quality.
-- Split the plugins into one public repository each, with the design system core here.
-- Authoring plan stages 1 to 5. `authority.mjs`, `--decide`, `--author`, `--fix-figma` and `--retire-figma` do not exist yet ([docs/backlog/authoring-plan.md](docs/backlog/authoring-plan.md)).
+### Decisions and knowledge
 
-## Ideas not started
+Source S42.
 
-### From the ideas list
+- **K2. A DECISIONS.md log**, shown per component next to the Changelog (M).
+- **K3. An order of authority**, the person's goal, research, documented standards, past decisions, heuristics (S).
+- **K4. A coverage map in the style guide**, where knowledge is thin (M).
+- **K5. Patterns found in the products**, written up for prototypes (M).
+- **K6. Evidence first, decisions second**, candidates collected and a person decides (M).
+- **K7. Several directions at once** for a prototype request (L).
+- **K8. Comments pinned on prototypes**, each change traced to its comment (M).
+- **K9. Simulated users** from your personas try a task on a prototype (L).
+- **K10. A handoff package per prototype** (M).
+- **K11. Move to WCAG 2.2 AA** (M).
+- **K12. Migration recipes** for deprecated components and renamed tokens (M).
+- **K13. Bring your own brand** through the same checks (L).
+- **K14. Exactly one active theme** per product build (S).
+- **K15. Guidance in tiers**, universal, the system's, then a product's own (M).
+- **K16. Stricter evaluations**, held-out tasks and more than one model (M).
 
-Full text and sources in [docs/backlog/engine-ideas.md](docs/backlog/engine-ideas.md).
+### Fix the system, not the output
 
-- **I6.** Token layering validation across brands.
-- **I7.** Judgment evaluation, the built result against the contract.
-- **I11.** Evidence honesty conventions.
-- **I12.** Maturity and AI readiness scorecard (partly built).
-- **I17.** Semantic naming grammar, as advice only.
-- **I19.** Decisions legible on exemptions and authored decisions.
-- **I25.** A contract view that follows the DSDS schema.
-- **I26.** A code example per component (partly built).
-- **I27.** Evaluation metrics, second version.
-- **I71.** Warn at commit, block at push, and only for what the code already uses.
-- **I72.** A component only in code gets its Figma spec (check what is built).
-- **I76.** Imports of the old library and the system's insides.
-- **I77.** Accepted differences carry a reason and an owner.
-- **I82.** Where each component lives, its next larger context (partly built).
-- **I83.** A new component is a decision, not an edit.
-- **I87.** `--scaffold` in build mode.
-- **I88.** `--improve`, the engine proposes its own fixes, measured, and a person decides.
-- **I89.** AI behaviour in design systems (later).
-- **I90.** `--context <component>`, a task-sized contract with its evidence.
-- **I91.** Every finding cites its evidence (partly built).
-- **I93.** A verification snapshot headline.
-- **I95.** A prompt box in the style guide, on the device (later).
+Source S43.
 
-### Token layers (from the token architecture thread, 7 October)
+- **F5. A hard-coded value names its token** in the edit check (S).
+- **F6. No brand or product names in token keys** (S).
+- **F7. Figma variable scoping**, nothing left on all scopes or bound outside its scope (S).
+- **F8. A description on every semantic token**, shown in the code, the token panel and `--query` (S).
+- **F9. Primitives hidden from the published library** (You, S).
+- **F10. A diff test across brands or products**, only values change (M).
+- **F11. No catalogue-only patches**, such as Storybook preview rules aimed at components (S).
+- **F12. Measure in the live products too**, not only the style guide (M).
+- **F13. Borders that carry meaning at 3 to 1**, WCAG 1.4.11 (S).
+- **F14. A check after parallel builds** for naming, duplication and near-duplicates (S).
 
-1. Components use semantic tokens only (in Next up).
-2. A token belongs in the first layer where its value can change. One that is the same in Light and Dark belongs in core, and a core token that differs between brands belongs in brand.
-3. Each layer points at the one before it. Flag alias chains that skip a layer or point backwards.
-4. Each layer holds only its own kind of token, set once in `ds-config.json`.
-5. Split merged axes. A mode such as High Contrast Dark becomes Theme and Contrast.
-6. Test every combination of switches, such as dark with high contrast, for contrast and for resolving in the code.
-7. Products set modes only at the root.
-8. The style guide offers a switch for any axis it finds (Brand, Contrast, Density).
-9. A token budget report. Tokens with the same value as another in every mode, tokens only one component uses, and tokens nothing uses.
-10. Owners per layer in `ds-config.json`, so the Who column in To do names the owning team.
-11. A rename sweep. Every place that still uses a renamed token, updated in one change.
-12. Brand guidance for agents, built from Figma descriptions and annotations.
+### Curators and Figma tools
 
-### Decisions and knowledge (from the Salesforce article, 7 October)
+Source S44.
 
-1. Every rule gets an ID and a source (in Next up).
-2. An append-only DECISIONS.md, shown per component next to the Changelog.
-3. An order of authority written down. The person's goal, then research, then documented standards, then past decisions, then general heuristics.
-4. A coverage map in the style guide, showing where knowledge is thin.
-5. Patterns found in the products, written up for the prototypes to reuse.
-6. Evidence first, decisions second. Candidates are collected and a person decides what each becomes.
-7. Several directions at once for a prototype request.
-8. Comments pinned on prototypes, with each change traced to its comment.
-9. Simulated users built from the team's personas try a task on a prototype.
-10. A handoff package per prototype (states, keyboard, token map, accessibility notes, copy, a ready checklist, the trail from the brief).
-11. Move to WCAG 2.2 AA.
-12. Migration recipes for deprecated components and renamed tokens.
-13. Bring your own brand, run through the same checks.
-14. Exactly one active theme in each product build.
-15. Guidance in tiers (universal, the system's, then a product's own).
-16. Stricter evaluations, with held-out tasks and more than one model.
+- **C3. Good remixes shown in Used in** as examples to follow (M).
+- **C4. What's new credits what was promoted** and who made it (S).
+- **C5. Motion parity with Figma Motion** (M).
+- **C6. A motion page in the foundations** (M).
+- **C7. Shaders as effect tokens** (M).
+- **C8. Code Layers as a parity source**, later (L).
+- **C9. The hand-back as a Figma plugin** (M).
+- **C10. A plugin shelf** on a Tools page (S).
+- **C11. Checks on Figma Make pull requests**, in plain words, later (M).
 
-### Fix the system, not the output (from the five reds articles, 7 October)
+Suggested after section 1 are E1 to E3, G5, C5, K4, K9 and K11. Hold the multi-brand work (I6, L5, F10, K13) until a second brand or a high contrast mode is planned, and C8 and C11 until those Figma tools mature.
 
-1. Refuse a product patch over a system component (in Next up).
-2. An inventory of patches to move into the system (in Next up).
-3. Every exception carries a reason, an owner and a review date (in Next up).
-4. Near-duplicate values, the five reds, across tokens and hard-coded product values (in Next up).
-5. A hard-coded value gets a warning that names the token to use.
-6. No brand or product names in token keys.
-7. Figma variable scoping. Flag a variable left on all scopes, or bound outside its scope.
-8. A description on every semantic token, shown in the code, the style guide and `--query`.
-9. Primitives hidden from the published library.
-10. A diff test across brands or products, where only values change.
-11. No catalogue-only patches, such as Storybook preview rules aimed at components.
-12. Measure in the live products too, not only the style guide.
-13. Borders that carry meaning checked at 3 to 1 (WCAG 1.4.11).
-14. A check across components built in parallel, before merging.
+Every other idea from I1 to I95 is built or folded into another. Their full text is in the archive, [docs/backlog/engine-ideas.md](docs/backlog/engine-ideas.md).
 
-### Curators and Figma tools (from Curators, Not Cops, 7 October)
+## 8. Sources
 
-1. Promote, do not only block. A product's remix becomes a proposed variant, handed back to Figma (in Next up).
-2. Rank remixes by how many products repeat them, in a Proposals list apart from To do (in Next up).
-3. Good remixes shown on the component's page, in Used in.
-4. What's new spotlights what was promoted and who made it.
-5. Motion parity with Figma Motion.
-6. A motion page in the foundations.
-7. Shaders as effect tokens.
-8. Code Layers as a parity source.
-9. The hand-back as a Figma generative plugin.
-10. A shelf of the team's plugins.
-11. The checks on Figma Make pull requests, in plain words.
+Every article and note shared so far, and the ideas each one fed. Ideas still open are in bold.
 
-After Next up, the most useful are motion parity, the coverage map, simulated users and WCAG 2.2. Hold the multi-brand work until a second brand or a high contrast mode is planned, and Code Layers and Figma Make until those tools mature.
-
-## Done recently
-
-- **Design system.** [#35](https://github.com/rafaelmatosdasilva/rms-ds-figma-plugins/pull/35) segmented control options share its width (v2.0.14), [#36](https://github.com/rafaelmatosdasilva/rms-ds-figma-plugins/pull/36) Figma refresh with role annotations, [#37](https://github.com/rafaelmatosdasilva/rms-ds-figma-plugins/pull/37) and [#38](https://github.com/rafaelmatosdasilva/rms-ds-figma-plugins/pull/38) contrast passes in Light and Dark on every surface (v2.0.15, v2.0.16), [#39](https://github.com/rafaelmatosdasilva/rms-ds-figma-plugins/pull/39) paint facts, [#40](https://github.com/rafaelmatosdasilva/rms-ds-figma-plugins/pull/40) segmentedControl node and deeper facts.
-- **Engine.** [#72](https://github.com/rafaelmatosdasilva/rms-design-system-engine/pull/72) to [#74](https://github.com/rafaelmatosdasilva/rms-design-system-engine/pull/74) style guide rounds and products' own versions of system components, [#75](https://github.com/rafaelmatosdasilva/rms-design-system-engine/pull/75) and [#76](https://github.com/rafaelmatosdasilva/rms-design-system-engine/pull/76) tinted backgrounds measured as rendered on every surface, [#77](https://github.com/rafaelmatosdasilva/rms-design-system-engine/pull/77) layer opacity compared and contrast pairs follow what Figma draws, [#78](https://github.com/rafaelmatosdasilva/rms-design-system-engine/pull/78) deeper facts on every refresh.
+- **S1.** TJ Pitre (Southleft), Design systems are a collection of decisions. Fed **I7**.
+- **S2.** Ness Grixti, Wise's multi-brand design system. Fed **I6**.
+- **S3.** Florian Gampert, What an agent needs from your design system. Fed I1 to I5, I8, I18, I34.
+- **S4.** Southleft, Machine-readable design tokens for AI-ready component libraries. Fed I13, I14, **I17**, I18, I28.
+- **S5.** Sophia Hee, Zero to One, a token system from a file with zero colour naming. Fed I10, **I17**.
+- **S6.** Lea Verou, Dark mode toggles. Fed the mode switch handling.
+- **S7.** TJ Pitre (Southleft), Claude Design is not a design systems tool.
+- **S8.** zeroheight, Design System Maturity model. Fed **I12**.
+- **S9.** Pegah Ahmadi, A Design System Isn't AI-Ready Until Its Decisions Are Legible. Fed **I19** (in N3), I20, I21.
+- **S10.** Polar, Orbit, an LLM-safe design system. Fed I9, I16, **I17**.
+- **S11.** Brad Frost, the ds-inspection skill. Fed **I11**, **I12**, I15, I18.
+- **S12.** Brad Frost, the product-inspection skill. Fed I9, **I11**, **I12**, I18.
+- **S13.** Brad Frost, the ds-token-architecture skill. Fed I10, I13, I18, I28.
+- **S14.** Atlassian, Giving AI agents design system context from the terminal. Fed I22.
+- **S15.** Shreyasi Dutta, Design Systems as Governance, Not Just Component Libraries.
+- **S16.** Sanity, Design system evals. Fed **I26**, **I27**, I60.
+- **S17.** Murphy Trueman, Design systems need evals. Fed I60.
+- **S18.** thedesignsystem.guide, AI evals for design systems.
+- **S19.** zeroheight and TJ Pitre, The future of design systems, part 3, the diagnostic layer. Fed I23, I24.
+- **S20.** designsystemdocspec.org (DSDS). Fed **I25**.
+- **S21.** Andrew Branch, We moved our design system out of Figma, and Figma's Code Connect docs. Fed I24, I31.
+- **S22.** McKinsey, QBDS. Fed I31.
+- **S23.** Southleft, scan-code-accessibility. Fed I32.
+- **S24.** Vadym Zaitsev, AI Is the New User of Your Design System, with its comments. Fed I33.
+- **S25.** Nathan Curtis, Generating Code from Specs and What Component Specs Leave Behind. Fed I38 to I46, I94.
+- **S26.** TJ Pitre (Southleft), The Source of Truth Is a Ping-Pong Ball, and the ds-contracts-poc repository. Fed I47 to I54.
+- **S27.** Shane P Williams with Cristian Morales Achiardi, You don't fix the output, you fix the system. Fed I57, I58, I61.
+- **S28.** Cristian Morales Achiardi (Southleft), What Does AI-Readiness Mean in Design Systems. Fed I57 to I61.
+- **S29.** Christoph Hellmuth, How AI-ready is your design system, and the Open Design System Bench. Fed I62 to I64, I66, I68.
+- **S30.** Greg Kozakiewicz, roast-my-design-system. Fed I62, I65.
+- **S31.** Sil (Into Design Systems), the figma-cli talk. Fed I67, I84.
+- **S32.** Jason Chan, Start on either side, the contract keeps them in sync (LinkedIn). Fed I70, **I71**, **I72**, **I82**.
+- **S33.** Florian Gampert, How to test a design system when AI writes the code. Fed I73 to I81 (**I76** open, **I77** in N3), I92.
+- **S34.** Chris R Becker, The next larger context. Fed **I82**, **I83**.
+- **S35.** aiko.systems, Semantic Design System Control Plane. Fed **I90**, **I91** (in N3), I92, **I93**.
+- **S36.** Southleft, A Browser Can Generate Your Design System's UI Now, If You Guide It. Fed I94, **I95**.
+- **S37.** Nathan Curtis, Component and Part Roles as Composites of Behavior and Accessibility. Fed I85.
+- **S38.** The Specs site's generator post. Fed **I87**.
+- **S39.** Pedro Rodrigues, AI Has a Design Surface Most Designers Haven't Learned to Work With Yet. Fed I86, **I89**.
+- **S40.** Pedro Rodrigues, Beyond Autonomy, Architecting AI Systems That Improve Themselves. Fed **I88**.
+- **S41.** Florian Gampert, how he would set up a multi-layer token system (LinkedIn, 1 October), with its comment thread. Fed **N4**, **L2 to L12**.
+- **S42.** Tiff Zaporteza and Alan Weibel (Salesforce), Agents Can Mimic Good Design. Ours Know Why It Works (1 October). Fed **N3**, **K2 to K16**.
+- **S43.** Shane P Williams, Every quick fix teaches the system something (Design Systems Collective, 5 October), with the posts it cites. Fed **N2**, **N3**, **N4**, **F5 to F14**.
+- **S44.** Caleb Smith, Design Systems Need Curators, Not Cops (6 October). Fed **N2**, **C3 to C11**.
+- **S45.** The design system team's Showroom feedback list (5 October). Fed most of the style guide, plus **O6**, **G3**, **G4**.
+- **S46.** An outside review of the engine's README, in Portuguese and English (3 October). Fed **R1 to R3**.
