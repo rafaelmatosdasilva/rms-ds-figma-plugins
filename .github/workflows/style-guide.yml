@@ -50,6 +50,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           path: rms-ds-figma-plugins
+          fetch-depth: 0   # every commit and release tag: each component's changelog, its version and Figma's reads
       - id: pages
         uses: actions/configure-pages@v5
       - id: compare
@@ -78,6 +79,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           path: rms-ds-figma-plugins
+          fetch-depth: 0   # every commit and release tag: each component's changelog, its version and Figma's reads
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: rafaelmatosdasilva/rms-design-system-engine
