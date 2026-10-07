@@ -7,6 +7,10 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.15 · 7 October 2026
+
+- Colours that failed contrast now pass, changed in Figma first with the system's own variables, no new values. In light mode the warning, positive and neutral badge labels use the secondary text colour (Neutral 300), the overflow text and the section divider's number and dot use Neutral 400, and a hovered overflow list label uses Neutral 100. In dark mode the section divider's dot uses Neutral 300. The badges keep their tinted backgrounds.
+
 ## v2.0.14 · 7 October 2026
 
 - A segmented control's options share its width evenly: each is as wide as the widest, whether the control hugs its options or fills its row.
