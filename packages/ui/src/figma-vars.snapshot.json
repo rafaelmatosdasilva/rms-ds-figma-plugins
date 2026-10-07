@@ -19,7 +19,7 @@
       "badge/background/negative/color": "#c20000",
       "buttonList/background/hover/color": "#ffffff",
       "buttonList/background/selected/color": "#ffffff",
-      "buttonList/iconPrimary/color": "#adadad",
+      "buttonList/iconPrimary/color": "#828282",
       "buttonList/iconSecondary/color": "#404040",
       "buttonList/text/default/color": "#2b2b2b",
       "buttonList/text/hover/color": "#2b2b2b",
@@ -56,7 +56,7 @@
       "dividerLine/border/color": "#d6d6d6",
       "dividerSection/title/color": "#595959",
       "emptyState/title/color": "#0a0a0a",
-      "emptyState/icon/neutral/color": "#adadad",
+      "emptyState/icon/neutral/color": "#828282",
       "figmaWindowChrome/title/color": "#0a0a0a",
       "figmaWindowChrome/divider/color": "#d6d6d6",
       "figmaWindowChrome/background/color": "#ffffff",
@@ -65,14 +65,14 @@
       "highlightSelector/border/color": "#c20000",
       "highlight/text/color": "#ffffff",
       "input/label/color": "#595959",
-      "loader/spinner/color": "#adadad",
+      "loader/spinner/color": "#828282",
       "loader/title/color": "#0a0a0a",
       "loader/description/color": "#595959",
       "loader/background/color": "#ffffff",
-      "listItem/icon/color": "#adadad",
+      "listItem/icon/color": "#828282",
       "listItem/title/color": "#0a0a0a",
       "input/value/filled/color": "#0a0a0a",
-      "input/value/empty/color": "#828282",
+      "input/value/empty/color": "#595959",
       "input/background/filled/color": "#f7f7f7",
       "input/border/default/color": "#828282",
       "modal/background/color": "#ffffff",
@@ -84,8 +84,8 @@
       "node/border/default/color": "#d6d6d6",
       "node/border/hover/color": "#d6d6d6",
       "node/border/selected/color": "#0a0a0a",
-      "node/icon/idle/color": "#adadad",
-      "node/icon/default/color": "#adadad",
+      "node/icon/idle/color": "#828282",
+      "node/icon/default/color": "#828282",
       "node/icon/hover/color": "#595959",
       "node/icon/selected/color": "#595959",
       "node/label/idle/color": "#404040",
@@ -179,7 +179,7 @@
       "badge/background/negative/color": "#fe6767",
       "buttonList/background/hover/color": "#2b2b2b",
       "buttonList/background/selected/color": "#303030",
-      "buttonList/iconPrimary/color": "#5e5e5e",
+      "buttonList/iconPrimary/color": "#878787",
       "buttonList/iconSecondary/color": "#dbdbdb",
       "buttonList/text/default/color": "#bfbfbf",
       "buttonList/text/hover/color": "#f5f5f5",
@@ -187,7 +187,7 @@
       "badge/background/warning/color": "#f7c522",
       "badge/background/positive/color": "#0cdf88",
       "badge/background/neutral/color": "#bfbfbf",
-      "badge/label/negative/color": "#fe6767",
+      "badge/label/negative/color": "#bfbfbf",
       "badge/label/warning/color": "#f7c522",
       "badge/label/positive/color": "#0cdf88",
       "badge/label/neutral/color": "#bfbfbf",
@@ -232,7 +232,7 @@
       "listItem/icon/color": "#878787",
       "listItem/title/color": "#f5f5f5",
       "input/value/filled/color": "#f5f5f5",
-      "input/value/empty/color": "#878787",
+      "input/value/empty/color": "#bfbfbf",
       "input/background/filled/color": "#2b2b2b",
       "input/border/default/color": "#878787",
       "modal/background/color": "#1c1c1c",
@@ -244,8 +244,8 @@
       "node/border/default/color": "#454545",
       "node/border/hover/color": "#454545",
       "node/border/selected/color": "#f5f5f5",
-      "node/icon/idle/color": "#5e5e5e",
-      "node/icon/default/color": "#5e5e5e",
+      "node/icon/idle/color": "#878787",
+      "node/icon/default/color": "#878787",
       "node/icon/hover/color": "#bfbfbf",
       "node/icon/selected/color": "#bfbfbf",
       "node/label/idle/color": "#bfbfbf",
@@ -457,7 +457,7 @@
         "primitives/Neutral 1000"
       ],
       "buttonList/iconPrimary/color": [
-        "primitives/Neutral 600"
+        "primitives/Neutral 500"
       ],
       "buttonList/iconSecondary/color": [
         "primitives/Neutral 300"
@@ -555,7 +555,7 @@
         "primitives/Neutral 300"
       ],
       "emptyState/icon/neutral/color": [
-        "primitives/Neutral 600"
+        "primitives/Neutral 500"
       ],
       "emptyState/icon/positive/color": [
         "semantic/positive",
@@ -611,7 +611,7 @@
         "primitives/Neutral 400"
       ],
       "input/value/empty/color": [
-        "primitives/Neutral 500"
+        "primitives/Neutral 400"
       ],
       "input/value/filled/color": [
         "primitives/Neutral 100"
@@ -620,7 +620,7 @@
         "primitives/Neutral 400"
       ],
       "listItem/icon/color": [
-        "primitives/Neutral 600"
+        "primitives/Neutral 500"
       ],
       "listItem/title/color": [
         "primitives/Neutral 100"
@@ -632,7 +632,7 @@
         "primitives/Neutral 400"
       ],
       "loader/spinner/color": [
-        "primitives/Neutral 600"
+        "primitives/Neutral 500"
       ],
       "loader/title/color": [
         "primitives/Neutral 100"
@@ -671,7 +671,7 @@
       "node/icon/default/color": [
         "node/icon/idle/color",
         "buttonList/iconPrimary/color",
-        "primitives/Neutral 600"
+        "primitives/Neutral 500"
       ],
       "node/icon/disabled/color": [
         "primitives/Neutral 600"
@@ -682,7 +682,7 @@
       ],
       "node/icon/idle/color": [
         "buttonList/iconPrimary/color",
-        "primitives/Neutral 600"
+        "primitives/Neutral 500"
       ],
       "node/icon/selected/color": [
         "primitives/Neutral 400"
@@ -951,9 +951,8 @@
         "primitives/yellow"
       ],
       "badge/label/negative/color": [
-        "badge/background/negative/color",
-        "semantic/negative",
-        "primitives/red"
+        "semantic/content/secondary/color",
+        "primitives/Neutral 300"
       ],
       "badge/label/neutral/color": [
         "badge/background/neutral/color",
@@ -976,7 +975,7 @@
         "primitives/Neutral 700"
       ],
       "buttonList/iconPrimary/color": [
-        "primitives/Neutral 500"
+        "primitives/Neutral 400"
       ],
       "buttonList/iconSecondary/color": [
         "primitives/Neutral 200"
@@ -1125,7 +1124,7 @@
         "primitives/Neutral 100"
       ],
       "input/value/empty/color": [
-        "primitives/Neutral 400"
+        "primitives/Neutral 300"
       ],
       "input/value/filled/color": [
         "primitives/Neutral 100"
@@ -1185,7 +1184,7 @@
       "node/icon/default/color": [
         "node/icon/idle/color",
         "buttonList/iconPrimary/color",
-        "primitives/Neutral 500"
+        "primitives/Neutral 400"
       ],
       "node/icon/disabled/color": [
         "primitives/Neutral 600"
@@ -1196,7 +1195,7 @@
       ],
       "node/icon/idle/color": [
         "buttonList/iconPrimary/color",
-        "primitives/Neutral 500"
+        "primitives/Neutral 400"
       ],
       "node/icon/selected/color": [
         "primitives/Neutral 300"

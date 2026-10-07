@@ -7,6 +7,11 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.16 · 7 October 2026
+
+- Every text and icon colour now passes contrast in light and dark mode, on every surface a component can sit on, changed in Figma first with the system's own variables. In dark mode the negative badge label uses the secondary text colour (Neutral 300). Placeholder text in a field uses Neutral 400 in light mode and Neutral 300 in dark mode. The icons of a list button, a node, a list item and an empty state, and the loader's spinner, use Neutral 500 in light mode, and the list button and node icons Neutral 400 in dark mode.
+- A badge's tinted background is drawn at 8%, its layer opacity in Figma, for every type (it was 12%, and 15% for a warning).
+
 ## v2.0.15 · 7 October 2026
 
 - Colours that failed contrast now pass, changed in Figma first with the system's own variables, no new values. In light mode the warning, positive and neutral badge labels use the secondary text colour (Neutral 300), the overflow text and the section divider's number and dot use Neutral 400, and a hovered overflow list label uses Neutral 100. In dark mode the section divider's dot uses Neutral 300. The badges keep their tinted backgrounds.
