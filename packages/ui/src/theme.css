@@ -81,7 +81,7 @@
     --node-label-selected:    var(--neutral-200);  /* node/label/selected L=N200, D→override */
     --node-label-disabled:    var(--neutral-400);  /* node/label/disabled N400 both modes */
     --node-icon-selected:   var(--neutral-400);  /* node/icon/selected/color L=N4, D→override */
-    --node-icon-idle:       var(--neutral-600);  /* node/icon/idle L=N600 #adadad, D→override */
+    --node-icon-idle:       var(--neutral-500);  /* node/icon/idle L=N500 #828282, D→override */
     --node-icon-hover:      var(--neutral-400);  /* node/icon/hover/color → node/icon/selected/color (DS alias, both modes): L=N400 #595959, D→override N300. Read across all modes from 947:17057 on 2026-07-30 — it no longer chains to idle/N600 */
     --node-icon-disabled:   var(--neutral-600);  /* node/icon/disabled/color N600 both modes */
     --node-border-idle: var(--neutral-800); /* node/border/unselected/color L=N8, D→override */
@@ -125,7 +125,7 @@
     /* buttonList component */
     --buttonList-background-hover:    var(--neutral-1000); /* buttonList/background/hover L=N10, D→override */
     --buttonList-background-selected: var(--neutral-1000); /* buttonList/background/selected L=N10, D→override */
-    --buttonList-iconPrimary:   var(--neutral-600);  /* buttonList/iconPrimary/color L=N6, D→override */
+    --buttonList-iconPrimary:   var(--neutral-500);  /* buttonList/iconPrimary/color L=N5, D→override */
     --buttonList-iconSecondary: var(--neutral-300);  /* buttonList/iconSecondary/color L=N3, D→override */
     --buttonList-text:          var(--neutral-200);  /* buttonList/text/default L=N200, D→override */
     --buttonList-text-hover:    var(--neutral-200);  /* buttonList/text/hover L=N2, D→override */
@@ -150,7 +150,7 @@
     --input-border:             var(--neutral-500); /* input/border/default/color L=N500 (3:1, WCAG 1.4.11), D→override */
     --input-border-focus:              var(--neutral-100); /* input/border/focus/color  L=N100 */
     --input-border-hover:              var(--neutral-400); /* input/border/hover/color  L=N400 */
-    --input-value-empty:        var(--neutral-500); /* input/value/empty/color   L=N5, D→override */
+    --input-value-empty:        var(--neutral-400); /* input/value/empty/color   L=N4, D→override */
     --input-value-disabled:     var(--neutral-400); /* input/value/disabled/color L=N4, D→override */
     --input-border-disabled:    var(--neutral-800); /* input/border/disabled/color N800 both (replaces removed input/background/disabled) */
     --input-background:          var(--input-background-filled);       /* input/background/filled → surface alias */
@@ -215,7 +215,7 @@
     --highlight-icon:          var(--neutral-1000);      /* highlight/icon → Neutral 1000 */
     --highlightSelector-border: var(--semantic-negative);/* highlightSelector/border → highlight/background → semantic/negative */
     /* listItem (DS 503:49751) — a list row: icon + title(m) + description(s), split-alias per mode. */
-    --listItem-icon:        var(--neutral-600); /* listItem/icon L=N600, D→N400 override */
+    --listItem-icon:        var(--neutral-500); /* listItem/icon L=N500, D→N400 override */
     --listItem-title:       var(--neutral-100); /* listItem/title N100 both modes */
     --listItem-description: var(--neutral-400); /* listItem/description L=N400, D→N300 override */
     /* Badge neutral (mode-aware) */
@@ -223,7 +223,7 @@
     --badge-label-neutral: var(--semantic-content-secondary); /* badge/label/neutral L→semantic/content/secondary, D→override */
     --badge-icon-neutral:  var(--badge-background-neutral);   /* badge/icon/neutral → badge/background/neutral */
     --badge-background-negative: var(--semantic-negative);         /* badge/background/negative → semantic/negative */
-    --badge-label-negative:      var(--badge-background-negative); /* badge/label/negative → badge/background/negative */
+    --badge-label-negative:      var(--badge-background-negative); /* badge/label/negative L→badge/background/negative, D→override */
     --badge-icon-negative:       var(--badge-background-negative); /* badge/icon/negative → badge/background/negative */
     --badge-background-warning:  var(--semantic-warning);          /* badge/background/warning → semantic/warning */
     --badge-label-warning:       var(--semantic-content-secondary); /* L→semantic/content/secondary, D→override */
@@ -237,7 +237,7 @@
     /* Empty state */
     --emptyState-title:          var(--neutral-100);       /* emptyState/title/color N1 both */
     --emptyState-description:    var(--neutral-300);       /* emptyState/description/color N300 both modes (L #404040, D #bfbfbf) */
-    --emptyState-icon-neutral:           var(--neutral-600);       /* emptyState/icon/neutral/color L=N6, D→override */
+    --emptyState-icon-neutral:           var(--neutral-500);       /* emptyState/icon/neutral/color L=N5, D→override */
     --emptyState-icon-positive:          var(--semantic-positive); /* emptyState/icon/positive/color → semantic/positive */
 
     /* Radio button (mode-aware) */
@@ -273,7 +273,7 @@
     --switch-description-enabledOff:       var(--neutral-300);  /* switch/description/enabledOff N3 both */
     /* Loader (DS 68:52296) */
     --loader-background:  var(--neutral-1000); /* loader/background N1000 both */
-    --loader-spinner:     var(--neutral-600);  /* loader/spinner L=N6, D→override */
+    --loader-spinner:     var(--neutral-500);  /* loader/spinner L=N5, D→override */
     --loader-title:       var(--neutral-100);  /* loader/title N100 both */
     --loader-description: var(--neutral-400);  /* loader/description N400 both */
     /* listItem component — title and description vars removed with their last consumers
@@ -329,7 +329,7 @@
       --swatch-border-empty-primary:  var(--buttonSecondary-border); /* Dark → buttonSecondary/border/default/color */
       --input-border:              var(--neutral-400); /* input/border/default D=N400 (3:1, WCAG 1.4.11) */
       --input-border-hover:               var(--neutral-300);   /* input/border/hover D=N300 */
-      --input-value-empty:         var(--neutral-400);   /* input/value/empty D=N400 */
+      --input-value-empty:         var(--neutral-300);   /* input/value/empty D=N300 */
       --radioButton-text: var(--neutral-200);  /* radioButton/text/default Dark = N200 */
       --checkbox-border: var(--neutral-400);   /* checkbox/border/default Dark = N400 */
       --checkbox-text:   var(--neutral-200);   /* checkbox/text/default Dark = N200 */
@@ -365,6 +365,7 @@
       --overflowList-label:            var(--neutral-100); /* D=N100 */
       --overflowList-label-hover:      var(--neutral-100); /* D=N100 */
       --badge-background-neutral: var(--neutral-300);           /* Dark = N300 */
+      --badge-label-negative: var(--semantic-content-secondary); /* Dark → semantic/content/secondary */
       --badge-label-neutral:  var(--badge-background-neutral);  /* Dark → badge/background/neutral */
       --badge-label-warning:  var(--badge-background-warning);  /* Dark → badge/background/warning */
       --badge-label-positive: var(--badge-background-positive); /* Dark → badge/background/positive */
@@ -385,13 +386,13 @@
       --node-border-idle: var(--neutral-700); /* D=N7 #303030 (rebound from N6 2026-08) */
       --node-border-default: var(--neutral-600); /* node/border/default Dark = N600 #454545 */
       --node-icon-selected:   var(--neutral-300);   /* D=N3 */
-      --node-icon-idle:       var(--neutral-500);   /* Dark = N500 #5e5e5e (was N400; DS rebound via buttonList/iconPrimary) */
+      --node-icon-idle:       var(--neutral-400);   /* Dark = N400 #878787 (via buttonList/iconPrimary) */
       --node-icon-hover:      var(--neutral-300);   /* Dark = N300 #b8b8b8 — same alias chain as selected (node/icon/hover → node/icon/selected → Neutral 300) */
 
       /* buttonList */
       --buttonList-background-hover:    var(--neutral-800); /* D=N8 */
       --buttonList-background-selected: var(--neutral-700); /* D=N6 */
-      --buttonList-iconPrimary:   var(--neutral-500); /* D=N5 */
+      --buttonList-iconPrimary:   var(--neutral-400); /* D=N4 */
       --buttonList-iconSecondary: var(--neutral-200); /* D=N2 */
       --buttonList-text:          var(--neutral-300); /* D=N300 (#b8b8b8) */
       --buttonList-text-hover:    var(--neutral-100); /* D=N1 */
@@ -1289,14 +1290,15 @@
   }
 
   /* Tier variants — mode-aware via semantic tokens */
-  .badge.none     { background: color-mix(in srgb, var(--badge-background-neutral)     12%, transparent); color: var(--badge-label-neutral); }
-  .badge.high     { background: color-mix(in srgb, var(--badge-background-negative) 12%, transparent); color: var(--badge-label-negative); }
-  .badge.medium   { background: color-mix(in srgb, var(--badge-background-warning)  15%, transparent); color: var(--badge-label-warning); }
-  .badge.low      { background: color-mix(in srgb, var(--badge-background-positive) 12%, transparent); color: var(--badge-label-positive); }
+  /* Badge Background layer at 8% (its layer opacity in Figma, every Type) */
+  .badge.none     { background: color-mix(in srgb, var(--badge-background-neutral)     8%, transparent); color: var(--badge-label-neutral); }
+  .badge.high     { background: color-mix(in srgb, var(--badge-background-negative) 8%, transparent); color: var(--badge-label-negative); }
+  .badge.medium   { background: color-mix(in srgb, var(--badge-background-warning)  8%, transparent); color: var(--badge-label-warning); }
+  .badge.low      { background: color-mix(in srgb, var(--badge-background-positive) 8%, transparent); color: var(--badge-label-positive); }
   /* Issue type variants */
-  .badge.clipped  { background: color-mix(in srgb, var(--badge-background-negative) 12%, transparent); color: var(--badge-label-negative); }
-  .badge.truncated{ background: color-mix(in srgb, var(--badge-background-negative) 12%, transparent); color: var(--badge-label-negative); }
-  .badge.overflow { background: color-mix(in srgb, var(--badge-background-negative) 12%, transparent); color: var(--badge-label-negative); }
+  .badge.clipped  { background: color-mix(in srgb, var(--badge-background-negative) 8%, transparent); color: var(--badge-label-negative); }
+  .badge.truncated{ background: color-mix(in srgb, var(--badge-background-negative) 8%, transparent); color: var(--badge-label-negative); }
+  .badge.overflow { background: color-mix(in srgb, var(--badge-background-negative) 8%, transparent); color: var(--badge-label-negative); }
   /* Each tone's icon by its own Figma token (badge/icon/…) */
   .badge.none svg { color: var(--badge-icon-neutral); }
   .badge.high svg, .badge.clipped svg, .badge.truncated svg, .badge.overflow svg { color: var(--badge-icon-negative); }
