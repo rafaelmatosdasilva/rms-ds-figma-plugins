@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-10-06",
+  "_updated": "2026-10-07T12:58:56.710Z",
   "_note": "Per-component structural facts captured from live Figma by /rms-figma-code-parity. Do not edit by hand. h in px ('auto' = hug). paddingVar/gapVar/radiusVar are Figma token names (null = unbound/none). fontSizeVar/fontWeightVar = bound fontSize/fontWeight variable on the primary (first, depth-first) TEXT node; when unbound, the applied text style's scale key (last path segment, lowercased) for both fields; null when no text/style. innerRadiusVar = first bound radius var on the State=Default frame, else on a child named *Background*. strokeOnDefault = stroke on State=Default variant. strokeOnAnyState = stroke exists on ANY variant of the COMPONENT_SET (controls Gate [3c] phantom border scan — when false, any CSS border/outline on a matching selector is a phantom). sizingV = the Default variant's vertical sizing in Figma (HUG: its height follows its content, FIXED, FILL); layout = its auto-layout direction (HORIZONTAL, VERTICAL, NONE). slot = the Default variant holds a slot (its height comes from what a product puts in it). minH = its minimum height in Figma (null: none). fillStructure 'before' also when a child rectangle covers the whole frame, whatever its name.",
   "components": {
     "buttonList": {
