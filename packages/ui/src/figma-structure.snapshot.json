@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-10-07T12:58:56.710Z",
+  "_updated": "2026-10-07T14:12:09.806Z",
   "_note": "Per-component structural facts captured from live Figma by /rms-figma-code-parity. Do not edit by hand. h in px ('auto' = hug). paddingVar/gapVar/radiusVar are Figma token names (null = unbound/none). fontSizeVar/fontWeightVar = bound fontSize/fontWeight variable on the primary (first, depth-first) TEXT node; when unbound, the applied text style's scale key (last path segment, lowercased) for both fields; null when no text/style. innerRadiusVar = first bound radius var on the State=Default frame, else on a child named *Background*. strokeOnDefault = stroke on State=Default variant. strokeOnAnyState = stroke exists on ANY variant of the COMPONENT_SET (controls Gate [3c] phantom border scan — when false, any CSS border/outline on a matching selector is a phantom). sizingV = the Default variant's vertical sizing in Figma (HUG: its height follows its content, FIXED, FILL); layout = its auto-layout direction (HORIZONTAL, VERTICAL, NONE). slot = the Default variant holds a slot (its height comes from what a product puts in it). minH = its minimum height in Figma (null: none). fillStructure 'before' also when a child rectangle covers the whole frame, whatever its name.",
   "components": {
     "buttonList": {
@@ -51,7 +51,53 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 40
+      "minH": 40,
+      "drawnOn": [
+        {
+          "fg": "buttonList/iconPrimary/color",
+          "on": "surface",
+          "icon": true
+        },
+        {
+          "fg": "buttonList/text/default/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "buttonList/iconPrimary/color",
+          "on": "buttonList/background/hover/color",
+          "icon": true
+        },
+        {
+          "fg": "buttonList/text/hover/color",
+          "on": "buttonList/background/hover/color",
+          "icon": false
+        },
+        {
+          "fg": "buttonList/iconSecondary/color",
+          "on": "buttonList/background/hover/color",
+          "icon": true
+        },
+        {
+          "fg": "buttonList/iconPrimary/color",
+          "on": "buttonList/background/selected/color",
+          "icon": true
+        },
+        {
+          "fg": "buttonList/text/selected/color",
+          "on": "buttonList/background/selected/color",
+          "icon": false
+        },
+        {
+          "fg": "buttonList/iconSecondary/color",
+          "on": "buttonList/background/selected/color",
+          "icon": true
+        }
+      ],
+      "fills": [
+        "buttonList/background/hover/color",
+        "buttonList/background/selected/color"
+      ]
     },
     "node": {
       "nodeId": "544:74211",
@@ -89,7 +135,54 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 40
+      "minH": 40,
+      "drawnOn": [
+        {
+          "fg": "node/icon/idle/color",
+          "on": "node/background/idle/color",
+          "icon": true
+        },
+        {
+          "fg": "node/label/idle/color",
+          "on": "node/background/idle/color",
+          "icon": false
+        },
+        {
+          "fg": "node/icon/default/color",
+          "on": "surface",
+          "icon": true
+        },
+        {
+          "fg": "node/label/default/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "node/icon/hover/color",
+          "on": "node/background/hover/color",
+          "icon": true
+        },
+        {
+          "fg": "node/label/hover/color",
+          "on": "node/background/hover/color",
+          "icon": false
+        },
+        {
+          "fg": "node/icon/selected/color",
+          "on": "node/background/selected/color",
+          "icon": true
+        },
+        {
+          "fg": "node/label/selected/color",
+          "on": "node/background/selected/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "node/background/idle/color",
+        "node/background/hover/color",
+        "node/background/selected/color"
+      ]
     },
     "segmentedControl": {
       "nodeId": "540:63413",
@@ -118,7 +211,10 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 24
+      "minH": 24,
+      "fills": [
+        "segmentedControl/background/default/color"
+      ]
     },
     "badge": {
       "nodeId": "310:29494",
@@ -150,7 +246,46 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "fillOpacity": 0.08,
+      "variantFillOpacity": {
+        "Type=Negative": 0.08,
+        "Type=Warning": 0.08,
+        "Type=Positive": 0.08,
+        "Type=Neutral": 0.08
+      },
+      "drawnOn": [
+        {
+          "fg": "badge/label/negative/color",
+          "on": "badge/background/negative/color",
+          "icon": false
+        },
+        {
+          "fg": "badge/label/warning/color",
+          "on": "badge/background/warning/color",
+          "icon": false
+        },
+        {
+          "fg": "badge/label/positive/color",
+          "on": "badge/background/positive/color",
+          "icon": false
+        },
+        {
+          "fg": "badge/label/neutral/color",
+          "on": "badge/background/neutral/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "badge/background/negative/color",
+        "badge/icon/negative/color",
+        "badge/background/warning/color",
+        "badge/icon/warning/color",
+        "badge/background/positive/color",
+        "badge/icon/positive/color",
+        "badge/background/neutral/color",
+        "badge/icon/neutral/color"
+      ]
     },
     "input": {
       "nodeId": "1:5",
@@ -185,7 +320,32 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 24
+      "minH": 24,
+      "drawnOn": [
+        {
+          "fg": "input/icon/color",
+          "on": "input/background/filled/color",
+          "icon": true
+        },
+        {
+          "fg": "input/label/color",
+          "on": "input/background/filled/color",
+          "icon": false
+        },
+        {
+          "fg": "input/value/filled/color",
+          "on": "input/background/filled/color",
+          "icon": false
+        },
+        {
+          "fg": "input/value/empty/color",
+          "on": "input/background/filled/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "input/background/filled/color"
+      ]
     },
     "toast": {
       "nodeId": "836:101501",
@@ -224,7 +384,33 @@
       "sizingV": "FIXED",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "toast/icon/success/color",
+          "on": "toast/background/success/color",
+          "icon": true
+        },
+        {
+          "fg": "toast/title/success/color",
+          "on": "toast/background/success/color",
+          "icon": false
+        },
+        {
+          "fg": "toast/icon/error/color",
+          "on": "toast/background/error/color",
+          "icon": true
+        },
+        {
+          "fg": "toast/title/error/color",
+          "on": "toast/background/error/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "toast/background/success/color",
+        "toast/background/error/color"
+      ]
     },
     "buttonTertiary": {
       "nodeId": "1:78",
@@ -267,7 +453,23 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 24
+      "minH": 24,
+      "drawnOn": [
+        {
+          "fg": "buttonTertiary/iconText/default/color",
+          "on": "buttonTertiary/background/default/color",
+          "icon": false
+        },
+        {
+          "fg": "buttonTertiary/iconText/active/color",
+          "on": "buttonTertiary/background/active/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "buttonTertiary/background/default/color",
+        "buttonTertiary/background/active/color"
+      ]
     },
     "swatch": {
       "nodeId": "31:38588",
@@ -324,7 +526,33 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 32
+      "minH": 32,
+      "drawnOn": [
+        {
+          "fg": "primitives/Neutral 300",
+          "on": "overflowList/background/default/color",
+          "icon": true
+        },
+        {
+          "fg": "overflowList/label/default/color",
+          "on": "overflowList/background/default/color",
+          "icon": false
+        },
+        {
+          "fg": "primitives/Neutral 300",
+          "on": "overflowList/background/hover/color",
+          "icon": true
+        },
+        {
+          "fg": "overflowList/label/hover/color",
+          "on": "overflowList/background/hover/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "overflowList/background/default/color",
+        "overflowList/background/hover/color"
+      ]
     },
     "buttonSecondary": {
       "nodeId": "1002:36578",
@@ -367,7 +595,33 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 24
+      "minH": 24,
+      "drawnOn": [
+        {
+          "fg": "buttonSecondary/text/color",
+          "on": "buttonSecondary/background/default/color",
+          "icon": false
+        },
+        {
+          "fg": "buttonSecondary/icon/color",
+          "on": "buttonSecondary/background/default/color",
+          "icon": true
+        },
+        {
+          "fg": "buttonSecondary/text/color",
+          "on": "buttonSecondary/background/hover/color",
+          "icon": false
+        },
+        {
+          "fg": "buttonSecondary/icon/color",
+          "on": "buttonSecondary/background/hover/color",
+          "icon": true
+        }
+      ],
+      "fills": [
+        "buttonSecondary/background/default/color",
+        "buttonSecondary/background/hover/color"
+      ]
     },
     "buttonQuaternary": {
       "nodeId": "937:16191",
@@ -405,7 +659,22 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 24
+      "minH": 24,
+      "drawnOn": [
+        {
+          "fg": "buttonQuaternary/iconText/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "buttonQuaternary/iconText/color",
+          "on": "buttonQuaternary/background/hover/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "buttonQuaternary/background/hover/color"
+      ]
     },
     "dividerSection": {
       "nodeId": "135:46577",
@@ -447,7 +716,28 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "dividerSection/title/color",
+          "on": "semantic/surface/elevationMedium/color",
+          "icon": false
+        },
+        {
+          "fg": "dividerSection/divider/color",
+          "on": "semantic/surface/elevationMedium/color",
+          "icon": false
+        },
+        {
+          "fg": "dividerSection/number/color",
+          "on": "semantic/surface/elevationMedium/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "semantic/surface/elevationMedium/color",
+        "semantic/negative"
+      ]
     },
     "radioButton": {
       "nodeId": "711:18562",
@@ -485,7 +775,40 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "radioButton/text/default/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "radioButton/description/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "radioButton/text/selected/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "radioButton/text/current/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "radioButton/text/unselected/color",
+          "on": "surface",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "radioButton/background/default/color",
+        "radioButton/background/selected/color",
+        "radioButton/border/current/color",
+        "radioButton/border/unselected/color"
+      ]
     },
     "panel": {
       "nodeId": "2287:68241",
@@ -536,7 +859,11 @@
       "sizingV": "FILL",
       "layout": "VERTICAL",
       "slot": true,
-      "minH": null
+      "minH": null,
+      "fills": [
+        "panel/background/primary/color",
+        "panel/background/secondary/color"
+      ]
     },
     "statusBar": {
       "nodeId": "789:38384",
@@ -582,7 +909,10 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": true,
-      "minH": null
+      "minH": null,
+      "fills": [
+        "actionbar/background/color"
+      ]
     },
     "overflow": {
       "nodeId": "65:11757",
@@ -612,7 +942,17 @@
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": true,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "overflow/text/color",
+          "on": "overflow/background/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "overflow/background/color"
+      ]
     },
     "buttonPrimary": {
       "nodeId": "1428:21123",
@@ -653,7 +993,17 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 24
+      "minH": 24,
+      "drawnOn": [
+        {
+          "fg": "buttonPrimary/iconText/color",
+          "on": "buttonPrimary/background/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "buttonPrimary/background/color"
+      ]
     },
     "tooltipButton": {
       "nodeId": "1810:27212",
@@ -674,7 +1024,14 @@
       "sizingV": "FIXED",
       "layout": "NONE",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "tooltipButton/icon/color",
+          "on": "surface",
+          "icon": true
+        }
+      ]
     },
     "tooltipPopover": {
       "nodeId": "821:72473",
@@ -701,7 +1058,17 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "tooltipPopover/text/color",
+          "on": "tooltipPopover/background/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "tooltipPopover/background/color"
+      ]
     },
     "checkBox": {
       "nodeId": "1963:43561",
@@ -736,7 +1103,28 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 24
+      "minH": 24,
+      "drawnOn": [
+        {
+          "fg": "checkbox/text/default/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "checkbox/description/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "checkbox/text/selected/color",
+          "on": "surface",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "checkbox/background/default/color",
+        "checkbox/background/selected/color"
+      ]
     },
     "loader": {
       "nodeId": "68:52296",
@@ -762,7 +1150,22 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "loader/title/color",
+          "on": "loader/background/color",
+          "icon": false
+        },
+        {
+          "fg": "loader/description/color",
+          "on": "loader/background/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "loader/background/color"
+      ]
     },
     "checkBoxGroup": {
       "nodeId": "2064:29545",
@@ -788,7 +1191,14 @@
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": true,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "semantic/content/secondary/color",
+          "on": "surface",
+          "icon": false
+        }
+      ]
     },
     "radioButtonGroup": {
       "nodeId": "2223:36588",
@@ -814,7 +1224,14 @@
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": true,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "semantic/content/secondary/color",
+          "on": "surface",
+          "icon": false
+        }
+      ]
     },
     "highlight": {
       "nodeId": "146:82457",
@@ -835,7 +1252,22 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 24
+      "minH": 24,
+      "drawnOn": [
+        {
+          "fg": "highlight/text/color",
+          "on": "highlight/background/color",
+          "icon": false
+        },
+        {
+          "fg": "highlight/icon/color",
+          "on": "highlight/background/color",
+          "icon": true
+        }
+      ],
+      "fills": [
+        "highlight/background/color"
+      ]
     },
     "highlightSelector": {
       "nodeId": "144:80986",
@@ -863,7 +1295,13 @@
       "sizingV": "FIXED",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "variantFillOpacity": {
+        "State=Selected": 0.2
+      },
+      "fills": [
+        "highlightSelector/border/color"
+      ]
     },
     "dividerLine": {
       "nodeId": "1:102",
@@ -883,7 +1321,10 @@
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "fills": [
+        "dividerLine/border/color"
+      ]
     },
     "buttonStepper": {
       "nodeId": "252:22089",
@@ -933,7 +1374,53 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": 24
+      "minH": 24,
+      "drawnOn": [
+        {
+          "fg": "segmentedControl/icon/default/color",
+          "on": "surface",
+          "icon": true
+        },
+        {
+          "fg": "segmentedControl/label/default/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "dividerSection/divider/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "dividerSection/number/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "segmentedControl/icon/selected/color",
+          "on": "segmentedControl/background/selected/color",
+          "icon": true
+        },
+        {
+          "fg": "segmentedControl/label/selected/color",
+          "on": "segmentedControl/background/selected/color",
+          "icon": false
+        },
+        {
+          "fg": "dividerSection/divider/color",
+          "on": "segmentedControl/background/selected/color",
+          "icon": false
+        },
+        {
+          "fg": "dividerSection/number/color",
+          "on": "segmentedControl/background/selected/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "semantic/negative",
+        "segmentedControl/background/selected/color"
+      ]
     },
     "modal": {
       "nodeId": "672:141311",
@@ -968,7 +1455,22 @@
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": true,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "modal/icon/color",
+          "on": "modal/background/color",
+          "icon": true
+        },
+        {
+          "fg": "modal/title/color",
+          "on": "modal/background/color",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "modal/background/color"
+      ]
     },
     "emptyState": {
       "nodeId": "1431:21215",
@@ -1003,7 +1505,29 @@
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "emptyState/icon/neutral/color",
+          "on": "surface",
+          "icon": true
+        },
+        {
+          "fg": "emptyState/title/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "emptyState/description/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "emptyState/icon/positive/color",
+          "on": "surface",
+          "icon": true
+        }
+      ]
     },
     "listItem": {
       "nodeId": "503:49751",
@@ -1030,7 +1554,24 @@
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": false,
-      "minH": 32
+      "minH": 32,
+      "drawnOn": [
+        {
+          "fg": "listItem/icon/color",
+          "on": "surface",
+          "icon": true
+        },
+        {
+          "fg": "listItem/title/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "listItem/description/color",
+          "on": "surface",
+          "icon": false
+        }
+      ]
     },
     "overlay": {
       "nodeId": "166:31563",
@@ -1050,7 +1591,10 @@
       "sizingV": "FILL",
       "layout": "VERTICAL",
       "slot": true,
-      "minH": null
+      "minH": null,
+      "fills": [
+        "overlay/color"
+      ]
     },
     "card": {
       "nodeId": "2120:62601",
@@ -1077,7 +1621,14 @@
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": true,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "semantic/content/secondary/color",
+          "on": "surface",
+          "icon": false
+        }
+      ]
     },
     "switch": {
       "nodeId": "2120:3385",
@@ -1127,7 +1678,25 @@
       "sizingV": "HUG",
       "layout": "HORIZONTAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "switch/description/enabledOn/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "switch/description/enabledOff/color",
+          "on": "surface",
+          "icon": false
+        }
+      ],
+      "fills": [
+        "switch/background/enabledOn/color",
+        "switch/knob/enabledOn/color",
+        "switch/background/enabledOff/color",
+        "switch/knob/enabledOff/color"
+      ]
     },
     "table/row": {
       "nodeId": "1:178",
@@ -1164,7 +1733,19 @@
       "sizingV": "HUG",
       "layout": "VERTICAL",
       "slot": false,
-      "minH": null
+      "minH": null,
+      "drawnOn": [
+        {
+          "fg": "semantic/content/primary/color",
+          "on": "surface",
+          "icon": false
+        },
+        {
+          "fg": "semantic/content/secondary/color",
+          "on": "surface",
+          "icon": false
+        }
+      ]
     }
   }
 }
