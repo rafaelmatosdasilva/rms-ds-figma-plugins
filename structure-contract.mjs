@@ -133,6 +133,19 @@ export const CONTRACT = {
     fillStructure: 'none', innerInset: null, innerRadiusVar: null,
     strokeOnDefault: false, strokeOnAnyState: true,
     strokeSides: 'none',
+    propertyMap: {
+      // Variant: both selected and unselected states must have CSS rules
+      'Selected':    { 'True': '.segmented-control button.selected', 'False': '.segmented-control button' },
+      // Show Label: label visible by default; collapsed via container query when too narrow
+      'Show Label':  { show: '.tab-label', hide: '@container (max-width: 72px)' },
+      'Icon Content': null, // INSTANCE_SWAP — skip
+      // These boolean properties exist in DS but have no dedicated CSS toggle in code
+      'Show Icon':   '.segmented-control button.no-icon svg',
+      'Show Status': '.segmented-control button.no-status .seg-status',
+      'Show Number': '.segmented-control button.no-number .seg-number',
+      'Label Content': null, // TEXT property — skip
+      'Number Content': null, // TEXT property — skip
+    },
   },
   // modal (DS 672:141311) — slotted dialog card → .modal-card. padding/l, gap/xl, radii/modal,
   // modal/background fill. Content-driven height. strokeOnAnyState is the nested buttons'.
@@ -262,27 +275,18 @@ export const CONTRACT = {
       'Show Icon': '.node.no-icon .node-type-icon',
     },
   },
+  // segmentedControl (DS 540:64924) — the control itself → .segmented-control: a 26px row holding a Slot that
+  // covers it and paints segmentedControl/background/default with a 1.5px segmentedControl/border/default ring
+  // (a fill on a covering child: 'before'), radii/button on the root. Its segments are segmentedControlSegment.
   segmentedControl: {
-    h: 24,
-    paddingVar: { tb: 'padding/xxs', lr: 'padding/m' },
-    gapVar: 'gap/xs',
-    fontSizeVar: 's', fontWeightVar: 's', // DS label text style = s (10px/700) — corrected 2026-07-11
-    fillStructure: 'none', innerRadiusVar: null,
-    strokeOnDefault: false,
-    figmaName: 'segmentedControlSegment',
-    propertyMap: {
-      // Variant: both selected and unselected states must have CSS rules
-      'Selected':    { 'True': '.segmented-control button.selected', 'False': '.segmented-control button' },
-      // Show Label: label visible by default; collapsed via container query when too narrow
-      'Show Label':  { show: '.tab-label', hide: '@container (max-width: 72px)' },
-      'Icon Content': null, // INSTANCE_SWAP — skip
-      // These boolean properties exist in DS but have no dedicated CSS toggle in code
-      'Show Icon':   '.segmented-control button.no-icon svg',
-      'Show Status': '.segmented-control button.no-status .seg-status',
-      'Show Number': '.segmented-control button.no-number .seg-number',
-      'Label Content': null, // TEXT property — skip
-      'Number Content': null, // TEXT property — skip
-    },
+    _note: "The control (DS 540:64924) → .segmented-control: a Slot of segments on segmentedControl/background/default, a 1.5px inside ring.",
+    h: 26, sizing: 'hug',
+    paddingVar: { tb: null, lr: null },
+    gapVar: null,
+    fontSizeVar: null, fontWeightVar: null,
+    fillStructure: 'before', innerInset: null, innerRadiusVar: 'radii/button',
+    strokeOnDefault: false, strokeOnAnyState: true,
+    strokeSides: 'all',   // the Slot's 1.5px inside ring, all the way round
   },
   badge: {
     h: 19, sizing: 'hug',   // hugs content — h is informational, not gated (no fixed code height)
@@ -1098,7 +1102,7 @@ export const CSS_HEIGHT_RULES = {
   toast:            { selector: '.toast',                    prop: 'height'     },
   buttonList:       { selector: '.buttonList',               prop: 'height'     },
   node:             { selector: '.node',                     prop: 'min-height' },
-  segmentedControl: { selector: '.segmented-control button', prop: 'height'     },
+  segmentedControlSegment: { selector: '.segmented-control button', prop: 'height' },
   buttonQuaternary: { selector: '.buttonQuaternary',         prop: 'min-height' }, // Figma min-h-[24px] — must use min-height, not height
   swatch:           { selector: '.swatch',                   prop: 'height'     }, // h=24 via var(--button-min-height)
   // statusBar: #sb-main-row lives in impact-atlas plugin CSS (this table searches theme.css only)
@@ -1217,7 +1221,8 @@ export const COMPONENT_CSS_SELECTORS = {
   tooltipButton: { main: '.tooltipButton' },
   buttonList:       { main: '.buttonList', beforeSel: '.buttonList::before' },
   node:             { main: '.node' },
-  segmentedControl: { main: '.segmented-control button', gapSel: '.segmented-control button.selected' },
+  segmentedControl: { main: '.segmented-control' },
+  segmentedControlSegment: { main: '.segmented-control button', gapSel: '.segmented-control button.selected' },
   badge:            { main: '.badge' },
   input:            { main: '.inputWrap',                fontSel: '.inputField', skipTBPadding: true },
   tooltipPopover:   { main: '#tt' },
