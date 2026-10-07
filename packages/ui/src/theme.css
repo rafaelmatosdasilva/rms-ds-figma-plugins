@@ -970,7 +970,10 @@
      Unselected button: transparent, no border. Selected button: border only (border/selected), no fill.
      Button: h=24, padding/xxs T/B + padding/m L/R, gap/xs icon↔label. */
   .segmented-control {
-    display: inline-flex;
+    /* Every option as wide as the widest, so they share the control evenly. */
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
     gap: 0;
     padding: 0;
     background: var(--segmentedControl-background);
@@ -1066,13 +1069,13 @@
   }
   .segmented-control button.no-icon svg { display: none; }
   /* Full-width variant: segments share the row equally (constrained panels / modals).
-     container-type lives HERE, not on every button: these segments have a definite
-     flex-basis (flex:1 1 0; width:0), so inline-size containment is safe and the
-     @container label-collapse is meaningful. On an auto-width (hugging) control the
-     same containment would zero out the button's content-driven width and collapse
-     the label permanently — which is why it must never apply there. */
-  .segmented-control.full-width { width: 100%; }
-  .segmented-control.full-width button { flex: 1 1 0; min-width: 0; width: 0; container-type: inline-size; }
+     container-type lives HERE, not on every button: these segments take an equal share
+     of a definite width, so inline-size containment is safe and the @container
+     label-collapse is meaningful. On an auto-width (hugging) control the same
+     containment would zero out the button's content-driven width and collapse the
+     label permanently, which is why it must never apply there. */
+  .segmented-control.full-width { display: grid; width: 100%; }
+  .segmented-control.full-width button { min-width: 0; container-type: inline-size; }
 
   /* ── Checkbox (DS 1963:43561): a 16px box + label; the box fills and shows a tick when
      checked. Wrap a hidden native input so it stays keyboard- and form-accessible. ── */
