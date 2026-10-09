@@ -7,6 +7,10 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.18 · 9 October 2026
+
+- The states a product draws with a class are heard too, whoever sets the class and whenever: a selected node is pressed (`aria-pressed`), a disabled one says so (`aria-disabled`), and the radio button on the current step says it (`aria-current="step"`). A product keeps toggling the class alone.
+
 ## v2.0.17 · 9 October 2026
 
 - When someone asks their system for less motion, every component stops moving: transitions and animations end at once (WCAG 2.3.3). A toast and a modal still open and close, and a loader shows its ring at rest.

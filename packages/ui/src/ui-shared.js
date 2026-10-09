@@ -635,6 +635,37 @@ document.querySelectorAll('.buttonStepper').forEach(function (s) {
   if (f && f.getAttribute('role') === 'spinbutton') initButtonStepper(s);
 });
 
+// ── States a screen reader hears, kept with the classes that draw them ──────────
+// A product draws a state with a class: a selected or a disabled node, the radio on the current step. The attribute
+// a screen reader reads follows that class wherever and whenever it is set (WCAG 4.1.2), so a product toggles the
+// class alone, as it always has.
+var CLASS_STATES = [
+  { sel: 'button.node', cls: 'node-selected', attr: 'aria-pressed', on: 'true', off: 'false' },
+  { sel: '.node', cls: 'node-disabled', attr: 'aria-disabled', on: 'true', off: null },
+  { sel: '.radioButton', cls: 'radioButton--current', attr: 'aria-current', on: 'step', off: null },
+];
+function syncClassStates(root) {
+  if (!root || root.nodeType !== 1) return;
+  CLASS_STATES.forEach(function (r) {
+    var els = Array.prototype.slice.call(root.querySelectorAll(r.sel));
+    if (root.matches(r.sel)) els.push(root);
+    els.forEach(function (el) {
+      var want = el.classList.contains(r.cls) ? r.on : r.off;
+      if (want === null) { if (el.hasAttribute(r.attr)) el.removeAttribute(r.attr); }
+      else if (el.getAttribute(r.attr) !== want) el.setAttribute(r.attr, want);
+    });
+  });
+}
+syncClassStates(document.body);
+if (typeof MutationObserver !== 'undefined' && document.body) {
+  new MutationObserver(function (records) {
+    records.forEach(function (m) {
+      if (m.type === 'attributes') syncClassStates(m.target);
+      else Array.prototype.forEach.call(m.addedNodes, syncClassStates);
+    });
+  }).observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
+}
+
 // ── Segmented control as a radio group ─────────────────────────────────────────
 // One option chosen at a time (WCAG 4.1.2, 2.1.1): the control is a radiogroup and each option a radio whose
 // aria-checked follows its .selected class, whoever sets it. Tab reaches the chosen option only; the arrow keys move
