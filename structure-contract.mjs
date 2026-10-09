@@ -135,7 +135,8 @@ export const CONTRACT = {
     strokeSides: 'none',
     propertyMap: {
       // Variant: both selected and unselected states must have CSS rules
-      'Selected':    { 'True': '.segmented-control button.selected', 'False': '.segmented-control button' },
+      // A radio in its radio group (initSegmentedControl): aria-checked follows .selected.
+      'Selected':    { 'True': '.segmented-control button.selected[aria-checked="true"]', 'False': '.segmented-control button' },
       // Show Label: label visible by default; collapsed via container query when too narrow
       'Show Label':  { show: '.tab-label', hide: '@container (max-width: 72px)' },
       'Icon Content': null, // INSTANCE_SWAP — skip
@@ -646,7 +647,7 @@ export const RENDERED_ASSERTIONS = [
   // Figma props the code now builds (2026-10): each part drawn from a probe of the full component.
   { plugin: 'impact-atlas', selector: '.tooltipButton', prop: 'height', expected: '24px',
     note: 'tooltipButton 24x24 with its 12px icon; data-tip is the text its tooltipPopover shows on hover',
-    probe: '<span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span>' },
+    probe: '<button type="button" class="tooltipButton" data-tip="Tooltip" aria-label="Tooltip"><svg width="12" height="12" aria-hidden="true"><use href="#icon-info"/></svg></button>' },
   { plugin: 'impact-atlas', selector: '.buttonList .lrow-icon', prop: 'width', expected: '16px',
     note: 'buttonList Content: its Icon (Show Icon) at 16, before the Title and its tooltipButton (Show Tooltip)',
     probe: '<div class="buttonList"><div class="lrow-icon"><svg width="16" height="16"><use href="#icon-var-color"/></svg></div><span class="lrow-name">Title</span><span class="tooltipButton lib-badge"><svg width="12" height="12"><use href="#icon-library"/></svg></span><button class="buttonList-action buttonTertiary" aria-label="Focus on canvas"><svg width="16" height="16"><use href="#icon-focus"/></svg></button><svg width="16" height="16" class="buttonList-arrow"><use href="#icon-arrow-right"/></svg></div>' },
@@ -679,7 +680,7 @@ export const RENDERED_ASSERTIONS = [
     probe: '<button class="overflowList"><svg width="16" height="16"><use href="#icon-plus"/></svg><span>Value</span></button>' },
   { plugin: 'impact-atlas', selector: '.modal-header', prop: 'columnGap', expected: '4px',
     note: "modal header: icon, title and close button spaced gap/s",
-    probe: '<div class="modal-card"><div class="modal-header"><svg class="modal-icon" width="16" height="16"><use href="#icon-export"/></svg><h2 class="modal-title">Title</h2><button class="buttonSecondary modal-close" aria-label="Close"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div><div class="modal-slot"><span>Content</span></div><div class="modal-footer"><button class="buttonSecondary"><span>Cancel</span></button><button class="buttonPrimary"><span>Confirm</span></button></div></div>' },
+    probe: '<div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-header"><svg class="modal-icon" width="16" height="16" aria-hidden="true"><use href="#icon-export"/></svg><h2 class="modal-title" id="modal-title">Title</h2><button class="buttonSecondary modal-close" aria-label="Close"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div><div class="modal-slot"><span>Content</span></div><div class="modal-footer"><button class="buttonSecondary"><span>Cancel</span></button><button class="buttonPrimary"><span>Confirm</span></button></div></div>' },
   { plugin: 'impact-atlas', selector: '.listItem-main', prop: 'rowGap', expected: '2px',
     note: "listItem Frame 83: title over description, gap/xs",
     probe: '<div class="listItem"><div class="listItem-row"><span class="listItem-icon"><svg width="16" height="16"><use href="#icon-focus"/></svg></span><div class="listItem-main"><span class="listItem-title">Title</span><span class="listItem-desc">Description</span></div><button class="buttonTertiary listItem-action" aria-label="Focus"><svg width="16" height="16"><use href="#icon-focus"/></svg></button></div><div class="dividerLine listItem-divider"></div></div>' },
@@ -689,10 +690,10 @@ export const RENDERED_ASSERTIONS = [
     probe: '<label class="inputWrap"><span class="inputLabel">Label</span><input class="inputField" value="Value"><span class="inputLabel-after">Label</span></label>' },
   { plugin: 'impact-atlas', selector: '.empty-state-content', prop: 'rowGap', expected: '4px',
     note: "emptyState Content: icon over text, gap/s",
-    probe: '<div class="empty-state"><div class="empty-state-content"><svg width="56" height="56"><use href="#icon-empty-search"/></svg><div class="empty-state-text"><span class="empty-state-title">Title</span><span class="empty-state-desc">Description</span></div></div><button class="buttonPrimary empty-state-action"><svg width="16" height="16"><use href="#icon-plus"/></svg><span>label</span></button></div>' },
+    probe: '<div class="empty-state" role="group" aria-labelledby="empty-state-title"><div class="empty-state-content"><svg width="56" height="56" aria-hidden="true"><use href="#icon-empty-search"/></svg><div class="empty-state-text"><span class="empty-state-title" id="empty-state-title">Title</span><span class="empty-state-desc">Description</span></div></div><button class="buttonPrimary empty-state-action"><svg width="16" height="16"><use href="#icon-plus"/></svg><span>label</span></button></div>' },
   { plugin: 'impact-atlas', selector: '.card-title', textStyle: 's',
     note: "card Title = text style s (Show Title)",
-    probe: '<div class="card"><span class="card-title">Output</span><div>Content</div></div>' },
+    probe: '<div class="card" role="group" aria-labelledby="card-title"><span class="card-title" id="card-title">Output</span><div>Content</div></div>' },
   { plugin: 'impact-atlas', selector: '.panel-main', prop: 'paddingLeft', expected: '16px',
     note: "panel Main Content: reaches the panel's edges and keeps padding/l inside",
     probe: '<div class="panel"><div class="panel-head">Head content</div><div class="panel-main">Main content</div></div>' },
@@ -737,25 +738,25 @@ export const RENDERED_ASSERTIONS = [
   // table/row (DS 1:178): Content padding/xl top and bottom, the root padding/l left and right, the name in text style m.
   { plugin: 'tokens-to-ink', selector: '.tableRow-content', prop: 'paddingTop', expected: '24px',
     note: 'table/row Content: padding/xl top and bottom (Show Divider, Show Tooltip on)',
-    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
+    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch" role="img" aria-label="Colour"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch" role="img" aria-label="Output colour"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
   { plugin: 'tokens-to-ink', selector: '.tableRow', prop: 'paddingLeft', expected: '16px',
     note: 'table/row root: padding/l left and right, so its dividerLine ends where its content does',
-    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
+    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch" role="img" aria-label="Colour"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch" role="img" aria-label="Output colour"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
   { plugin: 'tokens-to-ink', selector: '.tableRow-name', textStyle: 'm',
     note: 'table/row Name = text style m, semantic content primary',
-    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
+    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch" role="img" aria-label="Colour"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch" role="img" aria-label="Output colour"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
   { plugin: 'tokens-to-ink', selector: '.tableRow-outputRow', prop: 'columnGap', expected: '4px',
     note: 'table/row Output rows: swatch, inputs and buttonQuaternary at gap/s',
-    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
+    probe: '<div class="tableRow"><div class="tableRow-content"><div class="tableRow-variable"><div class="swatch" role="img" aria-label="Colour"></div><div class="tableRow-info"><div class="tableRow-nameRow"><span class="tableRow-name">Name</span><span class="tooltipButton" data-tip="Tooltip"><svg width="12" height="12"><use href="#icon-info"/></svg></span></div><div class="tableRow-value">Value</div></div></div><div class="tableRow-connector"></div><div class="tableRow-output"><div class="tableRow-outputRow"><div class="swatch" role="img" aria-label="Output colour"></div><div class="inputWrap"><span class="inputLabel">Pantone</span><input class="inputField" value="450 C" aria-label="Pantone"></div><button class="buttonQuaternary" aria-label="Remove"><svg width="16" height="16"><use href="#icon-clear"/></svg></button></div></div></div><div class="dividerLine"></div></div>' },
   // Standalone dividerLine (DS 1:102) binds dividerLine/border/color = N700 in BOTH modes.
   // It must route through --dividerLine-border (dividerLine), NOT --divider (dividerSection/divider),
   // which overrides to N600 in dark and left the line a step too light. Both modes pinned.
   { plugin: 'impact-atlas', selector: '.dividerLine', prop: 'background-color',
     expected: 'rgb(214, 214, 214)', colorScheme: 'light', note: 'dividerLine/border light N700 #d6d6d6',
-    probe: '<div class="dividerLine"></div>' },
+    probe: '<div class="dividerLine" role="separator"></div>' },
   { plugin: 'impact-atlas', selector: '.dividerLine', prop: 'background-color',
     expected: 'rgb(48, 48, 48)', colorScheme: 'dark', note: 'dividerLine/border dark N700 #303030 (not --divider N600 #454545)',
-    probe: '<div class="dividerLine"></div>' },
+    probe: '<div class="dividerLine" role="separator"></div>' },
 
   // tooltipButton icon colour — DS tooltipButton/icon/color (1810:27212), a per-mode
   // split alias (L=N400 #595959, D=N300 #bfbfbf). Verified in-browser 2026-08-02 after
@@ -875,13 +876,13 @@ export const RENDERED_ASSERTIONS = [
   // No plugin renders one yet, so these assert against injected probes.
   { plugin: 'impact-atlas', selector: '.checkBoxGroup', prop: 'rowGap', expected: '8px',
     note: 'checkBoxGroup Label↔Slot spacing = gap/m (8)',
-    probe: '<div class="checkBoxGroup"><span class="checkBoxGroup-label">L</span><div class="checkBoxGroup-slot"></div></div>' },
+    probe: '<div class="checkBoxGroup" role="group" aria-labelledby="checkBoxGroup-label"><span class="checkBoxGroup-label" id="checkBoxGroup-label">L</span><div class="checkBoxGroup-slot"></div></div>' },
   { plugin: 'impact-atlas', selector: '.checkBoxGroup-slot', prop: 'columnGap', expected: '32px',
     note: 'checkBoxGroup Slot is HORIZONTAL, items spaced gap/xxxl (32) — same as radioButtonGroup-slot (was wrongly pinned to rowGap gap/s 4)',
-    probe: '<div class="checkBoxGroup"><span class="checkBoxGroup-label">L</span><div class="checkBoxGroup-slot"></div></div>' },
+    probe: '<div class="checkBoxGroup" role="group" aria-labelledby="checkBoxGroup-label"><span class="checkBoxGroup-label" id="checkBoxGroup-label">L</span><div class="checkBoxGroup-slot"></div></div>' },
   { plugin: 'impact-atlas', selector: '.checkBoxGroup-label', textStyle: 's',
     note: 'checkBoxGroup Label = text style s (10/700/15.1)',
-    probe: '<div class="checkBoxGroup"><span class="checkBoxGroup-label">L</span><div class="checkBoxGroup-slot"></div></div>' },
+    probe: '<div class="checkBoxGroup" role="group" aria-labelledby="checkBoxGroup-label"><span class="checkBoxGroup-label" id="checkBoxGroup-label">L</span><div class="checkBoxGroup-slot"></div></div>' },
   // radioButtonGroup — Label sits gap/m above the Slot; the Slot spaces radios in a ROW at gap/xxxl (32).
   { plugin: 'impact-atlas', selector: '.radioButtonGroup', prop: 'rowGap', expected: '8px',
     note: 'radioButtonGroup Label↔Slot spacing = gap/m (8)',

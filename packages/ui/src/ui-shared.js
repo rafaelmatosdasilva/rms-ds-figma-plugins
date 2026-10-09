@@ -560,7 +560,7 @@ function createSegmentedControl(options, selectedValue, onChange) {
     container.appendChild(button);
   });
 
-  return container;
+  return initSegmentedControl(container);
 }
 
 // ── buttonStepper ─────────────────────────────────────────────────────────────
@@ -635,6 +635,41 @@ document.querySelectorAll('.buttonStepper').forEach(function (s) {
   if (f && f.getAttribute('role') === 'spinbutton') initButtonStepper(s);
 });
 
+// ── Segmented control as a radio group ─────────────────────────────────────────
+// One option chosen at a time (WCAG 4.1.2, 2.1.1): the control is a radiogroup and each option a radio whose
+// aria-checked follows its .selected class, whoever sets it. Tab reaches the chosen option only; the arrow keys move
+// to the next or the previous option and choose it (a click, so the product's own handler runs), Home and End to the
+// first and the last. Every control on the page at inject time gets it; createSegmentedControl gives it to new ones.
+function initSegmentedControl(container) {
+  if (!container || container._radio) return container;
+  container._radio = true;
+  if (!container.getAttribute('role')) container.setAttribute('role', 'radiogroup');
+  var options = function () { return Array.prototype.filter.call(container.children, function (el) { return el.tagName === 'BUTTON'; }); };
+  var sync = function () {
+    var opts = options();
+    var chosen = opts.filter(function (b) { return b.classList.contains('selected'); })[0] || opts[0];
+    opts.forEach(function (b) {
+      b.setAttribute('role', 'radio');
+      b.setAttribute('aria-checked', b.classList.contains('selected') ? 'true' : 'false');
+      b.tabIndex = b === chosen ? 0 : -1;
+    });
+  };
+  sync();
+  if (typeof MutationObserver !== 'undefined') new MutationObserver(sync).observe(container, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
+  container.addEventListener('keydown', function (e) {
+    var opts = options().filter(function (b) { return !b.disabled; });
+    var at = opts.indexOf(document.activeElement);
+    if (at < 0) return;
+    var to = { ArrowRight: at + 1, ArrowDown: at + 1, ArrowLeft: at - 1, ArrowUp: at - 1, Home: 0, End: opts.length - 1 }[e.key];
+    if (to == null) return;
+    e.preventDefault();
+    var next = opts[(to + opts.length) % opts.length];
+    next.focus();
+    if (!next.classList.contains('selected')) next.click();
+  });
+  return container;
+}
+
 // ── Sliding pill for segmented controls ──────────────────────────────────────
 // Positions the .seg-pill absolutely over the selected button.
 // instant=true suppresses the CSS transition (used on first render and resize).
@@ -656,6 +691,7 @@ function updateSegPill(container, instant) {
 
 // Initialise pills on all segmented controls present in the DOM at inject time
 document.querySelectorAll('.segmented-control').forEach(function (c) {
+  initSegmentedControl(c);
   c.classList.add('has-pill');
   updateSegPill(c, true);
 });

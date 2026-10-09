@@ -11,6 +11,8 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 - When someone asks their system for less motion, every component stops moving: transitions and animations end at once (WCAG 2.3.3). A toast and a modal still open and close, and a loader shows its ring at rest.
 - The stepper works by keyboard and is heard: `initButtonStepper` makes its field a spinbutton that ArrowUp and ArrowDown step (Home and End go to its ends), its buttons turn off at each end, and a screen reader hears the value as it changes. A stepper whose field already says it is a spinbutton works on its own.
+- A segmented control is a radio group (WCAG 4.1.2, 2.1.1): the control says radiogroup and each option radio, aria-checked follows the chosen option whoever sets it, Tab reaches the chosen option and the arrow keys move between options and choose them (Home and End to the ends). Every segmented control gets it from `ui-shared.js`, with no change in the products; each product names its control with `aria-label`.
+- The reference markup of each component carries the role Figma's notes give it: a tooltip button is a named `<button>` that Tab reaches, a modal card is a named modal dialog, a card, an empty state and a checkbox group are groups named by their title or label, a divider line is a separator, and a colour swatch is an image.
 - States a screen reader now hears with the look: a selected node is pressed (`aria-pressed`) and a disabled one says so (`aria-disabled`), the radio button on the current step says it (`aria-current="step"`), and an error toast is an alert.
 
 ## v2.0.16 · 7 October 2026

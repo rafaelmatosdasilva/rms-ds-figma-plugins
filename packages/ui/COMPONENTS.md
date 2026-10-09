@@ -40,6 +40,13 @@ const control = createSegmentedControl(
 document.body.appendChild(control);
 ```
 
+### Accessibility
+
+Every `.segmented-control` on the page, and every one `createSegmentedControl()` builds, is a radio group: the
+container gets `role="radiogroup"`, each button `role="radio"` with `aria-checked` following its `.selected` class,
+Tab reaches the chosen option, and the arrow keys (Home and End) move between options and choose them with a click,
+so the product's own click handler runs. Name each control: `<div class="segmented-control" aria-label="View">`.
+
 ### Styling
 
 - **Border**: Inactive buttons show `var(--dividerLine-border)` color
