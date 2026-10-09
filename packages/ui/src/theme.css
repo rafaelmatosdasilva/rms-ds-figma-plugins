@@ -1794,4 +1794,15 @@
   }
 
 
+  /* ── Less motion ── WCAG 2.3.3: when the person asks for less motion, every transition and animation ends at once.
+     Ended, not removed: their end events still fire, so a toast or a modal still closes, and a loader shows its ring at rest. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
 }
