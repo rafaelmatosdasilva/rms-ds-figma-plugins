@@ -269,9 +269,10 @@ export const CONTRACT = {
     propertyMap: {
       // DS states (544:74211): Default = base .node (node/border/default), Idle = .node-unselected
       // (node/border/idle), Hover = :hover, plus the Selected & Disabled axes.
-      'State': { Default: '.node', Idle: '.node.node-unselected', Hover: '.node:hover', Disabled: '.node.node-disabled' },
-      'Selected': { True: '.node.node-selected', False: '.node' },
-      'Disabled': { True: '.node.node-disabled', False: '.node' },
+      // Each state a screen reader hears too: a selected node is pressed, a disabled one says so (it stays reachable).
+      'State': { Default: '.node', Idle: '.node.node-unselected', Hover: '.node:hover', Disabled: '.node.node-disabled[aria-disabled="true"]' },
+      'Selected': { True: '.node.node-selected[aria-pressed="true"]', False: '.node' },
+      'Disabled': { True: '.node.node-disabled[aria-disabled="true"]', False: '.node' },
       'Show Icon': '.node.no-icon .node-type-icon',
     },
   },
@@ -343,7 +344,8 @@ export const CONTRACT = {
       { name: 'Frame 39', cssSelector: '.toast-body', gapVar: 'gap/s', paddingVar: { tb: null, lr: null } },
     ],
     propertyMap: {
-      'Type':             { Success: '.toast', Error: '.toast.toast-error' },
+      // showToast announces a failure at once (role="alert") and a confirmation politely (role="status").
+      'Type':             { Success: '.toast', Error: '.toast.toast-error[role="alert"]' },
       'Show Description': '.toast-description',
     },
   },
@@ -517,7 +519,7 @@ export const CONTRACT = {
       'State': {
         Default:    '.radioButton',
         Selected:   '.radioButton-input:checked + .radioButton-circle',
-        Current:    '.radioButton.radioButton--current',
+        Current:    '.radioButton.radioButton--current[aria-current="step"]',   // the step a person is on
         Unselected: '.radioButton.radioButton--unselected',
       },
     },
@@ -865,7 +867,7 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'tokens-to-ink', selector: '.inputWrap', prop: 'border-top-color',
     expected: 'rgb(245, 245, 245)', forcePseudo: ['focus-within'], colorScheme: 'dark',
     note: 'focused = input/border/focus (N100 dark #f5f5f5) — must win over resting and hover',
-    probe: '<div class="inputWrap"><input class="inputField"></div>' },
+    probe: '<div class="inputWrap"><input class="inputField" aria-label="Value"></div>' },
   // (The .checkbox-text / .modal-slot / .tab-panel rendered assertions were retired 2026-08-16
   // when the export flow moved from the DS modal to the inline Export screen — those elements
   // no longer render in tokens-to-ink. The base .checkbox stays covered structurally by Gate 10.)

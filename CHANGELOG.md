@@ -7,6 +7,12 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.17 · 9 October 2026
+
+- When someone asks their system for less motion, every component stops moving: transitions and animations end at once (WCAG 2.3.3). A toast and a modal still open and close, and a loader shows its ring at rest.
+- The stepper works by keyboard and is heard: `initButtonStepper` makes its field a spinbutton that ArrowUp and ArrowDown step (Home and End go to its ends), its buttons turn off at each end, and a screen reader hears the value as it changes. A stepper whose field already says it is a spinbutton works on its own.
+- States a screen reader now hears with the look: a selected node is pressed (`aria-pressed`) and a disabled one says so (`aria-disabled`), the radio button on the current step says it (`aria-current="step"`), and an error toast is an alert.
+
 ## v2.0.16 · 7 October 2026
 
 - Every text and icon colour now passes contrast in light and dark mode, on every surface a component can sit on, changed in Figma first with the system's own variables. In dark mode the negative badge label uses the secondary text colour (Neutral 300). Placeholder text in a field uses Neutral 400 in light mode and Neutral 300 in dark mode. The icons of a list button, a node, a list item and an empty state, and the loader's spinner, use Neutral 500 in light mode, and the list button and node icons Neutral 400 in dark mode.
