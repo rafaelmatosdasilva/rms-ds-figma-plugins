@@ -656,7 +656,7 @@ export const RENDERED_ASSERTIONS = [
     probe: '<span class="badge high"><span class="badge-icon" aria-hidden="true"></span><span class="badge-label">Label</span></span>' },
   { plugin: 'font-scaling-lab', selector: '.buttonStepper', prop: 'columnGap', expected: '2px',
     note: 'buttonStepper (DS 252:22089): buttonSecondary · input · buttonSecondary at gap/xs, 24px high',
-    probe: '<div class="buttonStepper"><button class="buttonSecondary" aria-label="Decrease"><svg width="16" height="16"><use href="#icon-minus"/></svg></button><div class="inputWrap"><input class="inputField" value="100%" aria-label="Value"></div><button class="buttonSecondary" aria-label="Increase"><svg width="16" height="16"><use href="#icon-plus"/></svg></button></div>' },
+    probe: '<div class="buttonStepper"><button class="buttonSecondary" aria-label="Decrease"><svg width="16" height="16"><use href="#icon-minus"/></svg></button><div class="inputWrap"><input class="inputField" value="100%" aria-label="Value" role="spinbutton" aria-valuemin="0" aria-valuemax="200" aria-valuenow="100" aria-valuetext="100%"></div><button class="buttonSecondary" aria-label="Increase"><svg width="16" height="16"><use href="#icon-plus"/></svg></button></div>' },
   { plugin: 'impact-atlas', selector: '.statusBar-content', prop: 'columnGap', expected: '8px',
     note: "statusBar Slot content: the product's items in one row at gap/m (the bar's own gap/xl separates groups)",
     probe: '<div class="statusBar"><div class="statusBar-content"><span class="statusBar-title">Title</span><span>Detail</span></div></div>' },

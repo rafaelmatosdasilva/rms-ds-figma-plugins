@@ -563,6 +563,78 @@ function createSegmentedControl(options, selectedValue, onChange) {
   return container;
 }
 
+// ── buttonStepper ─────────────────────────────────────────────────────────────
+// A −/value/+ row whose field is a spinbutton (WCAG 2.1.1, 4.1.2): ArrowUp and ArrowDown step it, Home and End go to
+// its ends, the buttons step it and turn off at each end, a typed value is kept within its range when the field is
+// left, and what a screen reader hears follows every change (aria-valuenow, aria-valuetext).
+// opts: { min, max, value, step (1) or steps (a list of stops), format (v => the text shown), onChange (v => …) }.
+// Each one left out is read from the field (aria-valuemin, aria-valuemax, aria-valuenow, else its number). Calling it
+// again on the same stepper changes its options. Returns { set(v, quiet), get() }.
+function initButtonStepper(root, opts) {
+  if (!root) return null;
+  var input = root.querySelector('.inputField');
+  var btns = root.querySelectorAll(':scope > button');
+  if (!input) return null;
+  var num = function (a) { var v = input.getAttribute(a); return v == null || v === '' ? null : Number(v); };
+  var st = root._stepper || (root._stepper = {});
+  var o = opts || {};
+  st.min = o.min != null ? o.min : (num('aria-valuemin') != null ? num('aria-valuemin') : 0);
+  st.max = o.max != null ? o.max : (num('aria-valuemax') != null ? num('aria-valuemax') : 100);
+  st.step = o.step || Number(root.dataset.step) || 1;
+  st.steps = o.steps || null;
+  // Shown with the unit the field was written with (100% stays a percentage) unless format says otherwise.
+  var unit = (String(input.value).match(/[^\d.\s-]+$/) || [''])[0];
+  st.format = o.format || st.format || function (v) { return v + unit; };
+  st.onChange = o.onChange || st.onChange || null;
+  var dec = btns[0], inc = btns[btns.length - 1];
+  input.setAttribute('role', 'spinbutton');
+  input.setAttribute('aria-valuemin', st.min);
+  input.setAttribute('aria-valuemax', st.max);
+  st.set = function (v, quiet) {
+    v = Math.min(Math.max(Number(v), st.min), st.max);
+    var changed = v !== st.value;
+    st.value = v;
+    input.value = st.format(v);
+    input.setAttribute('aria-valuenow', v);
+    input.setAttribute('aria-valuetext', st.format(v));
+    if (dec) dec.disabled = v <= st.min;
+    if (inc) inc.disabled = v >= st.max;
+    if (changed && !quiet && st.onChange) st.onChange(v);
+  };
+  var move = function (dir) {
+    if (st.steps) {
+      var stop = dir > 0 ? st.steps.find(function (p) { return p > st.value; }) : st.steps.filter(function (p) { return p < st.value; }).pop();
+      if (stop != null) st.set(stop);
+    } else st.set(st.value + dir * st.step);
+  };
+  if (!st.wired) {
+    st.wired = true;
+    if (dec) dec.addEventListener('click', function () { move(-1); });
+    if (inc && inc !== dec) inc.addEventListener('click', function () { move(1); });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowUp') { e.preventDefault(); move(1); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); move(-1); }
+      else if (e.key === 'Home') { e.preventDefault(); st.set(st.min); }
+      else if (e.key === 'End') { e.preventDefault(); st.set(st.max); }
+      else if (e.key === 'Enter') input.blur();
+    });
+    input.addEventListener('blur', function () {
+      var typed = parseFloat(input.value);
+      if (isNaN(typed)) input.value = st.format(st.value); else st.set(typed);
+    });
+  }
+  var start = o.value != null ? o.value : (st.value != null ? st.value : (num('aria-valuenow') != null ? num('aria-valuenow') : parseFloat(input.value)));
+  st.set(isNaN(start) ? st.min : start, true);
+  return { set: st.set, get: function () { return st.value; } };
+}
+
+// Every stepper already on the page whose field says it is a spinbutton works at once (its range and value from the
+// field's aria attributes); a product calls initButtonStepper itself for its own stops and onChange.
+document.querySelectorAll('.buttonStepper').forEach(function (s) {
+  var f = s.querySelector('.inputField');
+  if (f && f.getAttribute('role') === 'spinbutton') initButtonStepper(s);
+});
+
 // ── Sliding pill for segmented controls ──────────────────────────────────────
 // Positions the .seg-pill absolutely over the selected button.
 // instant=true suppresses the CSS transition (used on first render and resize).
