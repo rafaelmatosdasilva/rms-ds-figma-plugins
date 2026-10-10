@@ -1443,16 +1443,16 @@
   /* Action button — display:none base (no layout space). Shown on hover only.
      Must come BEFORE .buttonList-arrow in DOM so arrow stays at far right on selected. */
   .buttonList-action { display: none; }
-  .buttonList:not(.selected):hover .buttonList-action,
-  .buttonList:not(.selected).hovered .buttonList-action,
-  .buttonList:not(.selected):focus-within .buttonList-action { /* shown with the focus too, so Tab reaches it from the row */
+  .buttonList:not(.selected, .no-button):hover .buttonList-action,
+  .buttonList:not(.selected, .no-button).hovered .buttonList-action,
+  .buttonList:not(.selected, .no-button):focus-within .buttonList-action { /* shown with the focus too, so Tab reaches it from the row */
     display: inline-flex; align-items: center; justify-content: center;
     margin-right: var(--gap-s); /* DS Actions gap/m (action↔arrow) = root gap/s + this 4px */
   }
-  .buttonList:not(.selected):hover .buttonList-action svg,
-  .buttonList:not(.selected).hovered .buttonList-action svg,
-  .buttonList:not(.selected):focus-within .buttonList-action svg { color: var(--buttonTertiary-iconText); }
-  .buttonList.no-button .buttonList-action { display: none; } /* stays hidden even on hover */
+  .buttonList:not(.selected, .no-button):hover .buttonList-action svg,
+  .buttonList:not(.selected, .no-button).hovered .buttonList-action svg,
+  .buttonList:not(.selected, .no-button):focus-within .buttonList-action svg { color: var(--buttonTertiary-iconText); }
+  .buttonList.no-button .buttonList-action { display: none; } /* stays hidden on hover and focus too (the rules above leave it out) */
 
   /* ── table/row (DS 1:178) ──
      A table's row: Content (padding/xl top and bottom) holds what the row describes (a swatch, its name in text
