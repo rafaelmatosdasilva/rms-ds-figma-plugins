@@ -1325,8 +1325,9 @@ export const ALLOWED_BROAD_RULES = {
   '.buttonList.hovered .tooltipButton svg':  'ISOLATION FIX — same, keyboard-nav hover',
   '.buttonList.selected .tooltipButton svg': 'ISOLATION FIX — same, selected state',
   '.buttonList .buttonList-action svg': 'LEAF — action buttons are buttonTertiary leaf components; color overridden to --buttonTertiary-iconText via high-specificity hover rule',
-  '.buttonList:not(.selected):hover .buttonList-action svg': 'LEAF — action button icon on hover uses --buttonTertiary-iconText (DS: buttonTertiary/iconText/default/color)',
-  '.buttonList:not(.selected).hovered .buttonList-action svg': 'LEAF — same as above for .hovered class variant',
+  '.buttonList:not(.selected, .no-button):hover .buttonList-action svg': 'LEAF — action button icon on hover uses --buttonTertiary-iconText (DS: buttonTertiary/iconText/default/color); a row without its action (.no-button) shows none',
+  '.buttonList:not(.selected, .no-button).hovered .buttonList-action svg': 'LEAF — same as above for .hovered class variant',
+  '.buttonList:not(.selected, .no-button):focus-within .buttonList-action svg': 'LEAF — same as above with the keyboard focus in the row (v2.0.19), so Tab finds the action as the pointer does',
 
   // button-group — OWNED CHILDREN
   '.button-group button':                   'OWNED children — plugin UI grouping, not a DS button sub-component',
