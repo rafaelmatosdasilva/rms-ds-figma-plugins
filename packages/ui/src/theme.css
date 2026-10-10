@@ -1404,6 +1404,7 @@
      as root gap/s + margin-right on the action button. */
   .buttonList:hover { color: var(--buttonList-text-hover); padding-right: var(--padding-s); } /* Figma hover: paddingRight=padding/s */
   .buttonList.hovered { color: var(--buttonList-text-hover); padding-right: var(--padding-s); } /* keyboard-nav mirror of :hover */
+  .buttonList:focus-within { color: var(--buttonList-text-hover); padding-right: var(--padding-s); } /* the row with the focus, as on hover */
   .buttonList:hover svg { color: var(--buttonList-iconPrimary); }
   .buttonList.hovered svg { color: var(--buttonList-iconPrimary); }
   .buttonList.selected::before { background: var(--buttonList-background-selected); }
@@ -1418,21 +1419,39 @@
   .buttonList:hover .tooltipButton svg,
   .buttonList.hovered .tooltipButton svg,
   .buttonList.selected .tooltipButton svg { color: var(--tooltipButton-icon); }
+  /* The row's own action (WCAG 2.1.1): a button around its label that covers the whole row, so Tab reaches the row
+     and Enter or Space acts on it, while the row's other controls (its action button, a badge) stay above it and
+     apart (a button never holds another). Its focus ring is drawn on the row's pill. */
+  .buttonList > .buttonList-main {
+    position: static; z-index: auto;
+    display: flex; align-items: center; flex: 1; min-width: 0; height: auto;
+    padding: 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: inherit;
+  }
+  .buttonList-main::after { content: ''; position: absolute; inset: 4px 0; border-radius: var(--radii-button); }
+  .buttonList-main:focus-visible { outline: none; }
+  .buttonList-main:focus-visible::after { outline: var(--general-thickness) solid var(--input-border-focus); outline-offset: 1px; }
+  /* With a tooltipButton (Show Tooltip) after it, the Title hugs its text and the tooltipButton sits beside it; the
+     row's actions stay at the far end. */
+  .buttonList > .buttonList-main:has(+ .tooltipButton) { flex: 0 1 auto; }
+  .buttonList > .buttonList-main + .tooltipButton { margin-right: auto; }
   /* Chevron arrow — iconSecondary on both hover and selected. Must be last child in DOM. */
   .buttonList-arrow { display: none; flex-shrink: 0; color: var(--buttonList-iconSecondary); }
   .buttonList.selected .buttonList-arrow { display: block; color: var(--buttonList-iconSecondary); }
   .buttonList:hover .buttonList-arrow { display: block; color: var(--buttonList-iconSecondary); }
-  .buttonList.hovered .buttonList-arrow { display: block; color: var(--buttonList-iconSecondary); }
+  .buttonList.hovered .buttonList-arrow,
+  .buttonList:focus-within .buttonList-arrow { display: block; color: var(--buttonList-iconSecondary); }
   /* Action button — display:none base (no layout space). Shown on hover only.
      Must come BEFORE .buttonList-arrow in DOM so arrow stays at far right on selected. */
   .buttonList-action { display: none; }
   .buttonList:not(.selected):hover .buttonList-action,
-  .buttonList:not(.selected).hovered .buttonList-action {
+  .buttonList:not(.selected).hovered .buttonList-action,
+  .buttonList:not(.selected):focus-within .buttonList-action { /* shown with the focus too, so Tab reaches it from the row */
     display: inline-flex; align-items: center; justify-content: center;
     margin-right: var(--gap-s); /* DS Actions gap/m (action↔arrow) = root gap/s + this 4px */
   }
   .buttonList:not(.selected):hover .buttonList-action svg,
-  .buttonList:not(.selected).hovered .buttonList-action svg { color: var(--buttonTertiary-iconText); }
+  .buttonList:not(.selected).hovered .buttonList-action svg,
+  .buttonList:not(.selected):focus-within .buttonList-action svg { color: var(--buttonTertiary-iconText); }
   .buttonList.no-button .buttonList-action { display: none; } /* stays hidden even on hover */
 
   /* ── table/row (DS 1:178) ──

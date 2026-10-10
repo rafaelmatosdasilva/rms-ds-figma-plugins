@@ -254,6 +254,10 @@ export const CONTRACT = {
       'State':       { Default: '.buttonList', Hover: '.buttonList:hover', Selected: '.buttonList.selected' },
       'Show Action Focus': '.buttonList.no-button .buttonList-action',
     },
+    // Selected is drawn on the row and heard on its own action (ui-shared.js keeps aria-pressed with .selected).
+    heardOn: {
+      'State':       { Selected: '.buttonList-main[aria-pressed="true"]' },
+    },
   },
   node: {
     h: 40,
@@ -319,6 +323,10 @@ export const CONTRACT = {
       'Show Icon Left':  '.inputWrap.no-icon-left .icon-left',
       'Show Label Before': '.inputWrap .inputLabel',
       'Show Value':      '.inputWrap.no-value .inputField',
+    },
+    // Disabled is drawn on the wrapper and heard on the field: the field itself is disabled.
+    heardOn: {
+      'Disabled':        { True: '.inputField:disabled' },
     },
   },
   tooltipPopover: {
@@ -650,7 +658,7 @@ export const RENDERED_ASSERTIONS = [
     probe: '<button type="button" class="tooltipButton" data-tip="Tooltip" aria-label="Tooltip"><svg width="12" height="12" aria-hidden="true"><use href="#icon-info"/></svg></button>' },
   { plugin: 'impact-atlas', selector: '.buttonList .lrow-icon', prop: 'width', expected: '16px',
     note: 'buttonList Content: its Icon (Show Icon) at 16, before the Title and its tooltipButton (Show Tooltip)',
-    probe: '<div class="buttonList"><div class="lrow-icon"><svg width="16" height="16"><use href="#icon-var-color"/></svg></div><span class="lrow-name">Title</span><span class="tooltipButton lib-badge"><svg width="12" height="12"><use href="#icon-library"/></svg></span><button class="buttonList-action buttonTertiary" aria-label="Focus on canvas"><svg width="16" height="16"><use href="#icon-focus"/></svg></button><svg width="16" height="16" class="buttonList-arrow"><use href="#icon-arrow-right"/></svg></div>' },
+    probe: '<div class="buttonList"><div class="lrow-icon"><svg width="16" height="16"><use href="#icon-var-color"/></svg></div><button type="button" class="buttonList-main"><span class="lrow-name">Title</span></button><span class="tooltipButton lib-badge"><svg width="12" height="12"><use href="#icon-library"/></svg></span><button class="buttonList-action buttonTertiary" aria-label="Focus on canvas"><svg width="16" height="16"><use href="#icon-focus"/></svg></button><svg width="16" height="16" class="buttonList-arrow"><use href="#icon-arrow-right"/></svg></div>' },
   { plugin: 'impact-atlas', selector: '.loader-description', textStyle: 's',
     note: 'loader Description = text style s (Show Description)',
     probe: '<span class="loader" role="status"><span class="loader-content"><span class="loader-spinner" aria-hidden="true"></span><span class="loader-text"><span class="loader-title">Title</span><span class="loader-description">Description</span></span></span><button class="buttonTertiary"><span>Cancel</span></button></span>' },
