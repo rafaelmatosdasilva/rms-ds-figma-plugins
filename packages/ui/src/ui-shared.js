@@ -318,6 +318,47 @@ function varTypeIconHtml(type, size) {
   if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
 })();
 
+// ── Roles Figma gives the components (WCAG 4.1.2, 1.3.1) ──────────────────────
+// A component Figma annotates with a role carries it wherever a product draws it, unless the product gave it one:
+// statusBar and actionBar are toolbars, dividerSection is a heading, a node that is not already a button acts as one
+// (a Tab stop that Enter and Space press), and the listItems that fill a container are a list of list items. Only
+// the role: a name or a heading level Figma does not give is not invented. Kept in step as rows are drawn.
+(function () {
+  const ROLES = [['.statusBar', 'toolbar'], ['.actionBar', 'toolbar'], ['.dividerSection', 'heading']];
+  function tend(root) {
+    if (!root || !root.querySelectorAll) return;
+    for (const [sel, role] of ROLES) for (const el of root.querySelectorAll(sel)) if (!el.hasAttribute('role')) el.setAttribute('role', role);
+    for (const el of root.querySelectorAll('.node')) {
+      if (el.matches('button, a[href], input, [role]')) continue;   // a native control stays one; a role given stays
+      el.setAttribute('role', 'button');
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+      el.dataset.nodeButton = '1';
+    }
+    for (const item of root.querySelectorAll('.listItem')) {
+      const list = item.parentElement;
+      if (!list || item.matches('li') || item.hasAttribute('role')) continue;
+      // Only a container that holds list items alone becomes their list: anything else beside them would be in it.
+      if (![...list.children].every((c) => c.matches('.listItem, template, script'))) continue;
+      if (!list.hasAttribute('role')) list.setAttribute('role', 'list');
+      if (list.getAttribute('role') === 'list') item.setAttribute('role', 'listitem');
+    }
+  }
+  // A node made a button is pressed by Enter and Space, as a button is.
+  document.addEventListener('keydown', (e) => {
+    const n = e.target;
+    if (!n || !n.dataset || n.dataset.nodeButton !== '1' || (e.key !== 'Enter' && e.key !== ' ')) return;
+    e.preventDefault();
+    n.click();
+  });
+  const start = () => {
+    tend(document.body);
+    let queued = false;
+    new MutationObserver(() => { if (queued) return; queued = true; Promise.resolve().then(() => { queued = false; tend(document.body); }); })
+      .observe(document.body, { subtree: true, childList: true });
+  };
+  if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
+})();
+
 // ── HTML escape ───────────────────────────────────────────────────────────────
 // The one place every plugin should reach for. Text from the user's document
 // (layer names, token names, saved tag values) and backend messages that quote

@@ -7,6 +7,12 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.22 · 10 October 2026
+
+- The components Figma gives a role carry it wherever a product draws them (WCAG 4.1.2, 1.3.1): `statusBar` and `actionBar` are toolbars, `dividerSection` is a heading, a `node` that is not already a button acts as one (Tab reaches it, Enter and Space press it), and the `listItem`s that fill a container are a list of list items. A role the product gave stays; no name or heading level Figma does not give is invented.
+- The system draws one spinner, Figma's: a 14px ring in `loader/spinner`, its top open. `.spinner`, `.toast-spinner` and `.loader-spinner` are the same rule, so a product's markup need not change.
+- `highlightSelector`'s Selected state has Figma's 4px corners.
+
 ## v2.0.21 · 10 October 2026
 
 - A control that shows only an icon and carries a tip (`data-tip` on an icon-only button) is named by its tip, so a screen reader says what it does (WCAG 4.1.2); a name the product gave it stays.
