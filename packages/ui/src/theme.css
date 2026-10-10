@@ -1146,7 +1146,7 @@
     flex-shrink: 0;
   }
   /* DS state=selected: the Background layer fills with highlightSelector/border at 20% and BorderOutside adds a 4px ring outside at 48%. */
-  .highlightSelector.selected { background: color-mix(in srgb, var(--highlightSelector-border) 20%, transparent); border-color: var(--highlightSelector-border); box-shadow: 0 0 0 4px color-mix(in srgb, var(--highlightSelector-border) 48%, transparent); }   /* DS Selected: Background at 20%, Border 2 inside, BorderOutside 4 outside at 48% */
+  .highlightSelector.selected { background: color-mix(in srgb, var(--highlightSelector-border) 20%, transparent); border-color: var(--highlightSelector-border); box-shadow: 0 0 0 4px color-mix(in srgb, var(--highlightSelector-border) 48%, transparent); border-radius: 4px; }   /* DS Selected: Background at 20%, Border 2 inside, BorderOutside 4 outside at 48%, corners 4 (no radius variable in Figma) */
   /* buttonStepper (DS) — a −/value/+ row: two buttonSecondary flanking an input, gap/xs.
      Pure layout wrapper; the children are the DS .buttonSecondary + input components. */
   .buttonStepper { display: inline-flex; align-items: center; gap: var(--gap-xs); }
@@ -1614,17 +1614,16 @@
   }
   #toast-overlay.visible { opacity: 1; pointer-events: auto; }
 
-  /* ── Spinner ── */
-  .toast-spinner {
-    /* DS toast Spinner instance box is 14x14; the 13px Union inside it is the glyph. */
-    width: 14px; height: 14px;
-    border: var(--general-thickness) solid currentColor; /* general/thickness */
+  /* ── Spinner (DS Spinner, 14x14, in the loader and the progress toast) ──
+     The system's one spinner: a general/thickness ring in loader/spinner, its top open, turning. .toast-spinner and
+     .loader-spinner are its other names, kept so a product's markup need not change at once. */
+  .spinner, .toast-spinner, .loader-spinner {
+    width: 14px; height: 14px; flex-shrink: 0;
+    border: var(--general-thickness) solid var(--loader-spinner);
     border-top-color: transparent;
     border-radius: 50%;
-    opacity: 0.7;
     animation: toast-spin 0.8s linear infinite;
     display: inline-block;
-    flex-shrink: 0;
   }
   @keyframes toast-spin { to { transform: rotate(360deg); } }
   .toast-content { display: flex; align-items: center; gap: var(--gap-m); /* gap/m — DS loading-toast "content" frame spinner↔text gap */ }
@@ -1640,15 +1639,7 @@
     flex-shrink: 0;
   }
   .loader-content { display: flex; align-items: center; gap: var(--gap-m); /* gap/m — spinner↔text */ }
-  .loader-spinner {
-    /* DS Spinner instance box is 14x14; mirrors .toast-spinner. */
-    width: 14px; height: 14px; flex-shrink: 0;
-    border: var(--general-thickness) solid var(--loader-spinner);
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: toast-spin 0.8s linear infinite;
-    display: inline-block;
-  }
+  /* .loader-spinner is the system's one spinner (see Spinner above). */
   .loader-text { display: flex; flex-direction: column; }
   .loader-title { font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); color: var(--loader-title); }
   .loader-description { font-size: var(--typography-s-font-size); font-weight: var(--typography-s-font-weight); line-height: var(--typography-s-line-height); color: var(--loader-description); margin-top: -2px; }   /* DS Text itemSpacing -2 (16 + 15 - 2 = 29) */
@@ -1790,17 +1781,6 @@
 
   /* ── Shared utilities ── */
   .hidden { display: none !important; }
-
-  /* ── Spinner ── */
-  /* Generic 16×16 spinner. Use width/height overrides for other sizes. Reuses toast-spin keyframe. */
-  .spinner {
-    width: 16px; height: 16px;
-    border: var(--general-thickness) solid var(--dividerLine-border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: toast-spin 0.7s linear infinite;
-    flex-shrink: 0;
-  }
 
   /* ── Section label ── */
   /* Group heading — the DS `s` text style (there is no uppercase text style in
