@@ -113,6 +113,11 @@
   "visualRefScale": 3,
   "knownStateExemptions": [
     {
+      "var": "--buttonList-text-hover",
+      "selector": ".buttonList:focus-within",
+      "_note": "the row with the keyboard focus looks as on hover, so Tab shows where it is and reaches its action button (v2.0.19); Figma has no focus state for buttonList yet (backlog D4)"
+    },
+    {
       "var": "--checkbox-icon-selected",
       "selector": ".checkbox-check",
       "_note": "a checkbox's :checked IS its selected state — the checkmark only renders when checked, so its icon colour uses icon/selected on the base .checkbox-check"

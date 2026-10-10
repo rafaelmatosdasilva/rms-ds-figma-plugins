@@ -1396,6 +1396,9 @@
     pointer-events: none;
   }
   .buttonList > * { position: relative; z-index: 1; }
+  /* DS buttonList (1921:44549): its tooltipButton (Show Tooltip) sits flush after the title, gap 0; the row's gap/s is
+     cancelled before it, and the button's own 24px box gives the space. Every product's row gets it from here. */
+  .buttonList > .buttonList-main + .tooltipButton { margin-left: calc(-1 * var(--gap-s)); }
   .buttonList svg { color: var(--buttonList-iconPrimary); flex-shrink: 0; }
   .buttonList:hover::before { background: var(--buttonList-background-hover); }
   /* Root gap NEVER changes across states — DS Content (icon↔label) is gap/s in all variants,
