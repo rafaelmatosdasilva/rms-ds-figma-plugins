@@ -94,7 +94,8 @@ its range. The buttons turn off at each end. The field carries `role="spinbutton
 A row with an icon, a label and, optionally, its own action button and a badge. The row's main action is a button
 around its label (`.buttonList-main`) that covers the whole row: Tab reaches the row, Enter or Space acts on it, and a
 click anywhere on the row still lands on the row, so a product's delegated handler (`closest('.buttonList')`) runs as
-before. The row's other controls sit above it and apart; a button never holds another.
+before. The row's other controls sit above it and apart; a button never holds another. The row's action button shows
+while the row has the focus, as on hover, so Tab goes from the row to it; a product gives it no `tabindex="-1"`.
 
 ```html
 <div class="buttonList">

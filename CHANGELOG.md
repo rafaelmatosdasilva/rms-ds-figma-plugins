@@ -9,7 +9,7 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ## v2.0.19 · 10 October 2026
 
-- A list row is reached by the keyboard (WCAG 2.1.1): its main action is a button around its label (`.buttonList-main`) that covers the whole row, so Tab reaches it and Enter or Space acts on it, while its own action button and badge stay apart. A selected row is heard as pressed. Each product wraps its rows' labels in it.
+- A list row is reached by the keyboard (WCAG 2.1.1): its main action is a button around its label (`.buttonList-main`) that covers the whole row, so Tab reaches it and Enter or Space acts on it, while its own action button and badge stay apart; that button shows while the row has the focus, as on hover, so Tab reaches it next. A selected row is heard as pressed. Each product wraps its rows' labels in it.
 - The system has a modal (`openModal`, `closeModal`): a named modal dialog that takes the focus and keeps it while Tab moves, closes with Escape or a click on the overlay, and gives the focus back to what opened it. Each product's own open and close code goes.
 - A disabled field is said in the contract the way a screen reader hears it: the look on its wrapper, the field itself disabled (`heardOn`).
 
