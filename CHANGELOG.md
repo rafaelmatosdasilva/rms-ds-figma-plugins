@@ -7,6 +7,12 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.24 · 10 October 2026
+
+- A list row's tooltipButton sits flush after its title, as Figma's buttonList draws it (gap 0), in every product: the system cancels the row's gap after `.buttonList-main`, so a product needs no rule of its own.
+- The contract checks the scale stepper's field border against the colour Figma has (`input/border/default`, #828282 light and #878787 dark since v2.0.10), and the flush tooltipButton on a row as the products write it now (`.buttonList-main`).
+- The row with the keyboard focus looks as on hover (v2.0.19) is recorded as intended until Figma has a focus state for buttonList.
+
 ## v2.0.23 · 10 October 2026
 
 - `actionbar`, the class the system writes, is the toolbar (v2.0.22 looked for `actionBar` and missed it).

@@ -783,12 +783,12 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.buttonList .tooltipButton svg', prop: 'color',
     expected: 'rgb(191, 191, 191)', colorScheme: 'dark', note: 'nested tooltipButton keeps tooltipButton/icon dark N300, not buttonList/iconPrimary N500 #5e5e5e',
     probe: '<div class="buttonList"><span>t</span><span class="tooltipButton lib-badge"><svg width="16" height="16"><use href="#icon-library"/></svg></span></div>' },
-  // A tooltipButton inside a BUTTONLIST sits FLUSH against the title — DS 1921:44549
-  // gaps them by 0; the button's own 24px box gives the visual space. Only buttonList
-  // contexts (not the tokens-to-ink table row). Probe nests the button after a label.
-  { plugin: 'font-scaling-lab', selector: '.buttonList .issue-primary .tooltipButton', prop: 'margin-left', expected: '-8px',
-    note: 'tooltipButton flush after the title in a buttonList — cancels .issue-primary gap/m so DS gap 0',
-    probe: '<div class="buttonList"><div class="issue-primary"><span class="txt">t</span><span class="tooltipButton"><svg width="16" height="16"><use href="#icon-info"/></svg></span></div></div>' },
+  // A tooltipButton inside a BUTTONLIST sits FLUSH against the title — DS 1921:44549 gaps them by 0; the button's
+  // own 24px box gives the visual space. The system's rule cancels the row's gap/s after its title button
+  // (.buttonList-main), so every product's row has it; the probe is a row as the products write it.
+  { plugin: 'impact-atlas', selector: '.buttonList > .buttonList-main + .tooltipButton', prop: 'margin-left', expected: '-4px',
+    note: 'tooltipButton flush after the title in a buttonList — cancels the row gap/s, so DS gap 0',
+    probe: '<div class="buttonList"><button type="button" class="buttonList-main"><span class="lrow-name">Title</span></button><button type="button" class="tooltipButton" data-tip="Tooltip" aria-label="Tooltip"><svg width="12" height="12" aria-hidden="true"><use href="#icon-info"/></svg></button></div>' },
   // DS panel Head Content slot (base .panel-head): top padding/l (16), bottom padding/s (8),
   // lr padding/l (16). The top was padding/s (8) — the header sat too high against the panel top.
   // Pinned per-side so a regression on any edge fails (Gate [20] computed style, in font-scaling-lab).
@@ -825,11 +825,11 @@ export const RENDERED_ASSERTIONS = [
     note: 'DS input/border/default light = N500 #828282 (v2.0.10, 3:1 against the field)' },
   // The scale stepper is the system's buttonStepper: its input's border is on the system's .inputWrap.
   { plugin: 'font-scaling-lab', selector: '#scale-stepper .inputWrap', prop: 'border-top-color',
-    expected: 'rgb(94, 94, 94)', colorScheme: 'dark',
-    note: 'DS input/border/default dark = N500 #5e5e5e' },
+    expected: 'rgb(135, 135, 135)', colorScheme: 'dark',
+    note: 'DS input/border/default dark = #878787 (as Figma has it since v2.0.10, 3:1 against the field)' },
   { plugin: 'font-scaling-lab', selector: '#scale-stepper .inputWrap', prop: 'border-top-color',
-    expected: 'rgb(173, 173, 173)', colorScheme: 'light',
-    note: 'DS input/border/default light = N600 #adadad' },
+    expected: 'rgb(130, 130, 130)', colorScheme: 'light',
+    note: 'DS input/border/default light = N500 #828282 (v2.0.10, 3:1 against the field)' },
   // NB: no rendered border-WIDTH assertion here — Chrome rounds a 1.5px border to whole
   // device pixels, so getComputedStyle reports "2px" and the check is DPR-dependent.
   // The width is covered statically instead (the rule now uses var(--general-thickness)).
