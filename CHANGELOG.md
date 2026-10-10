@@ -7,6 +7,10 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.20 · 10 October 2026
+
+- A list row drawn without its action button (`.no-button`, Figma's Show Action Focus off) keeps it hidden on hover and with the focus; the rules that show it on hover outranked the one that hides it.
+
 ## v2.0.19 · 10 October 2026
 
 - A list row is reached by the keyboard (WCAG 2.1.1): its main action is a button around its label (`.buttonList-main`) that covers the whole row, so Tab reaches it and Enter or Space acts on it, while its own action button and badge stay apart; that button shows while the row has the focus, as on hover, so Tab reaches it next. A selected row is heard as pressed. Each product wraps its rows' labels in it.
