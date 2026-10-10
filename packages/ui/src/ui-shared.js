@@ -202,12 +202,20 @@ function varTypeIconHtml(type, size) {
   // A tip opened from the keyboard sits under its trigger.
   function placeAt(el) { const r = el.getBoundingClientRect(); cursorX = r.left; cursorY = r.bottom - 6; place(); }
 
+  // The tip is added to what describes its trigger and taken off again, never in place of a description it already has;
+  // a trigger the tip already names (an icon-only button) is not described by the same words twice.
+  function describe(el, on) {
+    const ids = (el.getAttribute('aria-describedby') || '').split(/\s+/).filter((id) => id && id !== 'tt');
+    if (on && el.getAttribute('aria-label') !== el.dataset.tip) ids.push('tt');
+    if (ids.length) el.setAttribute('aria-describedby', ids.join(' ')); else el.removeAttribute('aria-describedby');
+  }
+
   function show(el, focus) {
     clearTimeout(hideTimer);
-    if (activeEl && activeEl !== el) activeEl.removeAttribute('aria-describedby');
+    if (activeEl && activeEl !== el) describe(activeEl, false);
     activeEl = el; byFocus = !!focus;
     tt.textContent = el.dataset.tip;
-    el.setAttribute('aria-describedby', 'tt');
+    describe(el, true);
     tt.classList.remove('tt-visible');
     clearTimeout(showTimer);
     showTimer = setTimeout(() => {
@@ -219,7 +227,7 @@ function varTypeIconHtml(type, size) {
   function hide() {
     clearTimeout(showTimer); clearTimeout(hideTimer);
     tt.classList.remove('tt-visible');
-    if (activeEl) activeEl.removeAttribute('aria-describedby');
+    if (activeEl) describe(activeEl, false);
     activeEl = null;
   }
   const hideSoon = () => { clearTimeout(hideTimer); hideTimer = setTimeout(hide, GRACE); };
@@ -257,6 +265,57 @@ function varTypeIconHtml(type, size) {
   document.addEventListener('mousedown', (e) => { if (!tt.contains(e.target)) hide(); });
   document.addEventListener('scroll',    hide, true);
   document.addEventListener('keydown',   (e) => { if (e.key === 'Escape' || !byFocus) hide(); }, true);
+})();
+
+// ── Names and descriptions from tips (WCAG 4.1.2, 1.3.1) ──────────────────────
+// A control that shows only an icon and carries a tip (an icon-only button with data-tip) is named by its tip, the
+// words a sighted user reads on it. A tip inside a control's label (a switch's info icon) describes that control: its
+// words go in a hidden element beside the label that the control points to (aria-describedby), never into its name, and
+// the icon is left to the pointer. Kept in step as the page changes (rows drawn later, a tip that changes its words).
+(function () {
+  const CONTROL = 'button, a[href], [role="button"], [role="link"]';
+  let count = 0;
+  const shown = (el) => (el.textContent || '').replace(/\s+/g, ' ').trim();
+  function tend(root) {
+    if (!root || !root.querySelectorAll) return;
+    const tips = root.matches && root.matches('[data-tip]') ? [root, ...root.querySelectorAll('[data-tip]')] : root.querySelectorAll('[data-tip]');
+    for (const tip of tips) {
+      const words = tip.dataset.tip;
+      if (!words) continue;
+      if (tip.matches(CONTROL)) {
+        // Named by its tip while it shows no words and nothing else names it (a name it was given stays).
+        const ours = tip.dataset.tipNamed === '1';
+        if (!shown(tip) && !tip.hasAttribute('aria-labelledby') && (ours || !tip.hasAttribute('aria-label'))) {
+          if (tip.getAttribute('aria-label') !== words) tip.setAttribute('aria-label', words);
+          tip.dataset.tipNamed = '1';
+        } else if (ours && shown(tip)) { tip.removeAttribute('aria-label'); delete tip.dataset.tipNamed; }
+        continue;
+      }
+      const label = tip.closest('label');
+      const control = label && label.control;
+      if (!control || tip.contains(control)) continue;
+      let desc = tip._tipDescription;
+      if (!desc || !desc.isConnected) {
+        desc = document.createElement('span');
+        desc.hidden = true;
+        desc.id = 'tip-description-' + (++count);
+        label.after(desc);
+        tip._tipDescription = desc;
+      }
+      if (desc.textContent !== words) desc.textContent = words;
+      const ids = (control.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+      if (!ids.includes(desc.id)) control.setAttribute('aria-describedby', ids.concat(desc.id).join(' '));
+      const tab = tip.getAttribute('tabindex');
+      if (tab === null || Number(tab) < 0) tip.setAttribute('aria-hidden', 'true');   // one the keyboard reaches stays heard
+    }
+  }
+  const start = () => {
+    tend(document.body);
+    let queued = false;
+    new MutationObserver(() => { if (queued) return; queued = true; Promise.resolve().then(() => { queued = false; tend(document.body); }); })
+      .observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-tip'] });
+  };
+  if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
 })();
 
 // ── HTML escape ───────────────────────────────────────────────────────────────

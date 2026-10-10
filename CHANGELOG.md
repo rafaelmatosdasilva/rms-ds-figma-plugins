@@ -7,6 +7,13 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.21 · 10 October 2026
+
+- A control that shows only an icon and carries a tip (`data-tip` on an icon-only button) is named by its tip, so a screen reader says what it does (WCAG 4.1.2); a name the product gave it stays.
+- A tip inside a control's label (a switch's info icon) describes that control: a screen reader hears its words after the switch's name, never inside it, and the icon stays for the pointer (WCAG 1.3.1).
+- The tooltip adds its words to what already describes its trigger and takes them off again, never in place of that description, and never repeats a name its tip gave.
+- The switch's field (Show Input) is named in the contract's reference markup by the switch's description and its unit.
+
 ## v2.0.20 · 10 October 2026
 
 - A list row drawn without its action button (`.no-button`, Figma's Show Action Focus off) keeps it hidden on hover and with the focus; the rules that show it on hover outranked the one that hides it.
