@@ -7,6 +7,11 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.23 · 10 October 2026
+
+- `actionbar`, the class the system writes, is the toolbar (v2.0.22 looked for `actionBar` and missed it).
+- `dividerSection`'s heading carries its level, 2, the one a screen reader gives a heading with none, so the role is complete.
+
 ## v2.0.22 · 10 October 2026
 
 - The components Figma gives a role carry it wherever a product draws them (WCAG 4.1.2, 1.3.1): `statusBar` and `actionBar` are toolbars, `dividerSection` is a heading, a `node` that is not already a button acts as one (Tab reaches it, Enter and Space press it), and the `listItem`s that fill a container are a list of list items. A role the product gave stays; no name or heading level Figma does not give is invented.

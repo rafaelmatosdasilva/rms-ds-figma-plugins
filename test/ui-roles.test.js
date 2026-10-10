@@ -17,14 +17,15 @@ function page(body) {
 
 describe('@rms/ui — roles Figma gives the components', () => {
   it('gives toolbars, headings and buttons their roles, and leaves a role a product gave alone', () => {
-    const w = page(`<div class="statusBar" id="sb"></div><div class="actionBar" id="ab" role="group"></div>
+    const w = page(`<div class="statusBar" id="sb"></div><div class="actionbar" id="ab" role="group"></div><div class="actionbar actionbar-split" id="ab2"></div>
       <div class="dividerSection" id="ds"><div class="dividerSection-content">Alias tokens</div></div>
       <div class="node graph-node" id="n">Node</div><button class="node" id="b">Var</button>`);
     const d = w.document;
     expect(d.getElementById('sb').getAttribute('role')).toBe('toolbar');
     expect(d.getElementById('ab').getAttribute('role')).toBe('group');
+    expect(d.getElementById('ab2').getAttribute('role')).toBe('toolbar');
     expect(d.getElementById('ds').getAttribute('role')).toBe('heading');
-    expect(d.getElementById('ds').hasAttribute('aria-level')).toBe(false);   // a level Figma does not give is not invented
+    expect(d.getElementById('ds').getAttribute('aria-level')).toBe('2');   // the level ARIA gives a heading with none
     expect(d.getElementById('n').getAttribute('role')).toBe('button');
     expect(d.getElementById('n').getAttribute('tabindex')).toBe('0');
     expect(d.getElementById('b').hasAttribute('role')).toBe(false);
