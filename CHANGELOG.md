@@ -7,6 +7,10 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.25 · 10 October 2026
+
+- The contract records the rules that colour a list row's action icon under the selectors the theme writes since v2.0.20 (`:not(.selected, .no-button)`), the focused row's included.
+
 ## v2.0.24 · 10 October 2026
 
 - A list row's tooltipButton sits flush after its title, as Figma's buttonList draws it (gap 0), in every product: the system cancels the row's gap after `.buttonList-main`, so a product needs no rule of its own.
