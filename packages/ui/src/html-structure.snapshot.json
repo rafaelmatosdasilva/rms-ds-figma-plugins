@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-10-06",
+  "_updated": "2026-10-10",
   "impact-atlas": {
     "ids": [
       "canvas-scan-btn",
@@ -72,6 +72,7 @@
       "toast-container",
       "progress-container",
       "deep-scan-modal",
+      "deep-scan-title",
       "depth-opt-1",
       "depth-radio-1",
       "depth-opt-2",
@@ -290,6 +291,12 @@
         "text": ""
       },
       {
+        "id": "sb-lib-badge",
+        "svg": true,
+        "spans": [],
+        "text": ""
+      },
+      {
         "id": "sb-export-btn",
         "svg": true,
         "spans": [],
@@ -335,12 +342,14 @@
       "view-export-btn",
       "colors-panel",
       "no-colors-state",
+      "no-colors-title",
       "color-body",
       "export-panel",
       "export-format-label",
       "fmt-pdf",
       "fmt-tiff",
       "card-output",
+      "card-output-label",
       "pdfx-toggle",
       "preservespot-toggle",
       "cmyk-images-toggle",
@@ -348,11 +357,13 @@
       "dpi-wrap",
       "dpi-input",
       "card-tiff",
+      "card-tiff-label",
       "tiff-zip-toggle",
       "tiff-transparent-toggle",
       "tiff-dpi-wrap",
       "tiff-dpi-input",
       "card-marks",
+      "card-marks-label",
       "cropmarks-toggle",
       "regmarks-toggle",
       "colorbars-toggle",
@@ -536,6 +547,7 @@
     "ids": [
       "progress-container",
       "empty-state",
+      "empty-state-text",
       "scan-btn",
       "results-ui",
       "actionbar",
