@@ -635,6 +635,71 @@ document.querySelectorAll('.buttonStepper').forEach(function (s) {
   if (f && f.getAttribute('role') === 'spinbutton') initButtonStepper(s);
 });
 
+// ── Modal ─────────────────────────────────────────────────────────────────────
+// openModal(modal, { opener, initialFocus, onClose }) and closeModal(modal), for the system's
+// <div class="modal"><div class="modal-overlay"></div><div class="modal-card">…</div></div> (WCAG 2.1.1, 2.1.2, 2.4.3,
+// 4.1.2): the card is a modal dialog named by its .modal-title (unless the markup already says what it is), the focus
+// moves into it (initialFocus, else its first control) and Tab keeps it there, Escape and a click on the overlay close
+// it, and once its closing animation ends the focus goes back to what opened it (opener, else the control that had the
+// focus). onClose runs after that. A modal already open is left as it is.
+var MODAL_FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]):not([type=hidden]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+function openModal(modal, opts) {
+  if (!modal) return;
+  var o = opts || {};
+  var st = modal._modal || (modal._modal = {});
+  if (st.timer) { clearTimeout(st.timer); st.timer = null; modal.classList.remove('is-closing'); }
+  var card = modal.querySelector('.modal-card') || modal;
+  if (!modal.getAttribute('role') && !card.getAttribute('role')) {
+    card.setAttribute('role', 'dialog');
+    card.setAttribute('aria-modal', 'true');
+    var title = card.querySelector('.modal-title');
+    if (title && !card.hasAttribute('aria-labelledby')) { if (!title.id) title.id = (modal.id || 'modal') + '-title'; card.setAttribute('aria-labelledby', title.id); }
+  }
+  st.opener = o.opener || document.activeElement;
+  st.onClose = o.onClose || null;
+  var controls = function () { return Array.prototype.filter.call(card.querySelectorAll(MODAL_FOCUSABLE), function (el) { return el.getClientRects().length > 0; }); };
+  if (!st.wired) {
+    st.wired = true;
+    var overlay = modal.querySelector('.modal-overlay');
+    if (overlay) overlay.addEventListener('click', function () { closeModal(modal); });
+    st.keys = function (e) {
+      if (!modal.classList.contains('is-open') || modal.classList.contains('is-closing')) return;
+      if (e.key === 'Escape') { e.preventDefault(); closeModal(modal); return; }
+      if (e.key !== 'Tab') return;
+      var list = controls();
+      if (!list.length) { e.preventDefault(); return; }
+      var first = list[0], last = list[list.length - 1];
+      if (e.shiftKey && (document.activeElement === first || !card.contains(document.activeElement))) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && (document.activeElement === last || !card.contains(document.activeElement))) { e.preventDefault(); first.focus(); }
+    };
+  }
+  if (modal.classList.contains('is-open')) return;
+  modal.classList.add('is-open');
+  document.addEventListener('keydown', st.keys);
+  var want = typeof o.initialFocus === 'string' ? card.querySelector(o.initialFocus) : o.initialFocus;
+  var target = want || controls()[0] || card;
+  if (target === card && !card.hasAttribute('tabindex')) card.setAttribute('tabindex', '-1');
+  target.focus();
+}
+function closeModal(modal) {
+  if (!modal || !modal.classList.contains('is-open') || modal.classList.contains('is-closing')) return;
+  var st = modal._modal || (modal._modal = {});
+  if (st.keys) document.removeEventListener('keydown', st.keys);
+  modal.classList.add('is-closing');
+  var card = modal.querySelector('.modal-card') || modal;
+  var done = function () {
+    if (!st.timer) return;
+    clearTimeout(st.timer); st.timer = null;
+    card.removeEventListener('animationend', onEnd);
+    modal.classList.remove('is-open', 'is-closing');
+    if (st.opener && st.opener.focus && document.contains(st.opener)) st.opener.focus();
+    if (st.onClose) st.onClose();
+  };
+  var onEnd = function (e) { if (e.target === card) done(); };
+  card.addEventListener('animationend', onEnd);
+  st.timer = setTimeout(done, 400);   // at the latest: a card with no closing animation still closes
+}
+
 // ── States a screen reader hears, kept with the classes that draw them ──────────
 // A product draws a state with a class: a selected or a disabled node, the radio on the current step. The attribute
 // a screen reader reads follows that class wherever and whenever it is set (WCAG 4.1.2), so a product toggles the
@@ -643,6 +708,8 @@ var CLASS_STATES = [
   { sel: 'button.node', cls: 'node-selected', attr: 'aria-pressed', on: 'true', off: 'false' },
   { sel: '.node', cls: 'node-disabled', attr: 'aria-disabled', on: 'true', off: null },
   { sel: '.radioButton', cls: 'radioButton--current', attr: 'aria-current', on: 'step', off: null },
+  // A list row's selection is heard on its own action, the button that covers the row.
+  { sel: '.buttonList', cls: 'selected', attr: 'aria-pressed', on: 'true', off: 'false', part: '.buttonList-main' },
 ];
 function syncClassStates(root) {
   if (!root || root.nodeType !== 1) return;
@@ -651,8 +718,10 @@ function syncClassStates(root) {
     if (root.matches(r.sel)) els.push(root);
     els.forEach(function (el) {
       var want = el.classList.contains(r.cls) ? r.on : r.off;
-      if (want === null) { if (el.hasAttribute(r.attr)) el.removeAttribute(r.attr); }
-      else if (el.getAttribute(r.attr) !== want) el.setAttribute(r.attr, want);
+      var at = r.part ? el.querySelector(r.part) : el;   // the state is heard on a part of the element, or on itself
+      if (!at) return;
+      if (want === null) { if (at.hasAttribute(r.attr)) at.removeAttribute(r.attr); }
+      else if (at.getAttribute(r.attr) !== want) at.setAttribute(r.attr, want);
     });
   });
 }

@@ -7,6 +7,12 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.19 · 10 October 2026
+
+- A list row is reached by the keyboard (WCAG 2.1.1): its main action is a button around its label (`.buttonList-main`) that covers the whole row, so Tab reaches it and Enter or Space acts on it, while its own action button and badge stay apart. A selected row is heard as pressed. Each product wraps its rows' labels in it.
+- The system has a modal (`openModal`, `closeModal`): a named modal dialog that takes the focus and keeps it while Tab moves, closes with Escape or a click on the overlay, and gives the focus back to what opened it. Each product's own open and close code goes.
+- A disabled field is said in the contract the way a screen reader hears it: the look on its wrapper, the field itself disabled (`heardOn`).
+
 ## v2.0.18 · 9 October 2026
 
 - The states a product draws with a class are heard too, whoever sets the class and whenever: a selected node is pressed (`aria-pressed`), a disabled one says so (`aria-disabled`), and the radio button on the current step says it (`aria-current="step"`). A product keeps toggling the class alone.

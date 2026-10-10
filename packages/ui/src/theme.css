@@ -1418,6 +1418,17 @@
   .buttonList:hover .tooltipButton svg,
   .buttonList.hovered .tooltipButton svg,
   .buttonList.selected .tooltipButton svg { color: var(--tooltipButton-icon); }
+  /* The row's own action (WCAG 2.1.1): a button around its label that covers the whole row, so Tab reaches the row
+     and Enter or Space acts on it, while the row's other controls (its action button, a badge) stay above it and
+     apart (a button never holds another). Its focus ring is drawn on the row's pill. */
+  .buttonList > .buttonList-main {
+    position: static; z-index: auto;
+    display: flex; align-items: center; flex: 1; min-width: 0; height: auto;
+    padding: 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: inherit;
+  }
+  .buttonList-main::after { content: ''; position: absolute; inset: 4px 0; border-radius: var(--radii-button); }
+  .buttonList-main:focus-visible { outline: none; }
+  .buttonList-main:focus-visible::after { outline: var(--general-thickness) solid var(--input-border-focus); outline-offset: 1px; }
   /* Chevron arrow — iconSecondary on both hover and selected. Must be last child in DOM. */
   .buttonList-arrow { display: none; flex-shrink: 0; color: var(--buttonList-iconSecondary); }
   .buttonList.selected .buttonList-arrow { display: block; color: var(--buttonList-iconSecondary); }

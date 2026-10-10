@@ -88,3 +88,47 @@ ArrowUp and ArrowDown step it, Home and End go to its ends, Enter leaves the fie
 its range. The buttons turn off at each end. The field carries `role="spinbutton"` with `aria-valuemin`,
 `aria-valuemax`, `aria-valuenow` and `aria-valuetext`, kept up to date. A stepper whose field already has
 `role="spinbutton"` (and its range in those attributes) works without the call.
+
+## Button List
+
+A row with an icon, a label and, optionally, its own action button and a badge. The row's main action is a button
+around its label (`.buttonList-main`) that covers the whole row: Tab reaches the row, Enter or Space acts on it, and a
+click anywhere on the row still lands on the row, so a product's delegated handler (`closest('.buttonList')`) runs as
+before. The row's other controls sit above it and apart; a button never holds another.
+
+```html
+<div class="buttonList">
+  <div class="lrow-icon"><svg><!-- icon --></svg></div>
+  <button type="button" class="buttonList-main"><span class="lrow-name">Title</span></button>
+  <button class="buttonList-action buttonTertiary" aria-label="Focus on canvas"><svg><!-- focus --></svg></button>
+  <svg class="buttonList-arrow"><!-- arrow --></svg>
+</div>
+```
+
+`.selected` on the row is heard as `aria-pressed="true"` on its `.buttonList-main` (`ui-shared.js` keeps it).
+
+## Modal
+
+```html
+<div id="export-modal" class="modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-card">
+    <div class="modal-header"><h2 class="modal-title">Export</h2><button class="buttonSecondary modal-close" aria-label="Close">…</button></div>
+    <div class="modal-slot">…</div>
+    <div class="modal-footer"><button class="buttonSecondary">Cancel</button><button class="buttonPrimary">Export</button></div>
+  </div>
+</div>
+```
+
+```javascript
+openModal(document.getElementById('export-modal'), {
+  initialFocus: '.buttonPrimary',        // else its first control
+  onClose: () => console.log('closed'),  // after the closing animation, with the focus given back
+});
+closeModal(document.getElementById('export-modal'));   // Cancel, the close button, a finished action
+```
+
+The card is a modal dialog named by its `.modal-title` (unless the markup already says what it is). The focus moves
+into it and Tab keeps it there; Escape and a click on the overlay close it; once its closing animation ends the focus
+goes back to what opened it. A product writes no open, close, Escape or focus code of its own.
+
