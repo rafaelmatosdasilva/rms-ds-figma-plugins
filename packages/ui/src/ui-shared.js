@@ -657,7 +657,16 @@ function openModal(modal, opts) {
   }
   st.opener = o.opener || document.activeElement;
   st.onClose = o.onClose || null;
-  var controls = function () { return Array.prototype.filter.call(card.querySelectorAll(MODAL_FOCUSABLE), function (el) { return el.getClientRects().length > 0; }); };
+  // What Tab stops on, in order. A radio group is one stop: its checked radio, else its first.
+  var controls = function () {
+    var all = Array.prototype.filter.call(card.querySelectorAll(MODAL_FOCUSABLE), function (el) { return el.getClientRects().length > 0; });
+    return all.filter(function (el) {
+      if (el.type !== 'radio' || !el.name) return true;
+      var group = all.filter(function (r) { return r.type === 'radio' && r.name === el.name; });
+      var checked = group.filter(function (r) { return r.checked; })[0];
+      return el === (checked || group[0]);
+    });
+  };
   if (!st.wired) {
     st.wired = true;
     var overlay = modal.querySelector('.modal-overlay');

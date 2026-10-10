@@ -1430,6 +1430,10 @@
   .buttonList-main::after { content: ''; position: absolute; inset: 4px 0; border-radius: var(--radii-button); }
   .buttonList-main:focus-visible { outline: none; }
   .buttonList-main:focus-visible::after { outline: var(--general-thickness) solid var(--input-border-focus); outline-offset: 1px; }
+  /* With a tooltipButton (Show Tooltip) after it, the Title hugs its text and the tooltipButton sits beside it; the
+     row's actions stay at the far end. */
+  .buttonList > .buttonList-main:has(+ .tooltipButton) { flex: 0 1 auto; }
+  .buttonList > .buttonList-main + .tooltipButton { margin-right: auto; }
   /* Chevron arrow — iconSecondary on both hover and selected. Must be last child in DOM. */
   .buttonList-arrow { display: none; flex-shrink: 0; color: var(--buttonList-iconSecondary); }
   .buttonList.selected .buttonList-arrow { display: block; color: var(--buttonList-iconSecondary); }

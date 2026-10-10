@@ -96,6 +96,7 @@ around its label (`.buttonList-main`) that covers the whole row: Tab reaches the
 click anywhere on the row still lands on the row, so a product's delegated handler (`closest('.buttonList')`) runs as
 before. The row's other controls sit above it and apart; a button never holds another. The row's action button shows
 while the row has the focus, as on hover, so Tab goes from the row to it; a product gives it no `tabindex="-1"`.
+A tooltipButton right after `.buttonList-main` (Show Tooltip) sits beside the title, which then hugs its text.
 
 ```html
 <div class="buttonList">
@@ -130,6 +131,6 @@ closeModal(document.getElementById('export-modal'));   // Cancel, the close butt
 ```
 
 The card is a modal dialog named by its `.modal-title` (unless the markup already says what it is). The focus moves
-into it and Tab keeps it there; Escape and a click on the overlay close it; once its closing animation ends the focus
+into it and Tab keeps it there, a radio group being one stop as in the browser; Escape and a click on the overlay close it; once its closing animation ends the focus
 goes back to what opened it. A product writes no open, close, Escape or focus code of its own.
 
