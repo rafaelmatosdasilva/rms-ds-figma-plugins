@@ -322,12 +322,18 @@ function varTypeIconHtml(type, size) {
 // A component Figma annotates with a role carries it wherever a product draws it, unless the product gave it one:
 // statusBar and actionBar are toolbars, dividerSection is a heading, a node that is not already a button acts as one
 // (a Tab stop that Enter and Space press), and the listItems that fill a container are a list of list items. Only
-// the role: a name or a heading level Figma does not give is not invented. Kept in step as rows are drawn.
+// the role: no name is invented, and a heading's level is the one ARIA gives a heading with none (2). Kept in step as
+// rows are drawn.
 (function () {
-  const ROLES = [['.statusBar', 'toolbar'], ['.actionBar', 'toolbar'], ['.dividerSection', 'heading']];
+  const ROLES = [['.statusBar', 'toolbar'], ['.actionbar', 'toolbar'], ['.dividerSection', 'heading']];   // the classes the theme writes
   function tend(root) {
     if (!root || !root.querySelectorAll) return;
-    for (const [sel, role] of ROLES) for (const el of root.querySelectorAll(sel)) if (!el.hasAttribute('role')) el.setAttribute('role', role);
+    for (const [sel, role] of ROLES) for (const el of root.querySelectorAll(sel)) {
+      if (el.hasAttribute('role')) continue;
+      el.setAttribute('role', role);
+      // A heading's level, written as the one a screen reader gives a heading with none (2), so the role is complete.
+      if (role === 'heading' && !el.hasAttribute('aria-level')) el.setAttribute('aria-level', '2');
+    }
     for (const el of root.querySelectorAll('.node')) {
       if (el.matches('button, a[href], input, [role]')) continue;   // a native control stays one; a role given stays
       el.setAttribute('role', 'button');
