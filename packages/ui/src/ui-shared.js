@@ -654,12 +654,27 @@ function initPanelResize(panelEl, opts) {
     });
   }
 
-  function sync() { overlay.classList.toggle('visible', hasActive()); }
+  // While a progress message covers the page, the page behind it is out of reach: Tab never lands on a control the
+  // overlay hides (WCAG 2.4.11), and a screen reader stays with the message. Only what the overlay made inert is let go.
+  function sync() {
+    const on = hasActive();
+    overlay.classList.toggle('visible', on);
+    Array.from(document.body.children).forEach(ch => {
+      if (ch === overlay || allIds.includes(ch.id) || ch.tagName === 'SCRIPT' || ch.getAttribute('role') === 'tooltip') return;
+      if (on && !ch.hasAttribute('inert')) { ch.setAttribute('inert', ''); ch.dataset.overlayInert = '1'; }
+      else if (!on && ch.dataset.overlayInert) { ch.removeAttribute('inert'); delete ch.dataset.overlayInert; }
+    });
+  }
 
   allIds.forEach(id => {
     const c = document.getElementById(id);
-    if (c) new MutationObserver(sync).observe(c, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
+    if (!c) return;
+    // A toast or a progress message is said by a screen reader as it comes (WCAG 4.1.3).
+    if (!c.hasAttribute('role')) c.setAttribute('role', 'status');
+    if (!c.hasAttribute('aria-live')) c.setAttribute('aria-live', 'polite');
+    new MutationObserver(sync).observe(c, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
   });
+  sync();
 })();
 
 // ── Segmented control helper ────────────────────────────────────────────────
