@@ -4,8 +4,9 @@ import { JSDOM } from 'jsdom';
 
 // The components Figma gives a role carry it wherever a product draws them (WCAG 4.1.2, 1.3.1): statusBar and actionBar
 // are toolbars, dividerSection is a heading, a node acts as a button, the listItems that fill a container are a list,
-// and a card is named by its title only while it has one. A stepper drawn after the page loads works as one there from
-// the start.
+// the table/rows that fill one are a table, and a card is named by its title only while it has one. A stepper or a
+// segmented control drawn after the page loads works as one there from the start, and the shared tip is out of a
+// screen reader's way while it shows nothing.
 // The system draws one spinner, and highlightSelector's Selected state has Figma's 4px corners.
 const SCRIPT = readFileSync(new URL('../packages/ui/src/ui-shared.js', import.meta.url), 'utf8');
 const THEME = readFileSync(new URL('../packages/ui/src/theme.css', import.meta.url), 'utf8');
@@ -52,6 +53,21 @@ describe('@rms/ui — roles Figma gives the components', () => {
     expect(d.getElementById('mixed').hasAttribute('role')).toBe(false);
     expect(d.getElementById('m1').hasAttribute('role')).toBe(false);
   });
+
+  it('makes the table/rows that fill a container a table of rows and cells; the divider under a row is only its line', async () => {
+    const w = page('<div id="t"></div><div id="mixed"><h3>Title</h3><div class="tableRow" id="m1"></div></div>');
+    const d = w.document;
+    d.getElementById('t').innerHTML = '<div class="tableRow" id="r1"><div class="tableRow-content"><div class="tableRow-variable" id="c1">Ink</div><button id="b1">Reset</button></div><div class="dividerLine" role="separator" id="line"></div></div><div class="tableRow" id="r2"><div class="tableRow-content"><div id="c2">Paper</div></div></div>';
+    await tick();
+    expect(d.getElementById('t').getAttribute('role')).toBe('table');
+    expect(d.getElementById('r1').getAttribute('role')).toBe('row');
+    expect(d.getElementById('c1').getAttribute('role')).toBe('cell');
+    expect(d.getElementById('c2').getAttribute('role')).toBe('cell');
+    expect(d.getElementById('b1').hasAttribute('role')).toBe(false);   // a control keeps its own role
+    expect(d.getElementById('line').getAttribute('role')).toBe('none');   // a row holds cells
+    expect(d.getElementById('mixed').hasAttribute('role')).toBe(false);
+    expect(d.getElementById('m1').hasAttribute('role')).toBe(false);
+  });
 });
 
 describe('@rms/ui — components drawn after the page loads', () => {
@@ -64,6 +80,38 @@ describe('@rms/ui — components drawn after the page loads', () => {
     f.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true }));
     expect(f.getAttribute('aria-valuenow')).toBe('101');
     expect(f.value).toBe('101%');
+  });
+
+  it('makes a segmented control drawn later a radio group, its options radios that are checked, never pressed', async () => {
+    const w = page('<div id="host"></div>');
+    const d = w.document;
+    d.getElementById('host').innerHTML = '<div class="segmented-control" aria-label="View" id="sc"><span class="seg-pill" aria-hidden="true"></span><button class="selected" aria-pressed="true" id="o1">List</button><button aria-pressed="false" id="o2">Grid</button></div>';
+    await tick();
+    const sc = d.getElementById('sc'), o1 = d.getElementById('o1'), o2 = d.getElementById('o2');
+    expect(sc.getAttribute('role')).toBe('radiogroup');
+    expect([o1.getAttribute('role'), o1.getAttribute('aria-checked'), o2.getAttribute('aria-checked')]).toEqual(['radio', 'true', 'false']);
+    expect(o1.hasAttribute('aria-pressed') || o2.hasAttribute('aria-pressed')).toBe(false);
+    expect([o1.tabIndex, o2.tabIndex]).toEqual([0, -1]);
+    expect(sc.classList.contains('has-pill')).toBe(true);
+  });
+
+  it('keeps the shared tip out of a screen reader\'s way while it shows nothing', () => {
+    expect(THEME).toMatch(/#tt \{[^}]*opacity: 0;\s*visibility: hidden;/);
+    expect(THEME).toMatch(/#tt\.tt-visible \{[^}]*visibility: visible;/);
+  });
+
+  it('names a switch\'s field only by the words that show: its label alone while its description is off', async () => {
+    const w = page('<label class="switch" id="s"><input type="checkbox" class="switch-input"><span class="switch-content"><span class="switch-label" id="l">Bleed</span><span class="switch-description" id="d">In mm</span><span class="inputWrap"><input class="inputField" id="f" aria-labelledby="l d"></span></span></label>');
+    const d = w.document, f = d.getElementById('f');
+    d.getElementById('d').remove();
+    await tick();
+    expect(f.getAttribute('aria-labelledby')).toBe('l');   // never an id that is not on the page
+    d.getElementById('l').remove();
+    await tick();
+    expect(f.hasAttribute('aria-labelledby')).toBe(false);
+    d.querySelector('.switch-content').insertAdjacentHTML('afterbegin', '<span class="switch-label" id="l">Bleed</span><span class="switch-description" id="d">In mm</span>');
+    await tick();
+    expect(f.getAttribute('aria-labelledby')).toBe('l d');
   });
 
   it('names a card by its title only while it shows one', async () => {

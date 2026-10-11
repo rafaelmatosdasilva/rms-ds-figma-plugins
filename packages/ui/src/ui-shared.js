@@ -323,8 +323,9 @@ function varTypeIconHtml(type, size) {
 // ── Roles Figma gives the components (WCAG 4.1.2, 1.3.1) ──────────────────────
 // A component Figma annotates with a role carries it wherever a product draws it, unless the product gave it one:
 // statusBar and actionBar are toolbars, dividerSection is a heading, a node that is not already a button acts as one
-// (a Tab stop that Enter and Space press), a card is named by its title only while it has one, and the listItems that
-// fill a container are a list of list items. Only
+// (a Tab stop that Enter and Space press), an element named by words beside it (a card by its title, a switch's field by
+// its description) only while they show, the listItems that
+// fill a container are a list of list items, and the table/rows that fill one are a table of rows and cells. Only
 // the role: no name is invented, and a heading's level is the one ARIA gives a heading with none (2). Kept in step as
 // rows are drawn.
 (function () {
@@ -343,13 +344,34 @@ function varTypeIconHtml(type, size) {
       if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
       el.dataset.nodeButton = '1';
     }
-    // A card is named by its title while it shows one: with the title gone, the name it pointed to goes too (an
-    // aria-labelledby to nothing is invalid), and it comes back with the title.
-    for (const card of root.querySelectorAll('.card[aria-labelledby], .card[data-labelledby]')) {
-      const ids = card.getAttribute('aria-labelledby') || card.dataset.labelledby;
-      const there = ids.split(/\s+/).some((id) => id && document.getElementById(id));
-      if (!there && card.hasAttribute('aria-labelledby')) { card.dataset.labelledby = ids; card.removeAttribute('aria-labelledby'); }
-      else if (there && !card.hasAttribute('aria-labelledby')) { card.setAttribute('aria-labelledby', ids); delete card.dataset.labelledby; }
+    // An element named by words on the page is named by them while they show: a card by its title, a switch's field by
+    // its label and the description beside it. Words gone (Show Title or Show Description off) leave its
+    // aria-labelledby, which points only at what is there (an id that is not on the page is invalid), and none at all
+    // when nothing is; the whole list is kept aside and comes back with the words.
+    for (const el of root.querySelectorAll('[aria-labelledby], [data-labelledby]')) {
+      const all = el.dataset.labelledby || el.getAttribute('aria-labelledby');
+      const ids = all.split(/\s+/).filter(Boolean), here = ids.filter((id) => document.getElementById(id));
+      if (here.length === ids.length) {
+        if (el.dataset.labelledby !== undefined) { el.setAttribute('aria-labelledby', all); delete el.dataset.labelledby; }
+        continue;
+      }
+      el.dataset.labelledby = all;
+      if (here.length) { if (el.getAttribute('aria-labelledby') !== here.join(' ')) el.setAttribute('aria-labelledby', here.join(' ')); }
+      else el.removeAttribute('aria-labelledby');
+    }
+    // A table/row is a row of cells, and a container that holds rows alone is their table (Figma's Role: row). The
+    // divider a row draws under itself is only its line: a row holds cells, and a control at a row's top level keeps
+    // its own role.
+    for (const row of root.querySelectorAll('.tableRow')) {
+      const table = row.parentElement;
+      if (!table || row.hasAttribute('role')) continue;
+      if (![...table.children].every((c) => c.matches('.tableRow, template, script'))) continue;
+      if (!table.hasAttribute('role')) table.setAttribute('role', 'table');
+      if (table.getAttribute('role') !== 'table') continue;
+      row.setAttribute('role', 'row');
+      const content = row.querySelector(':scope > .tableRow-content');
+      for (const cell of content ? content.children : []) if (!cell.matches('button, a[href], input, select, textarea, [role]')) cell.setAttribute('role', 'cell');
+      for (const line of row.querySelectorAll(':scope > .dividerLine')) line.setAttribute('role', 'none');
     }
     for (const item of root.querySelectorAll('.listItem')) {
       const list = item.parentElement;
@@ -892,6 +914,7 @@ function initSegmentedControl(container) {
     opts.forEach(function (b) {
       b.setAttribute('role', 'radio');
       b.setAttribute('aria-checked', b.classList.contains('selected') ? 'true' : 'false');
+      if (b.hasAttribute('aria-pressed')) b.removeAttribute('aria-pressed');   // a radio is checked, never pressed (WCAG 4.1.2)
       b.tabIndex = b === chosen ? 0 : -1;
     });
   };
@@ -962,3 +985,26 @@ if (typeof ResizeObserver !== 'undefined') {
   });
   document.querySelectorAll('.segmented-control').forEach(function (c) { _segPillRO.observe(c); });
 }
+
+// A segmented control drawn later (a product's own markup put in the page after this script ran) is a radio group with
+// its pill too, as one on the page from the start is: a product does not have to call initSegmentedControl for it.
+(function () {
+  var tend = function (root) {
+    if (!root || !root.querySelectorAll) return;
+    root.querySelectorAll('.segmented-control').forEach(function (c) {
+      if (c._radio) return;
+      initSegmentedControl(c);
+      c.classList.add('has-pill');
+      updateSegPill(c, true);
+      if (typeof _segPillRO !== 'undefined') _segPillRO.observe(c);
+    });
+  };
+  var start = function () {
+    var body = document.body, queued = false;
+    tend(body);
+    if (typeof MutationObserver === 'undefined') return;
+    new MutationObserver(function () { if (queued) return; queued = true; Promise.resolve().then(function () { queued = false; if (body.ownerDocument.defaultView) tend(body); }); })
+      .observe(body, { subtree: true, childList: true });
+  };
+  if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
+})();

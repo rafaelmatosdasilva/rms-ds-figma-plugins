@@ -7,6 +7,14 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.29 · 11 October 2026
+
+- A segmented control drawn after the page loads is a radio group too, with its pill: Tab reaches its chosen option and the arrow keys move between them (WCAG 2.1.1, 4.1.2). The system made radio groups only of the controls on the page when it loaded, so one a product drew later kept a name on a plain `div`, which is not allowed. A radio's `aria-pressed` is taken off: a radio is checked, never pressed.
+- The table/rows that fill a container are a table of rows and cells, as Figma's Role: row asks (WCAG 1.3.1). The divider a row draws under itself is only its line, and a control at a row's top level keeps its own role.
+- Usage says how a product names the variants that show no words: buttonPrimary and buttonSecondary with Show Label off, checkBox and radioButton with Show Text off, segmentedControlSegment with Show Label off and switch with Show Description off (a tip or an `aria-label`, or `aria-labelledby` on the words beside it).
+- A switch's field is named only by the words that show. With Show Description off its `aria-labelledby` still pointed at the description, which was gone, and that is invalid (WCAG 4.1.2); it now points only at what is on the page, and at the whole list again when the words come back. Any element named by words on the page follows them this way, a card's title included (since v2.0.28).
+- The shared tip is out of a screen reader's way while it shows nothing. It was an empty tooltip a screen reader could land on (WCAG 4.1.2); its trigger still reads its words as its description.
+
 ## v2.0.28 · 11 October 2026
 
 - A stepper drawn after the page loads works by keyboard too: ArrowUp and ArrowDown step its value, as on a stepper there from the start (WCAG 2.1.1). The system wired only the steppers on the page when it loaded.

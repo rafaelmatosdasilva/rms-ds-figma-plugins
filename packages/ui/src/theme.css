@@ -618,10 +618,11 @@
     z-index: 10002;   /* above the modal (card is 10001) so tooltips aren't trapped behind it */
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.15s ease;
+    visibility: hidden;   /* out of a screen reader's way while it shows nothing; its trigger still reads it as its description */
+    transition: opacity 0.15s ease, visibility 0s linear 0.15s;
     line-height: var(--typography-s-line-height);
   }
-  #tt.tt-visible { opacity: 1; pointer-events: auto; }   /* the pointer can rest on it (WCAG 1.4.13) */
+  #tt.tt-visible { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity 0.15s ease; }   /* the pointer can rest on it (WCAG 1.4.13) */
 
   /* ── Secondary button (refresh, export, add) ── */
   .buttonSecondary {
