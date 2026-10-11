@@ -95,17 +95,20 @@ jobs:
           done
       # The audit measures each component where the style guide draws it (its whole default markup, as Figma's
       # default variant), so the page is built first; without it the audit measures bare elements and reports
-      # heights that are not the component's. It is built again below with the differences this audit wrote.
+      # heights that are not the component's. It is built again below with the differences this audit wrote, so this
+      # first build leaves out the accessibility tried in a browser (--no-a11y-bake); the second one keeps it in the page.
       - name: Build the style guide the audit measures on
         working-directory: rms-ds-figma-plugins
-        run: node ../engine/audit.mjs --styleguide
+        run: node ../engine/audit.mjs --styleguide --no-a11y-bake
       - name: Audit against Figma (writes the differences the page shows; a failing audit still publishes)
         working-directory: rms-ds-figma-plugins
         run: node ../engine/audit.mjs || true
       - name: Build the style guide, add the links, check the page against the system
         working-directory: rms-ds-figma-plugins
         # With the FIGMA_TOKEN secret set, each component's Figma image of every variant goes on the page (Figma beside
-        # the code); without it the page is built the same, with no Figma images.
+        # the code); without it the page is built the same, with no Figma images. The build also opens the page in
+        # Chrome and tries every component's accessibility, every variant, and keeps the results in the page, so the
+        # published page shows them at once with nothing running while it is read.
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
         run: |
