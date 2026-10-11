@@ -60,9 +60,7 @@ jobs:
             p.dependencies["@rms/ds-core"] = "link:../ds"; fs.writeFileSync("package.json", JSON.stringify(p, null, 2) + "\n");'
           (cd ../ds && pnpm install --frozen-lockfile)
           pnpm install --no-frozen-lockfile
-      - name: Test
-        working-directory: product
-        run: pnpm test
+      # Built first, so the tests judge the page this checkout builds, not the one the product last committed.
       - name: Build
         working-directory: product
         run: |
@@ -70,3 +68,6 @@ jobs:
           pnpm check
           if git diff --quiet -- code.js ui.html; then echo "${{ matrix.repo }}: built output unchanged" >> "$GITHUB_STEP_SUMMARY";
           else echo "${{ matrix.repo }}: built output changes (a release will ship it)" >> "$GITHUB_STEP_SUMMARY"; git diff --stat -- code.js ui.html; fi
+      - name: Test
+        working-directory: product
+        run: pnpm test

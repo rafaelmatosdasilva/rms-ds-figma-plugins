@@ -310,10 +310,12 @@ function varTypeIconHtml(type, size) {
     }
   }
   const start = () => {
-    tend(document.body);
+    const body = document.body;
+    tend(body);
     let queued = false;
-    new MutationObserver(() => { if (queued) return; queued = true; Promise.resolve().then(() => { queued = false; tend(document.body); }); })
-      .observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-tip'] });
+    // The body held from the start: a page closed before the queued pass runs (a test's window) is left alone.
+    new MutationObserver(() => { if (queued) return; queued = true; Promise.resolve().then(() => { queued = false; if (body.ownerDocument.defaultView) tend(body); }); })
+      .observe(body, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-tip'] });
   };
   if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
 })();
@@ -357,10 +359,11 @@ function varTypeIconHtml(type, size) {
     n.click();
   });
   const start = () => {
-    tend(document.body);
+    const body = document.body;
+    tend(body);
     let queued = false;
-    new MutationObserver(() => { if (queued) return; queued = true; Promise.resolve().then(() => { queued = false; tend(document.body); }); })
-      .observe(document.body, { subtree: true, childList: true });
+    new MutationObserver(() => { if (queued) return; queued = true; Promise.resolve().then(() => { queued = false; if (body.ownerDocument.defaultView) tend(body); }); })
+      .observe(body, { subtree: true, childList: true });
   };
   if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
 })();
