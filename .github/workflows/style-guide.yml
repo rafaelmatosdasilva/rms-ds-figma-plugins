@@ -7,26 +7,17 @@ name: style guide
 # nothing about Pages; publishing is this workflow's job only. The page must pass the engine's style guide check
 # (only the system's tokens and components on it, its own accessibility) or nothing is published.
 #
-# It republishes on its own: on a push here, and every hour when the engine, this repository or a product has a commit
-# the published page was not built from. The page carries sources.txt (the commit of each one it was built from), and
-# the hourly run compares it with the commits now, so nobody has to start a run by hand and an hour with no change
-# builds nothing.
+# It republishes on its own: on every commit to main here (a release, a fix, a note in the guidelines), and every ten
+# minutes when the engine or a product has a commit the published page was not built from. The page carries
+# sources.txt (the commit of each one it was built from), and the scheduled run compares it with the commits now, so
+# nobody has to start a run by hand and ten minutes with no change build nothing. The page itself opens its newest
+# copy past the ten minutes GitHub Pages keeps one cached.
 
 on:
   push:
     branches: [main]
-    paths:
-      - 'packages/ui/src/**'
-      - 'ds-config.json'
-      - 'contract.authored.json'
-      - 'structure-contract.mjs'
-      - 'design-system-engine-map.mjs'
-      - 'bound-tokens.json'
-      - 'component-state-tokens.json'
-      - 'products.json'
-      - '.github/workflows/style-guide.yml'
   schedule:
-    - cron: '17 * * * *'   # hourly: builds only when the engine, this repository or a product changed since the page was built
+    - cron: '3-59/10 * * * *'   # every ten minutes: builds only when the engine or a product changed since the page was built
   workflow_dispatch:
 
 permissions:
@@ -36,7 +27,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: false   # a build in progress finishes; a newer run waits and builds from the newest commits
 
 jobs:
   # The commit of each source the page is built from, and whether the published page was built from them all.
