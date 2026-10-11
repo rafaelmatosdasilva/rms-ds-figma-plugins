@@ -708,6 +708,14 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.highlightSelector', prop: 'borderTopWidth', expected: '2px',
     note: "highlightSelector Border layer: 2 inside",
     probe: '<span class="highlightSelector"></span>' },
+  // overflow and highlight are the system's own markup here: no product uses them yet, so this is what the style
+  // guide draws and what the browser checks read (Figma Role: group and Role: mark).
+  { plugin: 'impact-atlas', selector: '.overflow', prop: 'borderTopLeftRadius', expected: '12px',
+    note: "overflow: radii/card corners around its title and its overflowList rows",
+    probe: '<div class="overflow" role="group" aria-labelledby="overflow-title"><span class="overflow-label" id="overflow-title">Text</span><button type="button" class="overflowList"><svg width="16" height="16" aria-hidden="true"><use href="#icon-plus"/></svg><span>Value</span></button><button type="button" class="overflowList"><svg width="16" height="16" aria-hidden="true"><use href="#icon-plus"/></svg><span>Value</span></button></div>' },
+  { plugin: 'impact-atlas', selector: '.highlight', prop: 'height', expected: '24px',
+    note: "highlight: its label then its icon, h24",
+    probe: '<mark class="highlight"><span>Label</span><svg width="16" height="16" aria-hidden="true"><use href="#icon-fit"/></svg></mark>' },
   // statusBar (DS 789:38384: h=48, padding/l LR, Title gap/s, Content gap/m)
   { plugin: 'impact-atlas', selector: '#sb-main-row',      prop: 'height',        expected: '48px', note: 'DS statusBar h (56→48, tb rebound padding/l→padding/m 2026-08)' },
   { plugin: 'impact-atlas', selector: '#sb-main-row',      prop: 'paddingLeft',   expected: '16px', note: 'DS statusBar padding/l' },
@@ -818,18 +826,18 @@ export const RENDERED_ASSERTIONS = [
   // these bespoke elements to the DS input component. Asserting BOTH modes is the
   // point — a light-only assertion would still be green with the bug present.
   { plugin: 'impact-atlas', selector: '#search-wrap', prop: 'border-top-color',
-    expected: 'rgb(135, 135, 135)', colorScheme: 'dark',
-    note: 'DS input/border/default dark = N400 #878787 (v2.0.10, 3:1 against the field)' },
+    figmaVar: 'input/border/default', colorScheme: 'dark',
+    note: 'DS input/border/default in dark (3:1 against the field)' },
   { plugin: 'impact-atlas', selector: '#search-wrap', prop: 'border-top-color',
-    expected: 'rgb(130, 130, 130)', colorScheme: 'light',
-    note: 'DS input/border/default light = N500 #828282 (v2.0.10, 3:1 against the field)' },
+    figmaVar: 'input/border/default', colorScheme: 'light',
+    note: 'DS input/border/default in light (3:1 against the field)' },
   // The scale stepper is the system's buttonStepper: its input's border is on the system's .inputWrap.
   { plugin: 'font-scaling-lab', selector: '#scale-stepper .inputWrap', prop: 'border-top-color',
-    expected: 'rgb(135, 135, 135)', colorScheme: 'dark',
-    note: 'DS input/border/default dark = #878787 (as Figma has it since v2.0.10, 3:1 against the field)' },
+    figmaVar: 'input/border/default', colorScheme: 'dark',
+    note: 'DS input/border/default in dark (3:1 against the field)' },
   { plugin: 'font-scaling-lab', selector: '#scale-stepper .inputWrap', prop: 'border-top-color',
-    expected: 'rgb(130, 130, 130)', colorScheme: 'light',
-    note: 'DS input/border/default light = N500 #828282 (v2.0.10, 3:1 against the field)' },
+    figmaVar: 'input/border/default', colorScheme: 'light',
+    note: 'DS input/border/default in light (3:1 against the field)' },
   // NB: no rendered border-WIDTH assertion here — Chrome rounds a 1.5px border to whole
   // device pixels, so getComputedStyle reports "2px" and the check is DPR-dependent.
   // The width is covered statically instead (the rule now uses var(--general-thickness)).
@@ -1004,14 +1012,14 @@ export const RENDERED_ASSERTIONS = [
   { plugin: 'impact-atlas', selector: '.segmented-control button', prop: 'fontSize',   expected: '10px', note: 'DS segmentedControl label style s' },
   { plugin: 'impact-atlas', selector: '.segmented-control button', prop: 'fontWeight', expected: '700',  note: 'DS segmentedControl label style s weight' },
 
-  // buttonList (DS: h=40, root padding/xs)
+  // buttonList (DS: h=40; its Container insets the icon and the actions padding/s)
   { plugin: 'impact-atlas', selector: '.buttonList',       prop: 'height',        expected: '40px', note: 'DS buttonList h',
     probe: '<button class="buttonList">Item</button>' },
   // buttonList must stay 40px in a CONSTRAINED flex column — needs flex-shrink:0, else it
   // compresses when the list is taller than its container (the shrinking-rows bug 2026-07-12).
   { plugin: 'impact-atlas', selector: '.bl-shrink-probe .buttonList', prop: 'height', expected: '40px', note: 'buttonList must not shrink in a short flex column (flex-shrink:0)',
     probe: '<div class="bl-shrink-probe" style="display:flex;flex-direction:column;height:60px;overflow:hidden"><button class="buttonList">a</button><button class="buttonList">b</button><button class="buttonList">c</button></div>' },
-  { plugin: 'impact-atlas', selector: '.buttonList',       prop: 'paddingLeft',   expected: '4px',  note: 'DS buttonList padding/xs',
+  { plugin: 'impact-atlas', selector: '.buttonList',       prop: 'paddingLeft',   expected: '8px',  note: 'DS buttonList Container padding/s',
     probe: '<button class="buttonList">Item</button>' },
   // Label-stability lock: the root gap (icon↔label) is gap/s in EVERY state — DS Content
   // gap never changes, so hovering must not shift the label. The hover Container gap/m is
@@ -1024,7 +1032,7 @@ export const RENDERED_ASSERTIONS = [
     note: 'REAL :hover rule — gap must stay gap/s so the label never shifts',
     probe: '<button class="buttonList">Item</button>' },
   { plugin: 'impact-atlas', selector: 'button.buttonList:not(.hovered):not(.selected)', prop: 'paddingRight', expected: '8px', forcePseudo: ['hover'],
-    note: 'DS hover Container paddingRight = padding/s',
+    note: 'DS Container paddingRight = padding/s, the same on hover',
     probe: '<button class="buttonList">Item</button>' },
   { plugin: 'impact-atlas', selector: '.buttonList.selected', prop: 'columnGap', expected: '4px', note: 'gap unchanged on selected — label must not move',
     probe: '<button class="buttonList selected">Item</button>' },
@@ -1410,7 +1418,8 @@ export const CSS_PROPERTY_ASSERTIONS = [
   // buttonList: gap/s (icon↔label) comes from Figma "Content" child frame, mapped to root CSS selector.
   // Figma root gapVar = null; CSS must still use --gap-s.
   { sel: '.buttonList', prop: 'gap', expectedVar: '--gap-s' },
-  // buttonList hover/selected: Container paddingRight=padding/s (8px), NOT padding/xs (4px)
+  // buttonList: the Container insets its content padding/s (8px) in every state, NOT padding/xs (4px)
+  { sel: '.buttonList', prop: 'padding', expectedVar: '--padding-s' },
   { sel: '.buttonList:hover',    prop: 'padding-right', expectedVar: '--padding-s' },
   { sel: '.buttonList.selected', prop: 'padding-right', expectedVar: '--padding-s' },
   // buttonList Actions gap/m (action↔arrow) = root gap/s + margin-right on the action button.

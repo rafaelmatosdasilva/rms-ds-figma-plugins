@@ -7,6 +7,16 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.30 · 11 October 2026
+
+- radioButton lines its circle up with the top of its words, as Figma does, so a radio with a description keeps its circle beside the first line.
+- buttonList puts its icon and its actions 8px in from the row's edges, Figma's Container padding/s, in every state. At rest it was 4px.
+- overflowList rows fill their menu between 56 and 280 pixels wide, as Figma sets them.
+- emptyState is a column up to 260 pixels wide with no padding of its own, centred in the area it fills, as Figma draws it. Where it sits in each product is unchanged.
+- overflow and highlight have the system's own markup in the contract: overflow is a group named by its title, highlight a `mark` with its label and icon. The style guide draws them from the code instead of a stand-in, and the browser checks read them.
+- The input border colours the browser check expects follow Figma's input/border/default variable in each mode, instead of colours typed into the contract.
+- The markup record accepts Impact Atlas without its hidden scan bar.
+
 ## v2.0.29 · 11 October 2026
 
 - A segmented control drawn after the page loads is a radio group too, with its pill: Tab reaches its chosen option and the arrow keys move between them (WCAG 2.1.1, 4.1.2). The system made radio groups only of the controls on the page when it loaded, so one a product drew later kept a name on a plain `div`, which is not allowed. A radio's `aria-pressed` is taken off: a radio is checked, never pressed.
