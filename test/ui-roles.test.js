@@ -52,6 +52,22 @@ describe('@rms/ui — roles Figma gives the components', () => {
   });
 });
 
+describe('@rms/ui — a page closed before the queued pass', () => {
+  it('leaves a closed page alone: no error after the window is gone', async () => {
+    const errors = [];
+    const onError = (e) => errors.push(String(e?.message ?? e));
+    process.on('unhandledRejection', onError);
+    try {
+      const w = page('<div id="l"></div><button class="tooltipButton" data-tip="Help"></button>');
+      w.document.getElementById('l').innerHTML = '<div class="listItem"></div>';   // queues both passes
+      w.document.querySelector('.tooltipButton').setAttribute('data-tip', 'More help');
+      w.close();
+      for (let i = 0; i < 3; i++) await tick();
+    } finally { process.off('unhandledRejection', onError); }
+    expect(errors).toEqual([]);
+  });
+});
+
 describe('@rms/ui — one spinner, and the Selected marker\'s corners', () => {
   it('draws .spinner, .toast-spinner and .loader-spinner with one rule', () => {
     const css = THEME.replace(/\/\*[\s\S]*?\*\//g, '');

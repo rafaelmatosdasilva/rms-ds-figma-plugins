@@ -7,6 +7,11 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.27 · 11 October 2026
+
+- The tips and roles passes leave a page alone once it is closed. A pass queued as the page changed ran after a test had closed its window and read a `document` that was gone, so the system's check of every product failed since v2.0.22, although each test passed.
+- The system's check builds each product from this checkout before testing it, so the tests judge the page this version builds, not the one the product last committed.
+
 ## v2.0.26 · 11 October 2026
 
 - Nine Figma variables the code already draws with are compared again: `highlight/background`, `highlight/text`, `highlight/icon`, `highlightSelector/border`, `listItem/icon`, `listItem/title`, `listItem/description`, `node/background/idle` and `node/border/default`. The engine map still listed them as having no CSS consumer, so the audit showed each as a Figma row beside a code row; their values match Figma in both modes.
