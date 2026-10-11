@@ -30,7 +30,12 @@
       "bindings": {}
     },
     "buttonSecondary": {
-      "bindings": {}
+      "bindings": {},
+      "guidance": {
+        "mistakes": [
+          "With Show Label off it shows only its icon, so nothing names it: give it a tip (data-tip, which the system makes its name) or an aria-label where it is used."
+        ]
+      }
     },
     "buttonQuaternary": {
       "bindings": {}
@@ -39,7 +44,12 @@
       "bindings": {}
     },
     "radioButton": {
-      "bindings": {}
+      "bindings": {},
+      "guidance": {
+        "mistakes": [
+          "With Show Text off it has no words, so nothing names it: give it an aria-label, or aria-labelledby on the words that describe it, where it is used."
+        ]
+      }
     },
     "panel": {
       "bindings": {}
@@ -54,7 +64,12 @@
       "bindings": {}
     },
     "buttonPrimary": {
-      "bindings": {}
+      "bindings": {},
+      "guidance": {
+        "mistakes": [
+          "With Show Label off it shows only its icon, so nothing names it: give it a tip (data-tip, which the system makes its name) or an aria-label where it is used."
+        ]
+      }
     },
     "tooltipButton": {
       "bindings": {}
@@ -63,7 +78,12 @@
       "bindings": {}
     },
     "checkBox": {
-      "bindings": {}
+      "bindings": {},
+      "guidance": {
+        "mistakes": [
+          "With Show Text off it has no words, so nothing names it: give it an aria-label, or aria-labelledby on the words that describe it, where it is used."
+        ]
+      }
     },
     "loader": {
       "bindings": {}
@@ -87,7 +107,12 @@
       "bindings": {}
     },
     "segmentedControlSegment": {
-      "bindings": {}
+      "bindings": {},
+      "guidance": {
+        "mistakes": [
+          "With Show Label off it shows only its icon or number, so nothing names it: give it an aria-label where it is used."
+        ]
+      }
     },
     "modal": {
       "bindings": {}
@@ -105,7 +130,12 @@
       "bindings": {}
     },
     "switch": {
-      "bindings": {}
+      "bindings": {},
+      "guidance": {
+        "mistakes": [
+          "With Show Description off it has no words, so nothing names it: give it an aria-label, or aria-labelledby on the words that describe it, where it is used."
+        ]
+      }
     },
     ".figmaWindow": {
       "bindings": {}
