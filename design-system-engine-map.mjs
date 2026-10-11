@@ -20,26 +20,14 @@ export const SKIP_TOKENS = new Set([
   // figmaWindowChrome/divider now HAS a var (--figmaWindowChrome-divider) — actionbar/border
   // was rebound to it (2026-08), so it's consumed and round-trips like any component token.
   // figmaWindowChrome/background likewise has --figmaWindowChrome-background via elevationHigh.
-  'highlight/icon',
-  'highlight/background',            // no highlight component in any active plugin — declare when added
-  'highlight/text',                  // same
-  'highlightSelector/border',        // same
   'node/label/default',              // bound only on State=Active (551:253151 set) — no Active node state in any plugin yet; declare when added
   'node/icon/default',               // same — Active-state icon color, no plugin consumer yet
-  'node/border/default',             // orphan — DS Idle state (544:51070) has no stroke; resting .node border is transparent, no CSS consumer
-  'listItem/icon',                   // no CSS rule consumer — all icon rows use --buttonList-iconPrimary
-  'listItem/title',                  // no CSS consumer since library-atlas removal (2026-07) — declare when a plugin uses it
-  'listItem/description',            // last consumer removed with the retired Font Scaling Lab details rows (2026-07-31) — declare when a plugin uses it
   // panel/background split into two variants 2026-09-13 (panel is now a type=primary/secondary set):
   //  - primary   aliases semantic/surface/elevationMedium → --semantic-surface-elevationMedium      (N900 both modes)
   //  - secondary aliases semantic/surface/elevationLow    → --semantic-surface-elevationLow (N800 L / N1000 D)
   // Both covered via the existing surface vars — no dedicated panel-bg var (matches the 2026-08 rebind).
   'panel/background/primary',
   'panel/background/secondary',
-  // node/background/idle: re-added to the DS 2026-08, but bound to no visible node in any
-  // plugin frame — the resting .node stays transparent (shows the panel). No CSS var; declare
-  // when a plugin actually fills a resting node.
-  'node/background/idle',
   // node/background/default: removed from SKIP — --node-background IS declared and used in .node rules
   'typeBadge/color/background',
   'typeBadge/color/text',
@@ -51,10 +39,6 @@ export const SKIP_TOKENS = new Set([
   'typeBadge/boolean/text',
 ]);
 
-// Tokens whose Figma value is legitimately null in the snapshot
-export const KNOWN_NULL = new Set([
-  'highlight/icon',
-]);
 
 // ─── Sizing: EXPLICIT sizing token→CSS var deviations ────────────────────────
 export const EXPLICIT_SIZING = {
@@ -83,13 +67,9 @@ export const COVERED = new Set([
   // secondary (→ --semantic-surface-elevationLow, elevationLow) — the panel is now a type=primary/secondary set.
   'panel/background/primary',
   'panel/background/secondary',
-  'highlight/icon', 'highlight/background', 'highlight/text', 'highlightSelector/border',
   'general/window-radii',
   // Type scale tokenised in the DS (2026-09): font-size/line-height are now variables, realized
   // in code by the scale vars --{m,s,l}-{size,lh} (Gate [3] verifies the values match Figma).
-  // node/background/idle: the DS idle variant binds it, but the code intentionally renders the
-  // resting node with no fill (its value equals the panel background) — documented in theme.css.
-  'node/background/idle',
   'semantic/pattern/appearance',
   // Figma-only: STRING var (CSS cannot consume)
   'font-family',
@@ -100,21 +80,12 @@ export const COVERED = new Set([
   'radii/button', 'radii/input', 'radii/swatch', 'radii/card',
   'typography/l/font-size', 'typography/l/line-height', 'typography/m/font-size', 'typography/m/line-height',
   'typography/s/font-size', 'typography/s/line-height',
-  // listItem/icon has no CSS rule consumer — all icon rows use --buttonList-iconPrimary
-  'listItem/icon',
-  // listItem/title lost its last consumer with library-atlas (2026-07)
-  'listItem/title',
-  // listItem/description lost its last consumer when the retired Font Scaling Lab
-  // details rows were removed (2026-07-31); DS token still exists, no CSS var now.
-  'listItem/description',
   // semantic/surface/elevation{Low,Medium,High} now consumed — mapped to --semantic-surface-elevationLow / --semantic-surface-elevationMedium /
   // --semantic-surface-elevationHigh via EXPLICIT.
   // Settings collection icon-builder toggles bound inside DS frames (2026-07-11 bound walk).
   // Figma authoring config for the icon components — no CSS consumer, same class as figmaWindowChrome.
   'icon/background',
   'icon/shape',
-  // orphan — DS Idle node state (544:51070) has no stroke; resting .node border is transparent
-  'node/border/default',
   // The DS defines these as pure aliases of their idle sibling — node/icon/default/color
   // -> node/icon/idle/color and node/label/default/color -> node/label/idle/color, in BOTH
   // modes (verified against live Figma 2026-07-31). The CSS therefore styles the default
