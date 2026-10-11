@@ -7,11 +7,16 @@ name: style guide
 # nothing about Pages; publishing is this workflow's job only. The page must pass the engine's style guide check
 # (only the system's tokens and components on it, its own accessibility) or nothing is published.
 #
-# It republishes on its own: on every commit to main here (a release, a fix, a note in the guidelines), and every ten
-# minutes when the engine or a product has a commit the published page was not built from. The page carries
-# sources.txt (the commit of each one it was built from), and the scheduled run compares it with the commits now, so
-# nobody has to start a run by hand and ten minutes with no change build nothing. The page itself opens its newest
-# copy past the ten minutes GitHub Pages keeps one cached.
+# It republishes on its own: on every commit to main here (a release, a fix, a note in the guidelines), at once when the
+# engine says it changed (its own workflow starts this one), and every ten minutes when the engine or a product has a
+# commit the published page was not built from. The page carries sources.txt (the commit of each one it was built
+# from), and the scheduled run compares it with the commits now, so nobody has to start a run by hand and ten minutes
+# with no change build nothing. The page itself opens its newest copy past the ten minutes GitHub Pages keeps one cached.
+#
+# Each build publishes twice. First, about two minutes in, the page built from the new commits with the last audit's
+# results (kept beside the page in data/), so a change shows at once; then, about six minutes in, the page with this
+# audit's results and every variant tried in a browser. The first one's sources.txt is marked quick, so a scheduled
+# run builds again if the second never lands.
 
 on:
   push:
@@ -62,6 +67,59 @@ jobs:
           echo "sources=$(base64 -w0 sources.txt)" >> "$GITHUB_OUTPUT"
           echo "Built from now:"; cat sources.txt; echo "Build: $build"
 
+  # The page from the new commits, with the last audit's results, published first.
+  quick:
+    needs: changed
+    if: needs.changed.outputs.build == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: rms-ds-figma-plugins
+          fetch-depth: 0
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: rafaelmatosdasilva/rms-design-system-engine
+          ref: ${{ needs.changed.outputs.engine }}
+          path: engine
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - name: Check out the products beside the design system
+        run: |
+          for repo in $(node -p 'require("./rms-ds-figma-plugins/products.json").products.map((p) => p.repo).join(" ")'); do
+            git clone --depth 1 "https://github.com/$repo.git" "${repo#*/}"
+          done
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Build the page with the last audit's results
+        working-directory: rms-ds-figma-plugins
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}   # the same Figma images as the full page, so none come and go
+        run: |
+          mkdir -p .design-system-engine-out ../site/data
+          for f in differences.json census.json a11y.json; do
+            curl -fsSL "${{ steps.pages.outputs.base_url }}/data/$f" -o ".design-system-engine-out/$f" 2>/dev/null && cp ".design-system-engine-out/$f" ../site/data/ || rm -f ".design-system-engine-out/$f"
+          done
+          node ../engine/audit.mjs --styleguide --no-a11y-bake
+          node ../engine/audit.mjs --styleguide-check apps/style-guide/index.html
+          cp apps/style-guide/index.html ../site/index.html
+          { echo "quick"; echo "${{ needs.changed.outputs.sources }}" | base64 -d; } > ../site/sources.txt
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          name: quick-pages
+          path: site
+
+  deploy-quick:
+    needs: quick
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/deploy-pages@v4
+        with:
+          artifact_name: quick-pages
+
   build:
     needs: changed
     if: needs.changed.outputs.build == 'true'
@@ -107,6 +165,8 @@ jobs:
           node ../engine/audit.mjs --styleguide-check apps/style-guide/index.html
           mkdir -p ../site && cp apps/style-guide/index.html ../site/index.html
           cp .design-system-engine-out/differences.md ../site/differences.md 2>/dev/null || true
+          mkdir -p ../site/data   # this audit's results, for the next build's first page
+          for f in differences.json census.json a11y.json; do cp ".design-system-engine-out/$f" ../site/data/ 2>/dev/null || true; done
           echo "${{ needs.changed.outputs.sources }}" | base64 -d > ../site/sources.txt
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
@@ -114,7 +174,9 @@ jobs:
           path: site
 
   deploy:
-    needs: build
+    needs: [build, deploy-quick]
+    # After the first page, never before it; and even when the first one failed.
+    if: always() && needs.build.result == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
