@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-10-10",
+  "_updated": "2026-10-11",
   "impact-atlas": {
     "ids": [
       "canvas-scan-btn",
@@ -14,7 +14,6 @@
       "browser-mode-toggle",
       "btn-mode-tokens",
       "btn-mode-comps",
-      "canvas-scan-bar",
       "browser-body",
       "browser-loading",
       "loading-text",

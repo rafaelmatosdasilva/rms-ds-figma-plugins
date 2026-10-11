@@ -547,7 +547,8 @@
     align-items: center;
     justify-content: center;
     flex: 1;
-    padding: 32px var(--padding-xl);
+    /* DS emptyState is a 260 column with no padding of its own, centred in the area it fills. */
+    width: 100%; max-width: 260px; margin-inline: auto;
     gap: var(--gap-xl);
     color: var(--emptyState-title); /* emptyState/title/color */
     text-align: center;
@@ -1220,7 +1221,7 @@
   .switch-content { display: inline-flex; align-items: center; gap: 0; flex: 1 1 auto; min-width: 0; }
   /* radioButton (DS) — a circle (radioButton/border + radioButton/background) with an inner dot
      (radioButton/border/selected) and an m-scale label. Base version of Impact Atlas's .depth-* radio. */
-  .radioButton { display: inline-flex; align-items: center; gap: var(--gap-m); cursor: pointer; user-select: none; }
+  .radioButton { display: inline-flex; align-items: flex-start; gap: var(--gap-m); cursor: pointer; user-select: none; }
   .radioButton-input { position: absolute; width: 1px; height: 1px; opacity: 0; margin: 0; pointer-events: none; }
   .radioButton-circle {
     flex-shrink: 0;
@@ -1340,6 +1341,7 @@
     display: flex;
     align-items: center;
     width: 100%;
+    min-width: 56px; max-width: 280px; /* DS overflowList fills its menu between 56 and 280 */
     text-align: left;
     background: var(--overflowList-background);
     /* DS overflowList item (789:35422) binds ONLY strokeBottomWeight (general/thickness);
@@ -1375,7 +1377,7 @@
     text-align: left;
     background: transparent;
     border-bottom: var(--general-thickness) solid var(--dividerLine-border); /* border-bottom only — items stack touching */
-    padding: 0 var(--padding-xs);           /* padding/xs LR — icon+text inset */
+    padding: 0 var(--padding-s);            /* DS Container padding/s LR: the icon and the actions sit 8px in */
     height: 40px;
     flex-shrink: 0; /* DS buttonList is a fixed 40px (hug) — must never compress in a constrained flex list */
     font-family: inherit;
@@ -1406,13 +1408,13 @@
      so the label must not shift on hover/selected. The hover Container gap/m is Content↔Actions
      only (invisible here: the label is flex:1); the Actions gap/m (action↔arrow) is expressed
      as root gap/s + margin-right on the action button. */
-  .buttonList:hover { color: var(--buttonList-text-hover); padding-right: var(--padding-s); } /* Figma hover: paddingRight=padding/s */
+  .buttonList:hover { color: var(--buttonList-text-hover); padding-right: var(--padding-s); } /* Figma binds Hover's paddingRight to padding/s, as at rest */
   .buttonList.hovered { color: var(--buttonList-text-hover); padding-right: var(--padding-s); } /* keyboard-nav mirror of :hover */
   .buttonList:focus-within { color: var(--buttonList-text-hover); padding-right: var(--padding-s); } /* the row with the focus, as on hover */
   .buttonList:hover svg { color: var(--buttonList-iconPrimary); }
   .buttonList.hovered svg { color: var(--buttonList-iconPrimary); }
   .buttonList.selected::before { background: var(--buttonList-background-selected); }
-  .buttonList.selected { color: var(--buttonList-text-selected); padding-right: var(--padding-s); } /* Figma selected: Container gap stays gap/s, paddingRight=padding/s */
+  .buttonList.selected { color: var(--buttonList-text-selected); padding-right: var(--padding-s); } /* Figma binds Selected's paddingRight to padding/s, as at rest */
   .buttonList.selected svg { color: var(--buttonList-iconPrimary); }
   /* A nested tooltipButton keeps its OWN icon colour (tooltipButton/icon/color). The broad
      `.buttonList svg` rules above — including :hover/.hovered/.selected — are the same
