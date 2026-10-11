@@ -7,6 +7,11 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.28 · 11 October 2026
+
+- A stepper drawn after the page loads works by keyboard too: ArrowUp and ArrowDown step its value, as on a stepper there from the start (WCAG 2.1.1). The system wired only the steppers on the page when it loaded.
+- A card is named by its title only while it shows one. With Show Title off, its `aria-labelledby` pointed at a title that was no longer there, which is invalid (WCAG 4.1.2); it comes back with the title.
+
 ## v2.0.27 · 11 October 2026
 
 - The tips and roles passes leave a page alone once it is closed. A pass queued as the page changed ran after a test had closed its window and read a `document` that was gone, so the system's check of every product failed since v2.0.22, although each test passed.

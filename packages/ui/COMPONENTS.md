@@ -87,7 +87,8 @@ scale.set(150);   // scale.get() → 150
 ArrowUp and ArrowDown step it, Home and End go to its ends, Enter leaves the field, and a typed value is kept within
 its range. The buttons turn off at each end. The field carries `role="spinbutton"` with `aria-valuemin`,
 `aria-valuemax`, `aria-valuenow` and `aria-valuetext`, kept up to date. A stepper whose field already has
-`role="spinbutton"` (and its range in those attributes) works without the call.
+`role="spinbutton"` (and its range in those attributes) works without the call, whether it is on the page from the
+start or drawn later.
 
 ## Button List
 

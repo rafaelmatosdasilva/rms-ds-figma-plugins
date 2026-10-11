@@ -323,7 +323,8 @@ function varTypeIconHtml(type, size) {
 // ── Roles Figma gives the components (WCAG 4.1.2, 1.3.1) ──────────────────────
 // A component Figma annotates with a role carries it wherever a product draws it, unless the product gave it one:
 // statusBar and actionBar are toolbars, dividerSection is a heading, a node that is not already a button acts as one
-// (a Tab stop that Enter and Space press), and the listItems that fill a container are a list of list items. Only
+// (a Tab stop that Enter and Space press), a card is named by its title only while it has one, and the listItems that
+// fill a container are a list of list items. Only
 // the role: no name is invented, and a heading's level is the one ARIA gives a heading with none (2). Kept in step as
 // rows are drawn.
 (function () {
@@ -341,6 +342,14 @@ function varTypeIconHtml(type, size) {
       el.setAttribute('role', 'button');
       if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
       el.dataset.nodeButton = '1';
+    }
+    // A card is named by its title while it shows one: with the title gone, the name it pointed to goes too (an
+    // aria-labelledby to nothing is invalid), and it comes back with the title.
+    for (const card of root.querySelectorAll('.card[aria-labelledby], .card[data-labelledby]')) {
+      const ids = card.getAttribute('aria-labelledby') || card.dataset.labelledby;
+      const there = ids.split(/\s+/).some((id) => id && document.getElementById(id));
+      if (!there && card.hasAttribute('aria-labelledby')) { card.dataset.labelledby = ids; card.removeAttribute('aria-labelledby'); }
+      else if (there && !card.hasAttribute('aria-labelledby')) { card.setAttribute('aria-labelledby', ids); delete card.dataset.labelledby; }
     }
     for (const item of root.querySelectorAll('.listItem')) {
       const list = item.parentElement;
@@ -737,12 +746,26 @@ function initButtonStepper(root, opts) {
   return { set: st.set, get: function () { return st.value; } };
 }
 
-// Every stepper already on the page whose field says it is a spinbutton works at once (its range and value from the
-// field's aria attributes); a product calls initButtonStepper itself for its own stops and onChange.
-document.querySelectorAll('.buttonStepper').forEach(function (s) {
-  var f = s.querySelector('.inputField');
-  if (f && f.getAttribute('role') === 'spinbutton') initButtonStepper(s);
-});
+// Every stepper whose field says it is a spinbutton works at once (its range and value from the field's aria
+// attributes), one on the page from the start and one drawn later alike; a product calls initButtonStepper itself for
+// its own stops and onChange.
+(function () {
+  var tend = function (root) {
+    if (!root || !root.querySelectorAll) return;
+    root.querySelectorAll('.buttonStepper').forEach(function (s) {
+      var f = s.querySelector('.inputField');
+      if (!s._stepper && f && f.getAttribute('role') === 'spinbutton') initButtonStepper(s);
+    });
+  };
+  tend(document);
+  var start = function () {
+    var body = document.body, queued = false;
+    if (typeof MutationObserver === 'undefined') return;
+    new MutationObserver(function () { if (queued) return; queued = true; Promise.resolve().then(function () { queued = false; if (body.ownerDocument.defaultView) tend(body); }); })
+      .observe(body, { subtree: true, childList: true });
+  };
+  if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
+})();
 
 // ── Modal ─────────────────────────────────────────────────────────────────────
 // openModal(modal, { opener, initialFocus, onClose }) and closeModal(modal), for the system's
