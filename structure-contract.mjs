@@ -1127,7 +1127,7 @@ export const CSS_HEIGHT_RULES = {
 export const CSS_BASE_RULE_VARS = [
   // The resting .node (DS State=Default) now carries node/border/default — the DS re-added the
   // stroke it had removed. node/border/idle stays bound to the (dead-but-declared) .node-unselected.
-  { key: 'node/border/default',          selector: '.node',                          prop: 'border-color', expectedVar: '--node-border-default'         },
+  { key: 'node/border/default',          selector: '.node',                          prop: 'border-color', expectedVar: '--node-border'         },
   { key: 'node/border/idle',             selector: '.node.node-unselected',          prop: 'border-color', expectedVar: '--node-border-idle'            },
   { key: 'node/border/selected',         selector: '.node.node-selected',            prop: 'border-color', expectedVar: '--node-border-selected'        },
   { key: 'node/label',                   selector: '.node',                          prop: 'color',      expectedVar: '--node-label-idle'         },

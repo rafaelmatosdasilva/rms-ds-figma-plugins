@@ -7,6 +7,12 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.26 · 11 October 2026
+
+- Nine Figma variables the code already draws with are compared again: `highlight/background`, `highlight/text`, `highlight/icon`, `highlightSelector/border`, `listItem/icon`, `listItem/title`, `listItem/description`, `node/background/idle` and `node/border/default`. The engine map still listed them as having no CSS consumer, so the audit showed each as a Figma row beside a code row; their values match Figma in both modes.
+- The resting node's border variable carries its Figma name, `--node-border` (it was `--node-border-default`; the system drops `/default`, as every other variable does). Nothing changes on screen.
+- `--highlightSelector-border` points at `--highlight-background`, as `highlightSelector/border` points at `highlight/background` in Figma. Same colour.
+
 ## v2.0.25 · 10 October 2026
 
 - The contract records the rules that colour a list row's action icon under the selectors the theme writes since v2.0.20 (`:not(.selected, .no-button)`), the focused row's included.

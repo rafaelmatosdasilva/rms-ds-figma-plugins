@@ -74,7 +74,7 @@
     --node-background-selected:       var(--neutral-1000); /* node/background/selected N1000 */
     /* node/border/default — DS State=Default (the resting card) carries a stroke again; the
        resting .node uses it as its border (L=N700 #d6d6d6, D→N600 override). */
-    --node-border-default:    var(--neutral-700);
+    --node-border:            var(--neutral-700);  /* node/border/default L=N700, D→override */
     --node-border-hover:      var(--neutral-700);  /* node/border/hover N400 */
     --node-border-selected:   var(--neutral-100);  /* node/border/selected N100 */
     --node-border-disabled:   var(--neutral-700);  /* node/border/disabled L=N700, D=N600 */
@@ -213,7 +213,7 @@
     --highlight-background:    var(--semantic-negative); /* highlight/background → semantic/negative → red */
     --highlight-text:          var(--neutral-1000);      /* highlight/text → Neutral 1000 */
     --highlight-icon:          var(--neutral-1000);      /* highlight/icon → Neutral 1000 */
-    --highlightSelector-border: var(--semantic-negative);/* highlightSelector/border → highlight/background → semantic/negative */
+    --highlightSelector-border: var(--highlight-background); /* highlightSelector/border → highlight/background → semantic/negative */
     /* listItem (DS 503:49751) — a list row: icon + title(m) + description(s), split-alias per mode. */
     --listItem-icon:        var(--neutral-500); /* listItem/icon L=N500, D→N400 override */
     --listItem-title:       var(--neutral-100); /* listItem/title N100 both modes */
@@ -384,7 +384,7 @@
       --tooltipButton-icon: var(--neutral-300); /* tooltipButton/icon Dark = N300 #bfbfbf (light uses N400 — split alias) */
       /* Node additional states */
       --node-border-idle: var(--neutral-700); /* D=N7 #303030 (rebound from N6 2026-08) */
-      --node-border-default: var(--neutral-600); /* node/border/default Dark = N600 #454545 */
+      --node-border: var(--neutral-600); /* node/border/default Dark = N600 #454545 */
       --node-icon-selected:   var(--neutral-300);   /* D=N3 */
       --node-icon-idle:       var(--neutral-400);   /* Dark = N400 #878787 (via buttonList/iconPrimary) */
       --node-icon-hover:      var(--neutral-300);   /* Dark = N300 #b8b8b8 — same alias chain as selected (node/icon/hover → node/icon/selected → Neutral 300) */
@@ -461,7 +461,7 @@
     background: transparent; /* DS State=Default has no fill — resting node is transparent (shows the panel) */
     /* DS State=Default (the resting card) carries node/border/default. The width is
        reserved (var(--general-thickness)) so hover/select never shifts layout. */
-    border: var(--general-thickness) solid var(--node-border-default);
+    border: var(--general-thickness) solid var(--node-border);
     border-radius: var(--radii-button);
     padding: 0 var(--padding-s);
     min-height: 40px;
