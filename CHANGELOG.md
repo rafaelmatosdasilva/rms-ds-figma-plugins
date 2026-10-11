@@ -7,6 +7,11 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.31 · 11 October 2026
+
+- While a progress message covers the page (Loading, a scan), the page behind it is inert: Tab no longer lands on a control the overlay hides (WCAG 2.4.11), and a screen reader stays with the message. Its Cancel stays reachable, and what was inert before stays so once the message goes.
+- A toast and a progress message are said by a screen reader as they come: their containers are polite status regions (WCAG 4.1.3).
+
 ## v2.0.30 · 11 October 2026
 
 - radioButton lines its circle up with the top of its words, as Figma does, so a radio with a description keeps its circle beside the first line.
