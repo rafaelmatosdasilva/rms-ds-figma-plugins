@@ -3,7 +3,9 @@ import { readFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 
 // The components Figma gives a role carry it wherever a product draws them (WCAG 4.1.2, 1.3.1): statusBar and actionBar
-// are toolbars, dividerSection is a heading, a node acts as a button, the listItems that fill a container are a list.
+// are toolbars, dividerSection is a heading, a node acts as a button, the listItems that fill a container are a list,
+// and a card is named by its title only while it has one. A stepper drawn after the page loads works as one there from
+// the start.
 // The system draws one spinner, and highlightSelector's Selected state has Figma's 4px corners.
 const SCRIPT = readFileSync(new URL('../packages/ui/src/ui-shared.js', import.meta.url), 'utf8');
 const THEME = readFileSync(new URL('../packages/ui/src/theme.css', import.meta.url), 'utf8');
@@ -49,6 +51,31 @@ describe('@rms/ui — roles Figma gives the components', () => {
     expect(d.getElementById('i1').getAttribute('role')).toBe('listitem');
     expect(d.getElementById('mixed').hasAttribute('role')).toBe(false);
     expect(d.getElementById('m1').hasAttribute('role')).toBe(false);
+  });
+});
+
+describe('@rms/ui — components drawn after the page loads', () => {
+  it('wires a stepper drawn later: ArrowUp steps its value within its range', async () => {
+    const w = page('<div id="host"></div>');
+    const d = w.document;
+    d.getElementById('host').innerHTML = '<div class="buttonStepper"><button class="buttonSecondary" aria-label="Decrease"></button><div class="inputWrap"><input class="inputField" id="f" value="100%" aria-label="Value" role="spinbutton" aria-valuemin="0" aria-valuemax="200" aria-valuenow="100"></div><button class="buttonSecondary" aria-label="Increase"></button></div>';
+    await tick();
+    const f = d.getElementById('f');
+    f.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true }));
+    expect(f.getAttribute('aria-valuenow')).toBe('101');
+    expect(f.value).toBe('101%');
+  });
+
+  it('names a card by its title only while it shows one', async () => {
+    const w = page('<div class="card" role="group" aria-labelledby="t" id="c"><span class="card-title" id="t">Output</span><div>Content</div></div>');
+    const d = w.document, card = d.getElementById('c');
+    expect(card.getAttribute('aria-labelledby')).toBe('t');
+    d.getElementById('t').remove();
+    await tick();
+    expect(card.hasAttribute('aria-labelledby')).toBe(false);   // never a name pointing at nothing
+    card.insertAdjacentHTML('afterbegin', '<span class="card-title" id="t">Output</span>');
+    await tick();
+    expect(card.getAttribute('aria-labelledby')).toBe('t');
   });
 });
 
