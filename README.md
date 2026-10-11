@@ -74,9 +74,11 @@ The source of the system is a Figma file, kept private.
 
 The [living style guide](https://rafaelmatosdasilva.github.io/rms-ds-figma-plugins/) is built from this repository by
 [rms-design-system-engine](https://github.com/rafaelmatosdasilva/rms-design-system-engine) and published on GitHub Pages
-by the `style guide` workflow, on its own: on every commit to the system, and within ten minutes after the engine or a
-product changes (a run every ten minutes builds only when one of them has a commit the page was not built from). A build
-takes about six minutes, and the page then opens its newest copy even where GitHub Pages still caches the older one. It shows only what Figma and the code
+by the `style guide` workflow, on its own: on every commit to the system, at once when the engine changes (the engine
+starts it), and within ten minutes after a product changes (a run every ten minutes builds only when one of them has a
+commit the page was not built from). Each build publishes twice: about two minutes in, the page from the new commits
+with the last audit's results, then, about six minutes in, the page with this audit's results and every variant tried
+in a browser. The page opens its newest copy even where GitHub Pages still caches the older one. It shows only what Figma and the code
 agree on, with a link to this repository in its sidebar. Nothing in it is written by hand: to
 change it, change the system. Its look is the system's own (its tokens, its text styles, its segmented control and
 text field), each component says which products use it and what still differs from Figma, and the workflow publishes
