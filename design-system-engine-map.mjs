@@ -205,10 +205,10 @@ export const TYPO = {
 };
 
 // ─── EFFECTS: hardcoded CSS effects that must be present per selector ─────────
-// Both backdrop overlays use blur(4px) — declared here so regressions are caught.
+// The DS overlay (the progress message's scrim too) has its Overlay part's background blur 4 — declared here so a
+// regression is caught.
 export const EFFECTS = [
-  { selector: '#progress-container:not(:empty)', prop: 'backdrop-filter', expected: 'blur(4px)' },
-  { selector: '#toast-overlay',                   prop: 'backdrop-filter', expected: 'blur(4px)' },
+  { selector: '.overlay',                         prop: 'backdrop-filter', expected: 'blur(4px)' },
 ];
 
 // ─── FOCUS CONTRACT: how each interactive component handles keyboard focus ─────

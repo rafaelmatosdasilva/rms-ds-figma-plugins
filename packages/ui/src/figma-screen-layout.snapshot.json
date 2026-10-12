@@ -1,5 +1,5 @@
 {
- "_updated": "2026-10-12T14:02:42.177Z",
+ "_updated": "2026-10-12T14:44:31.437Z",
  "_note": "Designed screens read from Figma (screen-layout.mjs SCREEN_CAPTURE_JS), read only.",
  "screens": [
   {
@@ -1328,6 +1328,1352 @@
    }
   },
   {
+   "id": "42:210732",
+   "name": ".Tokens to Ink Plugin",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Dark",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "frame",
+    "name": ".Tokens to Ink Plugin",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "type": "COMPONENT",
+    "layout": "VERTICAL",
+    "align": "CENTER",
+    "clips": true,
+    "fill": {
+     "var": "semantic/surface/elevationLow/color",
+     "type": "SOLID"
+    },
+    "radius": 16,
+    "radiusVar": "general/window-radii",
+    "children": [
+     {
+      "kind": "instance",
+      "name": ".figmaWindow",
+      "w": 820,
+      "h": 40,
+      "x": 0,
+      "y": 0,
+      "fillW": true,
+      "component": ".figmaWindow",
+      "props": {
+       "Icon": "TTI-Icon",
+       "Title": "Tokens to Ink"
+      },
+      "layout": "HORIZONTAL",
+      "gap": 8,
+      "gapVar": "gap/m",
+      "pad": [
+       0,
+       16,
+       0,
+       16
+      ],
+      "padVars": [
+       null,
+       "padding/l",
+       null,
+       "padding/l"
+      ],
+      "align": "CENTER",
+      "clips": true,
+      "fill": {
+       "var": "figmaWindowChrome/background/color",
+       "type": "SOLID"
+      },
+      "stroke": {
+       "var": "figmaWindowChrome/divider/color",
+       "type": "SOLID"
+      },
+      "children": [
+       {
+        "kind": "instance",
+        "name": "TTI-Icon",
+        "w": 16,
+        "h": 16,
+        "x": 16,
+        "y": 12,
+        "component": "TTI-Icon",
+        "props": {
+         "size": "header"
+        },
+        "textless": true
+       },
+       {
+        "kind": "text",
+        "name": "Title",
+        "w": 747,
+        "h": 16,
+        "x": 40,
+        "y": 12,
+        "fillW": true,
+        "text": "Tokens to Ink",
+        "style": "m",
+        "size": 11,
+        "weight": 600,
+        "fill": {
+         "var": "figmaWindowChrome/title/color",
+         "type": "SOLID"
+        }
+       },
+       {
+        "kind": "frame",
+        "name": "Union",
+        "w": 9,
+        "h": 10,
+        "x": 795,
+        "y": 15,
+        "type": "BOOLEAN_OPERATION",
+        "fill": {
+         "var": "figmaWindowChrome/button/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "shape",
+          "name": "Vector 1",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         },
+         {
+          "kind": "shape",
+          "name": "Vector 2",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "instance",
+      "name": "actionBar",
+      "w": 820,
+      "h": 48,
+      "x": 0,
+      "y": 40,
+      "fillW": true,
+      "component": "actionBar",
+      "props": {
+       "Show Background": true
+      },
+      "layout": "HORIZONTAL",
+      "wrap": true,
+      "pad": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "padVars": [
+       "padding/m",
+       "padding/l",
+       "padding/m",
+       "padding/l"
+      ],
+      "clips": true,
+      "hugH": true,
+      "children": [
+       {
+        "kind": "shape",
+        "name": "background",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 40,
+        "absolute": true,
+        "type": "RECTANGLE"
+       },
+       {
+        "kind": "frame",
+        "name": "Slot",
+        "w": 788,
+        "h": 24,
+        "x": 16,
+        "y": 52,
+        "fillW": true,
+        "type": "SLOT",
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "gap": 8,
+        "gapVar": "gap/m",
+        "hugH": true,
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Chips",
+          "w": 670,
+          "h": 24,
+          "x": 16,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "wrap": true,
+          "gap": 4,
+          "gapVar": "gap/s",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "Button Tertiary",
+            "w": 200,
+            "h": 24,
+            "x": 16,
+            "y": 52,
+            "component": "buttonTertiary",
+            "props": {
+             "Label Content": "BusinessCard-85x55mm-Front",
+             "Show Label": true,
+             "Icon Content": "Icon-focus",
+             "Show Icon": true,
+             "State": "Default"
+            }
+           },
+           {
+            "kind": "instance",
+            "name": "Button Tertiary",
+            "w": 198,
+            "h": 24,
+            "x": 220,
+            "y": 52,
+            "component": "buttonTertiary",
+            "props": {
+             "Label Content": "BusinessCard-85x55mm-Back",
+             "Show Label": true,
+             "Icon Content": "Icon-focus",
+             "Show Icon": true,
+             "State": "Default"
+            }
+           }
+          ]
+         },
+         {
+          "kind": "instance",
+          "name": "buttonPrimary",
+          "w": 110,
+          "h": 24,
+          "x": 694,
+          "y": 52,
+          "component": "buttonPrimary",
+          "props": {
+           "Show Label": true,
+           "Show Icon": true,
+           "Icon Content": "Icon-update",
+           "Label Content": "Scan selection",
+           "Disabled": "False"
+          }
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "frame",
+      "name": "Colors",
+      "w": 820,
+      "h": 432,
+      "x": 0,
+      "y": 88,
+      "fillW": true,
+      "fillH": true,
+      "type": "FRAME",
+      "layout": "VERTICAL",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "actionBar",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 88,
+        "fillW": true,
+        "component": "actionBar",
+        "props": {},
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "pad": [
+         12,
+         16,
+         12,
+         16
+        ],
+        "padVars": [
+         "padding/m",
+         "padding/l",
+         "padding/m",
+         "padding/l"
+        ],
+        "align": "CENTER",
+        "justify": "CENTER",
+        "clips": true,
+        "hugH": true,
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Slot",
+          "w": 788,
+          "h": 24,
+          "x": 16,
+          "y": 100,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "HORIZONTAL",
+          "wrap": true,
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "justify": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "segmentedControl",
+            "w": 296,
+            "h": 24,
+            "x": 262,
+            "y": 100,
+            "component": "segmentedControl",
+            "props": {}
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "frame",
+        "name": "Content",
+        "w": 820,
+        "h": 413,
+        "x": 0,
+        "y": 136,
+        "type": "FRAME",
+        "layout": "HORIZONTAL",
+        "justify": "CENTER",
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Body",
+          "w": 820,
+          "h": 413,
+          "x": 0,
+          "y": 136,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "VERTICAL",
+          "align": "CENTER",
+          "justify": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "table/row",
+            "w": 820,
+            "h": 170,
+            "x": 0,
+            "y": 136,
+            "fillW": true,
+            "component": "table/row",
+            "props": {
+             "Show Divider": true
+            },
+            "layout": "VERTICAL",
+            "pad": [
+             0,
+             16,
+             0,
+             16
+            ],
+            "padVars": [
+             null,
+             "padding/l",
+             null,
+             "padding/l"
+            ],
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 788,
+              "h": 168,
+              "x": 16,
+              "y": 136,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "HORIZONTAL",
+              "pad": [
+               24,
+               0,
+               24,
+               0
+              ],
+              "padVars": [
+               "padding/xl",
+               null,
+               "padding/xl",
+               null
+              ],
+              "align": "CENTER",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "frame",
+                "name": "Frame 21",
+                "w": 386,
+                "h": 32,
+                "x": 16,
+                "y": 204,
+                "fillW": true,
+                "type": "FRAME",
+                "layout": "HORIZONTAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "pad": [
+                 0,
+                 16,
+                 0,
+                 0
+                ],
+                "padVars": [
+                 null,
+                 "padding/l",
+                 null,
+                 null
+                ],
+                "align": "CENTER",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "swatch",
+                  "w": 24,
+                  "h": 24,
+                  "x": 16,
+                  "y": 208,
+                  "component": "swatch",
+                  "props": {
+                   "Filled": "True"
+                  },
+                  "textless": true
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "variable",
+                  "w": 338,
+                  "h": 32,
+                  "x": 48,
+                  "y": 204,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "VERTICAL",
+                  "justify": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "frame",
+                    "name": "Frame 29",
+                    "w": 338,
+                    "h": 16,
+                    "x": 48,
+                    "y": 204,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   },
+                   {
+                    "kind": "text",
+                    "name": "Value",
+                    "w": 338,
+                    "h": 16,
+                    "x": 48,
+                    "y": 220,
+                    "fillW": true,
+                    "text": "#FF0FA5",
+                    "style": "m",
+                    "size": 11,
+                    "weight": 600,
+                    "fill": {
+                     "var": "semantic/content/secondary/color",
+                     "type": "SOLID"
+                    }
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": ".connector",
+                "w": 16,
+                "h": 96,
+                "x": 402,
+                "y": 172,
+                "component": ".connector",
+                "props": {
+                 "branch": "4"
+                },
+                "textless": true
+               },
+               {
+                "kind": "frame",
+                "name": "Output",
+                "w": 386,
+                "h": 120,
+                "x": 418,
+                "y": 160,
+                "fillW": true,
+                "type": "FRAME",
+                "layout": "VERTICAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "frame",
+                  "name": "Row1",
+                  "w": 386,
+                  "h": 24,
+                  "x": 418,
+                  "y": 160,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "swatch",
+                    "w": 24,
+                    "h": 24,
+                    "x": 418,
+                    "y": 160,
+                    "component": "swatch",
+                    "props": {
+                     "Filled": "True"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "frame",
+                    "name": "Frame 8",
+                    "w": 358,
+                    "h": 24,
+                    "x": 446,
+                    "y": 160,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "Row2",
+                  "w": 386,
+                  "h": 24,
+                  "x": 418,
+                  "y": 192,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "swatch",
+                    "w": 24,
+                    "h": 24,
+                    "x": 418,
+                    "y": 192,
+                    "component": "swatch",
+                    "props": {
+                     "Filled": "True"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "frame",
+                    "name": "Frame 7",
+                    "w": 358,
+                    "h": 24,
+                    "x": 446,
+                    "y": 192,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "Row3",
+                  "w": 386,
+                  "h": 24,
+                  "x": 418,
+                  "y": 224,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "swatch",
+                    "w": 24,
+                    "h": 24,
+                    "x": 418,
+                    "y": 224,
+                    "component": "swatch",
+                    "props": {
+                     "Filled": "True"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "frame",
+                    "name": "Frame 9",
+                    "w": 358,
+                    "h": 24,
+                    "x": 446,
+                    "y": 224,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "Row4",
+                  "w": 386,
+                  "h": 24,
+                  "x": 418,
+                  "y": 256,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "swatch",
+                    "w": 24,
+                    "h": 24,
+                    "x": 418,
+                    "y": 256,
+                    "component": "swatch",
+                    "props": {
+                     "Filled": "False"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "frame",
+                    "name": "Frame 9",
+                    "w": 358,
+                    "h": 24,
+                    "x": 446,
+                    "y": 256,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "dividerLine",
+              "w": 788,
+              "h": 2,
+              "x": 16,
+              "y": 304,
+              "fillW": true,
+              "component": "dividerLine",
+              "props": {},
+              "textless": true
+             }
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "table/row",
+            "w": 820,
+            "h": 138,
+            "x": 0,
+            "y": 306,
+            "fillW": true,
+            "component": "table/row",
+            "props": {
+             "Show Divider": true
+            },
+            "layout": "VERTICAL",
+            "pad": [
+             0,
+             16,
+             0,
+             16
+            ],
+            "padVars": [
+             null,
+             "padding/l",
+             null,
+             "padding/l"
+            ],
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 788,
+              "h": 136,
+              "x": 16,
+              "y": 306,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "HORIZONTAL",
+              "pad": [
+               24,
+               0,
+               24,
+               0
+              ],
+              "padVars": [
+               "padding/xl",
+               null,
+               "padding/xl",
+               null
+              ],
+              "align": "CENTER",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "frame",
+                "name": "Frame 21",
+                "w": 386,
+                "h": 32,
+                "x": 16,
+                "y": 358,
+                "fillW": true,
+                "type": "FRAME",
+                "layout": "HORIZONTAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "pad": [
+                 0,
+                 16,
+                 0,
+                 0
+                ],
+                "padVars": [
+                 null,
+                 "padding/l",
+                 null,
+                 null
+                ],
+                "align": "CENTER",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "swatch",
+                  "w": 24,
+                  "h": 24,
+                  "x": 16,
+                  "y": 362,
+                  "component": "swatch",
+                  "props": {
+                   "Filled": "True"
+                  },
+                  "textless": true
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "variable",
+                  "w": 338,
+                  "h": 32,
+                  "x": 48,
+                  "y": 358,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "VERTICAL",
+                  "justify": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "frame",
+                    "name": "Frame 29",
+                    "w": 338,
+                    "h": 16,
+                    "x": 48,
+                    "y": 358,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   },
+                   {
+                    "kind": "text",
+                    "name": "Value",
+                    "w": 338,
+                    "h": 16,
+                    "x": 48,
+                    "y": 374,
+                    "fillW": true,
+                    "text": "#000023",
+                    "style": "m",
+                    "size": 11,
+                    "weight": 600,
+                    "fill": {
+                     "var": "semantic/content/secondary/color",
+                     "type": "SOLID"
+                    }
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": ".connector",
+                "w": 16,
+                "h": 64,
+                "x": 402,
+                "y": 342,
+                "component": ".connector",
+                "props": {
+                 "branch": "3"
+                },
+                "textless": true
+               },
+               {
+                "kind": "frame",
+                "name": "Output",
+                "w": 386,
+                "h": 88,
+                "x": 418,
+                "y": 330,
+                "fillW": true,
+                "type": "FRAME",
+                "layout": "VERTICAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "frame",
+                  "name": "Row1",
+                  "w": 386,
+                  "h": 24,
+                  "x": 418,
+                  "y": 330,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "swatch",
+                    "w": 24,
+                    "h": 24,
+                    "x": 418,
+                    "y": 330,
+                    "component": "swatch",
+                    "props": {
+                     "Filled": "True"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "frame",
+                    "name": "Frame 8",
+                    "w": 358,
+                    "h": 24,
+                    "x": 446,
+                    "y": 330,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "Row2",
+                  "w": 386,
+                  "h": 24,
+                  "x": 418,
+                  "y": 362,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "swatch",
+                    "w": 24,
+                    "h": 24,
+                    "x": 418,
+                    "y": 362,
+                    "component": "swatch",
+                    "props": {
+                     "Filled": "False"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "frame",
+                    "name": "Frame 7",
+                    "w": 358,
+                    "h": 24,
+                    "x": 446,
+                    "y": 362,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "Frame 18",
+                  "w": 113,
+                  "h": 24,
+                  "x": 418,
+                  "y": 394,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "hugW": true,
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "buttonSecondary",
+                    "w": 24,
+                    "h": 24,
+                    "x": 418,
+                    "y": 394,
+                    "component": "buttonSecondary",
+                    "props": {
+                     "Label Content": "label",
+                     "Show Icon": true,
+                     "Icon Content": "Icon-cross",
+                     "State": "Default"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "buttonPrimary",
+                    "w": 38,
+                    "h": 24,
+                    "x": 446,
+                    "y": 394,
+                    "component": "buttonPrimary",
+                    "props": {
+                     "Icon Content": "Icon-plus",
+                     "Show Label": true,
+                     "Label Content": "RAL",
+                     "Disabled": "False"
+                    }
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "buttonPrimary",
+                    "w": 43,
+                    "h": 24,
+                    "x": 488,
+                    "y": 394,
+                    "component": "buttonPrimary",
+                    "props": {
+                     "Icon Content": "Icon-plus",
+                     "Show Label": true,
+                     "Label Content": "Vinyl",
+                     "Disabled": "False"
+                    }
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "dividerLine",
+              "w": 788,
+              "h": 2,
+              "x": 16,
+              "y": 442,
+              "fillW": true,
+              "component": "dividerLine",
+              "props": {},
+              "textless": true
+             }
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "table/row",
+            "w": 820,
+            "h": 106,
+            "x": 0,
+            "y": 443,
+            "fillW": true,
+            "component": "table/row",
+            "props": {
+             "Show Tooltip": true,
+             "Show Divider": true
+            },
+            "layout": "VERTICAL",
+            "pad": [
+             0,
+             16,
+             0,
+             16
+            ],
+            "padVars": [
+             null,
+             "padding/l",
+             null,
+             "padding/l"
+            ],
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 788,
+              "h": 104,
+              "x": 16,
+              "y": 443,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "HORIZONTAL",
+              "pad": [
+               24,
+               0,
+               24,
+               0
+              ],
+              "padVars": [
+               "padding/xl",
+               null,
+               "padding/xl",
+               null
+              ],
+              "align": "CENTER",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "frame",
+                "name": "Frame 21",
+                "w": 386,
+                "h": 40,
+                "x": 16,
+                "y": 475,
+                "fillW": true,
+                "type": "FRAME",
+                "layout": "HORIZONTAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "pad": [
+                 0,
+                 16,
+                 0,
+                 0
+                ],
+                "padVars": [
+                 null,
+                 "padding/l",
+                 null,
+                 null
+                ],
+                "align": "CENTER",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "swatch",
+                  "w": 24,
+                  "h": 24,
+                  "x": 16,
+                  "y": 483,
+                  "component": "swatch",
+                  "props": {
+                   "Filled": "True"
+                  },
+                  "textless": true
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "variable",
+                  "w": 338,
+                  "h": 40,
+                  "x": 48,
+                  "y": 475,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "VERTICAL",
+                  "justify": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "frame",
+                    "name": "Frame 29",
+                    "w": 338,
+                    "h": 24,
+                    "x": 48,
+                    "y": 475,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   },
+                   {
+                    "kind": "text",
+                    "name": "Value",
+                    "w": 338,
+                    "h": 16,
+                    "x": 48,
+                    "y": 499,
+                    "fillW": true,
+                    "text": "#FFFFFF",
+                    "style": "m",
+                    "size": 11,
+                    "weight": 600,
+                    "fill": {
+                     "var": "semantic/content/secondary/color",
+                     "type": "SOLID"
+                    }
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": ".connector",
+                "w": 16,
+                "h": 32,
+                "x": 402,
+                "y": 479,
+                "component": ".connector",
+                "props": {
+                 "branch": "2"
+                },
+                "textless": true
+               },
+               {
+                "kind": "frame",
+                "name": "Output",
+                "w": 386,
+                "h": 56,
+                "x": 418,
+                "y": 467,
+                "fillW": true,
+                "type": "FRAME",
+                "layout": "VERTICAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "frame",
+                  "name": "Row1",
+                  "w": 386,
+                  "h": 24,
+                  "x": 418,
+                  "y": 467,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "swatch",
+                    "w": 24,
+                    "h": 24,
+                    "x": 418,
+                    "y": 467,
+                    "component": "swatch",
+                    "props": {
+                     "Filled": "True"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "frame",
+                    "name": "Frame 8",
+                    "w": 358,
+                    "h": 24,
+                    "x": 446,
+                    "y": 467,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "Row2",
+                  "w": 386,
+                  "h": 24,
+                  "x": 418,
+                  "y": 499,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "swatch",
+                    "w": 24,
+                    "h": 24,
+                    "x": 418,
+                    "y": 499,
+                    "component": "swatch",
+                    "props": {
+                     "Filled": "False"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "frame",
+                    "name": "Frame 7",
+                    "w": 358,
+                    "h": 24,
+                    "x": 446,
+                    "y": 499,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "align": "CENTER",
+                    "hugH": true,
+                    "cut": true
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "dividerLine",
+              "w": 788,
+              "h": 2,
+              "x": 16,
+              "y": 547,
+              "fillW": true,
+              "component": "dividerLine",
+              "props": {},
+              "textless": true
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "cut": true
+  },
+  {
    "id": "106:36547",
    "name": ".Font Scaling Lab Plugin",
    "modes": {
@@ -2284,6 +3630,2391 @@
             },
             "texts": [
              "View on Canvas"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "2120:48124",
+   "name": ".Tokens to Ink Plugin",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Light",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "instance",
+    "name": ".Tokens to Ink Plugin",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "component": ".Tokens to Ink Plugin",
+    "props": {},
+    "layout": "VERTICAL",
+    "align": "CENTER",
+    "clips": true,
+    "fill": {
+     "var": "semantic/surface/elevationLow/color",
+     "type": "SOLID"
+    },
+    "radius": 16,
+    "radiusVar": "general/window-radii",
+    "children": [
+     {
+      "kind": "instance",
+      "name": ".figmaWindow",
+      "w": 820,
+      "h": 40,
+      "x": 0,
+      "y": 0,
+      "fillW": true,
+      "component": ".figmaWindow",
+      "props": {
+       "Icon": "TTI-Icon",
+       "Title": "Tokens to Ink"
+      },
+      "layout": "HORIZONTAL",
+      "gap": 8,
+      "gapVar": "gap/m",
+      "pad": [
+       0,
+       16,
+       0,
+       16
+      ],
+      "padVars": [
+       null,
+       "padding/l",
+       null,
+       "padding/l"
+      ],
+      "align": "CENTER",
+      "clips": true,
+      "fill": {
+       "var": "figmaWindowChrome/background/color",
+       "type": "SOLID"
+      },
+      "stroke": {
+       "var": "figmaWindowChrome/divider/color",
+       "type": "SOLID"
+      },
+      "children": [
+       {
+        "kind": "instance",
+        "name": "TTI-Icon",
+        "w": 16,
+        "h": 16,
+        "x": 16,
+        "y": 12,
+        "component": "TTI-Icon",
+        "props": {
+         "size": "header"
+        },
+        "textless": true
+       },
+       {
+        "kind": "text",
+        "name": "Title",
+        "w": 747,
+        "h": 16,
+        "x": 40,
+        "y": 12,
+        "fillW": true,
+        "text": "Tokens to Ink",
+        "style": "m",
+        "size": 11,
+        "weight": 600,
+        "fill": {
+         "var": "figmaWindowChrome/title/color",
+         "type": "SOLID"
+        }
+       },
+       {
+        "kind": "frame",
+        "name": "Union",
+        "w": 9,
+        "h": 10,
+        "x": 795,
+        "y": 15,
+        "type": "BOOLEAN_OPERATION",
+        "fill": {
+         "var": "figmaWindowChrome/button/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "shape",
+          "name": "Vector 1",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         },
+         {
+          "kind": "shape",
+          "name": "Vector 2",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "instance",
+      "name": "actionBar",
+      "w": 820,
+      "h": 48,
+      "x": 0,
+      "y": 40,
+      "fillW": true,
+      "component": "actionBar",
+      "props": {
+       "Show Background": true
+      },
+      "layout": "HORIZONTAL",
+      "wrap": true,
+      "pad": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "padVars": [
+       "padding/m",
+       "padding/l",
+       "padding/m",
+       "padding/l"
+      ],
+      "clips": true,
+      "hugH": true,
+      "children": [
+       {
+        "kind": "shape",
+        "name": "background",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 40,
+        "absolute": true,
+        "type": "RECTANGLE"
+       },
+       {
+        "kind": "frame",
+        "name": "Slot",
+        "w": 788,
+        "h": 24,
+        "x": 16,
+        "y": 52,
+        "fillW": true,
+        "type": "SLOT",
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "gap": 8,
+        "gapVar": "gap/m",
+        "hugH": true,
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Chips",
+          "w": 670,
+          "h": 24,
+          "x": 16,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "wrap": true,
+          "gap": 4,
+          "gapVar": "gap/s",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "Button Tertiary",
+            "w": 200,
+            "h": 24,
+            "x": 16,
+            "y": 52,
+            "component": "buttonTertiary",
+            "props": {
+             "Label Content": "BusinessCard-85x55mm-Front",
+             "Show Label": true,
+             "Icon Content": "Icon-focus",
+             "Show Icon": true,
+             "State": "Default"
+            },
+            "texts": [
+             "BusinessCard-85x55mm-Front"
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "Button Tertiary",
+            "w": 198,
+            "h": 24,
+            "x": 220,
+            "y": 52,
+            "component": "buttonTertiary",
+            "props": {
+             "Label Content": "BusinessCard-85x55mm-Back",
+             "Show Label": true,
+             "Icon Content": "Icon-focus",
+             "Show Icon": true,
+             "State": "Default"
+            },
+            "texts": [
+             "BusinessCard-85x55mm-Back"
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "instance",
+          "name": "buttonPrimary",
+          "w": 110,
+          "h": 24,
+          "x": 694,
+          "y": 52,
+          "component": "buttonPrimary",
+          "props": {
+           "Show Label": true,
+           "Show Icon": true,
+           "Icon Content": "Icon-update",
+           "Label Content": "Scan selection",
+           "Disabled": "False"
+          },
+          "texts": [
+           "Scan selection"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "frame",
+      "name": "Export",
+      "w": 820,
+      "h": 432,
+      "x": 0,
+      "y": 88,
+      "fillW": true,
+      "fillH": true,
+      "type": "FRAME",
+      "layout": "VERTICAL",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "actionBar",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 88,
+        "component": "actionBar",
+        "props": {},
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "pad": [
+         12,
+         16,
+         12,
+         16
+        ],
+        "padVars": [
+         "padding/m",
+         "padding/l",
+         "padding/m",
+         "padding/l"
+        ],
+        "clips": true,
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Slot",
+          "w": 788,
+          "h": 24,
+          "x": 16,
+          "y": 100,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "HORIZONTAL",
+          "wrap": true,
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "justify": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "segmentedControl",
+            "w": 314,
+            "h": 24,
+            "x": 253,
+            "y": 100,
+            "component": "segmentedControl",
+            "props": {},
+            "texts": [
+             "Colors",
+             "Export"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "frame",
+        "name": "Body",
+        "w": 820,
+        "h": 384,
+        "x": 0,
+        "y": 136,
+        "fillW": true,
+        "fillH": true,
+        "type": "FRAME",
+        "layout": "VERTICAL",
+        "align": "CENTER",
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Content",
+          "w": 820,
+          "h": 336,
+          "x": 0,
+          "y": 136,
+          "fillW": true,
+          "fillH": true,
+          "type": "FRAME",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "pad": [
+           0,
+           16,
+           16,
+           16
+          ],
+          "padVars": [
+           null,
+           "padding/l",
+           "padding/l",
+           "padding/l"
+          ],
+          "children": [
+           {
+            "kind": "instance",
+            "name": "radioButtonGroup",
+            "w": 788,
+            "h": 39,
+            "x": 16,
+            "y": 136,
+            "fillW": true,
+            "component": "radioButtonGroup",
+            "props": {
+             "Label": "Format"
+            },
+            "layout": "VERTICAL",
+            "gap": 8,
+            "gapVar": "gap/m",
+            "justify": "CENTER",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "text",
+              "name": "Label",
+              "w": 788,
+              "h": 15,
+              "x": 16,
+              "y": 136,
+              "fillW": true,
+              "text": "Format",
+              "size": 10,
+              "weight": 700,
+              "fill": {
+               "var": "semantic/content/secondary/color",
+               "type": "SOLID"
+              }
+             },
+             {
+              "kind": "frame",
+              "name": "Slot",
+              "w": 788,
+              "h": 16,
+              "x": 16,
+              "y": 159,
+              "fillW": true,
+              "type": "SLOT",
+              "layout": "HORIZONTAL",
+              "wrap": true,
+              "gap": 32,
+              "gapVar": "gap/xxxl",
+              "align": "CENTER",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "radioButton",
+                "w": 120,
+                "h": 16,
+                "x": 16,
+                "y": 159,
+                "component": "radioButton",
+                "props": {
+                 "Description Content": "Description",
+                 "Show Text": true,
+                 "Text Content": "PDF CMYK Vector",
+                 "State": "Selected"
+                },
+                "texts": [
+                 "PDF CMYK Vector"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "radioButton",
+                "w": 239,
+                "h": 16,
+                "x": 168,
+                "y": 159,
+                "component": "radioButton",
+                "props": {
+                 "Description Content": "Images higher than 300 DPI",
+                 "Show Text": true,
+                 "Text Content": "TIFF CMYK Raster",
+                 "State": "Default"
+                },
+                "texts": [
+                 "TIFF CMYK Raster"
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "Cards",
+            "w": 788,
+            "h": 265,
+            "x": 16,
+            "y": 191,
+            "fillW": true,
+            "fillH": true,
+            "type": "FRAME",
+            "layout": "HORIZONTAL",
+            "gap": 16,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "card",
+              "w": 386,
+              "h": 211,
+              "x": 16,
+              "y": 191,
+              "fillW": true,
+              "component": "card",
+              "props": {
+               "Show Title": true
+              },
+              "layout": "VERTICAL",
+              "gap": 12,
+              "gapVar": "gap/l",
+              "pad": [
+               16,
+               16,
+               16,
+               16
+              ],
+              "padVars": [
+               "gap/xl",
+               "gap/xl",
+               "gap/xl",
+               "gap/xl"
+              ],
+              "hugH": true,
+              "stroke": {
+               "var": "card/border/color",
+               "type": "SOLID"
+              },
+              "radius": 12,
+              "radiusVar": "radii/card",
+              "children": [
+               {
+                "kind": "text",
+                "name": "Title",
+                "w": 351,
+                "h": 15,
+                "x": 34,
+                "y": 209,
+                "fillW": true,
+                "text": "Output",
+                "style": "s",
+                "size": 10,
+                "weight": 700,
+                "fill": {
+                 "var": "semantic/content/secondary/color",
+                 "type": "SOLID"
+                }
+               },
+               {
+                "kind": "frame",
+                "name": "Slot",
+                "w": 351,
+                "h": 149,
+                "x": 34,
+                "y": 236,
+                "fillW": true,
+                "type": "SLOT",
+                "layout": "VERTICAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "switch",
+                  "w": 351,
+                  "h": 24,
+                  "x": 34,
+                  "y": 236,
+                  "fillW": true,
+                  "component": "switch",
+                  "props": {
+                   "Description Content": "PDF/X-4 Press-ready",
+                   "Show Description": true,
+                   "Show Tooltip": true,
+                   "Enable": "True"
+                  },
+                  "texts": [
+                   "PDF/X-4 Press-ready"
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "dividerLine",
+                  "w": 351,
+                  "h": 2,
+                  "x": 34,
+                  "y": 268,
+                  "fillW": true,
+                  "component": "dividerLine",
+                  "props": {},
+                  "textless": true
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "switch",
+                  "w": 351,
+                  "h": 24,
+                  "x": 34,
+                  "y": 277,
+                  "fillW": true,
+                  "component": "switch",
+                  "props": {
+                   "Description Content": "Preserve Pantone Colors",
+                   "Show Description": true,
+                   "Show Tooltip": true,
+                   "Enable": "False"
+                  },
+                  "texts": [
+                   "Preserve Pantone Colors"
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "dividerLine",
+                  "w": 351,
+                  "h": 2,
+                  "x": 34,
+                  "y": 309,
+                  "fillW": true,
+                  "component": "dividerLine",
+                  "props": {},
+                  "textless": true
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "switch",
+                  "w": 351,
+                  "h": 24,
+                  "x": 34,
+                  "y": 319,
+                  "fillW": true,
+                  "component": "switch",
+                  "props": {
+                   "Description Content": "Convert RGB images to CMYK",
+                   "Show Description": true,
+                   "Show Tooltip": true,
+                   "Enable": "False"
+                  },
+                  "texts": [
+                   "Convert RGB images to CMYK"
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "dividerLine",
+                  "w": 351,
+                  "h": 2,
+                  "x": 34,
+                  "y": 351,
+                  "fillW": true,
+                  "component": "dividerLine",
+                  "props": {},
+                  "textless": true
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "switch",
+                  "w": 245,
+                  "h": 24,
+                  "x": 34,
+                  "y": 360,
+                  "component": "switch",
+                  "props": {
+                   "Show Input": true,
+                   "Description Content": "Downsample images to",
+                   "Show Description": true,
+                   "Enable": "True"
+                  },
+                  "texts": [
+                   "Downsample images to",
+                   "300",
+                   "dpi"
+                  ]
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "card",
+              "w": 386,
+              "h": 265,
+              "x": 418,
+              "y": 191,
+              "fillW": true,
+              "fillH": true,
+              "component": "card",
+              "props": {
+               "Show Title": true
+              },
+              "layout": "VERTICAL",
+              "gap": 12,
+              "gapVar": "gap/l",
+              "pad": [
+               16,
+               16,
+               16,
+               16
+              ],
+              "padVars": [
+               "gap/xl",
+               "gap/xl",
+               "gap/xl",
+               "gap/xl"
+              ],
+              "stroke": {
+               "var": "card/border/color",
+               "type": "SOLID"
+              },
+              "radius": 12,
+              "radiusVar": "radii/card",
+              "children": [
+               {
+                "kind": "text",
+                "name": "Title",
+                "w": 351,
+                "h": 15,
+                "x": 436,
+                "y": 209,
+                "fillW": true,
+                "text": "Marks and bleed",
+                "style": "s",
+                "size": 10,
+                "weight": 700,
+                "fill": {
+                 "var": "semantic/content/secondary/color",
+                 "type": "SOLID"
+                }
+               },
+               {
+                "kind": "frame",
+                "name": "Slot",
+                "w": 351,
+                "h": 190,
+                "x": 436,
+                "y": 236,
+                "fillW": true,
+                "type": "SLOT",
+                "layout": "VERTICAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "switch",
+                  "w": 351,
+                  "h": 24,
+                  "x": 436,
+                  "y": 236,
+                  "fillW": true,
+                  "component": "switch",
+                  "props": {
+                   "Description Content": "Crop Marks",
+                   "Show Description": true,
+                   "Enable": "True"
+                  },
+                  "texts": [
+                   "Crop Marks"
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "dividerLine",
+                  "w": 351,
+                  "h": 2,
+                  "x": 436,
+                  "y": 268,
+                  "fillW": true,
+                  "component": "dividerLine",
+                  "props": {},
+                  "textless": true
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "switch",
+                  "w": 351,
+                  "h": 24,
+                  "x": 436,
+                  "y": 277,
+                  "fillW": true,
+                  "component": "switch",
+                  "props": {
+                   "Description Content": "Registration Marks",
+                   "Show Description": true,
+                   "Enable": "True"
+                  },
+                  "texts": [
+                   "Registration Marks"
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "dividerLine",
+                  "w": 351,
+                  "h": 2,
+                  "x": 436,
+                  "y": 309,
+                  "fillW": true,
+                  "component": "dividerLine",
+                  "props": {},
+                  "textless": true
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "switch",
+                  "w": 351,
+                  "h": 24,
+                  "x": 436,
+                  "y": 319,
+                  "fillW": true,
+                  "component": "switch",
+                  "props": {
+                   "Description Content": "Color bars",
+                   "Show Description": true,
+                   "Enable": "False"
+                  },
+                  "texts": [
+                   "Color bars"
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "dividerLine",
+                  "w": 351,
+                  "h": 2,
+                  "x": 436,
+                  "y": 351,
+                  "fillW": true,
+                  "component": "dividerLine",
+                  "props": {},
+                  "textless": true
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "switch",
+                  "w": 351,
+                  "h": 24,
+                  "x": 436,
+                  "y": 360,
+                  "fillW": true,
+                  "component": "switch",
+                  "props": {
+                   "Description Content": "File information",
+                   "Show Description": true,
+                   "Enable": "True"
+                  },
+                  "texts": [
+                   "File information"
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "dividerLine",
+                  "w": 351,
+                  "h": 2,
+                  "x": 436,
+                  "y": 392,
+                  "fillW": true,
+                  "component": "dividerLine",
+                  "props": {},
+                  "textless": true
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "switch",
+                  "w": 141,
+                  "h": 24,
+                  "x": 436,
+                  "y": 402,
+                  "component": "switch",
+                  "props": {
+                   "Show Input": true,
+                   "Description Content": "Bleed",
+                   "Show Description": true,
+                   "Enable": "True"
+                  },
+                  "texts": [
+                   "Bleed",
+                   "3",
+                   "mm"
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "instance",
+          "name": "actionBar",
+          "w": 820,
+          "h": 48,
+          "x": 0,
+          "y": 472,
+          "fillW": true,
+          "component": "actionBar",
+          "props": {
+           "Show Background": true
+          },
+          "layout": "HORIZONTAL",
+          "wrap": true,
+          "pad": [
+           12,
+           16,
+           12,
+           16
+          ],
+          "padVars": [
+           "padding/m",
+           "padding/l",
+           "padding/m",
+           "padding/l"
+          ],
+          "align": "CENTER",
+          "justify": "MAX",
+          "clips": true,
+          "hugH": true,
+          "children": [
+           {
+            "kind": "shape",
+            "name": "background",
+            "w": 820,
+            "h": 48,
+            "x": 0,
+            "y": 472,
+            "absolute": true,
+            "type": "RECTANGLE"
+           },
+           {
+            "kind": "frame",
+            "name": "Slot",
+            "w": 788,
+            "h": 24,
+            "x": 16,
+            "y": 484,
+            "fillW": true,
+            "type": "SLOT",
+            "layout": "HORIZONTAL",
+            "wrap": true,
+            "gap": 8,
+            "justify": "SPACE_BETWEEN",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "buttonTertiary",
+              "w": 98,
+              "h": 24,
+              "x": 16,
+              "y": 484,
+              "component": "buttonTertiary",
+              "props": {
+               "Label Content": "Save as default",
+               "Show Label": true,
+               "Icon Content": "Icon-check",
+               "State": "Disabled"
+              },
+              "texts": [
+               "Save as default"
+              ]
+             },
+             {
+              "kind": "frame",
+              "name": "Frame 135",
+              "w": 150,
+              "h": 24,
+              "x": 654,
+              "y": 484,
+              "type": "FRAME",
+              "layout": "HORIZONTAL",
+              "gap": 12,
+              "gapVar": "gap/l",
+              "align": "CENTER",
+              "hugW": true,
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "buttonSecondary",
+                "w": 62,
+                "h": 24,
+                "x": 654,
+                "y": 484,
+                "component": "buttonSecondary",
+                "props": {
+                 "Show Label": true,
+                 "Icon Content": "Icon-suggestion-resize",
+                 "Label Content": "Preflight",
+                 "State": "Default"
+                },
+                "texts": [
+                 "Preflight"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "buttonPrimary",
+                "w": 76,
+                "h": 24,
+                "x": 728,
+                "y": 484,
+                "component": "buttonPrimary",
+                "props": {
+                 "Show Label": true,
+                 "Icon Content": "Icon-export-pdf",
+                 "Label Content": "Export PDF",
+                 "Disabled": "False"
+                },
+                "texts": [
+                 "Export PDF"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "2225:28241",
+   "name": "Export / Preflight",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Dark",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "frame",
+    "name": "Export / Preflight",
+    "w": 820,
+    "h": 523,
+    "x": 0,
+    "y": 0,
+    "type": "FRAME",
+    "layout": "HORIZONTAL",
+    "justify": "CENTER",
+    "hugW": true,
+    "hugH": true,
+    "children": [
+     {
+      "kind": "instance",
+      "name": ".Tokens to Ink Plugin",
+      "w": 820,
+      "h": 523,
+      "x": 0,
+      "y": 0,
+      "component": ".Tokens to Ink Plugin",
+      "props": {},
+      "layout": "VERTICAL",
+      "align": "CENTER",
+      "clips": true,
+      "fill": {
+       "var": "semantic/surface/elevationLow/color",
+       "type": "SOLID"
+      },
+      "radius": 16,
+      "radiusVar": "general/window-radii",
+      "children": [
+       {
+        "kind": "instance",
+        "name": ".figmaWindow",
+        "w": 820,
+        "h": 40,
+        "x": 0,
+        "y": 0,
+        "fillW": true,
+        "component": ".figmaWindow",
+        "props": {
+         "Icon": "TTI-Icon",
+         "Title": "Tokens to Ink"
+        },
+        "layout": "HORIZONTAL",
+        "gap": 8,
+        "gapVar": "gap/m",
+        "pad": [
+         0,
+         16,
+         0,
+         16
+        ],
+        "padVars": [
+         null,
+         "padding/l",
+         null,
+         "padding/l"
+        ],
+        "align": "CENTER",
+        "clips": true,
+        "fill": {
+         "var": "figmaWindowChrome/background/color",
+         "type": "SOLID"
+        },
+        "stroke": {
+         "var": "figmaWindowChrome/divider/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "instance",
+          "name": "TTI-Icon",
+          "w": 16,
+          "h": 16,
+          "x": 16,
+          "y": 12,
+          "component": "TTI-Icon",
+          "props": {
+           "size": "header"
+          },
+          "textless": true
+         },
+         {
+          "kind": "text",
+          "name": "Title",
+          "w": 747,
+          "h": 16,
+          "x": 40,
+          "y": 12,
+          "fillW": true,
+          "text": "Tokens to Ink",
+          "style": "m",
+          "size": 11,
+          "weight": 600,
+          "fill": {
+           "var": "figmaWindowChrome/title/color",
+           "type": "SOLID"
+          }
+         },
+         {
+          "kind": "frame",
+          "name": "Union",
+          "w": 9,
+          "h": 10,
+          "x": 795,
+          "y": 15,
+          "type": "BOOLEAN_OPERATION",
+          "fill": {
+           "var": "figmaWindowChrome/button/color",
+           "type": "SOLID"
+          },
+          "children": [
+           {
+            "kind": "shape",
+            "name": "Vector 1",
+            "w": 8,
+            "h": 8,
+            "x": 795,
+            "y": 16,
+            "type": "VECTOR"
+           },
+           {
+            "kind": "shape",
+            "name": "Vector 2",
+            "w": 8,
+            "h": 8,
+            "x": 795,
+            "y": 16,
+            "type": "VECTOR"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "instance",
+        "name": "actionBar",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 40,
+        "fillW": true,
+        "component": "actionBar",
+        "props": {
+         "Show Background": true
+        },
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "pad": [
+         12,
+         16,
+         12,
+         16
+        ],
+        "padVars": [
+         "padding/m",
+         "padding/l",
+         "padding/m",
+         "padding/l"
+        ],
+        "clips": true,
+        "hugH": true,
+        "children": [
+         {
+          "kind": "shape",
+          "name": "background",
+          "w": 820,
+          "h": 48,
+          "x": 0,
+          "y": 40,
+          "absolute": true,
+          "type": "RECTANGLE"
+         },
+         {
+          "kind": "frame",
+          "name": "Slot",
+          "w": 788,
+          "h": 24,
+          "x": 16,
+          "y": 52,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "HORIZONTAL",
+          "wrap": true,
+          "gap": 8,
+          "gapVar": "gap/m",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "frame",
+            "name": "Chips",
+            "w": 670,
+            "h": 24,
+            "x": 16,
+            "y": 52,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "HORIZONTAL",
+            "wrap": true,
+            "gap": 4,
+            "gapVar": "gap/s",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "Button Tertiary",
+              "w": 200,
+              "h": 24,
+              "x": 16,
+              "y": 52,
+              "component": "buttonTertiary",
+              "props": {
+               "Label Content": "BusinessCard-85x55mm-Front",
+               "Show Label": true,
+               "Icon Content": "Icon-focus",
+               "Show Icon": true,
+               "State": "Default"
+              },
+              "texts": [
+               "BusinessCard-85x55mm-Front"
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "Button Tertiary",
+              "w": 198,
+              "h": 24,
+              "x": 220,
+              "y": 52,
+              "component": "buttonTertiary",
+              "props": {
+               "Label Content": "BusinessCard-85x55mm-Back",
+               "Show Label": true,
+               "Icon Content": "Icon-focus",
+               "Show Icon": true,
+               "State": "Default"
+              },
+              "texts": [
+               "BusinessCard-85x55mm-Back"
+              ]
+             }
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "buttonPrimary",
+            "w": 110,
+            "h": 24,
+            "x": 694,
+            "y": 52,
+            "component": "buttonPrimary",
+            "props": {
+             "Show Label": true,
+             "Show Icon": true,
+             "Icon Content": "Icon-update",
+             "Label Content": "Scan selection",
+             "Disabled": "False"
+            },
+            "texts": [
+             "Scan selection"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "frame",
+        "name": "Export",
+        "w": 820,
+        "h": 435,
+        "x": 0,
+        "y": 88,
+        "fillW": true,
+        "fillH": true,
+        "type": "FRAME",
+        "layout": "VERTICAL",
+        "children": [
+         {
+          "kind": "instance",
+          "name": "actionBar",
+          "w": 820,
+          "h": 48,
+          "x": 0,
+          "y": 88,
+          "component": "actionBar",
+          "props": {},
+          "layout": "HORIZONTAL",
+          "wrap": true,
+          "pad": [
+           12,
+           16,
+           12,
+           16
+          ],
+          "padVars": [
+           "padding/m",
+           "padding/l",
+           "padding/m",
+           "padding/l"
+          ],
+          "clips": true,
+          "children": [
+           {
+            "kind": "frame",
+            "name": "Slot",
+            "w": 788,
+            "h": 24,
+            "x": 16,
+            "y": 100,
+            "fillW": true,
+            "type": "SLOT",
+            "layout": "HORIZONTAL",
+            "wrap": true,
+            "gap": 8,
+            "gapVar": "gap/m",
+            "align": "CENTER",
+            "justify": "CENTER",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "segmentedControl",
+              "w": 314,
+              "h": 24,
+              "x": 253,
+              "y": 100,
+              "component": "segmentedControl",
+              "props": {},
+              "texts": [
+               "Colors",
+               "Export"
+              ]
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Body",
+          "w": 820,
+          "h": 387,
+          "x": 0,
+          "y": 136,
+          "fillW": true,
+          "fillH": true,
+          "type": "FRAME",
+          "layout": "VERTICAL",
+          "align": "CENTER",
+          "children": [
+           {
+            "kind": "frame",
+            "name": "Content",
+            "w": 820,
+            "h": 339,
+            "x": 0,
+            "y": 136,
+            "fillW": true,
+            "fillH": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "gap": 16,
+            "pad": [
+             0,
+             16,
+             16,
+             16
+            ],
+            "padVars": [
+             null,
+             "padding/l",
+             "padding/l",
+             "padding/l"
+            ],
+            "children": [
+             {
+              "kind": "instance",
+              "name": "radioButtonGroup",
+              "w": 788,
+              "h": 39,
+              "x": 16,
+              "y": 136,
+              "fillW": true,
+              "component": "radioButtonGroup",
+              "props": {
+               "Label": "Format"
+              },
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "justify": "CENTER",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "text",
+                "name": "Label",
+                "w": 788,
+                "h": 15,
+                "x": 16,
+                "y": 136,
+                "fillW": true,
+                "text": "Format",
+                "size": 10,
+                "weight": 700,
+                "fill": {
+                 "var": "semantic/content/secondary/color",
+                 "type": "SOLID"
+                }
+               },
+               {
+                "kind": "frame",
+                "name": "Slot",
+                "w": 788,
+                "h": 16,
+                "x": 16,
+                "y": 159,
+                "fillW": true,
+                "type": "SLOT",
+                "layout": "HORIZONTAL",
+                "wrap": true,
+                "gap": 32,
+                "gapVar": "gap/xxxl",
+                "align": "CENTER",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "radioButton",
+                  "w": 120,
+                  "h": 16,
+                  "x": 16,
+                  "y": 159,
+                  "component": "radioButton",
+                  "props": {
+                   "Description Content": "Description",
+                   "Show Text": true,
+                   "Text Content": "PDF CMYK Vector",
+                   "State": "Selected"
+                  },
+                  "texts": [
+                   "PDF CMYK Vector"
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "radioButton",
+                  "w": 239,
+                  "h": 16,
+                  "x": 168,
+                  "y": 159,
+                  "component": "radioButton",
+                  "props": {
+                   "Description Content": "Images higher than 300 DPI",
+                   "Show Text": true,
+                   "Text Content": "TIFF CMYK Raster",
+                   "State": "Default"
+                  },
+                  "texts": [
+                   "TIFF CMYK Raster"
+                  ]
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "frame",
+              "name": "Cards",
+              "w": 788,
+              "h": 268,
+              "x": 16,
+              "y": 191,
+              "fillW": true,
+              "fillH": true,
+              "type": "FRAME",
+              "layout": "HORIZONTAL",
+              "gap": 16,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "card",
+                "w": 386,
+                "h": 211,
+                "x": 16,
+                "y": 191,
+                "fillW": true,
+                "component": "card",
+                "props": {
+                 "Show Title": true
+                },
+                "layout": "VERTICAL",
+                "gap": 12,
+                "gapVar": "gap/l",
+                "pad": [
+                 16,
+                 16,
+                 16,
+                 16
+                ],
+                "padVars": [
+                 "gap/xl",
+                 "gap/xl",
+                 "gap/xl",
+                 "gap/xl"
+                ],
+                "hugH": true,
+                "stroke": {
+                 "var": "card/border/color",
+                 "type": "SOLID"
+                },
+                "radius": 12,
+                "radiusVar": "radii/card",
+                "children": [
+                 {
+                  "kind": "text",
+                  "name": "Title",
+                  "w": 351,
+                  "h": 15,
+                  "x": 34,
+                  "y": 209,
+                  "fillW": true,
+                  "text": "Output",
+                  "style": "s",
+                  "size": 10,
+                  "weight": 700,
+                  "fill": {
+                   "var": "semantic/content/secondary/color",
+                   "type": "SOLID"
+                  }
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "Slot",
+                  "w": 351,
+                  "h": 149,
+                  "x": 34,
+                  "y": 236,
+                  "fillW": true,
+                  "type": "SLOT",
+                  "layout": "VERTICAL",
+                  "gap": 8,
+                  "gapVar": "gap/m",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "switch",
+                    "w": 351,
+                    "h": 24,
+                    "x": 34,
+                    "y": 236,
+                    "fillW": true,
+                    "component": "switch",
+                    "props": {
+                     "Description Content": "PDF/X-4 Press-ready",
+                     "Show Description": true,
+                     "Show Tooltip": true,
+                     "Enable": "True"
+                    },
+                    "texts": [
+                     "PDF/X-4 Press-ready"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "dividerLine",
+                    "w": 351,
+                    "h": 2,
+                    "x": 34,
+                    "y": 268,
+                    "fillW": true,
+                    "component": "dividerLine",
+                    "props": {},
+                    "textless": true
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "switch",
+                    "w": 351,
+                    "h": 24,
+                    "x": 34,
+                    "y": 277,
+                    "fillW": true,
+                    "component": "switch",
+                    "props": {
+                     "Description Content": "Preserve Pantone Colors",
+                     "Show Description": true,
+                     "Show Tooltip": true,
+                     "Enable": "False"
+                    },
+                    "texts": [
+                     "Preserve Pantone Colors"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "dividerLine",
+                    "w": 351,
+                    "h": 2,
+                    "x": 34,
+                    "y": 309,
+                    "fillW": true,
+                    "component": "dividerLine",
+                    "props": {},
+                    "textless": true
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "switch",
+                    "w": 351,
+                    "h": 24,
+                    "x": 34,
+                    "y": 319,
+                    "fillW": true,
+                    "component": "switch",
+                    "props": {
+                     "Description Content": "Convert RGB images to CMYK",
+                     "Show Description": true,
+                     "Show Tooltip": true,
+                     "Enable": "False"
+                    },
+                    "texts": [
+                     "Convert RGB images to CMYK"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "dividerLine",
+                    "w": 351,
+                    "h": 2,
+                    "x": 34,
+                    "y": 351,
+                    "fillW": true,
+                    "component": "dividerLine",
+                    "props": {},
+                    "textless": true
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "switch",
+                    "w": 245,
+                    "h": 24,
+                    "x": 34,
+                    "y": 360,
+                    "component": "switch",
+                    "props": {
+                     "Show Input": true,
+                     "Description Content": "Downsample images to",
+                     "Show Description": true,
+                     "Enable": "True"
+                    },
+                    "texts": [
+                     "Downsample images to",
+                     "300",
+                     "dpi"
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "card",
+                "w": 386,
+                "h": 268,
+                "x": 418,
+                "y": 191,
+                "fillW": true,
+                "fillH": true,
+                "component": "card",
+                "props": {
+                 "Show Title": true
+                },
+                "layout": "VERTICAL",
+                "gap": 12,
+                "gapVar": "gap/l",
+                "pad": [
+                 16,
+                 16,
+                 16,
+                 16
+                ],
+                "padVars": [
+                 "gap/xl",
+                 "gap/xl",
+                 "gap/xl",
+                 "gap/xl"
+                ],
+                "stroke": {
+                 "var": "card/border/color",
+                 "type": "SOLID"
+                },
+                "radius": 12,
+                "radiusVar": "radii/card",
+                "children": [
+                 {
+                  "kind": "text",
+                  "name": "Title",
+                  "w": 351,
+                  "h": 15,
+                  "x": 436,
+                  "y": 209,
+                  "fillW": true,
+                  "text": "Marks and bleed",
+                  "style": "s",
+                  "size": 10,
+                  "weight": 700,
+                  "fill": {
+                   "var": "semantic/content/secondary/color",
+                   "type": "SOLID"
+                  }
+                 },
+                 {
+                  "kind": "frame",
+                  "name": "Slot",
+                  "w": 351,
+                  "h": 190,
+                  "x": 436,
+                  "y": 236,
+                  "fillW": true,
+                  "type": "SLOT",
+                  "layout": "VERTICAL",
+                  "gap": 8,
+                  "gapVar": "gap/m",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "switch",
+                    "w": 351,
+                    "h": 24,
+                    "x": 436,
+                    "y": 236,
+                    "fillW": true,
+                    "component": "switch",
+                    "props": {
+                     "Description Content": "Crop Marks",
+                     "Show Description": true,
+                     "Enable": "True"
+                    },
+                    "texts": [
+                     "Crop Marks"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "dividerLine",
+                    "w": 351,
+                    "h": 2,
+                    "x": 436,
+                    "y": 268,
+                    "fillW": true,
+                    "component": "dividerLine",
+                    "props": {},
+                    "textless": true
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "switch",
+                    "w": 351,
+                    "h": 24,
+                    "x": 436,
+                    "y": 277,
+                    "fillW": true,
+                    "component": "switch",
+                    "props": {
+                     "Description Content": "Registration Marks",
+                     "Show Description": true,
+                     "Enable": "True"
+                    },
+                    "texts": [
+                     "Registration Marks"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "dividerLine",
+                    "w": 351,
+                    "h": 2,
+                    "x": 436,
+                    "y": 309,
+                    "fillW": true,
+                    "component": "dividerLine",
+                    "props": {},
+                    "textless": true
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "switch",
+                    "w": 351,
+                    "h": 24,
+                    "x": 436,
+                    "y": 319,
+                    "fillW": true,
+                    "component": "switch",
+                    "props": {
+                     "Description Content": "Color bars",
+                     "Show Description": true,
+                     "Enable": "False"
+                    },
+                    "texts": [
+                     "Color bars"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "dividerLine",
+                    "w": 351,
+                    "h": 2,
+                    "x": 436,
+                    "y": 351,
+                    "fillW": true,
+                    "component": "dividerLine",
+                    "props": {},
+                    "textless": true
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "switch",
+                    "w": 351,
+                    "h": 24,
+                    "x": 436,
+                    "y": 360,
+                    "fillW": true,
+                    "component": "switch",
+                    "props": {
+                     "Description Content": "File information",
+                     "Show Description": true,
+                     "Enable": "True"
+                    },
+                    "texts": [
+                     "File information"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "dividerLine",
+                    "w": 351,
+                    "h": 2,
+                    "x": 436,
+                    "y": 392,
+                    "fillW": true,
+                    "component": "dividerLine",
+                    "props": {},
+                    "textless": true
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "switch",
+                    "w": 141,
+                    "h": 24,
+                    "x": 436,
+                    "y": 402,
+                    "component": "switch",
+                    "props": {
+                     "Show Input": true,
+                     "Description Content": "Bleed",
+                     "Show Description": true,
+                     "Enable": "True"
+                    },
+                    "texts": [
+                     "Bleed",
+                     "3",
+                     "mm"
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "actionBar",
+            "w": 820,
+            "h": 48,
+            "x": 0,
+            "y": 475,
+            "fillW": true,
+            "component": "actionBar",
+            "props": {
+             "Show Background": true
+            },
+            "layout": "HORIZONTAL",
+            "wrap": true,
+            "pad": [
+             12,
+             16,
+             12,
+             16
+            ],
+            "padVars": [
+             "padding/m",
+             "padding/l",
+             "padding/m",
+             "padding/l"
+            ],
+            "align": "CENTER",
+            "justify": "MAX",
+            "clips": true,
+            "hugH": true,
+            "children": [
+             {
+              "kind": "shape",
+              "name": "background",
+              "w": 820,
+              "h": 48,
+              "x": 0,
+              "y": 475,
+              "absolute": true,
+              "type": "RECTANGLE"
+             },
+             {
+              "kind": "frame",
+              "name": "Slot",
+              "w": 788,
+              "h": 24,
+              "x": 16,
+              "y": 487,
+              "fillW": true,
+              "type": "SLOT",
+              "layout": "HORIZONTAL",
+              "wrap": true,
+              "gap": 8,
+              "justify": "SPACE_BETWEEN",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "buttonTertiary",
+                "w": 98,
+                "h": 24,
+                "x": 16,
+                "y": 487,
+                "component": "buttonTertiary",
+                "props": {
+                 "Label Content": "Save as default",
+                 "Show Label": true,
+                 "Icon Content": "Icon-check",
+                 "State": "Disabled"
+                },
+                "texts": [
+                 "Save as default"
+                ]
+               },
+               {
+                "kind": "frame",
+                "name": "Frame 135",
+                "w": 150,
+                "h": 24,
+                "x": 654,
+                "y": 487,
+                "type": "FRAME",
+                "layout": "HORIZONTAL",
+                "gap": 12,
+                "gapVar": "gap/l",
+                "align": "CENTER",
+                "hugW": true,
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "buttonSecondary",
+                  "w": 62,
+                  "h": 24,
+                  "x": 654,
+                  "y": 487,
+                  "component": "buttonSecondary",
+                  "props": {
+                   "Show Label": true,
+                   "Icon Content": "Icon-suggestion-resize",
+                   "Label Content": "Preflight",
+                   "State": "Default"
+                  },
+                  "texts": [
+                   "Preflight"
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "buttonPrimary",
+                  "w": 76,
+                  "h": 24,
+                  "x": 728,
+                  "y": 487,
+                  "component": "buttonPrimary",
+                  "props": {
+                   "Show Label": true,
+                   "Icon Content": "Icon-export-pdf",
+                   "Label Content": "Export PDF",
+                   "Disabled": "False"
+                  },
+                  "texts": [
+                   "Export PDF"
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "instance",
+      "name": "Deep Analysis",
+      "w": 820,
+      "h": 483,
+      "x": 0,
+      "y": 40,
+      "absolute": true,
+      "component": "overlay",
+      "props": {},
+      "layout": "VERTICAL",
+      "gap": 8,
+      "pad": [
+       16,
+       16,
+       16,
+       16
+      ],
+      "padVars": [
+       "padding/l",
+       "padding/l",
+       "padding/l",
+       "padding/l"
+      ],
+      "align": "CENTER",
+      "justify": "CENTER",
+      "children": [
+       {
+        "kind": "shape",
+        "name": "Overlay",
+        "w": 820,
+        "h": 483,
+        "x": 0,
+        "y": 40,
+        "absolute": true,
+        "type": "RECTANGLE"
+       },
+       {
+        "kind": "frame",
+        "name": "Slot",
+        "w": 788,
+        "h": 451,
+        "x": 16,
+        "y": 56,
+        "fillW": true,
+        "fillH": true,
+        "type": "SLOT",
+        "layout": "VERTICAL",
+        "gap": 8,
+        "align": "CENTER",
+        "justify": "CENTER",
+        "children": [
+         {
+          "kind": "instance",
+          "name": "modal",
+          "w": 408,
+          "h": 374,
+          "x": 206,
+          "y": 95,
+          "component": "modal",
+          "props": {
+           "Show Close Button": true,
+           "Icon Content": "Icon-suggestion-removeline",
+           "Show Actions": true,
+           "Title Content": "Preflight",
+           "Show Slot": true
+          },
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "pad": [
+           16,
+           16,
+           16,
+           16
+          ],
+          "padVars": [
+           "padding/l",
+           "padding/l",
+           "padding/l",
+           "padding/l"
+          ],
+          "justify": "CENTER",
+          "hugH": true,
+          "fill": {
+           "var": "modal/background/color",
+           "type": "SOLID"
+          },
+          "radius": 24,
+          "radiusVar": "radii/modal",
+          "children": [
+           {
+            "kind": "frame",
+            "name": "header",
+            "w": 376,
+            "h": 24,
+            "x": 222,
+            "y": 111,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "HORIZONTAL",
+            "gap": 4,
+            "gapVar": "gap/s",
+            "align": "CENTER",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "text",
+              "name": "Title",
+              "w": 348,
+              "h": 17,
+              "x": 222,
+              "y": 114,
+              "fillW": true,
+              "text": "Preflight",
+              "style": "l",
+              "size": 13,
+              "weight": 600,
+              "fill": {
+               "var": "modal/title/color",
+               "type": "SOLID"
+              }
+             },
+             {
+              "kind": "instance",
+              "name": "buttonSecondary",
+              "w": 24,
+              "h": 24,
+              "x": 574,
+              "y": 111,
+              "component": "buttonSecondary",
+              "props": {
+               "Label Content": "label",
+               "Show Icon": true,
+               "Icon Content": "Icon-cross",
+               "State": "Default"
+              },
+              "textless": true
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "Slot",
+            "w": 376,
+            "h": 262,
+            "x": 222,
+            "y": 151,
+            "fillW": true,
+            "type": "SLOT",
+            "layout": "VERTICAL",
+            "gap": 8,
+            "gapVar": "gap/m",
+            "justify": "CENTER",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "dividerSection",
+              "w": 376,
+              "h": 23,
+              "x": 222,
+              "y": 151,
+              "fillW": true,
+              "component": "dividerSection",
+              "props": {
+               "Show Number": true,
+               "Number Content": "3",
+               "Show Priority": true,
+               "Label Content": "Errors"
+              },
+              "texts": [
+               "Errors",
+               "·",
+               "3"
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "listItem",
+              "w": 376,
+              "h": 34,
+              "x": 222,
+              "y": 182,
+              "fillW": true,
+              "component": "listItem",
+              "props": {
+               "Show Icon": true,
+               "Show Action": true,
+               "Title Content": "hero.jpg — 180 dpi (below 300 target)",
+               "Description Content": "",
+               "Icon Content": "Icon-image",
+               "Show Divider Line": true
+              },
+              "texts": [
+               "hero.jpg — 180 dpi (below 300 target)"
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "listItem",
+              "w": 376,
+              "h": 34,
+              "x": 222,
+              "y": 223,
+              "fillW": true,
+              "component": "listItem",
+              "props": {
+               "Show Icon": true,
+               "Show Action": true,
+               "Title Content": "Overset text in \"Specifications\" block",
+               "Description Content": "Overset text in \"Specifications\" block",
+               "Icon Content": "Icon-var-string",
+               "Show Divider Line": true
+              },
+              "texts": [
+               "Overset text in \"Specifications\" block"
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "listItem",
+              "w": 376,
+              "h": 34,
+              "x": 222,
+              "y": 265,
+              "fillW": true,
+              "component": "listItem",
+              "props": {
+               "Show Icon": true,
+               "Show Action": true,
+               "Title Content": "product-photo.jpg — stays RGB (won't convert to CMYK)",
+               "Description Content": "Stays RGB (won't convert to CMYK)",
+               "Icon Content": "Icon-var-color",
+               "Show Divider Line": true
+              },
+              "texts": [
+               "product-photo.jpg — stays RGB (won't convert to CMYK)"
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "dividerSection",
+              "w": 376,
+              "h": 23,
+              "x": 222,
+              "y": 306,
+              "fillW": true,
+              "component": "dividerSection",
+              "props": {
+               "Show Number": true,
+               "Number Content": "2",
+               "Show Priority": true,
+               "Label Content": "Warning"
+              },
+              "texts": [
+               "Warning",
+               "·",
+               "2"
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "listItem",
+              "w": 376,
+              "h": 34,
+              "x": 222,
+              "y": 337,
+              "fillW": true,
+              "component": "listItem",
+              "props": {
+               "Show Icon": true,
+               "Show Action": true,
+               "Title Content": "map.png — stretched 120% horizontally",
+               "Description Content": "Stretched 120% horizontally",
+               "Icon Content": "Icon-image",
+               "Show Divider Line": true
+              },
+              "texts": [
+               "map.png — stretched 120% horizontally"
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "listItem",
+              "w": 376,
+              "h": 34,
+              "x": 222,
+              "y": 379,
+              "fillW": true,
+              "component": "listItem",
+              "props": {
+               "Show Icon": true,
+               "Show Action": true,
+               "Title Content": "2 hidden layers won't export",
+               "Description Content": "Stretched 120% horizontally",
+               "Icon Content": "Icon-object-frame",
+               "Show Divider Line": true
+              },
+              "texts": [
+               "2 hidden layers won't export"
+              ]
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "Actions",
+            "w": 376,
+            "h": 24,
+            "x": 222,
+            "y": 428,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "HORIZONTAL",
+            "gap": 8,
+            "gapVar": "gap/m",
+            "justify": "CENTER",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "buttonPrimary",
+              "w": 376,
+              "h": 24,
+              "x": 222,
+              "y": 428,
+              "fillW": true,
+              "component": "buttonPrimary",
+              "props": {
+               "Show Label": true,
+               "Show Icon": true,
+               "Icon Content": "Icon-update",
+               "Label Content": "Rescan",
+               "Disabled": "True"
+              },
+              "texts": [
+               "Rescan"
+              ]
+             }
             ]
            }
           ]

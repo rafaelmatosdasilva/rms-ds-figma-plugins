@@ -918,16 +918,12 @@
   .inputWrap.empty { background: transparent; }
   .inputWrap.no-value .inputField { display: none; }
 
+  /* The progress message is the DS loader in the DS overlay (showProgress): the overlay draws the scrim and its blur. */
   #progress-container {
     position: fixed; inset: 0; z-index: 9997;
-    display: flex; align-items: center; justify-content: center;
     pointer-events: none;
   }
-  #progress-container:not(:empty) {
-    background: var(--overlay);
-    backdrop-filter: blur(4px);
-    pointer-events: none;
-  }
+  #progress-container .overlay { pointer-events: none; }
   #progress-container .progress-msg { animation: none; }
   /* Feedback toasts — bottom-center, no overlay */
   #toast-container:not(:empty) {
@@ -936,39 +932,16 @@
     pointer-events: none;
     white-space: nowrap;
   }
+  /* .progress-msg marks the loader showProgress draws: the loader (below) gives it its look; this keeps it clickable
+     over the overlay, on one line, and lets it come and go like a modal. */
   .progress-msg {
-    /* Loading moved out of toast into the DS `loader` component — uses loader/* tokens. */
-    background: var(--loader-background); color: var(--loader-title);
-    height: 48px; padding: var(--padding-s) var(--padding-m); /* Figma: h=48, paddingVar tb=padding/s lr=padding/m */
-    flex-shrink: 0; /* DS toast is a fixed 48px — never compress */
-    font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight);
-    display: inline-flex; align-items: center; gap: var(--gap-xl); /* gap/xl = 16px */
-    border-radius: var(--radii-toast); white-space: nowrap; pointer-events: auto;
+    white-space: nowrap; pointer-events: auto;
     animation: modal-in var(--modal-duration) var(--modal-easing) both;
   }
   .progress-msg.progress-out {
     animation: modal-out var(--modal-duration) var(--modal-easing-out) forwards;
   }
   .progress-msg button { flex-shrink: 0; }
-  .progress-msg--scan {
-    align-items: center;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.35s;
-  }
-  .progress-msg--scan.has-eta { transform: translateY(-8px); }
-  .scan-info { display: flex; flex-direction: column; gap: var(--gap-xs); justify-content: center; }
-  .scan-label { display: flex; align-items: center; gap: var(--gap-s); font-size: var(--typography-m-font-size); font-weight: var(--typography-m-font-weight); line-height: var(--typography-m-line-height); white-space: nowrap; }
-  .scan-pct {
-    display: inline-block; text-align: right;
-    max-width: 0; overflow: hidden; opacity: 0;
-    transition: max-width 0.25s ease, opacity 0.2s ease 0.05s;
-  }
-  .scan-pct.pct-visible { max-width: 32px; opacity: 1; }
-  .scan-eta {
-    font-size: var(--typography-m-font-size); line-height: 1.3;
-    max-height: 0; opacity: 0; overflow: hidden;
-    transition: max-height 0.01s, opacity 0.3s ease;
-  }
-  .progress-msg--scan.has-eta .scan-eta { max-height: 2em; opacity: 0.6; }
 
   /* ── Segmented control ── */
   /* ── segmentedControl DS component ── */
@@ -1050,6 +1023,9 @@
     background: transparent;
     border-color: transparent;
   }
+  /* With the pill, a segment has no border of its own: it is padding/m, its icon and its label wide, as Figma's segment,
+     whose selected ring takes no room. The pill draws that ring. */
+  .segmented-control.has-pill button { border-width: 0; }
 
   .segmented-control button.selected .tab-label {
     max-width: 120px;
@@ -1169,6 +1145,7 @@
     display: flex; align-items: center; justify-content: center;
     padding: var(--padding-l);
     background: var(--overlay);
+    backdrop-filter: blur(4px);   /* DS Overlay part: background blur 4 */
   }
   /* Card (DS 2120:62601) — bordered rounded container. Padding bound to gap/xl (16),
      items stacked at gap/l (12), 1.5px card/border, radii/card (12). */
@@ -1434,6 +1411,9 @@
     padding: 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: inherit;
   }
   .buttonList-main::after { content: ''; position: absolute; inset: 4px 0; border-radius: var(--radii-button); }
+  /* The button is static so its ::after covers the row; what it holds sits above the row's pill, or a hovered or
+     selected row hides its own title. */
+  .buttonList-main > * { position: relative; z-index: 1; }
   .buttonList-main:focus-visible { outline: none; }
   .buttonList-main:focus-visible::after { outline: var(--general-thickness) solid var(--input-border-focus); outline-offset: 1px; }
   /* With a tooltipButton (Show Tooltip) after it, the Title hugs its text and the tooltipButton sits beside it; the
@@ -1610,15 +1590,13 @@
   .modal-footer { display: flex; flex-direction: row; gap: var(--gap-m); width: 100%; }   /* DS footer gap = 8 */
   .modal-footer button { flex: 1; justify-content: center; }   /* centre the label when stretched */
 
-  /* ── Toast/progress overlay ── */
+  /* ── Progress click guard ── While a progress message shows, this catches the clicks meant for the page behind it.
+     It draws nothing: the DS overlay in #progress-container is the one scrim, as Figma has it. */
   #toast-overlay {
     position: fixed; inset: 0; z-index: 9996;
-    background: var(--overlay);
-    backdrop-filter: blur(4px);
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.2s ease;
+    pointer-events: none;
   }
-  #toast-overlay.visible { opacity: 1; pointer-events: auto; }
+  #toast-overlay.visible { pointer-events: auto; }
 
   /* ── Spinner (DS Spinner, 14x14, in the loader and the progress toast) ──
      The system's one spinner: a general/thickness ring in loader/spinner, its top open, turning. .toast-spinner and
@@ -1640,7 +1618,7 @@
     display: inline-flex; align-items: center;
     gap: var(--gap-xl);
     padding: var(--padding-s) var(--padding-m);
-    background: var(--loader-background);
+    background: var(--loader-background); color: var(--loader-title);
     border-radius: var(--radii-toast);
     flex-shrink: 0;
   }

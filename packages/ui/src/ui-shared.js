@@ -454,22 +454,35 @@ function dismissToast() {
   t.addEventListener('animationend', onEnd);
 }
 
-// opts: { cls: 'extra-class', cancel: fn }
+// The DS loader (68:52296) in the DS overlay (166:31563): the overlay covers the page, the loader sits at its centre.
+// opts: { cls: 'extra-class', description: 'a second line, such as the time left', cancel: fn }
 function showProgress(msg, opts) {
   const cont = document.getElementById('progress-container');
   if (!cont) return;
   const cls    = (opts && opts.cls)    || '';
   const cancel = (opts && opts.cancel) || null;
+  const desc   = (opts && opts.description) || '';
   const existing = cont.querySelector('.progress-msg');
   if (existing) {
     const textEl = existing.querySelector('.progress-text');
-    if (textEl) { textEl.textContent = msg; return; }
+    if (textEl) {
+      textEl.textContent = msg;
+      let descEl = existing.querySelector('.loader-description');
+      if (desc && !descEl) {
+        descEl = document.createElement('span');
+        descEl.className = 'loader-description';
+        textEl.after(descEl);
+      }
+      if (descEl) { if (desc) descEl.textContent = desc; else descEl.remove(); }
+      return;
+    }
   }
   const cancelHtml = cancel
     ? `<button class="buttonTertiary" id="progress-cancel-btn"><span>Cancel</span></button>`
     : '';
+  const descHtml = desc ? `<span class="loader-description">${esc(desc)}</span>` : '';
   // A screen reader hears the progress as it starts and as its words change (WCAG 4.1.3).
-  cont.innerHTML = `<div class="progress-msg${cls ? ' ' + cls : ''}" role="status"><div class="toast-content"><div class="toast-spinner" aria-hidden="true"></div><span class="progress-text">${esc(msg)}</span></div>${cancelHtml}</div>`;
+  cont.innerHTML = `<div class="overlay"><div class="loader progress-msg${cls ? ' ' + cls : ''}" role="status"><div class="loader-content"><div class="loader-spinner" aria-hidden="true"></div><div class="loader-text"><span class="loader-title progress-text">${esc(msg)}</span>${descHtml}</div></div>${cancelHtml}</div></div>`;
   if (cancel) {
     const btn = document.getElementById('progress-cancel-btn');
     if (btn) btn.addEventListener('click', cancel);
