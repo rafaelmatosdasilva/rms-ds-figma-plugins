@@ -7,6 +7,11 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.32 · 12 October 2026
+
+- panel draws no border, as Figma has it: its surface alone sets it apart from the content, on either side.
+- Impact Atlas and Font Scaling Lab are checked against their Figma screens: each screen's state is set by a script in `screen-setups/`, and the engine compares where each component sits.
+
 ## v2.0.31 · 11 October 2026
 
 - While a progress message covers the page (Loading, a scan), the page behind it is inert: Tab no longer lands on a control the overlay hides (WCAG 2.4.11), and a screen reader stays with the message. Its Cancel stays reachable, and what was inert before stays so once the message goes.
