@@ -340,8 +340,8 @@ export const CONTRACT = {
   },
   toast: {
     // DS 2026-09: the loading variant was removed from `toast` (loading now lives in the `loader`
-    // component). `toast` is now just the success/error notification at h=32. The loading banner
-    // (.progress-msg) still exists in code but is the loader, not a toast state.
+    // component). `toast` is now just the success/error notification at h=32. The progress message
+    // (.progress-msg) is the loader in an overlay (showProgress), not a toast state.
     h: 32,
     paddingVar: { tb: 'padding/s', lr: 'padding/m' },
     gapVar: 'gap/xl',
@@ -725,7 +725,7 @@ export const RENDERED_ASSERTIONS = [
   // actionBar (DS 138:16657: h=40, tb padding/s, lr padding/l)
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'paddingTop',    expected: '12px', note: 'DS actionBar padding/m (tb rebound padding/s→padding/m 2026-08)' },
   { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'paddingLeft',   expected: '16px', note: 'DS actionBar padding/l' },
-  { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'columnGap',     expected: '8px',  note: 'base gap/m slot-content default' },
+  { plugin: 'impact-atlas', selector: '.actionbar',        prop: 'columnGap',     expected: '0px',  note: 'its scan type, search and last scan groups meet and fill the slot, as Figma\'s Frame 112, input and Frame 113 do' },
   // actionBar (DS 138:16657, 2026-10): its background is its own layer (actionbar/background, drawn as
   // ::before) and two dividerLine layers (actionbar/border, 1.5) lie over its top and bottom edges (::after).
   // Both modes asserted: the background differs per mode (N1000 vs elevationHigh), the lines too.
@@ -1001,10 +1001,10 @@ export const RENDERED_ASSERTIONS = [
     probe: '<div class="toast" role="status" aria-atomic="true"><span class="toast-body"><span class="toast-icon"></span><span>Done</span></span></div>' },
   { plugin: 'impact-atlas', selector: '.toast-body',       prop: 'columnGap',     expected: '4px',  note: 'DS toast Frame 39 gap/s',
     probe: '<div class="toast" role="status" aria-atomic="true"><span class="toast-body"><span class="toast-icon"></span><span>Done</span></span></div>' },
-  { plugin: 'impact-atlas', selector: '.progress-msg',     prop: 'columnGap',     expected: '16px', note: 'DS toast loading container gap/xl',
-    probe: '<div class="progress-msg"><div class="toast-content"><div class="toast-spinner"></div><span>Working</span></div></div>' },
-  { plugin: 'impact-atlas', selector: '.toast-content',    prop: 'columnGap',     expected: '8px',  note: 'DS toast loading content gap/m (rebound from gap/s 2026-07)',
-    probe: '<div class="progress-msg"><div class="toast-content"><div class="toast-spinner"></div><span>Working</span></div></div>' },
+  { plugin: 'impact-atlas', selector: '.progress-msg',     prop: 'columnGap',     expected: '16px', note: 'DS loader root gap/xl (showProgress draws the loader)',
+    probe: '<div class="overlay"><div class="loader progress-msg"><div class="loader-content"><div class="loader-spinner"></div><div class="loader-text"><span class="loader-title progress-text">Working</span></div></div></div></div>' },
+  { plugin: 'impact-atlas', selector: '.progress-msg .loader-content', prop: 'columnGap', expected: '8px',  note: 'DS loader content gap/m',
+    probe: '<div class="overlay"><div class="loader progress-msg"><div class="loader-content"><div class="loader-spinner"></div><div class="loader-text"><span class="loader-title progress-text">Working</span></div></div></div></div>' },
 
   // segmentedControl label typography (DS text style = s, 10px/700 — caught 2026-07-11:
   // snapshot+contract both said 'm' from a bad capture, hiding an 11px/600 render)
@@ -1139,8 +1139,8 @@ export const CSS_BASE_RULE_VARS = [
   { key: 'node/border/selected',         selector: '.node.node-selected',            prop: 'border-color', expectedVar: '--node-border-selected'        },
   { key: 'node/label',                   selector: '.node',                          prop: 'color',      expectedVar: '--node-label-idle'         },
   { key: 'node/icon',                    selector: '.node svg',                      prop: 'color',      expectedVar: '--node-icon-idle'          },
-  { key: 'loader/bg',                    selector: '.progress-msg',                  prop: 'background', expectedVar: '--loader-background'             },
-  { key: 'loader/fg',                    selector: '.progress-msg',                  prop: 'color',      expectedVar: '--loader-title'                  },
+  { key: 'loader/bg',                    selector: '.loader',                        prop: 'background', expectedVar: '--loader-background'             },
+  { key: 'loader/fg',                    selector: '.loader',                        prop: 'color',      expectedVar: '--loader-title'                  },
   { key: 'toast/success/bg',             selector: '.toast',                         prop: 'background', expectedVar: '--toast-background-success'      },
   { key: 'toast/success/fg',             selector: '.toast',                         prop: 'color',      expectedVar: '--toast-title-success'           },
   // buttonList — text + icon color must stay token-bound across all states
@@ -1383,21 +1383,17 @@ export const CSS_PROPERTY_ASSERTIONS = [
   //  because they each have a later bare .buttonX rule that the structure gap check mis-selects.)
   { sel: '.buttonPrimary',  prop: 'gap', expected: '0' },
   { sel: '.buttonTertiary', prop: 'gap', expected: '0' },
-  // toast — Gate [3b] checks padding only on selCfg.main = '.progress-msg' (loading state).
-  // The success state (.toast) has different height and the SAME padding tokens — both must be asserted
-  // here or a wrong padding on .toast passes every gate silently (as it did with padding: 0 var(--padding-l)).
+  // toast — the success and error notification (h=32). Its padding tokens are asserted here or a wrong padding on
+  // .toast passes every gate silently (as it did with padding: 0 var(--padding-l)).
   { sel: '.toast', prop: 'height',  expected:    '32px'        }, // DS success state: h=32
   { sel: '.toast', prop: 'padding', expectedVar: '--padding-s' }, // DS: tb = padding/s (8px)
   { sel: '.toast', prop: 'padding', expectedVar: '--padding-m' }, // DS: lr = padding/m (12px)
-  // loading state padding + gap — main selector checked by Gate [3b] but asserting explicitly avoids future drift
-  // gap/xl is the CONTAINER gap (.progress-msg between .toast-content and cancel button).
-  // Inner content gap (spinner↔text) is gap/m on .toast-content — asserted via subframes [3f]
-  // and cross-checked against snapshot childFrameGaps (DS rebound gap/s → gap/m 2026-07).
-  // If gap/xl is removed here, spinner and text will be 8px apart (correct) but container gap breaks.
-  // If .toast-content wrapper is removed from HTML, spinner gets gap/xl = 16px instead of 8px.
-  { sel: '.progress-msg', prop: 'padding', expectedVar: '--padding-s' }, // DS: tb = padding/s (8px)
-  { sel: '.progress-msg', prop: 'padding', expectedVar: '--padding-m' }, // DS: lr = padding/m (12px)
-  { sel: '.progress-msg', prop: 'gap',     expectedVar: '--gap-xl'    }, // DS: container gap = gap/xl (16px)
+  // loader — the progress message showProgress draws (.loader.progress-msg in an .overlay).
+  // gap/xl is the ROOT gap (between .loader-content and the Cancel button); the spinner and text are gap/m apart
+  // in .loader-content. If .loader-content is removed from the markup, the spinner gets gap/xl = 16px instead of 8px.
+  { sel: '.loader', prop: 'padding', expectedVar: '--padding-s' }, // DS: tb = padding/s (8px)
+  { sel: '.loader', prop: 'padding', expectedVar: '--padding-m' }, // DS: lr = padding/m (12px)
+  { sel: '.loader', prop: 'gap',     expectedVar: '--gap-xl'    }, // DS: root gap = gap/xl (16px)
   // statusBar (theme.css base class) — DS 789:38384: tb padding/m, lr padding/l, h=48.
   // (Was padding/l → h56 in 2026-07; reverted to padding/m → h48 in 2026-08.)
   { sel: '.statusBar', prop: 'height',  expected:    '48px'         }, // DS: 24 content + padding/m × 2
@@ -1604,11 +1600,11 @@ export const ICON_USAGES = [
 export const COMPONENT_USAGES = [
   // impact-atlas — actionbar / sidebar
   { plugin: 'impact-atlas', selector: '#scan-status-change-btn', expectedClass: 'buttonTertiary'  },
-  { plugin: 'impact-atlas', selector: '#rescan-btn',             expectedClass: 'buttonTertiary'  },
+  { plugin: 'impact-atlas', selector: '#rescan-btn',             expectedClass: 'buttonPrimary'   },   // Figma's Scan
   { plugin: 'impact-atlas', selector: '#sb-focus-btn',           expectedClass: 'buttonTertiary'  },
   { plugin: 'impact-atlas', selector: '.place-action-btn',       expectedClass: 'buttonSecondary'   },
   { plugin: 'impact-atlas', selector: '#sb-export-btn',          expectedClass: 'buttonQuaternary'  },
-  { plugin: 'impact-atlas', selector: '#scan-cancel-btn',        expectedClass: 'buttonTertiary'  },
+  // A scan's Cancel is the system loader's own (showProgress), not the product's markup.
   // impact-atlas — browser empty state / modal
   { plugin: 'impact-atlas', selector: '#browser-empty-clear',    expectedClass: 'buttonSecondary' },
   { plugin: 'impact-atlas', selector: '#modal-cancel-btn',       expectedClass: 'buttonSecondary' },

@@ -7,6 +7,14 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.33 · 12 October 2026
+
+- The progress message is the loader in the overlay, as Figma draws a screen that is working: the overlay covers the page with its scrim and blur, the loader sits at its centre with its title, an optional second line (`showProgress(msg, { description })`, such as the time left) and Cancel. The page behind it is drawn under one scrim instead of two.
+- overlay has its Overlay layer's background blur, 4px.
+- A segmented control's segments are as wide as Figma's: with the sliding pill, a segment draws no border of its own, so an icon segment is 40 pixels.
+- A hovered or selected buttonList row whose title sits in its full-row button shows that title: the row's pill was drawn over it.
+- Tokens to Ink is checked against its three Figma screens (its colours, Export and Preflight), each set by a script in `screen-setups/`.
+
 ## v2.0.32 · 12 October 2026
 
 - panel draws no border, as Figma has it: its surface alone sets it apart from the content, on either side.

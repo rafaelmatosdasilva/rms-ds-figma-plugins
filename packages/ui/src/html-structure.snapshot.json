@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-10-11",
+  "_updated": "2026-10-12",
   "impact-atlas": {
     "ids": [
       "canvas-scan-btn",
@@ -98,7 +98,7 @@
       {
         "id": "rescan-btn",
         "classes": [
-          "buttonTertiary"
+          "buttonPrimary"
         ]
       },
       {
@@ -259,7 +259,7 @@
         "id": "rescan-btn",
         "svg": true,
         "spans": [],
-        "text": ""
+        "text": "Scan"
       },
       {
         "id": "btn-mode-tokens",
@@ -684,7 +684,7 @@
         "id": "gen-btn",
         "svg": true,
         "spans": [],
-        "text": ""
+        "text": "Scan selection"
       },
       {
         "id": "zoom-reset",

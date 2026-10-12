@@ -13,7 +13,8 @@
     {
       "name": "Tokens to Ink",
       "nodeId": "42-210732",
-      "plugin": "tokens-to-ink"
+      "plugin": "tokens-to-ink",
+      "setup": "screen-setups/tokens-to-ink-colors.js"
     },
     {
       "name": "Font Scaling Lab",
@@ -27,12 +28,14 @@
     {
       "name": "Tokens to Ink — Export",
       "nodeId": "2120-48124",
-      "plugin": "tokens-to-ink"
+      "plugin": "tokens-to-ink",
+      "setup": "screen-setups/tokens-to-ink-export.js"
     },
     {
       "name": "Tokens to Ink — Preflight modal",
       "nodeId": "2225-28241",
-      "plugin": "tokens-to-ink"
+      "plugin": "tokens-to-ink",
+      "setup": "screen-setups/tokens-to-ink-preflight.js"
     },
     {
       "name": "Impact Atlas, results list",
@@ -278,7 +281,8 @@
     "--icon-xsmall",
     "--icon-small",
     "--icon-large",
-    "--gap-xxl"
+    "--gap-xxl",
+    "--panel-border"
   ],
   "knownPhantomBorderExceptions": [
     ".switch-input:focus-visible + .switch-track",
@@ -453,7 +457,7 @@
       ".sb-type-icon"
     ]
   },
-  "_knownUnusedVarsNote": "DS tokens with no consumer in these plugins yet. general/min-height (60px) and the icon/* stroke weights arrived 2026-07-30; the 24px control height is --button-min-height. emptyState/description has no rendered description element (emptyState is in knownUnimplementedComponents). gap/xxl lost its one consumer on 2026-10-06, when Tokens to Ink's Format radios moved into the system's radioButtonGroup (its slot is gap/xxxl in Figma).",
+  "_knownUnusedVarsNote": "DS tokens with no consumer in these plugins yet. general/min-height (60px) and the icon/* stroke weights arrived 2026-07-30; the 24px control height is --button-min-height. emptyState/description has no rendered description element (emptyState is in knownUnimplementedComponents). gap/xxl lost its one consumer on 2026-10-06, when Tokens to Ink's Format radios moved into the system's radioButtonGroup (its slot is gap/xxxl in Figma). panel/border lost its consumer on 2026-10-12: the panel draws no border, as Figma has it, though Figma keeps the variable.",
   "frameworkComponents": false,
   "htmlRealization": true,
   "htmlRealizationStrict": false,
