@@ -1,0 +1,41 @@
+{
+ "_updated": "2026-10-12T11:40:58.342Z",
+ "_note": "Prototype transitions between variants, Motion keyframes and overlays, read from Figma (motion-parity.mjs MOTION_CAPTURE_JS).",
+ "version": 2,
+ "components": {
+  "overflowList": [
+   {
+    "from": {
+     "State": "Default"
+    },
+    "to": {
+     "State": "Hover"
+    },
+    "trigger": "ON_HOVER",
+    "type": "DISSOLVE",
+    "duration": 0.30000001192092896,
+    "easing": {
+     "type": "EASE_OUT"
+    }
+   }
+  ],
+  "buttonList": [
+   {
+    "from": {
+     "State": "Default"
+    },
+    "to": {
+     "State": "Hover"
+    },
+    "trigger": "ON_HOVER",
+    "type": "DISSOLVE",
+    "duration": 0.30000001192092896,
+    "easing": {
+     "type": "EASE_OUT"
+    }
+   }
+  ]
+ },
+ "motion": {},
+ "overlays": []
+}
