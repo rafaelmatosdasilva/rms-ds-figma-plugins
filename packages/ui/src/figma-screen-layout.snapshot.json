@@ -1,0 +1,6832 @@
+{
+ "_updated": "2026-10-12T14:02:42.177Z",
+ "_note": "Designed screens read from Figma (screen-layout.mjs SCREEN_CAPTURE_JS), read only.",
+ "screens": [
+  {
+   "id": "308:10425",
+   "name": ".Impact Atlas Plugin",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Dark",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "frame",
+    "name": ".Impact Atlas Plugin",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "type": "COMPONENT",
+    "layout": "VERTICAL",
+    "clips": true,
+    "radius": 16,
+    "radiusVar": "general/window-radii",
+    "children": [
+     {
+      "kind": "instance",
+      "name": ".figmaWindow",
+      "w": 820,
+      "h": 40,
+      "x": 0,
+      "y": 0,
+      "fillW": true,
+      "component": ".figmaWindow",
+      "props": {
+       "Icon": "IA-Icon",
+       "Title": "Impact Atlas"
+      },
+      "layout": "HORIZONTAL",
+      "gap": 8,
+      "gapVar": "gap/m",
+      "pad": [
+       0,
+       16,
+       0,
+       16
+      ],
+      "padVars": [
+       null,
+       "padding/l",
+       null,
+       "padding/l"
+      ],
+      "align": "CENTER",
+      "clips": true,
+      "fill": {
+       "var": "figmaWindowChrome/background/color",
+       "type": "SOLID"
+      },
+      "stroke": {
+       "var": "figmaWindowChrome/divider/color",
+       "type": "SOLID"
+      },
+      "children": [
+       {
+        "kind": "instance",
+        "name": "IA-Icon",
+        "w": 16,
+        "h": 16,
+        "x": 16,
+        "y": 12,
+        "component": "IA-Icon",
+        "props": {
+         "size": "header"
+        },
+        "textless": true
+       },
+       {
+        "kind": "text",
+        "name": "Title",
+        "w": 747,
+        "h": 16,
+        "x": 40,
+        "y": 12,
+        "fillW": true,
+        "text": "Impact Atlas",
+        "style": "m",
+        "size": 11,
+        "weight": 600,
+        "fill": {
+         "var": "figmaWindowChrome/title/color",
+         "type": "SOLID"
+        }
+       },
+       {
+        "kind": "frame",
+        "name": "Union",
+        "w": 9,
+        "h": 10,
+        "x": 795,
+        "y": 15,
+        "type": "BOOLEAN_OPERATION",
+        "fill": {
+         "var": "figmaWindowChrome/button/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "shape",
+          "name": "Vector 1",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         },
+         {
+          "kind": "shape",
+          "name": "Vector 2",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "instance",
+      "name": "actionBar",
+      "w": 820,
+      "h": 48,
+      "x": 0,
+      "y": 40,
+      "fillW": true,
+      "component": "actionBar",
+      "props": {
+       "Show Background": true
+      },
+      "layout": "HORIZONTAL",
+      "wrap": true,
+      "pad": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "padVars": [
+       "padding/m",
+       "padding/l",
+       "padding/m",
+       "padding/l"
+      ],
+      "clips": true,
+      "hugH": true,
+      "children": [
+       {
+        "kind": "shape",
+        "name": "background",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 40,
+        "absolute": true,
+        "type": "RECTANGLE"
+       },
+       {
+        "kind": "frame",
+        "name": "Slot",
+        "w": 788,
+        "h": 24,
+        "x": 16,
+        "y": 52,
+        "fillW": true,
+        "type": "SLOT",
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "gap": 16,
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "hugH": true,
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Frame 112",
+          "w": 234,
+          "h": 24,
+          "x": 16,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "buttonTertiary",
+            "w": 24,
+            "h": 24,
+            "x": 16,
+            "y": 52,
+            "component": "buttonTertiary",
+            "props": {
+             "Label Content": "Local Scan",
+             "Icon Content": "Icon-settings",
+             "Show Icon": true,
+             "State": "Default"
+            },
+            "textless": true
+           },
+           {
+            "kind": "text",
+            "name": "Local Scan",
+            "w": 58,
+            "h": 16,
+            "x": 48,
+            "y": 56,
+            "text": "Local Scan ",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "semantic/content/secondary/color",
+             "type": "SOLID"
+            }
+           }
+          ]
+         },
+         {
+          "kind": "instance",
+          "name": "input",
+          "w": 320,
+          "h": 24,
+          "x": 250,
+          "y": 52,
+          "component": "input",
+          "props": {
+           "Label After Content": "Label",
+           "Show Value": true,
+           "Show Icon Left": true,
+           "Icon Left Content": "Icon-search",
+           "Icon Right Content": "Icon-arrowDown",
+           "Value Content": "Search...",
+           "Label Before Content": "Type",
+           "State": "Default",
+           "Filled": "False",
+           "Disabled": "False"
+          },
+          "texts": [
+           "Search..."
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Frame 113",
+          "w": 234,
+          "h": 24,
+          "x": 570,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "justify": "MAX",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "text",
+            "name": "2 days ago",
+            "w": 58,
+            "h": 16,
+            "x": 679,
+            "y": 56,
+            "text": "2 days ago",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "semantic/content/secondary/color",
+             "type": "SOLID"
+            }
+           },
+           {
+            "kind": "instance",
+            "name": "buttonPrimary",
+            "w": 59,
+            "h": 24,
+            "x": 745,
+            "y": 52,
+            "component": "buttonPrimary",
+            "props": {
+             "Show Label": true,
+             "Show Icon": true,
+             "Icon Content": "Icon-update",
+             "Label Content": "Scan",
+             "Disabled": "False"
+            },
+            "texts": [
+             "Scan"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "frame",
+      "name": "Body",
+      "w": 820,
+      "h": 432,
+      "x": 0,
+      "y": 88,
+      "fillW": true,
+      "fillH": true,
+      "type": "FRAME",
+      "layout": "HORIZONTAL",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "panel",
+        "w": 287,
+        "h": 432,
+        "x": 0,
+        "y": 88,
+        "fillH": true,
+        "component": "panel",
+        "props": {
+         "Type": "Primary"
+        },
+        "layout": "VERTICAL",
+        "pad": [
+         0,
+         16,
+         0,
+         16
+        ],
+        "padVars": [
+         null,
+         "padding/l",
+         null,
+         "padding/l"
+        ],
+        "align": "CENTER",
+        "fill": {
+         "var": "panel/background/primary/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Head Content",
+          "w": 255,
+          "h": 87,
+          "x": 16,
+          "y": 88,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "pad": [
+           16,
+           0,
+           8,
+           0
+          ],
+          "padVars": [
+           "padding/l",
+           null,
+           "padding/s",
+           null
+          ],
+          "hugH": true,
+          "fill": {
+           "var": "semantic/surface/elevationMedium/color",
+           "type": "SOLID"
+          },
+          "children": [
+           {
+            "kind": "instance",
+            "name": "segmentedControl",
+            "w": 255,
+            "h": 24,
+            "x": 16,
+            "y": 104,
+            "component": "segmentedControl",
+            "props": {},
+            "texts": [
+             "Tokens",
+             "Components"
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "dividerSection",
+            "w": 255,
+            "h": 23,
+            "x": 16,
+            "y": 144,
+            "fillW": true,
+            "component": "dividerSection",
+            "props": {
+             "Show Number": true,
+             "Number Content": "5",
+             "Show Priority": true,
+             "Label Content": "High"
+            },
+            "texts": [
+             "High",
+             "·",
+             "5"
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Main Content",
+          "w": 255,
+          "h": 345,
+          "x": 16,
+          "y": 175,
+          "fillW": true,
+          "fillH": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "children": [
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 255,
+            "h": 232,
+            "x": 16,
+            "y": 175,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 255,
+              "h": 232,
+              "x": 16,
+              "y": 175,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 175,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "semantic/generalContent/color",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "semantic/generalContent/color"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 223,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Title": "border/bottom",
+                 "Show Icon": true,
+                 "Icon Content": "Icon-var-number",
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "border/bottom"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 271,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "primitives/neutral100",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "True"
+                },
+                "texts": [
+                 "primitives/neutral100"
+                ]
+               }
+              ],
+              "more": 2
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 255,
+            "h": 263,
+            "x": 16,
+            "y": 423,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "gap": 8,
+            "gapVar": "gap/m",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "dividerSection",
+              "w": 255,
+              "h": 23,
+              "x": 16,
+              "y": 423,
+              "fillW": true,
+              "component": "dividerSection",
+              "props": {
+               "Show Number": true,
+               "Number Content": "24",
+               "Show Priority": true,
+               "Label Content": "Medium "
+              },
+              "texts": [
+               "Medium",
+               "·",
+               "24"
+              ]
+             },
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 255,
+              "h": 232,
+              "x": 16,
+              "y": 454,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 454,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "semantic/positive/color",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "semantic/positive/color"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 502,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "base/radius/allButton",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "base/radius/allButton"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 550,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "base/radius/allButton",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "base/radius/allButton"
+                ]
+               }
+              ],
+              "more": 2
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "frame",
+        "name": "Content",
+        "w": 533,
+        "h": 432,
+        "x": 287,
+        "y": 88,
+        "fillW": true,
+        "fillH": true,
+        "type": "FRAME",
+        "layout": "VERTICAL",
+        "fill": {
+         "var": "semantic/surface/elevationLow/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Tree",
+          "w": 533,
+          "h": 432,
+          "x": 287,
+          "y": 88,
+          "fillW": true,
+          "fillH": true,
+          "type": "FRAME",
+          "layout": "VERTICAL",
+          "children": [
+           {
+            "kind": "instance",
+            "name": "statusBar",
+            "w": 533,
+            "h": 48,
+            "x": 287,
+            "y": 88,
+            "fillW": true,
+            "component": "statusBar",
+            "props": {
+             "Show Divider Line Bottom": true
+            },
+            "layout": "HORIZONTAL",
+            "gap": 16,
+            "gapVar": "gap/xl",
+            "pad": [
+             12,
+             16,
+             12,
+             16
+            ],
+            "padVars": [
+             "padding/m",
+             "padding/l",
+             "padding/m",
+             "padding/l"
+            ],
+            "align": "CENTER",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Slot",
+              "w": 501,
+              "h": 24,
+              "x": 303,
+              "y": 100,
+              "fillW": true,
+              "type": "SLOT",
+              "layout": "HORIZONTAL",
+              "gap": 16,
+              "align": "CENTER",
+              "justify": "SPACE_BETWEEN",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "frame",
+                "name": "Content",
+                "w": 203,
+                "h": 24,
+                "x": 303,
+                "y": 100,
+                "fillH": true,
+                "type": "FRAME",
+                "layout": "HORIZONTAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "align": "CENTER",
+                "hugW": true,
+                "children": [
+                 {
+                  "kind": "frame",
+                  "name": "Title",
+                  "w": 156,
+                  "h": 17,
+                  "x": 303,
+                  "y": 104,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "align": "CENTER",
+                  "hugW": true,
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "Icon",
+                    "w": 16,
+                    "h": 16,
+                    "x": 303,
+                    "y": 104,
+                    "component": "Icon-var-color",
+                    "props": {
+                     "size": "small"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "text",
+                    "name": "primitives/neutral100",
+                    "w": 136,
+                    "h": 17,
+                    "x": 323,
+                    "y": 104,
+                    "text": "primitives/neutral100",
+                    "style": "l",
+                    "size": 13,
+                    "weight": 600,
+                    "fill": {
+                     "var": "statusbar/text/color",
+                     "type": "SOLID"
+                    }
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "badge",
+                  "w": 39,
+                  "h": 19,
+                  "x": 467,
+                  "y": 103,
+                  "component": "badge",
+                  "props": {
+                   "Show Label": true,
+                   "Label Content": "High ",
+                   "Type": "Negative"
+                  },
+                  "texts": [
+                   "High"
+                  ]
+                 }
+                ]
+               },
+               {
+                "kind": "frame",
+                "name": "Actions",
+                "w": 113,
+                "h": 24,
+                "x": 691,
+                "y": 100,
+                "type": "FRAME",
+                "layout": "HORIZONTAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "align": "CENTER",
+                "hugW": true,
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "buttonQuaternary",
+                  "w": 24,
+                  "h": 24,
+                  "x": 691,
+                  "y": 100,
+                  "component": "buttonQuaternary",
+                  "props": {
+                   "Label Content": "View on Canvas",
+                   "Icon Content": "Icon-copy",
+                   "Show Icon": true,
+                   "State": "Default"
+                  },
+                  "textless": true
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "segmentedControl",
+                  "w": 81,
+                  "h": 24,
+                  "x": 723,
+                  "y": 100,
+                  "component": "segmentedControl",
+                  "props": {},
+                  "textless": true
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "dividerLine",
+              "w": 533,
+              "h": 2,
+              "x": 287,
+              "y": 134,
+              "absolute": true,
+              "component": "dividerLine",
+              "props": {},
+              "textless": true
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "Tree",
+            "w": 533,
+            "h": 384,
+            "x": 287,
+            "y": 136,
+            "fillW": true,
+            "fillH": true,
+            "type": "FRAME",
+            "layout": "HORIZONTAL",
+            "align": "CENTER",
+            "children": [
+             {
+              "kind": "instance",
+              "name": "panel",
+              "w": 267,
+              "h": 384,
+              "x": 287,
+              "y": 136,
+              "fillW": true,
+              "fillH": true,
+              "component": "panel",
+              "props": {
+               "Type": "Secondary"
+              },
+              "layout": "VERTICAL",
+              "pad": [
+               0,
+               16,
+               0,
+               16
+              ],
+              "padVars": [
+               null,
+               "padding/l",
+               null,
+               "padding/l"
+              ],
+              "align": "CENTER",
+              "fill": {
+               "var": "panel/background/secondary/color",
+               "type": "SOLID"
+              },
+              "children": [
+               {
+                "kind": "frame",
+                "name": "Head Content",
+                "w": 235,
+                "h": 47,
+                "x": 303,
+                "y": 136,
+                "fillW": true,
+                "type": "SLOT",
+                "layout": "VERTICAL",
+                "gap": 16,
+                "gapVar": "gap/xl",
+                "pad": [
+                 16,
+                 0,
+                 8,
+                 0
+                ],
+                "padVars": [
+                 "padding/l",
+                 null,
+                 "padding/s",
+                 null
+                ],
+                "hugH": true,
+                "fill": {
+                 "var": "panel/background/secondary/color",
+                 "type": "SOLID"
+                },
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "dividerSection",
+                  "w": 235,
+                  "h": 23,
+                  "x": 303,
+                  "y": 152,
+                  "fillW": true,
+                  "component": "dividerSection",
+                  "props": {
+                   "Show Number": true,
+                   "Number Content": "184",
+                   "Label Content": "Alias Tokens"
+                  },
+                  "texts": [
+                   "Alias Tokens",
+                   "·",
+                   "184"
+                  ]
+                 }
+                ]
+               },
+               {
+                "kind": "frame",
+                "name": "Main Content",
+                "w": 235,
+                "h": 337,
+                "x": 303,
+                "y": 183,
+                "fillW": true,
+                "fillH": true,
+                "type": "SLOT",
+                "layout": "VERTICAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "children": [
+                 {
+                  "kind": "frame",
+                  "name": "Frame 102",
+                  "w": 235,
+                  "h": 424,
+                  "x": 303,
+                  "y": 183,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "VERTICAL",
+                  "gap": 8,
+                  "gapVar": "gap/m",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "node",
+                    "w": 235,
+                    "h": 40,
+                    "x": 303,
+                    "y": 183,
+                    "fillW": true,
+                    "component": "node",
+                    "props": {
+                     "Icon Content": "Icon-var-color",
+                     "Title": "cardPanel/shadow/color",
+                     "Show Icon": true,
+                     "State": "Disabled",
+                     "Selected": "False"
+                    },
+                    "texts": [
+                     "cardPanel/shadow/color"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "node",
+                    "w": 235,
+                    "h": 40,
+                    "x": 303,
+                    "y": 231,
+                    "fillW": true,
+                    "component": "node",
+                    "props": {
+                     "Icon Content": "Icon-var-color",
+                     "Title": "cardModal/shadow/color",
+                     "Show Icon": true,
+                     "State": "Default",
+                     "Selected": "True"
+                    },
+                    "texts": [
+                     "cardModal/shadow/color"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "node",
+                    "w": 235,
+                    "h": 40,
+                    "x": 303,
+                    "y": 279,
+                    "fillW": true,
+                    "component": "node",
+                    "props": {
+                     "Icon Content": "Icon-var-color",
+                     "Title": "cardPrimary/background/color",
+                     "Show Icon": true,
+                     "State": "Default",
+                     "Selected": "True"
+                    },
+                    "texts": [
+                     "cardPrimary/background/color"
+                    ]
+                   }
+                  ],
+                  "more": 6
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "panel",
+              "w": 267,
+              "h": 384,
+              "x": 554,
+              "y": 136,
+              "fillW": true,
+              "fillH": true,
+              "component": "panel",
+              "props": {
+               "Type": "Secondary"
+              },
+              "layout": "VERTICAL",
+              "pad": [
+               0,
+               16,
+               0,
+               16
+              ],
+              "padVars": [
+               null,
+               "padding/l",
+               null,
+               "padding/l"
+              ],
+              "align": "CENTER",
+              "fill": {
+               "var": "panel/background/secondary/color",
+               "type": "SOLID"
+              },
+              "children": [
+               {
+                "kind": "frame",
+                "name": "Head Content",
+                "w": 235,
+                "h": 48,
+                "x": 570,
+                "y": 136,
+                "fillW": true,
+                "type": "SLOT",
+                "layout": "VERTICAL",
+                "gap": 16,
+                "gapVar": "gap/xl",
+                "pad": [
+                 16,
+                 0,
+                 8,
+                 0
+                ],
+                "padVars": [
+                 "padding/l",
+                 null,
+                 "padding/s",
+                 null
+                ],
+                "hugH": true,
+                "fill": {
+                 "var": "panel/background/secondary/color",
+                 "type": "SOLID"
+                },
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "dividerSection",
+                  "w": 235,
+                  "h": 24,
+                  "x": 570,
+                  "y": 152,
+                  "fillW": true,
+                  "component": "dividerSection",
+                  "props": {
+                   "Show Number": true,
+                   "Number Content": "227",
+                   "Show Button": true,
+                   "Label Content": "Affected Components"
+                  },
+                  "texts": [
+                   "Affected Components",
+                   "·",
+                   "227"
+                  ]
+                 }
+                ]
+               },
+               {
+                "kind": "frame",
+                "name": "Main Content",
+                "w": 235,
+                "h": 336,
+                "x": 570,
+                "y": 184,
+                "fillW": true,
+                "fillH": true,
+                "type": "SLOT",
+                "layout": "VERTICAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "children": [
+                 {
+                  "kind": "frame",
+                  "name": "Frame 102",
+                  "w": 235,
+                  "h": 376,
+                  "x": 570,
+                  "y": 184,
+                  "fillW": true,
+                  "type": "FRAME",
+                  "layout": "VERTICAL",
+                  "gap": 8,
+                  "gapVar": "gap/m",
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "node",
+                    "w": 235,
+                    "h": 40,
+                    "x": 570,
+                    "y": 184,
+                    "fillW": true,
+                    "component": "node",
+                    "props": {
+                     "Title": "cardStatusFeedback",
+                     "Show Icon": true,
+                     "Icon Content": "Icon-object-component",
+                     "State": "Disabled",
+                     "Selected": "False"
+                    },
+                    "texts": [
+                     "cardStatusFeedback"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "node",
+                    "w": 235,
+                    "h": 40,
+                    "x": 570,
+                    "y": 232,
+                    "fillW": true,
+                    "component": "node",
+                    "props": {
+                     "Title": "modalSend",
+                     "Show Icon": true,
+                     "Icon Content": "Icon-object-component",
+                     "State": "Disabled",
+                     "Selected": "False"
+                    },
+                    "texts": [
+                     "modalSend"
+                    ]
+                   },
+                   {
+                    "kind": "instance",
+                    "name": "node",
+                    "w": 235,
+                    "h": 40,
+                    "x": 570,
+                    "y": 280,
+                    "fillW": true,
+                    "component": "node",
+                    "props": {
+                     "Title": "cardProgress",
+                     "Show Icon": true,
+                     "Icon Content": "Icon-object-component",
+                     "State": "Disabled",
+                     "Selected": "False"
+                    },
+                    "texts": [
+                     "cardProgress"
+                    ]
+                   }
+                  ],
+                  "more": 5
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "frame",
+              "name": "Connectors",
+              "w": 35,
+              "h": 192,
+              "x": 537,
+              "y": 251,
+              "absolute": true,
+              "type": "GROUP",
+              "children": [
+               {
+                "kind": "instance",
+                "name": ".connectors",
+                "w": 35,
+                "h": 95,
+                "x": 537,
+                "y": 251,
+                "component": ".connectors",
+                "props": {},
+                "textless": true
+               },
+               {
+                "kind": "instance",
+                "name": ".connectors",
+                "w": 35,
+                "h": 47,
+                "x": 537,
+                "y": 298,
+                "component": ".connectors",
+                "props": {},
+                "textless": true
+               },
+               {
+                "kind": "instance",
+                "name": ".connectors",
+                "w": 35,
+                "h": 0,
+                "x": 537,
+                "y": 346,
+                "component": ".connectors",
+                "props": {},
+                "textless": true
+               }
+              ],
+              "more": 1
+             },
+             {
+              "kind": "shape",
+              "name": "Vector 3",
+              "w": 33,
+              "h": 57,
+              "x": 270,
+              "y": 291,
+              "absolute": true,
+              "type": "VECTOR"
+             },
+             {
+              "kind": "shape",
+              "name": "Vector 5",
+              "w": 33,
+              "h": 152,
+              "x": 270,
+              "y": 291,
+              "absolute": true,
+              "type": "VECTOR"
+             },
+             {
+              "kind": "shape",
+              "name": "Vector 3",
+              "w": 33,
+              "h": 7,
+              "x": 270,
+              "y": 291,
+              "absolute": true,
+              "type": "VECTOR"
+             },
+             {
+              "kind": "shape",
+              "name": "Vector 4",
+              "w": 33,
+              "h": 42,
+              "x": 270,
+              "y": 249,
+              "absolute": true,
+              "type": "VECTOR"
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "106:36547",
+   "name": ".Font Scaling Lab Plugin",
+   "modes": {
+    "Sizing": "Desktop",
+    "Settings": "Mode 1",
+    "Styling": "Dark",
+    "Breakpoint": "Phone",
+    "Theme": "Light"
+   },
+   "tree": {
+    "kind": "frame",
+    "name": ".Font Scaling Lab Plugin",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "type": "COMPONENT",
+    "layout": "VERTICAL",
+    "justify": "MAX",
+    "clips": true,
+    "hugW": true,
+    "hugH": true,
+    "radius": 16,
+    "radiusVar": "general/window-radii",
+    "children": [
+     {
+      "kind": "instance",
+      "name": ".figmaWindow",
+      "w": 820,
+      "h": 40,
+      "x": 0,
+      "y": 0,
+      "component": ".figmaWindow",
+      "props": {
+       "Icon": "FSL-Icon",
+       "Title": "Font Scaling Lab"
+      },
+      "layout": "HORIZONTAL",
+      "gap": 8,
+      "gapVar": "gap/m",
+      "pad": [
+       0,
+       16,
+       0,
+       16
+      ],
+      "padVars": [
+       null,
+       "padding/l",
+       null,
+       "padding/l"
+      ],
+      "align": "CENTER",
+      "clips": true,
+      "fill": {
+       "var": "figmaWindowChrome/background/color",
+       "type": "SOLID"
+      },
+      "stroke": {
+       "var": "figmaWindowChrome/divider/color",
+       "type": "SOLID"
+      },
+      "children": [
+       {
+        "kind": "instance",
+        "name": "FSL-Icon",
+        "w": 16,
+        "h": 16,
+        "x": 16,
+        "y": 12,
+        "component": "FSL-Icon",
+        "props": {
+         "size": "header"
+        },
+        "textless": true
+       },
+       {
+        "kind": "text",
+        "name": "Title",
+        "w": 747,
+        "h": 16,
+        "x": 40,
+        "y": 12,
+        "fillW": true,
+        "text": "Font Scaling Lab",
+        "style": "m",
+        "size": 11,
+        "weight": 600,
+        "fill": {
+         "var": "figmaWindowChrome/title/color",
+         "type": "SOLID"
+        }
+       },
+       {
+        "kind": "frame",
+        "name": "Union",
+        "w": 9,
+        "h": 10,
+        "x": 795,
+        "y": 15,
+        "type": "BOOLEAN_OPERATION",
+        "fill": {
+         "var": "figmaWindowChrome/button/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "shape",
+          "name": "Vector 1",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         },
+         {
+          "kind": "shape",
+          "name": "Vector 2",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "instance",
+      "name": "actionBar",
+      "w": 820,
+      "h": 48,
+      "x": 0,
+      "y": 40,
+      "component": "actionBar",
+      "props": {
+       "Show Background": true
+      },
+      "layout": "HORIZONTAL",
+      "wrap": true,
+      "pad": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "padVars": [
+       "padding/m",
+       "padding/l",
+       "padding/m",
+       "padding/l"
+      ],
+      "clips": true,
+      "hugH": true,
+      "children": [
+       {
+        "kind": "shape",
+        "name": "background",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 40,
+        "absolute": true,
+        "type": "RECTANGLE"
+       },
+       {
+        "kind": "frame",
+        "name": "Slot",
+        "w": 788,
+        "h": 24,
+        "x": 16,
+        "y": 52,
+        "fillW": true,
+        "type": "SLOT",
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "gap": 8,
+        "justify": "SPACE_BETWEEN",
+        "hugH": true,
+        "children": [
+         {
+          "kind": "instance",
+          "name": "Button Tertiary",
+          "w": 98,
+          "h": 24,
+          "x": 16,
+          "y": 52,
+          "component": "buttonTertiary",
+          "props": {
+           "Label Content": "cardGeneral",
+           "Show Label": true,
+           "Icon Content": "Icon-focus",
+           "Show Icon": true,
+           "State": "Default"
+          },
+          "texts": [
+           "cardGeneral"
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "scale",
+          "w": 297,
+          "h": 24,
+          "x": 507,
+          "y": 52,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "align": "CENTER",
+          "hugW": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "buttonStepper",
+            "w": 171,
+            "h": 24,
+            "x": 507,
+            "y": 52,
+            "component": "buttonStepper",
+            "props": {},
+            "texts": [
+             "150%"
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "buttonPrimary",
+            "w": 110,
+            "h": 24,
+            "x": 694,
+            "y": 52,
+            "component": "buttonPrimary",
+            "props": {
+             "Show Label": true,
+             "Show Icon": true,
+             "Icon Content": "Icon-update",
+             "Label Content": "Scan selection",
+             "Disabled": "False"
+            },
+            "texts": [
+             "Scan selection"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "frame",
+      "name": "Body",
+      "w": 820,
+      "h": 432,
+      "x": 0,
+      "y": 88,
+      "type": "FRAME",
+      "layout": "HORIZONTAL",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "panel",
+        "w": 240,
+        "h": 432,
+        "x": 0,
+        "y": 88,
+        "fillH": true,
+        "component": "panel",
+        "props": {
+         "Type": "Primary"
+        },
+        "layout": "VERTICAL",
+        "pad": [
+         0,
+         16,
+         0,
+         16
+        ],
+        "padVars": [
+         null,
+         "padding/l",
+         null,
+         "padding/l"
+        ],
+        "align": "CENTER",
+        "fill": {
+         "var": "panel/background/primary/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Head Content",
+          "w": 208,
+          "h": 47,
+          "x": 16,
+          "y": 88,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "pad": [
+           16,
+           0,
+           8,
+           0
+          ],
+          "padVars": [
+           "padding/l",
+           null,
+           "padding/s",
+           null
+          ],
+          "hugH": true,
+          "fill": {
+           "var": "panel/background/primary/color",
+           "type": "SOLID"
+          },
+          "children": [
+           {
+            "kind": "instance",
+            "name": "dividerSection",
+            "w": 208,
+            "h": 23,
+            "x": 16,
+            "y": 104,
+            "fillW": true,
+            "component": "dividerSection",
+            "props": {
+             "Show Number": true,
+             "Number Content": "3",
+             "Label Content": "Truncated"
+            },
+            "texts": [
+             "Truncated",
+             "·",
+             "3"
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Main Content",
+          "w": 208,
+          "h": 385,
+          "x": 16,
+          "y": 135,
+          "fillW": true,
+          "fillH": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "children": [
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 208,
+            "h": 120,
+            "x": 16,
+            "y": 135,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "buttonList",
+              "w": 208,
+              "h": 40,
+              "x": 16,
+              "y": 135,
+              "fillW": true,
+              "component": "buttonList",
+              "props": {
+               "Show Icon": true,
+               "Item Title Content": "Review Changes",
+               "Icon Content": "Icon-object-text",
+               "State": "Default"
+              },
+              "texts": [
+               "Review Changes"
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "buttonList",
+              "w": 208,
+              "h": 40,
+              "x": 16,
+              "y": 175,
+              "fillW": true,
+              "component": "buttonList",
+              "props": {
+               "Show Icon": true,
+               "Item Title Content": "Update Content",
+               "Icon Content": "Icon-object-text",
+               "State": "Default"
+              },
+              "texts": [
+               "Update Content"
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "buttonList",
+              "w": 208,
+              "h": 40,
+              "x": 16,
+              "y": 215,
+              "fillW": true,
+              "component": "buttonList",
+              "props": {
+               "Show Icon": true,
+               "Item Title Content": "Sign Up",
+               "Icon Content": "Icon-object-text",
+               "State": "Default"
+              },
+              "texts": [
+               "Sign Up"
+              ]
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 208,
+            "h": 231,
+            "x": 16,
+            "y": 271,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "gap": 8,
+            "gapVar": "gap/m",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "dividerSection",
+              "w": 208,
+              "h": 23,
+              "x": 16,
+              "y": 271,
+              "fillW": true,
+              "component": "dividerSection",
+              "props": {
+               "Show Number": true,
+               "Number Content": "6",
+               "Label Content": "Clipped"
+              },
+              "texts": [
+               "Clipped",
+               "·",
+               "6"
+              ]
+             },
+             {
+              "kind": "frame",
+              "name": "Frame 134",
+              "w": 208,
+              "h": 200,
+              "x": 16,
+              "y": 302,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "buttonList",
+                "w": 208,
+                "h": 40,
+                "x": 16,
+                "y": 302,
+                "fillW": true,
+                "component": "buttonList",
+                "props": {
+                 "Show Action Focus": true,
+                 "Show Icon": true,
+                 "Item Title Content": "Button hierarchy improvements",
+                 "Icon Content": "Icon-object-text",
+                 "State": "Selected"
+                },
+                "texts": [
+                 "Button hierarchy improvements"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "buttonList",
+                "w": 208,
+                "h": 40,
+                "x": 16,
+                "y": 342,
+                "fillW": true,
+                "component": "buttonList",
+                "props": {
+                 "Show Icon": true,
+                 "Item Title Content": "Low Priority",
+                 "Icon Content": "Icon-object-text",
+                 "State": "Default"
+                },
+                "texts": [
+                 "Low Priority"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "buttonList",
+                "w": 208,
+                "h": 40,
+                "x": 16,
+                "y": 382,
+                "fillW": true,
+                "component": "buttonList",
+                "props": {
+                 "Show Icon": true,
+                 "Item Title Content": "buttonPrimary",
+                 "Icon Content": "Icon-object-frame",
+                 "State": "Default"
+                },
+                "texts": [
+                 "buttonPrimary"
+                ]
+               }
+              ],
+              "more": 2
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "frame",
+        "name": "Preview Area",
+        "w": 340,
+        "h": 432,
+        "x": 240,
+        "y": 88,
+        "fillW": true,
+        "fillH": true,
+        "type": "FRAME",
+        "layout": "VERTICAL",
+        "align": "CENTER",
+        "justify": "CENTER",
+        "clips": true,
+        "fill": {
+         "var": "semantic/surface/elevationLow/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "shape",
+          "name": "Background",
+          "w": 340,
+          "h": 432,
+          "x": 240,
+          "y": 88,
+          "absolute": true,
+          "type": "RECTANGLE"
+         },
+         {
+          "kind": "instance",
+          "name": ".content/typescallinglab",
+          "w": 340,
+          "h": 432,
+          "x": 240,
+          "y": 88,
+          "fillW": true,
+          "fillH": true,
+          "component": ".content/typescallinglab",
+          "props": {
+           "stable": "scaled150%"
+          },
+          "layout": "VERTICAL",
+          "align": "CENTER",
+          "justify": "CENTER",
+          "children": [
+           {
+            "kind": "instance",
+            "name": ".content/typescallinglab",
+            "w": 340,
+            "h": 432,
+            "x": 240,
+            "y": 88,
+            "fillW": true,
+            "fillH": true,
+            "component": ".content/typescallinglab",
+            "props": {
+             "stable": "100%"
+            },
+            "texts": [
+             "Button hierarchy improvements",
+             "Improved consistency across web and mobile. Primary actions are more prominent, and secondary actions are visually reduced. Better support for text scaling and zoom accessibility.",
+             "Components",
+             "Low Priority",
+             "Review Changes"
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "instance",
+          "name": "buttonSecondary",
+          "w": 92,
+          "h": 24,
+          "x": 472,
+          "y": 488,
+          "absolute": true,
+          "component": "buttonSecondary",
+          "props": {
+           "Show Label": true,
+           "Show Icon": true,
+           "Icon Content": "Icon-center",
+           "Label Content": "Reset View",
+           "State": "Default"
+          },
+          "texts": [
+           "Reset View"
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Frame 39",
+          "w": 238,
+          "h": 66,
+          "x": 286,
+          "y": 173,
+          "absolute": true,
+          "type": "FRAME",
+          "layout": "VERTICAL",
+          "children": [
+           {
+            "kind": "instance",
+            "name": "highlight",
+            "w": 189,
+            "h": 24,
+            "x": 286,
+            "y": 173,
+            "component": "highlight",
+            "props": {
+             "Label": "Button hierarchy improvements"
+            },
+            "texts": [
+             "Button hierarchy improvements"
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "highlightSelector",
+            "w": 238,
+            "h": 42,
+            "x": 286,
+            "y": 197,
+            "fillW": true,
+            "fillH": true,
+            "component": "highlightSelector",
+            "props": {
+             "State": "Selected"
+            },
+            "textless": true
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "instance",
+        "name": "panel",
+        "w": 240,
+        "h": 432,
+        "x": 580,
+        "y": 88,
+        "fillH": true,
+        "component": "panel",
+        "props": {
+         "Type": "Primary"
+        },
+        "layout": "VERTICAL",
+        "pad": [
+         0,
+         16,
+         0,
+         16
+        ],
+        "padVars": [
+         null,
+         "padding/l",
+         null,
+         "padding/l"
+        ],
+        "align": "CENTER",
+        "fill": {
+         "var": "panel/background/primary/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Head Content",
+          "w": 208,
+          "h": 58,
+          "x": 596,
+          "y": 88,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "pad": [
+           16,
+           0,
+           8,
+           0
+          ],
+          "padVars": [
+           "padding/l",
+           null,
+           "padding/s",
+           null
+          ],
+          "hugH": true,
+          "fill": {
+           "var": "panel/background/primary/color",
+           "type": "SOLID"
+          },
+          "children": [
+           {
+            "kind": "frame",
+            "name": "Frame 78",
+            "w": 208,
+            "h": 34,
+            "x": 596,
+            "y": 104,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "HORIZONTAL",
+            "gap": 4,
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "Icon",
+              "w": 16,
+              "h": 16,
+              "x": 596,
+              "y": 104,
+              "component": "Icon-object-text",
+              "props": {},
+              "textless": true
+             },
+             {
+              "kind": "text",
+              "name": "Button hierarchy improvements",
+              "w": 160,
+              "h": 34,
+              "x": 616,
+              "y": 104,
+              "fillW": true,
+              "text": "Button hierarchy improvements",
+              "style": "l",
+              "size": 13,
+              "weight": 600,
+              "fill": {
+               "var": "semantic/content/primary/color",
+               "type": "SOLID"
+              }
+             },
+             {
+              "kind": "instance",
+              "name": "buttonSecondary",
+              "w": 24,
+              "h": 24,
+              "x": 780,
+              "y": 104,
+              "component": "buttonSecondary",
+              "props": {
+               "Label Content": "125%",
+               "Show Icon": true,
+               "Icon Content": "Icon-cross",
+               "State": "Default"
+              },
+              "textless": true
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Main Content",
+          "w": 208,
+          "h": 374,
+          "x": 596,
+          "y": 146,
+          "fillW": true,
+          "fillH": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "children": [
+           {
+            "kind": "frame",
+            "name": "Description",
+            "w": 208,
+            "h": 71,
+            "x": 596,
+            "y": 146,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "gap": 4,
+            "gapVar": "gap/s",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "badge",
+              "w": 54,
+              "h": 19,
+              "x": 596,
+              "y": 146,
+              "component": "badge",
+              "props": {
+               "Show Label": true,
+               "Label Content": "Clipped",
+               "Type": "Negative"
+              },
+              "texts": [
+               "Clipped"
+              ]
+             },
+             {
+              "kind": "text",
+              "name": "Description",
+              "w": 208,
+              "h": 48,
+              "x": 596,
+              "y": 169,
+              "fillW": true,
+              "text": "This layer has a fixed height of 17px that prevents content from growing, so content gets cut off at 150% scale.",
+              "style": "m",
+              "size": 11,
+              "weight": 600,
+              "fill": {
+               "var": "semantic/content/secondary/color",
+               "type": "SOLID"
+              }
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "Suggestions",
+            "w": 208,
+            "h": 145,
+            "x": 596,
+            "y": 233,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "gap": 12,
+            "gapVar": "gap/l",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "text",
+              "name": "Suggested Fixes",
+              "w": 208,
+              "h": 15,
+              "x": 596,
+              "y": 233,
+              "fillW": true,
+              "text": "Suggested Fixes",
+              "style": "s",
+              "size": 10,
+              "weight": 700,
+              "fill": {
+               "var": "semantic/content/secondary/color",
+               "type": "SOLID"
+              }
+             },
+             {
+              "kind": "instance",
+              "name": "listItem",
+              "w": 208,
+              "h": 58,
+              "x": 596,
+              "y": 260,
+              "fillW": true,
+              "component": "listItem",
+              "props": {
+               "Show Icon": true,
+               "Title Content": "Set parent height to Hug",
+               "Show Description": true,
+               "Description Content": "If the container should size to the text it holds.",
+               "Icon Content": "Icon-suggestion-hug-height",
+               "Show Divider Line": true
+              },
+              "texts": [
+               "Set parent height to Hug",
+               "If the container should size to the text it holds."
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "listItem",
+              "w": 208,
+              "h": 48,
+              "x": 596,
+              "y": 330,
+              "fillW": true,
+              "component": "listItem",
+              "props": {
+               "Show Icon": true,
+               "Title Content": "Set text resize to Width & Height",
+               "Show Description": true,
+               "Description Content": "If the text box should grow on both axes with its content.",
+               "Icon Content": "Icon-suggestion-resize"
+              },
+              "texts": [
+               "Set text resize to Width & Height",
+               "If the text box should grow on both axes with its content."
+              ]
+             }
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "buttonSecondary",
+            "w": 117,
+            "h": 24,
+            "x": 596,
+            "y": 394,
+            "component": "buttonSecondary",
+            "props": {
+             "Show Label": true,
+             "Show Icon": true,
+             "Icon Content": "Icon-focus",
+             "Label Content": "View on Canvas",
+             "State": "Default"
+            },
+            "texts": [
+             "View on Canvas"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "308:7820",
+   "name": ".Impact Atlas Plugin",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Light",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "instance",
+    "name": ".Impact Atlas Plugin",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "component": ".Impact Atlas Plugin",
+    "props": {},
+    "layout": "VERTICAL",
+    "clips": true,
+    "radius": 16,
+    "radiusVar": "general/window-radii",
+    "children": [
+     {
+      "kind": "instance",
+      "name": ".figmaWindow",
+      "w": 820,
+      "h": 40,
+      "x": 0,
+      "y": 0,
+      "fillW": true,
+      "component": ".figmaWindow",
+      "props": {
+       "Icon": "IA-Icon",
+       "Title": "Impact Atlas"
+      },
+      "layout": "HORIZONTAL",
+      "gap": 8,
+      "gapVar": "gap/m",
+      "pad": [
+       0,
+       16,
+       0,
+       16
+      ],
+      "padVars": [
+       null,
+       "padding/l",
+       null,
+       "padding/l"
+      ],
+      "align": "CENTER",
+      "clips": true,
+      "fill": {
+       "var": "figmaWindowChrome/background/color",
+       "type": "SOLID"
+      },
+      "stroke": {
+       "var": "figmaWindowChrome/divider/color",
+       "type": "SOLID"
+      },
+      "children": [
+       {
+        "kind": "instance",
+        "name": "IA-Icon",
+        "w": 16,
+        "h": 16,
+        "x": 16,
+        "y": 12,
+        "component": "IA-Icon",
+        "props": {
+         "size": "header"
+        },
+        "textless": true
+       },
+       {
+        "kind": "text",
+        "name": "Title",
+        "w": 747,
+        "h": 16,
+        "x": 40,
+        "y": 12,
+        "fillW": true,
+        "text": "Impact Atlas",
+        "style": "m",
+        "size": 11,
+        "weight": 600,
+        "fill": {
+         "var": "figmaWindowChrome/title/color",
+         "type": "SOLID"
+        }
+       },
+       {
+        "kind": "frame",
+        "name": "Union",
+        "w": 9,
+        "h": 10,
+        "x": 795,
+        "y": 15,
+        "type": "BOOLEAN_OPERATION",
+        "fill": {
+         "var": "figmaWindowChrome/button/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "shape",
+          "name": "Vector 1",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         },
+         {
+          "kind": "shape",
+          "name": "Vector 2",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "instance",
+      "name": "actionBar",
+      "w": 820,
+      "h": 48,
+      "x": 0,
+      "y": 40,
+      "fillW": true,
+      "component": "actionBar",
+      "props": {
+       "Show Background": true
+      },
+      "layout": "HORIZONTAL",
+      "wrap": true,
+      "pad": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "padVars": [
+       "padding/m",
+       "padding/l",
+       "padding/m",
+       "padding/l"
+      ],
+      "clips": true,
+      "hugH": true,
+      "children": [
+       {
+        "kind": "shape",
+        "name": "background",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 40,
+        "absolute": true,
+        "type": "RECTANGLE"
+       },
+       {
+        "kind": "frame",
+        "name": "Slot",
+        "w": 788,
+        "h": 24,
+        "x": 16,
+        "y": 52,
+        "fillW": true,
+        "type": "SLOT",
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "gap": 16,
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "hugH": true,
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Frame 112",
+          "w": 234,
+          "h": 24,
+          "x": 16,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "buttonTertiary",
+            "w": 24,
+            "h": 24,
+            "x": 16,
+            "y": 52,
+            "component": "buttonTertiary",
+            "props": {
+             "Label Content": "Local Scan",
+             "Icon Content": "Icon-settings",
+             "Show Icon": true,
+             "State": "Default"
+            },
+            "textless": true
+           },
+           {
+            "kind": "text",
+            "name": "Local Scan",
+            "w": 58,
+            "h": 16,
+            "x": 48,
+            "y": 56,
+            "text": "Local Scan ",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "semantic/content/secondary/color",
+             "type": "SOLID"
+            }
+           }
+          ]
+         },
+         {
+          "kind": "instance",
+          "name": "input",
+          "w": 320,
+          "h": 24,
+          "x": 250,
+          "y": 52,
+          "component": "input",
+          "props": {
+           "Label After Content": "Label",
+           "Show Value": true,
+           "Show Icon Left": true,
+           "Icon Left Content": "Icon-search",
+           "Icon Right Content": "Icon-arrowDown",
+           "Value Content": "Search...",
+           "Label Before Content": "Type",
+           "State": "Default",
+           "Filled": "False",
+           "Disabled": "False"
+          }
+         },
+         {
+          "kind": "frame",
+          "name": "Frame 113",
+          "w": 234,
+          "h": 24,
+          "x": 570,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "justify": "MAX",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "text",
+            "name": "2 days ago",
+            "w": 58,
+            "h": 16,
+            "x": 679,
+            "y": 56,
+            "text": "2 days ago",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "semantic/content/secondary/color",
+             "type": "SOLID"
+            }
+           },
+           {
+            "kind": "instance",
+            "name": "buttonPrimary",
+            "w": 59,
+            "h": 24,
+            "x": 745,
+            "y": 52,
+            "component": "buttonPrimary",
+            "props": {
+             "Show Label": true,
+             "Show Icon": true,
+             "Icon Content": "Icon-update",
+             "Label Content": "Scan",
+             "Disabled": "False"
+            }
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "frame",
+      "name": "Body",
+      "w": 820,
+      "h": 432,
+      "x": 0,
+      "y": 88,
+      "fillW": true,
+      "fillH": true,
+      "type": "FRAME",
+      "layout": "HORIZONTAL",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "panel",
+        "w": 287,
+        "h": 432,
+        "x": 0,
+        "y": 88,
+        "fillH": true,
+        "component": "panel",
+        "props": {
+         "Type": "Primary"
+        },
+        "layout": "VERTICAL",
+        "pad": [
+         0,
+         16,
+         0,
+         16
+        ],
+        "padVars": [
+         null,
+         "padding/l",
+         null,
+         "padding/l"
+        ],
+        "align": "CENTER",
+        "fill": {
+         "var": "panel/background/primary/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Head Content",
+          "w": 255,
+          "h": 87,
+          "x": 16,
+          "y": 88,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "pad": [
+           16,
+           0,
+           8,
+           0
+          ],
+          "padVars": [
+           "padding/l",
+           null,
+           "padding/s",
+           null
+          ],
+          "hugH": true,
+          "fill": {
+           "var": "semantic/surface/elevationMedium/color",
+           "type": "SOLID"
+          },
+          "children": [
+           {
+            "kind": "instance",
+            "name": "segmentedControl",
+            "w": 255,
+            "h": 24,
+            "x": 16,
+            "y": 104,
+            "component": "segmentedControl",
+            "props": {}
+           },
+           {
+            "kind": "instance",
+            "name": "dividerSection",
+            "w": 255,
+            "h": 23,
+            "x": 16,
+            "y": 144,
+            "fillW": true,
+            "component": "dividerSection",
+            "props": {
+             "Show Number": true,
+             "Number Content": "5",
+             "Show Priority": true,
+             "Label Content": "High"
+            }
+           }
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Main Content",
+          "w": 255,
+          "h": 345,
+          "x": 16,
+          "y": 175,
+          "fillW": true,
+          "fillH": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "children": [
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 255,
+            "h": 232,
+            "x": 16,
+            "y": 175,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 255,
+              "h": 232,
+              "x": 16,
+              "y": 175,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 175,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "semantic/generalContent/color",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                }
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 223,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Title": "border/bottom",
+                 "Show Icon": true,
+                 "Icon Content": "Icon-var-number",
+                 "State": "Default",
+                 "Selected": "False"
+                }
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 271,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "primitives/neutral100",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "True"
+                }
+               }
+              ],
+              "more": 2
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 255,
+            "h": 263,
+            "x": 16,
+            "y": 423,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "gap": 8,
+            "gapVar": "gap/m",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "dividerSection",
+              "w": 255,
+              "h": 23,
+              "x": 16,
+              "y": 423,
+              "fillW": true,
+              "component": "dividerSection",
+              "props": {
+               "Show Number": true,
+               "Number Content": "24",
+               "Show Priority": true,
+               "Label Content": "Medium "
+              }
+             },
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 255,
+              "h": 232,
+              "x": 16,
+              "y": 454,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 454,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "semantic/positive/color",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                }
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 502,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "base/radius/allButton",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                }
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 550,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "base/radius/allButton",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                }
+               }
+              ],
+              "more": 2
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "frame",
+        "name": "Content",
+        "w": 533,
+        "h": 432,
+        "x": 287,
+        "y": 88,
+        "fillW": true,
+        "fillH": true,
+        "type": "FRAME",
+        "layout": "VERTICAL",
+        "fill": {
+         "var": "semantic/surface/elevationLow/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "List",
+          "w": 533,
+          "h": 795,
+          "x": 287,
+          "y": 88,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "VERTICAL",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "statusBar",
+            "w": 533,
+            "h": 48,
+            "x": 287,
+            "y": 88,
+            "fillW": true,
+            "component": "statusBar",
+            "props": {
+             "Show Divider Line Bottom": true
+            },
+            "layout": "HORIZONTAL",
+            "gap": 16,
+            "gapVar": "gap/xl",
+            "pad": [
+             12,
+             16,
+             12,
+             16
+            ],
+            "padVars": [
+             "padding/m",
+             "padding/l",
+             "padding/m",
+             "padding/l"
+            ],
+            "align": "CENTER",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Slot",
+              "w": 501,
+              "h": 24,
+              "x": 303,
+              "y": 100,
+              "fillW": true,
+              "type": "SLOT",
+              "layout": "HORIZONTAL",
+              "gap": 16,
+              "align": "CENTER",
+              "justify": "SPACE_BETWEEN",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "frame",
+                "name": "Content",
+                "w": 237,
+                "h": 24,
+                "x": 303,
+                "y": 100,
+                "fillH": true,
+                "type": "FRAME",
+                "layout": "HORIZONTAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "align": "CENTER",
+                "hugW": true,
+                "children": [
+                 {
+                  "kind": "frame",
+                  "name": "Title",
+                  "w": 158,
+                  "h": 17,
+                  "x": 303,
+                  "y": 104,
+                  "type": "FRAME",
+                  "layout": "HORIZONTAL",
+                  "gap": 4,
+                  "gapVar": "gap/s",
+                  "align": "CENTER",
+                  "hugW": true,
+                  "hugH": true,
+                  "children": [
+                   {
+                    "kind": "instance",
+                    "name": "Icon",
+                    "w": 16,
+                    "h": 16,
+                    "x": 303,
+                    "y": 104,
+                    "component": "Icon-var-color",
+                    "props": {
+                     "size": "small"
+                    },
+                    "textless": true
+                   },
+                   {
+                    "kind": "text",
+                    "name": "primitives/neutral000",
+                    "w": 138,
+                    "h": 17,
+                    "x": 323,
+                    "y": 104,
+                    "text": "primitives/neutral000",
+                    "style": "l",
+                    "size": 13,
+                    "weight": 600,
+                    "fill": {
+                     "var": "statusbar/text/color",
+                     "type": "SOLID"
+                    }
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "badge",
+                  "w": 39,
+                  "h": 19,
+                  "x": 469,
+                  "y": 103,
+                  "component": "badge",
+                  "props": {
+                   "Show Label": true,
+                   "Label Content": "High ",
+                   "Type": "Negative"
+                  }
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "buttonTertiary",
+                  "w": 24,
+                  "h": 24,
+                  "x": 516,
+                  "y": 100,
+                  "component": "buttonTertiary",
+                  "props": {
+                   "Label Content": "View on Canvas",
+                   "Icon Content": "Icon-focus",
+                   "Show Icon": true,
+                   "State": "Default"
+                  },
+                  "textless": true
+                 }
+                ]
+               },
+               {
+                "kind": "frame",
+                "name": "Actions",
+                "w": 113,
+                "h": 24,
+                "x": 691,
+                "y": 100,
+                "type": "FRAME",
+                "layout": "HORIZONTAL",
+                "gap": 8,
+                "gapVar": "gap/m",
+                "align": "CENTER",
+                "hugW": true,
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "buttonQuaternary",
+                  "w": 24,
+                  "h": 24,
+                  "x": 691,
+                  "y": 100,
+                  "component": "buttonQuaternary",
+                  "props": {
+                   "Label Content": "View on Canvas",
+                   "Icon Content": "Icon-copy",
+                   "Show Icon": true,
+                   "State": "Default"
+                  },
+                  "textless": true
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "segmentedControl",
+                  "w": 81,
+                  "h": 24,
+                  "x": 723,
+                  "y": 100,
+                  "component": "segmentedControl",
+                  "props": {},
+                  "textless": true
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "instance",
+              "name": "dividerLine",
+              "w": 533,
+              "h": 2,
+              "x": 287,
+              "y": 134,
+              "absolute": true,
+              "component": "dividerLine",
+              "props": {},
+              "textless": true
+             }
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "panel",
+            "w": 533,
+            "h": 287,
+            "x": 287,
+            "y": 136,
+            "fillW": true,
+            "component": "panel",
+            "props": {
+             "Type": "Secondary"
+            },
+            "layout": "VERTICAL",
+            "pad": [
+             0,
+             16,
+             0,
+             16
+            ],
+            "padVars": [
+             null,
+             "padding/l",
+             null,
+             "padding/l"
+            ],
+            "align": "CENTER",
+            "hugH": true,
+            "fill": {
+             "var": "panel/background/secondary/color",
+             "type": "SOLID"
+            },
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Head Content",
+              "w": 501,
+              "h": 47,
+              "x": 303,
+              "y": 136,
+              "fillW": true,
+              "type": "SLOT",
+              "layout": "VERTICAL",
+              "gap": 16,
+              "gapVar": "gap/xl",
+              "pad": [
+               16,
+               0,
+               8,
+               0
+              ],
+              "padVars": [
+               "padding/l",
+               null,
+               "padding/s",
+               null
+              ],
+              "hugH": true,
+              "fill": {
+               "var": "panel/background/secondary/color",
+               "type": "SOLID"
+              },
+              "children": [
+               {
+                "kind": "instance",
+                "name": "dividerSection",
+                "w": 501,
+                "h": 23,
+                "x": 303,
+                "y": 152,
+                "fillW": true,
+                "component": "dividerSection",
+                "props": {
+                 "Show Number": true,
+                 "Number Content": "6",
+                 "Label Content": "Alias Tokens"
+                }
+               }
+              ]
+             },
+             {
+              "kind": "frame",
+              "name": "Main Content",
+              "w": 501,
+              "h": 240,
+              "x": 303,
+              "y": 183,
+              "fillW": true,
+              "type": "SLOT",
+              "layout": "VERTICAL",
+              "gap": 16,
+              "gapVar": "gap/xl",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "frame",
+                "name": "Frame 5",
+                "w": 501,
+                "h": 240,
+                "x": 303,
+                "y": 183,
+                "fillW": true,
+                "type": "FRAME",
+                "layout": "VERTICAL",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "buttonList",
+                  "w": 501,
+                  "h": 40,
+                  "x": 303,
+                  "y": 183,
+                  "fillW": true,
+                  "component": "buttonList",
+                  "props": {
+                   "Icon Content": "Icon-var-color",
+                   "Show Action Focus": true,
+                   "Show Icon": true,
+                   "Item Title Content": "cardPanel/shadow/color",
+                   "State": "Default"
+                  },
+                  "layout": "HORIZONTAL",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "stroke": {
+                   "var": "dividerLine/border/color",
+                   "type": "SOLID"
+                  },
+                  "children": [
+                   {
+                    "kind": "frame",
+                    "name": "Container",
+                    "w": 501,
+                    "h": 32,
+                    "x": 303,
+                    "y": 187,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "pad": [
+                     4,
+                     8,
+                     4,
+                     8
+                    ],
+                    "padVars": [
+                     "padding/xs",
+                     "padding/s",
+                     "padding/xs",
+                     "padding/s"
+                    ],
+                    "align": "CENTER",
+                    "hugH": true,
+                    "children": [
+                     {
+                      "kind": "frame",
+                      "name": "Content",
+                      "w": 485,
+                      "h": 16,
+                      "x": 311,
+                      "y": 195,
+                      "fillW": true,
+                      "type": "FRAME",
+                      "layout": "HORIZONTAL",
+                      "gap": 4,
+                      "gapVar": "gap/s",
+                      "align": "CENTER",
+                      "hugH": true,
+                      "children": [
+                       {
+                        "kind": "instance",
+                        "name": "Icon",
+                        "w": 16,
+                        "h": 16,
+                        "x": 311,
+                        "y": 195,
+                        "component": "Icon-var-color",
+                        "props": {
+                         "size": "small"
+                        },
+                        "textless": true
+                       },
+                       {
+                        "kind": "frame",
+                        "name": "Text",
+                        "w": 131,
+                        "h": 16,
+                        "x": 331,
+                        "y": 195,
+                        "type": "FRAME",
+                        "layout": "HORIZONTAL",
+                        "align": "CENTER",
+                        "hugW": true,
+                        "hugH": true,
+                        "cut": true
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "buttonList",
+                  "w": 501,
+                  "h": 40,
+                  "x": 303,
+                  "y": 223,
+                  "fillW": true,
+                  "component": "buttonList",
+                  "props": {
+                   "Icon Content": "Icon-var-color",
+                   "Show Action Focus": true,
+                   "Show Icon": true,
+                   "Item Title Content": "cardModal/shadow/color",
+                   "State": "Default"
+                  },
+                  "layout": "HORIZONTAL",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "stroke": {
+                   "var": "dividerLine/border/color",
+                   "type": "SOLID"
+                  },
+                  "children": [
+                   {
+                    "kind": "frame",
+                    "name": "Container",
+                    "w": 501,
+                    "h": 32,
+                    "x": 303,
+                    "y": 227,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "pad": [
+                     4,
+                     8,
+                     4,
+                     8
+                    ],
+                    "padVars": [
+                     "padding/xs",
+                     "padding/s",
+                     "padding/xs",
+                     "padding/s"
+                    ],
+                    "align": "CENTER",
+                    "hugH": true,
+                    "children": [
+                     {
+                      "kind": "frame",
+                      "name": "Content",
+                      "w": 485,
+                      "h": 16,
+                      "x": 311,
+                      "y": 235,
+                      "fillW": true,
+                      "type": "FRAME",
+                      "layout": "HORIZONTAL",
+                      "gap": 4,
+                      "gapVar": "gap/s",
+                      "align": "CENTER",
+                      "hugH": true,
+                      "children": [
+                       {
+                        "kind": "instance",
+                        "name": "Icon",
+                        "w": 16,
+                        "h": 16,
+                        "x": 311,
+                        "y": 235,
+                        "component": "Icon-var-color",
+                        "props": {
+                         "size": "small"
+                        },
+                        "textless": true
+                       },
+                       {
+                        "kind": "frame",
+                        "name": "Text",
+                        "w": 134,
+                        "h": 16,
+                        "x": 331,
+                        "y": 235,
+                        "type": "FRAME",
+                        "layout": "HORIZONTAL",
+                        "align": "CENTER",
+                        "hugW": true,
+                        "hugH": true,
+                        "cut": true
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "buttonList",
+                  "w": 501,
+                  "h": 40,
+                  "x": 303,
+                  "y": 263,
+                  "fillW": true,
+                  "component": "buttonList",
+                  "props": {
+                   "Icon Content": "Icon-var-color",
+                   "Show Action Focus": true,
+                   "Show Icon": true,
+                   "Item Title Content": "cardPrimary/background/color",
+                   "State": "Default"
+                  },
+                  "layout": "HORIZONTAL",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "stroke": {
+                   "var": "dividerLine/border/color",
+                   "type": "SOLID"
+                  },
+                  "children": [
+                   {
+                    "kind": "frame",
+                    "name": "Container",
+                    "w": 501,
+                    "h": 32,
+                    "x": 303,
+                    "y": 267,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "pad": [
+                     4,
+                     8,
+                     4,
+                     8
+                    ],
+                    "padVars": [
+                     "padding/xs",
+                     "padding/s",
+                     "padding/xs",
+                     "padding/s"
+                    ],
+                    "align": "CENTER",
+                    "hugH": true,
+                    "children": [
+                     {
+                      "kind": "frame",
+                      "name": "Content",
+                      "w": 485,
+                      "h": 16,
+                      "x": 311,
+                      "y": 275,
+                      "fillW": true,
+                      "type": "FRAME",
+                      "layout": "HORIZONTAL",
+                      "gap": 4,
+                      "gapVar": "gap/s",
+                      "align": "CENTER",
+                      "hugH": true,
+                      "children": [
+                       {
+                        "kind": "instance",
+                        "name": "Icon",
+                        "w": 16,
+                        "h": 16,
+                        "x": 311,
+                        "y": 275,
+                        "component": "Icon-var-color",
+                        "props": {
+                         "size": "small"
+                        },
+                        "textless": true
+                       },
+                       {
+                        "kind": "frame",
+                        "name": "Text",
+                        "w": 164,
+                        "h": 16,
+                        "x": 331,
+                        "y": 275,
+                        "type": "FRAME",
+                        "layout": "HORIZONTAL",
+                        "align": "CENTER",
+                        "hugW": true,
+                        "hugH": true,
+                        "cut": true
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ],
+                "more": 3
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "panel",
+            "w": 533,
+            "h": 460,
+            "x": 287,
+            "y": 423,
+            "fillW": true,
+            "component": "panel",
+            "props": {
+             "Type": "Secondary"
+            },
+            "layout": "VERTICAL",
+            "pad": [
+             0,
+             16,
+             0,
+             16
+            ],
+            "padVars": [
+             null,
+             "padding/l",
+             null,
+             "padding/l"
+            ],
+            "align": "CENTER",
+            "fill": {
+             "var": "panel/background/secondary/color",
+             "type": "SOLID"
+            },
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Head Content",
+              "w": 501,
+              "h": 48,
+              "x": 303,
+              "y": 423,
+              "fillW": true,
+              "type": "SLOT",
+              "layout": "VERTICAL",
+              "gap": 16,
+              "gapVar": "gap/xl",
+              "pad": [
+               16,
+               0,
+               8,
+               0
+              ],
+              "padVars": [
+               "padding/l",
+               null,
+               "padding/s",
+               null
+              ],
+              "hugH": true,
+              "fill": {
+               "var": "panel/background/secondary/color",
+               "type": "SOLID"
+              },
+              "children": [
+               {
+                "kind": "instance",
+                "name": "dividerSection",
+                "w": 501,
+                "h": 24,
+                "x": 303,
+                "y": 439,
+                "fillW": true,
+                "component": "dividerSection",
+                "props": {
+                 "Show Number": true,
+                 "Number Content": "227",
+                 "Show Button": true,
+                 "Label Content": "Affected Components"
+                }
+               }
+              ]
+             },
+             {
+              "kind": "frame",
+              "name": "Main Content",
+              "w": 501,
+              "h": 412,
+              "x": 303,
+              "y": 471,
+              "fillW": true,
+              "fillH": true,
+              "type": "SLOT",
+              "layout": "VERTICAL",
+              "gap": 16,
+              "gapVar": "gap/xl",
+              "children": [
+               {
+                "kind": "frame",
+                "name": "Frame 5",
+                "w": 501,
+                "h": 160,
+                "x": 303,
+                "y": 471,
+                "fillW": true,
+                "type": "FRAME",
+                "layout": "VERTICAL",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "instance",
+                  "name": "buttonList",
+                  "w": 501,
+                  "h": 40,
+                  "x": 303,
+                  "y": 471,
+                  "fillW": true,
+                  "component": "buttonList",
+                  "props": {
+                   "Show Action Focus": true,
+                   "Show Icon": true,
+                   "Item Title Content": "cardStatusFeedback",
+                   "Icon Content": "Icon-object-component",
+                   "State": "Default"
+                  },
+                  "layout": "HORIZONTAL",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "stroke": {
+                   "var": "dividerLine/border/color",
+                   "type": "SOLID"
+                  },
+                  "children": [
+                   {
+                    "kind": "frame",
+                    "name": "Container",
+                    "w": 501,
+                    "h": 32,
+                    "x": 303,
+                    "y": 475,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "pad": [
+                     4,
+                     8,
+                     4,
+                     8
+                    ],
+                    "padVars": [
+                     "padding/xs",
+                     "padding/s",
+                     "padding/xs",
+                     "padding/s"
+                    ],
+                    "align": "CENTER",
+                    "hugH": true,
+                    "children": [
+                     {
+                      "kind": "frame",
+                      "name": "Content",
+                      "w": 485,
+                      "h": 16,
+                      "x": 311,
+                      "y": 483,
+                      "fillW": true,
+                      "type": "FRAME",
+                      "layout": "HORIZONTAL",
+                      "gap": 4,
+                      "gapVar": "gap/s",
+                      "align": "CENTER",
+                      "hugH": true,
+                      "children": [
+                       {
+                        "kind": "instance",
+                        "name": "Icon",
+                        "w": 16,
+                        "h": 16,
+                        "x": 311,
+                        "y": 483,
+                        "component": "Icon-object-component",
+                        "props": {
+                         "size": "small"
+                        },
+                        "textless": true
+                       },
+                       {
+                        "kind": "frame",
+                        "name": "Text",
+                        "w": 111,
+                        "h": 16,
+                        "x": 331,
+                        "y": 483,
+                        "type": "FRAME",
+                        "layout": "HORIZONTAL",
+                        "align": "CENTER",
+                        "hugW": true,
+                        "hugH": true,
+                        "cut": true
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "buttonList",
+                  "w": 501,
+                  "h": 40,
+                  "x": 303,
+                  "y": 511,
+                  "fillW": true,
+                  "component": "buttonList",
+                  "props": {
+                   "Show Action Focus": true,
+                   "Show Icon": true,
+                   "Item Title Content": "modalSend",
+                   "Icon Content": "Icon-object-component",
+                   "State": "Default"
+                  },
+                  "layout": "HORIZONTAL",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "stroke": {
+                   "var": "dividerLine/border/color",
+                   "type": "SOLID"
+                  },
+                  "children": [
+                   {
+                    "kind": "frame",
+                    "name": "Container",
+                    "w": 501,
+                    "h": 32,
+                    "x": 303,
+                    "y": 515,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "pad": [
+                     4,
+                     8,
+                     4,
+                     8
+                    ],
+                    "padVars": [
+                     "padding/xs",
+                     "padding/s",
+                     "padding/xs",
+                     "padding/s"
+                    ],
+                    "align": "CENTER",
+                    "hugH": true,
+                    "children": [
+                     {
+                      "kind": "frame",
+                      "name": "Content",
+                      "w": 485,
+                      "h": 16,
+                      "x": 311,
+                      "y": 523,
+                      "fillW": true,
+                      "type": "FRAME",
+                      "layout": "HORIZONTAL",
+                      "gap": 4,
+                      "gapVar": "gap/s",
+                      "align": "CENTER",
+                      "hugH": true,
+                      "children": [
+                       {
+                        "kind": "instance",
+                        "name": "Icon",
+                        "w": 16,
+                        "h": 16,
+                        "x": 311,
+                        "y": 523,
+                        "component": "Icon-object-component",
+                        "props": {
+                         "size": "small"
+                        },
+                        "textless": true
+                       },
+                       {
+                        "kind": "frame",
+                        "name": "Text",
+                        "w": 60,
+                        "h": 16,
+                        "x": 331,
+                        "y": 523,
+                        "type": "FRAME",
+                        "layout": "HORIZONTAL",
+                        "align": "CENTER",
+                        "hugW": true,
+                        "hugH": true,
+                        "cut": true
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 },
+                 {
+                  "kind": "instance",
+                  "name": "buttonList",
+                  "w": 501,
+                  "h": 40,
+                  "x": 303,
+                  "y": 551,
+                  "fillW": true,
+                  "component": "buttonList",
+                  "props": {
+                   "Show Action Focus": true,
+                   "Show Icon": true,
+                   "Item Title Content": "modalSend",
+                   "Icon Content": "Icon-object-component",
+                   "State": "Default"
+                  },
+                  "layout": "HORIZONTAL",
+                  "align": "CENTER",
+                  "hugH": true,
+                  "stroke": {
+                   "var": "dividerLine/border/color",
+                   "type": "SOLID"
+                  },
+                  "children": [
+                   {
+                    "kind": "frame",
+                    "name": "Container",
+                    "w": 501,
+                    "h": 32,
+                    "x": 303,
+                    "y": 555,
+                    "fillW": true,
+                    "type": "FRAME",
+                    "layout": "HORIZONTAL",
+                    "gap": 4,
+                    "gapVar": "gap/s",
+                    "pad": [
+                     4,
+                     8,
+                     4,
+                     8
+                    ],
+                    "padVars": [
+                     "padding/xs",
+                     "padding/s",
+                     "padding/xs",
+                     "padding/s"
+                    ],
+                    "align": "CENTER",
+                    "hugH": true,
+                    "children": [
+                     {
+                      "kind": "frame",
+                      "name": "Content",
+                      "w": 485,
+                      "h": 16,
+                      "x": 311,
+                      "y": 563,
+                      "fillW": true,
+                      "type": "FRAME",
+                      "layout": "HORIZONTAL",
+                      "gap": 4,
+                      "gapVar": "gap/s",
+                      "align": "CENTER",
+                      "hugH": true,
+                      "children": [
+                       {
+                        "kind": "instance",
+                        "name": "Icon",
+                        "w": 16,
+                        "h": 16,
+                        "x": 311,
+                        "y": 563,
+                        "component": "Icon-object-component",
+                        "props": {
+                         "size": "small"
+                        },
+                        "textless": true
+                       },
+                       {
+                        "kind": "frame",
+                        "name": "Text",
+                        "w": 60,
+                        "h": 16,
+                        "x": 331,
+                        "y": 563,
+                        "type": "FRAME",
+                        "layout": "HORIZONTAL",
+                        "align": "CENTER",
+                        "hugW": true,
+                        "hugH": true,
+                        "cut": true
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ],
+                "more": 1
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "cut": true
+  },
+  {
+   "id": "1546:19883",
+   "name": ".Impact Atlas Plugin",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Light",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "instance",
+    "name": ".Impact Atlas Plugin",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "component": ".Impact Atlas Plugin",
+    "props": {},
+    "layout": "VERTICAL",
+    "clips": true,
+    "radius": 16,
+    "radiusVar": "general/window-radii",
+    "children": [
+     {
+      "kind": "instance",
+      "name": ".figmaWindow",
+      "w": 820,
+      "h": 40,
+      "x": 0,
+      "y": 0,
+      "fillW": true,
+      "component": ".figmaWindow",
+      "props": {
+       "Icon": "IA-Icon",
+       "Title": "Impact Atlas"
+      },
+      "layout": "HORIZONTAL",
+      "gap": 8,
+      "gapVar": "gap/m",
+      "pad": [
+       0,
+       16,
+       0,
+       16
+      ],
+      "padVars": [
+       null,
+       "padding/l",
+       null,
+       "padding/l"
+      ],
+      "align": "CENTER",
+      "clips": true,
+      "fill": {
+       "var": "figmaWindowChrome/background/color",
+       "type": "SOLID"
+      },
+      "stroke": {
+       "var": "figmaWindowChrome/divider/color",
+       "type": "SOLID"
+      },
+      "children": [
+       {
+        "kind": "instance",
+        "name": "IA-Icon",
+        "w": 16,
+        "h": 16,
+        "x": 16,
+        "y": 12,
+        "component": "IA-Icon",
+        "props": {
+         "size": "header"
+        },
+        "textless": true
+       },
+       {
+        "kind": "text",
+        "name": "Title",
+        "w": 747,
+        "h": 16,
+        "x": 40,
+        "y": 12,
+        "fillW": true,
+        "text": "Impact Atlas",
+        "style": "m",
+        "size": 11,
+        "weight": 600,
+        "fill": {
+         "var": "figmaWindowChrome/title/color",
+         "type": "SOLID"
+        }
+       },
+       {
+        "kind": "frame",
+        "name": "Union",
+        "w": 9,
+        "h": 10,
+        "x": 795,
+        "y": 15,
+        "type": "BOOLEAN_OPERATION",
+        "fill": {
+         "var": "figmaWindowChrome/button/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "shape",
+          "name": "Vector 1",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         },
+         {
+          "kind": "shape",
+          "name": "Vector 2",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "instance",
+      "name": "actionBar",
+      "w": 820,
+      "h": 48,
+      "x": 0,
+      "y": 40,
+      "fillW": true,
+      "component": "actionBar",
+      "props": {
+       "Show Background": true
+      },
+      "layout": "HORIZONTAL",
+      "wrap": true,
+      "pad": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "padVars": [
+       "padding/m",
+       "padding/l",
+       "padding/m",
+       "padding/l"
+      ],
+      "clips": true,
+      "hugH": true,
+      "children": [
+       {
+        "kind": "shape",
+        "name": "background",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 40,
+        "absolute": true,
+        "type": "RECTANGLE"
+       },
+       {
+        "kind": "frame",
+        "name": "Slot",
+        "w": 788,
+        "h": 24,
+        "x": 16,
+        "y": 52,
+        "fillW": true,
+        "type": "SLOT",
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "gap": 16,
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "hugH": true,
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Frame 112",
+          "w": 234,
+          "h": 24,
+          "x": 16,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "buttonTertiary",
+            "w": 24,
+            "h": 24,
+            "x": 16,
+            "y": 52,
+            "component": "buttonTertiary",
+            "props": {
+             "Label Content": "Local Scan",
+             "Icon Content": "Icon-settings",
+             "Show Icon": true,
+             "State": "Default"
+            },
+            "textless": true
+           },
+           {
+            "kind": "text",
+            "name": "Local Scan",
+            "w": 58,
+            "h": 16,
+            "x": 48,
+            "y": 56,
+            "text": "Local Scan ",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "semantic/content/secondary/color",
+             "type": "SOLID"
+            }
+           }
+          ]
+         },
+         {
+          "kind": "instance",
+          "name": "input",
+          "w": 320,
+          "h": 24,
+          "x": 250,
+          "y": 52,
+          "component": "input",
+          "props": {
+           "Label After Content": "Label",
+           "Show Value": true,
+           "Show Icon Left": true,
+           "Icon Left Content": "Icon-search",
+           "Icon Right Content": "Icon-arrowDown",
+           "Value Content": "Search...",
+           "Label Before Content": "Type",
+           "State": "Default",
+           "Filled": "False",
+           "Disabled": "False"
+          },
+          "texts": [
+           "Search..."
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Frame 113",
+          "w": 234,
+          "h": 24,
+          "x": 570,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "justify": "MAX",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "text",
+            "name": "2 days ago",
+            "w": 58,
+            "h": 16,
+            "x": 679,
+            "y": 56,
+            "text": "2 days ago",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "semantic/content/secondary/color",
+             "type": "SOLID"
+            }
+           },
+           {
+            "kind": "instance",
+            "name": "buttonPrimary",
+            "w": 59,
+            "h": 24,
+            "x": 745,
+            "y": 52,
+            "component": "buttonPrimary",
+            "props": {
+             "Show Label": true,
+             "Show Icon": true,
+             "Icon Content": "Icon-update",
+             "Label Content": "Scan",
+             "Disabled": "False"
+            },
+            "texts": [
+             "Scan"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "frame",
+      "name": "Body",
+      "w": 820,
+      "h": 432,
+      "x": 0,
+      "y": 88,
+      "fillW": true,
+      "fillH": true,
+      "type": "FRAME",
+      "layout": "HORIZONTAL",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "panel",
+        "w": 287,
+        "h": 432,
+        "x": 0,
+        "y": 88,
+        "fillH": true,
+        "component": "panel",
+        "props": {
+         "Type": "Primary"
+        },
+        "layout": "VERTICAL",
+        "pad": [
+         0,
+         16,
+         0,
+         16
+        ],
+        "padVars": [
+         null,
+         "padding/l",
+         null,
+         "padding/l"
+        ],
+        "align": "CENTER",
+        "fill": {
+         "var": "panel/background/primary/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Head Content",
+          "w": 255,
+          "h": 87,
+          "x": 16,
+          "y": 88,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "pad": [
+           16,
+           0,
+           8,
+           0
+          ],
+          "padVars": [
+           "padding/l",
+           null,
+           "padding/s",
+           null
+          ],
+          "hugH": true,
+          "fill": {
+           "var": "semantic/surface/elevationMedium/color",
+           "type": "SOLID"
+          },
+          "children": [
+           {
+            "kind": "instance",
+            "name": "segmentedControl",
+            "w": 255,
+            "h": 24,
+            "x": 16,
+            "y": 104,
+            "component": "segmentedControl",
+            "props": {},
+            "texts": [
+             "Tokens",
+             "Components"
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "dividerSection",
+            "w": 255,
+            "h": 23,
+            "x": 16,
+            "y": 144,
+            "fillW": true,
+            "component": "dividerSection",
+            "props": {
+             "Show Number": true,
+             "Number Content": "5",
+             "Show Priority": true,
+             "Label Content": "High"
+            },
+            "texts": [
+             "High",
+             "·",
+             "5"
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Main Content",
+          "w": 255,
+          "h": 345,
+          "x": 16,
+          "y": 175,
+          "fillW": true,
+          "fillH": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "children": [
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 255,
+            "h": 232,
+            "x": 16,
+            "y": 175,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 255,
+              "h": 232,
+              "x": 16,
+              "y": 175,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 175,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "semantic/generalContent/color",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "semantic/generalContent/color"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 223,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Title": "border/bottom",
+                 "Show Icon": true,
+                 "Icon Content": "Icon-var-number",
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "border/bottom"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 271,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "primitives/neutral100",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "True"
+                },
+                "texts": [
+                 "primitives/neutral100"
+                ]
+               }
+              ],
+              "more": 2
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 255,
+            "h": 263,
+            "x": 16,
+            "y": 423,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "gap": 8,
+            "gapVar": "gap/m",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "dividerSection",
+              "w": 255,
+              "h": 23,
+              "x": 16,
+              "y": 423,
+              "fillW": true,
+              "component": "dividerSection",
+              "props": {
+               "Show Number": true,
+               "Number Content": "24",
+               "Show Priority": true,
+               "Label Content": "Medium "
+              },
+              "texts": [
+               "Medium",
+               "·",
+               "24"
+              ]
+             },
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 255,
+              "h": 232,
+              "x": 16,
+              "y": 454,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 454,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "semantic/positive/color",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "semantic/positive/color"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 502,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "base/radius/allButton",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "base/radius/allButton"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 550,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "base/radius/allButton",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "base/radius/allButton"
+                ]
+               }
+              ],
+              "more": 2
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "frame",
+        "name": "Content",
+        "w": 533,
+        "h": 432,
+        "x": 287,
+        "y": 88,
+        "fillW": true,
+        "fillH": true,
+        "type": "FRAME",
+        "layout": "VERTICAL",
+        "fill": {
+         "var": "semantic/surface/elevationLow/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Empty State",
+          "w": 533,
+          "h": 432,
+          "x": 287,
+          "y": 88,
+          "fillW": true,
+          "fillH": true,
+          "type": "FRAME",
+          "layout": "VERTICAL",
+          "align": "CENTER",
+          "justify": "CENTER",
+          "children": [
+           {
+            "kind": "instance",
+            "name": "emptyState",
+            "w": 260,
+            "h": 76,
+            "x": 424,
+            "y": 266,
+            "component": "emptyState",
+            "props": {
+             "Description Content": "Select a token\nto see what it affects.",
+             "Title Content": "Select a token to see what it affects.",
+             "Type": "Default"
+            },
+            "texts": [
+             "Select a token to see what it affects."
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "1820:21593",
+   "name": ".Impact Atlas Plugin",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Dark",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "instance",
+    "name": ".Impact Atlas Plugin",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "component": ".Impact Atlas Plugin",
+    "props": {},
+    "layout": "VERTICAL",
+    "clips": true,
+    "radius": 16,
+    "radiusVar": "general/window-radii",
+    "children": [
+     {
+      "kind": "instance",
+      "name": ".figmaWindow",
+      "w": 820,
+      "h": 40,
+      "x": 0,
+      "y": 0,
+      "fillW": true,
+      "component": ".figmaWindow",
+      "props": {
+       "Icon": "IA-Icon",
+       "Title": "Impact Atlas"
+      },
+      "layout": "HORIZONTAL",
+      "gap": 8,
+      "gapVar": "gap/m",
+      "pad": [
+       0,
+       16,
+       0,
+       16
+      ],
+      "padVars": [
+       null,
+       "padding/l",
+       null,
+       "padding/l"
+      ],
+      "align": "CENTER",
+      "clips": true,
+      "fill": {
+       "var": "figmaWindowChrome/background/color",
+       "type": "SOLID"
+      },
+      "stroke": {
+       "var": "figmaWindowChrome/divider/color",
+       "type": "SOLID"
+      },
+      "children": [
+       {
+        "kind": "instance",
+        "name": "IA-Icon",
+        "w": 16,
+        "h": 16,
+        "x": 16,
+        "y": 12,
+        "component": "IA-Icon",
+        "props": {
+         "size": "header"
+        },
+        "textless": true
+       },
+       {
+        "kind": "text",
+        "name": "Title",
+        "w": 747,
+        "h": 16,
+        "x": 40,
+        "y": 12,
+        "fillW": true,
+        "text": "Impact Atlas",
+        "style": "m",
+        "size": 11,
+        "weight": 600,
+        "fill": {
+         "var": "figmaWindowChrome/title/color",
+         "type": "SOLID"
+        }
+       },
+       {
+        "kind": "frame",
+        "name": "Union",
+        "w": 9,
+        "h": 10,
+        "x": 795,
+        "y": 15,
+        "type": "BOOLEAN_OPERATION",
+        "fill": {
+         "var": "figmaWindowChrome/button/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "shape",
+          "name": "Vector 1",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         },
+         {
+          "kind": "shape",
+          "name": "Vector 2",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "instance",
+      "name": "actionBar",
+      "w": 820,
+      "h": 48,
+      "x": 0,
+      "y": 40,
+      "fillW": true,
+      "component": "actionBar",
+      "props": {
+       "Show Background": true
+      },
+      "layout": "HORIZONTAL",
+      "wrap": true,
+      "pad": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "padVars": [
+       "padding/m",
+       "padding/l",
+       "padding/m",
+       "padding/l"
+      ],
+      "clips": true,
+      "hugH": true,
+      "children": [
+       {
+        "kind": "shape",
+        "name": "background",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 40,
+        "absolute": true,
+        "type": "RECTANGLE"
+       },
+       {
+        "kind": "frame",
+        "name": "Slot",
+        "w": 788,
+        "h": 24,
+        "x": 16,
+        "y": 52,
+        "fillW": true,
+        "type": "SLOT",
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "gap": 16,
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "hugH": true,
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Frame 112",
+          "w": 234,
+          "h": 24,
+          "x": 16,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "buttonTertiary",
+            "w": 24,
+            "h": 24,
+            "x": 16,
+            "y": 52,
+            "component": "buttonTertiary",
+            "props": {
+             "Label Content": "Local Scan",
+             "Icon Content": "Icon-settings",
+             "Show Icon": true,
+             "State": "Default"
+            },
+            "textless": true
+           },
+           {
+            "kind": "text",
+            "name": "Local Scan",
+            "w": 58,
+            "h": 16,
+            "x": 48,
+            "y": 56,
+            "text": "Local Scan ",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "semantic/content/secondary/color",
+             "type": "SOLID"
+            }
+           }
+          ]
+         },
+         {
+          "kind": "instance",
+          "name": "input",
+          "w": 320,
+          "h": 24,
+          "x": 250,
+          "y": 52,
+          "component": "input",
+          "props": {
+           "Label After Content": "Label",
+           "Show Value": true,
+           "Show Icon Left": true,
+           "Icon Left Content": "Icon-search",
+           "Icon Right Content": "Icon-arrowDown",
+           "Value Content": "Search...",
+           "Label Before Content": "Type",
+           "State": "Default",
+           "Filled": "False",
+           "Disabled": "False"
+          },
+          "texts": [
+           "Search..."
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Frame 113",
+          "w": 234,
+          "h": 24,
+          "x": 570,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "justify": "MAX",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "text",
+            "name": "2 days ago",
+            "w": 58,
+            "h": 16,
+            "x": 679,
+            "y": 56,
+            "text": "2 days ago",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "semantic/content/secondary/color",
+             "type": "SOLID"
+            }
+           },
+           {
+            "kind": "instance",
+            "name": "buttonPrimary",
+            "w": 59,
+            "h": 24,
+            "x": 745,
+            "y": 52,
+            "component": "buttonPrimary",
+            "props": {
+             "Show Label": true,
+             "Show Icon": true,
+             "Icon Content": "Icon-update",
+             "Label Content": "Scan",
+             "Disabled": "False"
+            },
+            "texts": [
+             "Scan"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "frame",
+      "name": "Body",
+      "w": 820,
+      "h": 432,
+      "x": 0,
+      "y": 88,
+      "fillW": true,
+      "fillH": true,
+      "type": "FRAME",
+      "layout": "HORIZONTAL",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "panel",
+        "w": 287,
+        "h": 432,
+        "x": 0,
+        "y": 88,
+        "fillH": true,
+        "component": "panel",
+        "props": {
+         "Type": "Primary"
+        },
+        "layout": "VERTICAL",
+        "pad": [
+         0,
+         16,
+         0,
+         16
+        ],
+        "padVars": [
+         null,
+         "padding/l",
+         null,
+         "padding/l"
+        ],
+        "align": "CENTER",
+        "fill": {
+         "var": "panel/background/primary/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Head Content",
+          "w": 255,
+          "h": 87,
+          "x": 16,
+          "y": 88,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "pad": [
+           16,
+           0,
+           8,
+           0
+          ],
+          "padVars": [
+           "padding/l",
+           null,
+           "padding/s",
+           null
+          ],
+          "hugH": true,
+          "fill": {
+           "var": "semantic/surface/elevationMedium/color",
+           "type": "SOLID"
+          },
+          "children": [
+           {
+            "kind": "instance",
+            "name": "segmentedControl",
+            "w": 255,
+            "h": 24,
+            "x": 16,
+            "y": 104,
+            "component": "segmentedControl",
+            "props": {},
+            "texts": [
+             "Tokens",
+             "Components"
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "dividerSection",
+            "w": 255,
+            "h": 23,
+            "x": 16,
+            "y": 144,
+            "fillW": true,
+            "component": "dividerSection",
+            "props": {
+             "Show Number": true,
+             "Number Content": "5",
+             "Show Priority": true,
+             "Label Content": "High"
+            },
+            "texts": [
+             "High",
+             "·",
+             "5"
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Main Content",
+          "w": 255,
+          "h": 345,
+          "x": 16,
+          "y": 175,
+          "fillW": true,
+          "fillH": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "children": [
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 255,
+            "h": 232,
+            "x": 16,
+            "y": 175,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 255,
+              "h": 232,
+              "x": 16,
+              "y": 175,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 175,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "semantic/generalContent/color",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "semantic/generalContent/color"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 223,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Title": "border/bottom",
+                 "Show Icon": true,
+                 "Icon Content": "Icon-var-number",
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "border/bottom"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 271,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "primitives/neutral100",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "True"
+                },
+                "texts": [
+                 "primitives/neutral100"
+                ]
+               }
+              ],
+              "more": 2
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 255,
+            "h": 263,
+            "x": 16,
+            "y": 423,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "gap": 8,
+            "gapVar": "gap/m",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "dividerSection",
+              "w": 255,
+              "h": 23,
+              "x": 16,
+              "y": 423,
+              "fillW": true,
+              "component": "dividerSection",
+              "props": {
+               "Show Number": true,
+               "Number Content": "24",
+               "Show Priority": true,
+               "Label Content": "Medium "
+              },
+              "texts": [
+               "Medium",
+               "·",
+               "24"
+              ]
+             },
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 255,
+              "h": 232,
+              "x": 16,
+              "y": 454,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 454,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "semantic/positive/color",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "semantic/positive/color"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 502,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "base/radius/allButton",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "base/radius/allButton"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 550,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "base/radius/allButton",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "base/radius/allButton"
+                ]
+               }
+              ],
+              "more": 2
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "frame",
+        "name": "Content",
+        "w": 533,
+        "h": 432,
+        "x": 287,
+        "y": 88,
+        "fillW": true,
+        "fillH": true,
+        "type": "FRAME",
+        "layout": "VERTICAL",
+        "fill": {
+         "var": "semantic/surface/elevationLow/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Empty State",
+          "w": 533,
+          "h": 432,
+          "x": 287,
+          "y": 88,
+          "fillW": true,
+          "fillH": true,
+          "type": "FRAME",
+          "layout": "VERTICAL",
+          "align": "CENTER",
+          "justify": "CENTER",
+          "children": [
+           {
+            "kind": "instance",
+            "name": "emptyState",
+            "w": 260,
+            "h": 76,
+            "x": 424,
+            "y": 266,
+            "component": "emptyState",
+            "props": {
+             "Description Content": "Select a token\nto see what it affects.",
+             "Title Content": "Select a token to see what it affects.",
+             "Type": "Default"
+            },
+            "texts": [
+             "Select a token to see what it affects."
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "1695:39826",
+   "name": ".Impact Atlas Plugin",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Light",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "instance",
+    "name": ".Impact Atlas Plugin",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "component": ".Impact Atlas Plugin",
+    "props": {},
+    "layout": "VERTICAL",
+    "clips": true,
+    "radius": 16,
+    "radiusVar": "general/window-radii",
+    "children": [
+     {
+      "kind": "instance",
+      "name": ".figmaWindow",
+      "w": 820,
+      "h": 40,
+      "x": 0,
+      "y": 0,
+      "fillW": true,
+      "component": ".figmaWindow",
+      "props": {
+       "Icon": "IA-Icon",
+       "Title": "Impact Atlas"
+      },
+      "layout": "HORIZONTAL",
+      "gap": 8,
+      "gapVar": "gap/m",
+      "pad": [
+       0,
+       16,
+       0,
+       16
+      ],
+      "padVars": [
+       null,
+       "padding/l",
+       null,
+       "padding/l"
+      ],
+      "align": "CENTER",
+      "clips": true,
+      "fill": {
+       "var": "figmaWindowChrome/background/color",
+       "type": "SOLID"
+      },
+      "stroke": {
+       "var": "figmaWindowChrome/divider/color",
+       "type": "SOLID"
+      },
+      "children": [
+       {
+        "kind": "instance",
+        "name": "IA-Icon",
+        "w": 16,
+        "h": 16,
+        "x": 16,
+        "y": 12,
+        "component": "IA-Icon",
+        "props": {
+         "size": "header"
+        },
+        "textless": true
+       },
+       {
+        "kind": "text",
+        "name": "Title",
+        "w": 747,
+        "h": 16,
+        "x": 40,
+        "y": 12,
+        "fillW": true,
+        "text": "Impact Atlas",
+        "style": "m",
+        "size": 11,
+        "weight": 600,
+        "fill": {
+         "var": "figmaWindowChrome/title/color",
+         "type": "SOLID"
+        }
+       },
+       {
+        "kind": "frame",
+        "name": "Union",
+        "w": 9,
+        "h": 10,
+        "x": 795,
+        "y": 15,
+        "type": "BOOLEAN_OPERATION",
+        "fill": {
+         "var": "figmaWindowChrome/button/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "shape",
+          "name": "Vector 1",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         },
+         {
+          "kind": "shape",
+          "name": "Vector 2",
+          "w": 8,
+          "h": 8,
+          "x": 795,
+          "y": 16,
+          "type": "VECTOR"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "instance",
+      "name": "actionBar",
+      "w": 820,
+      "h": 48,
+      "x": 0,
+      "y": 40,
+      "fillW": true,
+      "component": "actionBar",
+      "props": {
+       "Show Background": true
+      },
+      "layout": "HORIZONTAL",
+      "wrap": true,
+      "pad": [
+       12,
+       16,
+       12,
+       16
+      ],
+      "padVars": [
+       "padding/m",
+       "padding/l",
+       "padding/m",
+       "padding/l"
+      ],
+      "clips": true,
+      "hugH": true,
+      "children": [
+       {
+        "kind": "shape",
+        "name": "background",
+        "w": 820,
+        "h": 48,
+        "x": 0,
+        "y": 40,
+        "absolute": true,
+        "type": "RECTANGLE"
+       },
+       {
+        "kind": "frame",
+        "name": "Slot",
+        "w": 788,
+        "h": 24,
+        "x": 16,
+        "y": 52,
+        "fillW": true,
+        "type": "SLOT",
+        "layout": "HORIZONTAL",
+        "wrap": true,
+        "gap": 16,
+        "align": "CENTER",
+        "justify": "SPACE_BETWEEN",
+        "hugH": true,
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Frame 112",
+          "w": 234,
+          "h": 24,
+          "x": 16,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "buttonTertiary",
+            "w": 24,
+            "h": 24,
+            "x": 16,
+            "y": 52,
+            "component": "buttonTertiary",
+            "props": {
+             "Label Content": "Local Scan",
+             "Icon Content": "Icon-settings",
+             "Show Icon": true,
+             "State": "Default"
+            },
+            "textless": true
+           },
+           {
+            "kind": "text",
+            "name": "Local Scan",
+            "w": 58,
+            "h": 16,
+            "x": 48,
+            "y": 56,
+            "text": "Local Scan ",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "semantic/content/secondary/color",
+             "type": "SOLID"
+            }
+           }
+          ]
+         },
+         {
+          "kind": "instance",
+          "name": "input",
+          "w": 320,
+          "h": 24,
+          "x": 250,
+          "y": 52,
+          "component": "input",
+          "props": {
+           "Label After Content": "Label",
+           "Show Value": true,
+           "Show Icon Left": true,
+           "Icon Left Content": "Icon-search",
+           "Icon Right Content": "Icon-arrowDown",
+           "Value Content": "Search...",
+           "Label Before Content": "Type",
+           "State": "Default",
+           "Filled": "False",
+           "Disabled": "False"
+          },
+          "texts": [
+           "Search..."
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Frame 113",
+          "w": 234,
+          "h": 24,
+          "x": 570,
+          "y": 52,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "align": "CENTER",
+          "justify": "MAX",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "text",
+            "name": "2 days ago",
+            "w": 58,
+            "h": 16,
+            "x": 679,
+            "y": 56,
+            "text": "2 days ago",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "semantic/content/secondary/color",
+             "type": "SOLID"
+            }
+           },
+           {
+            "kind": "instance",
+            "name": "buttonPrimary",
+            "w": 59,
+            "h": 24,
+            "x": 745,
+            "y": 52,
+            "component": "buttonPrimary",
+            "props": {
+             "Show Label": true,
+             "Show Icon": true,
+             "Icon Content": "Icon-update",
+             "Label Content": "Scan",
+             "Disabled": "False"
+            },
+            "texts": [
+             "Scan"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "frame",
+      "name": "Body",
+      "w": 820,
+      "h": 432,
+      "x": 0,
+      "y": 88,
+      "fillW": true,
+      "fillH": true,
+      "type": "FRAME",
+      "layout": "HORIZONTAL",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "panel",
+        "w": 287,
+        "h": 432,
+        "x": 0,
+        "y": 88,
+        "fillH": true,
+        "component": "panel",
+        "props": {
+         "Type": "Primary"
+        },
+        "layout": "VERTICAL",
+        "pad": [
+         0,
+         16,
+         0,
+         16
+        ],
+        "padVars": [
+         null,
+         "padding/l",
+         null,
+         "padding/l"
+        ],
+        "align": "CENTER",
+        "fill": {
+         "var": "panel/background/primary/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Head Content",
+          "w": 255,
+          "h": 87,
+          "x": 16,
+          "y": 88,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "pad": [
+           16,
+           0,
+           8,
+           0
+          ],
+          "padVars": [
+           "padding/l",
+           null,
+           "padding/s",
+           null
+          ],
+          "hugH": true,
+          "fill": {
+           "var": "semantic/surface/elevationMedium/color",
+           "type": "SOLID"
+          },
+          "children": [
+           {
+            "kind": "instance",
+            "name": "segmentedControl",
+            "w": 255,
+            "h": 24,
+            "x": 16,
+            "y": 104,
+            "component": "segmentedControl",
+            "props": {},
+            "texts": [
+             "Tokens",
+             "Components"
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "dividerSection",
+            "w": 255,
+            "h": 23,
+            "x": 16,
+            "y": 144,
+            "fillW": true,
+            "component": "dividerSection",
+            "props": {
+             "Show Number": true,
+             "Number Content": "5",
+             "Show Priority": true,
+             "Label Content": "High"
+            },
+            "texts": [
+             "High",
+             "·",
+             "5"
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Main Content",
+          "w": 255,
+          "h": 345,
+          "x": 16,
+          "y": 175,
+          "fillW": true,
+          "fillH": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 16,
+          "gapVar": "gap/xl",
+          "children": [
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 255,
+            "h": 232,
+            "x": 16,
+            "y": 175,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 255,
+              "h": 232,
+              "x": 16,
+              "y": 175,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 175,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "semantic/generalContent/color",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "semantic/generalContent/color"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 223,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Title": "border/bottom",
+                 "Show Icon": true,
+                 "Icon Content": "Icon-var-number",
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "border/bottom"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 271,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "primitives/neutral100",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "True"
+                },
+                "texts": [
+                 "primitives/neutral100"
+                ]
+               }
+              ],
+              "more": 2
+             }
+            ]
+           },
+           {
+            "kind": "frame",
+            "name": "List",
+            "w": 255,
+            "h": 263,
+            "x": 16,
+            "y": 423,
+            "fillW": true,
+            "type": "FRAME",
+            "layout": "VERTICAL",
+            "gap": 8,
+            "gapVar": "gap/m",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "instance",
+              "name": "dividerSection",
+              "w": 255,
+              "h": 23,
+              "x": 16,
+              "y": 423,
+              "fillW": true,
+              "component": "dividerSection",
+              "props": {
+               "Show Number": true,
+               "Number Content": "24",
+               "Show Priority": true,
+               "Label Content": "Medium "
+              },
+              "texts": [
+               "Medium",
+               "·",
+               "24"
+              ]
+             },
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 255,
+              "h": 232,
+              "x": 16,
+              "y": 454,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 8,
+              "gapVar": "gap/m",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 454,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "semantic/positive/color",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "semantic/positive/color"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 502,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "base/radius/allButton",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "base/radius/allButton"
+                ]
+               },
+               {
+                "kind": "instance",
+                "name": "node",
+                "w": 255,
+                "h": 40,
+                "x": 16,
+                "y": 550,
+                "fillW": true,
+                "component": "node",
+                "props": {
+                 "Icon Content": "Icon-var-color",
+                 "Title": "base/radius/allButton",
+                 "Show Icon": true,
+                 "State": "Default",
+                 "Selected": "False"
+                },
+                "texts": [
+                 "base/radius/allButton"
+                ]
+               }
+              ],
+              "more": 2
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "frame",
+        "name": "Content",
+        "w": 533,
+        "h": 432,
+        "x": 287,
+        "y": 88,
+        "fillW": true,
+        "fillH": true,
+        "type": "FRAME",
+        "layout": "VERTICAL",
+        "fill": {
+         "var": "semantic/surface/elevationLow/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "frame",
+          "name": "Empty State",
+          "w": 533,
+          "h": 432,
+          "x": 287,
+          "y": 88,
+          "fillW": true,
+          "fillH": true,
+          "type": "FRAME",
+          "layout": "VERTICAL",
+          "align": "CENTER",
+          "justify": "CENTER",
+          "children": [
+           {
+            "kind": "instance",
+            "name": "emptyState",
+            "w": 260,
+            "h": 92,
+            "x": 424,
+            "y": 258,
+            "component": "emptyState",
+            "props": {
+             "Description Content": "Select a token\nto see what it affects.",
+             "Title Content": "No alias tokens or components reference this variable.",
+             "Type": "Default"
+            },
+            "layout": "VERTICAL",
+            "gap": 16,
+            "gapVar": "gap/xl",
+            "align": "CENTER",
+            "hugH": true,
+            "children": [
+             {
+              "kind": "frame",
+              "name": "Content",
+              "w": 260,
+              "h": 92,
+              "x": 424,
+              "y": 258,
+              "fillW": true,
+              "type": "FRAME",
+              "layout": "VERTICAL",
+              "gap": 4,
+              "gapVar": "gap/s",
+              "align": "CENTER",
+              "hugH": true,
+              "children": [
+               {
+                "kind": "instance",
+                "name": "Icon",
+                "w": 56,
+                "h": 56,
+                "x": 526,
+                "y": 258,
+                "component": "Icon-nolink",
+                "props": {
+                 "size": "large"
+                },
+                "textless": true
+               },
+               {
+                "kind": "frame",
+                "name": "Text",
+                "w": 260,
+                "h": 32,
+                "x": 424,
+                "y": 318,
+                "fillW": true,
+                "type": "FRAME",
+                "layout": "VERTICAL",
+                "align": "CENTER",
+                "hugH": true,
+                "children": [
+                 {
+                  "kind": "text",
+                  "name": "Title",
+                  "w": 260,
+                  "h": 32,
+                  "x": 424,
+                  "y": 318,
+                  "fillW": true,
+                  "text": "No alias tokens or components reference this variable.",
+                  "style": "m",
+                  "size": 11,
+                  "weight": 600,
+                  "fill": {
+                   "var": "emptyState/title/color",
+                   "type": "SOLID"
+                  }
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "672:149542",
+   "name": "Deep Analysis",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Dark",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "instance",
+    "name": "Deep Analysis",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "component": "overlay",
+    "props": {},
+    "layout": "VERTICAL",
+    "gap": 8,
+    "pad": [
+     16,
+     16,
+     16,
+     16
+    ],
+    "padVars": [
+     "padding/l",
+     "padding/l",
+     "padding/l",
+     "padding/l"
+    ],
+    "align": "CENTER",
+    "justify": "CENTER",
+    "children": [
+     {
+      "kind": "shape",
+      "name": "Overlay",
+      "w": 820,
+      "h": 520,
+      "x": 0,
+      "y": 0,
+      "absolute": true,
+      "type": "RECTANGLE"
+     },
+     {
+      "kind": "frame",
+      "name": "Slot",
+      "w": 788,
+      "h": 488,
+      "x": 16,
+      "y": 16,
+      "fillW": true,
+      "fillH": true,
+      "type": "SLOT",
+      "layout": "VERTICAL",
+      "gap": 8,
+      "align": "CENTER",
+      "justify": "CENTER",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "modal",
+        "w": 320,
+        "h": 275,
+        "x": 250,
+        "y": 123,
+        "component": "modal",
+        "props": {
+         "Show Slot": true,
+         "Title Content": "Choose scan type:",
+         "Icon Content": "Icon-export",
+         "Show Actions": true,
+         "Show Icon": true
+        },
+        "layout": "VERTICAL",
+        "gap": 16,
+        "gapVar": "gap/xl",
+        "pad": [
+         16,
+         16,
+         16,
+         16
+        ],
+        "padVars": [
+         "padding/l",
+         "padding/l",
+         "padding/l",
+         "padding/l"
+        ],
+        "justify": "CENTER",
+        "hugH": true,
+        "fill": {
+         "var": "modal/background/color",
+         "type": "SOLID"
+        },
+        "radius": 24,
+        "radiusVar": "radii/modal",
+        "children": [
+         {
+          "kind": "frame",
+          "name": "header",
+          "w": 288,
+          "h": 17,
+          "x": 266,
+          "y": 139,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 4,
+          "gapVar": "gap/s",
+          "align": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "Icon",
+            "w": 16,
+            "h": 16,
+            "x": 266,
+            "y": 139,
+            "component": "Icon-export",
+            "props": {},
+            "textless": true
+           },
+           {
+            "kind": "text",
+            "name": "Title",
+            "w": 268,
+            "h": 17,
+            "x": 286,
+            "y": 139,
+            "fillW": true,
+            "text": "Choose scan type:",
+            "style": "l",
+            "size": 13,
+            "weight": 600,
+            "fill": {
+             "var": "modal/title/color",
+             "type": "SOLID"
+            }
+           }
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Slot",
+          "w": 288,
+          "h": 170,
+          "x": 266,
+          "y": 172,
+          "fillW": true,
+          "type": "SLOT",
+          "layout": "VERTICAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "justify": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "radioButton",
+            "w": 288,
+            "h": 55,
+            "x": 266,
+            "y": 172,
+            "fillW": true,
+            "component": "radioButton",
+            "props": {
+             "Description Content": "Scans only the current file for tokens, components, and their relationships.",
+             "Show Description": true,
+             "Show Divider Line": true,
+             "Show Text": true,
+             "Text Content": "Local",
+             "State": "Unselected"
+            },
+            "texts": [
+             "Local",
+             "Scans only the current file for tokens, components, and their relationships."
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "radioButton",
+            "w": 288,
+            "h": 55,
+            "x": 266,
+            "y": 234,
+            "fillW": true,
+            "component": "radioButton",
+            "props": {
+             "Show Divider Line": true,
+             "Description Content": "Scans the current file and linked libraries for token and component relationships.",
+             "Show Description": true,
+             "Show Text": true,
+             "Text Content": "Extended",
+             "State": "Current"
+            },
+            "texts": [
+             "Extended",
+             "Scans the current file and linked libraries for token and component relationships."
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "radioButton",
+            "w": 288,
+            "h": 45,
+            "x": 266,
+            "y": 297,
+            "fillW": true,
+            "component": "radioButton",
+            "props": {
+             "Description Content": "Scans everything above, then checks the entire canvas to find every component usage.",
+             "Show Description": true,
+             "Show Text": true,
+             "Text Content": "Full",
+             "State": "Default"
+            },
+            "texts": [
+             "Full",
+             "Scans everything above, then checks the entire canvas to find every component usage."
+            ]
+           }
+          ]
+         },
+         {
+          "kind": "frame",
+          "name": "Actions",
+          "w": 288,
+          "h": 24,
+          "x": 266,
+          "y": 358,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "HORIZONTAL",
+          "gap": 8,
+          "gapVar": "gap/m",
+          "justify": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "instance",
+            "name": "buttonSecondary",
+            "w": 140,
+            "h": 24,
+            "x": 266,
+            "y": 358,
+            "fillW": true,
+            "component": "buttonSecondary",
+            "props": {
+             "Show Label": true,
+             "Icon Content": "Icon-update",
+             "Label Content": "Cancel",
+             "State": "Default"
+            },
+            "texts": [
+             "Cancel"
+            ]
+           },
+           {
+            "kind": "instance",
+            "name": "buttonPrimary",
+            "w": 140,
+            "h": 24,
+            "x": 414,
+            "y": 358,
+            "fillW": true,
+            "component": "buttonPrimary",
+            "props": {
+             "Show Label": true,
+             "Icon Content": "Icon-check",
+             "Label Content": "Apply and Scan",
+             "Disabled": "False"
+            },
+            "texts": [
+             "Apply and Scan"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "shape",
+        "name": "Line",
+        "w": 49,
+        "h": 0,
+        "x": 274,
+        "y": 183,
+        "absolute": true,
+        "type": "VECTOR"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "934:36296",
+   "name": "Rendering",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Dark",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "instance",
+    "name": "Rendering",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "component": "overlay",
+    "props": {},
+    "layout": "VERTICAL",
+    "gap": 8,
+    "pad": [
+     16,
+     16,
+     16,
+     16
+    ],
+    "padVars": [
+     "padding/l",
+     "padding/l",
+     "padding/l",
+     "padding/l"
+    ],
+    "align": "CENTER",
+    "justify": "CENTER",
+    "children": [
+     {
+      "kind": "shape",
+      "name": "Overlay",
+      "w": 820,
+      "h": 520,
+      "x": 0,
+      "y": 0,
+      "absolute": true,
+      "type": "RECTANGLE"
+     },
+     {
+      "kind": "frame",
+      "name": "Slot",
+      "w": 788,
+      "h": 488,
+      "x": 16,
+      "y": 16,
+      "fillW": true,
+      "fillH": true,
+      "type": "SLOT",
+      "layout": "VERTICAL",
+      "gap": 8,
+      "align": "CENTER",
+      "justify": "CENTER",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "loader",
+        "w": 198,
+        "h": 45,
+        "x": 311,
+        "y": 238,
+        "component": "loader",
+        "props": {
+         "Show Description": true,
+         "Label": "Full scan..."
+        },
+        "texts": [
+         "Full scan...",
+         "~2min remaining",
+         "Cancel"
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "362:45664",
+   "name": "Start",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Dark",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "frame",
+    "name": "Start",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "type": "FRAME",
+    "layout": "VERTICAL",
+    "gap": 8,
+    "children": [
+     {
+      "kind": "instance",
+      "name": "Start",
+      "w": 820,
+      "h": 40,
+      "x": 0,
+      "y": 0,
+      "component": ".Font Scaling Lab Plugin",
+      "props": {},
+      "layout": "VERTICAL",
+      "clips": true,
+      "hugW": true,
+      "hugH": true,
+      "fill": {
+       "var": "panel/background/primary/color",
+       "type": "SOLID"
+      },
+      "radius": 16,
+      "radiusVar": "general/window-radii",
+      "children": [
+       {
+        "kind": "instance",
+        "name": ".figmaWindow",
+        "w": 820,
+        "h": 40,
+        "x": 0,
+        "y": 0,
+        "component": ".figmaWindow",
+        "props": {
+         "Icon": "FSL-Icon",
+         "Title": "Font Scaling Lab"
+        },
+        "layout": "HORIZONTAL",
+        "gap": 8,
+        "gapVar": "gap/m",
+        "pad": [
+         0,
+         16,
+         0,
+         16
+        ],
+        "padVars": [
+         null,
+         "padding/l",
+         null,
+         "padding/l"
+        ],
+        "align": "CENTER",
+        "clips": true,
+        "fill": {
+         "var": "figmaWindowChrome/background/color",
+         "type": "SOLID"
+        },
+        "stroke": {
+         "var": "figmaWindowChrome/divider/color",
+         "type": "SOLID"
+        },
+        "children": [
+         {
+          "kind": "instance",
+          "name": "FSL-Icon",
+          "w": 16,
+          "h": 16,
+          "x": 16,
+          "y": 12,
+          "component": "FSL-Icon",
+          "props": {
+           "size": "header"
+          },
+          "textless": true
+         },
+         {
+          "kind": "text",
+          "name": "Title",
+          "w": 747,
+          "h": 16,
+          "x": 40,
+          "y": 12,
+          "fillW": true,
+          "text": "Font Scaling Lab",
+          "style": "m",
+          "size": 11,
+          "weight": 600,
+          "fill": {
+           "var": "figmaWindowChrome/title/color",
+           "type": "SOLID"
+          }
+         },
+         {
+          "kind": "frame",
+          "name": "Union",
+          "w": 9,
+          "h": 10,
+          "x": 795,
+          "y": 15,
+          "type": "BOOLEAN_OPERATION",
+          "fill": {
+           "var": "figmaWindowChrome/button/color",
+           "type": "SOLID"
+          },
+          "children": [
+           {
+            "kind": "shape",
+            "name": "Vector 1",
+            "w": 8,
+            "h": 8,
+            "x": 795,
+            "y": 16,
+            "type": "VECTOR"
+           },
+           {
+            "kind": "shape",
+            "name": "Vector 2",
+            "w": 8,
+            "h": 8,
+            "x": 795,
+            "y": 16,
+            "type": "VECTOR"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "instance",
+      "name": "emptyState",
+      "w": 260,
+      "h": 132,
+      "x": 280,
+      "y": 194,
+      "absolute": true,
+      "component": "emptyState",
+      "props": {
+       "Description Content": "Description",
+       "Title Content": "Select a frame, component set, or instance to start previewing",
+       "Show Action": true,
+       "Type": "Default"
+      },
+      "layout": "VERTICAL",
+      "gap": 16,
+      "gapVar": "gap/xl",
+      "align": "CENTER",
+      "hugH": true,
+      "children": [
+       {
+        "kind": "frame",
+        "name": "Content",
+        "w": 260,
+        "h": 92,
+        "x": 280,
+        "y": 194,
+        "fillW": true,
+        "type": "FRAME",
+        "layout": "VERTICAL",
+        "gap": 4,
+        "gapVar": "gap/s",
+        "align": "CENTER",
+        "hugH": true,
+        "children": [
+         {
+          "kind": "instance",
+          "name": "Icon",
+          "w": 56,
+          "h": 56,
+          "x": 382,
+          "y": 194,
+          "component": "Icon-select",
+          "props": {},
+          "textless": true
+         },
+         {
+          "kind": "frame",
+          "name": "Text",
+          "w": 260,
+          "h": 32,
+          "x": 280,
+          "y": 254,
+          "fillW": true,
+          "type": "FRAME",
+          "layout": "VERTICAL",
+          "align": "CENTER",
+          "hugH": true,
+          "children": [
+           {
+            "kind": "text",
+            "name": "Title",
+            "w": 260,
+            "h": 32,
+            "x": 280,
+            "y": 254,
+            "fillW": true,
+            "text": "Select a frame, component set, or instance to start previewing",
+            "style": "m",
+            "size": 11,
+            "weight": 600,
+            "fill": {
+             "var": "emptyState/title/color",
+             "type": "SOLID"
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "instance",
+        "name": "buttonPrimary",
+        "w": 100,
+        "h": 24,
+        "x": 360,
+        "y": 302,
+        "component": "buttonPrimary",
+        "props": {
+         "Show Label": true,
+         "Icon Content": "Icon-update",
+         "Label Content": "Render preview",
+         "Disabled": "False"
+        },
+        "texts": [
+         "Render preview"
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "166:31607",
+   "name": "Rendering",
+   "modes": {
+    "Settings": "Mode 1",
+    "Styling": "Dark",
+    "Sizing": "Desktop"
+   },
+   "tree": {
+    "kind": "instance",
+    "name": "Rendering",
+    "w": 820,
+    "h": 520,
+    "x": 0,
+    "y": 0,
+    "component": "overlay",
+    "props": {},
+    "layout": "VERTICAL",
+    "gap": 8,
+    "pad": [
+     16,
+     16,
+     16,
+     16
+    ],
+    "padVars": [
+     "padding/l",
+     "padding/l",
+     "padding/l",
+     "padding/l"
+    ],
+    "align": "CENTER",
+    "justify": "CENTER",
+    "children": [
+     {
+      "kind": "shape",
+      "name": "Overlay",
+      "w": 820,
+      "h": 520,
+      "x": 0,
+      "y": 0,
+      "absolute": true,
+      "type": "RECTANGLE"
+     },
+     {
+      "kind": "frame",
+      "name": "Slot",
+      "w": 788,
+      "h": 488,
+      "x": 16,
+      "y": 16,
+      "fillW": true,
+      "fillH": true,
+      "type": "SLOT",
+      "layout": "VERTICAL",
+      "gap": 8,
+      "align": "CENTER",
+      "justify": "CENTER",
+      "children": [
+       {
+        "kind": "instance",
+        "name": "loader",
+        "w": 224,
+        "h": 40,
+        "x": 298,
+        "y": 240,
+        "component": "loader",
+        "props": {
+         "Label": "Rendering preview..."
+        },
+        "texts": [
+         "Rendering preview...",
+         "Cancel"
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

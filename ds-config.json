@@ -7,7 +7,8 @@
     {
       "name": "Impact Atlas",
       "nodeId": "308-10425",
-      "plugin": "impact-atlas"
+      "plugin": "impact-atlas",
+      "setup": "screen-setups/impact-atlas-token.js"
     },
     {
       "name": "Tokens to Ink",
@@ -17,7 +18,8 @@
     {
       "name": "Font Scaling Lab",
       "nodeId": "106-36547",
-      "plugin": "font-scaling-lab"
+      "plugin": "font-scaling-lab",
+      "setup": "screen-setups/font-scaling-lab-results.js"
     }
   ],
   "_screens_note": "Reference SCREENS for the Markup gate (screen element completeness). Detail views/modals whose DS controls must each have a code counterpart. Captured by refreshScreenElements into figma-screens.snapshot.json.",
@@ -31,6 +33,54 @@
       "name": "Tokens to Ink — Preflight modal",
       "nodeId": "2225-28241",
       "plugin": "tokens-to-ink"
+    },
+    {
+      "name": "Impact Atlas, results list",
+      "nodeId": "308-7820",
+      "plugin": "impact-atlas",
+      "setup": "screen-setups/impact-atlas-token-list.js"
+    },
+    {
+      "name": "Impact Atlas, nothing selected",
+      "nodeId": "1546-19883",
+      "plugin": "impact-atlas",
+      "setup": "screen-setups/impact-atlas-scanned.js"
+    },
+    {
+      "name": "Impact Atlas, nothing selected, dark",
+      "nodeId": "1820-21593",
+      "plugin": "impact-atlas",
+      "setup": "screen-setups/impact-atlas-scanned.js"
+    },
+    {
+      "name": "Impact Atlas, a token nothing uses",
+      "nodeId": "1695-39826",
+      "plugin": "impact-atlas",
+      "setup": "screen-setups/impact-atlas-token-none.js"
+    },
+    {
+      "name": "Impact Atlas, choose scan type",
+      "nodeId": "672-149542",
+      "plugin": "impact-atlas",
+      "setup": "screen-setups/impact-atlas-scan-type.js"
+    },
+    {
+      "name": "Impact Atlas, full scan running",
+      "nodeId": "934-36296",
+      "plugin": "impact-atlas",
+      "setup": "screen-setups/impact-atlas-full-scan.js"
+    },
+    {
+      "name": "Font Scaling Lab, Start",
+      "nodeId": "362-45664",
+      "plugin": "font-scaling-lab",
+      "setup": "screen-setups/font-scaling-lab-start.js"
+    },
+    {
+      "name": "Font Scaling Lab, rendering",
+      "nodeId": "166-31607",
+      "plugin": "font-scaling-lab",
+      "setup": "screen-setups/font-scaling-lab-rendering.js"
     }
   ],
   "screenElementStrict": false,
@@ -84,7 +134,8 @@
   },
   "scanExcludeDirs": [
     "drafts",
-    "styleguide"
+    "styleguide",
+    "screen-setups"
   ],
   "scanExcludeFilenames": [
     "ui.html",

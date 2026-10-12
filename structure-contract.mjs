@@ -534,7 +534,7 @@ export const CONTRACT = {
     },
   },
   panel: {
-    _note: "panel (2287:68241): Type=Primary (elevation medium) and Type=Secondary (elevation low); lr padding/l; slots Head Content (top padding/l, bottom padding/s, gap/xl) over Main Content (gap/xl); a 1.5 divider on its right edge. 2026-10-06: the system has one panel, .panel (slots .panel-head and .panel-main, .panel--right for a divider on the left, .panel--resizable with a .panel-resize handle), used by every product.",
+    _note: "panel (2287:68241): Type=Primary (elevation medium) and Type=Secondary (elevation low); lr padding/l; slots Head Content (top padding/l, bottom padding/s, gap/xl) over Main Content (gap/xl); no stroke on any side (2026-10-12: Figma draws none, so neither does .panel; its surface alone sets it apart). 2026-10-06: the system has one panel, .panel (slots .panel-head and .panel-main, .panel--right for a divider on the left, .panel--resizable with a .panel-resize handle), used by every product.",
     // Figma DS: VERTICAL container, fill=panel/background/color, stroke=panel/border/color.
     // Only the left panel is a DS panel; right panel is a bare content container.
     // 2026-09-12 restructure (node 505:48510 → 505:43484): the single Content slot was split
@@ -552,7 +552,6 @@ export const CONTRACT = {
     innerRadiusVar: null,
     strokeOnDefault: false,
     strokeOnAnyState: false,
-    strokeSides: 'right',  // Figma: right-edge weight 1.5 (0/1.5/0/0) — the side-panel divider (verified 2026-08; edge weight preserved through the 2026-09-12 restructure). NOTE: the DS stroke PAINT now reads empty on the component + all in-context instances; the edge-weight geometry + the plugin .left-panel border-right (panel/border) hold the divider. No base selector, so this documents intent.
     children: [
       // 2026-09-12 restructure: two empty SLOTs filled per-context. Plugins hand-build the panel
       // (header row + .scroll-area), so cssSelector: null skips the [3f] CSS lookup — the snapshot

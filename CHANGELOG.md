@@ -10,6 +10,7 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 ## v2.0.32 · 12 October 2026
 
 - panel draws no border, as Figma has it: its surface alone sets it apart from the content, on either side.
+- Impact Atlas and Font Scaling Lab are checked against their Figma screens: each screen's state is set by a script in `screen-setups/`, and the engine compares where each component sits.
 
 ## v2.0.31 · 11 October 2026
 
