@@ -183,12 +183,16 @@ function varTypeIconHtml(type, size) {
 // What a [data-tip] says, shown after a short wait on hover or keyboard focus (WCAG 1.4.13): it stays while the
 // pointer moves onto it and rests there, stays until the pointer or the focus leaves (a short grace covers the gap
 // between the trigger and the tip), and Escape closes it. A screen reader hears it as the trigger's description.
+// A touch screen has no hover: a tap on the trigger shows the tip at once under it, and a tap on it again or anywhere
+// else closes it.
 (function () {
   const PAD = 10, DELAY = 1000, GRACE = 300;
   const tt = document.getElementById('tt');
   if (!tt) return;
   tt.setAttribute('role', 'tooltip');
-  let showTimer = null, hideTimer = null, cursorX = 0, cursorY = 0, activeEl = null, byFocus = false;
+  let showTimer = null, hideTimer = null, cursorX = 0, cursorY = 0, activeEl = null, byFocus = false, touchAt = -1e9;
+  // The mouse events a browser makes up after a tap (over, down) are not a hover: the tap itself decides.
+  const fromTouch = () => Date.now() - touchAt < 800;
 
   function place() {
     const vw = window.innerWidth, vh = window.innerHeight;
@@ -196,6 +200,8 @@ function varTypeIconHtml(type, size) {
     let x = cursorX + 14, y = cursorY + 14;
     if (x + tw + PAD > vw) x = cursorX - tw - 8;
     if (y + th + PAD > vh) y = cursorY - th - 8;
+    x = Math.max(PAD, Math.min(x, vw - tw - PAD));   // a narrow screen keeps all of it in view
+    y = Math.max(PAD, y);
     tt.style.left = x + 'px';
     tt.style.top  = y + 'px';
   }
@@ -240,6 +246,7 @@ function varTypeIconHtml(type, size) {
   });
 
   document.addEventListener('mouseover', (e) => {
+    if (fromTouch()) return;
     if (tt.contains(e.target)) { clearTimeout(hideTimer); return; }   // the pointer rests on the tip
     const el = e.target.closest('[data-tip]');
     if (el && el === activeEl) { clearTimeout(hideTimer); return; }
@@ -248,6 +255,7 @@ function varTypeIconHtml(type, size) {
   });
 
   document.addEventListener('mouseout', (e) => {
+    if (fromTouch()) return;
     const to = e.relatedTarget;
     if (!activeEl || byFocus) return;
     if (to && (activeEl.contains(to) || tt.contains(to))) return;
@@ -255,6 +263,7 @@ function varTypeIconHtml(type, size) {
   });
 
   document.addEventListener('focusin', (e) => {
+    if (fromTouch()) return;   // a tap focuses its trigger too: the tap itself opens or closes the tip
     const el = e.target.closest && e.target.closest('[data-tip]');
     if (el) show(el, true);
   });
@@ -262,7 +271,27 @@ function varTypeIconHtml(type, size) {
     if (activeEl && byFocus && activeEl.contains(e.target)) hide();
   });
 
-  document.addEventListener('mousedown', (e) => { if (!tt.contains(e.target)) hide(); });
+  document.addEventListener('mousedown', (e) => { if (!fromTouch() && !tt.contains(e.target)) hide(); });
+
+  // A tap: anywhere but the tip and its trigger closes the tip; on a trigger it opens its tip at once, or closes it.
+  document.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse') return;
+    touchAt = Date.now();
+    if (activeEl && !tt.contains(e.target) && !activeEl.contains(e.target)) hide();
+  }, true);
+  document.addEventListener('click', (e) => {
+    if (!fromTouch() || tt.contains(e.target)) return;
+    const el = e.target.closest && e.target.closest('[data-tip]');
+    if (!el) return;
+    const open = el === activeEl && tt.classList.contains('tt-visible');
+    hide();
+    if (open) return;
+    activeEl = el; byFocus = false;
+    tt.textContent = el.dataset.tip;
+    describe(el, true);
+    placeAt(el);
+    tt.classList.add('tt-visible');
+  });
   document.addEventListener('scroll',    hide, true);
   document.addEventListener('keydown',   (e) => { if (e.key === 'Escape' || !byFocus) hide(); }, true);
 })();

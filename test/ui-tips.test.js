@@ -63,4 +63,27 @@ describe('@rms/ui — names and descriptions from tips', () => {
     focus(d.getElementById('i'));
     expect(d.getElementById('i').hasAttribute('aria-describedby')).toBe(false);
   });
+
+  it('opens on a tap at once and closes on a second tap or a tap anywhere else, as a touch screen has no hover', () => {
+    const w = page(`<button id="tip" class="tooltipButton" data-tip="How it is counted"><svg></svg></button><p id="away">Elsewhere</p>`);
+    const d = w.document, tt = d.getElementById('tt'), tip = d.getElementById('tip');
+    const pointer = (el) => { const e = new w.Event('pointerdown', { bubbles: true }); Object.defineProperty(e, 'pointerType', { value: 'touch' }); el.dispatchEvent(e); };
+    const tap = (el) => { pointer(el); el.dispatchEvent(new w.MouseEvent('mouseover', { bubbles: true })); el.dispatchEvent(new w.MouseEvent('mousedown', { bubbles: true })); el.dispatchEvent(new w.FocusEvent('focusin', { bubbles: true })); el.dispatchEvent(new w.MouseEvent('click', { bubbles: true })); };   // the events a browser sends for a tap, focus included
+    tap(tip);
+    expect(tt.classList.contains('tt-visible')).toBe(true);
+    expect(tt.textContent).toBe('How it is counted');
+    tap(tip);
+    expect(tt.classList.contains('tt-visible')).toBe(false);
+    tap(tip);
+    expect(tt.classList.contains('tt-visible')).toBe(true);
+    pointer(d.getElementById('away'));
+    expect(tt.classList.contains('tt-visible')).toBe(false);
+  });
+
+  it('a mouse click still leaves the tip to hover', () => {
+    const w = page(`<button id="tip" class="tooltipButton" data-tip="Hover me"><svg></svg></button>`);
+    const d = w.document;
+    d.getElementById('tip').dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
+    expect(d.getElementById('tt').classList.contains('tt-visible')).toBe(false);
+  });
 });

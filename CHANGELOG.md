@@ -7,6 +7,10 @@ The design system, `@rms/ds-core`. Each product keeps its own changelog in its r
 
 ---
 
+## v2.0.34 · 12 October 2026
+
+- A tip opens with a tap on a touch screen: a tap on its trigger shows it at once under the trigger, and a tap on it again or anywhere else closes it. A touch screen has no hover, so until now a tap closed the tip as it opened. On a narrow screen the tip stays whole inside the window.
+
 ## v2.0.33 · 12 October 2026
 
 - The progress message is the loader in the overlay, as Figma draws a screen that is working: the overlay covers the page with its scrim and blur, the loader sits at its centre with its title, an optional second line (`showProgress(msg, { description })`, such as the time left) and Cancel. The page behind it is drawn under one scrim instead of two.
