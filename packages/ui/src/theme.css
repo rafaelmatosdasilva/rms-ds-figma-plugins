@@ -1674,8 +1674,8 @@
   /* Its Figma switches: Show dividerLine Top and Show dividerLine Bottom, each on by default. */
   .statusBar.no-divider-top::before, .statusBar.no-divider-bottom::after { content: none; }
   /* ── Panel ── DS panel (2287:68241), the system's one panel. A vertical surface: Type=Primary paints
-     elevation medium, Type=Secondary elevation low. Its divider sits on the edge that meets the content,
-     the right by default (.panel--right puts it on the left). Its two slots are .panel-head (Head Content:
+     elevation medium, Type=Secondary elevation low. No border, as in Figma: its surface alone sets it apart from the
+     content. .panel--right puts it on the right of the content. Its two slots are .panel-head (Head Content:
      padding/l top, padding/s bottom, gap/xl) over .panel-main (Main Content, which scrolls). The panel has
      padding/l left and right, as in Figma; .panel-main reaches past it to the panel's edges, so its scroll bar
      runs along the edge while its content keeps the same padding/l. .panel--resizable adds a drag handle on that edge
@@ -1686,10 +1686,8 @@
     min-width: 0; min-height: 0;
     padding: 0 var(--padding-l);
     background: var(--semantic-surface-elevationMedium);
-    border-right: var(--general-thickness) solid var(--panel-border);
   }
   .panel.panel--secondary { background: var(--semantic-surface-elevationLow); }
-  .panel.panel--right { border-right: 0; border-left: var(--general-thickness) solid var(--panel-border); }
   .panel-head {
     display: flex; align-items: flex-start; gap: var(--gap-xl);
     padding: var(--padding-l) 0 var(--padding-s);
