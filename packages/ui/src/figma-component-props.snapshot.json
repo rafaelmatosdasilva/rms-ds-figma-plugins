@@ -1,5 +1,14 @@
 {
-  "_updated": "2026-10-07T12:58:56.710Z",
+  "_updated": "2026-10-20T09:31:26.474Z",
+  "_source": "figma-cli, read in 2 checked chunks with the capture recipes' functions",
+  "_built": {
+    "code": "3cf1105db21d891e9fab80de0b7b4e4c14f987fa",
+    "dirty": true,
+    "figma": null,
+    "figmaRead": "2026-10-20T09:31:26.474Z",
+    "engine": "d1f70f72703fcde21651a2e8aff4216c5f743ba9",
+    "at": "2026-10-20T09:31:26.479Z"
+  },
   "tooltipPopover": {
     "nodeId": "821:72473",
     "properties": {
@@ -11,6 +20,7 @@
     "annotations": [
       {
         "label": "Role: tooltip",
+        "labelMarkdown": "Role: tooltip",
         "categoryId": "2457:0"
       }
     ]
@@ -41,9 +51,11 @@
       },
       {
         "label": "Role: button",
+        "labelMarkdown": "Role: button",
         "categoryId": "2457:0"
       }
-    ]
+    ],
+    "description": "Icon can change depending on the feature"
   },
   "toast": {
     "nodeId": "836:101501",
@@ -78,6 +90,7 @@
     "annotations": [
       {
         "label": "Role: row",
+        "labelMarkdown": "Role: row",
         "categoryId": "2457:0"
       }
     ]
@@ -127,6 +140,7 @@
     "annotations": [
       {
         "label": "Role: img",
+        "labelMarkdown": "Role: img",
         "categoryId": "2457:0"
       }
     ]
@@ -158,6 +172,7 @@
     "annotations": [
       {
         "label": "Role: toolbar",
+        "labelMarkdown": "Role: toolbar",
         "categoryId": "2457:0"
       }
     ]
@@ -206,6 +221,7 @@
     "annotations": [
       {
         "label": "Role: radio",
+        "labelMarkdown": "Role: radio",
         "categoryId": "2457:0"
       }
     ]
@@ -229,6 +245,7 @@
     "annotations": [
       {
         "label": "Role: radiogroup",
+        "labelMarkdown": "Role: radiogroup",
         "categoryId": "2457:0"
       }
     ]
@@ -261,6 +278,7 @@
     "annotations": [
       {
         "label": "Role: radiogroup",
+        "labelMarkdown": "Role: radiogroup",
         "categoryId": "2457:0"
       }
     ]
@@ -301,7 +319,8 @@
     },
     "annotations": [
       {
-        "label": "Role: radio"
+        "label": "Role: radio",
+        "labelMarkdown": "Role: radio"
       }
     ]
   },
@@ -344,6 +363,7 @@
     "annotations": [
       {
         "label": "Role: region",
+        "labelMarkdown": "Role: region",
         "categoryId": "2457:0"
       }
     ]
@@ -367,10 +387,12 @@
     "annotations": [
       {
         "label": "Sizing: fill. It covers its container; its width and height come from where a product places it.",
+        "labelMarkdown": "Sizing: fill. It covers its container; its width and height come from where a product places it.",
         "categoryId": "209:0"
       },
       {
         "label": "Role: presentation",
+        "labelMarkdown": "Role: presentation",
         "categoryId": "2457:0"
       }
     ]
@@ -411,7 +433,8 @@
     },
     "annotations": [
       {
-        "label": "Role: button"
+        "label": "Role: button",
+        "labelMarkdown": "Role: button"
       }
     ]
   },
@@ -447,6 +470,7 @@
     "annotations": [
       {
         "label": "Role: group",
+        "labelMarkdown": "Role: group",
         "categoryId": "2457:0"
       }
     ]
@@ -489,6 +513,7 @@
     "annotations": [
       {
         "label": "Role: button",
+        "labelMarkdown": "Role: button",
         "categoryId": "2457:0"
       }
     ]
@@ -542,6 +567,7 @@
     "annotations": [
       {
         "label": "Role: dialog",
+        "labelMarkdown": "Role: dialog",
         "categoryId": "2457:0"
       }
     ]
@@ -561,6 +587,7 @@
     "annotations": [
       {
         "label": "Role: status",
+        "labelMarkdown": "Role: status",
         "categoryId": "2457:0"
       }
     ]
@@ -601,6 +628,7 @@
     "annotations": [
       {
         "label": "Role: listitem",
+        "labelMarkdown": "Role: listitem",
         "categoryId": "2457:0"
       }
     ]
@@ -689,6 +717,7 @@
     "annotations": [
       {
         "label": "Role: textbox",
+        "labelMarkdown": "Role: textbox",
         "categoryId": "2457:0"
       }
     ]
@@ -708,6 +737,7 @@
     "annotations": [
       {
         "label": "Role: presentation",
+        "labelMarkdown": "Role: presentation",
         "categoryId": "2457:0"
       }
     ]
@@ -723,6 +753,7 @@
     "annotations": [
       {
         "label": "Role: mark",
+        "labelMarkdown": "Role: mark",
         "categoryId": "2457:0"
       }
     ]
@@ -758,6 +789,7 @@
     "annotations": [
       {
         "label": "Role: group",
+        "labelMarkdown": "Role: group",
         "categoryId": "2457:0"
       }
     ]
@@ -794,6 +826,7 @@
       },
       {
         "label": "Role: heading",
+        "labelMarkdown": "Role: heading",
         "categoryId": "2457:0"
       }
     ]
@@ -804,6 +837,7 @@
     "annotations": [
       {
         "label": "Role: separator",
+        "labelMarkdown": "Role: separator",
         "categoryId": "2457:0"
       }
     ]
@@ -836,6 +870,7 @@
     "annotations": [
       {
         "label": "Role: group",
+        "labelMarkdown": "Role: group",
         "categoryId": "2457:0"
       }
     ]
@@ -871,6 +906,7 @@
     "annotations": [
       {
         "label": "Role: checkbox",
+        "labelMarkdown": "Role: checkbox",
         "categoryId": "2457:0"
       }
     ]
@@ -898,6 +934,7 @@
     "annotations": [
       {
         "label": "Role: group",
+        "labelMarkdown": "Role: group",
         "categoryId": "2457:0"
       }
     ]
@@ -935,6 +972,7 @@
     "annotations": [
       {
         "label": "Role: button",
+        "labelMarkdown": "Role: button",
         "categoryId": "2457:0"
       }
     ]
@@ -945,6 +983,7 @@
     "annotations": [
       {
         "label": "Role: spinbutton",
+        "labelMarkdown": "Role: spinbutton",
         "categoryId": "2457:0"
       }
     ]
@@ -982,6 +1021,7 @@
     "annotations": [
       {
         "label": "Role: button",
+        "labelMarkdown": "Role: button",
         "categoryId": "2457:0"
       }
     ]
@@ -1018,6 +1058,7 @@
     "annotations": [
       {
         "label": "Role: button",
+        "labelMarkdown": "Role: button",
         "categoryId": "2457:0"
       }
     ]
@@ -1054,6 +1095,7 @@
     "annotations": [
       {
         "label": "Role: button",
+        "labelMarkdown": "Role: button",
         "categoryId": "2457:0"
       }
     ]
@@ -1136,6 +1178,7 @@
     "annotations": [
       {
         "label": "Role: button",
+        "labelMarkdown": "Role: button",
         "categoryId": "2457:0"
       }
     ]
@@ -1183,14 +1226,6 @@
         },
         "preferredValues": []
       },
-      "Show Divider Line Top#2120:6": {
-        "type": "BOOLEAN",
-        "defaultValue": true
-      },
-      "Show Divider Line Bottom#2120:7": {
-        "type": "BOOLEAN",
-        "defaultValue": true
-      },
       "Show Background#2126:0": {
         "type": "BOOLEAN",
         "defaultValue": true
@@ -1199,6 +1234,7 @@
     "annotations": [
       {
         "label": "Role: toolbar",
+        "labelMarkdown": "Role: toolbar",
         "categoryId": "2457:0"
       }
     ]
