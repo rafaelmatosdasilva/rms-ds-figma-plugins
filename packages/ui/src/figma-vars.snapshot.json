@@ -1,13 +1,13 @@
 {
-  "_updated": "2026-10-07",
+  "_updated": "2026-10-20T09:31:22.269Z",
   "_modeOrder": {
-    "color": [
-      "dark",
-      "light"
-    ],
     "Sizing": [
       "desktop",
       "phone"
+    ],
+    "color": [
+      "dark",
+      "light"
     ]
   },
   "_note": "Captured from Figma by rms-design-system-engine (the Figma tool of this session, Plugin API, read only). Do not edit by hand: refresh with rms-design-system-engine --refresh-figma.",
@@ -352,8 +352,8 @@
     "gap/m": "8px",
     "padding/l": "16px",
     "gap/s": "4px",
-    "padding/m": "12px",
     "gap/xs": "2px",
+    "padding/m": "12px",
     "general/thickness": "1.5px",
     "padding/s": "8px",
     "padding/xs": "4px",
@@ -375,21 +375,42 @@
     "l": {
       "size": "13px",
       "weight": "600",
-      "lh": "17px"
+      "lh": "17px",
+      "family": "inter",
+      "vars": {
+        "size": "typography/l/font-size",
+        "lh": "typography/l/line-height",
+        "family": "font-family"
+      }
     },
     "m": {
       "size": "11px",
       "weight": "600",
-      "lh": "16px"
+      "lh": "16px",
+      "family": "inter",
+      "vars": {
+        "size": "typography/m/font-size",
+        "lh": "typography/m/line-height",
+        "family": "font-family"
+      }
     },
     "s": {
       "size": "10px",
       "weight": "700",
-      "lh": "15px"
+      "lh": "15px",
+      "family": "inter",
+      "vars": {
+        "size": "typography/s/font-size",
+        "lh": "typography/s/line-height",
+        "family": "font-family"
+      }
     }
   },
   "aliases": {
     "light": {
+      "semantic/surface/elevationHigh/color": [
+        "figmaWindowChrome/background/color"
+      ],
       "actionbar/background/color": [
         "semantic/surface/elevationHigh/color",
         "figmaWindowChrome/background/color"
@@ -403,53 +424,6 @@
         "semantic/negative",
         "primitives/red"
       ],
-      "badge/background/neutral/color": [
-        "primitives/Neutral 700"
-      ],
-      "badge/background/positive/color": [
-        "semantic/positive",
-        "primitives/green"
-      ],
-      "badge/background/warning/color": [
-        "semantic/warning",
-        "primitives/yellow"
-      ],
-      "badge/icon/negative/color": [
-        "badge/background/negative/color",
-        "semantic/negative",
-        "primitives/red"
-      ],
-      "badge/icon/neutral/color": [
-        "badge/background/neutral/color",
-        "primitives/Neutral 700"
-      ],
-      "badge/icon/positive/color": [
-        "badge/background/positive/color",
-        "semantic/positive",
-        "primitives/green"
-      ],
-      "badge/icon/warning/color": [
-        "badge/background/warning/color",
-        "semantic/warning",
-        "primitives/yellow"
-      ],
-      "badge/label/negative/color": [
-        "badge/background/negative/color",
-        "semantic/negative",
-        "primitives/red"
-      ],
-      "badge/label/neutral/color": [
-        "semantic/content/secondary/color",
-        "primitives/Neutral 300"
-      ],
-      "badge/label/positive/color": [
-        "semantic/content/secondary/color",
-        "primitives/Neutral 300"
-      ],
-      "badge/label/warning/color": [
-        "semantic/content/secondary/color",
-        "primitives/Neutral 300"
-      ],
       "buttonList/background/hover/color": [
         "primitives/Neutral 1000"
       ],
@@ -471,47 +445,93 @@
       "buttonList/text/selected/color": [
         "primitives/Neutral 200"
       ],
+      "badge/background/warning/color": [
+        "semantic/warning",
+        "primitives/yellow"
+      ],
+      "badge/background/positive/color": [
+        "semantic/positive",
+        "primitives/green"
+      ],
+      "badge/background/neutral/color": [
+        "primitives/Neutral 700"
+      ],
+      "badge/label/negative/color": [
+        "badge/background/negative/color",
+        "semantic/negative",
+        "primitives/red"
+      ],
+      "badge/label/warning/color": [
+        "semantic/content/secondary/color",
+        "primitives/Neutral 300"
+      ],
+      "badge/label/positive/color": [
+        "semantic/content/secondary/color",
+        "primitives/Neutral 300"
+      ],
+      "badge/label/neutral/color": [
+        "semantic/content/secondary/color",
+        "primitives/Neutral 300"
+      ],
+      "badge/icon/negative/color": [
+        "badge/background/negative/color",
+        "semantic/negative",
+        "primitives/red"
+      ],
+      "badge/icon/warning/color": [
+        "badge/background/warning/color",
+        "semantic/warning",
+        "primitives/yellow"
+      ],
+      "badge/icon/positive/color": [
+        "badge/background/positive/color",
+        "semantic/positive",
+        "primitives/green"
+      ],
+      "badge/icon/neutral/color": [
+        "badge/background/neutral/color",
+        "primitives/Neutral 700"
+      ],
       "buttonPrimary/background/color": [
         "primitives/Neutral 200"
       ],
       "buttonPrimary/iconText/color": [
         "primitives/Neutral 1000"
       ],
-      "buttonQuaternary/background/hover/color": [
-        "primitives/Neutral 1000"
-      ],
-      "buttonQuaternary/iconText/color": [
-        "primitives/Neutral 400"
-      ],
       "buttonSecondary/background/default/color": [
-        "primitives/Neutral 1000"
-      ],
-      "buttonSecondary/background/hover/color": [
         "primitives/Neutral 1000"
       ],
       "buttonSecondary/border/default/color": [
         "primitives/Neutral 700"
       ],
-      "buttonSecondary/border/hover/color": [
-        "primitives/Neutral 700"
+      "buttonSecondary/text/color": [
+        "primitives/Neutral 200"
       ],
       "buttonSecondary/icon/color": [
         "buttonSecondary/text/color",
         "primitives/Neutral 200"
       ],
-      "buttonSecondary/text/color": [
-        "primitives/Neutral 200"
-      ],
-      "buttonTertiary/background/active/color": [
-        "primitives/Neutral 1000"
-      ],
-      "buttonTertiary/background/default/color": [
-        "primitives/Neutral 800"
-      ],
-      "buttonTertiary/iconText/active/color": [
-        "primitives/Neutral 200"
-      ],
       "buttonTertiary/iconText/default/color": [
+        "primitives/Neutral 100"
+      ],
+      "buttonQuaternary/iconText/color": [
+        "primitives/Neutral 400"
+      ],
+      "card/border/color": [
+        "primitives/Neutral 700"
+      ],
+      "checkbox/border/default/color": [
+        "primitives/Neutral 500"
+      ],
+      "checkbox/border/selected/color": [
+        "primitives/Neutral 100"
+      ],
+      "checkbox/text/default/color": [
+        "radioButton/text/default/color",
+        "primitives/Neutral 300"
+      ],
+      "checkbox/text/selected/color": [
+        "radioButton/text/selected/color",
         "primitives/Neutral 100"
       ],
       "checkbox/background/default/color": [
@@ -522,113 +542,51 @@
         "buttonPrimary/background/color",
         "primitives/Neutral 200"
       ],
-      "checkbox/border/default/color": [
-        "primitives/Neutral 500"
-      ],
-      "checkbox/border/selected/color": [
-        "primitives/Neutral 100"
-      ],
       "checkbox/icon/selected/color": [
         "primitives/Neutral 1000"
       ],
-      "checkbox/text/default/color": [
-        "radioButton/text/default/color",
-        "primitives/Neutral 300"
+      "checkbox/description/color": [
+        "radioButton/description/color",
+        "primitives/Neutral 400"
       ],
-      "checkbox/text/selected/color": [
-        "radioButton/text/selected/color",
-        "primitives/Neutral 100"
+      "buttonQuaternary/background/hover/color": [
+        "primitives/Neutral 1000"
       ],
       "dividerLine/border/color": [
         "primitives/Neutral 700"
       ],
-      "dividerSection/divider/color": [
-        "primitives/Neutral 400"
-      ],
-      "dividerSection/number/color": [
-        "primitives/Neutral 400"
-      ],
       "dividerSection/title/color": [
         "primitives/Neutral 400"
-      ],
-      "emptyState/description/color": [
-        "primitives/Neutral 300"
-      ],
-      "emptyState/icon/neutral/color": [
-        "primitives/Neutral 500"
-      ],
-      "emptyState/icon/positive/color": [
-        "semantic/positive",
-        "primitives/green"
       ],
       "emptyState/title/color": [
         "primitives/Neutral 100"
       ],
-      "figmaWindowChrome/button/color": [
-        "primitives/Neutral 200"
+      "emptyState/icon/neutral/color": [
+        "primitives/Neutral 500"
+      ],
+      "figmaWindowChrome/title/color": [
+        "primitives/Neutral 100"
       ],
       "figmaWindowChrome/divider/color": [
         "dividerLine/border/color",
         "primitives/Neutral 700"
       ],
-      "figmaWindowChrome/title/color": [
-        "primitives/Neutral 100"
+      "figmaWindowChrome/button/color": [
+        "primitives/Neutral 200"
       ],
       "highlight/background/color": [
         "semantic/negative",
         "primitives/red"
-      ],
-      "highlight/text/color": [
-        "primitives/Neutral 1000"
       ],
       "highlightSelector/border/color": [
         "highlight/background/color",
         "semantic/negative",
         "primitives/red"
       ],
-      "input/background/filled/color": [
-        "primitives/Neutral 900"
-      ],
-      "input/border/default/color": [
-        "primitives/Neutral 500"
-      ],
-      "input/border/disabled/color": [
-        "primitives/Neutral 800"
-      ],
-      "input/border/focus/color": [
-        "primitives/Neutral 100"
-      ],
-      "input/border/hover/color": [
-        "primitives/Neutral 400"
-      ],
-      "input/icon/color": [
-        "primitives/Neutral 400"
-      ],
-      "input/label/color": [
-        "primitives/Neutral 400"
-      ],
-      "input/value/disabled/color": [
-        "primitives/Neutral 400"
-      ],
-      "input/value/empty/color": [
-        "primitives/Neutral 400"
-      ],
-      "input/value/filled/color": [
-        "primitives/Neutral 100"
-      ],
-      "listItem/description/color": [
-        "primitives/Neutral 400"
-      ],
-      "listItem/icon/color": [
-        "primitives/Neutral 500"
-      ],
-      "listItem/title/color": [
-        "primitives/Neutral 100"
-      ],
-      "loader/background/color": [
+      "highlight/text/color": [
         "primitives/Neutral 1000"
       ],
-      "loader/description/color": [
+      "input/label/color": [
         "primitives/Neutral 400"
       ],
       "loader/spinner/color": [
@@ -637,14 +595,38 @@
       "loader/title/color": [
         "primitives/Neutral 100"
       ],
+      "loader/description/color": [
+        "primitives/Neutral 400"
+      ],
+      "loader/background/color": [
+        "primitives/Neutral 1000"
+      ],
+      "listItem/icon/color": [
+        "primitives/Neutral 500"
+      ],
+      "listItem/title/color": [
+        "primitives/Neutral 100"
+      ],
+      "input/value/filled/color": [
+        "primitives/Neutral 100"
+      ],
+      "input/value/empty/color": [
+        "primitives/Neutral 400"
+      ],
+      "input/background/filled/color": [
+        "primitives/Neutral 900"
+      ],
+      "input/border/default/color": [
+        "primitives/Neutral 500"
+      ],
       "modal/background/color": [
         "primitives/Neutral 1000"
       ],
-      "modal/icon/color": [
-        "primitives/Neutral 100"
-      ],
       "modal/title/color": [
         "primitives/Neutral 100"
+      ],
+      "node/background/idle/color": [
+        "primitives/Neutral 900"
       ],
       "node/background/hover/color": [
         "primitives/Neutral 900"
@@ -652,53 +634,44 @@
       "node/background/selected/color": [
         "primitives/Neutral 1000"
       ],
-      "node/border/default/color": [
-        "primitives/Neutral 700"
+      "node/border/idle/color": [
+        "primitives/Neutral 800"
       ],
-      "node/border/disabled/color": [
+      "node/border/default/color": [
         "primitives/Neutral 700"
       ],
       "node/border/hover/color": [
         "node/border/default/color",
         "primitives/Neutral 700"
       ],
-      "node/border/idle/color": [
-        "primitives/Neutral 800"
-      ],
       "node/border/selected/color": [
         "primitives/Neutral 100"
+      ],
+      "node/icon/idle/color": [
+        "buttonList/iconPrimary/color",
+        "primitives/Neutral 500"
       ],
       "node/icon/default/color": [
         "node/icon/idle/color",
         "buttonList/iconPrimary/color",
         "primitives/Neutral 500"
       ],
-      "node/icon/disabled/color": [
-        "primitives/Neutral 600"
-      ],
       "node/icon/hover/color": [
         "node/icon/selected/color",
         "primitives/Neutral 400"
       ],
-      "node/icon/idle/color": [
-        "buttonList/iconPrimary/color",
-        "primitives/Neutral 500"
-      ],
       "node/icon/selected/color": [
         "primitives/Neutral 400"
+      ],
+      "node/label/idle/color": [
+        "primitives/Neutral 300"
       ],
       "node/label/default/color": [
         "node/label/idle/color",
         "primitives/Neutral 300"
       ],
-      "node/label/disabled/color": [
-        "primitives/Neutral 400"
-      ],
       "node/label/hover/color": [
         "node/label/idle/color",
-        "primitives/Neutral 300"
-      ],
-      "node/label/idle/color": [
         "primitives/Neutral 300"
       ],
       "node/label/selected/color": [
@@ -710,41 +683,16 @@
       "overflow/border/color": [
         "primitives/Neutral 800"
       ],
-      "overflow/text/color": [
-        "primitives/Neutral 400"
-      ],
       "overflowList/background/default/color": [
         "overflow/background/color",
         "primitives/Neutral 1000"
       ],
-      "overflowList/background/hover/color": [
-        "primitives/Neutral 1000"
-      ],
-      "overflowList/border/default/color": [
-        "primitives/Neutral 800"
-      ],
-      "overflowList/border/hover/color": [
-        "overflowList/border/default/color",
-        "primitives/Neutral 800"
-      ],
       "overflowList/label/default/color": [
         "primitives/Neutral 300"
       ],
-      "overflowList/label/hover/color": [
-        "primitives/Neutral 100"
-      ],
-      "panel/border/color": [
-        "dividerLine/border/color",
-        "primitives/Neutral 700"
-      ],
-      "radioButton/background/default/color": [
-        "primitives/Neutral 1000"
-      ],
-      "radioButton/background/selected/color": [
-        "primitives/Neutral 1000"
-      ],
-      "radioButton/border/current/color": [
-        "primitives/Neutral 100"
+      "panel/background/primary/color": [
+        "semantic/surface/elevationMedium/color",
+        "primitives/Neutral 900"
       ],
       "radioButton/border/default/color": [
         "primitives/Neutral 500"
@@ -752,13 +700,10 @@
       "radioButton/border/selected/color": [
         "primitives/Neutral 100"
       ],
-      "radioButton/border/unselected/color": [
+      "radioButton/border/current/color": [
         "primitives/Neutral 100"
       ],
-      "radioButton/description/color": [
-        "primitives/Neutral 400"
-      ],
-      "radioButton/text/current/color": [
+      "radioButton/border/unselected/color": [
         "primitives/Neutral 100"
       ],
       "radioButton/text/default/color": [
@@ -767,15 +712,23 @@
       "radioButton/text/selected/color": [
         "primitives/Neutral 100"
       ],
+      "radioButton/text/current/color": [
+        "primitives/Neutral 100"
+      ],
       "radioButton/text/unselected/color": [
         "primitives/Neutral 200"
       ],
+      "radioButton/description/color": [
+        "primitives/Neutral 400"
+      ],
+      "radioButton/background/default/color": [
+        "primitives/Neutral 1000"
+      ],
+      "radioButton/background/selected/color": [
+        "primitives/Neutral 1000"
+      ],
       "segmentedControl/background/default/color": [
         "primitives/Neutral 900"
-      ],
-      "segmentedControl/background/selected/color": [
-        "node/background/selected/color",
-        "primitives/Neutral 1000"
       ],
       "segmentedControl/border/default/color": [
         "primitives/Neutral 700"
@@ -797,29 +750,9 @@
       "segmentedControl/label/selected/color": [
         "primitives/Neutral 200"
       ],
-      "semantic/content/primary/color": [
-        "primitives/Neutral 100"
-      ],
-      "semantic/content/secondary/color": [
-        "primitives/Neutral 300"
-      ],
-      "semantic/negative": [
-        "primitives/red"
-      ],
-      "semantic/positive": [
-        "primitives/green"
-      ],
-      "semantic/surface/elevationHigh/color": [
-        "figmaWindowChrome/background/color"
-      ],
-      "semantic/surface/elevationLow/color": [
-        "primitives/Neutral 800"
-      ],
-      "semantic/surface/elevationMedium/color": [
-        "primitives/Neutral 900"
-      ],
-      "semantic/warning": [
-        "primitives/yellow"
+      "panel/border/color": [
+        "dividerLine/border/color",
+        "primitives/Neutral 700"
       ],
       "statusbar/icon/color": [
         "primitives/Neutral 600"
@@ -828,55 +761,6 @@
         "primitives/Neutral 100"
       ],
       "swatch/border/empty/primary": [
-        "primitives/Neutral 700"
-      ],
-      "swatch/border/filled/primary": [
-        "buttonSecondary/border/default/color",
-        "primitives/Neutral 700"
-      ],
-      "toast/background/error/color": [
-        "semantic/negative",
-        "primitives/red"
-      ],
-      "toast/background/success/color": [
-        "semantic/positive",
-        "primitives/green"
-      ],
-      "toast/icon/error/color": [
-        "primitives/Neutral 1000"
-      ],
-      "toast/icon/success/color": [
-        "primitives/Neutral 1000"
-      ],
-      "toast/title/error/color": [
-        "primitives/Neutral 1000"
-      ],
-      "toast/title/success/color": [
-        "primitives/Neutral 1000"
-      ],
-      "tooltipButton/icon/color": [
-        "primitives/Neutral 400"
-      ],
-      "tooltipPopover/background/color": [
-        "primitives/Neutral 1000"
-      ],
-      "tooltipPopover/border/color": [
-        "primitives/Neutral 800"
-      ],
-      "tooltipPopover/text/color": [
-        "primitives/Neutral 300"
-      ],
-      "node/background/idle/color": [
-        "primitives/Neutral 900"
-      ],
-      "highlight/icon/color": [
-        "primitives/Neutral 1000"
-      ],
-      "checkbox/description/color": [
-        "radioButton/description/color",
-        "primitives/Neutral 400"
-      ],
-      "card/border/color": [
         "primitives/Neutral 700"
       ],
       "switch/background/enabledOn/color": [
@@ -899,9 +783,143 @@
       "switch/description/enabledOff/color": [
         "primitives/Neutral 300"
       ],
-      "panel/background/primary/color": [
-        "semantic/surface/elevationMedium/color",
+      "swatch/border/filled/primary": [
+        "buttonSecondary/border/default/color",
+        "primitives/Neutral 700"
+      ],
+      "tooltipButton/icon/color": [
+        "primitives/Neutral 400"
+      ],
+      "toast/background/success/color": [
+        "semantic/positive",
+        "primitives/green"
+      ],
+      "toast/title/success/color": [
+        "primitives/Neutral 1000"
+      ],
+      "tooltipPopover/background/color": [
+        "primitives/Neutral 1000"
+      ],
+      "tooltipPopover/border/color": [
+        "primitives/Neutral 800"
+      ],
+      "semantic/positive": [
+        "primitives/green"
+      ],
+      "semantic/negative": [
+        "primitives/red"
+      ],
+      "semantic/warning": [
+        "primitives/yellow"
+      ],
+      "buttonTertiary/iconText/active/color": [
+        "primitives/Neutral 200"
+      ],
+      "buttonTertiary/background/default/color": [
+        "primitives/Neutral 800"
+      ],
+      "buttonTertiary/background/active/color": [
+        "primitives/Neutral 1000"
+      ],
+      "listItem/description/color": [
+        "primitives/Neutral 400"
+      ],
+      "dividerSection/divider/color": [
+        "primitives/Neutral 400"
+      ],
+      "dividerSection/number/color": [
+        "primitives/Neutral 400"
+      ],
+      "node/border/disabled/color": [
+        "primitives/Neutral 700"
+      ],
+      "node/icon/disabled/color": [
+        "primitives/Neutral 600"
+      ],
+      "node/label/disabled/color": [
+        "primitives/Neutral 400"
+      ],
+      "semantic/content/primary/color": [
+        "primitives/Neutral 100"
+      ],
+      "semantic/content/secondary/color": [
+        "primitives/Neutral 300"
+      ],
+      "input/icon/color": [
+        "primitives/Neutral 400"
+      ],
+      "input/value/disabled/color": [
+        "primitives/Neutral 400"
+      ],
+      "overflowList/label/hover/color": [
+        "primitives/Neutral 100"
+      ],
+      "overflowList/background/hover/color": [
+        "primitives/Neutral 1000"
+      ],
+      "overflowList/border/default/color": [
+        "primitives/Neutral 800"
+      ],
+      "overflowList/border/hover/color": [
+        "overflowList/border/default/color",
+        "primitives/Neutral 800"
+      ],
+      "overflow/text/color": [
+        "primitives/Neutral 400"
+      ],
+      "highlight/icon/color": [
+        "primitives/Neutral 1000"
+      ],
+      "tooltipPopover/text/color": [
+        "primitives/Neutral 300"
+      ],
+      "input/border/hover/color": [
+        "primitives/Neutral 400"
+      ],
+      "toast/icon/success/color": [
+        "primitives/Neutral 1000"
+      ],
+      "segmentedControl/background/selected/color": [
+        "node/background/selected/color",
+        "primitives/Neutral 1000"
+      ],
+      "buttonSecondary/background/hover/color": [
+        "primitives/Neutral 1000"
+      ],
+      "buttonSecondary/border/hover/color": [
+        "primitives/Neutral 700"
+      ],
+      "emptyState/icon/positive/color": [
+        "semantic/positive",
+        "primitives/green"
+      ],
+      "emptyState/description/color": [
+        "primitives/Neutral 300"
+      ],
+      "toast/background/error/color": [
+        "semantic/negative",
+        "primitives/red"
+      ],
+      "toast/icon/error/color": [
+        "primitives/Neutral 1000"
+      ],
+      "toast/title/error/color": [
+        "primitives/Neutral 1000"
+      ],
+      "input/border/focus/color": [
+        "primitives/Neutral 100"
+      ],
+      "input/border/disabled/color": [
+        "primitives/Neutral 800"
+      ],
+      "modal/icon/color": [
+        "primitives/Neutral 100"
+      ],
+      "semantic/surface/elevationMedium/color": [
         "primitives/Neutral 900"
+      ],
+      "semantic/surface/elevationLow/color": [
+        "primitives/Neutral 800"
       ],
       "panel/background/secondary/color": [
         "semantic/surface/elevationLow/color",
@@ -909,6 +927,9 @@
       ]
     },
     "dark": {
+      "semantic/surface/elevationHigh/color": [
+        "figmaWindowChrome/background/color"
+      ],
       "actionbar/background/color": [
         "semantic/surface/elevationHigh/color",
         "figmaWindowChrome/background/color"
@@ -920,54 +941,6 @@
         "semantic/negative",
         "primitives/red"
       ],
-      "badge/background/neutral/color": [
-        "primitives/Neutral 300"
-      ],
-      "badge/background/positive/color": [
-        "semantic/positive",
-        "primitives/green"
-      ],
-      "badge/background/warning/color": [
-        "semantic/warning",
-        "primitives/yellow"
-      ],
-      "badge/icon/negative/color": [
-        "badge/background/negative/color",
-        "semantic/negative",
-        "primitives/red"
-      ],
-      "badge/icon/neutral/color": [
-        "badge/background/neutral/color",
-        "primitives/Neutral 300"
-      ],
-      "badge/icon/positive/color": [
-        "badge/background/positive/color",
-        "semantic/positive",
-        "primitives/green"
-      ],
-      "badge/icon/warning/color": [
-        "badge/background/warning/color",
-        "semantic/warning",
-        "primitives/yellow"
-      ],
-      "badge/label/negative/color": [
-        "semantic/content/secondary/color",
-        "primitives/Neutral 300"
-      ],
-      "badge/label/neutral/color": [
-        "badge/background/neutral/color",
-        "primitives/Neutral 300"
-      ],
-      "badge/label/positive/color": [
-        "badge/background/positive/color",
-        "semantic/positive",
-        "primitives/green"
-      ],
-      "badge/label/warning/color": [
-        "badge/background/warning/color",
-        "semantic/warning",
-        "primitives/yellow"
-      ],
       "buttonList/background/hover/color": [
         "primitives/Neutral 800"
       ],
@@ -989,64 +962,87 @@
       "buttonList/text/selected/color": [
         "primitives/Neutral 100"
       ],
+      "badge/background/warning/color": [
+        "semantic/warning",
+        "primitives/yellow"
+      ],
+      "badge/background/positive/color": [
+        "semantic/positive",
+        "primitives/green"
+      ],
+      "badge/background/neutral/color": [
+        "primitives/Neutral 300"
+      ],
+      "badge/label/negative/color": [
+        "semantic/content/secondary/color",
+        "primitives/Neutral 300"
+      ],
+      "badge/label/warning/color": [
+        "badge/background/warning/color",
+        "semantic/warning",
+        "primitives/yellow"
+      ],
+      "badge/label/positive/color": [
+        "badge/background/positive/color",
+        "semantic/positive",
+        "primitives/green"
+      ],
+      "badge/label/neutral/color": [
+        "badge/background/neutral/color",
+        "primitives/Neutral 300"
+      ],
+      "badge/icon/negative/color": [
+        "badge/background/negative/color",
+        "semantic/negative",
+        "primitives/red"
+      ],
+      "badge/icon/warning/color": [
+        "badge/background/warning/color",
+        "semantic/warning",
+        "primitives/yellow"
+      ],
+      "badge/icon/positive/color": [
+        "badge/background/positive/color",
+        "semantic/positive",
+        "primitives/green"
+      ],
+      "badge/icon/neutral/color": [
+        "badge/background/neutral/color",
+        "primitives/Neutral 300"
+      ],
       "buttonPrimary/background/color": [
         "primitives/Neutral 100"
       ],
       "buttonPrimary/iconText/color": [
         "primitives/Neutral 1000"
       ],
-      "buttonQuaternary/background/hover/color": [
-        "primitives/Neutral 1000"
-      ],
-      "buttonQuaternary/iconText/color": [
-        "primitives/Neutral 300"
-      ],
       "buttonSecondary/background/default/color": [
         "primitives/Neutral 800"
-      ],
-      "buttonSecondary/background/hover/color": [
-        "primitives/Neutral 700"
       ],
       "buttonSecondary/border/default/color": [
         "primitives/Neutral 600"
       ],
-      "buttonSecondary/border/hover/color": [
-        "primitives/Neutral 500"
+      "buttonSecondary/text/color": [
+        "primitives/Neutral 200"
       ],
       "buttonSecondary/icon/color": [
         "buttonSecondary/text/color",
         "primitives/Neutral 200"
       ],
-      "buttonSecondary/text/color": [
-        "primitives/Neutral 200"
-      ],
-      "buttonTertiary/background/active/color": [
-        "primitives/Neutral 1000"
-      ],
-      "buttonTertiary/background/default/color": [
-        "primitives/Neutral 900"
-      ],
-      "buttonTertiary/iconText/active/color": [
-        "primitives/Neutral 100"
-      ],
       "buttonTertiary/iconText/default/color": [
         "primitives/Neutral 200"
       ],
-      "checkbox/background/default/color": [
-        "input/background/filled/color",
-        "primitives/Neutral 800"
+      "buttonQuaternary/iconText/color": [
+        "primitives/Neutral 300"
       ],
-      "checkbox/background/selected/color": [
-        "primitives/Neutral 100"
+      "card/border/color": [
+        "primitives/Neutral 700"
       ],
       "checkbox/border/default/color": [
         "primitives/Neutral 400"
       ],
       "checkbox/border/selected/color": [
         "primitives/Neutral 100"
-      ],
-      "checkbox/icon/selected/color": [
-        "primitives/Neutral 1000"
       ],
       "checkbox/text/default/color": [
         "radioButton/text/default/color",
@@ -1056,93 +1052,55 @@
         "radioButton/text/selected/color",
         "primitives/Neutral 100"
       ],
+      "checkbox/background/default/color": [
+        "input/background/filled/color",
+        "primitives/Neutral 800"
+      ],
+      "checkbox/background/selected/color": [
+        "primitives/Neutral 100"
+      ],
+      "checkbox/icon/selected/color": [
+        "primitives/Neutral 1000"
+      ],
+      "checkbox/description/color": [
+        "radioButton/description/color",
+        "primitives/Neutral 300"
+      ],
+      "buttonQuaternary/background/hover/color": [
+        "primitives/Neutral 1000"
+      ],
       "dividerLine/border/color": [
         "primitives/Neutral 700"
-      ],
-      "dividerSection/divider/color": [
-        "primitives/Neutral 300"
-      ],
-      "dividerSection/number/color": [
-        "primitives/Neutral 300"
       ],
       "dividerSection/title/color": [
         "primitives/Neutral 200"
       ],
-      "emptyState/description/color": [
-        "primitives/Neutral 300"
+      "emptyState/title/color": [
+        "primitives/Neutral 100"
       ],
       "emptyState/icon/neutral/color": [
         "primitives/Neutral 400"
       ],
-      "emptyState/icon/positive/color": [
-        "semantic/positive",
-        "primitives/green"
-      ],
-      "emptyState/title/color": [
+      "figmaWindowChrome/title/color": [
         "primitives/Neutral 100"
       ],
       "figmaWindowChrome/button/color": [
         "primitives/Neutral 200"
       ],
-      "figmaWindowChrome/title/color": [
-        "primitives/Neutral 100"
-      ],
       "highlight/background/color": [
         "semantic/negative",
         "primitives/red"
-      ],
-      "highlight/text/color": [
-        "primitives/Neutral 1000"
       ],
       "highlightSelector/border/color": [
         "highlight/background/color",
         "semantic/negative",
         "primitives/red"
       ],
-      "input/background/filled/color": [
-        "primitives/Neutral 800"
-      ],
-      "input/border/default/color": [
-        "primitives/Neutral 400"
-      ],
-      "input/border/disabled/color": [
-        "primitives/Neutral 800"
-      ],
-      "input/border/focus/color": [
-        "primitives/Neutral 100"
-      ],
-      "input/border/hover/color": [
-        "primitives/Neutral 300"
-      ],
-      "input/icon/color": [
-        "primitives/Neutral 200"
+      "highlight/text/color": [
+        "primitives/Neutral 1000"
       ],
       "input/label/color": [
         "primitives/Neutral 300"
-      ],
-      "input/value/disabled/color": [
-        "primitives/Neutral 100"
-      ],
-      "input/value/empty/color": [
-        "primitives/Neutral 300"
-      ],
-      "input/value/filled/color": [
-        "primitives/Neutral 100"
-      ],
-      "listItem/description/color": [
-        "primitives/Neutral 300"
-      ],
-      "listItem/icon/color": [
-        "primitives/Neutral 400"
-      ],
-      "listItem/title/color": [
-        "primitives/Neutral 100"
-      ],
-      "loader/background/color": [
-        "primitives/Neutral 1000"
-      ],
-      "loader/description/color": [
-        "primitives/Neutral 400"
       ],
       "loader/spinner/color": [
         "primitives/Neutral 400"
@@ -1150,14 +1108,38 @@
       "loader/title/color": [
         "primitives/Neutral 100"
       ],
+      "loader/description/color": [
+        "primitives/Neutral 400"
+      ],
+      "loader/background/color": [
+        "primitives/Neutral 1000"
+      ],
+      "listItem/icon/color": [
+        "primitives/Neutral 400"
+      ],
+      "listItem/title/color": [
+        "primitives/Neutral 100"
+      ],
+      "input/value/filled/color": [
+        "primitives/Neutral 100"
+      ],
+      "input/value/empty/color": [
+        "primitives/Neutral 300"
+      ],
+      "input/background/filled/color": [
+        "primitives/Neutral 800"
+      ],
+      "input/border/default/color": [
+        "primitives/Neutral 400"
+      ],
       "modal/background/color": [
         "primitives/Neutral 1000"
       ],
-      "modal/icon/color": [
-        "primitives/Neutral 100"
-      ],
       "modal/title/color": [
         "primitives/Neutral 100"
+      ],
+      "node/background/idle/color": [
+        "primitives/Neutral 800"
       ],
       "node/background/hover/color": [
         "primitives/Neutral 800"
@@ -1165,53 +1147,44 @@
       "node/background/selected/color": [
         "primitives/Neutral 700"
       ],
-      "node/border/default/color": [
-        "primitives/Neutral 600"
+      "node/border/idle/color": [
+        "primitives/Neutral 700"
       ],
-      "node/border/disabled/color": [
+      "node/border/default/color": [
         "primitives/Neutral 600"
       ],
       "node/border/hover/color": [
         "node/border/default/color",
         "primitives/Neutral 600"
       ],
-      "node/border/idle/color": [
-        "primitives/Neutral 700"
-      ],
       "node/border/selected/color": [
         "primitives/Neutral 100"
+      ],
+      "node/icon/idle/color": [
+        "buttonList/iconPrimary/color",
+        "primitives/Neutral 400"
       ],
       "node/icon/default/color": [
         "node/icon/idle/color",
         "buttonList/iconPrimary/color",
         "primitives/Neutral 400"
       ],
-      "node/icon/disabled/color": [
-        "primitives/Neutral 600"
-      ],
       "node/icon/hover/color": [
         "node/icon/selected/color",
         "primitives/Neutral 300"
       ],
-      "node/icon/idle/color": [
-        "buttonList/iconPrimary/color",
-        "primitives/Neutral 400"
-      ],
       "node/icon/selected/color": [
+        "primitives/Neutral 300"
+      ],
+      "node/label/idle/color": [
         "primitives/Neutral 300"
       ],
       "node/label/default/color": [
         "node/label/idle/color",
         "primitives/Neutral 300"
       ],
-      "node/label/disabled/color": [
-        "primitives/Neutral 400"
-      ],
       "node/label/hover/color": [
         "node/label/idle/color",
-        "primitives/Neutral 300"
-      ],
-      "node/label/idle/color": [
         "primitives/Neutral 300"
       ],
       "node/label/selected/color": [
@@ -1223,41 +1196,16 @@
       "overflow/border/color": [
         "primitives/Neutral 600"
       ],
-      "overflow/text/color": [
-        "primitives/Neutral 300"
-      ],
       "overflowList/background/default/color": [
         "overflow/background/color",
         "primitives/Neutral 700"
       ],
-      "overflowList/background/hover/color": [
-        "primitives/Neutral 800"
-      ],
-      "overflowList/border/default/color": [
-        "primitives/Neutral 600"
-      ],
-      "overflowList/border/hover/color": [
-        "overflowList/border/default/color",
-        "primitives/Neutral 600"
-      ],
       "overflowList/label/default/color": [
         "primitives/Neutral 100"
       ],
-      "overflowList/label/hover/color": [
-        "primitives/Neutral 100"
-      ],
-      "panel/border/color": [
-        "dividerLine/border/color",
-        "primitives/Neutral 700"
-      ],
-      "radioButton/background/default/color": [
-        "primitives/Neutral 1000"
-      ],
-      "radioButton/background/selected/color": [
-        "primitives/Neutral 1000"
-      ],
-      "radioButton/border/current/color": [
-        "primitives/Neutral 100"
+      "panel/background/primary/color": [
+        "semantic/surface/elevationMedium/color",
+        "primitives/Neutral 900"
       ],
       "radioButton/border/default/color": [
         "primitives/Neutral 400"
@@ -1265,13 +1213,10 @@
       "radioButton/border/selected/color": [
         "primitives/Neutral 100"
       ],
-      "radioButton/border/unselected/color": [
+      "radioButton/border/current/color": [
         "primitives/Neutral 100"
       ],
-      "radioButton/description/color": [
-        "primitives/Neutral 300"
-      ],
-      "radioButton/text/current/color": [
+      "radioButton/border/unselected/color": [
         "primitives/Neutral 100"
       ],
       "radioButton/text/default/color": [
@@ -1280,15 +1225,23 @@
       "radioButton/text/selected/color": [
         "primitives/Neutral 100"
       ],
+      "radioButton/text/current/color": [
+        "primitives/Neutral 100"
+      ],
       "radioButton/text/unselected/color": [
         "primitives/Neutral 200"
       ],
+      "radioButton/description/color": [
+        "primitives/Neutral 300"
+      ],
+      "radioButton/background/default/color": [
+        "primitives/Neutral 1000"
+      ],
+      "radioButton/background/selected/color": [
+        "primitives/Neutral 1000"
+      ],
       "segmentedControl/background/default/color": [
         "primitives/Neutral 800"
-      ],
-      "segmentedControl/background/selected/color": [
-        "node/background/selected/color",
-        "primitives/Neutral 700"
       ],
       "segmentedControl/border/default/color": [
         "primitives/Neutral 600"
@@ -1310,29 +1263,9 @@
       "segmentedControl/label/selected/color": [
         "primitives/Neutral 100"
       ],
-      "semantic/content/primary/color": [
-        "primitives/Neutral 100"
-      ],
-      "semantic/content/secondary/color": [
-        "primitives/Neutral 300"
-      ],
-      "semantic/negative": [
-        "primitives/red"
-      ],
-      "semantic/positive": [
-        "primitives/green"
-      ],
-      "semantic/surface/elevationHigh/color": [
-        "figmaWindowChrome/background/color"
-      ],
-      "semantic/surface/elevationLow/color": [
-        "primitives/Neutral 1000"
-      ],
-      "semantic/surface/elevationMedium/color": [
-        "primitives/Neutral 900"
-      ],
-      "semantic/warning": [
-        "primitives/yellow"
+      "panel/border/color": [
+        "dividerLine/border/color",
+        "primitives/Neutral 700"
       ],
       "statusbar/icon/color": [
         "primitives/Neutral 400"
@@ -1343,55 +1276,6 @@
       "swatch/border/empty/primary": [
         "buttonSecondary/border/default/color",
         "primitives/Neutral 600"
-      ],
-      "swatch/border/filled/primary": [
-        "buttonSecondary/border/default/color",
-        "primitives/Neutral 600"
-      ],
-      "toast/background/error/color": [
-        "semantic/negative",
-        "primitives/red"
-      ],
-      "toast/background/success/color": [
-        "semantic/positive",
-        "primitives/green"
-      ],
-      "toast/icon/error/color": [
-        "primitives/Neutral 1000"
-      ],
-      "toast/icon/success/color": [
-        "primitives/Neutral 1000"
-      ],
-      "toast/title/error/color": [
-        "primitives/Neutral 1000"
-      ],
-      "toast/title/success/color": [
-        "primitives/Neutral 1000"
-      ],
-      "tooltipButton/icon/color": [
-        "primitives/Neutral 300"
-      ],
-      "tooltipPopover/background/color": [
-        "primitives/Neutral 1000"
-      ],
-      "tooltipPopover/border/color": [
-        "primitives/Neutral 800"
-      ],
-      "tooltipPopover/text/color": [
-        "primitives/Neutral 300"
-      ],
-      "node/background/idle/color": [
-        "primitives/Neutral 800"
-      ],
-      "highlight/icon/color": [
-        "primitives/Neutral 1000"
-      ],
-      "checkbox/description/color": [
-        "radioButton/description/color",
-        "primitives/Neutral 300"
-      ],
-      "card/border/color": [
-        "primitives/Neutral 700"
       ],
       "switch/background/enabledOn/color": [
         "radioButton/border/selected/color",
@@ -1413,9 +1297,143 @@
       "switch/description/enabledOff/color": [
         "primitives/Neutral 300"
       ],
-      "panel/background/primary/color": [
-        "semantic/surface/elevationMedium/color",
+      "swatch/border/filled/primary": [
+        "buttonSecondary/border/default/color",
+        "primitives/Neutral 600"
+      ],
+      "tooltipButton/icon/color": [
+        "primitives/Neutral 300"
+      ],
+      "toast/background/success/color": [
+        "semantic/positive",
+        "primitives/green"
+      ],
+      "toast/title/success/color": [
+        "primitives/Neutral 1000"
+      ],
+      "tooltipPopover/background/color": [
+        "primitives/Neutral 1000"
+      ],
+      "tooltipPopover/border/color": [
+        "primitives/Neutral 800"
+      ],
+      "semantic/positive": [
+        "primitives/green"
+      ],
+      "semantic/negative": [
+        "primitives/red"
+      ],
+      "semantic/warning": [
+        "primitives/yellow"
+      ],
+      "buttonTertiary/iconText/active/color": [
+        "primitives/Neutral 100"
+      ],
+      "buttonTertiary/background/default/color": [
         "primitives/Neutral 900"
+      ],
+      "buttonTertiary/background/active/color": [
+        "primitives/Neutral 1000"
+      ],
+      "listItem/description/color": [
+        "primitives/Neutral 300"
+      ],
+      "dividerSection/divider/color": [
+        "primitives/Neutral 300"
+      ],
+      "dividerSection/number/color": [
+        "primitives/Neutral 300"
+      ],
+      "node/border/disabled/color": [
+        "primitives/Neutral 600"
+      ],
+      "node/icon/disabled/color": [
+        "primitives/Neutral 600"
+      ],
+      "node/label/disabled/color": [
+        "primitives/Neutral 400"
+      ],
+      "semantic/content/primary/color": [
+        "primitives/Neutral 100"
+      ],
+      "semantic/content/secondary/color": [
+        "primitives/Neutral 300"
+      ],
+      "input/icon/color": [
+        "primitives/Neutral 200"
+      ],
+      "input/value/disabled/color": [
+        "primitives/Neutral 100"
+      ],
+      "overflowList/label/hover/color": [
+        "primitives/Neutral 100"
+      ],
+      "overflowList/background/hover/color": [
+        "primitives/Neutral 800"
+      ],
+      "overflowList/border/default/color": [
+        "primitives/Neutral 600"
+      ],
+      "overflowList/border/hover/color": [
+        "overflowList/border/default/color",
+        "primitives/Neutral 600"
+      ],
+      "overflow/text/color": [
+        "primitives/Neutral 300"
+      ],
+      "highlight/icon/color": [
+        "primitives/Neutral 1000"
+      ],
+      "tooltipPopover/text/color": [
+        "primitives/Neutral 300"
+      ],
+      "input/border/hover/color": [
+        "primitives/Neutral 300"
+      ],
+      "toast/icon/success/color": [
+        "primitives/Neutral 1000"
+      ],
+      "segmentedControl/background/selected/color": [
+        "node/background/selected/color",
+        "primitives/Neutral 700"
+      ],
+      "buttonSecondary/background/hover/color": [
+        "primitives/Neutral 700"
+      ],
+      "buttonSecondary/border/hover/color": [
+        "primitives/Neutral 500"
+      ],
+      "emptyState/icon/positive/color": [
+        "semantic/positive",
+        "primitives/green"
+      ],
+      "emptyState/description/color": [
+        "primitives/Neutral 300"
+      ],
+      "toast/background/error/color": [
+        "semantic/negative",
+        "primitives/red"
+      ],
+      "toast/icon/error/color": [
+        "primitives/Neutral 1000"
+      ],
+      "toast/title/error/color": [
+        "primitives/Neutral 1000"
+      ],
+      "input/border/focus/color": [
+        "primitives/Neutral 100"
+      ],
+      "input/border/disabled/color": [
+        "primitives/Neutral 800"
+      ],
+      "modal/icon/color": [
+        "primitives/Neutral 100"
+      ],
+      "semantic/surface/elevationMedium/color": [
+        "primitives/Neutral 900"
+      ],
+      "semantic/surface/elevationLow/color": [
+        "primitives/Neutral 1000"
       ],
       "panel/background/secondary/color": [
         "semantic/surface/elevationLow/color",
@@ -1524,6 +1542,4009 @@
           }
         }
       }
+    }
+  },
+  "_source": "figma-cli, read in 1 checked chunk",
+  "_collections": {
+    "color": "Styling",
+    "colorModes": [
+      "Dark",
+      "Light"
+    ],
+    "sizing": [
+      "Sizing"
+    ]
+  },
+  "otherAliases": {
+    "icon/small": [
+      "general/thickness"
+    ],
+    "radii/button": [
+      "radii/input"
+    ],
+    "radii/swatch": [
+      "radii/input"
+    ]
+  },
+  "brokenAliases": [],
+  "_built": {
+    "code": "3cf1105db21d891e9fab80de0b7b4e4c14f987fa",
+    "dirty": true,
+    "figma": null,
+    "figmaRead": "2026-10-20T09:31:22.269Z",
+    "engine": "d1f70f72703fcde21651a2e8aff4216c5f743ba9",
+    "at": "2026-10-20T09:31:22.277Z"
+  },
+  "figmaTokens": {
+    "collections": [
+      {
+        "name": "Sizing",
+        "modes": [
+          "Desktop",
+          "Phone"
+        ]
+      },
+      {
+        "name": "Settings",
+        "modes": [
+          "Mode 1"
+        ]
+      },
+      {
+        "name": "Styling",
+        "modes": [
+          "Dark",
+          "Light"
+        ]
+      }
+    ],
+    "tokens": [
+      {
+        "name": "viewport/min-width",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "values": {
+          "Desktop": "1680px",
+          "Phone": "350px"
+        }
+      },
+      {
+        "name": "gap/xxxl",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "32px",
+          "Phone": "32px"
+        }
+      },
+      {
+        "name": "gap/xxl",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "24px",
+          "Phone": "24px"
+        }
+      },
+      {
+        "name": "radii/input",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "values": {
+          "Desktop": "24px",
+          "Phone": "24px"
+        }
+      },
+      {
+        "name": "radii/button",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "values": {
+          "Desktop": "24px",
+          "Phone": "24px"
+        },
+        "aliases": {
+          "Desktop": "radii/input",
+          "Phone": "radii/input"
+        }
+      },
+      {
+        "name": "radii/swatch",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "values": {
+          "Desktop": "24px",
+          "Phone": "24px"
+        },
+        "aliases": {
+          "Desktop": "radii/input",
+          "Phone": "radii/input"
+        }
+      },
+      {
+        "name": "radii/card",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "values": {
+          "Desktop": "12px",
+          "Phone": "12px"
+        }
+      },
+      {
+        "name": "radii/modal",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "values": {
+          "Desktop": "24px",
+          "Phone": "24px"
+        }
+      },
+      {
+        "name": "radii/tooltip",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "values": {
+          "Desktop": "8px",
+          "Phone": "8px"
+        }
+      },
+      {
+        "name": "radii/toast",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "values": {
+          "Desktop": "24px",
+          "Phone": "24px"
+        }
+      },
+      {
+        "name": "radii/checkbox",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "values": {
+          "Desktop": "4px",
+          "Phone": "4px"
+        }
+      },
+      {
+        "name": "gap/xl",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "16px",
+          "Phone": "16px"
+        }
+      },
+      {
+        "name": "general/min-height",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "values": {
+          "Desktop": "60px",
+          "Phone": "60px"
+        }
+      },
+      {
+        "name": "gap/l",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "12px",
+          "Phone": "12px"
+        }
+      },
+      {
+        "name": "padding/xl",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "24px",
+          "Phone": "20px"
+        }
+      },
+      {
+        "name": "gap/m",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "8px",
+          "Phone": "8px"
+        }
+      },
+      {
+        "name": "padding/l",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "16px",
+          "Phone": "16px"
+        }
+      },
+      {
+        "name": "gap/s",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "4px",
+          "Phone": "4px"
+        }
+      },
+      {
+        "name": "gap/xs",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "2px",
+          "Phone": "2px"
+        }
+      },
+      {
+        "name": "padding/m",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "12px",
+          "Phone": "14px"
+        }
+      },
+      {
+        "name": "general/thickness",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "STROKE_FLOAT"
+        ],
+        "values": {
+          "Desktop": "1.5px",
+          "Phone": "1.5px"
+        }
+      },
+      {
+        "name": "padding/s",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "8px",
+          "Phone": "10px"
+        }
+      },
+      {
+        "name": "padding/xs",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "4px",
+          "Phone": "8px"
+        }
+      },
+      {
+        "name": "padding/xxs",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "2px",
+          "Phone": "4px"
+        }
+      },
+      {
+        "name": "general/window-radii",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "values": {
+          "Desktop": "16px",
+          "Phone": "16px"
+        }
+      },
+      {
+        "name": "icon/xsmall",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "STROKE_FLOAT"
+        ],
+        "values": {
+          "Desktop": "1.2px",
+          "Phone": "1.2px"
+        }
+      },
+      {
+        "name": "icon/small",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "STROKE_FLOAT"
+        ],
+        "values": {
+          "Desktop": "1.5px",
+          "Phone": "1.5px"
+        },
+        "aliases": {
+          "Desktop": "general/thickness",
+          "Phone": "general/thickness"
+        }
+      },
+      {
+        "name": "icon/large",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "STROKE_FLOAT"
+        ],
+        "values": {
+          "Desktop": "2px",
+          "Phone": "2px"
+        }
+      },
+      {
+        "name": "button/min-height",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS",
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "24px",
+          "Phone": "32px"
+        }
+      },
+      {
+        "name": "dividerSection/height",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "CORNER_RADIUS",
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "values": {
+          "Desktop": "6px",
+          "Phone": "6px"
+        }
+      },
+      {
+        "name": "typography/l/font-size",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "values": {
+          "Desktop": "13px",
+          "Phone": "13px"
+        }
+      },
+      {
+        "name": "typography/l/line-height",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "LINE_HEIGHT"
+        ],
+        "values": {
+          "Desktop": "17px",
+          "Phone": "17px"
+        }
+      },
+      {
+        "name": "typography/m/font-size",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "values": {
+          "Desktop": "11px",
+          "Phone": "11px"
+        }
+      },
+      {
+        "name": "typography/m/line-height",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "LINE_HEIGHT"
+        ],
+        "values": {
+          "Desktop": "16px",
+          "Phone": "16px"
+        }
+      },
+      {
+        "name": "typography/s/font-size",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "values": {
+          "Desktop": "10px",
+          "Phone": "10px"
+        }
+      },
+      {
+        "name": "typography/s/line-height",
+        "collection": "Sizing",
+        "kind": "FLOAT",
+        "scopes": [
+          "LINE_HEIGHT"
+        ],
+        "values": {
+          "Desktop": "15px",
+          "Phone": "15px"
+        }
+      },
+      {
+        "name": "font-family",
+        "collection": "Settings",
+        "kind": "STRING",
+        "values": {
+          "Mode 1": "inter"
+        }
+      },
+      {
+        "name": "icon/shape",
+        "collection": "Settings",
+        "kind": "COLOR",
+        "values": {
+          "Mode 1": "#000000"
+        }
+      },
+      {
+        "name": "icon/background",
+        "collection": "Settings",
+        "kind": "COLOR",
+        "values": {
+          "Mode 1": "#e3e3e3"
+        }
+      },
+      {
+        "name": "icon/backgroundpreview",
+        "collection": "Settings",
+        "kind": "COLOR",
+        "values": {
+          "Mode 1": "#ffffff"
+        }
+      },
+      {
+        "name": "semantic/surface/elevationHigh/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2c2c2c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "figmaWindowChrome/background/color",
+          "Light": "figmaWindowChrome/background/color"
+        }
+      },
+      {
+        "name": "actionbar/background/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2c2c2c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "semantic/surface/elevationHigh/color",
+          "Light": "semantic/surface/elevationHigh/color"
+        }
+      },
+      {
+        "name": "actionbar/border/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#424242",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "figmaWindowChrome/divider/color",
+          "Light": "figmaWindowChrome/divider/color"
+        }
+      },
+      {
+        "name": "badge/background/negative/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#fe6767",
+          "Light": "#c20000"
+        },
+        "aliases": {
+          "Dark": "semantic/negative",
+          "Light": "semantic/negative"
+        }
+      },
+      {
+        "name": "buttonList/background/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 800",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "buttonList/background/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 700",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "buttonList/iconPrimary/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 400",
+          "Light": "primitives/Neutral 500"
+        }
+      },
+      {
+        "name": "buttonList/iconSecondary/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 200",
+          "Light": "primitives/Neutral 300"
+        }
+      },
+      {
+        "name": "buttonList/text/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 200"
+        }
+      },
+      {
+        "name": "buttonList/text/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 200"
+        }
+      },
+      {
+        "name": "buttonList/text/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 200"
+        }
+      },
+      {
+        "name": "badge/background/warning/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f7c522",
+          "Light": "#cf9e00"
+        },
+        "aliases": {
+          "Dark": "semantic/warning",
+          "Light": "semantic/warning"
+        }
+      },
+      {
+        "name": "badge/background/positive/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#0cdf88",
+          "Light": "#00804b"
+        },
+        "aliases": {
+          "Dark": "semantic/positive",
+          "Light": "semantic/positive"
+        }
+      },
+      {
+        "name": "badge/background/neutral/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 700"
+        }
+      },
+      {
+        "name": "badge/label/negative/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#c20000"
+        },
+        "aliases": {
+          "Dark": "semantic/content/secondary/color",
+          "Light": "badge/background/negative/color"
+        }
+      },
+      {
+        "name": "badge/label/warning/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f7c522",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "badge/background/warning/color",
+          "Light": "semantic/content/secondary/color"
+        }
+      },
+      {
+        "name": "badge/label/positive/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#0cdf88",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "badge/background/positive/color",
+          "Light": "semantic/content/secondary/color"
+        }
+      },
+      {
+        "name": "badge/label/neutral/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "badge/background/neutral/color",
+          "Light": "semantic/content/secondary/color"
+        }
+      },
+      {
+        "name": "badge/icon/negative/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#fe6767",
+          "Light": "#c20000"
+        },
+        "aliases": {
+          "Dark": "badge/background/negative/color",
+          "Light": "badge/background/negative/color"
+        }
+      },
+      {
+        "name": "badge/icon/warning/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f7c522",
+          "Light": "#cf9e00"
+        },
+        "aliases": {
+          "Dark": "badge/background/warning/color",
+          "Light": "badge/background/warning/color"
+        }
+      },
+      {
+        "name": "badge/icon/positive/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#0cdf88",
+          "Light": "#00804b"
+        },
+        "aliases": {
+          "Dark": "badge/background/positive/color",
+          "Light": "badge/background/positive/color"
+        }
+      },
+      {
+        "name": "badge/icon/neutral/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "badge/background/neutral/color",
+          "Light": "badge/background/neutral/color"
+        }
+      },
+      {
+        "name": "buttonPrimary/background/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 200"
+        }
+      },
+      {
+        "name": "buttonPrimary/iconText/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "buttonSecondary/background/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 800",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "buttonSecondary/border/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 600",
+          "Light": "primitives/Neutral 700"
+        }
+      },
+      {
+        "name": "buttonSecondary/text/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 200",
+          "Light": "primitives/Neutral 200"
+        }
+      },
+      {
+        "name": "buttonSecondary/icon/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "buttonSecondary/text/color",
+          "Light": "buttonSecondary/text/color"
+        }
+      },
+      {
+        "name": "buttonTertiary/iconText/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 200",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "buttonQuaternary/iconText/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "card/border/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 700",
+          "Light": "primitives/Neutral 700"
+        }
+      },
+      {
+        "name": "checkbox/border/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 400",
+          "Light": "primitives/Neutral 500"
+        }
+      },
+      {
+        "name": "checkbox/border/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "checkbox/text/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "radioButton/text/default/color",
+          "Light": "radioButton/text/default/color"
+        }
+      },
+      {
+        "name": "checkbox/text/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "radioButton/text/selected/color",
+          "Light": "radioButton/text/selected/color"
+        }
+      },
+      {
+        "name": "checkbox/background/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#f7f7f7"
+        },
+        "aliases": {
+          "Dark": "input/background/filled/color",
+          "Light": "input/background/filled/color"
+        }
+      },
+      {
+        "name": "checkbox/background/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "buttonPrimary/background/color"
+        }
+      },
+      {
+        "name": "checkbox/icon/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "checkbox/description/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "radioButton/description/color",
+          "Light": "radioButton/description/color"
+        }
+      },
+      {
+        "name": "buttonQuaternary/background/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "dividerLine/border/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 700",
+          "Light": "primitives/Neutral 700"
+        }
+      },
+      {
+        "name": "dividerSection/title/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 200",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "emptyState/title/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "emptyState/icon/neutral/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 400",
+          "Light": "primitives/Neutral 500"
+        }
+      },
+      {
+        "name": "figmaWindowChrome/title/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "figmaWindowChrome/divider/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#424242",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Light": "dividerLine/border/color"
+        }
+      },
+      {
+        "name": "figmaWindowChrome/background/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2c2c2c",
+          "Light": "#ffffff"
+        }
+      },
+      {
+        "name": "figmaWindowChrome/button/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 200",
+          "Light": "primitives/Neutral 200"
+        }
+      },
+      {
+        "name": "highlight/background/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#fe6767",
+          "Light": "#c20000"
+        },
+        "aliases": {
+          "Dark": "semantic/negative",
+          "Light": "semantic/negative"
+        }
+      },
+      {
+        "name": "highlightSelector/border/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#fe6767",
+          "Light": "#c20000"
+        },
+        "aliases": {
+          "Dark": "highlight/background/color",
+          "Light": "highlight/background/color"
+        }
+      },
+      {
+        "name": "highlight/text/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "input/label/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "loader/spinner/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 400",
+          "Light": "primitives/Neutral 500"
+        }
+      },
+      {
+        "name": "loader/title/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "loader/description/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 400",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "loader/background/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "listItem/icon/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 400",
+          "Light": "primitives/Neutral 500"
+        }
+      },
+      {
+        "name": "listItem/title/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "input/value/filled/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "input/value/empty/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "input/background/filled/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#f7f7f7"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 800",
+          "Light": "primitives/Neutral 900"
+        }
+      },
+      {
+        "name": "input/border/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 400",
+          "Light": "primitives/Neutral 500"
+        }
+      },
+      {
+        "name": "modal/background/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "modal/title/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "node/background/idle/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#f7f7f7"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 800",
+          "Light": "primitives/Neutral 900"
+        }
+      },
+      {
+        "name": "node/background/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#f7f7f7"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 800",
+          "Light": "primitives/Neutral 900"
+        }
+      },
+      {
+        "name": "node/background/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 700",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "node/border/idle/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#e8e8e8"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 700",
+          "Light": "primitives/Neutral 800"
+        }
+      },
+      {
+        "name": "node/border/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 600",
+          "Light": "primitives/Neutral 700"
+        }
+      },
+      {
+        "name": "node/border/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "node/border/default/color",
+          "Light": "node/border/default/color"
+        }
+      },
+      {
+        "name": "node/border/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "node/icon/idle/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "buttonList/iconPrimary/color",
+          "Light": "buttonList/iconPrimary/color"
+        }
+      },
+      {
+        "name": "node/icon/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "node/icon/idle/color",
+          "Light": "node/icon/idle/color"
+        }
+      },
+      {
+        "name": "node/icon/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "node/icon/selected/color",
+          "Light": "node/icon/selected/color"
+        }
+      },
+      {
+        "name": "node/icon/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "node/label/idle/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 300"
+        }
+      },
+      {
+        "name": "node/label/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "node/label/idle/color",
+          "Light": "node/label/idle/color"
+        }
+      },
+      {
+        "name": "node/label/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "node/label/idle/color",
+          "Light": "node/label/idle/color"
+        }
+      },
+      {
+        "name": "node/label/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 200"
+        }
+      },
+      {
+        "name": "overflow/background/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 700",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "overflow/border/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#e8e8e8"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 600",
+          "Light": "primitives/Neutral 800"
+        }
+      },
+      {
+        "name": "overflowList/background/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "overflow/background/color",
+          "Light": "overflow/background/color"
+        }
+      },
+      {
+        "name": "overflowList/label/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 300"
+        }
+      },
+      {
+        "name": "overlay/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#NaNNaNNaN",
+          "Light": "#NaNNaNNaN"
+        }
+      },
+      {
+        "name": "panel/background/primary/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#212121",
+          "Light": "#f7f7f7"
+        },
+        "aliases": {
+          "Dark": "semantic/surface/elevationMedium/color",
+          "Light": "semantic/surface/elevationMedium/color"
+        }
+      },
+      {
+        "name": "radioButton/border/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 400",
+          "Light": "primitives/Neutral 500"
+        }
+      },
+      {
+        "name": "radioButton/border/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "radioButton/border/current/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "radioButton/border/unselected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "radioButton/text/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 200",
+          "Light": "primitives/Neutral 300"
+        }
+      },
+      {
+        "name": "radioButton/text/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "radioButton/text/current/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "radioButton/text/unselected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 200",
+          "Light": "primitives/Neutral 200"
+        }
+      },
+      {
+        "name": "radioButton/description/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "radioButton/background/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "radioButton/background/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "segmentedControl/background/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#f7f7f7"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 800",
+          "Light": "primitives/Neutral 900"
+        }
+      },
+      {
+        "name": "segmentedControl/border/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 600",
+          "Light": "primitives/Neutral 700"
+        }
+      },
+      {
+        "name": "segmentedControl/border/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "node/border/selected/color",
+          "Light": "node/border/selected/color"
+        }
+      },
+      {
+        "name": "segmentedControl/icon/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 500"
+        }
+      },
+      {
+        "name": "segmentedControl/icon/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "segmentedControl/label/selected/color",
+          "Light": "segmentedControl/label/selected/color"
+        }
+      },
+      {
+        "name": "segmentedControl/label/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "segmentedControl/label/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 200"
+        }
+      },
+      {
+        "name": "panel/border/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "dividerLine/border/color",
+          "Light": "dividerLine/border/color"
+        }
+      },
+      {
+        "name": "statusbar/icon/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#adadad"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 400",
+          "Light": "primitives/Neutral 600"
+        }
+      },
+      {
+        "name": "statusbar/text/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "swatch/border/empty/primary",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "buttonSecondary/border/default/color",
+          "Light": "primitives/Neutral 700"
+        }
+      },
+      {
+        "name": "switch/background/enabledOn/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "radioButton/border/selected/color",
+          "Light": "radioButton/border/selected/color"
+        }
+      },
+      {
+        "name": "switch/background/enabledOff/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#5e5e5e",
+          "Light": "#828282"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 500",
+          "Light": "primitives/Neutral 500"
+        }
+      },
+      {
+        "name": "switch/knob/enabledOn/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "radioButton/background/selected/color",
+          "Light": "radioButton/background/selected/color"
+        }
+      },
+      {
+        "name": "switch/knob/enabledOff/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#e8e8e8"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 800"
+        }
+      },
+      {
+        "name": "switch/description/enabledOn/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "switch/description/enabledOff/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 300"
+        }
+      },
+      {
+        "name": "swatch/border/filled/primary",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "buttonSecondary/border/default/color",
+          "Light": "buttonSecondary/border/default/color"
+        }
+      },
+      {
+        "name": "tooltipButton/icon/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "toast/background/success/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#0cdf88",
+          "Light": "#00804b"
+        },
+        "aliases": {
+          "Dark": "semantic/positive",
+          "Light": "semantic/positive"
+        }
+      },
+      {
+        "name": "toast/title/success/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "tooltipPopover/background/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "tooltipPopover/border/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#e8e8e8"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 800",
+          "Light": "primitives/Neutral 800"
+        }
+      },
+      {
+        "name": "semantic/positive",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#0cdf88",
+          "Light": "#00804b"
+        },
+        "aliases": {
+          "Dark": "primitives/green",
+          "Light": "primitives/green"
+        }
+      },
+      {
+        "name": "semantic/negative",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#fe6767",
+          "Light": "#c20000"
+        },
+        "aliases": {
+          "Dark": "primitives/red",
+          "Light": "primitives/red"
+        }
+      },
+      {
+        "name": "semantic/warning",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f7c522",
+          "Light": "#cf9e00"
+        },
+        "aliases": {
+          "Dark": "primitives/yellow",
+          "Light": "primitives/yellow"
+        }
+      },
+      {
+        "name": "semantic/pattern/appearance",
+        "collection": "Styling",
+        "kind": "FLOAT",
+        "values": {
+          "Dark": "9px",
+          "Light": "100px"
+        }
+      },
+      {
+        "name": "primitives/Neutral 1000",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        }
+      },
+      {
+        "name": "primitives/Neutral 900",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#212121",
+          "Light": "#f7f7f7"
+        }
+      },
+      {
+        "name": "primitives/Neutral 800",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#e8e8e8"
+        }
+      },
+      {
+        "name": "primitives/Neutral 700",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#d6d6d6"
+        }
+      },
+      {
+        "name": "primitives/Neutral 600",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#adadad"
+        }
+      },
+      {
+        "name": "primitives/Neutral 500",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#5e5e5e",
+          "Light": "#828282"
+        }
+      },
+      {
+        "name": "primitives/Neutral 400",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#595959"
+        }
+      },
+      {
+        "name": "primitives/Neutral 300",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#404040"
+        }
+      },
+      {
+        "name": "primitives/Neutral 200",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#2b2b2b"
+        }
+      },
+      {
+        "name": "primitives/Neutral 100",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        }
+      },
+      {
+        "name": "primitives/green",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#0cdf88",
+          "Light": "#00804b"
+        }
+      },
+      {
+        "name": "primitives/red",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#fe6767",
+          "Light": "#c20000"
+        }
+      },
+      {
+        "name": "primitives/yellow",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f7c522",
+          "Light": "#cf9e00"
+        }
+      },
+      {
+        "name": "buttonTertiary/iconText/active/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#2b2b2b"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 200"
+        }
+      },
+      {
+        "name": "buttonTertiary/background/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#212121",
+          "Light": "#e8e8e8"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 900",
+          "Light": "primitives/Neutral 800"
+        }
+      },
+      {
+        "name": "buttonTertiary/background/active/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "listItem/description/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "dividerSection/divider/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "dividerSection/number/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "node/border/disabled/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 600",
+          "Light": "primitives/Neutral 700"
+        }
+      },
+      {
+        "name": "node/icon/disabled/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#adadad"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 600",
+          "Light": "primitives/Neutral 600"
+        }
+      },
+      {
+        "name": "node/label/disabled/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#878787",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 400",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "semantic/content/primary/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "semantic/content/secondary/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 300"
+        }
+      },
+      {
+        "name": "input/icon/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#dbdbdb",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 200",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "input/value/disabled/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "overflowList/label/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "overflowList/background/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 800",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "overflowList/border/default/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#e8e8e8"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 600",
+          "Light": "primitives/Neutral 800"
+        }
+      },
+      {
+        "name": "overflowList/border/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#454545",
+          "Light": "#e8e8e8"
+        },
+        "aliases": {
+          "Dark": "overflowList/border/default/color",
+          "Light": "overflowList/border/default/color"
+        }
+      },
+      {
+        "name": "overflow/text/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "highlight/icon/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "tooltipPopover/text/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 300"
+        }
+      },
+      {
+        "name": "input/border/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#595959"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 400"
+        }
+      },
+      {
+        "name": "toast/icon/success/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "segmentedControl/background/selected/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "node/background/selected/color",
+          "Light": "node/background/selected/color"
+        }
+      },
+      {
+        "name": "buttonSecondary/background/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#303030",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 700",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "buttonSecondary/border/hover/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#5e5e5e",
+          "Light": "#d6d6d6"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 500",
+          "Light": "primitives/Neutral 700"
+        }
+      },
+      {
+        "name": "emptyState/icon/positive/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#0cdf88",
+          "Light": "#00804b"
+        },
+        "aliases": {
+          "Dark": "semantic/positive",
+          "Light": "semantic/positive"
+        }
+      },
+      {
+        "name": "emptyState/description/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#bfbfbf",
+          "Light": "#404040"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 300",
+          "Light": "primitives/Neutral 300"
+        }
+      },
+      {
+        "name": "toast/background/error/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#fe6767",
+          "Light": "#c20000"
+        },
+        "aliases": {
+          "Dark": "semantic/negative",
+          "Light": "semantic/negative"
+        }
+      },
+      {
+        "name": "toast/icon/error/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "toast/title/error/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#ffffff"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 1000"
+        }
+      },
+      {
+        "name": "input/border/focus/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "input/border/disabled/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#2b2b2b",
+          "Light": "#e8e8e8"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 800",
+          "Light": "primitives/Neutral 800"
+        }
+      },
+      {
+        "name": "modal/icon/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#f5f5f5",
+          "Light": "#0a0a0a"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 100",
+          "Light": "primitives/Neutral 100"
+        }
+      },
+      {
+        "name": "semantic/surface/elevationMedium/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#212121",
+          "Light": "#f7f7f7"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 900",
+          "Light": "primitives/Neutral 900"
+        }
+      },
+      {
+        "name": "semantic/surface/elevationLow/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#e8e8e8"
+        },
+        "aliases": {
+          "Dark": "primitives/Neutral 1000",
+          "Light": "primitives/Neutral 800"
+        }
+      },
+      {
+        "name": "panel/background/secondary/color",
+        "collection": "Styling",
+        "kind": "COLOR",
+        "values": {
+          "Dark": "#1c1c1c",
+          "Light": "#e8e8e8"
+        },
+        "aliases": {
+          "Dark": "semantic/surface/elevationLow/color",
+          "Light": "semantic/surface/elevationLow/color"
+        }
+      }
+    ]
+  },
+  "effects": {
+    "Window Shadow": "0px 4px 96px rgba(0, 0, 0, 0.26)"
+  },
+  "variableScopes": {
+    "VariableID:2201:25938": {
+      "name": "viewport/min-width",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ]
+    },
+    "VariableID:2120:52318": {
+      "name": "gap/xxxl",
+      "scopes": [
+        "GAP"
+      ]
+    },
+    "VariableID:402:61663": {
+      "name": "gap/xxl",
+      "scopes": [
+        "GAP"
+      ]
+    },
+    "VariableID:1:58": {
+      "name": "radii/input",
+      "scopes": [
+        "CORNER_RADIUS"
+      ]
+    },
+    "VariableID:31:22591": {
+      "name": "radii/button",
+      "scopes": [
+        "CORNER_RADIUS"
+      ]
+    },
+    "VariableID:31:22590": {
+      "name": "radii/swatch",
+      "scopes": [
+        "CORNER_RADIUS"
+      ]
+    },
+    "VariableID:622:18618": {
+      "name": "radii/card",
+      "scopes": [
+        "CORNER_RADIUS"
+      ]
+    },
+    "VariableID:723:139714": {
+      "name": "radii/modal",
+      "scopes": [
+        "CORNER_RADIUS"
+      ]
+    },
+    "VariableID:821:72509": {
+      "name": "radii/tooltip",
+      "scopes": [
+        "CORNER_RADIUS"
+      ]
+    },
+    "VariableID:836:101500": {
+      "name": "radii/toast",
+      "scopes": [
+        "CORNER_RADIUS"
+      ]
+    },
+    "VariableID:1992:24153": {
+      "name": "radii/checkbox",
+      "scopes": [
+        "CORNER_RADIUS"
+      ]
+    },
+    "VariableID:140:37419": {
+      "name": "gap/xl",
+      "scopes": [
+        "GAP"
+      ]
+    },
+    "VariableID:1:39": {
+      "name": "general/min-height",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ]
+    },
+    "VariableID:402:61662": {
+      "name": "gap/l",
+      "scopes": [
+        "GAP"
+      ]
+    },
+    "VariableID:1:316": {
+      "name": "padding/xl",
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ]
+    },
+    "VariableID:1:49": {
+      "name": "gap/m",
+      "scopes": [
+        "GAP"
+      ]
+    },
+    "VariableID:3:3808": {
+      "name": "padding/l",
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ]
+    },
+    "VariableID:1:57": {
+      "name": "gap/s",
+      "scopes": [
+        "GAP"
+      ]
+    },
+    "VariableID:2:3467": {
+      "name": "gap/xs",
+      "scopes": [
+        "GAP"
+      ]
+    },
+    "VariableID:308:19953": {
+      "name": "padding/m",
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ]
+    },
+    "VariableID:2:255": {
+      "name": "general/thickness",
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "STROKE_FLOAT"
+      ]
+    },
+    "VariableID:1:50": {
+      "name": "padding/s",
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ]
+    },
+    "VariableID:2:254": {
+      "name": "padding/xs",
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ]
+    },
+    "VariableID:444:21524": {
+      "name": "padding/xxs",
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ]
+    },
+    "VariableID:162:29607": {
+      "name": "general/window-radii",
+      "scopes": [
+        "CORNER_RADIUS"
+      ]
+    },
+    "VariableID:1695:38765": {
+      "name": "icon/xsmall",
+      "scopes": [
+        "STROKE_FLOAT"
+      ]
+    },
+    "VariableID:1695:22631": {
+      "name": "icon/small",
+      "scopes": [
+        "STROKE_FLOAT"
+      ]
+    },
+    "VariableID:1695:22632": {
+      "name": "icon/large",
+      "scopes": [
+        "STROKE_FLOAT"
+      ]
+    },
+    "VariableID:1810:27407": {
+      "name": "button/min-height",
+      "scopes": [
+        "CORNER_RADIUS",
+        "WIDTH_HEIGHT",
+        "GAP"
+      ]
+    },
+    "VariableID:1886:22184": {
+      "name": "dividerSection/height",
+      "scopes": [
+        "CORNER_RADIUS",
+        "WIDTH_HEIGHT",
+        "GAP"
+      ]
+    },
+    "VariableID:2201:26375": {
+      "name": "typography/l/font-size",
+      "scopes": [
+        "FONT_SIZE"
+      ]
+    },
+    "VariableID:2201:26376": {
+      "name": "typography/l/line-height",
+      "scopes": [
+        "LINE_HEIGHT"
+      ]
+    },
+    "VariableID:2201:26377": {
+      "name": "typography/m/font-size",
+      "scopes": [
+        "FONT_SIZE"
+      ]
+    },
+    "VariableID:2201:26378": {
+      "name": "typography/m/line-height",
+      "scopes": [
+        "LINE_HEIGHT"
+      ]
+    },
+    "VariableID:2201:26379": {
+      "name": "typography/s/font-size",
+      "scopes": [
+        "FONT_SIZE"
+      ]
+    },
+    "VariableID:2201:26380": {
+      "name": "typography/s/line-height",
+      "scopes": [
+        "LINE_HEIGHT"
+      ]
+    },
+    "VariableID:1:73": {
+      "name": "font-family",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35607": {
+      "name": "icon/shape",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35608": {
+      "name": "icon/background",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35609": {
+      "name": "icon/backgroundpreview",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:109:179417": {
+      "name": "semantic/surface/elevationHigh/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1880:41634": {
+      "name": "actionbar/background/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1880:41635": {
+      "name": "actionbar/border/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16788": {
+      "name": "badge/background/negative/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35433": {
+      "name": "buttonList/background/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1045:16556": {
+      "name": "buttonList/background/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35436": {
+      "name": "buttonList/iconPrimary/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1167:27819": {
+      "name": "buttonList/iconSecondary/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35437": {
+      "name": "buttonList/text/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1045:17032": {
+      "name": "buttonList/text/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1045:17033": {
+      "name": "buttonList/text/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16789": {
+      "name": "badge/background/warning/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16790": {
+      "name": "badge/background/positive/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16791": {
+      "name": "badge/background/neutral/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16792": {
+      "name": "badge/label/negative/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16793": {
+      "name": "badge/label/warning/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16794": {
+      "name": "badge/label/positive/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16795": {
+      "name": "badge/label/neutral/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16796": {
+      "name": "badge/icon/negative/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16797": {
+      "name": "badge/icon/warning/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16798": {
+      "name": "badge/icon/positive/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16799": {
+      "name": "badge/icon/neutral/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:166:35919": {
+      "name": "buttonPrimary/background/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:166:35920": {
+      "name": "buttonPrimary/iconText/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:383:51785": {
+      "name": "buttonSecondary/background/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:49:9664": {
+      "name": "buttonSecondary/border/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:853:16331": {
+      "name": "buttonSecondary/text/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:49:9802": {
+      "name": "buttonSecondary/icon/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:67:46535": {
+      "name": "buttonTertiary/iconText/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:937:16208": {
+      "name": "buttonQuaternary/iconText/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2120:62603": {
+      "name": "card/border/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1967:23380": {
+      "name": "checkbox/border/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1967:23381": {
+      "name": "checkbox/border/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1967:23384": {
+      "name": "checkbox/text/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1967:23385": {
+      "name": "checkbox/text/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1967:23389": {
+      "name": "checkbox/background/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1967:23390": {
+      "name": "checkbox/background/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1967:23395": {
+      "name": "checkbox/icon/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2064:28413": {
+      "name": "checkbox/description/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:937:16211": {
+      "name": "buttonQuaternary/background/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:58:10490": {
+      "name": "dividerLine/border/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:507:90984": {
+      "name": "dividerSection/title/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35432": {
+      "name": "emptyState/title/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35431": {
+      "name": "emptyState/icon/neutral/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:45:250388": {
+      "name": "figmaWindowChrome/title/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:45:250389": {
+      "name": "figmaWindowChrome/divider/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:45:250390": {
+      "name": "figmaWindowChrome/background/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:45:250391": {
+      "name": "figmaWindowChrome/button/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:146:83284": {
+      "name": "highlight/background/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35604": {
+      "name": "highlightSelector/border/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:146:83285": {
+      "name": "highlight/text/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:45:217739": {
+      "name": "input/label/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2004:55126": {
+      "name": "loader/spinner/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2004:55125": {
+      "name": "loader/title/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2004:55130": {
+      "name": "loader/description/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2004:55124": {
+      "name": "loader/background/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:505:61001": {
+      "name": "listItem/icon/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:505:61000": {
+      "name": "listItem/title/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:45:217740": {
+      "name": "input/value/filled/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:45:217742": {
+      "name": "input/value/empty/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:47:7783": {
+      "name": "input/background/filled/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:47:7784": {
+      "name": "input/border/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:719:29922": {
+      "name": "modal/background/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:719:29926": {
+      "name": "modal/title/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2020:24114": {
+      "name": "node/background/idle/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1758:42516": {
+      "name": "node/background/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1325469": {
+      "name": "node/background/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:723:147509": {
+      "name": "node/border/idle/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1325465": {
+      "name": "node/border/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:853:16329": {
+      "name": "node/border/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1325466": {
+      "name": "node/border/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:723:147510": {
+      "name": "node/icon/idle/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1325464": {
+      "name": "node/icon/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1758:42515": {
+      "name": "node/icon/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1325474": {
+      "name": "node/icon/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:723:147511": {
+      "name": "node/label/idle/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1325470": {
+      "name": "node/label/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1758:42514": {
+      "name": "node/label/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1325476": {
+      "name": "node/label/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:65:12323": {
+      "name": "overflow/background/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:65:12324": {
+      "name": "overflow/border/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35418": {
+      "name": "overflowList/background/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35419": {
+      "name": "overflowList/label/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:162:29608": {
+      "name": "overlay/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:109:179416": {
+      "name": "panel/background/primary/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:725:17621": {
+      "name": "radioButton/border/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:725:17622": {
+      "name": "radioButton/border/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:725:17623": {
+      "name": "radioButton/border/current/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:725:17624": {
+      "name": "radioButton/border/unselected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:725:17625": {
+      "name": "radioButton/text/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:725:17626": {
+      "name": "radioButton/text/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:725:17627": {
+      "name": "radioButton/text/current/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:725:17628": {
+      "name": "radioButton/text/unselected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:725:17629": {
+      "name": "radioButton/description/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:727:18102": {
+      "name": "radioButton/background/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:727:18103": {
+      "name": "radioButton/background/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1353074": {
+      "name": "segmentedControl/background/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1353087": {
+      "name": "segmentedControl/border/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1353078": {
+      "name": "segmentedControl/border/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1353080": {
+      "name": "segmentedControl/icon/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1353082": {
+      "name": "segmentedControl/icon/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1353084": {
+      "name": "segmentedControl/label/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1353086": {
+      "name": "segmentedControl/label/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:383:16887": {
+      "name": "panel/border/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:38387": {
+      "name": "statusbar/icon/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:38386": {
+      "name": "statusbar/text/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:112:456839": {
+      "name": "swatch/border/empty/primary",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2120:3399": {
+      "name": "switch/background/enabledOn/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2120:3402": {
+      "name": "switch/background/enabledOff/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2120:3400": {
+      "name": "switch/knob/enabledOn/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2120:3403": {
+      "name": "switch/knob/enabledOff/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2120:3401": {
+      "name": "switch/description/enabledOn/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2120:3509": {
+      "name": "switch/description/enabledOff/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:112:456837": {
+      "name": "swatch/border/filled/primary",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1810:27213": {
+      "name": "tooltipButton/icon/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:68:51978": {
+      "name": "toast/background/success/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:68:51980": {
+      "name": "toast/title/success/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:821:72510": {
+      "name": "tooltipPopover/background/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:821:72512": {
+      "name": "tooltipPopover/border/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2:200": {
+      "name": "semantic/positive",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:137:115592": {
+      "name": "semantic/negative",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:364:64508": {
+      "name": "semantic/warning",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:665:1352674": {
+      "name": "semantic/pattern/appearance",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:3:4325": {
+      "name": "primitives/Neutral 1000",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:17:1083805": {
+      "name": "primitives/Neutral 900",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1:378": {
+      "name": "primitives/Neutral 800",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:17:1086662": {
+      "name": "primitives/Neutral 700",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1:77": {
+      "name": "primitives/Neutral 600",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2:3727": {
+      "name": "primitives/Neutral 500",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1:165": {
+      "name": "primitives/Neutral 400",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1:137": {
+      "name": "primitives/Neutral 300",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1:75": {
+      "name": "primitives/Neutral 200",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1:76": {
+      "name": "primitives/Neutral 100",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:45:217738": {
+      "name": "primitives/green",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:137:115396": {
+      "name": "primitives/red",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:137:115397": {
+      "name": "primitives/yellow",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:109:375352": {
+      "name": "buttonTertiary/iconText/active/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:112:456835": {
+      "name": "buttonTertiary/background/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:112:456836": {
+      "name": "buttonTertiary/background/active/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:505:61002": {
+      "name": "listItem/description/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:507:90986": {
+      "name": "dividerSection/divider/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:507:90985": {
+      "name": "dividerSection/number/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:786:16691": {
+      "name": "node/border/disabled/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:786:16692": {
+      "name": "node/icon/disabled/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:786:16693": {
+      "name": "node/label/disabled/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16800": {
+      "name": "semantic/content/primary/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:16801": {
+      "name": "semantic/content/secondary/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35374": {
+      "name": "input/icon/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35375": {
+      "name": "input/value/disabled/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35420": {
+      "name": "overflowList/label/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35421": {
+      "name": "overflowList/background/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35426": {
+      "name": "overflowList/border/default/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35427": {
+      "name": "overflowList/border/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35429": {
+      "name": "overflow/text/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:789:35606": {
+      "name": "highlight/icon/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:821:72511": {
+      "name": "tooltipPopover/text/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:821:72599": {
+      "name": "input/border/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:836:101596": {
+      "name": "toast/icon/success/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:959:17841": {
+      "name": "segmentedControl/background/selected/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1002:36587": {
+      "name": "buttonSecondary/background/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1002:36588": {
+      "name": "buttonSecondary/border/hover/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1431:21239": {
+      "name": "emptyState/icon/positive/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1813:21614": {
+      "name": "emptyState/description/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1860:822": {
+      "name": "toast/background/error/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1860:823": {
+      "name": "toast/icon/error/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1860:824": {
+      "name": "toast/title/error/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1868:443": {
+      "name": "input/border/focus/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:1992:24246": {
+      "name": "input/border/disabled/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2004:36133": {
+      "name": "modal/icon/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2004:49911": {
+      "name": "semantic/surface/elevationMedium/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2004:49912": {
+      "name": "semantic/surface/elevationLow/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
+    },
+    "VariableID:2287:68245": {
+      "name": "panel/background/secondary/color",
+      "scopes": [
+        "ALL_SCOPES"
+      ]
     }
   }
 }
