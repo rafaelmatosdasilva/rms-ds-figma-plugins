@@ -103,7 +103,7 @@ jobs:
           done
           node ../engine/audit.mjs --styleguide --no-a11y-bake
           node ../engine/audit.mjs --styleguide-check apps/style-guide/index.html
-          cp apps/style-guide/index.html ../site/index.html
+          node ../engine/styleguide-files.mjs apps/style-guide/index.html ../site   # the page and the files it links beside it
           { echo "quick"; echo "${{ needs.changed.outputs.sources }}" | base64 -d; } > ../site/sources.txt
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -163,7 +163,7 @@ jobs:
         run: |
           node ../engine/audit.mjs --styleguide
           node ../engine/audit.mjs --styleguide-check apps/style-guide/index.html
-          mkdir -p ../site && cp apps/style-guide/index.html ../site/index.html
+          node ../engine/styleguide-files.mjs apps/style-guide/index.html ../site   # the page and the files it links beside it
           cp .design-system-engine-out/differences.md ../site/differences.md 2>/dev/null || true
           mkdir -p ../site/data   # this audit's results, for the next build's first page
           for f in differences.json census.json a11y.json; do cp ".design-system-engine-out/$f" ../site/data/ 2>/dev/null || true; done
