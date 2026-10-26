@@ -309,6 +309,7 @@ export const CONTRACT = {
     },
   },
   input: {
+    _note: "A one-line text field for a short value a person types, with optional labels before and after the value and optional icons on either side.",
     h: 24,
     paddingVar: { tb: null, lr: 'padding/s' },
     gapVar: 'gap/s',
@@ -330,6 +331,7 @@ export const CONTRACT = {
     },
   },
   tooltipPopover: {
+    _note: "The tooltip the system shows for any element with a data-tip, on hover or keyboard focus: a short text that says more about it.",
     h: 23, sizing: 'hug',   // hugs content — h is informational, not gated
     paddingVar: { tb: 'padding/xs', lr: 'padding/s' },
     gapVar: 'gap/xl',
@@ -339,6 +341,7 @@ export const CONTRACT = {
     strokeSides: 'all',  // Figma: 1.5 all four sides (verified 2026-08)
   },
   toast: {
+    _note: "A short message at the bottom of the plugin that confirms something finished, or says it failed, and goes away on its own.",
     // DS 2026-09: the loading variant was removed from `toast` (loading now lives in the `loader`
     // component). `toast` is now just the success/error notification at h=32. The progress message
     // (.progress-msg) is the loader in an overlay (showProgress), not a toast state.
@@ -378,6 +381,7 @@ export const CONTRACT = {
     },
   },
   buttonQuaternary: {
+    _note: "The ghost button: an icon or a label with no fill or border until it is hovered, for the smallest actions right beside what they act on.",
     h: 24,
     paddingVar: { tb: null, lr: 'padding/xs' },
     gapVar: null, gapPx: 0, // DS root flush (rootGap 0); enforces .buttonQuaternary { gap:0 }
@@ -395,6 +399,7 @@ export const CONTRACT = {
     },
   },
   swatch: {
+    _note: "A small square chip that shows a colour value, or a hatched chip when there is none.",
     h: 24,
     paddingVar: { tb: null, lr: null },
     gapVar: null,
@@ -433,6 +438,7 @@ export const CONTRACT = {
     children: [{ name: 'Frame 27', cssSelector: '.overflow-label', gapVar: null, paddingVar: { tb: 'padding/xs', lr: 'padding/s' } }],
   },
   buttonPrimary: {
+    _note: "The filled button for the one main action of a view, a modal or an empty state, with a label, an icon or both.",
     h: 24,
     paddingVar: { tb: null, lr: 'padding/xs' },
     gapVar: null, gapPx: 0, // DS root flush (rootGap 0); enforces .buttonPrimary { gap:0 }
@@ -461,6 +467,7 @@ export const CONTRACT = {
     annotations: { 'Icon can change depending on the feature': null },
   },
   dividerSection: {
+    _note: "The heading of a section in a list: its name, with an optional severity dot, a count and one action, staying at the top while the section scrolls.",
     h: 24,
     // DS 2026-09-09: compact — root has no padding (was padding/l top + padding/xs bottom, h44).
     // Vertical rhythm now lives on the Content child (.dividerSection-content, padding/xs).
@@ -491,6 +498,7 @@ export const CONTRACT = {
     },
   },
   buttonTertiary: {
+    _note: "The quiet button for actions inside rows, bars and loaders: it shows its fill only when hovered or active.",
     h: 24,
     paddingVar: { tb: null, lr: 'padding/xs' },
     gapVar: null, gapPx: 0, // DS root flush (rootGap 0); enforces .buttonTertiary { gap:0 }
@@ -617,7 +625,7 @@ export const CONTRACT = {
   },
   // checkBox (DS 1963:43561) — built base .checkbox. Box (radii/checkbox, bordered) child + label.
   checkBox: {
-    _note: "built base .checkbox (2026-08)",
+    _note: "A checkbox with a label and an optional description, for turning one option on or off; a hidden native checkbox keeps it working with the keyboard and in forms.",
     h: 30, sizing: 'hug',
     paddingVar: { tb: null, lr: null },
     gapVar: 'gap/m',
@@ -631,7 +639,7 @@ export const CONTRACT = {
   },
   // loader (DS 68:52296) — built base .loader (was toast variant). radii/toast pill, direct fill.
   loader: {
-    _note: "built base .loader (2026-08; was toast loading variant)",
+    _note: "A pill that says something is in progress: a spinner, a title, an optional description such as the time left, and an optional Cancel.",
     h: 45, sizing: 'hug',
     paddingVar: { tb: 'padding/s', lr: 'padding/m' },
     gapVar: 'gap/xl',
