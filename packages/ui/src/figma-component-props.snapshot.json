@@ -45,11 +45,6 @@
     },
     "annotations": [
       {
-        "label": "Icon can change depending on the feature",
-        "labelMarkdown": "Icon can change depending on the feature",
-        "categoryId": "1323:0"
-      },
-      {
         "label": "Role: button",
         "labelMarkdown": "Role: button",
         "categoryId": "2457:0"

@@ -89,7 +89,7 @@ export const CONTRACT = {
   },
   // highlightSelector (DS) — a 10px selection marker: red fill + 2px highlightSelector/border ring.
   highlightSelector: {
-    _note: "10px selection marker (red fill + 2px highlightSelector/border). Built base .highlightSelector (2026-09-09).",
+    _note: "The marker drawn over the spot of a problem on a preview, such as a clipped text layer; selected, it marks the one the person pinned.",
     h: 10,
     paddingVar: { tb: null, lr: null },
     gapVar: null,
@@ -222,7 +222,7 @@ export const CONTRACT = {
     annotations: { 'Sizing: fill. It covers its container; its width and height come from where a product places it.': null },
   },
   buttonList: {
-    _note: "strokeSides=bottom (items stack touching — only bottom stroke visible). hover/selected Content h=32, fills full outer width (outer padding=0). CSS: border-bottom only; ::before inset=4px_0, border-radius=var(--radii-button)",
+    _note: "A row of a list a person picks from to open or select an item, with its icon, its title and, on hover or focus, its action.",
     // Prose guidance from the DS, nothing to verify in CSS: the action slot is
     // intentionally per-project, so no fixed selector can be asserted.
     annotations: { 'Actions can changed based on the project needs': null },
