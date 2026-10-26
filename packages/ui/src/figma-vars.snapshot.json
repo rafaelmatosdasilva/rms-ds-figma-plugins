@@ -6396,5 +6396,19 @@
       "description": "Step 1000 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
       "deprecated": false
     }
+  },
+  "textStyleMeta": {
+    "l": {
+      "description": "Text style L: titles, such as a modal’s.",
+      "deprecated": false
+    },
+    "m": {
+      "description": "Text style M: the body text of controls and rows.",
+      "deprecated": false
+    },
+    "s": {
+      "description": "Text style S: small text, for labels, descriptions and section titles.",
+      "deprecated": false
+    }
   }
 }

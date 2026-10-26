@@ -14,6 +14,10 @@
         "limitations": [
           "It is a fixed 40px tall and its title stays on one line.",
           "Its action button and its arrow show only while the row is hovered, focused or selected, and a selected row hides its action button."
+        ],
+        "doDont": [
+          "Do: use one row per item a person picks, stacked one under another.",
+          "Don't: use it for a row that does nothing when clicked: use listItem."
         ]
       }
     },
@@ -32,6 +36,10 @@
         "limitations": [
           "It is a fixed 40px tall.",
           "Its Disabled state takes no clicks; its receded and external looks reuse the disabled tokens but stay clickable."
+        ],
+        "doDont": [
+          "Do: recede the nodes not selected with has-selection on their container.",
+          "Don't: fade nodes with opacity."
         ]
       }
     },
@@ -52,6 +60,10 @@
         "limitations": [
           "Its segments share its width evenly, as wide as the widest; with full-width it fills its row.",
           "A segment too narrow for its icon and label hides its label."
+        ],
+        "doDont": [
+          "Do: make it with createSegmentedControl, for two to four views of the same content.",
+          "Don't: use it for many options or for a choice in a form."
         ]
       }
     },
@@ -71,6 +83,10 @@
         "limitations": [
           "Its label stays on one line: keep it to one or two words.",
           "It has four tones only (negative, warning, positive, neutral); each one uses its own badge tokens."
+        ],
+        "doDont": [
+          "Do: say the status in one or two words beside the item's name.",
+          "Don't: use it as a button or link, or say the status by its colour alone."
         ]
       }
     },
@@ -90,6 +106,10 @@
         "limitations": [
           "It is one line, 24px tall: there is no multi-line form.",
           "Disabled or read-only, it loses its fill and takes no pointer events."
+        ],
+        "doDont": [
+          "Do: give it a visible label or an aria-label.",
+          "Don't: use it to step a number through a range: use buttonStepper."
         ]
       }
     },
@@ -109,6 +129,10 @@
         "limitations": [
           "Its message stays on one line: keep it short.",
           "It closes after 5 seconds, 8 for an error; the time stops while the pointer or the focus is on it."
+        ],
+        "doDont": [
+          "Do: confirm with showToast and report a failure with showError.",
+          "Don't: use it for something still in progress: use loader."
         ]
       },
       "semantics": {
@@ -133,6 +157,10 @@
         "limitations": [
           "It is 24px tall and its label stays on one line.",
           "Disabled, it fades to 24% and takes no clicks or hover."
+        ],
+        "doDont": [
+          "Do: use it for actions inside rows, bars and loaders.",
+          "Don't: leave an icon-only one without a data-tip or aria-label."
         ]
       }
     },
@@ -151,6 +179,10 @@
         ],
         "limitations": [
           "It is a fixed 24px square."
+        ],
+        "doDont": [
+          "Do: name its colour with an aria-label or the name beside it.",
+          "Don't: use it as a button or a colour picker."
         ]
       }
     },
@@ -168,6 +200,10 @@
         ],
         "limitations": [
           "It is a fixed 32px tall, between 56px and 280px wide, and its label stays on one line."
+        ],
+        "doDont": [
+          "Do: give every item words, with an optional icon before them.",
+          "Don't: use it outside an overflow menu: use buttonList."
         ]
       }
     },
@@ -187,6 +223,10 @@
         "limitations": [
           "It is 24px tall and its label stays on one line.",
           "Disabled, it fades to 24% and takes no clicks or hover."
+        ],
+        "doDont": [
+          "Do: use it beside the main action, for actions that should stand out less.",
+          "Don't: use it for the one main action of a view: use buttonPrimary."
         ]
       }
     },
@@ -205,6 +245,10 @@
         "limitations": [
           "Figma draws only its Default and Hover states: it has no disabled look of its own.",
           "It is 24px tall and its label stays on one line."
+        ],
+        "doDont": [
+          "Do: put it right beside what it removes or clears, with a data-tip or aria-label.",
+          "Don't: use it for an action a person must find at a glance."
         ]
       }
     },
@@ -224,6 +268,10 @@
         "limitations": [
           "It holds one action button at most, right after its title.",
           "The system gives it heading level 2 when the product sets none."
+        ],
+        "doDont": [
+          "Do: give it the surface colour it sits on, so rows do not show through it.",
+          "Don't: use it as the title of a view, a panel or a modal."
         ]
       }
     },
@@ -243,6 +291,10 @@
         ],
         "limitations": [
           "A choice cannot be undone to nothing chosen: once one radio is picked, one stays picked."
+        ],
+        "doDont": [
+          "Do: give the radios of one choice the same name, inside a radioButtonGroup.",
+          "Don't: use it when several options can be on at once: use checkBox."
         ]
       }
     },
@@ -262,6 +314,10 @@
         ],
         "limitations": [
           "Only its main content scrolls; its head stays in place."
+        ],
+        "doDont": [
+          "Do: put a control in its head and the content that scrolls in its main part.",
+          "Don't: give it a border: its surface sets it apart."
         ]
       }
     },
@@ -279,6 +335,10 @@
         ],
         "limitations": [
           "It is a fixed 48px tall and does not wrap."
+        ],
+        "doDont": [
+          "Do: show what is selected and the actions on it.",
+          "Don't: put the controls for the whole view in it: use actionBar."
         ]
       }
     },
@@ -299,6 +359,10 @@
         "limitations": [
           "It wraps its controls onto another line when they do not fit; it never scrolls sideways.",
           "It reaches the edges of its container by pulling out of the container's padding/l, so it goes directly in a view padded with padding/l."
+        ],
+        "doDont": [
+          "Do: put the controls that act on the whole view in it, right under the header.",
+          "Don't: wrap it in a border or divider of your own: it draws its own lines."
         ]
       }
     },
@@ -317,6 +381,10 @@
         ],
         "limitations": [
           "The product places it and opens or closes it: it has no position of its own."
+        ],
+        "doDont": [
+          "Do: fill it with overflowList rows only, with an optional title.",
+          "Don't: use it for content that stays on the page: use card or panel."
         ]
       }
     },
@@ -336,6 +404,10 @@
         "limitations": [
           "It is 24px tall and its label stays on one line.",
           "Disabled, it fades to 16% and takes no clicks or hover."
+        ],
+        "doDont": [
+          "Do: use one for the main action of a view or a modal.",
+          "Don't: put two side by side: the other action is a buttonSecondary."
         ]
       }
     },
@@ -353,6 +425,10 @@
         ],
         "limitations": [
           "Its icon changes with the feature (info, library), as Figma notes; its box is always the button height."
+        ],
+        "doDont": [
+          "Do: put it beside the label it explains, with its words in data-tip.",
+          "Don't: use it for an action: use buttonTertiary."
         ]
       }
     },
@@ -372,6 +448,10 @@
         "limitations": [
           "It is at most 240px wide and wraps its text.",
           "There is one on the page, which every data-tip shares."
+        ],
+        "doDont": [
+          "Do: give the element a data-tip and let the system show it.",
+          "Don't: put controls or links in it, or add a title attribute as well."
         ]
       }
     },
@@ -390,6 +470,10 @@
         ],
         "limitations": [
           "It has two states, unchecked and checked: there is no mixed state."
+        ],
+        "doDont": [
+          "Do: use it for options that each turn on or off on their own.",
+          "Don't: use it when only one option can be chosen: use radioButton."
         ]
       }
     },
@@ -409,6 +493,10 @@
         "limitations": [
           "Its title stays on one line.",
           "It holds one action at most, a buttonTertiary."
+        ],
+        "doDont": [
+          "Do: show it with showProgress and remove it with dismissProgress on every way out.",
+          "Don't: use it to say something finished or failed: use a toast."
         ]
       }
     },
@@ -426,6 +514,10 @@
         ],
         "limitations": [
           "Its slot lays the checkboxes in one row, gap/xxxl apart, and does not wrap them onto a second line."
+        ],
+        "doDont": [
+          "Do: give it a label that names what the checkboxes are for.",
+          "Don't: use it when only one option can be chosen: use radioButtonGroup."
         ]
       }
     },
@@ -443,6 +535,10 @@
         ],
         "limitations": [
           "Its slot lays the radios in one row, gap/xxxl apart, and does not wrap them onto a second line."
+        ],
+        "doDont": [
+          "Do: give it a label that names the choice.",
+          "Don't: give its radios different names."
         ]
       }
     },
@@ -462,6 +558,10 @@
         "limitations": [
           "It is 24px tall and its label stays on one line.",
           "It has one tone: the red of a problem."
+        ],
+        "doDont": [
+          "Do: place it beside the highlightSelector that marks the spot it names.",
+          "Don't: use it to tag an item in a list: use badge."
         ]
       }
     },
@@ -480,6 +580,10 @@
         "limitations": [
           "It draws a box only: the product sets its size and position over the preview.",
           "It is decorative to a screen reader (Role: presentation): what it marks must be said elsewhere."
+        ],
+        "doDont": [
+          "Do: name the problem it marks with a highlight beside it.",
+          "Don't: use it to show which row of a list is selected."
         ]
       }
     },
@@ -498,6 +602,10 @@
         ],
         "limitations": [
           "It is horizontal only, one general/thickness tall."
+        ],
+        "doDont": [
+          "Do: use it to separate two groups of content.",
+          "Don't: add one under a component that draws its own line."
         ]
       }
     },
@@ -517,6 +625,10 @@
         "limitations": [
           "Its field is a fixed 119px wide, with its value centred.",
           "Its buttons turn off at each end of the range, and a typed value is brought back within the range when the field is left."
+        ],
+        "doDont": [
+          "Do: drive it with initButtonStepper and give its field its range.",
+          "Don't: use it for a number with no range: use input."
         ]
       }
     },
@@ -535,6 +647,10 @@
         "limitations": [
           "Its label collapses when the segment is too narrow to show both its icon and its label.",
           "A segment with nothing behind it (tab-empty) is dimmed and cannot be chosen."
+        ],
+        "doDont": [
+          "Do: keep its label short, so it fits beside its icon.",
+          "Don't: use it outside a segmentedControl."
         ]
       }
     },
@@ -554,6 +670,10 @@
         "limitations": [
           "It is a fixed 320px wide; its height follows its content.",
           "Its footer lays its buttons in one row, sharing the width."
+        ],
+        "doDont": [
+          "Do: open it with openModal and close it with closeModal.",
+          "Don't: use it for a message that needs no answer: use a toast."
         ]
       }
     },
@@ -573,6 +693,10 @@
         ],
         "limitations": [
           "Its column is at most 260px wide and its text at most 200px; it centres itself in the area it fills."
+        ],
+        "doDont": [
+          "Do: say why there is nothing to show and what to do next.",
+          "Don't: use it to report a failure: use showError."
         ]
       }
     },
@@ -591,6 +715,10 @@
         ],
         "limitations": [
           "It holds one action at most, a buttonTertiary at the end of the row."
+        ],
+        "doDont": [
+          "Do: put list items alone in their container, so it reads as a list.",
+          "Don't: use it when the whole row opens or selects something: use buttonList."
         ]
       }
     },
@@ -610,6 +738,10 @@
         "limitations": [
           "It covers its container: its size comes from where it is placed, as Figma notes.",
           "It is decorative to a screen reader: what it holds says what is happening."
+        ],
+        "doDont": [
+          "Do: place it in a positioned container, with what is happening at its centre.",
+          "Don't: use it behind a modal, which has its own."
         ]
       }
     },
@@ -629,6 +761,10 @@
         "limitations": [
           "Its height follows its content.",
           "It has no fill of its own: it shows the surface it sits on."
+        ],
+        "doDont": [
+          "Do: group related settings or one output in it, with an optional title.",
+          "Don't: put a card inside a card."
         ]
       }
     },
@@ -647,6 +783,10 @@
         "limitations": [
           "It is on or off: there is no third state.",
           "Disabled, it fades to 40% and takes no clicks."
+        ],
+        "doDont": [
+          "Do: use it for a setting that takes effect at once.",
+          "Don't: use it for an option that only applies once a form is submitted: use checkBox."
         ]
       },
       "semantics": {
@@ -670,6 +810,10 @@
         ],
         "limitations": [
           "A long name is cut with an ellipsis on one line: put the full name in its tooltipButton."
+        ],
+        "doDont": [
+          "Do: put rows alone in their table, each with its value and its outputs.",
+          "Don't: use it for a simple list: use listItem or buttonList."
         ]
       }
     }
