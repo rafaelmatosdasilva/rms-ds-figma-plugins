@@ -559,6 +559,12 @@
     "auto": true,
     "_note": "The style guide (styleguide.out) is checked by the style guide check; the hand-written page that was listed here is gone."
   },
+  "_guidelines_note": "An example of each component in use, one section per component headed with its name in Figma: the engine reads it for the style guide and the agents.",
+  "guidelines": {
+    "sources": [
+      "docs/guidelines.md"
+    ]
+  },
   "_systemScripts_note": "The system's own script: the style guide runs it, so its components behave as in a product (the sliding pill, tooltips, toasts).",
   "systemScripts": [
     "packages/ui/src/ui-shared.js"

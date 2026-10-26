@@ -5546,5 +5546,855 @@
         "ALL_SCOPES"
       ]
     }
+  },
+  "tokenMeta": {
+    "actionbar/background/color": {
+      "description": "Fill of the actionBar.",
+      "deprecated": false
+    },
+    "actionbar/border/color": {
+      "description": "Border of the actionBar.",
+      "deprecated": false
+    },
+    "badge/background/negative/color": {
+      "description": "Fill of the badge in its negative tone.",
+      "deprecated": false
+    },
+    "badge/background/neutral/color": {
+      "description": "Fill of the badge in its neutral tone.",
+      "deprecated": false
+    },
+    "badge/background/positive/color": {
+      "description": "Fill of the badge in its positive tone.",
+      "deprecated": false
+    },
+    "badge/background/warning/color": {
+      "description": "Fill of the badge in its warning tone.",
+      "deprecated": false
+    },
+    "badge/icon/negative/color": {
+      "description": "Icon colour of the badge in its negative tone.",
+      "deprecated": false
+    },
+    "badge/icon/neutral/color": {
+      "description": "Icon colour of the badge in its neutral tone.",
+      "deprecated": false
+    },
+    "badge/icon/positive/color": {
+      "description": "Icon colour of the badge in its positive tone.",
+      "deprecated": false
+    },
+    "badge/icon/warning/color": {
+      "description": "Icon colour of the badge in its warning tone.",
+      "deprecated": false
+    },
+    "badge/label/negative/color": {
+      "description": "Label colour of the badge in its negative tone.",
+      "deprecated": false
+    },
+    "badge/label/neutral/color": {
+      "description": "Label colour of the badge in its neutral tone.",
+      "deprecated": false
+    },
+    "badge/label/positive/color": {
+      "description": "Label colour of the badge in its positive tone.",
+      "deprecated": false
+    },
+    "badge/label/warning/color": {
+      "description": "Label colour of the badge in its warning tone.",
+      "deprecated": false
+    },
+    "button/min-height": {
+      "description": "Height of every button and of the controls that line up with them (inputs, swatches, tooltip buttons).",
+      "deprecated": false
+    },
+    "buttonList/background/hover/color": {
+      "description": "Fill of the buttonList while hovered.",
+      "deprecated": false
+    },
+    "buttonList/background/selected/color": {
+      "description": "Fill of the buttonList while selected.",
+      "deprecated": false
+    },
+    "buttonList/iconPrimary/color": {
+      "description": "Leading icon colour of the buttonList.",
+      "deprecated": false
+    },
+    "buttonList/iconSecondary/color": {
+      "description": "Trailing arrow colour of the buttonList.",
+      "deprecated": false
+    },
+    "buttonList/text/default/color": {
+      "description": "Text colour of the buttonList at rest.",
+      "deprecated": false
+    },
+    "buttonList/text/hover/color": {
+      "description": "Text colour of the buttonList while hovered.",
+      "deprecated": false
+    },
+    "buttonList/text/selected/color": {
+      "description": "Text colour of the buttonList while selected.",
+      "deprecated": false
+    },
+    "buttonPrimary/background/color": {
+      "description": "Fill of the buttonPrimary.",
+      "deprecated": false
+    },
+    "buttonPrimary/iconText/color": {
+      "description": "Icon and label colour of the buttonPrimary.",
+      "deprecated": false
+    },
+    "buttonQuaternary/background/hover/color": {
+      "description": "Fill of the buttonQuaternary while hovered.",
+      "deprecated": false
+    },
+    "buttonQuaternary/iconText/color": {
+      "description": "Icon and label colour of the buttonQuaternary.",
+      "deprecated": false
+    },
+    "buttonSecondary/background/default/color": {
+      "description": "Fill of the buttonSecondary at rest.",
+      "deprecated": false
+    },
+    "buttonSecondary/background/hover/color": {
+      "description": "Fill of the buttonSecondary while hovered.",
+      "deprecated": false
+    },
+    "buttonSecondary/border/default/color": {
+      "description": "Border of the buttonSecondary at rest.",
+      "deprecated": false
+    },
+    "buttonSecondary/border/hover/color": {
+      "description": "Border of the buttonSecondary while hovered.",
+      "deprecated": false
+    },
+    "buttonSecondary/icon/color": {
+      "description": "Icon colour of the buttonSecondary.",
+      "deprecated": false
+    },
+    "buttonSecondary/text/color": {
+      "description": "Text colour of the buttonSecondary.",
+      "deprecated": false
+    },
+    "buttonTertiary/background/active/color": {
+      "description": "Fill of the buttonTertiary while hovered or active.",
+      "deprecated": false
+    },
+    "buttonTertiary/background/default/color": {
+      "description": "Fill of the buttonTertiary at rest.",
+      "deprecated": false
+    },
+    "buttonTertiary/iconText/active/color": {
+      "description": "Icon and label colour of the buttonTertiary while hovered or active.",
+      "deprecated": false
+    },
+    "buttonTertiary/iconText/default/color": {
+      "description": "Icon and label colour of the buttonTertiary at rest.",
+      "deprecated": false
+    },
+    "card/border/color": {
+      "description": "Border of the card.",
+      "deprecated": false
+    },
+    "checkbox/background/default/color": {
+      "description": "Fill of the checkBox at rest.",
+      "deprecated": false
+    },
+    "checkbox/background/selected/color": {
+      "description": "Fill of the checkBox while selected.",
+      "deprecated": false
+    },
+    "checkbox/border/default/color": {
+      "description": "Border of the checkBox at rest.",
+      "deprecated": false
+    },
+    "checkbox/border/selected/color": {
+      "description": "Border of the checkBox while selected.",
+      "deprecated": false
+    },
+    "checkbox/description/color": {
+      "description": "Description colour of the checkBox.",
+      "deprecated": false
+    },
+    "checkbox/icon/selected/color": {
+      "description": "Icon colour of the checkBox while selected.",
+      "deprecated": false
+    },
+    "checkbox/text/default/color": {
+      "description": "Text colour of the checkBox at rest.",
+      "deprecated": false
+    },
+    "checkbox/text/selected/color": {
+      "description": "Text colour of the checkBox while selected.",
+      "deprecated": false
+    },
+    "dividerLine/border/color": {
+      "description": "Border of the dividerLine.",
+      "deprecated": false
+    },
+    "dividerSection/divider/color": {
+      "description": "Divider colour of the dividerSection.",
+      "deprecated": false
+    },
+    "dividerSection/height": {
+      "description": "Size of the small status dot in a dividerSection and a segmented control segment.",
+      "deprecated": false
+    },
+    "dividerSection/number/color": {
+      "description": "Number colour of the dividerSection.",
+      "deprecated": false
+    },
+    "dividerSection/title/color": {
+      "description": "Title colour of the dividerSection.",
+      "deprecated": false
+    },
+    "emptyState/description/color": {
+      "description": "Description colour of the emptyState.",
+      "deprecated": false
+    },
+    "emptyState/icon/neutral/color": {
+      "description": "Icon colour of the emptyState in its neutral tone.",
+      "deprecated": false
+    },
+    "emptyState/icon/positive/color": {
+      "description": "Icon colour of the emptyState in its positive tone.",
+      "deprecated": false
+    },
+    "emptyState/title/color": {
+      "description": "Title colour of the emptyState.",
+      "deprecated": false
+    },
+    "figmaWindowChrome/background/color": {
+      "description": "Copies Figma’s own window background colour, so the plugin matches the Figma window around it.",
+      "deprecated": false
+    },
+    "figmaWindowChrome/button/color": {
+      "description": "Copies Figma’s own window button colour, so the plugin matches the Figma window around it.",
+      "deprecated": false
+    },
+    "figmaWindowChrome/divider/color": {
+      "description": "Copies Figma’s own window divider colour, so the plugin matches the Figma window around it.",
+      "deprecated": false
+    },
+    "gap/l": {
+      "description": "Space between the items inside a component, size L.",
+      "deprecated": false
+    },
+    "gap/m": {
+      "description": "Space between the items inside a component, size M.",
+      "deprecated": false
+    },
+    "gap/s": {
+      "description": "Space between the items inside a component, size S.",
+      "deprecated": false
+    },
+    "gap/xl": {
+      "description": "Space between the items inside a component, size XL.",
+      "deprecated": false
+    },
+    "gap/xs": {
+      "description": "Space between the items inside a component, size XS.",
+      "deprecated": false
+    },
+    "gap/xxxl": {
+      "description": "Space between the items inside a component, size XXXL.",
+      "deprecated": false
+    },
+    "highlight/background/color": {
+      "description": "Fill of the highlight.",
+      "deprecated": false
+    },
+    "highlight/icon/color": {
+      "description": "Icon colour of the highlight.",
+      "deprecated": false
+    },
+    "highlight/text/color": {
+      "description": "Text colour of the highlight.",
+      "deprecated": false
+    },
+    "highlightSelector/border/color": {
+      "description": "Border of the highlightSelector.",
+      "deprecated": false
+    },
+    "input/background/filled/color": {
+      "description": "Fill of the input once it holds a value.",
+      "deprecated": false
+    },
+    "input/border/default/color": {
+      "description": "Border of the input at rest.",
+      "deprecated": false
+    },
+    "input/border/disabled/color": {
+      "description": "Border of the input while disabled.",
+      "deprecated": false
+    },
+    "input/border/focus/color": {
+      "description": "Border of the input while it has the keyboard focus (also the system’s focus ring).",
+      "deprecated": false
+    },
+    "input/border/hover/color": {
+      "description": "Border of the input while hovered.",
+      "deprecated": false
+    },
+    "input/icon/color": {
+      "description": "Icon colour of the input.",
+      "deprecated": false
+    },
+    "input/label/color": {
+      "description": "Label colour of the input.",
+      "deprecated": false
+    },
+    "input/value/disabled/color": {
+      "description": "Value colour of the input while disabled.",
+      "deprecated": false
+    },
+    "input/value/empty/color": {
+      "description": "Colour of the placeholder in an empty input.",
+      "deprecated": false
+    },
+    "input/value/filled/color": {
+      "description": "Value colour of the input once it holds a value.",
+      "deprecated": false
+    },
+    "listItem/description/color": {
+      "description": "Description colour of the listItem.",
+      "deprecated": false
+    },
+    "listItem/icon/color": {
+      "description": "Icon colour of the listItem.",
+      "deprecated": false
+    },
+    "listItem/title/color": {
+      "description": "Title colour of the listItem.",
+      "deprecated": false
+    },
+    "loader/background/color": {
+      "description": "Fill of the loader.",
+      "deprecated": false
+    },
+    "loader/description/color": {
+      "description": "Description colour of the loader.",
+      "deprecated": false
+    },
+    "loader/spinner/color": {
+      "description": "Spinner colour of the loader.",
+      "deprecated": false
+    },
+    "loader/title/color": {
+      "description": "Title colour of the loader.",
+      "deprecated": false
+    },
+    "modal/background/color": {
+      "description": "Fill of the modal.",
+      "deprecated": false
+    },
+    "modal/icon/color": {
+      "description": "Icon colour of the modal.",
+      "deprecated": false
+    },
+    "modal/title/color": {
+      "description": "Title colour of the modal.",
+      "deprecated": false
+    },
+    "node/background/hover/color": {
+      "description": "Fill of the node while hovered.",
+      "deprecated": false
+    },
+    "node/background/idle/color": {
+      "description": "Fill of the node when another item is selected.",
+      "deprecated": false
+    },
+    "node/background/selected/color": {
+      "description": "Fill of the node while selected.",
+      "deprecated": false
+    },
+    "node/border/default/color": {
+      "description": "Border of the node at rest.",
+      "deprecated": false
+    },
+    "node/border/disabled/color": {
+      "description": "Border of the node while disabled.",
+      "deprecated": false
+    },
+    "node/border/hover/color": {
+      "description": "Border of the node while hovered.",
+      "deprecated": false
+    },
+    "node/border/idle/color": {
+      "description": "Border of the node when another item is selected.",
+      "deprecated": false
+    },
+    "node/border/selected/color": {
+      "description": "Border of the node while selected.",
+      "deprecated": false
+    },
+    "node/icon/default/color": {
+      "description": "Icon colour of the node at rest.",
+      "deprecated": false
+    },
+    "node/icon/disabled/color": {
+      "description": "Icon colour of the node while disabled.",
+      "deprecated": false
+    },
+    "node/icon/hover/color": {
+      "description": "Icon colour of the node while hovered.",
+      "deprecated": false
+    },
+    "node/icon/idle/color": {
+      "description": "Icon colour of the node when another item is selected.",
+      "deprecated": false
+    },
+    "node/icon/selected/color": {
+      "description": "Icon colour of the node while selected.",
+      "deprecated": false
+    },
+    "node/label/default/color": {
+      "description": "Label colour of the node at rest.",
+      "deprecated": false
+    },
+    "node/label/disabled/color": {
+      "description": "Label colour of the node while disabled.",
+      "deprecated": false
+    },
+    "node/label/hover/color": {
+      "description": "Label colour of the node while hovered.",
+      "deprecated": false
+    },
+    "node/label/idle/color": {
+      "description": "Label colour of the node when another item is selected.",
+      "deprecated": false
+    },
+    "node/label/selected/color": {
+      "description": "Label colour of the node while selected.",
+      "deprecated": false
+    },
+    "overflow/background/color": {
+      "description": "Fill of the overflow.",
+      "deprecated": false
+    },
+    "overflow/border/color": {
+      "description": "Border of the overflow.",
+      "deprecated": false
+    },
+    "overflow/text/color": {
+      "description": "Text colour of the overflow.",
+      "deprecated": false
+    },
+    "overflowList/background/default/color": {
+      "description": "Fill of the overflowList at rest.",
+      "deprecated": false
+    },
+    "overflowList/background/hover/color": {
+      "description": "Fill of the overflowList while hovered.",
+      "deprecated": false
+    },
+    "overflowList/border/default/color": {
+      "description": "Border of the overflowList at rest.",
+      "deprecated": false
+    },
+    "overflowList/border/hover/color": {
+      "description": "Border of the overflowList while hovered.",
+      "deprecated": false
+    },
+    "overflowList/label/default/color": {
+      "description": "Label colour of the overflowList at rest.",
+      "deprecated": false
+    },
+    "overflowList/label/hover/color": {
+      "description": "Label colour of the overflowList while hovered.",
+      "deprecated": false
+    },
+    "overlay/color": {
+      "description": "The scrim that covers a view behind a modal or while a loader shows.",
+      "deprecated": false
+    },
+    "padding/l": {
+      "description": "Space inside a component, between its edge and its content, size L.",
+      "deprecated": false
+    },
+    "padding/m": {
+      "description": "Space inside a component, between its edge and its content, size M.",
+      "deprecated": false
+    },
+    "padding/s": {
+      "description": "Space inside a component, between its edge and its content, size S.",
+      "deprecated": false
+    },
+    "padding/xl": {
+      "description": "Space inside a component, between its edge and its content, size XL.",
+      "deprecated": false
+    },
+    "padding/xs": {
+      "description": "Space inside a component, between its edge and its content, size XS.",
+      "deprecated": false
+    },
+    "padding/xxs": {
+      "description": "Space inside a component, between its edge and its content, size XXS.",
+      "deprecated": false
+    },
+    "panel/background/primary/color": {
+      "description": "Fill of the panel for Type Primary.",
+      "deprecated": false
+    },
+    "panel/background/secondary/color": {
+      "description": "Fill of the panel for Type Secondary.",
+      "deprecated": false
+    },
+    "panel/border/color": {
+      "description": "Border of the panel.",
+      "deprecated": false
+    },
+    "radii/button": {
+      "description": "Corner radius of buttons and of every pill-shaped control.",
+      "deprecated": false
+    },
+    "radii/card": {
+      "description": "Corner radius of the card component.",
+      "deprecated": false
+    },
+    "radii/checkbox": {
+      "description": "Corner radius of the checkBox box.",
+      "deprecated": false
+    },
+    "radii/input": {
+      "description": "Corner radius of the input component.",
+      "deprecated": false
+    },
+    "radii/modal": {
+      "description": "Corner radius of the modal component.",
+      "deprecated": false
+    },
+    "radii/swatch": {
+      "description": "Corner radius of the swatch component.",
+      "deprecated": false
+    },
+    "radii/toast": {
+      "description": "Corner radius of the toast and the loader.",
+      "deprecated": false
+    },
+    "radii/tooltip": {
+      "description": "Corner radius of the tooltipPopover.",
+      "deprecated": false
+    },
+    "radioButton/background/default/color": {
+      "description": "Fill of the radioButton at rest.",
+      "deprecated": false
+    },
+    "radioButton/background/selected/color": {
+      "description": "Fill of the radioButton while selected.",
+      "deprecated": false
+    },
+    "radioButton/border/current/color": {
+      "description": "Border of the radioButton for the current step.",
+      "deprecated": false
+    },
+    "radioButton/border/default/color": {
+      "description": "Border of the radioButton at rest.",
+      "deprecated": false
+    },
+    "radioButton/border/selected/color": {
+      "description": "Border of the radioButton while selected.",
+      "deprecated": false
+    },
+    "radioButton/border/unselected/color": {
+      "description": "Border of the radioButton for a step not reached.",
+      "deprecated": false
+    },
+    "radioButton/description/color": {
+      "description": "Description colour of the radioButton.",
+      "deprecated": false
+    },
+    "radioButton/text/current/color": {
+      "description": "Text colour of the radioButton for the current step.",
+      "deprecated": false
+    },
+    "radioButton/text/default/color": {
+      "description": "Text colour of the radioButton at rest.",
+      "deprecated": false
+    },
+    "radioButton/text/selected/color": {
+      "description": "Text colour of the radioButton while selected.",
+      "deprecated": false
+    },
+    "radioButton/text/unselected/color": {
+      "description": "Text colour of the radioButton for a step not reached.",
+      "deprecated": false
+    },
+    "segmentedControl/background/default/color": {
+      "description": "Fill of the segmentedControl at rest.",
+      "deprecated": false
+    },
+    "segmentedControl/background/selected/color": {
+      "description": "Fill of the pill that marks the selected segment of a segmentedControl.",
+      "deprecated": false
+    },
+    "segmentedControl/border/default/color": {
+      "description": "Border of the segmentedControl at rest.",
+      "deprecated": false
+    },
+    "segmentedControl/border/selected/color": {
+      "description": "Border of the pill that marks the selected segment of a segmentedControl.",
+      "deprecated": false
+    },
+    "segmentedControl/icon/default/color": {
+      "description": "Icon colour of the segmentedControl at rest.",
+      "deprecated": false
+    },
+    "segmentedControl/icon/selected/color": {
+      "description": "Icon colour of the segmentedControl while selected.",
+      "deprecated": false
+    },
+    "segmentedControl/label/default/color": {
+      "description": "Label colour of the segmentedControl at rest.",
+      "deprecated": false
+    },
+    "segmentedControl/label/selected/color": {
+      "description": "Label colour of the segmentedControl while selected.",
+      "deprecated": false
+    },
+    "semantic/content/primary/color": {
+      "description": "The primary text colour of the interface.",
+      "deprecated": false
+    },
+    "semantic/content/secondary/color": {
+      "description": "The secondary text colour of the interface, for labels and supporting text.",
+      "deprecated": false
+    },
+    "semantic/negative": {
+      "description": "The negative colour: errors and problems.",
+      "deprecated": false
+    },
+    "semantic/positive": {
+      "description": "The positive colour: success and good news.",
+      "deprecated": false
+    },
+    "semantic/surface/elevationHigh/color": {
+      "description": "Surface colour at high elevation: bars that sit over the content.",
+      "deprecated": false
+    },
+    "semantic/surface/elevationLow/color": {
+      "description": "Surface colour at low elevation: a panel that recedes.",
+      "deprecated": false
+    },
+    "semantic/surface/elevationMedium/color": {
+      "description": "Surface colour at medium elevation: the main panel and the base of the plugin.",
+      "deprecated": false
+    },
+    "semantic/warning": {
+      "description": "The warning colour: warnings that need attention.",
+      "deprecated": false
+    },
+    "statusbar/icon/color": {
+      "description": "Icon colour of the statusBar.",
+      "deprecated": false
+    },
+    "statusbar/text/color": {
+      "description": "Text colour of the statusBar.",
+      "deprecated": false
+    },
+    "swatch/border/empty/primary": {
+      "description": "Border of the swatch when it has no colour to show (the hatched chip).",
+      "deprecated": false
+    },
+    "swatch/border/filled/primary": {
+      "description": "Border of the swatch showing a colour.",
+      "deprecated": false
+    },
+    "switch/background/enabledOff/color": {
+      "description": "Fill of the switch while off.",
+      "deprecated": false
+    },
+    "switch/background/enabledOn/color": {
+      "description": "Fill of the switch while on.",
+      "deprecated": false
+    },
+    "switch/description/enabledOff/color": {
+      "description": "Description colour of the switch while off.",
+      "deprecated": false
+    },
+    "switch/description/enabledOn/color": {
+      "description": "Description colour of the switch while on.",
+      "deprecated": false
+    },
+    "switch/knob/enabledOff/color": {
+      "description": "Knob colour of the switch while off.",
+      "deprecated": false
+    },
+    "switch/knob/enabledOn/color": {
+      "description": "Knob colour of the switch while on.",
+      "deprecated": false
+    },
+    "toast/background/error/color": {
+      "description": "Fill of the toast for a failure.",
+      "deprecated": false
+    },
+    "toast/background/success/color": {
+      "description": "Fill of the toast for a confirmation.",
+      "deprecated": false
+    },
+    "toast/icon/error/color": {
+      "description": "Icon colour of the toast for a failure.",
+      "deprecated": false
+    },
+    "toast/icon/success/color": {
+      "description": "Icon colour of the toast for a confirmation.",
+      "deprecated": false
+    },
+    "toast/title/error/color": {
+      "description": "Title colour of the toast for a failure.",
+      "deprecated": false
+    },
+    "toast/title/success/color": {
+      "description": "Title colour of the toast for a confirmation.",
+      "deprecated": false
+    },
+    "tooltipButton/icon/color": {
+      "description": "Icon colour of the tooltipButton.",
+      "deprecated": false
+    },
+    "tooltipPopover/background/color": {
+      "description": "Fill of the tooltipPopover.",
+      "deprecated": false
+    },
+    "tooltipPopover/border/color": {
+      "description": "Border of the tooltipPopover.",
+      "deprecated": false
+    },
+    "tooltipPopover/text/color": {
+      "description": "Text colour of the tooltipPopover.",
+      "deprecated": false
+    },
+    "typography/l/font-size": {
+      "description": "Font size of text style L.",
+      "deprecated": false
+    },
+    "typography/l/line-height": {
+      "description": "Line height of text style L.",
+      "deprecated": false
+    },
+    "typography/m/font-size": {
+      "description": "Font size of text style M.",
+      "deprecated": false
+    },
+    "typography/m/line-height": {
+      "description": "Line height of text style M.",
+      "deprecated": false
+    },
+    "typography/s/font-size": {
+      "description": "Font size of text style S.",
+      "deprecated": false
+    },
+    "typography/s/line-height": {
+      "description": "Line height of text style S.",
+      "deprecated": false
+    },
+    "general/min-height": {
+      "description": "Minimum height of a plugin view (no component uses it yet).",
+      "deprecated": false
+    },
+    "font-family": {
+      "description": "The typeface every text style uses.",
+      "deprecated": false
+    },
+    "general/thickness": {
+      "description": "Thickness of every border, divider line and focus ring.",
+      "deprecated": false
+    },
+    "figmaWindowChrome/title/color": {
+      "description": "Copies the title colour of Figma’s own window, so the plugin matches the Figma window around it.",
+      "deprecated": false
+    },
+    "general/window-radii": {
+      "description": "Corner radius of the plugin window.",
+      "deprecated": false
+    },
+    "gap/xxl": {
+      "description": "Space between the items inside a component, size XXL.",
+      "deprecated": false
+    },
+    "semantic/pattern/appearance": {
+      "description": "How strongly the hatched pattern of an empty value shows, in each colour mode.",
+      "deprecated": false
+    },
+    "icon/shape": {
+      "description": "Colour of the shapes in the icon artwork of this file.",
+      "deprecated": false
+    },
+    "icon/background": {
+      "description": "Background colour behind the icon artwork of this file.",
+      "deprecated": false
+    },
+    "icon/backgroundpreview": {
+      "description": "Background colour of the icon artwork’s previews.",
+      "deprecated": false
+    },
+    "icon/small": {
+      "description": "Stroke weight of small icons.",
+      "deprecated": false
+    },
+    "icon/large": {
+      "description": "Stroke weight of large icons.",
+      "deprecated": false
+    },
+    "icon/xsmall": {
+      "description": "Stroke weight of extra-small icons.",
+      "deprecated": false
+    },
+    "viewport/min-width": {
+      "description": "Narrowest width a screen is designed for, on Desktop and on Phone.",
+      "deprecated": false
+    },
+    "primitives/green": {
+      "description": "The green primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/red": {
+      "description": "The red primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/yellow": {
+      "description": "The yellow primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/Neutral 100": {
+      "description": "Step 100 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/Neutral 200": {
+      "description": "Step 200 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/Neutral 300": {
+      "description": "Step 300 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/Neutral 400": {
+      "description": "Step 400 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/Neutral 500": {
+      "description": "Step 500 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/Neutral 600": {
+      "description": "Step 600 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/Neutral 700": {
+      "description": "Step 700 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/Neutral 800": {
+      "description": "Step 800 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/Neutral 900": {
+      "description": "Step 900 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    },
+    "primitives/Neutral 1000": {
+      "description": "Step 1000 of the neutral grey scale, a primitive colour. Components take their colours from their own tokens and the semantic ones, never from a primitive directly.",
+      "deprecated": false
+    }
   }
 }
