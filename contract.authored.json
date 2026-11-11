@@ -18,6 +18,9 @@
         "doDont": [
           "Do: use one row per item a person picks, stacked one under another.",
           "Don't: use it for a row that does nothing when clicked: use listItem."
+        ],
+        "examples": [
+          "**Draft:** one row of a list a person picks from.\n\n```html\n<div class=\"buttonList\">\n  <div class=\"lrow-icon\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-var-color\"/></svg></div>\n  <button type=\"button\" class=\"buttonList-main\"><span class=\"lrow-name\">color/brand/primary</span></button>\n  <button class=\"buttonList-action buttonTertiary\" aria-label=\"Focus on canvas\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-focus\"/></svg></button>\n</div>\n```"
         ]
       }
     },
@@ -40,6 +43,9 @@
         "doDont": [
           "Do: recede the nodes not selected with has-selection on their container.",
           "Don't: fade nodes with opacity."
+        ],
+        "examples": [
+          "**Draft:** a token in a map of what uses what.\n\n```html\n<div class=\"node\"><div class=\"node-type-icon\"></div><div class=\"node-body\"><div class=\"node-name\">color/brand/primary</div></div></div>\n```"
         ]
       }
     },
@@ -64,6 +70,9 @@
         "doDont": [
           "Do: make it with createSegmentedControl, for two to four views of the same content.",
           "Don't: use it for many options or for a choice in a form."
+        ],
+        "examples": [
+          "**Draft:** two views of the same content, made with createSegmentedControl.\n\n```html\n<script>\n  const control = createSegmentedControl([{ label: 'Tokens', value: 'tokens' }, { label: 'Components', value: 'components' }], 'tokens', (v) => show(v));\n  document.querySelector('.panel-head').appendChild(control);\n</script>\n```"
         ]
       }
     },
@@ -87,6 +96,9 @@
         "doDont": [
           "Do: say the status in one or two words beside the item's name.",
           "Don't: use it as a button or link, or say the status by its colour alone."
+        ],
+        "examples": [
+          "**Draft:** a severity next to an item's name.\n\n```html\n<span class=\"badge high\"><span class=\"badge-icon\" aria-hidden=\"true\"></span><span class=\"badge-label\">High</span></span>\n```"
         ]
       }
     },
@@ -110,6 +122,9 @@
         "doDont": [
           "Do: give it a visible label or an aria-label.",
           "Don't: use it to step a number through a range: use buttonStepper."
+        ],
+        "examples": [
+          "**Draft:** a search field with its icon.\n\n```html\n<label class=\"inputWrap\">\n  <svg class=\"icon-left\" width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-search\"/></svg>\n  <input class=\"inputField\" placeholder=\"Search tokens\" aria-label=\"Search tokens\">\n</label>\n```"
         ]
       }
     },
@@ -133,6 +148,9 @@
         "doDont": [
           "Do: confirm with showToast and report a failure with showError.",
           "Don't: use it for something still in progress: use loader."
+        ],
+        "examples": [
+          "**Draft:** confirming that something finished, and reporting a failure.\n\n```html\n<script>\n  showToast('Exported 24 colours');\n  showError('The export failed: the file is read-only');\n</script>\n```"
         ]
       },
       "semantics": {
@@ -161,6 +179,9 @@
         "doDont": [
           "Do: use it for actions inside rows, bars and loaders.",
           "Don't: leave an icon-only one without a data-tip or aria-label."
+        ],
+        "examples": [
+          "**Draft:** an action inside a row.\n\n```html\n<button class=\"buttonTertiary\" data-tip=\"Focus in canvas\" aria-label=\"Focus in canvas\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-focus\"/></svg></button>\n```"
         ]
       }
     },
@@ -183,6 +204,9 @@
         "doDont": [
           "Do: name its colour with an aria-label or the name beside it.",
           "Don't: use it as a button or a colour picker."
+        ],
+        "examples": [
+          "**Draft:** a colour beside its name, then a chip with no colour.\n\n```html\n<div class=\"swatch\" role=\"img\" aria-label=\"color/brand/primary\"></div>\n<div class=\"swatch empty\" role=\"img\" aria-label=\"No colour\"></div>\n```"
         ]
       }
     },
@@ -204,6 +228,9 @@
         "doDont": [
           "Do: give every item words, with an optional icon before them.",
           "Don't: use it outside an overflow menu: use buttonList."
+        ],
+        "examples": [
+          "**Draft:** one choice in an overflow menu.\n\n```html\n<button type=\"button\" class=\"overflowList\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-plus\"/></svg><span>Add output</span></button>\n```"
         ]
       }
     },
@@ -227,6 +254,9 @@
         "doDont": [
           "Do: use it beside the main action, for actions that should stand out less.",
           "Don't: use it for the one main action of a view: use buttonPrimary."
+        ],
+        "examples": [
+          "**Draft:** an action beside the main one.\n\n```html\n<button class=\"buttonSecondary\"><span>View on Canvas</span><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-focus\"/></svg></button>\n```"
         ]
       }
     },
@@ -249,6 +279,9 @@
         "doDont": [
           "Do: put it right beside what it removes or clears, with a data-tip or aria-label.",
           "Don't: use it for an action a person must find at a glance."
+        ],
+        "examples": [
+          "**Draft:** removing an output, beside it.\n\n```html\n<button class=\"buttonQuaternary\" data-tip=\"Remove\" aria-label=\"Remove\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-clear\"/></svg></button>\n```"
         ]
       }
     },
@@ -272,6 +305,9 @@
         "doDont": [
           "Do: give it the surface colour it sits on, so rows do not show through it.",
           "Don't: use it as the title of a view, a panel or a modal."
+        ],
+        "examples": [
+          "**Draft:** the title of a section in a list, with its count and one action.\n\n```html\n<div class=\"dividerSection\">\n  <div class=\"dividerSection-content\">Affected components<span class=\"div-sep\">·</span><span class=\"count\">12</span></div>\n  <button class=\"dividerSection-action buttonSecondary\" data-tip=\"Place affected components on canvas\" aria-label=\"Place affected components on canvas\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-fit\"/></svg></button>\n</div>\n```"
         ]
       }
     },
@@ -295,6 +331,9 @@
         "doDont": [
           "Do: give the radios of one choice the same name, inside a radioButtonGroup.",
           "Don't: use it when several options can be on at once: use checkBox."
+        ],
+        "examples": [
+          "**Draft:** one option of a choice.\n\n```html\n<label class=\"radioButton\"><input type=\"radio\" name=\"format\" value=\"pdf\" class=\"radioButton-input\" checked><span class=\"radioButton-circle\"></span><span class=\"radioButton-label\">PDF</span></label>\n```"
         ]
       }
     },
@@ -318,6 +357,9 @@
         "doDont": [
           "Do: put a control in its head and the content that scrolls in its main part.",
           "Don't: give it a border: its surface sets it apart."
+        ],
+        "examples": [
+          "**Draft:** a side panel with a control in its head and content that scrolls.\n\n```html\n<div class=\"panel\">\n  <div class=\"panel-head\">\n    <div class=\"segmented-control full-width\" aria-label=\"Browse\"><button class=\"selected\"><span class=\"tab-label\">Tokens</span></button><button><span class=\"tab-label\">Components</span></button></div>\n  </div>\n  <div class=\"panel-main\">The list</div>\n</div>\n```"
         ]
       }
     },
@@ -339,6 +381,9 @@
         "doDont": [
           "Do: show what is selected and the actions on it.",
           "Don't: put the controls for the whole view in it: use actionBar."
+        ],
+        "examples": [
+          "**Draft:** what is selected, and an action on it.\n\n```html\n<div class=\"statusBar\">\n  <div class=\"statusBar-content\">\n    <div class=\"statusBar-title\"><span>color/brand/primary</span></div>\n    <span class=\"badge none\"><span class=\"badge-label\">12 uses</span></span>\n    <button class=\"buttonTertiary\" data-tip=\"Focus on canvas\" aria-label=\"Focus on canvas\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-focus\"/></svg></button>\n  </div>\n</div>\n```"
         ]
       }
     },
@@ -363,6 +408,9 @@
         "doDont": [
           "Do: put the controls that act on the whole view in it, right under the header.",
           "Don't: wrap it in a border or divider of your own: it draws its own lines."
+        ],
+        "examples": [
+          "**Draft:** the controls that act on the whole view, under the plugin's header.\n\n```html\n<div class=\"actionbar\">\n  <button class=\"buttonTertiary\" data-tip=\"Rescan\" aria-label=\"Rescan\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-reset\"/></svg></button>\n  <label class=\"inputWrap\"><input class=\"inputField\" placeholder=\"Search\" aria-label=\"Search\"></label>\n</div>\n```"
         ]
       }
     },
@@ -385,6 +433,9 @@
         "doDont": [
           "Do: fill it with overflowList rows only, with an optional title.",
           "Don't: use it for content that stays on the page: use card or panel."
+        ],
+        "examples": [
+          "**Draft:** a flyout menu with its title and two choices.\n\n```html\n<div class=\"overflow\" role=\"group\" aria-labelledby=\"add-title\">\n  <span class=\"overflow-label\" id=\"add-title\">Add output</span>\n  <button type=\"button\" class=\"overflowList\"><span>CSS</span></button>\n  <button type=\"button\" class=\"overflowList\"><span>JSON</span></button>\n</div>\n```"
         ]
       }
     },
@@ -408,6 +459,9 @@
         "doDont": [
           "Do: use one for the main action of a view or a modal.",
           "Don't: put two side by side: the other action is a buttonSecondary."
+        ],
+        "examples": [
+          "**Draft:** the main action of a view.\n\n```html\n<button class=\"buttonPrimary\"><span>Export</span></button>\n```"
         ]
       }
     },
@@ -429,6 +483,9 @@
         "doDont": [
           "Do: put it beside the label it explains, with its words in data-tip.",
           "Don't: use it for an action: use buttonTertiary."
+        ],
+        "examples": [
+          "**Draft:** the info icon beside a name, its tooltip in data-tip.\n\n```html\n<span class=\"tooltipButton\" data-tip=\"From the team library\"><svg width=\"12\" height=\"12\" aria-hidden=\"true\"><use href=\"#icon-info\"/></svg></span>\n```"
         ]
       }
     },
@@ -452,6 +509,9 @@
         "doDont": [
           "Do: give the element a data-tip and let the system show it.",
           "Don't: put controls or links in it, or add a title attribute as well."
+        ],
+        "examples": [
+          "**Draft:** any element with a data-tip shows it; nothing else is written.\n\n```html\n<button class=\"buttonTertiary\" data-tip=\"Focus on canvas\" aria-label=\"Focus on canvas\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-focus\"/></svg></button>\n```"
         ]
       }
     },
@@ -474,6 +534,9 @@
         "doDont": [
           "Do: use it for options that each turn on or off on their own.",
           "Don't: use it when only one option can be chosen: use radioButton."
+        ],
+        "examples": [
+          "**Draft:** one option that turns on or off.\n\n```html\n<label class=\"checkbox\">\n  <input type=\"checkbox\" class=\"checkbox-input\">\n  <span class=\"checkbox-box\"><svg class=\"checkbox-check\" width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-check\"/></svg></span>\n  <span class=\"checkbox-content\"><span class=\"checkbox-text\">Include hidden layers</span><span class=\"checkbox-description\">Scans layers that are turned off too.</span></span>\n</label>\n```"
         ]
       }
     },
@@ -497,6 +560,9 @@
         "doDont": [
           "Do: show it with showProgress and remove it with dismissProgress on every way out.",
           "Don't: use it to say something finished or failed: use a toast."
+        ],
+        "examples": [
+          "**Draft:** a scan in progress, shown with showProgress over the page.\n\n```html\n<script>\n  showProgress('Scanning', { description: 'About a minute left', cancel: () => stopScan() });\n  // … when the scan ends or fails:\n  dismissProgress();\n</script>\n```"
         ]
       }
     },
@@ -518,6 +584,9 @@
         "doDont": [
           "Do: give it a label that names what the checkboxes are for.",
           "Don't: use it when only one option can be chosen: use radioButtonGroup."
+        ],
+        "examples": [
+          "**Draft:** a label over related checkboxes.\n\n```html\n<div class=\"checkBoxGroup\" role=\"group\" aria-labelledby=\"include-label\">\n  <span class=\"checkBoxGroup-label\" id=\"include-label\">Include</span>\n  <div class=\"checkBoxGroup-slot\">\n    <label class=\"checkbox\"><input type=\"checkbox\" class=\"checkbox-input\" checked><span class=\"checkbox-box\"><svg class=\"checkbox-check\" width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-check\"/></svg></span><span class=\"checkbox-text\">Colours</span></label>\n    <label class=\"checkbox\"><input type=\"checkbox\" class=\"checkbox-input\"><span class=\"checkbox-box\"><svg class=\"checkbox-check\" width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-check\"/></svg></span><span class=\"checkbox-text\">Numbers</span></label>\n  </div>\n</div>\n```"
         ]
       }
     },
@@ -539,6 +608,9 @@
         "doDont": [
           "Do: give it a label that names the choice.",
           "Don't: give its radios different names."
+        ],
+        "examples": [
+          "**Draft:** an export format, one of two.\n\n```html\n<div class=\"radioButtonGroup\">\n  <span class=\"radioButtonGroup-label\" id=\"format-label\">Format</span>\n  <div class=\"radioButtonGroup-slot\" role=\"radiogroup\" aria-labelledby=\"format-label\">\n    <label class=\"radioButton\"><input type=\"radio\" name=\"format\" value=\"pdf\" class=\"radioButton-input\" checked><span class=\"radioButton-circle\"></span><span class=\"radioButton-label\">PDF</span></label>\n    <label class=\"radioButton\"><input type=\"radio\" name=\"format\" value=\"png\" class=\"radioButton-input\"><span class=\"radioButton-circle\"></span><span class=\"radioButton-label\">PNG</span></label>\n  </div>\n</div>\n```"
         ]
       }
     },
@@ -562,6 +634,9 @@
         "doDont": [
           "Do: place it beside the highlightSelector that marks the spot it names.",
           "Don't: use it to tag an item in a list: use badge."
+        ],
+        "examples": [
+          "**Draft:** the label of a problem found on a preview, beside its highlightSelector.\n\n```html\n<span class=\"highlightSelector\"></span>\n<mark class=\"highlight\"><span>Clipped</span></mark>\n```"
         ]
       }
     },
@@ -584,6 +659,9 @@
         "doDont": [
           "Do: name the problem it marks with a highlight beside it.",
           "Don't: use it to show which row of a list is selected."
+        ],
+        "examples": [
+          "**Draft:** the spot of a problem over a preview; selected, it is the one the person pinned.\n\n```html\n<span class=\"highlightSelector selected\"></span>\n```"
         ]
       }
     },
@@ -606,6 +684,9 @@
         "doDont": [
           "Do: use it to separate two groups of content.",
           "Don't: add one under a component that draws its own line."
+        ],
+        "examples": [
+          "**Draft:** a line between two groups.\n\n```html\n<div class=\"dividerLine\" role=\"separator\"></div>\n```"
         ]
       }
     },
@@ -629,6 +710,9 @@
         "doDont": [
           "Do: drive it with initButtonStepper and give its field its range.",
           "Don't: use it for a number with no range: use input."
+        ],
+        "examples": [
+          "**Draft:** a scale stepped from 0% to 200%, driven by initButtonStepper.\n\n```html\n<div class=\"buttonStepper\">\n  <button class=\"buttonSecondary\" aria-label=\"Decrease\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-minus\"/></svg></button>\n  <div class=\"inputWrap\"><input class=\"inputField\" value=\"100%\" aria-label=\"Scale\" role=\"spinbutton\" aria-valuemin=\"0\" aria-valuemax=\"200\" aria-valuenow=\"100\" aria-valuetext=\"100%\"></div>\n  <button class=\"buttonSecondary\" aria-label=\"Increase\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-plus\"/></svg></button>\n</div>\n<script>initButtonStepper(document.querySelector('.buttonStepper'), { min: 0, max: 200, step: 10, format: (v) => v + '%' });</script>\n```"
         ]
       }
     },
@@ -651,6 +735,9 @@
         "doDont": [
           "Do: keep its label short, so it fits beside its icon.",
           "Don't: use it outside a segmentedControl."
+        ],
+        "examples": [
+          "**Draft:** the segments of a segmentedControl, the first selected.\n\n```html\n<div class=\"segmented-control\" aria-label=\"Browse\">\n  <button class=\"selected\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-variable\"/></svg><span class=\"tab-label\">Tokens</span></button>\n  <button><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-object-component\"/></svg><span class=\"tab-label\">Components</span></button>\n</div>\n```"
         ]
       }
     },
@@ -674,6 +761,9 @@
         "doDont": [
           "Do: open it with openModal and close it with closeModal.",
           "Don't: use it for a message that needs no answer: use a toast."
+        ],
+        "examples": [
+          "**Draft:** export options, opened with openModal.\n\n```html\n<div class=\"modal\" id=\"export-modal\">\n  <div class=\"modal-overlay\"></div>\n  <div class=\"modal-card\">\n    <div class=\"modal-header\"><h2 class=\"modal-title\">Export</h2><button class=\"buttonSecondary modal-close\" aria-label=\"Close\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-clear\"/></svg></button></div>\n    <div class=\"modal-slot\">What to export</div>\n    <div class=\"modal-footer\"><button class=\"buttonSecondary\"><span>Cancel</span></button><button class=\"buttonPrimary\"><span>Export</span></button></div>\n  </div>\n</div>\n<script>openModal(document.getElementById('export-modal'), { opener: document.activeElement });</script>\n```"
         ]
       }
     },
@@ -697,6 +787,9 @@
         "doDont": [
           "Do: say why there is nothing to show and what to do next.",
           "Don't: use it to report a failure: use showError."
+        ],
+        "examples": [
+          "**Draft:** nothing to show yet, and what to do.\n\n```html\n<div class=\"empty-state\" role=\"group\" aria-labelledby=\"empty-title\">\n  <div class=\"empty-state-content\">\n    <svg width=\"56\" height=\"56\" aria-hidden=\"true\"><use href=\"#icon-empty-search\"/></svg>\n    <div class=\"empty-state-text\"><span class=\"empty-state-title\" id=\"empty-title\">Nothing selected</span><span class=\"empty-state-desc\">Select a layer to see the tokens it uses.</span></div>\n  </div>\n</div>\n```"
         ]
       }
     },
@@ -719,6 +812,9 @@
         "doDont": [
           "Do: put list items alone in their container, so it reads as a list.",
           "Don't: use it when the whole row opens or selects something: use buttonList."
+        ],
+        "examples": [
+          "**Draft:** a row that shows information, with one action.\n\n```html\n<div class=\"listItem\">\n  <div class=\"listItem-row\">\n    <span class=\"listItem-icon\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-focus\"/></svg></span>\n    <div class=\"listItem-main\"><span class=\"listItem-title\">Heading</span><span class=\"listItem-desc\">Clipped at 200%</span></div>\n    <button class=\"buttonTertiary listItem-action\" aria-label=\"Focus\"><svg width=\"16\" height=\"16\" aria-hidden=\"true\"><use href=\"#icon-focus\"/></svg></button>\n  </div>\n  <div class=\"dividerLine listItem-divider\"></div>\n</div>\n```"
         ]
       }
     },
@@ -742,6 +838,9 @@
         "doDont": [
           "Do: place it in a positioned container, with what is happening at its centre.",
           "Don't: use it behind a modal, which has its own."
+        ],
+        "examples": [
+          "**Draft:** a view covered while it works, a loader at its centre.\n\n```html\n<div class=\"overlay\">\n  <div class=\"loader\" role=\"status\"><div class=\"loader-content\"><div class=\"loader-spinner\" aria-hidden=\"true\"></div><div class=\"loader-text\"><span class=\"loader-title\">Working</span></div></div></div>\n</div>\n```"
         ]
       }
     },
@@ -765,6 +864,9 @@
         "doDont": [
           "Do: group related settings or one output in it, with an optional title.",
           "Don't: put a card inside a card."
+        ],
+        "examples": [
+          "**Draft:** one output, grouped under its title.\n\n```html\n<div class=\"card\" role=\"group\" aria-labelledby=\"output-title\">\n  <span class=\"card-title\" id=\"output-title\">Output</span>\n  <div>What the output holds</div>\n</div>\n```"
         ]
       }
     },
@@ -787,6 +889,9 @@
         "doDont": [
           "Do: use it for a setting that takes effect at once.",
           "Don't: use it for an option that only applies once a form is submitted: use checkBox."
+        ],
+        "examples": [
+          "**Draft:** a setting that takes effect at once.\n\n```html\n<label class=\"switch\">\n  <input type=\"checkbox\" class=\"switch-input\" id=\"bleed-toggle\">\n  <span class=\"switch-track\"><span class=\"switch-knob\"></span></span>\n  <span class=\"switch-content\"><span class=\"switch-description\">Bleed</span></span>\n</label>\n```"
         ]
       },
       "semantics": {
@@ -814,6 +919,9 @@
         "doDont": [
           "Do: put rows alone in their table, each with its value and its outputs.",
           "Don't: use it for a simple list: use listItem or buttonList."
+        ],
+        "examples": [
+          "**Draft:** a value with one output.\n\n```html\n<div class=\"tableRow\">\n  <div class=\"tableRow-content\">\n    <div class=\"tableRow-variable\">\n      <div class=\"swatch\" role=\"img\" aria-label=\"color/brand/primary\"></div>\n      <div class=\"tableRow-info\"><div class=\"tableRow-nameRow\"><span class=\"tableRow-name\">color/brand/primary</span></div><div class=\"tableRow-value\">#1F6FEB</div></div>\n    </div>\n    <div class=\"tableRow-connector\"></div>\n    <div class=\"tableRow-output\"><div class=\"tableRow-outputRow\"><label class=\"inputWrap\"><input class=\"inputField\" value=\"C80 M50 Y0 K0\" aria-label=\"CMYK\"></label></div></div>\n  </div>\n  <div class=\"dividerLine\"></div>\n</div>\n```"
         ]
       }
     }
