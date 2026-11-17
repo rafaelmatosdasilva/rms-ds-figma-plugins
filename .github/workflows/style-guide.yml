@@ -105,6 +105,7 @@ jobs:
           node ../engine/audit.mjs --styleguide-check apps/style-guide/index.html
           node ../engine/styleguide-files.mjs apps/style-guide/index.html ../site   # the page and the files it links beside it
           { echo "quick"; echo "${{ needs.changed.outputs.sources }}" | base64 -d; } > ../site/sources.txt
+          cp docs/style-guide-*-preview.png ../site/   # the engine README's pictures, served from this page
       - uses: actions/upload-pages-artifact@v3
         with:
           name: quick-pages
@@ -168,6 +169,7 @@ jobs:
           mkdir -p ../site/data   # this audit's results, for the next build's first page
           for f in differences.json census.json a11y.json; do cp ".design-system-engine-out/$f" ../site/data/ 2>/dev/null || true; done
           echo "${{ needs.changed.outputs.sources }}" | base64 -d > ../site/sources.txt
+          cp docs/style-guide-*-preview.png ../site/   # the engine README's pictures, served from this page
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
